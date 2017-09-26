@@ -1,0 +1,56 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
+@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+
+# Classes
+# -------
+
+ids:TemporalEntity rdfs:subClassOf time:TemporalEntity;
+    a owl:Class;
+    rdfs:label "TemporalEntity"@en ;
+    rdfs:comment "A temporal interval or instant."@en.
+
+ids:Instant rdfs:subClassOf ids:TemporalEntity;
+    rdfs:subClassOf time:Instant;
+    a owl:Class;
+    rdfs:label "Instant"@en ;
+    rdfs:comment "A temporal entity with zero extent or duration."@en;
+    ids:validation [
+        owl:onProperty ids:inXSDDateTime;
+        valid:constraint "@NotNull";
+    ].
+
+ids:Interval rdfs:subClassOf ids:TemporalEntity;
+    rdfs:subClassOf time:Interval;
+    a owl:Class;
+    rdfs:label "Interval"@en ;
+    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en.
+
+# Properties for describing temporal entities
+# -------------------------------------------
+
+ids:inXSDDateTime rdfs:subPropertyOf time:inXSDDateTime;
+    a owl:DatatypeProperty;
+    rdfs:domain ids:Instant;
+    rdfs:range xsd:dateTime;
+    rdfs:label "inXSDDateTime"@en;
+    rdfs:comment "Position of an Instant."@en.
+
+ids:beginning rdfs:subPropertyOf time:hasBeginning;
+    a owl:ObjectProperty;
+    rdfs:domain ids:Interval;
+    rdfs:range ids:Instant;
+    rdfs:label "beginning"@en;
+    rdfs:comment "Beginning of an Interval."@en.
+
+ids:end rdfs:subPropertyOf time:hasEnd;
+    a owl:ObjectProperty;
+    rdfs:domain ids:Interval;
+    rdfs:range ids:Instant;
+    rdfs:label "end"@en;
+    rdfs:comment "End of an Interval."@en.

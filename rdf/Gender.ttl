@@ -1,0 +1,25 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
+@prefix ids_gen: <http://industrialdataspace.org/2016/10/ids/ext/gender#> .
+
+# Classes
+# -------
+
+ids:Gender a owl:Class;
+    rdfs:label "Gender"@en ;
+    rdfs:comment "The class of genders of persons."@en.
+
+# Instances
+# ---------
+
+<ids_gen:Male> a ids:Gender;
+	rdfs:comment "Male";
+	dct:identifier "MALE".
+
+<ids_gen:Female> a ids:Gender;
+    rdfs:comment "Feale";
+    dct:identifier "FEMALE".
+
