@@ -1,14 +1,10 @@
 # The Industrial Data Space Information Model
-The Industrial Data Space Information Model
 
-## Introduction
+The information model of the [Industrial Data Space](https://industrialdataspace.org) is currently under development, and a snapshot is available in [the develop branch](https://github.com/IndustrialDataSpace/InformationModel/tree/develop) of this repository.
 
-## Overview
+A release is roughly planned for Q4 of 2017 and the model is available under the [Apache License 2.0](https://github.com/IndustrialDataSpace/InformationModel/blob/master/LICENSE).
 
-## Usage
+The work on the information model is organized in the sub-working group 4 of the architecture working group of the Industrial Data Space Association.
 
-## Contributors
-
-* Fraunhofer IAIS, FIT
-* Industrial Data Space Associaton
+This Information Model group is chaired by [Jaroslav Pullmann](https://github.com/jpullmann) ([Fraunhofer FIT](https://www.fit.fraunhofer.de/)) and [Sebastian Tramp](https://sebastian.tramp.name) ([eccenca GmbH](https://www.eccenca.com)).
 
