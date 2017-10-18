@@ -1,9 +1,16 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
 @prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+
+# Description of this ontology
+# ----------------------------
 
 idoc: a owl:Ontology;
     dct:title "The Industrial Dataspace Information Model Documentation Ontology"@en;
-    rdfs:comment "An ontology that defines classes and properties for additional documentation of the Information Model
-        which are needed to generate the Information Model API.";
+    rdfs:comment "An ontology that defines classes and properties for additional documentation of the Information Model which are needed to generate the Information Model API.";
     dct:creator "Christian Mader" ;
     dct:creator "Jaroslav Pullmann" ;
     dct:creator "Niklas Petersen" ;
@@ -14,5 +21,15 @@ idoc: a owl:Ontology;
     dct:date "2017-10-18";
     owl:versionInfo "0.0.1".
 
+# Classes
+# -------
 
-idoc:labelPluralForm "Actions"@en;
+# Properties
+# ----------
+
+idoc:labelPluralForm a owl:DatatypeProperty;
+    rdfs:subPropertyOf skos:prefLabel;
+	rdfs:label "labelPluralForm"@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdf:PlainLiteral;
+	rdfs:comment "The preferred lexical label for a resource, in plural form in a given language."@en.

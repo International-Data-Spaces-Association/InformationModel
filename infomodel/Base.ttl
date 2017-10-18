@@ -34,16 +34,16 @@ ids:EntityWithLifecycle a owl:Class;
     rdfs:label "EntityWithLifecycle"@en ;
     rdfs:comment "The class of all individuals that are subject of a lifecycle which needs to be tracked.";
     valid:validation [
-        owl:onProperty ids:lifecycleActivity;
+        valid:forProperty ids:lifecycleActivity;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:entityName;
+        valid:forProperty ids:entityName;
         valid:relationType "@OneToMany";
         valid:constraint "@NotNull";
     ];
     valid:validation [
-        owl:onProperty ids:entityDescription;
+        valid:forProperty ids:entityDescription;
         valid:relationType "@OneToMany";
     ].
 
@@ -53,7 +53,7 @@ ids:InfrastructureComponent rdfs:subClassOf ids:EntityWithLifecycle;
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS.";
     valid:validation [
-        owl:onProperty ids:operator;
+        valid:forProperty ids:operator;
         valid:constraint "@NotNull";
     ].
 

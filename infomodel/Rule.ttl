@@ -19,19 +19,19 @@ ids:Rule rdfs:subClassOf odrl:Rule;
     rdfs:label "Rule"@en;
     rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en;
     valid:validation [
-        owl:onProperty ids:ruleDescription;
+        valid:forProperty ids:ruleDescription;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:constraint;
+        valid:forProperty ids:constraint;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:assigner;
+        valid:forProperty ids:assigner;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:assignee;
+        valid:forProperty ids:assignee;
         valid:relationType "@OneToMany";
     ].
 
@@ -41,7 +41,7 @@ ids:Permission rdfs:subClassOf ids:Rule;
     rdfs:label "Permission"@en;
     rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en;
     valid:validation [
-        owl:onProperty ids:duty;
+        valid:forProperty ids:duty;
         valid:relationType "@OneToMany";
     ].
 

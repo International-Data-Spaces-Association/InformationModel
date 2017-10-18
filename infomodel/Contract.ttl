@@ -16,11 +16,11 @@ ids:ServiceContract rdfs:subClassOf odrl:Offer;
     rdfs:label "ServiceContract"@en ;
     rdfs:comment "An offered policy that describes how parties can act on a specified resource."@en;
     valid:validation [
-        owl:onProperty ids:permission;
+        valid:forProperty ids:permission;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:prohibition;
+        valid:forProperty ids:prohibition;
         valid:relationType "@OneToMany";
     ].
 

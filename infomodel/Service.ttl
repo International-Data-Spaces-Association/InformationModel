@@ -18,11 +18,11 @@ ids:DataEndpoint rdfs:subClassOf ids:EntityWithLifecycle;
     rdfs:label "DataEndpoint"@en ;
     rdfs:comment "Data Endpoint that may be invoked to retrieve (via service calls, subscription, etc) or push data."@en;
     valid:validation [
-        owl:onProperty ids:providedBy;
+        valid:forProperty ids:providedBy;
         valid:constraint "@NotNull";
     ];
     valid:validation [
-        owl:onProperty ids:usagePolicy;
+        valid:forProperty ids:usagePolicy;
         valid:relationType "@OneToMany";
     ].
 
@@ -30,7 +30,7 @@ ids:DataService a owl:Class;
     rdfs:label "DataService"@en ;
     rdfs:comment "A certain view or interaction ability on the data provided by a DataEndpoint."@en;
     valid:validation [
-        owl:onProperty ids:operation;
+        valid:forProperty ids:operation;
         valid:relationType "@OneToMany";
     ].
 
@@ -39,20 +39,20 @@ ids:Operation a owl:Class;
     rdfs:label "Operation"@en ;
     rdfs:comment "An operation to be performed on a DataService, like the retrieval of a filtered subset of the data."@en;
     valid:validation [
-        owl:onProperty ids:opLabel;
+        valid:forProperty ids:opLabel;
         valid:constraint "@NotNull";
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:input;
+        valid:forProperty ids:input;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:output;
+        valid:forProperty ids:output;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:opDescription;
+        valid:forProperty ids:opDescription;
         valid:relationType "@OneToMany";
     ].
 
@@ -65,11 +65,11 @@ ids:Parameter a owl:Class;
     rdfs:label "Parameter"@en ;
     rdfs:comment "Specifies how an Operation should be performed."@en;
     valid:validation [
-        owl:onProperty ids:paramLabel;
+        valid:forProperty ids:paramLabel;
         valid:relationType "@OneToMany";
     ];
     valid:validation [
-        owl:onProperty ids:paramDescription;
+        valid:forProperty ids:paramDescription;
         valid:relationType "@OneToMany";
     ].
 
