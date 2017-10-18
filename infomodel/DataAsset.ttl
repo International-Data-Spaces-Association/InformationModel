@@ -18,23 +18,23 @@ ids:DataAsset rdfs:subClassOf ids:EntityWithLifecycle;
     rdfs:comment "DataAsset on the Industrial Dataspace. May be a data offering, data that is in the state of being transfered or an aggregation of multiple other dataassets."@en;
     valid:validation [
         valid:forProperty ids:coversTemporal;
-        valid:relationType "@OneToMany";
+        valid:relationType valid:OneToMany;
     ];
     valid:validation [
         valid:forProperty ids:coversSpatial;
-        valid:relationType "@OneToMany";
+        valid:relationType valid:OneToMany;
     ];
     valid:validation [
         valid:forProperty ids:coversCategory;
-        valid:relationType "@OneToMany";
+        valid:relationType valid:OneToMany;
     ];
     valid:validation [
         valid:forProperty ids:coversLanguage;
-        valid:relationType "@OneToMany";
+        valid:relationType valid:OneToMany;
     ];
     valid:validation [
         valid:forProperty ids:keyword;
-        valid:relationType "@OneToMany";
+        valid:relationType valid:OneToMany;
     ].
 
 # Properties

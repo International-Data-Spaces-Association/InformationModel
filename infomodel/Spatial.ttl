@@ -33,11 +33,11 @@ ids:GeoPoint rdfs:subClassOf ids:Location;
     rdfs:comment "A location identified by geo coordinates."@en;
     valid:validation [
         valid:forProperty ids:latitude;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ];
     valid:validation [
         valid:forProperty ids:longitude;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ].
 
 ids:GeoFeature rdfs:subClassOf ids:Location;
@@ -46,7 +46,7 @@ ids:GeoFeature rdfs:subClassOf ids:Location;
     rdfs:comment "A location identified by a geonames identifier."@en;
     valid:validation [
         valid:forProperty ids:geoFeatureId;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ].
 
 ids:Geometry rdfs:subClassOf locn:Geometry;
@@ -62,8 +62,8 @@ ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
     rdfs:comment "Defines an area of interest as a set of connected points."@en;
     valid:validation [
         valid:forProperty ids:geoPoint;
-        valid:relationType "@OneToMany";
-        valid:constraint "@NotEmpty";
+        valid:relationType valid:OneToMany;
+        valid:constraint valid:NotEmpty;
     ].
 
 # Properties for describing spatial entitites

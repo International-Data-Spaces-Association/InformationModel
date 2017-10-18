@@ -16,7 +16,7 @@ ids:BrokerMessage a owl:Class;
     rdfs:comment "The class of all messages to interact with a Broker.";
     valid:validation [
         valid:forProperty ids:messageContent;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ].
 
 ids:BrokerDataMessage rdfs:subClassOf ids:BrokerMessage;
@@ -38,7 +38,7 @@ ids:BrokerRequestMessage rdfs:subClassOf ids:BrokerMessage;
     rdfs:comment "The class of all messages that represent requests to a Broker.";
     valid:validation [
         valid:forProperty ids:coveredEntity;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ].
 
 ids:BrokerResponseMessage rdfs:subClassOf ids:BrokerMessage;
@@ -48,7 +48,7 @@ ids:BrokerResponseMessage rdfs:subClassOf ids:BrokerMessage;
     rdfs:comment "The class of all messages that represent responses of a Broker.";
     valid:validation [
         valid:forProperty ids:correlationId;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ].
 
 ids:BrokerDataRequest rdfs:subClassOf ids:BrokerDataMessage, ids:BrokerRequestMessage;
@@ -57,7 +57,7 @@ ids:BrokerDataRequest rdfs:subClassOf ids:BrokerDataMessage, ids:BrokerRequestMe
     rdfs:comment "The class of all messages that represent data requests to a Broker.";
     valid:validation [
         valid:forProperty ids:dataRequestAction;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ].
 
 ids:BrokerDataResponse rdfs:subClassOf ids:BrokerDataMessage, ids:BrokerResponseMessage;
@@ -71,11 +71,11 @@ ids:BrokerQueryRequest rdfs:subClassOf ids:BrokerRequestMessage, ids:BrokerQuery
     rdfs:comment "The class of all messages that represent query requests to a Broker.";
     valid:validation [
         valid:forProperty ids:queryRequestAction;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ];
     valid:validation [
         valid:forProperty ids:queryScope;
-        valid:constraint "@NotNull";
+        valid:constraint valid:NotNull;
     ].
 
 ids:BrokerQueryResponse rdfs:subClassOf ids:BrokerQueryMessage, ids:BrokerResponseMessage;
