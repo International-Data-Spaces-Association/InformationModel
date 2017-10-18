@@ -16,19 +16,19 @@ ids:DataTransfer
 	a owl:Class;
 	rdfs:label "DataTransfer"@en;
 	rdfs:comment "The class of resources that describe a data transfer on the IDS."@en;
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:customAttribute;
         valid:relationType "@OneToMany";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:sender;
         valid:constraint "@NotNull";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:receiver;
         valid:constraint "@NotNull";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:transferCreatedAt;
         valid:constraint "@NotNull";
     ].
@@ -37,11 +37,11 @@ ids:TransferAttribute
 	a owl:Class;
 	rdfs:label "TransferAttribute"@en;
 	rdfs:comment "General attribute for additional description of security aspects of a data transfer."@en;
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:transferAttributeKey;
         valid:constraint "@NotNull";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:transferAttributeValue;
         valid:constraint "@NotNull";
     ].
@@ -50,7 +50,7 @@ ids:AuthToken rdfs:subClassOf credential:SimpleCredential;
 	a owl:Class;
 	rdfs:label "AuthToken"@en;
 	rdfs:comment "Authorization Token."@en;
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:tokenValue;
         valid:constraint "@NotNull";
     ].

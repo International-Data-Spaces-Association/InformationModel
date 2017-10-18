@@ -1,0 +1,29 @@
+@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+
+# Description of this ontology
+# ----------------------------
+
+valid: a owl:Ontology;
+    dct:title "The Industrial Dataspace Information Model Validation Ontology"@en;
+    rdfs:comment "An ontology to annotate RDF predicates with information needed to generate an API for the Information Model.";
+    dct:creator "Christian Mader" ;
+    dct:creator "Jaroslav Pullmann" ;
+    dct:creator "Niklas Petersen" ;
+    dct:creator "Christoph Lange-Bever" ;
+    dct:creator "Steffen Lohmann" ;
+    dct:publisher "Fraunhofer IAIS/EIS";
+    dct:publisher "Fraunhofer FIT";
+    dct:date "2017-10-18";
+    owl:versionInfo "0.0.1".
+
+# Classes
+# -------
+valid:PropertyValidation
+
+# Properties
+# ----------
+
+valid:validation
+valid:relationType
+valid:constraint "@NotNull";
+owl:onProperty

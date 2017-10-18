@@ -16,7 +16,7 @@
 ids:ProtocolBinding a owl:Class;
     rdfs:label "ProtocolBinding"@en ;
     rdfs:comment "Describes how a DataEndpoint can be invoked by using a certain protocol."@en;
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:operationBinding;
         valid:relationType "@OneToMany";
     ].
@@ -24,7 +24,7 @@ ids:ProtocolBinding a owl:Class;
 ids:OperationBinding a owl:Class ;
     rdfs:label "OperationBinding"@en ;
     rdfs:comment "Binding of a specific operation of an endpoint."@en ;
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:parameterBinding;
         valid:relationType "@OneToMany";
     ].

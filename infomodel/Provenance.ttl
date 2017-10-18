@@ -18,15 +18,15 @@ ids:Activity rdfs:subClassOf prov:Activity;
     trns:isAbstract true;
     rdfs:label "Activity"@en ;
     rdfs:comment "Something that occurs over a period of time and acts upon or with entities."@en;
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:startedBy;
         valid:constraint "@NotNull";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:startedAt;
         valid:constraint "@NotNull";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:activityDescription;
         valid:relationType "@OneToMany";
     ].

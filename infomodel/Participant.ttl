@@ -18,15 +18,15 @@ ids:Participant rdfs:subClassOf ids:EntityWithLifecycle;
     rdfs:subClassOf odrl:Party;
 	rdfs:label "Participant"@en;
 	rdfs:comment "An organization being part of the Industrial Data Space."@en;
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:memberPerson;
         valid:relationType "@OneToMany";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:memberParticipant;
         valid:relationType "@OneToMany";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:corporateEmailAddress;
         valid:relationType "@OneToMany";
     ].
@@ -35,11 +35,11 @@ ids:Person rdfs:subClassOf foaf:Person;
     a owl:Class;
 	rdfs:label "Person"@en;
 	rdfs:comment "The class of persons (people)"@en;
-	ids:validation [
+	valid:validation [
         owl:onProperty ids:phoneNumber;
         valid:relationType "@OneToMany";
     ];
-    ids:validation [
+    valid:validation [
         owl:onProperty ids:emailAddress;
         valid:relationType "@OneToMany";
     ].
