@@ -39,9 +39,11 @@ valid:Constraint a owl:Class;
     rdfs:label "Constraint"@en ;
     rdfs:comment "The class of contraints concerning the right operand of a relation.".
 
-valid:NotNull a valid:RelationType;
+valid:NotNull a valid:Constraint;
     rdfs:label "NotNull"@en.
 
+valid:NotEmpty a valid:Constraint;
+    rdfs:label "NotEmpty"@en.
 
 # Properties
 # ----------
@@ -57,7 +59,6 @@ valid:relationType a owl:ObjectProperty;
     rdfs:domain valid:PropertyValidation;
     rdfs:range valid:RelationType;
     rdfs:comment "Specifies the relation type for a PropertyValidation."@en.
-
 
 valid:constraint a owl:ObjectProperty;
     rdfs:label "constraint"@en;
