@@ -13,9 +13,9 @@ ids:Connector rdfs:subClassOf ids:InfrastructureComponent;
     a owl:Class;
     rdfs:label "Connector"@en ;
     rdfs:comment "Connector for hosting data services."@en;
-    ids:validation [
-        owl:onProperty ids:provides;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:provides;
+        valid:relationType valid:OneToMany;
     ].
 
 # Properties

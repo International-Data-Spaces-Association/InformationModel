@@ -17,43 +17,43 @@ ids:DataEndpoint rdfs:subClassOf ids:EntityWithLifecycle;
     a owl:Class;
     rdfs:label "DataEndpoint"@en ;
     rdfs:comment "Data Endpoint that may be invoked to retrieve (via service calls, subscription, etc) or push data."@en;
-    ids:validation [
-        owl:onProperty ids:providedBy;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:providedBy;
+        valid:constraint valid:NotNull;
     ];
-    ids:validation [
-        owl:onProperty ids:usagePolicy;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:usagePolicy;
+        valid:relationType valid:OneToMany;
     ].
 
 ids:DataService a owl:Class;
     rdfs:label "DataService"@en ;
     rdfs:comment "A certain view or interaction ability on the data provided by a DataEndpoint."@en;
-    ids:validation [
-        owl:onProperty ids:operation;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:operation;
+        valid:relationType valid:OneToMany;
     ].
 
 ids:Operation a owl:Class;
     trns:isAbstract true;
     rdfs:label "Operation"@en ;
     rdfs:comment "An operation to be performed on a DataService, like the retrieval of a filtered subset of the data."@en;
-    ids:validation [
-        owl:onProperty ids:opLabel;
-        valid:constraint "@NotNull";
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:opLabel;
+        valid:constraint valid:NotNull;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:input;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:input;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:output;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:output;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:opDescription;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:opDescription;
+        valid:relationType valid:OneToMany;
     ].
 
 ids:ReadOperation rdfs:subClassOf ids:Operation;
@@ -64,13 +64,13 @@ ids:ReadOperation rdfs:subClassOf ids:Operation;
 ids:Parameter a owl:Class;
     rdfs:label "Parameter"@en ;
     rdfs:comment "Specifies how an Operation should be performed."@en;
-    ids:validation [
-        owl:onProperty ids:paramLabel;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:paramLabel;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:paramDescription;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:paramDescription;
+        valid:relationType valid:OneToMany;
     ].
 
 ids:InputParameter rdfs:subClassOf ids:Parameter;
