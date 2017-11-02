@@ -1,0 +1,279 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
+@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+@prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
+
+# Classes
+# -------
+
+ids:SecurityProfile a owl:Class;
+    rdfs:label "SecurityProfile"@en ;
+    rdfs:comment "The class of SecurityProfiles supported by a Connector."@en.
+
+ids:PredefinedSecurityProfile a owl:Class;
+    rdfs:label "PredefinedSecurityProfile"@en ;
+    rdfs:comment "The class of predefined SecurityProfiles."@en.
+
+ids:IntegrityProtectionAndVerificationSupport a owl:Class;
+    rdfs:label "IntegrityProtectionAndVerification"@en ;
+    rdfs:comment "The class of support levels for integrity protection and verification.".
+
+ids:AuthenticationSupport a owl:Class;
+    rdfs:label "AuthenticationSupport"@en ;
+    rdfs:comment "The class of support levels for authentication.".
+
+ids:ServiceIsolationSupport a owl:Class;
+    rdfs:label "ServiceIsolationSupport"@en ;
+    rdfs:comment "The class of service isolation support.".
+
+ids:IntegrityProtectionScope a owl:Class;
+    rdfs:label "IntegrityProtectionScope"@en ;
+    rdfs:comment "The class of integrity protection scopes.".
+
+ids:AppExecutionResources a owl:Class;
+    rdfs:label "AppExecutionResources"@en ;
+    rdfs:comment "The class of app execution resources.".
+
+ids:DataUsageControlSupport a owl:Class;
+    rdfs:label "DataUsageControlSupport"@en ;
+    rdfs:comment "The class of support levels for data usage control.".
+
+ids:AuditLogging a owl:Class;
+    rdfs:label "AuditLogging"@en ;
+    rdfs:comment "The class of audit logging strategies.".
+
+ids:LocalDataConfidentiality a owl:Class;
+    rdfs:label "idsLocalDataConfidentiality"@en ;
+    rdfs:comment "The class of support levels for local data confidentiality.".
+
+# Properties
+# ----------
+
+ids:basedOn a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:PredefinedSecurityProfile;
+    rdfs:label "basedOn"@en;
+    rdfs:comment "A predefined security profile this one is based on."@en.
+
+ids:integrityProtectionAndVerificationSupport a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:IntegrityProtectionAndVerificationSupport;
+    rdfs:label "integrityProtectionAndVerification"@en;
+    rdfs:comment "The level of integrity protection and verification."@en.
+
+ids:authenticationSupport a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:AuthenticationSupport;
+    rdfs:label "authenticationSupport"@en;
+    rdfs:comment "The level of authentication support."@en.
+
+ids:serviceIsolationSupport a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:ServiceIsolationSupport;
+    rdfs:label "serviceIsolationSupport"@en;
+    rdfs:comment "The level of service isolation support."@en.
+
+ids:integrityProtectionScope a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:IntegrityProtectionScope;
+    rdfs:label "integrityProtectionScope"@en;
+    rdfs:comment "The scope of integrity protection."@en.
+
+ids:appExecutionResources a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:AppExecutionResources;
+    rdfs:label "appExecutionResources"@en;
+    rdfs:comment "The resources for app execution."@en.
+
+ids:dataUsageControlSupport a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:DataUsageControlSupport;
+    rdfs:label "dataUsageControlSupport"@en;
+    rdfs:comment "The support for data usage control."@en.
+
+ids:auditLogging a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:AuditLogging;
+    rdfs:label "auditLogging"@en;
+    rdfs:comment "The type of audit logging."@en.
+
+ids:localDataConfidentiality a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:LocalDataConfidentiality;
+    rdfs:label "localDataConfidentiality"@en;
+    rdfs:comment "The support for local data confidentiality."@en.
+
+# Individuals
+# -----------
+
+ids:Level0SecurityProfile a ids:PredefinedSecurityProfile;
+	rdfs:comment "Level 0 Security Profile";
+	dct:identifier "LEVEL_0";
+	ids:integrityProtectionAndVerificationSupport ids:No_Integrity_Protection;
+	ids:authenticationSupport ids:No_Authentication;
+	ids:serviceIsolationSupport ids:No_Service_Isolation;
+	ids:integrityProtectionScope ids:No_Integrity_Protection;
+	ids:appExecutionResources ids:No_App_Execution;
+	ids:dataUsageControlSupport ids:No_Usage_Control;
+	ids:auditLogging ids:No_Audit_Logging;
+	ids:localDataConfidentiality ids:No_Confidentiality.
+
+ids:Level1SecurityProfile a ids:PredefinedSecurityProfile;
+	rdfs:comment "Level 1 Security Profile";
+	dct:identifier "LEVEL_1";
+	ids:integrityProtectionAndVerificationSupport ids:Local_Integrity_Protection;
+	ids:authenticationSupport ids:Server_Side_Only;
+	ids:serviceIsolationSupport ids:Process_Group_Isolation;
+	ids:integrityProtectionScope ids:Kernel_and_Core_Container;
+	ids:appExecutionResources ids:Local_Enforcement;
+	ids:dataUsageControlSupport ids:Usage_Control_Policy_Enforcement;
+	ids:auditLogging ids:Local_Logging_Capabilities_And_Integrity_Protection;
+	ids:localDataConfidentiality ids:Secure_Data_Erasure.
+
+ids:Level2SecurityProfile a ids:PredefinedSecurityProfile;
+    rdfs:comment "Level 2 Security Profile";
+    dct:identifier "LEVEL_2";
+    ids:integrityProtectionAndVerificationSupport ids:Remote_Integrity_Verification;
+    ids:authenticationSupport ids:Mutual;
+    ids:serviceIsolationSupport ids:Least_Privilege_Based_Isolation;
+    ids:integrityProtectionScope ids:Kernel_and_Core_Container_and_Application_Containers;
+    ids:appExecutionResources ids:Remote_Verification;
+    ids:dataUsageControlSupport ids:Remote_Policy_Compliance_Verification;
+    ids:auditLogging ids:Remote_Audit_Log_Tracing;
+    ids:localDataConfidentiality ids:No_Confidentiality.
+
+ids:BaseConnectorSecurityProfile a ids:PredefinedSecurityProfile;
+    rdfs:comment "Base Connector Security Profile";
+    dct:identifier "BASE_CONNECTOR";
+    ids:integrityProtectionAndVerificationSupport ids:No_Integrity_Protection;
+    ids:authenticationSupport ids:Mutual;
+    ids:serviceIsolationSupport ids:Process_Group_Isolation;
+    ids:integrityProtectionScope ids:Unknown_Integrity_Protection_Scope;
+    ids:appExecutionResources ids:No_App_Execution;
+    ids:dataUsageControlSupport ids:No_Usage_Control;
+    ids:auditLogging ids:Local_Logging_Capabilities_And_Integrity_Protection;
+    ids:localDataConfidentiality ids:No_Confidentiality.
+
+# Integrity Protection and Verification
+# -------------------------------------
+
+ids:Local_Integrity_Protection a ids:IntegrityProtectionAndVerificationSupport;
+	rdfs:comment "Local Integrity Protection";
+	dct:identifier "LOCAL_INTEGRITY_PROTECTION".
+
+ids:Remote_Integrity_Verification a ids:IntegrityProtectionAndVerificationSupport;
+	rdfs:comment "Remote Integrity Verification";
+	dct:identifier "REMOTE_INTEGRITY_VERIFICATION".
+
+ids:No_Integrity_Protection a ids:IntegrityProtectionAndVerificationSupport;
+    rdfs:comment "No Integrity Protection Or Verification";
+    dct:identifier "NONE".
+
+# Authentication
+# --------------
+
+ids:Server_Side_Only a ids:AuthenticationSupport;
+    rdfs:comment "Server Side Only Authentication";
+    dct:identifier "SERVER_SIDE_ONLY".
+
+ids:Mutual a ids:AuthenticationSupport;
+    rdfs:comment "Mutual authentication (both sides present id token / certificate)";
+    dct:identifier "MUTUAL".
+
+ids:No_Authentication a ids:AuthenticationSupport;
+    rdfs:comment "No authentication";
+    dct:identifier "NONE".
+
+# Service Isolation
+# -----------------
+
+ids:Process_Group_Isolation a ids:ServiceIsolationSupport;
+    rdfs:comment "Process group Isolation";
+    dct:identifier "PROCESS_GROUP_ISOLATION".
+
+ids:Least_Privilege_Based_Isolation a ids:ServiceIsolationSupport;
+    rdfs:comment "Least privilege based Isolation";
+    dct:identifier "LEAST_PRIVILEGE_BASED_ISOLATION".
+
+ids:No_Service_Isolation a ids:ServiceIsolationSupport;
+    rdfs:comment "No Service Isolation";
+    dct:identifier "NONE".
+
+# Integrity Protection / Verification Scope
+# -----------------------------------------
+
+ids:Kernel_and_Core_Container a ids:IntegrityProtectionScope;
+    rdfs:comment "Kernel and Core Container";
+    dct:identifier "KERNEL_AND_CORE_CONTAINER".
+
+ids:Kernel_and_Core_Container_and_Application_Containers a ids:IntegrityProtectionScope;
+    rdfs:comment "Kernel and Core Container and Application Containers";
+    dct:identifier "KERNEL_AND_CORE_CONTAINER_AND_APP_CONTAINERS".
+
+ids:Unknown_Integrity_Protection_Scope a ids:IntegrityProtectionScope;
+    rdfs:comment "Unknown Integrity Protection Scope";
+    dct:identifier "NONE".
+
+# App Execution Resources
+# -----------------------
+
+ids:Local_Enforcement a ids:AppExecutionResources;
+    rdfs:comment "Local enforcement";
+    dct:identifier "LOCAL_ENFORCEMENT".
+
+ids:Remote_Verification a ids:AppExecutionResources;
+    rdfs:comment "Remote verification";
+    dct:identifier "REMOTE_VERIFICATION".
+
+ids:No_App_Execution a ids:AppExecutionResources;
+    rdfs:comment "No app execution";
+    dct:identifier "NONE".
+
+# Data Usage Control
+# ------------------
+
+ids:Usage_Control_Policy_Enforcement a ids:DataUsageControlSupport;
+    rdfs:comment "Usage control policy enforcement";
+    dct:identifier "USAGE_CONTROL_POLICY_ENFORCEMENT".
+
+ids:Remote_Policy_Compliance_Verification a ids:DataUsageControlSupport;
+    rdfs:comment "Remote policy compliance verification";
+    dct:identifier "REMOTE_POLICY_COMPLIANCE_VERIFICATION".
+
+ids:No_Usage_Control a ids:DataUsageControlSupport;
+    rdfs:comment "No_Usage_Control";
+    dct:identifier "NONE".
+
+# Audit Logging
+# -------------
+
+ids:Local_Logging_Capabilities_And_Integrity_Protection a ids:AuditLogging;
+    rdfs:comment "Local logging capabilities and integrity protection";
+    dct:identifier "LOCAL_LOGGING_AND_INTEGRITY_PROTECTION".
+
+ids:Remote_Audit_Log_Tracing a ids:AuditLogging;
+    rdfs:comment "Remote audit log tracing";
+    dct:identifier "REMOTE_AUDIT_LOG_TRACING".
+
+ids:No_Audit_Logging a ids:AuditLogging;
+    rdfs:comment "No Audit Logging";
+    dct:identifier "NONE".
+
+# Local Data Confidentiality
+# --------------------------
+
+ids:Secure_Data_Erasure a ids:LocalDataConfidentiality;
+    rdfs:comment "Secure data erasure";
+    dct:identifier "SECURE_DATA_ERASURE".
+
+ids:Local_Full_Data_Encryption  a ids:LocalDataConfidentiality;
+    rdfs:comment "Local full data encryption";
+    dct:identifier "LOCAL_FULL_DATA_ENCRYPTION".
+
+ids:No_Confidentiality a ids:LocalDataConfidentiality;
+    rdfs:comment "No Confidentiality";
+    dct:identifier "NONE".

@@ -1,0 +1,168 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
+@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
+
+# Classes
+# -------
+
+ids:Rule rdfs:subClassOf odrl:Rule;
+    a owl:Class;
+    trns:isAbstract true;
+    rdfs:label "Rule"@en;
+    rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en;
+    valid:validation [
+        valid:forProperty ids:ruleDescription;
+        valid:relationType valid:OneToMany;
+    ];
+    valid:validation [
+        valid:forProperty ids:constraint;
+        valid:relationType valid:OneToMany;
+    ];
+    valid:validation [
+        valid:forProperty ids:assigner;
+        valid:relationType valid:OneToMany;
+    ];
+    valid:validation [
+        valid:forProperty ids:assignee;
+        valid:relationType valid:OneToMany;
+    ].
+
+ids:Permission rdfs:subClassOf ids:Rule;
+    rdfs:subClassOf odrl:Permission;
+    a owl:Class;
+    rdfs:label "Permission"@en;
+    rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en;
+    valid:validation [
+        valid:forProperty ids:duty;
+        valid:relationType valid:OneToMany;
+    ].
+
+ids:Prohibition rdfs:subClassOf ids:Rule;
+    rdfs:subClassOf odrl:Prohibition;
+    a owl:Class;
+    rdfs:label "Prohibition"@en;
+    rdfs:comment "The class of Prohibitions as defined in the ODRL ontology."@en.
+
+ids:Duty rdfs:subClassOf ids:Rule;
+    rdfs:subClassOf odrl:Duty;
+    a owl:Class;
+    rdfs:label "Duty"@en;
+    rdfs:comment "The class of Duties as defined in the ODRL ontology."@en.
+
+ids:Constraint rdfs:subClassOf odrl:Constraint;
+    a owl:Class;
+    rdfs:label "Constraint"@en;
+    rdfs:comment "The class of Constraints that restrict a Rule."@en.
+
+# Properties
+# ----------
+
+ids:action rdfs:subPropertyOf odrl:action;
+    a owl:ObjectProperty;
+    rdfs:label "action"@en;
+    rdfs:domain ids:Rule;
+    rdfs:range ids:Action;
+    rdfs:comment "The operation relating to the asset for which permission is being granted."@en.
+
+ids:assignee rdfs:subPropertyOf odrl:assignee;
+    a owl:ObjectProperty;
+    rdfs:domain ids:Rule;
+    rdfs:range ids:Participant;
+    trns:refByURI true;
+    rdfs:label "assignee"@en;
+    idoc:labelPluralForm "assignees"@en;
+    rdfs:comment "The recipient of the policy statement."@en.
+
+ids:useAssigneeComplement a owl:DatatypeProperty;
+    rdfs:label "useAssigneeComplement"@en;
+    rdfs:domain ids:Rule;
+    rdfs:range xsd:boolean;
+    rdfs:comment "When set to true, Assignees are all Participants that are not explicitly provided."@en.
+
+ids:assigner rdfs:subPropertyOf odrl:assigner;
+    a owl:ObjectProperty;
+    rdfs:domain ids:Rule;
+    rdfs:range ids:Participant;
+    trns:refByURI true;
+    rdfs:label "assigner"@en;
+    idoc:labelPluralForm "assigners"@en;
+    rdfs:comment "The issuer of the policy statement."@en.
+
+ids:target rdfs:subPropertyOf odrl:target;
+    a owl:ObjectProperty;
+    rdfs:domain ids:Rule;
+    rdfs:range ids:Operation;
+    trns:refByURI true;
+    rdfs:label "target"@en;
+    rdfs:comment "The operation which is the subject of the policy statement."@en.
+
+ids:duty rdfs:subPropertyOf odrl:duty;
+    a owl:ObjectProperty;
+    rdfs:label "duty"@en;
+    idoc:labelPluralForm "duties"@en;
+    rdfs:domain ids:Permission;
+    rdfs:range ids:Duty;
+    rdfs:comment "The Duties imposed by a Permission."@en.
+
+ids:ruleDescription rdfs:subPropertyOf dct:description;
+    a owl:DatatypeProperty;
+    idoc:labelPluralForm "ruleDescriptions"@en;
+    rdfs:label "ruleDescription"@en;
+    rdfs:domain ids:Rule;
+    rdfs:range rdf:PlainLiteral;
+    rdfs:comment "Freetext description of the Rule.".
+
+ids:constraint rdfs:subPropertyOf odrl:constraint;
+    a owl:ObjectProperty;
+    rdfs:label "constraint"@en;
+    rdfs:domain ids:Rule;
+    rdfs:range ids:Constraint;
+    rdfs:comment "The constraint to be used for a specific rule."@en.
+
+ids:payAmount rdfs:subPropertyOf odrl:payAmount;
+    a owl:DatatypeProperty;
+    rdfs:label "payAmount"@en;
+    rdfs:domain ids:Constraint;
+    rdfs:range xsd:float;
+    rdfs:comment "Monetary amount to pay.".
+
+ids:temporal rdfs:subPropertyOf odrl:rightOperand;
+    a owl:ObjectProperty;
+    rdfs:label "temporal"@en;
+    rdfs:domain ids:Constraint;
+    rdfs:range ids:TemporalEntity;
+    rdfs:comment "Temporal entity to describe a Constraint. Alternatively, the dateTime property can be used.".
+
+ids:dateTime rdfs:subPropertyOf odrl:dateTime;
+    a owl:DatatypeProperty;
+    rdfs:label "dateTime"@en;
+    rdfs:domain ids:Constraint;
+    rdfs:range xsd:string;
+    rdfs:comment "Temporal entity to describe a Constraint. Alternatively, the temporal property can be used.".
+
+ids:binaryOperator rdfs:subPropertyOf odrl:rightOperand;
+    a owl:ObjectProperty;
+    rdfs:label "operator"@en;
+    rdfs:domain ids:Constraint;
+    rdfs:range ids:BinaryOperator;
+    rdfs:comment "The binary operator applied to a constraint and its operand.".
+
+ids:unit rdfs:subPropertyOf odrl:unit;
+    a owl:ObjectProperty;
+    rdfs:label "unit"@en;
+    rdfs:domain ids:Constraint;
+    rdfs:range ids:Unit;
+    rdfs:comment "The unit of measurement used for the constraint value.".
+
+
+
+
+
