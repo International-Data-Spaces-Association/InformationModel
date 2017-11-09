@@ -16,43 +16,43 @@ ids:DataTransfer
 	a owl:Class;
 	rdfs:label "DataTransfer"@en;
 	rdfs:comment "The class of resources that describe a data transfer on the IDS."@en;
-    ids:validation [
-        owl:onProperty ids:customAttribute;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:customAttribute;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:sender;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:sender;
+        valid:constraint valid:NotNull;
     ];
-    ids:validation [
-        owl:onProperty ids:receiver;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:receiver;
+        valid:constraint valid:NotNull;
     ];
-    ids:validation [
-        owl:onProperty ids:transferCreatedAt;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:transferCreatedAt;
+        valid:constraint valid:NotNull;
     ].
 
 ids:TransferAttribute
 	a owl:Class;
 	rdfs:label "TransferAttribute"@en;
 	rdfs:comment "General attribute for additional description of security aspects of a data transfer."@en;
-    ids:validation [
-        owl:onProperty ids:transferAttributeKey;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:transferAttributeKey;
+        valid:constraint valid:NotNull;
     ];
-    ids:validation [
-        owl:onProperty ids:transferAttributeValue;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:transferAttributeValue;
+        valid:constraint valid:NotNull;
     ].
 
 ids:AuthToken rdfs:subClassOf credential:SimpleCredential;
 	a owl:Class;
 	rdfs:label "AuthToken"@en;
 	rdfs:comment "Authorization Token."@en;
-    ids:validation [
-        owl:onProperty ids:tokenValue;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:tokenValue;
+        valid:constraint valid:NotNull;
     ].
 
 # Properties

@@ -16,25 +16,25 @@ ids:DataAsset rdfs:subClassOf ids:EntityWithLifecycle;
     a owl:Class;
     rdfs:label "DataAsset"@en;
     rdfs:comment "DataAsset on the Industrial Dataspace. May be a data offering, data that is in the state of being transfered or an aggregation of multiple other dataassets."@en;
-    ids:validation [
-        owl:onProperty ids:coversTemporal;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:coversTemporal;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:coversSpatial;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:coversSpatial;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:coversCategory;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:coversCategory;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:coversLanguage;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:coversLanguage;
+        valid:relationType valid:OneToMany;
     ];
-    ids:validation [
-        owl:onProperty ids:keyword;
-        valid:relationType "@OneToMany";
+    valid:validation [
+        valid:forProperty ids:keyword;
+        valid:relationType valid:OneToMany;
     ].
 
 # Properties

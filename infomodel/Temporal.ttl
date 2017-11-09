@@ -20,9 +20,9 @@ ids:Instant rdfs:subClassOf ids:TemporalEntity;
     a owl:Class;
     rdfs:label "Instant"@en ;
     rdfs:comment "A temporal entity with zero extent or duration."@en;
-    ids:validation [
-        owl:onProperty ids:inXSDDateTime;
-        valid:constraint "@NotNull";
+    valid:validation [
+        valid:forProperty ids:inXSDDateTime;
+        valid:constraint valid:NotNull;
     ].
 
 ids:Interval rdfs:subClassOf ids:TemporalEntity;
