@@ -8,6 +8,7 @@
 @prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
 @prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
 @prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+@prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
 # -------
@@ -85,7 +86,8 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
 ids:coversIndustry a owl:ObjectProperty;
     rdfs:label "coversIndustry"@en;
     rdfs:domain ids:Participant;
-    rdfs:range ids:ISICIndustry;
+    rdfs:range ids:Industry;
+    trns:refByURI true;
     rdfs:comment "Industry branch covered by the Participant."@en.
 
 # Properties for describing a Person

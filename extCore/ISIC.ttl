@@ -2,13 +2,15 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
+@prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 @prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix ids_isic: <http://industrialdataspace.org/2016/10/ids/ext/isic#> .
+@prefix ids_isic: <http://industrialdataspace.org/2016/10/ids/extcore/isic#> .
 
 # Classes
 # -------
 
-ids:ISICIndustry a owl:Class;
+ids:ISICIndustry rdfs:subClassOf ids:Industry;
+    a owl:Class;
     rdfs:label "ISICIndustry"@en ;
     rdfs:comment "The class of economic activities as listed in the International Standard Industrial Classification (ISIC).".
 
