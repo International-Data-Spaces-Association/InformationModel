@@ -62,17 +62,15 @@ ids:sender
 	a owl:DatatypeProperty;
 	rdfs:label "sender"@en;
 	rdfs:domain ids:DataTransfer;
-	rdfs:range ids:Participant;
 	trns:refByURI true;
-	rdfs:comment "The data endpoint which is the origin of the message."@en.
+	rdfs:comment "The resource (participant or data endpoint) which is the origin of the message."@en.
 
 ids:receiver
 	a owl:DatatypeProperty;
 	rdfs:label "receiver"@en;
 	rdfs:domain ids:DataTransfer;
-	rdfs:range ids:Participant;
 	trns:refByURI true;
-	rdfs:comment "The data endpoint which is the recipient of the message."@en.
+	rdfs:comment "The resource (participant or data endpoint) which is the recipient of the message."@en.
 
 ids:invokedOperation
 	a owl:DatatypeProperty;
