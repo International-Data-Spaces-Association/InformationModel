@@ -6,23 +6,22 @@
 @prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
 @prefix ids_lc: <http://industrialdataspace.org/2016/10/ids/ext/license#> .
 @prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+@prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
 # -------
+
+ids:Industry a owl:Class;
+    trns:isAbstract true;
+    rdfs:label "Industry"@en ;
+    rdfs:comment "The class of industries that can be distinguished by their activities.".
 
 ids:LicenseDocument rdfs:subClassOf dct:LicenseDocument;
     a owl:Class;
     rdfs:label "LicenseDocument"@en ;
     rdfs:comment "The class of license documents to be attached to DataAssets.".
 
-# Instances
-# ---------
-
-#todo: add more common licenses
-
-ids_lc:license_cc_by_nc_nd_2_0 a ids:LicenseDocument;
-    rdfs:seeAlso <https://creativecommons.org/licenses/by-nc-nd/2.0/>;
-    rdfs:comment "Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)";
-    dct:identifier "CC_BY_NC_ND_2_0".
-
+ids:Unit a owl:Class;
+    rdfs:label "Unit"@en ;
+    rdfs:comment "The class of units.".
 

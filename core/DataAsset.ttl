@@ -7,6 +7,7 @@
 @prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
 @prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
 @prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
 # -------
@@ -52,6 +53,7 @@ ids:licenseDocument rdfs:subPropertyOf dct:license;
     rdfs:label "licenseDocument"@en;
     rdfs:domain ids:DataAsset;
     rdfs:range ids:LicenseDocument;
+    trns:refByURI true;
     rdfs:comment "License of the DataAsset. Refers to common standard licenses used in the IDS."@en.
 
 ids:licenseReference rdfs:subPropertyOf dct:license;
@@ -92,6 +94,7 @@ ids:coversLanguage rdfs:subPropertyOf dct:language;
     idoc:labelPluralForm "coversLanguages"@en;
     rdfs:domain ids:DataAsset;
     rdfs:range ids:Language;
+    trns:refByURI true;
     rdfs:comment "States the language that is used in the DataAsset."@en.
 
 ids:origin a owl:DatatypeProperty;
