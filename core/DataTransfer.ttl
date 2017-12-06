@@ -62,25 +62,49 @@ ids:sender
 	a owl:DatatypeProperty;
 	rdfs:label "sender"@en;
 	rdfs:domain ids:DataTransfer;
-	rdfs:range ids:Participant;
+	rdfs:range ids:Connector;
 	trns:refByURI true;
-	rdfs:comment "The data endpoint which is the origin of the message."@en.
+	rdfs:comment "The Connector which is the origin of the message."@en.
 
 ids:receiver
 	a owl:DatatypeProperty;
 	rdfs:label "receiver"@en;
 	rdfs:domain ids:DataTransfer;
+	rdfs:range ids:Connector;
+	trns:refByURI true;
+	rdfs:comment "The Connector which is the recipient of the message."@en.
+
+ids:sendingParticipant
+	a owl:DatatypeProperty;
+	rdfs:label "sendingParticipant"@en;
+	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Participant;
 	trns:refByURI true;
-	rdfs:comment "The data endpoint which is the recipient of the message."@en.
+	rdfs:comment "The Participant which initiated the DataTransfer."@en.
 
-ids:invokedOperation
+ids:receivingParticipant
 	a owl:DatatypeProperty;
-	rdfs:label "invokedOperation"@en;
+	rdfs:label "receivingParticipant"@en;
+	rdfs:domain ids:DataTransfer;
+	rdfs:range ids:Participant;
+	trns:refByURI true;
+	rdfs:comment "The Participant for which the DataTransfer is intended."@en.
+
+ids:sourceOperation
+	a owl:DatatypeProperty;
+	rdfs:label "sourceOperation"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Operation;
 	trns:refByURI true;
 	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
+
+ids:targetOperation
+    a owl:DatatypeProperty;
+    rdfs:label "targetOperation"@en;
+    rdfs:domain ids:DataTransfer;
+    rdfs:range ids:Operation;
+    trns:refByURI true;
+    rdfs:comment "The operation that is intended to receive the transferred data."@en.
 
 ids:authToken
 	a owl:ObjectProperty;
@@ -91,7 +115,7 @@ ids:authToken
 
 ids:payloadDigest
 	a owl:DatatypeProperty;
-	rdfs:label "digest"@en;
+	rdfs:label "payloadDigest"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range xsd:base64Binary;
 	rdfs:comment "The digest of the DataAsset being transfered."@en.
@@ -112,12 +136,12 @@ ids:tokenValue a owl:DatatypeProperty;
 
 ids:transferAttributeKey a owl:DatatypeProperty;
 	rdfs:label "transferAttributeKey"@en;
-	rdfs:domain ids:TransferProperty;
+	rdfs:domain ids:TransferAttribute;
 	rdfs:range xsd:string.
 
 ids:transferAttributeValue a owl:DatatypeProperty;
 	rdfs:label "transferAttributeValue"@en;
-	rdfs:domain ids:TransferProperty;
+	rdfs:domain ids:TransferAttribute;
 	rdfs:range xsd:string.
 
 ids:transferCreatedAt rdfs:subPropertyOf dct:dateSubmitted;
