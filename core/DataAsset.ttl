@@ -4,9 +4,9 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
@@ -77,21 +77,21 @@ ids:coversSpatial rdfs:subPropertyOf dct:spatial;
 
 ids:coversCategory rdfs:subPropertyOf dcat:theme;
     rdfs:label "coversCategory"@en;
-    idoc:labelPluralForm "coversCategories"@en;
+    ids_doc:labelPluralForm "coversCategories"@en;
     rdfs:domain ids:DataAsset;
     rdfs:range xsd:anyURI;
     rdfs:comment "Links to a taxonomy categorizing content-related coverage of the DataAsset."@en.
 
 ids:keyword rdfs:subPropertyOf dcat:theme;
     rdfs:label "keyword"@en;
-    idoc:labelPluralForm "keywords"@en;
+    ids_doc:labelPluralForm "keywords"@en;
     rdfs:domain ids:DataAsset;
     rdfs:range xsd:anyURI;
     rdfs:comment "Links to an item in a flat list of controlled keywords that describe content-related coverage of the DataAsset."@en.
 
 ids:coversLanguage rdfs:subPropertyOf dct:language;
     rdfs:label "coversLanguage"@en;
-    idoc:labelPluralForm "coversLanguages"@en;
+    ids_doc:labelPluralForm "coversLanguages"@en;
     rdfs:domain ids:DataAsset;
     rdfs:range ids:Language;
     trns:refByURI true;

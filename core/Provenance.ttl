@@ -5,10 +5,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
 
 # Classes
 # -------
@@ -79,7 +79,7 @@ ids:activityDescription rdfs:subPropertyOf dct:description;
     rdfs:domain ids:Activity;
     rdfs:range rdf:PlainLiteral;
     rdfs:label "activityDescription"@en;
-    idoc:labelPluralForm "activityDescriptions"@en;
+    ids_doc:labelPluralForm "activityDescriptions"@en;
     rdfs:comment "Freetext description of what has been performed by the Activity."@en.
 
 ids:startedBy rdfs:subPropertyOf prov:wasStartedBy;

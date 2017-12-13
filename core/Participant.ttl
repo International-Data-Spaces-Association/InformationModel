@@ -5,9 +5,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
@@ -62,7 +62,7 @@ ids:primarySite rdfs:subPropertyOf org:hasPrimarySite;
 
 ids:corporateEmailAddress rdfs:subPropertyOf foaf:mbox;
     a owl:DatatypeProperty;
-    idoc:labelPluralForm "corporateEmailAddresses"@en;
+    ids_doc:labelPluralForm "corporateEmailAddresses"@en;
     rdfs:label "corporateEmailAddress"@en;
     rdfs:domain ids:Participant;
     rdfs:range xsd:string;
@@ -79,7 +79,7 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
     a owl:ObjectProperty;
     rdfs:domain ids:Participant;
     rdfs:range ids:Participant;
-    idoc:labelPluralForm "memberParticipants"@en;
+    ids_doc:labelPluralForm "memberParticipants"@en;
     rdfs:label "memberParticipant"@en;
     rdfs:comment "Indicates that a participant has a member which is again a participant. This is useful for defining hierarchical relations in a participant's organization as well as identifying groups of participants to capture, e.g., members of a collaboration."@en.
 
@@ -97,7 +97,7 @@ ids:memberPerson rdfs:subPropertyOf org:hasMember;
     a owl:ObjectProperty;
     rdfs:domain ids:Participant;
     rdfs:range ids:Person;
-    idoc:labelPluralForm "memberPersons"@en;
+    ids_doc:labelPluralForm "memberPersons"@en;
     rdfs:label "memberPerson"@en;
     rdfs:comment "Indicates membership of a person to an organization."@en.
 
@@ -126,7 +126,7 @@ ids:phoneNumber rdfs:subPropertyOf foaf:phone;
     a owl:DatatypeProperty;
     rdfs:domain ids:Person;
     rdfs:range xsd:string;
-    idoc:labelPluralForm "phoneNumbers"@en;
+    ids_doc:labelPluralForm "phoneNumbers"@en;
     rdfs:label "phoneNumber"@en;
     rdfs:comment "Phone number of a person."@en.
 
@@ -134,7 +134,7 @@ ids:emailAddress rdfs:subPropertyOf foaf:mbox;
     a owl:DatatypeProperty;
     rdfs:domain ids:Person;
     rdfs:range xsd:string;
-    idoc:labelPluralForm "emailAddresses"@en;
+    ids_doc:labelPluralForm "emailAddresses"@en;
     rdfs:label "emailAddress"@en;
     rdfs:comment "Email contact of a person."@en.
 

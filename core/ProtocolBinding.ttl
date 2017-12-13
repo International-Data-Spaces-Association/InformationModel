@@ -5,9 +5,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
@@ -64,7 +64,7 @@ ids:HttpResponseBodyBindingApproach rdfs:subClassOf ids:BindingApproach;
 ids:operationBinding
     a owl:ObjectProperty ;
     rdfs:label "operationBinding"@en ;
-    idoc:labelPluralForm "operationBindings"@en;
+    ids_doc:labelPluralForm "operationBindings"@en;
     rdfs:domain ids:ProtocolBinding ;
     rdfs:range ids:OperationBinding ;
     rdfs:comment "Defines the available operations of an endpoint."@en .
@@ -93,7 +93,7 @@ ids:uriTemplate
 ids:parameterBinding
     a owl:ObjectProperty ;
     rdfs:label "parameterBinding"@en ;
-    idoc:labelPluralForm "parameterBindings"@en;
+    ids_doc:labelPluralForm "parameterBindings"@en;
     rdfs:domain ids:OperationBinding ;
     rdfs:range ids:ParameterBinding ;
     rdfs:comment "Links parameters of an Operation to their corresponding bindings for that Operation."@en .

@@ -4,9 +4,9 @@
 @prefix credential: <http://www.daml.org/services/owl-s/security/credential.owl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
@@ -99,7 +99,7 @@ ids:payloadDigest
 ids:customAttribute
 	a owl:ObjectProperty;
 	rdfs:label "customAttribute"@en;
-	idoc:labelPluralForm "customAttributes"@en;
+	ids_doc:labelPluralForm "customAttributes"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:TransferAttribute;
 	rdfs:comment "Additional attributes that can be specified for a DataTransfer."@en.

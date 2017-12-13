@@ -4,9 +4,9 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 
@@ -95,7 +95,7 @@ ids:entityName rdfs:subPropertyOf dct:title;
 	rdfs:domain ids:EntityWithLifecycle;
 	rdfs:range rdf:PlainLiteral;
     rdfs:label "entityName"@en;
-    idoc:labelPluralForm "entityNames"@en;
+    ids_doc:labelPluralForm "entityNames"@en;
 	rdfs:comment "Name of the EntityWithLifecycle."@en.
 
 ids:entityDescription rdfs:subPropertyOf dct:description;
@@ -103,7 +103,7 @@ ids:entityDescription rdfs:subPropertyOf dct:description;
 	rdfs:domain ids:EntityWithLifecycle;
 	rdfs:range rdf:PlainLiteral;
 	rdfs:label "entityDescription"@en;
-	idoc:labelPluralForm "entityDescriptions"@en;
+	ids_doc:labelPluralForm "entityDescriptions"@en;
 	rdfs:comment "Freetext description of the EntityWithLifecycle.".
 
 ids:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
@@ -115,7 +115,7 @@ ids:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
 
 ids:lifecycleActivity a owl:ObjectProperty;
     rdfs:label "lifecycleActivity"@en;
-    idoc:labelPluralForm "lifecycleActivities"@en;
+    ids_doc:labelPluralForm "lifecycleActivities"@en;
     rdfs:domain ids:EntityWithLifecycle;
     rdfs:range ids:Activity;
     rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.

@@ -5,9 +5,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
@@ -121,14 +121,14 @@ ids:operation a owl:ObjectProperty;
     rdfs:domain ids:DataService;
     rdfs:range ids:Operation;
     rdfs:label "operation"@en;
-    idoc:labelPluralForm "operations"@en;
+    ids_doc:labelPluralForm "operations"@en;
     rdfs:comment "An Operation that can be performed on a DataService."@en.
 
 ids:usagePolicy a owl:ObjectProperty;
     rdfs:domain ids:DataEndpoint;
     rdfs:range ids:ServiceContract;
     rdfs:label "usagePolicy"@en;
-    idoc:labelPluralForm "usagePolicies"@en;
+    ids_doc:labelPluralForm "usagePolicies"@en;
     rdfs:comment "The ServiceContracts describing usage policies for the DataEndpoint's offerings."@en.
 
 ids:publishes a owl:ObjectProperty;
@@ -145,28 +145,28 @@ ids:input a owl:ObjectProperty;
     rdfs:domain ids:Operation;
     rdfs:range ids:InputParameter;
     rdfs:label "input"@en;
-    idoc:labelPluralForm "inputs"@en;
+    ids_doc:labelPluralForm "inputs"@en;
     rdfs:comment "Parameterizes the input of an Operation."@en.
 
 ids:output a owl:ObjectProperty;
     rdfs:domain ids:Operation;
     rdfs:range ids:OutputParameter;
     rdfs:label "output"@en;
-    idoc:labelPluralForm "outputs"@en;
+    ids_doc:labelPluralForm "outputs"@en;
     rdfs:comment "Holds the result of an Operation."@en.
 
 ids:fault a owl:ObjectProperty;
     rdfs:domain ids:Operation;
     rdfs:range ids:Fault;
     rdfs:label "fault"@en;
-    idoc:labelPluralForm "faults"@en;
+    ids_doc:labelPluralForm "faults"@en;
     rdfs:comment "Holds information when an Operation has failed."@en.
 
 ids:opLabel rdfs:subPropertyOf rdfs:label;
     a owl:DatatypeProperty;
     rdfs:domain ids:Operation;
     rdfs:range rdf:PlainLiteral;
-    idoc:labelPluralForm "opLabels"@en;
+    ids_doc:labelPluralForm "opLabels"@en;
     rdfs:label "opLabel"@en;
     rdfs:comment "Freetext label of the Operation as it should be shown in public indexes."@en.
 
@@ -174,7 +174,7 @@ ids:opDescription rdfs:subPropertyOf dct:description;
     a owl:DatatypeProperty;
     rdfs:domain ids:Operation;
     rdfs:range rdf:PlainLiteral;
-    idoc:labelPluralForm "opDescriptions"@en;
+    ids_doc:labelPluralForm "opDescriptions"@en;
     rdfs:label "opDescription"@en;
     rdfs:comment "Freetext description of the Operation as it should be shown in public indexes."@en.
 
@@ -198,7 +198,7 @@ ids:paramLabel rdfs:subPropertyOf rdfs:label;
     rdfs:domain ids:Parameter;
     rdfs:range rdf:PlainLiteral;
     rdfs:label "paramLabel"@en;
-    idoc:labelPluralForm "paramLabels"@en;
+    ids_doc:labelPluralForm "paramLabels"@en;
     rdfs:comment "Freetext label of the Parameter as it should be shown in public indexes."@en.
 
 ids:paramName rdfs:subPropertyOf dct:identifier;
@@ -213,7 +213,7 @@ ids:paramDescription rdfs:subPropertyOf dct:description;
     rdfs:domain ids:Parameter;
     rdfs:range rdf:PlainLiteral;
     rdfs:label "paramDescription"@en;
-    idoc:labelPluralForm "paramDescriptions"@en;
+    ids_doc:labelPluralForm "paramDescriptions"@en;
     rdfs:comment "Freetext description of the Parameter as it should be shown in public indexes."@en.
 
 ids:semanticType a owl:DatatypeProperty;

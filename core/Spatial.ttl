@@ -6,9 +6,9 @@
 @prefix gn: <http://www.geonames.org/ontology#> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 
-@prefix ids: <http://industrialdataspace.org/2016/10/ids/core#> .
-@prefix valid: <http://industrialdataspace.org/2017/01/ids/validation#> .
-@prefix idoc: <http://industrialdataspace.org/2017/01/ids/documentation#> .
+@prefix ids: <https://schema.industrialdataspace.org/core/> .
+@prefix ids_rel: <https://schema.industrialdataspace.org/helper/relation/> .
+@prefix ids_doc: <https://schema.industrialdataspace.org/helper/documentation/> .
 @prefix trns: <http://industrialdataspace.org/2017/01/ids/transformation#> .
 
 # Classes
@@ -91,5 +91,5 @@ ids:geoPoint a owl:ObjectProperty;
      rdfs:domain ids:BoundingPolygon;
      rdfs:range ids:GeoPoint;
      rdfs:label "geoPoint"@en;
-     idoc:labelPluralForm "geoPoints"@en;
+     ids_doc:labelPluralForm "geoPoints"@en;
      rdfs:comment "Refers to a GeoPoint that is member of a BoundingPolygon."@en.
