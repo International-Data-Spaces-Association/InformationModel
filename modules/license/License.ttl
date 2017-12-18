@@ -1,0 +1,26 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix ids_lc: <https://schema.industrialdataspace.org/license/> .
+
+# Classes
+# -------
+
+ids_lc:LicenseDocument rdfs:subClassOf dct:LicenseDocument;
+    a owl:Class;
+    rdfs:label "LicenseDocument"@en ;
+    rdfs:comment "The class of license documents to be attached to DataAssets.".
+
+# Instances
+# ---------
+
+#todo: add more common licenses
+
+ids_lc:license_cc_by_nc_nd_2_0 a ids:LicenseDocument;
+    rdfs:seeAlso <https://creativecommons.org/licenses/by-nc-nd/2.0/>;
+    rdfs:comment "Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)";
+    dct:identifier "CC_BY_NC_ND_2_0".
+
+

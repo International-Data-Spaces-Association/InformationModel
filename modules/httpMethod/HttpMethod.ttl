@@ -1,0 +1,51 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ids_http: <https://schema.industrialdataspace.org/httpMethod/> .
+
+# Classes
+# -------
+
+ids_http:HttpMethod a owl:Class;
+    rdfs:label "HTTP Methods"@en ;
+    rdfs:comment "The class of HTTP/1.1 Request Methods.".
+
+# Instances
+# ---------
+
+ids_hm:get a ids_http:HttpMethod;
+	rdfs:comment "GET";
+	dct:identifier "HTTP_GET".
+
+ids_hm:head a ids_http:HttpMethod;
+	rdfs:comment "HEAD";
+	dct:identifier "HTTP_HEAD".
+
+ids_hm:post a ids_http:HttpMethod;
+	rdfs:comment "POST";
+	dct:identifier "HTTP_POST".
+
+ids_hm:put a ids_http:HttpMethod;
+	rdfs:comment "PUT";
+	dct:identifier "HTTP_PUT".
+
+ids_hm:delete a ids_http:HttpMethod;
+	rdfs:comment "DELETE";
+	dct:identifier "HTTP_DELETE".
+
+ids_hm:connect a ids_http:HttpMethod;
+	rdfs:comment "CONNECT";
+	dct:identifier "HTTP_CONNECT".
+
+ids_hm:options a ids_http:HttpMethod;
+	rdfs:comment "OPTIONS";
+	dct:identifier "HTTP_OPTIONS".
+
+ids_hm:trace a ids_http:HttpMethod;
+	rdfs:comment "TRACE";
+	dct:identifier "HTTP_TRACE".
+
+ids_hm:patch a ids_http:HttpMethod;
+    rdfs:comment "PATCH";
+    dct:identifier "HTTP_PATCH".
