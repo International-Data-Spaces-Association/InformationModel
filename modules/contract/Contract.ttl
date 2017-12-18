@@ -4,6 +4,8 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporalEntity/> .
+@prefix ids_rule: <https://schema.industrialdataspace.org/rule/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 
 # Classes
@@ -26,21 +28,21 @@ ids_contr:ServiceContract rdfs:subClassOf odrl:Offer;
 # -----------------------------
 
 ids_contr:contractDuration a owl:ObjectProperty;
-    rdfs:domain ids:ServiceContract;
-    rdfs:range ids:TemporalEntity;
+    rdfs:domain ids_contr:ServiceContract;
+    rdfs:range ids_temp:TemporalEntity;
     rdfs:label "contractDuration"@en;
     rdfs:comment "The duration for which the ServiceContract is valid."@en.
 
 ids_contr:permission rdfs:subPropertyOf odrl:permission;
     a owl:ObjectProperty;
     rdfs:label "permission"@en;
-    rdfs:domain ids:ServiceContract;
-    rdfs:range ids:Permission;
+    rdfs:domain ids_contr:ServiceContract;
+    rdfs:range ids_rule:Permission;
     rdfs:comment "The Permissions granted by a ServiceContract."@en.
 
 ids_contr:prohibition rdfs:subPropertyOf odrl:prohibition;
     a owl:ObjectProperty;
     rdfs:label "prohibition"@en;
-    rdfs:domain ids:ServiceContract;
-    rdfs:range ids:Prohibition;
+    rdfs:domain ids_contr:ServiceContract;
+    rdfs:range ids_rule:Prohibition;
     rdfs:comment "The Prohibitions imposed by a ServiceContract."@en.
