@@ -132,7 +132,7 @@ ids_bc:BrokerQueryMessageScopeAccess a ids_bc:BrokerQueryMessageScope;
     dct:identifier "ACCESS"@en.
 
 ids_bc:EntityCoveredByDataRequest a owl:Class;
-    rdfs:label "CoveredComponent"@en ;
+    rdfs:label "EntityCoveredByDataRequest"@en ;
     rdfs:comment "The class of IDS entities that are described in a BrokerDataRequest message.".
 
 ids_bc:CoveredParticipant a ids_bc:EntityCoveredByDataRequest;
@@ -148,37 +148,37 @@ ids_bc:CoveredDataEndpoint a ids_bc:EntityCoveredByDataRequest;
 # ----------
 
 ids_bc:dataRequestAction a owl:ObjectProperty;
-    rdfs:label "dataRequestAction";
+    rdfs:label "dataRequestAction"@en;
     rdfs:domain ids_bc:BrokerDataRequest;
     rdfs:range ids_bc:BrokerDataRequestAction;
     rdfs:comment "The action that should be performed with the message's content at the Broker."@en.
 
 ids_bc:queryRequestAction a owl:ObjectProperty;
-    rdfs:label "queryRequestAction";
+    rdfs:label "queryRequestAction"@en;
     rdfs:domain ids_bc:BrokerQueryRequest;
     rdfs:range ids_bc:BrokerQueryRequestAction;
     rdfs:comment "The action that should be performed by the query."@en.
 
 ids_bc:coveredEntity a owl:ObjectProperty;
-    rdfs:label "coveredEntity";
+    rdfs:label "coveredEntity"@en;
     rdfs:domain ids_bc:BrokerRequestMessage;
     rdfs:range ids_bc:EntityCoveredByDataRequest;
     rdfs:comment "The IDS entity covered in the data request."@en.
 
 ids_bc:messageContent a owl:DatatypeProperty;
-    rdfs:label "messageContent";
+    rdfs:label "messageContent"@en;
     rdfs:domain ids_bc:BrokerMessage;
     rdfs:range xsd:string;
     rdfs:comment "The message's content, e.g., a query."@en.
 
 ids_bc:correlationId a owl:DatatypeProperty;
-    rdfs:label "correlationId";
+    rdfs:label "correlationId"@en;
     rdfs:domain ids_bc:BrokerResponseMessage;
     rdfs:range xsd:anyURI;
     rdfs:comment "The unique ID of the source request which is referred to by a response message."@en.
 
 ids_bc:queryScope a owl:ObjectProperty;
-    rdfs:label "queryScope";
+    rdfs:label "queryScope"@en;
     rdfs:domain ids_bc:BrokerQueryMessage;
     rdfs:range ids_bc:BrokerQueryMessageScope;
     rdfs:comment "The scope of a query defined in a query message."@en.
