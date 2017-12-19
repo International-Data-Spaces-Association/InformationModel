@@ -5,6 +5,7 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_base: <https://schema.industrialdataspace.org/base/> .
 @prefix ids_temp: <https://schema.industrialdataspace.org/temporalEntity/> .
 @prefix ids_spatial: <https://schema.industrialdataspace.org/spatialEntity/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
@@ -14,7 +15,7 @@
 # Classes
 # -------
 
-ids_da:DataAsset rdfs:subClassOf ids_da:EntityWithLifecycle;
+ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
     rdfs:subClassOf dcat:Dataset;
     a owl:Class;
     rdfs:label "DataAsset"@en;

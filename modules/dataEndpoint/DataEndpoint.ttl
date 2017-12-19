@@ -6,6 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
+@prefix ids_base: <https://schema.industrialdataspace.org/base/> .
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
 @prefix ids_prot: <https://schema.industrialdataspace.org/protocolBinding/> .
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
@@ -18,7 +19,7 @@
 # Classes
 # -------
 
-ids_dep:DataEndpoint rdfs:subClassOf ids_dep:EntityWithLifecycle;
+ids_dep:DataEndpoint rdfs:subClassOf ids_base:EntityWithLifecycle;
     a owl:Class;
     rdfs:label "DataEndpoint"@en ;
     rdfs:comment "Data Endpoint that may be invoked to retrieve (via service calls, subscription, etc) or push data."@en;
