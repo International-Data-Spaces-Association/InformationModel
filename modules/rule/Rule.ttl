@@ -6,6 +6,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 @prefix ids_rule: <https://schema.industrialdataspace.org/rule/> .
+@prefix ids_act: <https://schema.industrialdataspace.org/action/> .
+@prefix ids_bop: <https://schema.industrialdataspace.org/binaryOperator/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporalEntity/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
@@ -69,7 +72,7 @@ ids_rule:action rdfs:subPropertyOf odrl:action;
     a owl:ObjectProperty;
     rdfs:label "action"@en;
     rdfs:domain ids_rule:Rule;
-    rdfs:range ids_rule:Action;
+    rdfs:range ids_act:Action;
     rdfs:comment "The operation relating to the asset for which permission is being granted."@en.
 
 ids_rule:assignee rdfs:subPropertyOf odrl:assignee;
@@ -138,7 +141,7 @@ ids_rule:temporal rdfs:subPropertyOf odrl:rightOperand;
     a owl:ObjectProperty;
     rdfs:label "temporal"@en;
     rdfs:domain ids_rule:Constraint;
-    rdfs:range ids_rule:TemporalEntity;
+    rdfs:range ids_temp:TemporalEntity;
     rdfs:comment "Temporal entity to describe a Constraint. Alternatively, the dateTime property can be used.".
 
 ids_rule:dateTime rdfs:subPropertyOf odrl:dateTime;
@@ -152,7 +155,7 @@ ids_rule:binaryOperator rdfs:subPropertyOf odrl:rightOperand;
     a owl:ObjectProperty;
     rdfs:label "operator"@en;
     rdfs:domain ids_rule:Constraint;
-    rdfs:range ids_rule:BinaryOperator;
+    rdfs:range ids_bop:BinaryOperator;
     rdfs:comment "The binary operator applied to a constraint and its operand.".
 
 ids_rule:unit rdfs:subPropertyOf odrl:unit;

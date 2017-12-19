@@ -5,6 +5,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporalEntity/> .
+@prefix ids_spatial: <https://schema.industrialdataspace.org/spatialEntity/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
@@ -66,13 +68,13 @@ ids_da:licenseReference rdfs:subPropertyOf dct:license;
 ids_da:coversTemporal rdfs:subPropertyOf dct:temporal;
     rdfs:label "coversTemporal"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:TemporalEntity;
+    rdfs:range ids_temp:TemporalEntity;
     rdfs:comment "Temporal period or instance covered by the DataAsset."@en.
 
 ids_da:coversSpatial rdfs:subPropertyOf dct:spatial;
     rdfs:label "coversSpatial"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:SpatialEntity;
+    rdfs:range ids_spatial:SpatialEntity;
     rdfs:comment "Spatial location covered by the DataAsset."@en.
 
 ids_da:coversCategory rdfs:subPropertyOf dcat:theme;

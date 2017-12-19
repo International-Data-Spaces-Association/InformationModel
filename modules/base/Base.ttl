@@ -6,6 +6,8 @@
 
 @prefix ids: <https://schema.industrialdataspace.org/> .
 @prefix ids_base: <https://schema.industrialdataspace.org/base/> .
+@prefix ids_spatial: <https://schema.industrialdataspace.org/spatialEntity/> .
+@prefix ids_activity: <https://schema.industrialdataspace.org/activity/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
@@ -68,7 +70,7 @@ ids_base:owner a owl:ObjectProperty;
 ids_base:physicalLocation a owl:ObjectProperty;
     rdfs:label "physicalLocation"@en;
     rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_base:Location;
+    rdfs:range ids_spatial:Location;
     rdfs:comment "The location where the Connector is physically deployed."@en.
 
 # Properties of EntityWithLifecycle
@@ -94,12 +96,12 @@ ids_base:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
     a owl:ObjectProperty;
     rdfs:label "generationActivity"@en;
     rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_base:CreationActivity;
+    rdfs:range ids_activity:CreationActivity;
     rdfs:comment "Activity that led to the generation of the InfrastructureComponent."@en.
 
 ids_base:lifecycleActivity a owl:ObjectProperty;
     rdfs:label "lifecycleActivity"@en;
     ids_doc:labelPluralForm "lifecycleActivities"@en;
     rdfs:domain ids_base:EntityWithLifecycle;
-    rdfs:range ids_base:Activity;
+    rdfs:range ids_activity:Activity;
     rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.
