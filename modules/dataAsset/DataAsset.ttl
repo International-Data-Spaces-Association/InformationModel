@@ -11,6 +11,8 @@
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
+@prefix ids_lc: <https://schema.industrialdataspace.org/license/> .
 
 # Classes
 # -------
@@ -55,7 +57,7 @@ ids_da:licenseDocument rdfs:subPropertyOf dct:license;
     a owl:ObjectProperty;
     rdfs:label "licenseDocument"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:LicenseDocument;
+    rdfs:range ids_lc:LicenseDocument;
     ids_trans:refByURI true;
     rdfs:comment "License of the DataAsset. Refers to common standard licenses used in the IDS."@en.
 
@@ -96,7 +98,7 @@ ids_da:coversLanguage rdfs:subPropertyOf dct:language;
     rdfs:label "coversLanguage"@en;
     ids_doc:labelPluralForm "coversLanguages"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:Language;
+    rdfs:range ids_lang:Language;
     ids_trans:refByURI true;
     rdfs:comment "States the language that is used in the DataAsset."@en.
 

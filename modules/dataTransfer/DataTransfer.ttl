@@ -9,6 +9,8 @@
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
+@prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
 
 # Classes
 # -------
@@ -63,7 +65,7 @@ ids_dtr:sender
 	a owl:DatatypeProperty;
 	rdfs:label "sender"@en;
 	rdfs:domain ids_dtr:DataTransfer;
-	rdfs:range ids_dtr:Participant;
+	rdfs:range ids_part:Participant;
 	ids_trans:refByURI true;
 	rdfs:comment "The data endpoint which is the origin of the message."@en.
 
@@ -71,7 +73,7 @@ ids_dtr:receiver
 	a owl:DatatypeProperty;
 	rdfs:label "receiver"@en;
 	rdfs:domain ids_dtr:DataTransfer;
-	rdfs:range ids_dtr:Participant;
+	rdfs:range ids_part:Participant;
 	ids_trans:refByURI true;
 	rdfs:comment "The data endpoint which is the recipient of the message."@en.
 
@@ -79,7 +81,7 @@ ids_dtr:invokedOperation
 	a owl:DatatypeProperty;
 	rdfs:label "invokedOperation"@en;
 	rdfs:domain ids_dtr:DataTransfer;
-	rdfs:range ids_dtr:Operation;
+	rdfs:range ids_dep:Operation;
 	ids_trans:refByURI true;
 	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
 

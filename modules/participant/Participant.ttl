@@ -10,6 +10,7 @@
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_industry: <https://schema.industrialdataspace.org/industry/> .
 
 # Classes
 # -------
@@ -87,7 +88,7 @@ ids_part:memberParticipant rdfs:subPropertyOf org:hasMember;
 ids_part:coversIndustry a owl:ObjectProperty;
     rdfs:label "coversIndustry"@en;
     rdfs:domain ids_part:Participant;
-    rdfs:range ids_part:Industry;
+    rdfs:range ids_industry:Industry;
     ids_trans:refByURI true;
     rdfs:comment "Industry branch covered by the Participant."@en.
 

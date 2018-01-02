@@ -12,6 +12,7 @@
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
 
 # Classes
 # -------
@@ -162,7 +163,7 @@ ids_rule:unit rdfs:subPropertyOf odrl:unit;
     a owl:ObjectProperty;
     rdfs:label "unit"@en;
     rdfs:domain ids_rule:Constraint;
-    rdfs:range ids_rule:Unit;
+    rdfs:range ids_unit:Unit;
     ids_trans:refByURI true;
     rdfs:comment "The unit of measurement used for the constraint value.".
 
