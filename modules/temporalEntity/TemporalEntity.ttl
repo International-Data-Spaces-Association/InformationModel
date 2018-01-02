@@ -4,7 +4,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix ids_temp: <https://schema.industrialdataspace.org/temporalEntity/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 
 # Classes
@@ -29,7 +29,11 @@ ids_temp:Interval rdfs:subClassOf ids_temp:TemporalEntity;
     rdfs:subClassOf time:Interval;
     a owl:Class;
     rdfs:label "Interval"@en ;
-    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en.
+    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_temp:beginning;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
 
 # Properties for describing temporal entities
 # -------------------------------------------
