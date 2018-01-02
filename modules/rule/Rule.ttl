@@ -204,6 +204,7 @@ ids_rule:paymentUnit rdfs:subPropertyOf odrl:unit;
     rdfs:label "paymentUnit"@en;
     rdfs:domain ids_rule:PaymentConstraint;
     rdfs:range ids_unit:Unit;
+    ids_trans:refByURI true;
     rdfs:comment "The unit of measurement used for the payment amount.".
 
 ids_rule:volumeUnit rdfs:subPropertyOf odrl:unit;
@@ -211,6 +212,7 @@ ids_rule:volumeUnit rdfs:subPropertyOf odrl:unit;
     rdfs:label "volumeUnit"@en;
     rdfs:domain ids_rule:PayPerVolumeConstraint;
     rdfs:range ids_unit:Unit;
+    ids_trans:refByURI true;
     rdfs:comment "The unit of measurement used for the volume amount.".
 
 ids_rule:recurrenceRate a owl:ObjectProperty;
