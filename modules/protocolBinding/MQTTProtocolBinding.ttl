@@ -15,18 +15,13 @@
 # Classes
 # -------
 
-ids_prot:ProtocolBinding a owl:Class;
-    rdfs:label "ProtocolBinding"@en ;
-    rdfs:comment "Describes how a DataEndpoint can be invoked by using a certain protocol."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_prot:operationBinding;
-        ids_rel:relationType ids_rel:OneToMany;
-    ].
+ids_prot:OperationMqttBinding rdfs:subClassOf ids_prot:OperationBinding;
+    a owl:Class ;
+    rdfs:label "OperationMqttBinding"@en ;
+    rdfs:comment "Binding of a specific operation of an endpoint to the MQTT protocol."@en .
 
-ids_prot:OperationBinding a owl:Class ;
-    rdfs:label "OperationBinding"@en ;
-    rdfs:comment "Binding of a specific operation of an endpoint."@en ;
-    ids_rel:validation [
-        ids_rel:forProperty ids_prot:parameterBinding;
-        ids_rel:relationType ids_rel:OneToMany;
-    ].
+# Properties
+# ----------
+
+
+
