@@ -8,7 +8,7 @@
 @prefix ids_rule: <https://schema.industrialdataspace.org/rule/> .
 @prefix ids_act: <https://schema.industrialdataspace.org/action/> .
 @prefix ids_bop: <https://schema.industrialdataspace.org/binaryOperator/> .
-@prefix ids_temp: <https://schema.industrialdataspace.org/temporalEntity/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
@@ -65,6 +65,47 @@ ids_rule:Constraint rdfs:subClassOf odrl:Constraint;
     a owl:Class;
     rdfs:label "Constraint"@en;
     rdfs:comment "The class of Constraints that restrict a Rule."@en.
+
+ids_rule:PaymentConstraint rdfs:subClassOf ids_rule:Constraint;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "PaymentConstraint"@en;
+    rdfs:comment "The class of Constraints that restrict a payment Action."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_rule:payAmount;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_rule:paymentUnit;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
+ids_rule:PayOnceConstraint rdfs:subClassOf ids_rule:PaymentConstraint;
+    a owl:Class;
+    rdfs:label "PayOnceConstraint"@en;
+    rdfs:comment "The class of Constraints that restrict a payment Action to a one time payment."@en.
+
+ids_rule:PayPerVolumeConstraint rdfs:subClassOf ids_rule:PaymentConstraint;
+    a owl:Class;
+    rdfs:label "PayPerVolumeConstraint"@en;
+    rdfs:comment "The class of Constraints that restrict a payment Action to a pay per volume payment."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_rule:volumeAmount;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_rule:volumeUnit;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
+ids_rule:PayPeriodicallyConstraint rdfs:subClassOf ids_rule:PaymentConstraint;
+    a owl:Class;
+    rdfs:label "PayPeriodicallyConstraint"@en;
+    rdfs:comment "The class of Constraints that restrict a payment Action to a periodic payment."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_rule:recurrenceRate;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
 
 # Properties
 # ----------
@@ -138,6 +179,12 @@ ids_rule:payAmount rdfs:subPropertyOf odrl:payAmount;
     rdfs:range xsd:float;
     rdfs:comment "Monetary amount to pay.".
 
+ids_rule:volumeAmount a owl:DatatypeProperty;
+    rdfs:label "volumeAmount"@en;
+    rdfs:domain ids_rule:Constraint;
+    rdfs:range xsd:float;
+    rdfs:comment "Specified data volume to pay for.".
+
 ids_rule:temporal rdfs:subPropertyOf odrl:rightOperand;
     a owl:ObjectProperty;
     rdfs:label "temporal"@en;
@@ -152,22 +199,24 @@ ids_rule:dateTime rdfs:subPropertyOf odrl:dateTime;
     rdfs:range xsd:string;
     rdfs:comment "Temporal entity to describe a Constraint. Alternatively, the temporal property can be used.".
 
-ids_rule:binaryOperator rdfs:subPropertyOf odrl:rightOperand;
+ids_rule:paymentUnit rdfs:subPropertyOf odrl:unit;
     a owl:ObjectProperty;
-    rdfs:label "operator"@en;
-    rdfs:domain ids_rule:Constraint;
-    rdfs:range ids_bop:BinaryOperator;
-    rdfs:comment "The binary operator applied to a constraint and its operand.".
-
-ids_rule:unit rdfs:subPropertyOf odrl:unit;
-    a owl:ObjectProperty;
-    rdfs:label "unit"@en;
-    rdfs:domain ids_rule:Constraint;
+    rdfs:label "paymentUnit"@en;
+    rdfs:domain ids_rule:PaymentConstraint;
     rdfs:range ids_unit:Unit;
     ids_trans:refByURI true;
-    rdfs:comment "The unit of measurement used for the constraint value.".
+    rdfs:comment "The unit of measurement used for the payment amount.".
 
+ids_rule:volumeUnit rdfs:subPropertyOf odrl:unit;
+    a owl:ObjectProperty;
+    rdfs:label "volumeUnit"@en;
+    rdfs:domain ids_rule:PayPerVolumeConstraint;
+    rdfs:range ids_unit:Unit;
+    ids_trans:refByURI true;
+    rdfs:comment "The unit of measurement used for the volume amount.".
 
-
-
-
+ids_rule:recurrenceRate a owl:ObjectProperty;
+    rdfs:label "recurrenceRate"@en;
+    rdfs:domain ids_rule:PayPeriodicallyConstraint;
+    rdfs:range ids_temp:RecurrenceRate;
+    rdfs:comment "The recurrence rate of a payment.".
