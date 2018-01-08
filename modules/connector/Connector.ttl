@@ -1,0 +1,64 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
+@prefix ids_sec: <https://schema.industrialdataspace.org/securityProfile/> .
+@prefix ids_base: <https://schema.industrialdataspace.org/base/> .
+@prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+
+# Classes
+# -------
+
+ids_conn:Connector rdfs:subClassOf ids_base:InfrastructureComponent;
+    a owl:Class;
+    rdfs:label "Connector"@en ;
+    rdfs:comment "Connector for hosting data services."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_conn:provides;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
+
+ids_conn:AuthInfo a owl:Class;
+    rdfs:label "AuthInfo"@en ;
+    rdfs:comment "Holds authentication information so that connections to the Connector's data offerings can be establised."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_conn:authService;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
+# Properties
+# ----------
+
+ids_conn:provides a owl:ObjectProperty;
+    rdfs:domain ids_conn:Connector;
+    rdfs:range ids_dep:DataEndpoint;
+    rdfs:label "provides"@en;
+    rdfs:comment "The DataEndpoints provided by a Connector."@en.
+
+ids_conn:securityProfile a owl:ObjectProperty;
+    rdfs:domain ids_conn:Connector;
+    rdfs:range ids_sec:SecurityProfile;
+    rdfs:label "securityProfile"@en;
+    rdfs:comment "The SecurityProfile supported by the Connector."@en.
+
+ids_conn:authInfo a owl:ObjectProperty;
+    rdfs:domain ids_conn:Connector;
+    rdfs:range ids_conn:AuthInfo;
+    rdfs:label "authInfo"@en;
+    rdfs:comment "Information of the authentication service used by the Connector."@en.
+
+ids_conn:authService a owl:ObjectProperty;
+    rdfs:domain ids_conn:AuthInfo;
+    rdfs:range xsd:anyURI;
+    rdfs:label "authService"@en;
+    rdfs:comment "The URL of the authentication service that is provided by the Connector."@en.
+
+ids_conn:authStandard a owl:ObjectProperty;
+    rdfs:domain ids_conn:AuthInfo;
+    rdfs:range ids_conn:AuthStandard;
+#    ids_trans:refByURI true;
+    rdfs:label "authStandard"@en;
+    rdfs:comment "The standard used by the authentication service that is provided by the Connector."@en.
