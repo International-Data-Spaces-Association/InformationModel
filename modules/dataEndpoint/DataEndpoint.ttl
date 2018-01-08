@@ -43,7 +43,7 @@ ids_dep:DataService a owl:Class;
 ids_dep:Operation a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "Operation"@en ;
-    rdfs:comment "An operation to be performed on a DataService, like the retrieval of a filtered subset of the data."@en;
+    rdfs:comment "An operation to access a DataService, like the retrieval of a filtered subset of the data."@en;
     ids_rel:validation [
         ids_rel:forProperty ids_dep:opLabel;
         ids_rel:constraint ids_rel:NotNull;
@@ -62,10 +62,37 @@ ids_dep:Operation a owl:Class;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_dep:ReadOperation rdfs:subClassOf ids_dep:Operation;
+ids_dep:ReqRespOperation rdfs:subClassOf ids_dep:Operation;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "ReqRespOperation"@en ;
+    rdfs:comment "The class of operations following the request/response interaction method."@en.
+
+ids_dep:PubSubOperation rdfs:subClassOf ids_dep:Operation;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "PubSubOperation"@en ;
+    rdfs:comment "The class of operations following the publish/subscribe interaction method."@en.
+
+ids_dep:ReadOperation rdfs:subClassOf ids_dep:ReqRespOperation;
    a owl:Class;
    rdfs:label "ReadOperation"@en ;
-   rdfs:comment "An operation to access a DataService in a read-only way."@en.
+   rdfs:comment "An operation to access a DataService in a read-only way (pull)."@en.
+
+ids_dep:WriteOperation rdfs:subClassOf ids_dep:ReqRespOperation;
+   a owl:Class;
+   rdfs:label "WriteOperation"@en ;
+   rdfs:comment "An operation to write data to a DataService (push)."@en.
+
+ids_dep:PublishOperation rdfs:subClassOf ids_dep:PubSubOperation;
+   a owl:Class;
+   rdfs:label "PublishOperation"@en ;
+   rdfs:comment "An operation that publishes data on a DataService for asynchronous retrieval by other clients."@en.
+
+ids_dep:SubscribeOperation rdfs:subClassOf ids_dep:PubSubOperation;
+   a owl:Class;
+   rdfs:label "SubscribeOperation"@en ;
+   rdfs:comment "An operation that enables clients to asynchronously retrieve data that has been published to a DataService."@en.
 
 ids_dep:Parameter a owl:Class;
     rdfs:label "Parameter"@en ;
