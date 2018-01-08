@@ -20,19 +20,10 @@ ids_prot:OperationHttpBinding rdfs:subClassOf ids_prot:OperationBinding;
     rdfs:label "OperationHttpBinding"@en ;
     rdfs:comment "Binding of a specific operation of an endpoint to the HTTP protocol."@en .
 
-ids_prot:ParameterBinding a owl:Class ;
-    rdfs:label "ParameterBinding"@en ;
-    rdfs:comment "Description of a specific parameter of an endpoint."@en .
-
-ids_prot:BindingApproach a owl:Class ;
-    ids_trans:isAbstract true;
-    rdfs:label "BindingApproach"@en ;
-    rdfs:comment "Class of approaches how to bind parameters to an operation invocation."@en .
-
-ids_prot:UriTemplateBindingApproach rdfs:subClassOf ids_prot:BindingApproach;
+ids_prot:HttpUrlTemplateBindingApproach rdfs:subClassOf ids_prot:BindingApproach;
     a owl:Class ;
-    rdfs:label "UriTemplateBindingApproach"@en ;
-    rdfs:comment "Binding approach using a 1:1 mapping between the parameter's name and a key in the operation's URI template."@en .
+    rdfs:label "HttpUrlTemplateBindingApproach"@en ;
+    rdfs:comment "Binding approach using a 1:1 mapping between the parameter's name and a key in the operation's URL template."@en .
 
 ids_prot:HttpHeaderBindingApproach rdfs:subClassOf ids_prot:BindingApproach;
     a owl:Class ;
@@ -47,21 +38,6 @@ ids_prot:HttpResponseBodyBindingApproach rdfs:subClassOf ids_prot:BindingApproac
 # Properties
 # ----------
 
-ids_prot:operationBinding
-    a owl:ObjectProperty ;
-    rdfs:label "operationBinding"@en ;
-    ids_doc:labelPluralForm "operationBindings"@en;
-    rdfs:domain ids_prot:ProtocolBinding ;
-    rdfs:range ids_prot:OperationBinding ;
-    rdfs:comment "Defines the available operations of an endpoint."@en .
-
-ids_prot:boundOperation
-    a owl:ObjectProperty ;
-    rdfs:label "boundOperation"@en ;
-    rdfs:domain ids_prot:OperationBinding ;
-    rdfs:range ids_dep:Operation ;
-    rdfs:comment "The operation which is bound to the protocol."@en .
-
 ids_prot:httpMethod
     a owl:ObjectProperty ;
     rdfs:label "httpMethod"@en ;
@@ -69,34 +45,12 @@ ids_prot:httpMethod
     rdfs:range ids_http:HttpMethod;
     rdfs:comment "Defines the method of an operation."@en .
 
-ids_prot:uriTemplate
+ids_prot:urlTemplate
     a owl:DatatypeProperty;
-    rdfs:label "uriTemplate"@en;
-    rdfs:domain ids_prot:OperationBinding;
+    rdfs:label "urlTemplate"@en;
+    rdfs:domain ids_prot:OperationHttpBinding;
     rdfs:range xsd:string;
     rdfs:comment "URL template for invoking the operation including all its possible parameters. Structured string literal containing distinguished placeholders to be replaced by runtime arguments, see for example URI Templates (RFC 6570)." .
-
-ids_prot:parameterBinding
-    a owl:ObjectProperty ;
-    rdfs:label "parameterBinding"@en ;
-    ids_doc:labelPluralForm "parameterBindings"@en;
-    rdfs:domain ids_prot:OperationBinding ;
-    rdfs:range ids_prot:ParameterBinding ;
-    rdfs:comment "Links parameters of an Operation to their corresponding bindings for that Operation."@en .
-
-ids_prot:boundParameter
-    a owl:ObjectProperty ;
-    rdfs:label "boundParameter"@en ;
-    rdfs:domain ids_prot:ParameterBinding ;
-    rdfs:range ids_dep:Parameter ;
-    rdfs:comment "Specified the parameter that is described by the ParameterBinding."@en .
-
-ids_prot:bindingApproach
-    a owl:ObjectProperty ;
-    rdfs:label "bindingApproach"@en ;
-    rdfs:domain ids_prot:ParameterBinding ;
-    rdfs:range ids_prot:BindingApproach ;
-    rdfs:comment "Specifies the approached used to bind the Operation Parameter."@en .
 
 ids_prot:httpHeaderLine a owl:DatatypeProperty;
     rdfs:label "httpHeaderLine"@en ;

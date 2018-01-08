@@ -20,8 +20,51 @@ ids_prot:OperationMqttBinding rdfs:subClassOf ids_prot:OperationBinding;
     rdfs:label "OperationMqttBinding"@en ;
     rdfs:comment "Binding of a specific operation of an endpoint to the MQTT protocol."@en .
 
+ids_prot:MqttTopicBindingApproach rdfs:subClassOf ids_prot:BindingApproach;
+    a owl:Class ;
+    ids_trans:isAbstract true;
+    rdfs:label "MqttTopicBindingApproach"@en ;
+    rdfs:comment "Class of approaches how to bind parameters to an MQTT topics."@en .
+
+ids_prot:MqttStaticTopicBindingApproach rdfs:subClassOf ids_prot:MqttTopicBindingApproach;
+    a owl:Class ;
+    rdfs:label "MqttStaticTopicBindingApproach"@en ;
+    rdfs:comment "Binding approach using a 1:1 mapping between the parameter's name and a MQTT topic name."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_prot:mqttStaticTopicName;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
+ids_prot:MqttParamControlledTopicBindingApproach rdfs:subClassOf ids_prot:MqttTopicBindingApproach;
+    a owl:Class ;
+    rdfs:label "MqttParamControlledTopicBindingApproach"@en ;
+    rdfs:comment "Binding approach using a 1:1 mapping between the input parameter's (string) value and the MQTT topic name."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_prot:mqttDynamicTopicName;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
 # Properties
 # ----------
+
+ids_prot:mqttBrokerUrl a owl:DatatypeProperty;
+    rdfs:label "mqttBrokerUrl"@en ;
+    rdfs:domain ids_prot:OperationMqttBinding ;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Defines the URL of the MQTT broker."@en .
+
+ids_prot:mqttStaticTopicName a owl:DatatypeProperty;
+    rdfs:label "mqttTopicName"@en ;
+    rdfs:domain ids_prot:MqttStaticTopicBindingApproach ;
+    rdfs:range xsd:string;
+    rdfs:comment "The name of an MQTT topic."@en .
+
+ids_prot:mqttDynamicTopicName a owl:DatatypeProperty;
+    rdfs:label "mqttTopicName"@en ;
+    rdfs:domain ids_prot:MqttParamControlledTopicBindingApproach ;
+    rdfs:range xsd:string;
+    rdfs:comment "MQTT topic name that may contains a placeholder which maps to the parameter's label."@en .
+
 
 
 
