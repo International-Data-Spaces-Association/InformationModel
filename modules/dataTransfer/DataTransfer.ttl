@@ -5,6 +5,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 @prefix ids_dtr: <https://schema.industrialdataspace.org/dataTransfer/> .
+@prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
 @prefix ids_hash: <https://schema.industrialdataspace.org/hashFunction/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
@@ -65,25 +66,49 @@ ids_dtr:sender
 	a owl:DatatypeProperty;
 	rdfs:label "sender"@en;
 	rdfs:domain ids_dtr:DataTransfer;
-	rdfs:range ids_part:Participant;
+	rdfs:range ids_conn:Connector;
 	ids_trans:refByURI true;
-	rdfs:comment "The data endpoint which is the origin of the message."@en.
+	rdfs:comment "The Connector which is the origin of the message."@en.
 
 ids_dtr:receiver
 	a owl:DatatypeProperty;
 	rdfs:label "receiver"@en;
 	rdfs:domain ids_dtr:DataTransfer;
-	rdfs:range ids_part:Participant;
+	rdfs:range ids_conn:Connector;
 	ids_trans:refByURI true;
-	rdfs:comment "The data endpoint which is the recipient of the message."@en.
+	rdfs:comment "The Connector which is the recipient of the message."@en.
 
-ids_dtr:invokedOperation
+ids_dtr:sendingParticipant
 	a owl:DatatypeProperty;
-	rdfs:label "invokedOperation"@en;
+	rdfs:label "sendingParticipant"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_part:Participant;
+	trns:refByURI true;
+	rdfs:comment "The Participant which initiated the DataTransfer."@en.
+
+ids_dtr:receivingParticipant
+	a owl:DatatypeProperty;
+	rdfs:label "receivingParticipant"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_part:Participant;
+	trns:refByURI true;
+	rdfs:comment "The Participant for which the DataTransfer is intended."@en.
+
+ids_dtr:sourceOperation
+	a owl:DatatypeProperty;
+	rdfs:label "sourceOperation"@en;
 	rdfs:domain ids_dtr:DataTransfer;
 	rdfs:range ids_dep:Operation;
-	ids_trans:refByURI true;
+	trns:refByURI true;
 	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
+
+ids_dtr:targetOperation
+    a owl:DatatypeProperty;
+    rdfs:label "targetOperation"@en;
+    rdfs:domain ids_dtr:DataTransfer;
+    rdfs:range ids_dep:Operation;
+    trns:refByURI true;
+    rdfs:comment "The operation that is intended to receive the transferred data."@en.
 
 ids_dtr:authToken
 	a owl:ObjectProperty;
@@ -94,7 +119,7 @@ ids_dtr:authToken
 
 ids_dtr:payloadDigest
 	a owl:DatatypeProperty;
-	rdfs:label "digest"@en;
+	rdfs:label "payloadDigest"@en;
 	rdfs:domain ids_dtr:DataTransfer;
 	rdfs:range xsd:base64Binary;
 	rdfs:comment "The digest of the DataAsset being transfered."@en.
@@ -115,12 +140,12 @@ ids_dtr:tokenValue a owl:DatatypeProperty;
 
 ids_dtr:transferAttributeKey a owl:DatatypeProperty;
 	rdfs:label "transferAttributeKey"@en;
-	rdfs:domain ids_dtr:TransferProperty;
+	rdfs:domain ids_dtr:TransferAttribute;
 	rdfs:range xsd:string.
 
 ids_dtr:transferAttributeValue a owl:DatatypeProperty;
 	rdfs:label "transferAttributeValue"@en;
-	rdfs:domain ids_dtr:TransferProperty;
+	rdfs:domain ids_dtr:TransferAttribute;
 	rdfs:range xsd:string.
 
 ids_dtr:transferCreatedAt rdfs:subPropertyOf dct:dateSubmitted;
