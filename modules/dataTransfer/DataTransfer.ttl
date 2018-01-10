@@ -118,13 +118,13 @@ ids_dtr:authToken
 	rdfs:range ids_dtr:AuthToken;
 	rdfs:comment "An authorization token like JSON Web Token."@en.
 
-ids_dtr:agreedContract
+ids_dtr:contract
 	a owl:ObjectProperty;
-	rdfs:label "agreedContract"@en;
+	rdfs:label "contract"@en;
 	rdfs:domain ids_dtr:DataTransfer;
-	rdfs:range ids_contr:AgreedContract;
+	rdfs:range ids_contr:ServiceContract;
 	ids_trans:refByURI true;
-	rdfs:comment "The contract agreement which is the legal basis of the data transfer."@en.
+	rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
 
 ids_dtr:payloadDigest
 	a owl:DatatypeProperty;

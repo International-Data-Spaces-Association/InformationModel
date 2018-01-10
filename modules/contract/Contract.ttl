@@ -26,13 +26,13 @@ ids_contr:ServiceContract rdfs:subClassOf odrl:Policy;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_contr:AgreedContract rdfs:subClassOf odrl:ServiceContract;
+ids_contr:AgreedContract rdfs:subClassOf ids_contr:ServiceContract;
     rdfs:subClassOf odrl:Agreement;
     a owl:Class;
     rdfs:label "AgreedContract"@en ;
     rdfs:comment "A service contract that has been agreed upon by parties.".
 
-ids_contr:OfferedContract rdfs:subClassOf odrl:ServiceContract;
+ids_contr:OfferedContract rdfs:subClassOf ids_contr:ServiceContract;
     rdfs:subClassOf odrl:Offer;
     a owl:Class;
     rdfs:label "OfferedContract"@en ;

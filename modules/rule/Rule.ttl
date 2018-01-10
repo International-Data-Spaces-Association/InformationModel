@@ -71,7 +71,7 @@ ids_rule:PaymentConstraint rdfs:subClassOf ids_rule:Constraint;
     a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "PaymentConstraint"@en;
-    rdfs:comment "The class of Constraints that restrict a payment Action."@en;
+    rdfs:comment "EXPERIMENTAL: The class of Constraints that restrict a payment Action."@en;
     ids_rel:validation [
         ids_rel:forProperty ids_rule:payAmount;
         ids_rel:constraint ids_rel:NotNull;
@@ -84,12 +84,12 @@ ids_rule:PaymentConstraint rdfs:subClassOf ids_rule:Constraint;
 ids_rule:PayOnceConstraint rdfs:subClassOf ids_rule:PaymentConstraint;
     a owl:Class;
     rdfs:label "PayOnceConstraint"@en;
-    rdfs:comment "The class of Constraints that restrict a payment Action to a one time payment."@en.
+    rdfs:comment "EXPERIMENTAL: The class of Constraints that restrict a payment Action to a one time payment."@en.
 
 ids_rule:PayPerVolumeConstraint rdfs:subClassOf ids_rule:PaymentConstraint;
     a owl:Class;
     rdfs:label "PayPerVolumeConstraint"@en;
-    rdfs:comment "The class of Constraints that restrict a payment Action to a pay per volume payment."@en;
+    rdfs:comment "EXPERIMENTAL: The class of Constraints that restrict a payment Action to a pay per volume payment."@en;
     ids_rel:validation [
         ids_rel:forProperty ids_rule:volumeAmount;
         ids_rel:constraint ids_rel:NotNull;
@@ -102,7 +102,7 @@ ids_rule:PayPerVolumeConstraint rdfs:subClassOf ids_rule:PaymentConstraint;
 ids_rule:PayPeriodicallyConstraint rdfs:subClassOf ids_rule:PaymentConstraint;
     a owl:Class;
     rdfs:label "PayPeriodicallyConstraint"@en;
-    rdfs:comment "The class of Constraints that restrict a payment Action to a periodic payment."@en;
+    rdfs:comment "EXPERIMENTAL: The class of Constraints that restrict a payment Action to a periodic payment."@en;
     ids_rel:validation [
         ids_rel:forProperty ids_rule:recurrenceRate;
         ids_rel:constraint ids_rel:NotNull;
