@@ -24,10 +24,6 @@ ids_dep:DataEndpoint rdfs:subClassOf ids_base:EntityWithLifecycle;
     rdfs:label "DataEndpoint"@en ;
     rdfs:comment "Data Endpoint that may be invoked to retrieve (via service calls, subscription, etc) or push data."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_dep:providedBy;
-        ids_rel:constraint ids_rel:NotNull;
-    ];
-    ids_rel:validation [
         ids_rel:forProperty ids_dep:usagePolicy;
         ids_rel:relationType ids_rel:OneToMany;
     ].
@@ -147,6 +143,13 @@ ids_dep:providedBy a owl:ObjectProperty;
     rdfs:label "providedBy"@en;
     rdfs:comment "The Connector that provides this DataEndpoint."@en.
 
+ids_dep:usagePolicy a owl:ObjectProperty;
+    rdfs:domain ids_dep:DataEndpoint;
+    rdfs:range ids_contr:OfferedContract;
+    rdfs:label "usagePolicy"@en;
+    ids_doc:labelPluralForm "usagePolicies"@en;
+    rdfs:comment "The ServiceContracts describing usage policies for the DataEndpoint's offerings."@en.
+
 # Properties for describing a DataService
 # ---------------------------------------
 
@@ -157,19 +160,11 @@ ids_dep:operation a owl:ObjectProperty;
     ids_doc:labelPluralForm "operations"@en;
     rdfs:comment "An Operation that can be performed on a DataService."@en.
 
-ids_dep:usagePolicy a owl:ObjectProperty;
-    rdfs:domain ids_dep:DataEndpoint;
-    rdfs:range ids_contr:ServiceContract;
-    rdfs:label "usagePolicy"@en;
-    ids_doc:labelPluralForm "usagePolicies"@en;
-    rdfs:comment "The ServiceContracts describing usage policies for the DataEndpoint's offerings."@en.
-
 ids_dep:publishes a owl:ObjectProperty;
     rdfs:label "publishes"@en;
     rdfs:domain ids_dep:DataService;
     rdfs:range ids_da:DataAsset;
     rdfs:comment "Data Asset published by the Data Service."@en.
-
 
 # Properties for describing an Operation
 # --------------------------------------
