@@ -6,39 +6,49 @@
 
 @prefix ids_act: <https://schema.industrialdataspace.org/action/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_rule: <https://schema.industrialdataspace.org/rule/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 
 # Classes
 # -------
 
 ids_act:Action rdfs:subClassOf odrl:Action;
     a owl:Class;
+    ids_trans:isAbstract true;
     rdfs:label "Action"@en;
     ids_doc:labelPluralForm "Actions"@en;
-    rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en.
+    rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_rule:refinement;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
 
-# Instances
-# ---------
+ids_act:InvokeOperationAction rdfs:subClassOf ids_act:Action;
+    a owl:Class;
+    rdfs:label "InvokeOperationAction"@en;
+    rdfs:comment "The act of invoking a specific operation.".
 
-ids_act:invokeOperation a ids_act:Action;
-    rdfs:comment "The act of invoking a specific operation.";
-    dct:identifier "INVOKE_OPERATION".
+ids_act:PaymentAction rdfs:subClassOf ids_act:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:pay;
+    rdfs:label "PaymentAction"@en;
+    rdfs:comment "The act of paying a monetary amount to a party.".
 
-ids_act:payOnce a ids_act:Action;
-    rdfs:seeAlso odrl:pay;
-    rdfs:comment "The act of paying a financial amount to a party once for use of the asset.";
-    dct:identifier "PAY".
+ids_act:DeleteAction rdfs:subClassOf ids_act:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:delete;
+    rdfs:label "DeleteAction"@en;
+    rdfs:comment "The act of permanently removing all copies of an Asset.".
 
-ids_act:delete a ids_act:Action;
-    rdfs:seeAlso odrl:delete;
-    rdfs:comment "The act of permanently removing all copies of an Asset.";
-    dct:identifier "DELETE".
+ids_act:GrantUseAction rdfs:subClassOf ids_act:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:grantUse;
+    rdfs:label "GrantUseAction"@en;
+    rdfs:comment "The act of granting the use of the Asset to third parties.".
 
-ids_act:grantUse a ids_act:Action;
-    rdfs:seeAlso odrl:grantUse;
-    rdfs:comment "The act of granting the use of the Asset to third parties.";
-    dct:identifier "GRANT_USE".
-
-ids_act:distribute a ids_act:Action;
-    rdfs:seeAlso odrl:distribute;
-    rdfs:comment "The act of distributing the Asset.";
-    dct:identifier "DISTRIBUTE".
+ids_act:DistributeAction rdfs:subClassOf ids_act:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:distribute;
+    rdfs:label "DistributeAction"@en;
+    rdfs:comment "The act of distributing the Asset.".

@@ -186,6 +186,7 @@ ids_rule:constraint rdfs:subPropertyOf odrl:constraint;
 ids_rule:refinement rdfs:subPropertyOf odrl:refinement;
     a owl:ObjectProperty;
     rdfs:label "refinement"@en;
+    ids_doc:labelPluralForm "refinements"@en;
     rdfs:domain ids_act:Action;
     rdfs:range ids_rule:Constraint;
     rdfs:comment "Constraint that refines an Action."@en.
@@ -213,6 +214,7 @@ ids_rule:rightOperand rdfs:subPropertyOf odrl:rightOperand;
 
 ids_rule:unit rdfs:subPropertyOf odrl:unit;
     a owl:ObjectProperty;
+    ids_trans:refByURI true;
     rdfs:label "unit"@en;
     rdfs:domain ids_rule:Constraint;
     rdfs:range ids_unit:Unit;
