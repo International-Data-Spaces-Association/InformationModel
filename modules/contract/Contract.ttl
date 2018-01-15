@@ -1,0 +1,48 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
+@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
+@prefix ids_rule: <https://schema.industrialdataspace.org/rule/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+
+# Classes
+# -------
+
+ids_contr:ServiceContract rdfs:subClassOf odrl:Offer;
+    a owl:Class;
+    rdfs:label "ServiceContract"@en ;
+    rdfs:comment "An offered policy that describes how parties can act on a specified resource."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_contr:permission;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_contr:prohibition;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
+
+# Properties of ServiceContract
+# -----------------------------
+
+ids_contr:contractDuration a owl:ObjectProperty;
+    rdfs:domain ids_contr:ServiceContract;
+    rdfs:range ids_temp:TemporalEntity;
+    rdfs:label "contractDuration"@en;
+    rdfs:comment "The duration for which the ServiceContract is valid."@en.
+
+ids_contr:permission rdfs:subPropertyOf odrl:permission;
+    a owl:ObjectProperty;
+    rdfs:label "permission"@en;
+    rdfs:domain ids_contr:ServiceContract;
+    rdfs:range ids_rule:Permission;
+    rdfs:comment "The Permissions granted by a ServiceContract."@en.
+
+ids_contr:prohibition rdfs:subPropertyOf odrl:prohibition;
+    a owl:ObjectProperty;
+    rdfs:label "prohibition"@en;
+    rdfs:domain ids_contr:ServiceContract;
+    rdfs:range ids_rule:Prohibition;
+    rdfs:comment "The Prohibitions imposed by a ServiceContract."@en.
