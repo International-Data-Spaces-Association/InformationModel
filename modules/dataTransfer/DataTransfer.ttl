@@ -83,7 +83,7 @@ ids_dtr:sendingParticipant
 	rdfs:label "sendingParticipant"@en;
 	rdfs:domain ids_dtr:DataTransfer;
 	rdfs:range ids_part:Participant;
-	trns:refByURI true;
+	ids_trans:refByURI true;
 	rdfs:comment "The Participant which initiated the DataTransfer."@en.
 
 ids_dtr:receivingParticipant
@@ -91,7 +91,7 @@ ids_dtr:receivingParticipant
 	rdfs:label "receivingParticipant"@en;
 	rdfs:domain ids_dtr:DataTransfer;
 	rdfs:range ids_part:Participant;
-	trns:refByURI true;
+	ids_trans:refByURI true;
 	rdfs:comment "The Participant for which the DataTransfer is intended."@en.
 
 ids_dtr:sourceOperation
@@ -99,7 +99,7 @@ ids_dtr:sourceOperation
 	rdfs:label "sourceOperation"@en;
 	rdfs:domain ids_dtr:DataTransfer;
 	rdfs:range ids_dep:Operation;
-	trns:refByURI true;
+	ids_trans:refByURI true;
 	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
 
 ids_dtr:targetOperation
@@ -107,7 +107,7 @@ ids_dtr:targetOperation
     rdfs:label "targetOperation"@en;
     rdfs:domain ids_dtr:DataTransfer;
     rdfs:range ids_dep:Operation;
-    trns:refByURI true;
+    ids_trans:refByURI true;
     rdfs:comment "The operation that is intended to receive the transferred data."@en.
 
 ids_dtr:authToken
