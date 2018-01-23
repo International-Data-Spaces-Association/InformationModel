@@ -4,12 +4,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
-@prefix ids_lop: <https://schema.industrialdataspace.org/leftOperand/> .
+@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
 
 # Classes
 # -------
 
-ids_lop:LeftOperand rdfs:subClassOf odrl:LeftOperand;
+ids_contr:LeftOperand rdfs:subClassOf odrl:LeftOperand;
     a owl:Class;
     rdfs:label "LeftOperand"@en;
     rdfs:comment "Instances of the LeftOperand class are used as the leftOperand of a Constraint."@en.
@@ -17,35 +17,35 @@ ids_lop:LeftOperand rdfs:subClassOf odrl:LeftOperand;
 # Instances
 # ---------
 
-ids_lop:payAmount a ids_lop:LeftOperand;
+ids_contr:payAmount a ids_contr:LeftOperand;
     rdfs:seeAlso odrl:payAmount;
     rdfs:comment "Monetary amount to pay.";
     dct:identifier "PAY_AMOUNT".
 
-ids_lop:dateTime a ids_lop:LeftOperand;
+ids_contr:dateTime a ids_contr:LeftOperand;
     rdfs:seeAlso odrl:dateTime;
     rdfs:comment "The date (and optional time and timezone) of exercising the action of the Rule.";
     dct:identifier "DATE_TIME".
 
-ids_lop:timeInterval a ids_lop:LeftOperand;
+ids_contr:timeInterval a ids_contr:LeftOperand;
     rdfs:seeAlso odrl:timeInterval;
     rdfs:comment "Recurring Time Interval.";
     dct:identifier "TIME_INTERVAL".
 
-ids_lop:purpose a ids_lop:LeftOperand;
+ids_contr:purpose a ids_contr:LeftOperand;
     rdfs:seeAlso odrl:purpose;
     rdfs:comment "A defined purpose for exercising the action of the Rule.";
     dct:identifier "PURPOSE".
 
-ids_lop:count a ids_lop:LeftOperand;
+ids_contr:count a ids_contr:LeftOperand;
     rdfs:seeAlso odrl:count;
     rdfs:comment "Numeric count of executions of the action of the Rule.";
     dct:identifier "COUNT".
 
-ids_lop:quantity a ids_lop:LeftOperand;
+ids_contr:quantity a ids_contr:LeftOperand;
     rdfs:comment "Quantity limitation for exercising the action of the Rule.";
     dct:identifier "QUANTITY".
 
-ids_lop:recurrenceRate a ids_lop:LeftOperand;
+ids_contr:recurrenceRate a ids_contr:LeftOperand;
     rdfs:comment "The limit how often exercising the action of the Rule may be possible.";
     dct:identifier "RECURRENCE_RATE".

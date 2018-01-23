@@ -5,7 +5,6 @@
 
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
 @prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
-@prefix ids_rule: <https://schema.industrialdataspace.org/rule/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 
@@ -51,12 +50,12 @@ ids_contr:permission rdfs:subPropertyOf odrl:permission;
     a owl:ObjectProperty;
     rdfs:label "permission"@en;
     rdfs:domain ids_contr:ServiceContract;
-    rdfs:range ids_rule:Permission;
+    rdfs:range ids_contr:Permission;
     rdfs:comment "The Permissions granted by a ServiceContract."@en.
 
 ids_contr:prohibition rdfs:subPropertyOf odrl:prohibition;
     a owl:ObjectProperty;
     rdfs:label "prohibition"@en;
     rdfs:domain ids_contr:ServiceContract;
-    rdfs:range ids_rule:Prohibition;
+    rdfs:range ids_contr:Prohibition;
     rdfs:comment "The Prohibitions imposed by a ServiceContract."@en.
