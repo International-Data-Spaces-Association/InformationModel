@@ -41,6 +41,10 @@ ids_base:InfrastructureComponent rdfs:subClassOf ids_base:EntityWithLifecycle;
     ids_rel:validation [
         ids_rel:forProperty ids_base:operator;
         ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_base:supportedIMVersion;
+        ids_rel:relationType ids_rel:OneToMany;
     ].
 
 # Properties of InfrastructureComponent
@@ -73,6 +77,13 @@ ids_base:physicalLocation a owl:ObjectProperty;
     rdfs:range ids_spatial:Location;
     rdfs:comment "The location where the Connector is physically deployed."@en.
 
+ids_base:supportedIMVersion a owl:DatatypeProperty;
+    rdfs:label "supportedIMVersion"@en;
+    ids_doc:labelPluralForm "supportedIMVersions"@en;
+    rdfs:domain ids_base:InfrastructureComponent;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "The versions of the Information Model that are supported by the InfrastructureComponent."@en.
+
 # Properties of EntityWithLifecycle
 # -------------------------------------
 
@@ -95,7 +106,7 @@ ids_base:entityDescription rdfs:subPropertyOf dct:description;
 ids_base:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
     a owl:ObjectProperty;
     rdfs:label "generationActivity"@en;
-    rdfs:domain ids_base:InfrastructureComponent;
+    rdfs:domain ids_base:EntityWithLifecycle;
     rdfs:range ids_activity:CreationActivity;
     rdfs:comment "Activity that led to the generation of the InfrastructureComponent."@en.
 
