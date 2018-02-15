@@ -131,13 +131,6 @@ ids_dep:usagePolicy a owl:ObjectProperty;
     ids_doc:labelPluralForm "usagePolicies"@en;
     rdfs:comment "The ServiceContracts describing usage policies for invoking the Operation."@en.
 
-ids_dep:providedBy a owl:ObjectProperty;
-    rdfs:domain ids_dep:DataEndpoint;
-    rdfs:range ids_dep:Connector;
-    ids_trans:refByURI true;
-    rdfs:label "providedBy"@en;
-    rdfs:comment "The Connector that provides this DataEndpoint."@en.
-
 ids_dep:operation a owl:ObjectProperty;
     rdfs:domain ids_dep:DataEndpoint;
     rdfs:range ids_dep:Operation;
