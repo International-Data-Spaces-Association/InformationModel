@@ -13,6 +13,7 @@
 @prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
 @prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
 @prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
+@prefix ids_opbind: <https://schema.industrialdataspace.org/operationBinding/> .
 
 # Classes
 # -------
@@ -103,7 +104,7 @@ ids_contr:assigner rdfs:subPropertyOf odrl:assigner;
 ids_contr:target rdfs:subPropertyOf odrl:target;
     a owl:ObjectProperty;
     rdfs:domain ids_contr:Rule;
-    rdfs:range ids_dep:Operation;
+    rdfs:range ids_opbind:OperationBinding;
     ids_trans:refByURI true;
     rdfs:label "target"@en;
     rdfs:comment "The operation which is the subject of the policy statement."@en.

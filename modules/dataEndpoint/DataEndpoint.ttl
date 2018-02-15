@@ -8,13 +8,13 @@
 @prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
 @prefix ids_base: <https://schema.industrialdataspace.org/base/> .
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
-@prefix ids_prot: <https://schema.industrialdataspace.org/protocolBinding/> .
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
 @prefix ids_mt: <https://schema.industrialdataspace.org/mediaType/> .
 @prefix ids_dt: <https://schema.industrialdataspace.org/core/parameterDataType/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_opbind: <https://schema.industrialdataspace.org/operationBinding/> .
 
 # Classes
 # -------
@@ -24,22 +24,18 @@ ids_dep:DataEndpoint rdfs:subClassOf ids_base:EntityWithLifecycle;
     rdfs:label "DataEndpoint"@en ;
     rdfs:comment "Data Endpoint that may be invoked to retrieve (via service calls, subscription, etc) or push data."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_dep:usagePolicy;
-        ids_rel:relationType ids_rel:OneToMany;
-    ].
-
-ids_dep:DataService a owl:Class;
-    rdfs:label "DataService"@en ;
-    rdfs:comment "A certain view or interaction ability on the data provided by a DataEndpoint."@en;
-    ids_rel:validation [
         ids_rel:forProperty ids_dep:operation;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_dep:usagePolicy;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
 ids_dep:Operation a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "Operation"@en ;
-    rdfs:comment "An operation to access a DataService, like the retrieval of a filtered subset of the data."@en;
+    rdfs:comment "An operation to access a DataEndpoint, like the retrieval of a filtered subset of the data."@en;
     ids_rel:validation [
         ids_rel:forProperty ids_dep:opLabel;
         ids_rel:constraint ids_rel:NotNull;
@@ -55,6 +51,10 @@ ids_dep:Operation a owl:Class;
     ];
     ids_rel:validation [
         ids_rel:forProperty ids_dep:opDescription;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_opbind:binding;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
@@ -73,22 +73,22 @@ ids_dep:PubSubOperation rdfs:subClassOf ids_dep:Operation;
 ids_dep:ReadOperation rdfs:subClassOf ids_dep:ReqRespOperation;
    a owl:Class;
    rdfs:label "ReadOperation"@en ;
-   rdfs:comment "An operation to access a DataService in a read-only way (pull)."@en.
+   rdfs:comment "An operation to access a DataEndpoint in a read-only way (pull)."@en.
 
 ids_dep:WriteOperation rdfs:subClassOf ids_dep:ReqRespOperation;
    a owl:Class;
    rdfs:label "WriteOperation"@en ;
-   rdfs:comment "An operation to write data to a DataService (push)."@en.
+   rdfs:comment "An operation to write data to a DataEndpoint (push)."@en.
 
 ids_dep:PublishOperation rdfs:subClassOf ids_dep:PubSubOperation;
    a owl:Class;
    rdfs:label "PublishOperation"@en ;
-   rdfs:comment "An operation that publishes data on a DataService for asynchronous retrieval by other clients."@en.
+   rdfs:comment "An operation that publishes data on a DataEndpoint for asynchronous retrieval by other clients."@en.
 
 ids_dep:SubscribeOperation rdfs:subClassOf ids_dep:PubSubOperation;
    a owl:Class;
    rdfs:label "SubscribeOperation"@en ;
-   rdfs:comment "An operation that enables clients to asynchronously retrieve data that has been published to a DataService."@en.
+   rdfs:comment "An operation that enables clients to asynchronously retrieve data that has been published to a DataEndpoint."@en.
 
 ids_dep:Parameter a owl:Class;
     rdfs:label "Parameter"@en ;
@@ -124,17 +124,12 @@ ids_dep:Representation a owl:Class;
 # Properties for describing a DataEndpoint
 # ----------------------------------------
 
-ids_dep:offers a owl:ObjectProperty;
+ids_dep:usagePolicy a owl:ObjectProperty;
     rdfs:domain ids_dep:DataEndpoint;
-    rdfs:range ids_dep:DataService;
-    rdfs:label "offers"@en;
-    rdfs:comment "A DataService that is offered by the DataEndpoint."@en.
-
-ids_dep:protocolBinding a owl:ObjectProperty;
-    rdfs:domain ids_dep:DataEndpoint;
-    rdfs:range ids_prot:ProtocolBinding;
-    rdfs:label "protocolBinding"@en;
-    rdfs:comment "ProtocolBinding to be used for creating access requests to a DataEndpoint using a specific protocol."@en.
+    rdfs:range ids_contr:OfferedContract;
+    rdfs:label "usagePolicy"@en;
+    ids_doc:labelPluralForm "usagePolicies"@en;
+    rdfs:comment "The ServiceContracts describing usage policies for invoking the Operation."@en.
 
 ids_dep:providedBy a owl:ObjectProperty;
     rdfs:domain ids_dep:DataEndpoint;
@@ -143,26 +138,16 @@ ids_dep:providedBy a owl:ObjectProperty;
     rdfs:label "providedBy"@en;
     rdfs:comment "The Connector that provides this DataEndpoint."@en.
 
-ids_dep:usagePolicy a owl:ObjectProperty;
-    rdfs:domain ids_dep:DataEndpoint;
-    rdfs:range ids_contr:OfferedContract;
-    rdfs:label "usagePolicy"@en;
-    ids_doc:labelPluralForm "usagePolicies"@en;
-    rdfs:comment "The ServiceContracts describing usage policies for the DataEndpoint's offerings."@en.
-
-# Properties for describing a DataService
-# ---------------------------------------
-
 ids_dep:operation a owl:ObjectProperty;
-    rdfs:domain ids_dep:DataService;
+    rdfs:domain ids_dep:DataEndpoint;
     rdfs:range ids_dep:Operation;
     rdfs:label "operation"@en;
     ids_doc:labelPluralForm "operations"@en;
-    rdfs:comment "An Operation that can be performed on a DataService."@en.
+    rdfs:comment "An Operation that can be performed on a DataEndpoint."@en.
 
 ids_dep:publishes a owl:ObjectProperty;
     rdfs:label "publishes"@en;
-    rdfs:domain ids_dep:DataService;
+    rdfs:domain ids_dep:DataEndpoint;
     rdfs:range ids_da:DataAsset;
     rdfs:comment "Data Asset published by the Data Service."@en.
 

@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix ids_prot: <https://schema.industrialdataspace.org/protocolBinding/> .
+@prefix ids_opbind: <https://schema.industrialdataspace.org/operationBinding/> .
 @prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
 @prefix ids_http: <https://schema.industrialdataspace.org/httpMethod/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
@@ -15,22 +15,22 @@
 # Classes
 # -------
 
-ids_prot:OperationHttpBinding rdfs:subClassOf ids_prot:OperationBinding;
+ids_opbind:OperationHttpBinding rdfs:subClassOf ids_opbind:OperationBinding;
     a owl:Class ;
     rdfs:label "OperationHttpBinding"@en ;
     rdfs:comment "Binding of a specific operation of an endpoint to the HTTP protocol."@en .
 
-ids_prot:HttpUrlTemplateBindingApproach rdfs:subClassOf ids_prot:BindingApproach;
+ids_opbind:HttpUrlTemplateBindingApproach rdfs:subClassOf ids_opbind:BindingApproach;
     a owl:Class ;
     rdfs:label "HttpUrlTemplateBindingApproach"@en ;
     rdfs:comment "Binding approach using a 1:1 mapping between the parameter's name and a key in the operation's URL template."@en .
 
-ids_prot:HttpHeaderBindingApproach rdfs:subClassOf ids_prot:BindingApproach;
+ids_opbind:HttpHeaderBindingApproach rdfs:subClassOf ids_opbind:BindingApproach;
     a owl:Class ;
     rdfs:label "HttpHeaderBindingApproach"@en ;
     rdfs:comment "Binding approach using a 1:1 mapping between the parameters name and a HTTP header template."@en .
 
-ids_prot:HttpResponseBodyBindingApproach rdfs:subClassOf ids_prot:BindingApproach;
+ids_opbind:HttpResponseBodyBindingApproach rdfs:subClassOf ids_opbind:BindingApproach;
     a owl:Class ;
     rdfs:label "HttpResponseBodyBindingApproach"@en ;
     rdfs:comment "Binding approach using a 1:1 mapping between the parameters name and a HTTP body template."@en .
@@ -38,28 +38,28 @@ ids_prot:HttpResponseBodyBindingApproach rdfs:subClassOf ids_prot:BindingApproac
 # Properties
 # ----------
 
-ids_prot:httpMethod
+ids_opbind:httpMethod
     a owl:ObjectProperty ;
     rdfs:label "httpMethod"@en ;
-    rdfs:domain ids_prot:OperationHttpBinding ;
+    rdfs:domain ids_opbind:OperationHttpBinding ;
     rdfs:range ids_http:HttpMethod;
     rdfs:comment "Defines the method of an operation."@en .
 
-ids_prot:urlTemplate
+ids_opbind:urlTemplate
     a owl:DatatypeProperty;
     rdfs:label "urlTemplate"@en;
-    rdfs:domain ids_prot:OperationHttpBinding;
+    rdfs:domain ids_opbind:OperationHttpBinding;
     rdfs:range xsd:string;
     rdfs:comment "URL template for invoking the operation including all its possible parameters. Structured string literal containing distinguished placeholders to be replaced by runtime arguments, see for example URI Templates (RFC 6570)." .
 
-ids_prot:httpHeaderLine a owl:DatatypeProperty;
+ids_opbind:httpHeaderLine a owl:DatatypeProperty;
     rdfs:label "httpHeaderLine"@en ;
-    rdfs:domain ids_prot:HttpHeaderBindingApproach ;
+    rdfs:domain ids_opbind:HttpHeaderBindingApproach ;
     rdfs:range xsd:string ;
     rdfs:comment "A HTTP header line in the form key : value(s); may contains a placeholder which maps to the parameter's label."@en .
 
-ids_prot:httpBodyContent a owl:DatatypeProperty;
+ids_opbind:httpBodyContent a owl:DatatypeProperty;
     rdfs:label "httpBodyContent"@en ;
-    rdfs:domain ids_prot:HttpResponseBodyBindingApproach ;
+    rdfs:domain ids_opbind:HttpResponseBodyBindingApproach ;
     rdfs:range xsd:string ;
     rdfs:comment "HTTP body that may contains a placeholder which maps to the parameter's label."@en .
