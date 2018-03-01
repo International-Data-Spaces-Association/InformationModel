@@ -285,11 +285,17 @@ ids_dep:conformsToStandard a owl:DatatypeProperty;
     rdfs:label "conformsToStandard"@en;
     rdfs:comment "The standard the Representation conforms to."@en.
 
-ids_dep:conformsToStructure a owl:DatatypeProperty;
+ids_dep:schemaLink a owl:DatatypeProperty;
     rdfs:domain ids_dep:Representation;
     rdfs:range xsd:anyURI;
-    rdfs:label "conformsToStructure"@en;
+    rdfs:label "schemaLink"@en;
     rdfs:comment "Links to a document that contains additional information like class and type descriptions or integrity constraints describing the Representation's structure."@en.
+
+ids_dep:schemaDefinition a owl:DatatypeProperty;
+    rdfs:domain ids_dep:Representation;
+    rdfs:range xsd:string;
+    rdfs:label "schemaDefinition"@en;
+    rdfs:comment "Formal definition of the Representation's structure, matching its data and media type (e.g, JSON Schema or XSD)."@en.
 
 ids_dep:transformationRule a owl:DatatypeProperty;
     rdfs:domain ids_dep:Representation;
