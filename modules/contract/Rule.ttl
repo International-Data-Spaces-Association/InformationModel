@@ -14,6 +14,9 @@
 @prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
 @prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
 @prefix ids_opbind: <https://schema.industrialdataspace.org/operationBinding/> .
+@prefix ids_vis: <https://schema.iais.fraunhofer.de/ids/helper/visualization/> .
+@prefix ids_views: <https://schema.industrialdataspace.org/views/> .
+@prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
 
 # Classes
 # -------
@@ -23,6 +26,7 @@ ids_contr:Rule rdfs:subClassOf odrl:Rule;
     ids_trans:isAbstract true;
     rdfs:label "Rule"@en;
     rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en;
+    ids_vis:belongsToPackage ids_views:UsageControl;
     ids_rel:validation [
         ids_rel:forProperty ids_contr:ruleDescription;
         ids_rel:relationType ids_rel:OneToMany;
@@ -80,7 +84,7 @@ ids_contr:action rdfs:subPropertyOf odrl:action;
 ids_contr:assignee rdfs:subPropertyOf odrl:assignee;
     a owl:ObjectProperty;
     rdfs:domain ids_contr:Rule;
-    rdfs:range ids_contr:Participant;
+    rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
     rdfs:label "assignee"@en;
     ids_doc:labelPluralForm "assignees"@en;
@@ -95,7 +99,7 @@ ids_contr:useAssigneeComplement a owl:DatatypeProperty;
 ids_contr:assigner rdfs:subPropertyOf odrl:assigner;
     a owl:ObjectProperty;
     rdfs:domain ids_contr:Rule;
-    rdfs:range ids_contr:Participant;
+    rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
     rdfs:label "assigner"@en;
     ids_doc:labelPluralForm "assigners"@en;
