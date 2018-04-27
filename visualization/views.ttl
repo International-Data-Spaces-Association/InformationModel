@@ -1,0 +1,59 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix ids_views: <https://schema.industrialdataspace.org/views/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_vis: <https://schema.iais.fraunhofer.de/ids/helper/visualization/> .
+
+# Classes
+# -------
+
+ids_views:FunctionalView a ids_vis:View;
+    rdfs:label "Functional View"@en ;
+    rdfs:comment "A view that divides the Information Model into higher-level modules related to their main functionality and intent."@en.
+
+ids_views:Actor a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Actor"@en ;
+    rdfs:comment "A package that contains the stakeholders of the IDS."@en.
+
+ids_views:Infrastructure a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Infrastructure"@en ;
+    rdfs:comment "A package that holds classes describing IDS infrastructure."@en.
+
+ids_views:Legal a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Legal"@en ;
+    rdfs:comment "A package that holds classes describing legal aspects such as contracts."@en.
+
+ids_views:DataDescription a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Data Description"@en ;
+    rdfs:comment "A package that holds classes describing data offerings."@en.
+
+ids_views:ServiceDescription a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Service Description"@en ;
+    rdfs:comment "A package that holds classes describing service offerings."@en.
+
+ids_views:UsageControl a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Usage Control"@en ;
+    rdfs:comment "A package that holds classes describing aspects of usage control."@en.
+
+ids_views:Interaction a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Interaction"@en ;
+    rdfs:comment "A package that holds classes related to interaction with the IDS."@en.
+
+ids_views:DynamicAspects a ids_vis:Package;
+    ids_vis:belongsToView ids_views:FunctionalView;
+    rdfs:label "Dynamic Aspects"@en ;
+    rdfs:comment "A package that holds classes related to the data flow on the IDS."@en.
