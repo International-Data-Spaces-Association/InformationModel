@@ -12,6 +12,7 @@
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
 
 # Classes
 # -------
@@ -54,21 +55,21 @@ ids_base:InfrastructureComponent rdfs:subClassOf ids_base:EntityWithLifecycle;
 ids_base:maintainer a owl:ObjectProperty;
     rdfs:label "maintainer"@en;
     rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_base:Participant;
+    rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
     rdfs:comment "Participant responsible for maintaining the InfrastructureComponent."@en.
 
 ids_base:operator a owl:ObjectProperty;
     rdfs:label "operator"@en;
     rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_base:Participant;
+    rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
     rdfs:comment "Participant responsible for operating the InfrastructureComponent."@en.
 
 ids_base:owner a owl:ObjectProperty;
     rdfs:label "owner"@en;
     rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_base:Participant;
+    rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
     rdfs:comment "Participant owning the InfrastructureComponent."@en.
 

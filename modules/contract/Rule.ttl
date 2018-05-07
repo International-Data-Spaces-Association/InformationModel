@@ -14,6 +14,7 @@
 @prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
 @prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
 @prefix ids_opbind: <https://schema.industrialdataspace.org/operationBinding/> .
+@prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
 
 # Classes
 # -------
@@ -80,7 +81,7 @@ ids_contr:action rdfs:subPropertyOf odrl:action;
 ids_contr:assignee rdfs:subPropertyOf odrl:assignee;
     a owl:ObjectProperty;
     rdfs:domain ids_contr:Rule;
-    rdfs:range ids_contr:Participant;
+    rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
     rdfs:label "assignee"@en;
     ids_doc:labelPluralForm "assignees"@en;
@@ -95,7 +96,7 @@ ids_contr:useAssigneeComplement a owl:DatatypeProperty;
 ids_contr:assigner rdfs:subPropertyOf odrl:assigner;
     a owl:ObjectProperty;
     rdfs:domain ids_contr:Rule;
-    rdfs:range ids_contr:Participant;
+    rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
     rdfs:label "assigner"@en;
     ids_doc:labelPluralForm "assigners"@en;
