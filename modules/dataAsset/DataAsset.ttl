@@ -5,6 +5,7 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_content: <https://schema.industrialdataspace.org/content/Content> .
 @prefix ids_base: <https://schema.industrialdataspace.org/base/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
@@ -37,7 +38,7 @@ ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
 ids_da:content a owl:ObjectProperty;
     rdfs:label "content"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:Content;
+    rdfs:range ids_content:Content;
     rdfs:comment "Describes the content of the DataAsset."@en.
 
 ids_da:commodity a owl:ObjectProperty;

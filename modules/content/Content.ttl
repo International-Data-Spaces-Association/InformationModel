@@ -1,0 +1,90 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix ids_content: <https://schema.industrialdataspace.org/content/Content> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+
+# Classes
+# -------
+
+ids_content:Content a owl:Class;
+    rdfs:label "Content"@en;
+    rdfs:comment "Class of descriptions of a Resource per-se (data set, app)."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_content:coversLanguage;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_content:keyword;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
+
+ids_content:Kind a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "Kind"@en;
+    rdfs:comment "Class of different kinds of DataAssets, regarding, e.g., their organization or update policy."@en.
+
+ids_content:Collection rdfs:subClassOf ids_content:Kind;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "Collection"@en;
+    rdfs:comment "Class of Collections to organize DataAssets."@en.
+
+ids_content:List rdfs:subClassOf ids_content:Collection;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "List"@en;
+    rdfs:comment "Class of Lists to organize DataAssets."@en.
+
+ids_content:Map rdfs:subClassOf ids_content:Collection;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "Map"@en;
+    rdfs:comment "Class of Maps to organize DataAssets."@en.
+
+ids_content:Key
+
+ids_content:Value
+
+ids_content:OrderPolicy
+    true, false, ascending, descending
+
+ids_content:UpdatePolicy
+    frequency
+
+# Properties
+# ----------
+
+ids_content:coversLanguage a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:language;
+    rdfs:label "coversLanguage"@en;
+    ids_doc:labelPluralForm "coversLanguages"@en;
+    rdfs:domain ids_content:Content;
+    rdfs:range ids_lang:Language;
+    ids_trans:refByURI true;
+    rdfs:comment "States the languages that are used by the content of the DataAsset."@en.
+
+ids_content:origin a owl:DatatypeProperty;
+    rdfs:label "origin"@en;
+    rdfs:domain ids_content:Content;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.
+
+# describes key semantics
+ids_content:key
+    semantics: one of string, hash, date, "weather station id", binary
+
+# describes value semantics
+ids_content:member
+    domain: kind
+    semantics: same as key semantics
+
+ids_content:homogenous
+    domain: collection
+    range: boolean
+
