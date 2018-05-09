@@ -2,20 +2,22 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
 @prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_lc: <https://schema.industrialdataspace.org/license/> .
 
 # Classes
 # -------
 
-ids_contr:ServiceContract rdfs:subClassOf odrl:Policy;
+ids_contr:Contract rdfs:subClassOf odrl:Policy;
     a owl:Class;
-    rdfs:label "ServiceContract"@en ;
+    rdfs:label "Contract"@en ;
     ids_trans:isAbstract true;
-    rdfs:comment "A service contract that contains rules for using a resource.";
+    rdfs:comment "Legal agreement and selection of a particular resource configuration.";
     ids_rel:validation [
         ids_rel:forProperty ids_contr:permission;
         ids_rel:relationType ids_rel:OneToMany;
@@ -25,23 +27,38 @@ ids_contr:ServiceContract rdfs:subClassOf odrl:Policy;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_contr:AgreedContract rdfs:subClassOf ids_contr:ServiceContract;
+ids_contr:AgreedContract rdfs:subClassOf ids_contr:Contract;
     rdfs:subClassOf odrl:Agreement;
     a owl:Class;
     rdfs:label "AgreedContract"@en ;
     rdfs:comment "A service contract that has been agreed upon by parties.".
 
-ids_contr:OfferedContract rdfs:subClassOf ids_contr:ServiceContract;
+ids_contr:OfferedContract rdfs:subClassOf ids_contr:Contract;
     rdfs:subClassOf odrl:Offer;
     a owl:Class;
     rdfs:label "OfferedContract"@en ;
     rdfs:comment "An service contract that is offered for acceptance by requesting parties."@en.
 
-# Properties of ServiceContract
-# -----------------------------
+# Properties of Contract
+# ----------------------
+
+ids_contr:licenseDocument rdfs:subPropertyOf dct:license;
+    a owl:ObjectProperty;
+    rdfs:label "licenseDocument"@en;
+    rdfs:domain ids_contr:Contract;
+    rdfs:range ids_lc:LicenseDocument;
+    ids_trans:refByURI true;
+    rdfs:comment "License the contract offers or refers to."@en.
+
+ids_contr:licenseReference rdfs:subPropertyOf dct:license;
+    a owl:DatatypeProperty;
+    rdfs:label "licenseReference"@en;
+    rdfs:domain ids_contr:Contract;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "References a license document that is publicly available on the Web."@en.
 
 ids_contr:contractDuration a owl:ObjectProperty;
-    rdfs:domain ids_contr:ServiceContract;
+    rdfs:domain ids_contr:Contract;
     rdfs:range ids_temp:TemporalEntity;
     rdfs:label "contractDuration"@en;
     rdfs:comment "The duration for which the ServiceContract is valid."@en.
@@ -49,13 +66,13 @@ ids_contr:contractDuration a owl:ObjectProperty;
 ids_contr:permission rdfs:subPropertyOf odrl:permission;
     a owl:ObjectProperty;
     rdfs:label "permission"@en;
-    rdfs:domain ids_contr:ServiceContract;
+    rdfs:domain ids_contr:Contract;
     rdfs:range ids_contr:Permission;
     rdfs:comment "The Permissions granted by a ServiceContract."@en.
 
 ids_contr:prohibition rdfs:subPropertyOf odrl:prohibition;
     a owl:ObjectProperty;
     rdfs:label "prohibition"@en;
-    rdfs:domain ids_contr:ServiceContract;
+    rdfs:domain ids_contr:Contract;
     rdfs:range ids_contr:Prohibition;
     rdfs:comment "The Prohibitions imposed by a ServiceContract."@en.
