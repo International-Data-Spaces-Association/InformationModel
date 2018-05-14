@@ -1,0 +1,40 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ids_content: <https://schema.industrialdataspace.org/content/Content> .
+
+# Classes
+# -------
+
+ids_content:KindSemantics a owl:Class;
+    rdfs:label "KindSemantics"@en ;
+    rdfs:comment "The class of defined high-level semantics for DataAsset Kindsorder policies of Collections.".
+
+ids_content:CoreKindSemantics rdfs:subClassOf ids_content:KindSemantics;
+    rdfs:label "CoreKindSemantics"@en ;
+    rdfs:comment "The class of KindSemantics defined in the core information model.".
+
+# Instances
+# ---------
+
+ids_content:hash a ids_content:CoreKindSemantics;
+    rdfs:comment "hash";
+    dct:identifier "HASH".
+
+ids_content:date a ids_content:OrderPolicy;
+    rdfs:comment "date";
+    dct:identifier "DATE".
+
+ids_content:textual a ids_content:OrderPolicy;
+    rdfs:comment "textual";
+    dct:identifier "TEXTUAL".
+
+ids_content:binary a ids_content:OrderPolicy;
+    rdfs:comment "binary";
+    dct:identifier "BINARY".
+
+ids_content:sensor a ids_content:OrderPolicy;
+    rdfs:comment "sensor measurement";
+    dct:identifier "SENSOR_MEASUREMENT".
+

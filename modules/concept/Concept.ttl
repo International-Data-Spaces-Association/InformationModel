@@ -3,6 +3,7 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix ids_concept: <https://schema.industrialdataspace.org/concept/> .
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
@@ -12,25 +13,25 @@
 # Classes
 # -------
 
-ids_da:Concept a owl:Class;
+ids_concept:Concept a owl:Class;
     rdfs:label "Concept"@en;
-    rdfs:comment "References entry points to taxonomies of shared concepts (SKOS), e.g. Factory -> Automotive Factory."@en.
+    rdfs:comment "Class of References to entry points to taxonomies of shared concepts (SKOS), e.g. Factory -> Automotive Factory."@en.
 
 # Properties
 # ----------
 
-ids_da:coversCategory a owl:ObjectProperty;
+ids_concept:coversCategory a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:theme;
     rdfs:label "coversCategory"@en;
     ids_doc:labelPluralForm "coversCategories"@en;
-    rdfs:domain ids_da:Concept;
+    rdfs:domain ids_concept:Concept;
     rdfs:range xsd:anyURI;
     rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the DataAsset."@en.
 
-ids_da:keyword a owl:DatatypeProperty;
+ids_concept:keyword a owl:DatatypeProperty;
     rdfs:subPropertyOf dcat:theme;
     rdfs:label "keyword"@en;
     ids_doc:labelPluralForm "keywords"@en;
-    rdfs:domain ids_da:Concept;
+    rdfs:domain ids_concept:Concept;
     rdfs:range xsd:anyURI;
     rdfs:comment "Links to an item in a flat list of controlled keywords that describe content-related coverage of the DataAsset."@en.

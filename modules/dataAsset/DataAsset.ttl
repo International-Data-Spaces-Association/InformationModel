@@ -5,6 +5,7 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_concept: <https://schema.industrialdataspace.org/concept/> .
 @prefix ids_content: <https://schema.industrialdataspace.org/content/Content> .
 @prefix ids_base: <https://schema.industrialdataspace.org/base/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
@@ -56,7 +57,7 @@ ids_da:communication a owl:ObjectProperty;
 ids_da:concept a owl:ObjectProperty;
     rdfs:label "concept"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:Concept;
+    rdfs:range ids_concept:Concept;
     rdfs:comment "Describes the concept facet of the DataAsset, i.e. how it can be categorized."@en.
 
 ids_da:contract a owl:ObjectProperty;

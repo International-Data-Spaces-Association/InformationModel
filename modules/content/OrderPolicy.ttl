@@ -1,0 +1,27 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ids_content: <https://schema.industrialdataspace.org/content/Content> .
+
+# Classes
+# -------
+
+ids_content:OrderPolicy a owl:Class;
+    rdfs:label "OrderPolicy"@en ;
+    rdfs:comment "The class of predefined order policies of Collections.".
+
+# Instances
+# ---------
+
+ids_content:ascending a ids_content:OrderPolicy;
+    rdfs:comment "ascending";
+    dct:identifier "ASCENDING".
+
+ids_content:descending a ids_content:OrderPolicy;
+    rdfs:comment "descending";
+    dct:identifier "DESCENDING".
+
+ids_content:unordered a ids_content:OrderPolicy;
+    rdfs:comment "unordered";
+    dct:identifier "UNORDERED".
