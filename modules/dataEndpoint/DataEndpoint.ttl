@@ -117,10 +117,6 @@ ids_dep:Fault rdfs:subClassOf ids_dep:OutputParameter;
     rdfs:label "Fault"@en ;
     rdfs:comment "Result on Operation failure."@en.
 
-ids_dep:Representation a owl:Class;
-    rdfs:label "Representation"@en ;
-    rdfs:comment "Describes how a Parameter's value is represented."@en.
-
 # Properties for describing a DataEndpoint
 # ----------------------------------------
 
@@ -227,62 +223,3 @@ ids_dep:semanticType a owl:DatatypeProperty;
     rdfs:range xsd:anyURI;
     rdfs:label "semanticType"@en;
     rdfs:comment "Links to a description of the Parameter's semantics, preferably expressed as Linked Data."@en.
-
-ids_dep:representation a owl:ObjectProperty;
-    rdfs:domain ids_dep:Parameter;
-    rdfs:range ids_dep:Representation;
-    rdfs:label "representation"@en;
-    rdfs:comment "The Representation of the Parameter's value."@en.
-
-# Properties for describing a Representation
-# ------------------------------------------
-
-ids_dep:dataType a owl:ObjectProperty;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range ids_dt:ParameterDataType;
-    rdfs:label "dataType"@en;
-    rdfs:comment "Indicates the datatype of the Parameter."@en.
-
-ids_dep:format rdfs:subPropertyOf dct:format;
-    a owl:DatatypeProperty;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range xsd:string;
-    rdfs:label "format"@en;
-    rdfs:comment "The file format of the Representation. ids_dep:mediaType SHOULD be used if the type of the distribution is defined by IANA."@en.
-
-ids_dep:mediaType rdfs:subPropertyOf dcat:mediaType;
-    a owl:ObjectProperty;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range ids_mt:IANAMediaType;
-    rdfs:label "mediaType"@en;
-    rdfs:comment "The media type of the Representation, as defined by IANA."@en.
-
-ids_dep:conformsToStandard a owl:DatatypeProperty;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range xsd:anyURI;
-    rdfs:label "conformsToStandard"@en;
-    rdfs:comment "The standard the Representation conforms to."@en.
-
-ids_dep:schemaLink a owl:DatatypeProperty;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range xsd:anyURI;
-    rdfs:label "schemaLink"@en;
-    rdfs:comment "Links to a document that contains additional information like class and type descriptions or integrity constraints describing the Representation's structure."@en.
-
-ids_dep:schemaDefinition a owl:DatatypeProperty;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range xsd:string;
-    rdfs:label "schemaDefinition"@en;
-    rdfs:comment "Formal definition of the Representation's structure, matching its data and media type (e.g, JSON Schema or XSD)."@en.
-
-ids_dep:transformationRule a owl:DatatypeProperty;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range xsd:anyURI;
-    rdfs:label "transformationRule"@en;
-    rdfs:comment "Links to a document that contains rules or algorithms to transform the Representation into another syntactic format."@en.
-
-ids_dep:volume a owl:DatatypeProperty;
-    rdfs:label "volume"@en;
-    rdfs:domain ids_dep:Representation;
-    rdfs:range xsd:long;
-    rdfs:comment "The total uncompressed size of a Representation in MB."@en.

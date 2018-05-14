@@ -41,13 +41,11 @@ ids_content:Collection rdfs:subClassOf ids_content:Kind;
 
 ids_content:List rdfs:subClassOf ids_content:Collection;
     a owl:Class;
-    ids_trans:isAbstract true;
     rdfs:label "List"@en;
     rdfs:comment "Class of Lists to organize DataAssets."@en.
 
 ids_content:Map rdfs:subClassOf ids_content:Collection;
     a owl:Class;
-    ids_trans:isAbstract true;
     rdfs:label "Map"@en;
     rdfs:comment "Class of Maps to organize DataAssets."@en.
 
@@ -82,6 +80,12 @@ ids_content:kind a owl:ObjectProperty;
     rdfs:label "kind"@en;
     rdfs:domain ids_content:Content;
     rdfs:range ids_content:Kind;
+    rdfs:comment "Describes the Content's Kind."@en.
+
+ids_content:representation a owl:ObjectProperty;
+    rdfs:label "representation"@en;
+    rdfs:domain ids_content:Kind;
+    rdfs:range ids_content:Representation;
     rdfs:comment "Describes the Content's Kind."@en.
 
 ids_content:key a owl:ObjectProperty;
