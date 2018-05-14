@@ -1,0 +1,25 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix ids_comm: <https://schema.industrialdataspace.org/communication/> .
+
+# Classes
+# -------
+
+ids_comm:Protocol a owl:Class;
+    rdfs:label "Protocol"@en ;
+    rdfs:comment "Class of protocols supported by a Service.".
+
+# Instances
+# ---------
+
+ids_comm:http a ids_comm:Protocol;
+    rdfs:seeAlso <https://tools.ietf.org/html/rfc2616>;
+    rdfs:comment "Hypertext Transfer Protocol";
+    dct:identifier "HTTP".
+
+ids_comm:mqtt a ids_comm:Protocol;
+    rdfs:comment "Message Queuing Telemetry Transport";
+    dct:identifier "MQTT".
