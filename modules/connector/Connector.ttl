@@ -23,7 +23,7 @@ ids_conn:Connector rdfs:subClassOf ids_base:InfrastructureComponent;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_comm:Resource a owl:Class;
+ids_conn:Resource a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "Resource"@en ;
     rdfs:comment "Superclass of resources that can be provided by a Connector."@en.
@@ -41,7 +41,7 @@ ids_conn:AuthInfo a owl:Class;
 
 ids_conn:provides a owl:ObjectProperty;
     rdfs:domain ids_conn:Connector;
-    rdfs:range ids_comm:Resource;
+    rdfs:range ids_conn:Resource;
     rdfs:label "provides"@en;
     rdfs:comment "The Resources provided by a Connector."@en.
 

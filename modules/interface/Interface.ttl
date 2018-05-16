@@ -4,10 +4,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
-@prefix ids_comm: <https://schema.industrialdataspace.org/communication/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
 
 # Classes
 # -------
@@ -16,11 +17,11 @@ ids_int:Interface a owl:Class;
     rdfs:label "Interface"@en;
     rdfs:comment "Conceptualization of the interchange of digital artifacts as a set of uniform operations (interactions primitives)."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:operation;
+        ids_rel:forProperty ids_int:operation;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:binding;
+        ids_rel:forProperty ids_int:binding;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
@@ -28,60 +29,64 @@ ids_int:Interface a owl:Class;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_comm:DataService a owl:Class;
+ids_int:DataService a owl:Class;
     rdfs:label "DataService"@en;
-    rdfs:comment "Class of Services to invoke an Interface."@en.
+    rdfs:comment "Class of Services to invoke an Interface."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_int:binding;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
 
-ids_comm:Operation a owl:Class;
+ids_int:Operation a owl:Class;
     rdfs:label "Operation"@en;
     rdfs:comment "Building block of an Interface; describes the interaction by defining input, output and error parameters."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:opLabel;
+        ids_rel:forProperty ids_int:opLabel;
         ids_rel:constraint ids_rel:NotNull;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:opDescription;
+        ids_rel:forProperty ids_int:opDescription;
         ids_rel:relationType ids_rel:OneToMany;
         ids_rel:constraint ids_rel:NotNull;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:input;
+        ids_rel:forProperty ids_int:input;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:output;
+        ids_rel:forProperty ids_int:output;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:opDescription;
+        ids_rel:forProperty ids_int:opDescription;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_comm:Parameter a owl:Class;
+ids_int:Parameter a owl:Class;
     rdfs:label "Parameter"@en ;
     rdfs:comment "Parameter to interact with an Interface, i.e., input, output or fault (exception)."@en;
     ids_trans:isAbstract true;
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:paramLabel;
+        ids_rel:forProperty ids_int:paramLabel;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:paramDescription;
+        ids_rel:forProperty ids_int:paramDescription;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_comm:InputParameter rdfs:subClassOf ids_comm:Parameter;
+ids_int:InputParameter rdfs:subClassOf ids_int:Parameter;
     a owl:Class;
     rdfs:label "InputParameter"@en ;
     rdfs:comment "Input Parameter to control an Operation."@en.
 
-ids_comm:OutputParameter rdfs:subClassOf ids_comm:Parameter;
+ids_int:OutputParameter rdfs:subClassOf ids_int:Parameter;
     a owl:Class;
     rdfs:label "OutputParameter"@en ;
     rdfs:comment "Result of an Operation."@en.
 
-ids_comm:Fault rdfs:subClassOf ids_comm:OutputParameter;
+ids_int:Fault rdfs:subClassOf ids_int:OutputParameter;
     a owl:Class;
     rdfs:label "Fault"@en ;
     rdfs:comment "Result on Operation failure."@en.
@@ -89,70 +94,79 @@ ids_comm:Fault rdfs:subClassOf ids_comm:OutputParameter;
 # Properties for describing an Interface
 # --------------------------------------
 
-ids_comm:operation a owl:ObjectProperty;
-    rdfs:domain ids_comm:Interface;
-    rdfs:range ids_comm:Operation;
+ids_int:operation a owl:ObjectProperty;
+    rdfs:domain ids_int:Interface;
+    rdfs:range ids_int:Operation;
     rdfs:label "operation"@en;
     ids_doc:labelPluralForm "operations"@en;
     rdfs:comment "Declares Operations Interfaces to access a DataAsset."@en.
 
-ids_comm:service a owl:ObjectProperty;
-    rdfs:domain ids_comm:Interface;
-    rdfs:range ids_comm:DataService;
+ids_int:service a owl:ObjectProperty;
+    rdfs:domain ids_int:Interface;
+    rdfs:range ids_int:DataService;
     rdfs:label "service"@en;
     ids_doc:labelPluralForm "services"@en;
     rdfs:comment "Links to executable services for calling an Interface."@en.
 
-ids_comm:binding a owl:ObjectProperty;
-    rdfs:domain ids_comm:Interface;
-    rdfs:range ids_comm:ProtocolBinding;
-    rdfs:label "binding"@en;
-    ids_doc:labelPluralForm "bindings"@en;
-    rdfs:comment "Links to the protocol bindings which define how to technically invoke the Interface."@en.
+ids_int:contract a owl:ObjectProperty;
+    rdfs:domain ids_int:Interface;
+    rdfs:range ids_contr:Contract;
+    rdfs:label "contract"@en;
+    ids_doc:labelPluralForm "contracts"@en;
+    rdfs:comment "The Contract regulating usage of the Interface."@en.
 
 ids_int:implementedBy a owl:ObjectProperty;
-    rdfs:domain ids_comm:Interface;
+    rdfs:domain ids_int:Interface;
     rdfs:range ids_int:DataService;
     rdfs:label "implementedBy"@en;
     ids_doc:labelPluralForm "bindings"@en;
     rdfs:comment "Service that technically implements the Interface."@en.
 
+# Properties for describing a DataService
+# ---------------------------------------
+
+ids_int:binding a owl:ObjectProperty;
+    rdfs:domain ids_int:DataService;
+    rdfs:range ids_int:ProtocolBinding;
+    rdfs:label "binding"@en;
+    ids_doc:labelPluralForm "bindings"@en;
+    rdfs:comment "Links to the protocol bindings which define how to technically invoke the Service."@en.
 
 # Properties for describing an Operation
 # --------------------------------------
 
-ids_comm:input a owl:ObjectProperty;
-    rdfs:domain ids_comm:Operation;
-    rdfs:range ids_comm:InputParameter;
+ids_int:input a owl:ObjectProperty;
+    rdfs:domain ids_int:Operation;
+    rdfs:range ids_int:InputParameter;
     rdfs:label "input"@en;
     ids_doc:labelPluralForm "inputs"@en;
     rdfs:comment "Parameterizes the input of an Operation."@en.
 
-ids_comm:output a owl:ObjectProperty;
-    rdfs:domain ids_comm:Operation;
-    rdfs:range ids_comm:OutputParameter;
+ids_int:output a owl:ObjectProperty;
+    rdfs:domain ids_int:Operation;
+    rdfs:range ids_int:OutputParameter;
     rdfs:label "output"@en;
     ids_doc:labelPluralForm "outputs"@en;
     rdfs:comment "Holds the result of an Operation."@en.
 
-ids_comm:fault a owl:ObjectProperty;
-    rdfs:domain ids_comm:Operation;
-    rdfs:range ids_comm:Fault;
+ids_int:fault a owl:ObjectProperty;
+    rdfs:domain ids_int:Operation;
+    rdfs:range ids_int:Fault;
     rdfs:label "fault"@en;
     ids_doc:labelPluralForm "faults"@en;
     rdfs:comment "Holds information when an Operation has failed."@en.
 
-ids_comm:opLabel rdfs:subPropertyOf rdfs:label;
+ids_int:opLabel rdfs:subPropertyOf rdfs:label;
     a owl:DatatypeProperty;
-    rdfs:domain ids_comm:Operation;
+    rdfs:domain ids_int:Operation;
     rdfs:range rdf:PlainLiteral;
     ids_doc:labelPluralForm "opLabels"@en;
     rdfs:label "opLabel"@en;
     rdfs:comment "Freetext label of the Operation as it should be shown in public indexes."@en.
 
-ids_comm:opDescription rdfs:subPropertyOf dct:description;
+ids_int:opDescription rdfs:subPropertyOf dct:description;
     a owl:DatatypeProperty;
-    rdfs:domain ids_comm:Operation;
+    rdfs:domain ids_int:Operation;
     rdfs:range rdf:PlainLiteral;
     ids_doc:labelPluralForm "opDescriptions"@en;
     rdfs:label "opDescription"@en;
@@ -161,24 +175,24 @@ ids_comm:opDescription rdfs:subPropertyOf dct:description;
 # Properties for describing a Parameter
 # -------------------------------------
 
-ids_comm:paramLabel rdfs:subPropertyOf rdfs:label;
+ids_int:paramLabel rdfs:subPropertyOf rdfs:label;
     a owl:DatatypeProperty;
-    rdfs:domain ids_comm:Parameter;
+    rdfs:domain ids_int:Parameter;
     rdfs:range rdf:PlainLiteral;
     rdfs:label "paramLabel"@en;
     ids_doc:labelPluralForm "paramLabels"@en;
     rdfs:comment "Freetext label of the Parameter as it should be shown in public indexes."@en.
 
-ids_comm:paramName rdfs:subPropertyOf dct:identifier;
+ids_int:paramName rdfs:subPropertyOf dct:identifier;
     a owl:DatatypeProperty;
-    rdfs:domain ids_comm:Parameter;
+    rdfs:domain ids_int:Parameter;
     rdfs:range xsd:string;
     rdfs:label "paramName"@en;
     rdfs:comment "Name of the Parameter as it must be used in service requests."@en.
 
-ids_comm:paramDescription rdfs:subPropertyOf dct:description;
+ids_int:paramDescription rdfs:subPropertyOf dct:description;
     a owl:DatatypeProperty;
-    rdfs:domain ids_comm:Parameter;
+    rdfs:domain ids_int:Parameter;
     rdfs:range rdf:PlainLiteral;
     rdfs:label "paramDescription"@en;
     ids_doc:labelPluralForm "paramDescriptions"@en;

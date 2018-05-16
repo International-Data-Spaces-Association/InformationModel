@@ -7,78 +7,79 @@
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 
 # Classes
 # -------
 
-ids_content:Kind a owl:Class;
+ids_rep:Kind a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "Kind"@en;
     rdfs:comment "Class of different kinds of DataAssets, regarding, e.g., their organization or update policy."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_content:kindSemantics;
+        ids_rel:forProperty ids_rep:kindSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_content:Collection rdfs:subClassOf ids_content:Kind;
+ids_rep:Collection rdfs:subClassOf ids_rep:Kind;
     a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "Collection"@en;
     rdfs:comment "Class of Collections to organize DataAssets."@en.
 
-ids_content:List rdfs:subClassOf ids_content:Collection;
+ids_rep:List rdfs:subClassOf ids_rep:Collection;
     a owl:Class;
     rdfs:label "List"@en;
     rdfs:comment "Class of Lists to organize DataAssets."@en.
 
-ids_content:Map rdfs:subClassOf ids_content:Collection;
+ids_rep:Map rdfs:subClassOf ids_rep:Collection;
     a owl:Class;
     rdfs:label "Map"@en;
     rdfs:comment "Class of Maps to organize DataAssets."@en.
 
-ids_content:Value rdfs:subClassOf ids_content:Kind;
+ids_rep:Value rdfs:subClassOf ids_rep:Kind;
     a owl:Class;
     rdfs:label "Value"@en;
     rdfs:comment "General class describing values provided by a DataAsset."@en.
 
-ids_content:UpdatePolicy a owl:Class;
+ids_rep:UpdatePolicy a owl:Class;
     rdfs:label "UpdatePolicy"@en;
     rdfs:comment "Class of defined change frequencies for DataAssets."@en.
 
 # Properties
 # ----------
 
-ids_content:key a owl:ObjectProperty;
+ids_rep:key a owl:ObjectProperty;
     rdfs:label "key"@en;
-    rdfs:domain ids_content:Map;
-    rdfs:range ids_content:Kind;
+    rdfs:domain ids_rep:Map;
+    rdfs:range ids_rep:Kind;
     rdfs:comment "Describes the type of the key that indexes a Map."@en.
 
-ids_content:member a owl:ObjectProperty;
+ids_rep:member a owl:ObjectProperty;
     rdfs:label "member"@en;
-    rdfs:domain ids_content:List;
-    rdfs:range ids_content:Kind;
+    rdfs:domain ids_rep:List;
+    rdfs:range ids_rep:Kind;
     rdfs:comment "Describes the members of a List."@en.
 
-ids_content:homogenous a owl:DatatypeProperty;
+ids_rep:homogenous a owl:DatatypeProperty;
     rdfs:label "homogenous"@en;
-    rdfs:domain ids_content:Collection;
+    rdfs:domain ids_rep:Collection;
     rdfs:range xsd:boolean;
     rdfs:comment "Indicates homogenous datatypes for all collection members."@en.
 
-ids_content:kindSemantics a owl:ObjectProperty;
+ids_rep:kindSemantics a owl:ObjectProperty;
     rdfs:label "kindSemantics"@en;
-    rdfs:domain ids_content:Kind;
-    rdfs:range ids_content:KindSemantics;
+    rdfs:domain ids_rep:Kind;
+    rdfs:range ids_rep:KindSemantics;
     rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
 
-ids_content:orderPolicy a owl:ObjectProperty;
+ids_rep:orderPolicy a owl:ObjectProperty;
     rdfs:label "orderPolicy"@en;
-    rdfs:domain ids_content:Collection;
-    rdfs:range ids_content:OrderPolicy;
+    rdfs:domain ids_rep:Collection;
+    rdfs:range ids_rep:OrderPolicy;
     rdfs:comment "Indicates how a collection is ordered."@en.
 
 # todo: formalize
-#ids_content:updatePolicy
+#ids_rep:updatePolicy
 #    domain: kind
-#    range: ids_content:UpdatePolicy
+#    range: ids_rep:UpdatePolicy

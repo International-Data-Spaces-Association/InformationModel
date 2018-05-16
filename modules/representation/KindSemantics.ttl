@@ -2,39 +2,39 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
-@prefix ids_content: <https://schema.industrialdataspace.org/content/Content> .
+@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 
 # Classes
 # -------
 
-ids_content:KindSemantics a owl:Class;
+ids_rep:KindSemantics a owl:Class;
     rdfs:label "KindSemantics"@en ;
     rdfs:comment "The class of defined high-level semantics for DataAsset Kindsorder policies of Collections.".
 
-ids_content:CoreKindSemantics rdfs:subClassOf ids_content:KindSemantics;
+ids_rep:CoreKindSemantics rdfs:subClassOf ids_rep:KindSemantics;
     rdfs:label "CoreKindSemantics"@en ;
     rdfs:comment "The class of KindSemantics defined in the core information model.".
 
 # Instances
 # ---------
 
-ids_content:hash a ids_content:CoreKindSemantics;
+ids_rep:hash a ids_rep:CoreKindSemantics;
     rdfs:comment "hash";
     dct:identifier "HASH".
 
-ids_content:date a ids_content:OrderPolicy;
+ids_rep:date a ids_rep:OrderPolicy;
     rdfs:comment "date";
     dct:identifier "DATE".
 
-ids_content:textual a ids_content:OrderPolicy;
+ids_rep:textual a ids_rep:OrderPolicy;
     rdfs:comment "textual";
     dct:identifier "TEXTUAL".
 
-ids_content:binary a ids_content:OrderPolicy;
+ids_rep:binary a ids_rep:OrderPolicy;
     rdfs:comment "binary";
     dct:identifier "BINARY".
 
-ids_content:sensor a ids_content:OrderPolicy;
+ids_rep:sensor a ids_rep:OrderPolicy;
     rdfs:comment "sensor measurement";
     dct:identifier "SENSOR_MEASUREMENT".
 

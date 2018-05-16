@@ -5,9 +5,11 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix ids_content: <https://schema.industrialdataspace.org/content/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
+@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 @prefix ids_mt: <https://schema.industrialdataspace.org/mediaType/> .
 @prefix ids_dt: <https://schema.industrialdataspace.org/core/parameterDataType/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 
 # Classes
 # -------
@@ -23,58 +25,58 @@ ids_rep:Representation a owl:Class;
 # Properties
 # ----------
 
-ids_content:dataType a owl:ObjectProperty;
-    rdfs:domain ids_content:Representation;
+ids_rep:dataType a owl:ObjectProperty;
+    rdfs:domain ids_rep:Representation;
     rdfs:range ids_dt:ParameterDataType;
     rdfs:label "dataType"@en;
     rdfs:comment "Indicates the datatype of the Parameter."@en.
 
-ids_content:format rdfs:subPropertyOf dct:format;
+ids_rep:format rdfs:subPropertyOf dct:format;
     a owl:DatatypeProperty;
-    rdfs:domain ids_content:Representation;
+    rdfs:domain ids_rep:Representation;
     rdfs:range xsd:string;
     rdfs:label "format"@en;
-    rdfs:comment "The file format of the Representation. ids_content:mediaType SHOULD be used if the type of the distribution is defined by IANA."@en.
+    rdfs:comment "The file format of the Representation. ids_rep:mediaType SHOULD be used if the type of the distribution is defined by IANA."@en.
 
-ids_content:mediaType rdfs:subPropertyOf dcat:mediaType;
+ids_rep:mediaType rdfs:subPropertyOf dcat:mediaType;
     a owl:ObjectProperty;
-    rdfs:domain ids_content:Representation;
+    rdfs:domain ids_rep:Representation;
     rdfs:range ids_mt:IANAMediaType;
     rdfs:label "mediaType"@en;
     rdfs:comment "The media type of the Representation, as defined by IANA."@en.
 
-ids_content:conformsToStandard a owl:DatatypeProperty;
-    rdfs:domain ids_content:Representation;
+ids_rep:conformsToStandard a owl:DatatypeProperty;
+    rdfs:domain ids_rep:Representation;
     rdfs:range xsd:anyURI;
     rdfs:label "conformsToStandard"@en;
     rdfs:comment "The standard the Representation conforms to."@en.
 
-ids_content:schemaLink a owl:DatatypeProperty;
-    rdfs:domain ids_content:Representation;
+ids_rep:schemaLink a owl:DatatypeProperty;
+    rdfs:domain ids_rep:Representation;
     rdfs:range xsd:anyURI;
     rdfs:label "schemaLink"@en;
     rdfs:comment "Links to a document that contains additional information like class and type descriptions or integrity constraints describing the Representation's structure."@en.
 
-ids_content:schemaDefinition a owl:DatatypeProperty;
-    rdfs:domain ids_content:Representation;
+ids_rep:schemaDefinition a owl:DatatypeProperty;
+    rdfs:domain ids_rep:Representation;
     rdfs:range xsd:string;
     rdfs:label "schemaDefinition"@en;
     rdfs:comment "Formal definition of the Representation's structure, matching its data and media type (e.g, JSON Schema or XSD)."@en.
 
-ids_content:transformationRule a owl:DatatypeProperty;
-    rdfs:domain ids_content:Representation;
+ids_rep:transformationRule a owl:DatatypeProperty;
+    rdfs:domain ids_rep:Representation;
     rdfs:range xsd:anyURI;
     rdfs:label "transformationRule"@en;
     rdfs:comment "Links to a document that contains rules or algorithms to transform the Representation into another syntactic format."@en.
 
-ids_da:kind a owl:ObjectProperty;
+ids_rep:kind a owl:ObjectProperty;
     rdfs:label "kind"@en;
-    rdfs:domain ids_content:Representation;
-    rdfs:range ids_kind:Kind;
+    rdfs:domain ids_rep:Representation;
+    rdfs:range ids_rep:Kind;
     rdfs:comment "Describes the Representation's Kind."@en.
 
 ids_rep:offeredBy a owl:ObjectProperty;
     rdfs:label "offeredBy"@en;
-    rdfs:domain ids_content:Representation;
+    rdfs:domain ids_rep:Representation;
     rdfs:range ids_int:Interface;
     rdfs:comment "The interface providing the representation of the DataAsset."@en.

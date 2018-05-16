@@ -4,16 +4,22 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
+@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
 @prefix ids_base: <https://schema.industrialdataspace.org/base/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
+@prefix ids_spatial: <https://schema.industrialdataspace.org/spatialEntity/> .
+@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 
 # Classes
 # -------
 
 ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
-    rdfs:subClassOf ids_comm:Resource;
+    rdfs:subClassOf ids_conn:Resource;
     rdfs:subClassOf dcat:Dataset;
     a owl:Class;
     rdfs:label "DataAsset"@en;
@@ -45,7 +51,7 @@ ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
 ids_da:representation a owl:ObjectProperty;
     rdfs:label "representation"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_content:Representation;
+    rdfs:range ids_rep:Representation;
     rdfs:comment "Representation of the DataAsset."@en.
 
 ids_da:version rdfs:subPropertyOf dct:hasVersion;
