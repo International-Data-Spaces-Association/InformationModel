@@ -13,8 +13,8 @@
 # Classes
 # -------
 
-ids_int:Interface a owl:Class;
-    rdfs:label "Interface"@en;
+ids_int:ServiceInterface a owl:Class;
+    rdfs:label "ServiceInterface"@en;
     rdfs:comment "Conceptualization of the interchange of digital artifacts as a set of uniform operations (interactions primitives)."@en;
     ids_rel:validation [
         ids_rel:forProperty ids_int:operation;
@@ -57,10 +57,6 @@ ids_int:Operation a owl:Class;
     ids_rel:validation [
         ids_rel:forProperty ids_int:output;
         ids_rel:relationType ids_rel:OneToMany;
-    ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_int:opDescription;
-        ids_rel:relationType ids_rel:OneToMany;
     ].
 
 ids_int:Parameter a owl:Class;
@@ -95,28 +91,28 @@ ids_int:Fault rdfs:subClassOf ids_int:OutputParameter;
 # --------------------------------------
 
 ids_int:operation a owl:ObjectProperty;
-    rdfs:domain ids_int:Interface;
+    rdfs:domain ids_int:ServiceInterface;
     rdfs:range ids_int:Operation;
     rdfs:label "operation"@en;
     ids_doc:labelPluralForm "operations"@en;
     rdfs:comment "Declares Operations Interfaces to access a DataAsset."@en.
 
 ids_int:service a owl:ObjectProperty;
-    rdfs:domain ids_int:Interface;
+    rdfs:domain ids_int:ServiceInterface;
     rdfs:range ids_int:DataService;
     rdfs:label "service"@en;
     ids_doc:labelPluralForm "services"@en;
     rdfs:comment "Links to executable services for calling an Interface."@en.
 
 ids_int:contract a owl:ObjectProperty;
-    rdfs:domain ids_int:Interface;
+    rdfs:domain ids_int:ServiceInterface;
     rdfs:range ids_contr:Contract;
     rdfs:label "contract"@en;
     ids_doc:labelPluralForm "contracts"@en;
     rdfs:comment "The Contract regulating usage of the Interface."@en.
 
 ids_int:implementedBy a owl:ObjectProperty;
-    rdfs:domain ids_int:Interface;
+    rdfs:domain ids_int:ServiceInterface;
     rdfs:range ids_int:DataService;
     rdfs:label "implementedBy"@en;
     ids_doc:labelPluralForm "bindings"@en;
