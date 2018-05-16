@@ -89,3 +89,19 @@ ids_da:origin a owl:DatatypeProperty;
     rdfs:domain ids_da:DataAsset;
     rdfs:range xsd:anyURI;
     rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.
+
+ids_da:coversCategory a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:theme;
+    rdfs:label "coversCategory"@en;
+    ids_doc:labelPluralForm "coversCategories"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the DataAsset."@en.
+
+ids_da:keyword a owl:DatatypeProperty;
+    rdfs:subPropertyOf dcat:theme;
+    rdfs:label "keyword"@en;
+    ids_doc:labelPluralForm "keywords"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Links to an item in a flat list of controlled keywords that describe content-related coverage of the DataAsset."@en.

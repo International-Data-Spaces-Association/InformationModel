@@ -41,7 +41,11 @@ ids_base:InfrastructureComponent rdfs:subClassOf ids_base:EntityWithLifecycle;
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS.";
     ids_rel:validation [
-        ids_rel:forProperty ids_base:operator;
+        ids_rel:forProperty ids_base:technicalResponsibility;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_base:contentResponsibility;
         ids_rel:constraint ids_rel:NotNull;
     ];
     ids_rel:validation [
@@ -59,19 +63,19 @@ ids_base:maintainer a owl:ObjectProperty;
     ids_trans:refByURI true;
     rdfs:comment "Participant responsible for maintaining the InfrastructureComponent."@en.
 
-ids_base:operator a owl:ObjectProperty;
-    rdfs:label "operator"@en;
+ids_base:contentResponsibility a owl:ObjectProperty;
+    rdfs:label "contentResponsibility"@en;
     rdfs:domain ids_base:InfrastructureComponent;
     rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
-    rdfs:comment "Participant responsible for operating the InfrastructureComponent."@en.
+    rdfs:comment "Participant responsible for content provided by the InfrastructureComponent."@en.
 
-ids_base:owner a owl:ObjectProperty;
-    rdfs:label "owner"@en;
+ids_base:technicalResponsibility a owl:ObjectProperty;
+    rdfs:label "technicalResponsibility"@en;
     rdfs:domain ids_base:InfrastructureComponent;
     rdfs:range ids_part:Participant;
     ids_trans:refByURI true;
-    rdfs:comment "Participant owning the InfrastructureComponent."@en.
+    rdfs:comment "Participant responsible for technical operation of the InfrastructureComponent."@en.
 
 ids_base:physicalLocation a owl:ObjectProperty;
     rdfs:label "physicalLocation"@en;
