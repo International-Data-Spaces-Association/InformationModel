@@ -3,7 +3,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix ids_content: <https://schema.industrialdataspace.org/content/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
@@ -11,18 +10,6 @@
 
 # Classes
 # -------
-
-ids_content:Content a owl:Class;
-    rdfs:label "Content"@en;
-    rdfs:comment "Class of descriptions of a Resource per-se (data set, app)."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_content:coversLanguage;
-        ids_rel:relationType ids_rel:OneToMany;
-    ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_content:keyword;
-        ids_rel:relationType ids_rel:OneToMany;
-    ].
 
 ids_content:Kind a owl:Class;
     ids_trans:isAbstract true;
@@ -60,33 +47,6 @@ ids_content:UpdatePolicy a owl:Class;
 
 # Properties
 # ----------
-
-ids_content:coversLanguage a owl:ObjectProperty;
-    rdfs:subPropertyOf dct:language;
-    rdfs:label "coversLanguage"@en;
-    ids_doc:labelPluralForm "coversLanguages"@en;
-    rdfs:domain ids_content:Content;
-    rdfs:range ids_lang:Language;
-    ids_trans:refByURI true;
-    rdfs:comment "States the languages that are used by the content of the DataAsset."@en.
-
-ids_content:origin a owl:DatatypeProperty;
-    rdfs:label "origin"@en;
-    rdfs:domain ids_content:Content;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.
-
-ids_content:kind a owl:ObjectProperty;
-    rdfs:label "kind"@en;
-    rdfs:domain ids_content:Content;
-    rdfs:range ids_content:Kind;
-    rdfs:comment "Describes the Content's Kind."@en.
-
-ids_content:representation a owl:ObjectProperty;
-    rdfs:label "representation"@en;
-    rdfs:domain ids_content:Kind;
-    rdfs:range ids_content:Representation;
-    rdfs:comment "Describes the Content's Kind."@en.
 
 ids_content:key a owl:ObjectProperty;
     rdfs:label "key"@en;

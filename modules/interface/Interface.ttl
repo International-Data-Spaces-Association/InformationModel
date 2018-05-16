@@ -12,19 +12,7 @@
 # Classes
 # -------
 
-ids_comm:Communication a owl:Class;
-    rdfs:label "Communication"@en;
-    rdfs:comment "Means to communicate (receive / provide) resources."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_comm:interface;
-        ids_rel:relationType ids_rel:OneToMany;
-    ].
-
-ids_comm:DataService a owl:Class;
-    rdfs:label "DataService"@en;
-    rdfs:comment "Class of Services to invoke an Interface."@en.
-
-ids_comm:Interface a owl:Class;
+ids_int:Interface a owl:Class;
     rdfs:label "Interface"@en;
     rdfs:comment "Conceptualization of the interchange of digital artifacts as a set of uniform operations (interactions primitives)."@en;
     ids_rel:validation [
@@ -32,9 +20,17 @@ ids_comm:Interface a owl:Class;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_comm:service;
+        ids_rel:forProperty ids_comm:binding;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_int:implementedBy;
         ids_rel:relationType ids_rel:OneToMany;
     ].
+
+ids_comm:DataService a owl:Class;
+    rdfs:label "DataService"@en;
+    rdfs:comment "Class of Services to invoke an Interface."@en.
 
 ids_comm:Operation a owl:Class;
     rdfs:label "Operation"@en;
@@ -90,31 +86,6 @@ ids_comm:Fault rdfs:subClassOf ids_comm:OutputParameter;
     rdfs:label "Fault"@en ;
     rdfs:comment "Result on Operation failure."@en.
 
-# Properties
-# ----------
-
-ids_comm:interface a owl:ObjectProperty;
-    rdfs:domain ids_comm:Communication;
-    rdfs:range ids_comm:Interface;
-    rdfs:label "interface"@en;
-    ids_doc:labelPluralForm "interfaces"@en;
-    rdfs:comment "Declares Interfaces to access a DataAsset."@en.
-
-# Properties for describing a DataService
-# ---------------------------------------
-
-ids_comm:protocol
-    domain: DataService
-    range: Protocol
-
-ids_comm:binding
-
-ids_comm:apiDocument
-    range: string
-
-ids_comm:apiDocumentReference
-    range: URL
-
 # Properties for describing an Interface
 # --------------------------------------
 
@@ -131,6 +102,21 @@ ids_comm:service a owl:ObjectProperty;
     rdfs:label "service"@en;
     ids_doc:labelPluralForm "services"@en;
     rdfs:comment "Links to executable services for calling an Interface."@en.
+
+ids_comm:binding a owl:ObjectProperty;
+    rdfs:domain ids_comm:Interface;
+    rdfs:range ids_comm:ProtocolBinding;
+    rdfs:label "binding"@en;
+    ids_doc:labelPluralForm "bindings"@en;
+    rdfs:comment "Links to the protocol bindings which define how to technically invoke the Interface."@en.
+
+ids_int:implementedBy a owl:ObjectProperty;
+    rdfs:domain ids_comm:Interface;
+    rdfs:range ids_int:DataService;
+    rdfs:label "implementedBy"@en;
+    ids_doc:labelPluralForm "bindings"@en;
+    rdfs:comment "Service that technically implements the Interface."@en.
+
 
 # Properties for describing an Operation
 # --------------------------------------

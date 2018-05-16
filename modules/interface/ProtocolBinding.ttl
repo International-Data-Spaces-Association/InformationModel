@@ -1,0 +1,29 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ids_comm: <https://schema.industrialdataspace.org/communication/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+
+# Classes
+# -------
+
+ids_comm:ProtocolBinding a owl:Class;
+    rdfs:label "ProtocolBinding"@en;
+    rdfs:comment "Mapping of abstract operation signatures onto the concrete structures (e.g., HTTP headers or query parameters)."@en.
+
+# Properties
+# ----------
+
+ids_comm:uses a owl:ObjectProperty;
+    rdfs:domain ids_comm:ProtocolBinding;
+    rdfs:range ids_comm:Protocol;
+    rdfs:comment "Defines the Protocol used by the binding."@en.
+
+
+
+

@@ -5,9 +5,6 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
-@prefix ids_concept: <https://schema.industrialdataspace.org/concept/> .
-@prefix ids_content: <https://schema.industrialdataspace.org/content/Content> .
-@prefix ids_comm: <https://schema.industrialdataspace.org/communication/> .
 @prefix ids_base: <https://schema.industrialdataspace.org/base/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
@@ -16,7 +13,7 @@
 # -------
 
 ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
-    rdfs:subClassOf ids_conn:ProvidedResource;
+    rdfs:subClassOf ids_comm:Resource;
     rdfs:subClassOf dcat:Dataset;
     a owl:Class;
     rdfs:label "DataAsset"@en;
@@ -32,46 +29,24 @@ ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
     ids_rel:validation [
         ids_rel:forProperty ids_da:coversCategory;
         ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:representation;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:coversLanguage;
+        ids_rel:relationType ids_rel:OneToMany;
     ].
 
 # Properties
 # ----------
 
-ids_da:content a owl:ObjectProperty;
-    rdfs:label "content"@en;
+ids_da:representation a owl:ObjectProperty;
+    rdfs:label "representation"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_content:Content;
-    rdfs:comment "Describes the content of the DataAsset."@en.
-
-ids_da:commodity a owl:ObjectProperty;
-    rdfs:label "commodity"@en;
-    rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:Commodity;
-    rdfs:comment "Describes the commodity facet of the DataAsset."@en.
-
-ids_da:communication a owl:ObjectProperty;
-    rdfs:label "communication"@en;
-    rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_comm:Communication;
-    rdfs:comment "Describes the communication facet of the DataAsset, i.e. how it can be technically accessed."@en.
-
-ids_da:concept a owl:ObjectProperty;
-    rdfs:label "concept"@en;
-    rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_concept:Concept;
-    rdfs:comment "Describes the concept facet of the DataAsset, i.e. how it can be categorized."@en.
-
-ids_da:contract a owl:ObjectProperty;
-    rdfs:label "contract"@en;
-    rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:Contract;
-    rdfs:comment "Describes the contract facet of the DataAsset, e.g., terms of use, service level agreements,..."@en.
-
-ids_da:context a owl:ObjectProperty;
-    rdfs:label "context"@en;
-    rdfs:domain ids_da:DataAsset;
-    rdfs:range ids_da:Context;
-    rdfs:comment "Describes the context facet of the DataAsset, i.e., its relation to the world in terms of, e.g, spatial and timely dimensions."@en.
+    rdfs:range ids_content:Representation;
+    rdfs:comment "Representation of the DataAsset."@en.
 
 ids_da:version rdfs:subPropertyOf dct:hasVersion;
     a owl:DatatypeProperty;
@@ -79,3 +54,32 @@ ids_da:version rdfs:subPropertyOf dct:hasVersion;
     rdfs:domain ids_da:DataAsset;
     rdfs:range xsd:string;
     rdfs:comment "Version identifier of the InfrastructureComponent."@en.
+
+ids_da:temporal a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:temporal;
+    rdfs:label "temporal"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_temp:TemporalEntity;
+    rdfs:comment "Temporal period or instance covered by the DataAsset."@en.
+
+ids_da:spatial a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:spatial;
+    rdfs:label "spatial"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_spatial:SpatialEntity;
+    rdfs:comment "Spatial location covered by the DataAsset."@en.
+
+ids_da:coversLanguage a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:language;
+    rdfs:label "coversLanguage"@en;
+    ids_doc:labelPluralForm "coversLanguages"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_lang:Language;
+    ids_trans:refByURI true;
+    rdfs:comment "States the languages that are used by the content of the DataAsset."@en.
+
+ids_da:origin a owl:DatatypeProperty;
+    rdfs:label "origin"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.
