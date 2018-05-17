@@ -97,12 +97,12 @@ ids_int:operation a owl:ObjectProperty;
     ids_doc:labelPluralForm "operations"@en;
     rdfs:comment "Declares Operations Interfaces to access a DataAsset."@en.
 
-ids_int:service a owl:ObjectProperty;
+ids_int:implementer a owl:ObjectProperty;
     rdfs:domain ids_int:ServiceInterface;
     rdfs:range ids_int:DataService;
-    rdfs:label "service"@en;
-    ids_doc:labelPluralForm "services"@en;
-    rdfs:comment "Links to executable services for calling an Interface."@en.
+    rdfs:label "implementer"@en;
+    ids_doc:labelPluralForm "implementers"@en;
+    rdfs:comment "Links to executable services that implements an Interface."@en.
 
 ids_int:contract a owl:ObjectProperty;
     rdfs:domain ids_int:ServiceInterface;
