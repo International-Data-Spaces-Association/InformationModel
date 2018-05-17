@@ -8,7 +8,6 @@
 @prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
 @prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 @prefix ids_mt: <https://schema.industrialdataspace.org/mediaType/> .
-@prefix ids_dt: <https://schema.industrialdataspace.org/core/parameterDataType/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 
 # Classes
@@ -24,12 +23,6 @@ ids_rep:Representation a owl:Class;
 
 # Properties
 # ----------
-
-ids_rep:dataType a owl:ObjectProperty;
-    rdfs:domain ids_rep:Representation;
-    rdfs:range ids_dt:ParameterDataType;
-    rdfs:label "dataType"@en;
-    rdfs:comment "Indicates the datatype of the Parameter."@en.
 
 ids_rep:format rdfs:subPropertyOf dct:format;
     a owl:DatatypeProperty;

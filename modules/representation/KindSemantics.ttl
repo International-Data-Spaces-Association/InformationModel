@@ -3,15 +3,18 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 @prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 
 # Classes
 # -------
 
 ids_rep:KindSemantics a owl:Class;
+    ids_trans:isAbstract true;
     rdfs:label "KindSemantics"@en ;
     rdfs:comment "The class of defined high-level semantics for DataAsset Kindsorder policies of Collections.".
 
 ids_rep:CoreKindSemantics rdfs:subClassOf ids_rep:KindSemantics;
+    a owl:Class;
     rdfs:label "CoreKindSemantics"@en ;
     rdfs:comment "The class of KindSemantics defined in the core information model.".
 
@@ -22,19 +25,27 @@ ids_rep:hash a ids_rep:CoreKindSemantics;
     rdfs:comment "hash";
     dct:identifier "HASH".
 
-ids_rep:date a ids_rep:OrderPolicy;
+ids_rep:date a ids_rep:CoreKindSemantics;
     rdfs:comment "date";
     dct:identifier "DATE".
 
-ids_rep:textual a ids_rep:OrderPolicy;
+ids_rep:textual a ids_rep:CoreKindSemantics;
     rdfs:comment "textual";
     dct:identifier "TEXTUAL".
 
-ids_rep:binary a ids_rep:OrderPolicy;
+ids_rep:binary a ids_rep:CoreKindSemantics;
     rdfs:comment "binary";
     dct:identifier "BINARY".
 
-ids_rep:sensor a ids_rep:OrderPolicy;
+ids_rep:image a ids_rep:CoreKindSemantics;
+    rdfs:comment "image";
+    dct:identifier "IMAGE".
+
+ids_rep:identifier a ids_rep:CoreKindSemantics;
+    rdfs:comment "identifier";
+    dct:identifier "IDENTIFIER".
+
+ids_rep:sensor a ids_rep:CoreKindSemantics;
     rdfs:comment "sensor measurement";
     dct:identifier "SENSOR_MEASUREMENT".
 

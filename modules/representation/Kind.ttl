@@ -40,7 +40,7 @@ ids_rep:Map rdfs:subClassOf ids_rep:Collection;
 ids_rep:Value rdfs:subClassOf ids_rep:Kind;
     a owl:Class;
     rdfs:label "Value"@en;
-    rdfs:comment "General class describing values provided by a DataAsset."@en.
+    rdfs:comment "Class of generic values. Either interpreted as atomic values for map keys or list members or used when no in-depth description shall be provided."@en.
 
 ids_rep:UpdatePolicy a owl:Class;
     rdfs:label "UpdatePolicy"@en;
@@ -55,11 +55,11 @@ ids_rep:key a owl:ObjectProperty;
     rdfs:range ids_rep:Kind;
     rdfs:comment "Describes the type of the key that indexes a Map."@en.
 
-ids_rep:member a owl:ObjectProperty;
-    rdfs:label "member"@en;
-    rdfs:domain ids_rep:List;
+ids_rep:value a owl:ObjectProperty;
+    rdfs:label "value"@en;
+    rdfs:domain ids_rep:Collection;
     rdfs:range ids_rep:Kind;
-    rdfs:comment "Describes the members of a List."@en.
+    rdfs:comment "Describes the members of a Collection."@en.
 
 ids_rep:homogenous a owl:DatatypeProperty;
     rdfs:label "homogenous"@en;
@@ -67,10 +67,16 @@ ids_rep:homogenous a owl:DatatypeProperty;
     rdfs:range xsd:boolean;
     rdfs:comment "Indicates homogenous datatypes for all collection members."@en.
 
-ids_rep:kindSemantics a owl:ObjectProperty;
-    rdfs:label "kindSemantics"@en;
+ids_rep:coreKindSemantics a owl:ObjectProperty;
+    rdfs:label "coreKindSemantics"@en;
     rdfs:domain ids_rep:Kind;
-    rdfs:range ids_rep:KindSemantics;
+    rdfs:range ids_rep:CoreKindSemantics;
+    rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
+
+ids_rep:extendedKindSemantics a owl:DatatypeProperty;
+    rdfs:label "extendedKindSemantics"@en;
+    rdfs:domain ids_rep:Kind;
+    rdfs:range xsd:anyURI;
     rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
 
 ids_rep:orderPolicy a owl:ObjectProperty;

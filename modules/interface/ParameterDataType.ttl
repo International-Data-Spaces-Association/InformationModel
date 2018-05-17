@@ -3,70 +3,70 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix ids_dt: <https://schema.industrialdataspace.org/core/parameterDataType/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
 
 # Classes
 # -------
 
-ids_dt:ParameterDataType a owl:Class;
+ids_int:ParameterDataType a owl:Class;
     rdfs:label "ParameterDataType"@en ;
     rdfs:comment "The class of datatypes for usage by Operation Parameters.".
 
 # Instances
 # ---------
 
-ids_dt:dateTime a  ids_dt:ParameterDataType;
+ids_int:dateTime a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:dateTime>;
     dct:identifier "XSD_DATETIME".
 
-ids_dt:string a  ids_dt:ParameterDataType;
+ids_int:string a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:string>;
     dct:identifier "XSD_STRING".
 
-ids_dt:bigint a  ids_dt:ParameterDataType;
+ids_int:bigint a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:integer>;
     dct:identifier "XSD_INTEGER".
 
-ids_dt:integer a  ids_dt:ParameterDataType;
+ids_int:integer a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:int>;
     dct:identifier "XSD_INT".
 
-ids_dt:long a  ids_dt:ParameterDataType;
+ids_int:long a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:long>;
     dct:identifier "XSD_LONG".
 
-ids_dt:short a  ids_dt:ParameterDataType;
+ids_int:short a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:short>;
     dct:identifier "XSD_SHORT".
 
-ids_dt:float a  ids_dt:ParameterDataType;
+ids_int:float a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:float>;
     dct:identifier "XSD_FLOAT".
 
-ids_dt:double a  ids_dt:ParameterDataType;
+ids_int:double a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:double>;
     dct:identifier "XSD_DOUBLE".
 
-ids_dt:boolean a  ids_dt:ParameterDataType;
+ids_int:boolean a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:boolean>;
     dct:identifier "XSD_BOOLEAN".
 
-ids_dt:byte a  ids_dt:ParameterDataType;
+ids_int:byte a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:byte>;
     dct:identifier "XSD_BYTE".
 
-ids_dt:base64Binary a  ids_dt:ParameterDataType;
+ids_int:base64Binary a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:base64Binary>;
     dct:identifier "XSD_BASE64BINARY".
 
-ids_dt:time a  ids_dt:ParameterDataType;
+ids_int:time a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:time>;
     dct:identifier "XSD_TIME".
 
-ids_dt:date a  ids_dt:ParameterDataType;
+ids_int:date a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:date>;
     dct:identifier "XSD_DATE".
 
-ids_dt:anyURI a  ids_dt:ParameterDataType;
+ids_int:anyURI a  ids_int:ParameterDataType;
     rdfs:seeAlso <xsd:anyURI>;
     dct:identifier "XSD_ANY_URI".

@@ -193,3 +193,9 @@ ids_int:paramDescription rdfs:subPropertyOf dct:description;
     rdfs:label "paramDescription"@en;
     ids_doc:labelPluralForm "paramDescriptions"@en;
     rdfs:comment "Freetext description of the Parameter as it should be shown in public indexes."@en.
+
+ids_int:dataType a owl:ObjectProperty;
+    rdfs:domain ids_int:Parameter;
+    rdfs:range ids_int:ParameterDataType;
+    rdfs:label "dataType"@en;
+    rdfs:comment "Indicates the datatype of the Parameter."@en.
