@@ -19,11 +19,11 @@ ids_rep:Kind a owl:Class;
     rdfs:label "Kind"@en;
     rdfs:comment "Class of different kinds of DataAssets, regarding, e.g., their organization or update policy."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_rep:coreKindSemantics;
+        ids_rel:forProperty ids_rep:coreSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_rep:extKindSemantics;
+        ids_rel:forProperty ids_rep:extSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
@@ -83,7 +83,6 @@ ids_rep:extSemantics a owl:DatatypeProperty;
     rdfs:label "extSemantics"@en;
     rdfs:domain ids_rep:Kind;
     rdfs:range ids_extkind:ExtKindSemantics;
-    ids_trans:refByURI true;
     rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
 
 ids_rep:orderPolicy a owl:ObjectProperty;
