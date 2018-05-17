@@ -10,7 +10,7 @@
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 @prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
 @prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
-@prefix ids_spatial: <https://schema.industrialdataspace.org/spatialEntity/> .
+@prefix ids_spatial: <https://schema.industrialdataspace.org/spatial/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
@@ -33,7 +33,7 @@ ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_da:coversCategory;
+        ids_rel:forProperty ids_da:contentCategory;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
@@ -61,16 +61,16 @@ ids_da:version rdfs:subPropertyOf dct:hasVersion;
     rdfs:range xsd:string;
     rdfs:comment "Version identifier of the InfrastructureComponent."@en.
 
-ids_da:temporal a owl:ObjectProperty;
+ids_da:coversTemporal a owl:ObjectProperty;
     rdfs:subPropertyOf dct:temporal;
-    rdfs:label "temporal"@en;
+    rdfs:label "coversTemporal"@en;
     rdfs:domain ids_da:DataAsset;
     rdfs:range ids_temp:TemporalEntity;
     rdfs:comment "Temporal period or instance covered by the DataAsset."@en.
 
-ids_da:spatial a owl:ObjectProperty;
+ids_da:coversSpatial a owl:ObjectProperty;
     rdfs:subPropertyOf dct:spatial;
-    rdfs:label "spatial"@en;
+    rdfs:label "coversSpatial"@en;
     rdfs:domain ids_da:DataAsset;
     rdfs:range ids_spatial:SpatialEntity;
     rdfs:comment "Spatial location covered by the DataAsset."@en.
@@ -90,10 +90,10 @@ ids_da:origin a owl:DatatypeProperty;
     rdfs:range xsd:anyURI;
     rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.
 
-ids_da:coversCategory a owl:ObjectProperty;
+ids_da:contentCategory a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:theme;
-    rdfs:label "coversCategory"@en;
-    ids_doc:labelPluralForm "coversCategories"@en;
+    rdfs:label "contentCategory"@en;
+    ids_doc:labelPluralForm "contentCategories"@en;
     rdfs:domain ids_da:DataAsset;
     rdfs:range xsd:anyURI;
     rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the DataAsset."@en.
