@@ -14,6 +14,7 @@
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_contentcat: <https://schema.industrialdataspace.org/content/> .
 
 # Classes
 # -------
@@ -95,7 +96,7 @@ ids_da:contentCategory a owl:ObjectProperty;
     rdfs:label "contentCategory"@en;
     ids_doc:labelPluralForm "contentCategories"@en;
     rdfs:domain ids_da:DataAsset;
-    rdfs:range xsd:anyURI;
+    rdfs:range ids_contentcat:ContentCategory;
     rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the DataAsset."@en.
 
 ids_da:keyword a owl:DatatypeProperty;
