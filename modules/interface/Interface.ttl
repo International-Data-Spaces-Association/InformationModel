@@ -9,6 +9,7 @@
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
 
 # Classes
 # -------
@@ -69,6 +70,10 @@ ids_int:Parameter a owl:Class;
     ];
     ids_rel:validation [
         ids_rel:forProperty ids_int:paramDescription;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_int:addCoreKindSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
@@ -205,3 +210,16 @@ ids_int:dataType a owl:ObjectProperty;
     rdfs:range ids_int:ParameterDataType;
     rdfs:label "dataType"@en;
     rdfs:comment "Indicates the datatype of the Parameter."@en.
+
+ids_int:refersTo a owl:ObjectProperty;
+    ids_trans:refByURI true;
+    rdfs:domain ids_int:Parameter;
+    rdfs:range ids_da:Kind;
+    rdfs:label "refersTo"@en;
+    rdfs:comment "Indicates the Kind element to which the Parameter refers to."@en.
+
+ids_int:addCoreKindSemantics a owl:ObjectProperty;
+    rdfs:domain ids_int:Parameter;
+    rdfs:range ids_da:CoreKindSemantics;
+    rdfs:label "addCoreKindSemantics"@en;
+    rdfs:comment "Concretises semantics of a Parameter if it is more specific than the original Kind semantics."@en.
