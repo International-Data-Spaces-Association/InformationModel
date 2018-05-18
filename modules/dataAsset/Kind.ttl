@@ -34,24 +34,27 @@ ids_da:Kind a owl:Class;
 
 ids_da:Collection rdfs:subClassOf ids_da:Kind;
     a owl:Class;
-    ids_trans:isAbstract true;
     rdfs:label "CollectionKind"@en;
     rdfs:comment "Class of Collections to organize DataAssets."@en.
 
-ids_da:List rdfs:subClassOf ids_da:Collection;
-    a owl:Class;
-    rdfs:label "ListKind"@en;
-    rdfs:comment "Class of Lists to organize DataAssets."@en.
-
-ids_da:Map rdfs:subClassOf ids_da:Collection;
+ids_da:Map rdfs:subClassOf ids_da:Kind;
     a owl:Class;
     rdfs:label "MapKind"@en;
     rdfs:comment "Class of Maps to organize DataAssets."@en.
 
+ids_da:Composite rdfs:subClassOf ids_da:Kind;
+    a owl:Class;
+    rdfs:label "Composite"@en;
+    rdfs:comment "Class of composite elements a DataAsset contains of, e.g., the different information items an object is composed of."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:part;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
+
 ids_da:Value rdfs:subClassOf ids_da:Kind;
     a owl:Class;
     rdfs:label "Value"@en;
-    rdfs:comment "Class of generic values. Either interpreted as atomic values for map keys or list members or used when no in-depth description shall be provided."@en.
+    rdfs:comment "Class of generic values. Either interpreted as atomic values for, e.g., map keys or composites or used when no in-depth description shall be provided."@en.
 
 # Properties
 # ----------
@@ -69,11 +72,24 @@ ids_da:key a owl:ObjectProperty;
     rdfs:range ids_da:Kind;
     rdfs:comment "Describes the type of the key that indexes a Map."@en.
 
-ids_da:value a owl:ObjectProperty;
-    rdfs:label "value"@en;
+ids_da:values a owl:ObjectProperty;
+    rdfs:label "values"@en;
+    rdfs:domain ids_da:Map;
+    rdfs:range ids_da:Kind;
+    rdfs:comment "Describes the type of the indexed values of a Map."@en.
+
+ids_da:member a owl:ObjectProperty;
+    rdfs:label "member"@en;
     rdfs:domain ids_da:Collection;
     rdfs:range ids_da:Kind;
     rdfs:comment "Describes the members of a Collection."@en.
+
+ids_da:part a owl:ObjectProperty;
+    rdfs:label "part"@en;
+    ids_doc:labelPluralForm "parts"@en;
+    rdfs:domain ids_da:Composite;
+    rdfs:range ids_da:Kind;
+    rdfs:comment "Describes the parts of a Composite."@en.
 
 ids_da:homogenous a owl:DatatypeProperty;
     rdfs:label "homogenous"@en;
@@ -92,6 +108,12 @@ ids_da:extSemantics a owl:DatatypeProperty;
     rdfs:domain ids_da:Kind;
     rdfs:range ids_extkind:ExtKindSemantics;
     rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
+
+ids_da:orderBy a owl:ObjectProperty;
+    rdfs:label "orderBy"@en;
+    rdfs:domain ids_da:Collection;
+    rdfs:range ids_da:Value;
+    rdfs:comment "Indicates the Value that is responsible for the sort order of a Collection."@en.
 
 ids_da:orderPolicy a owl:ObjectProperty;
     rdfs:label "orderPolicy"@en;
