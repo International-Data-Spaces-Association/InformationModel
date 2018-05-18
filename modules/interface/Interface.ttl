@@ -77,6 +77,18 @@ ids_int:Parameter a owl:Class;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
+ids_int:ParameterGroup a owl:Class;
+    rdfs:label "ParameterGroup"@en ;
+    rdfs:comment "Class of grouped parameters, according to some grouping operator."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_int:paramGroupingOperator;
+        ids_rel:relationType ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_int:paramGroupMember;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
+
 ids_int:InputParameter rdfs:subClassOf ids_int:Parameter;
     a owl:Class;
     rdfs:label "InputParameter"@en ;
@@ -142,6 +154,12 @@ ids_int:input a owl:ObjectProperty;
     rdfs:label "input"@en;
     ids_doc:labelPluralForm "inputs"@en;
     rdfs:comment "Parameterizes the input of an Operation."@en.
+
+ids_int:inputGroup a owl:ObjectProperty;
+    rdfs:domain ids_int:Operation;
+    rdfs:range ids_int:ParameterGroup;
+    rdfs:label "inputGroup"@en;
+    rdfs:comment "Parameterizes the input of an Operation with a predefined paramter group."@en.
 
 ids_int:output a owl:ObjectProperty;
     rdfs:domain ids_int:Operation;
@@ -223,3 +241,19 @@ ids_int:addCoreKindSemantics a owl:ObjectProperty;
     rdfs:range ids_da:CoreKindSemantics;
     rdfs:label "addCoreKindSemantics"@en;
     rdfs:comment "Concretises semantics of a Parameter if it is more specific than the original Kind semantics."@en.
+
+# Properties for describing a ParameterGroup
+# ------------------------------------------
+
+ids_int:paramGroupMember a owl:ObjectProperty;
+    rdfs:domain ids_int:ParameterGroup;
+    rdfs:range ids_int:Parameter;
+    rdfs:label "paramGroupMember"@en;
+    ids_doc:labelPluralForm "paramGroupMembers"@en;
+    rdfs:comment "Declares a member of a ParameterGroup."@en.
+
+ids_int:paramGroupingOperator a owl:ObjectProperty;
+    rdfs:domain ids_int:ParameterGroup;
+    rdfs:range ids_int:ParameterGroupingOperator;
+    rdfs:label "paramGroupingOperator"@en;
+    rdfs:comment "Defines the operator that relates all members of the ParameterGroup."@en.
