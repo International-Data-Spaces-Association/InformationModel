@@ -7,91 +7,94 @@
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
-@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
+@prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
 @prefix ids_extkind: <https://schema.industrialdataspace.org/extension/kindsemantics/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 
 # Classes
 # -------
 
-ids_rep:Kind a owl:Class;
+ids_da:Kind a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "Kind"@en;
     rdfs:comment "Class of different kinds of DataAssets, regarding, e.g., their organization or update policy."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_rep:coreSemantics;
+        ids_rel:forProperty ids_da:coreSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_rep:extSemantics;
+        ids_rel:forProperty ids_da:representation;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:extSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
-ids_rep:Collection rdfs:subClassOf ids_rep:Kind;
+ids_da:Collection rdfs:subClassOf ids_da:Kind;
     a owl:Class;
     ids_trans:isAbstract true;
     rdfs:label "CollectionKind"@en;
     rdfs:comment "Class of Collections to organize DataAssets."@en.
 
-ids_rep:List rdfs:subClassOf ids_rep:Collection;
+ids_da:List rdfs:subClassOf ids_da:Collection;
     a owl:Class;
     rdfs:label "ListKind"@en;
     rdfs:comment "Class of Lists to organize DataAssets."@en.
 
-ids_rep:Map rdfs:subClassOf ids_rep:Collection;
+ids_da:Map rdfs:subClassOf ids_da:Collection;
     a owl:Class;
     rdfs:label "MapKind"@en;
     rdfs:comment "Class of Maps to organize DataAssets."@en.
 
-ids_rep:Value rdfs:subClassOf ids_rep:Kind;
+ids_da:Value rdfs:subClassOf ids_da:Kind;
     a owl:Class;
     rdfs:label "Value"@en;
     rdfs:comment "Class of generic values. Either interpreted as atomic values for map keys or list members or used when no in-depth description shall be provided."@en.
 
-ids_rep:UpdatePolicy a owl:Class;
-    rdfs:label "UpdatePolicy"@en;
-    rdfs:comment "Class of defined change frequencies for DataAssets."@en.
-
 # Properties
 # ----------
 
-ids_rep:key a owl:ObjectProperty;
+ids_da:representation a owl:ObjectProperty;
+    rdfs:label "representation"@en;
+    ids_doc:labelPluralForm "representations"@en;
+    rdfs:domain ids_da:Kind;
+    rdfs:range ids_rep:Representation;
+    rdfs:comment "Representation of the DataAsset."@en.
+
+ids_da:key a owl:ObjectProperty;
     rdfs:label "key"@en;
-    rdfs:domain ids_rep:Map;
-    rdfs:range ids_rep:Kind;
+    rdfs:domain ids_da:Map;
+    rdfs:range ids_da:Kind;
     rdfs:comment "Describes the type of the key that indexes a Map."@en.
 
-ids_rep:value a owl:ObjectProperty;
+ids_da:value a owl:ObjectProperty;
     rdfs:label "value"@en;
-    rdfs:domain ids_rep:Collection;
-    rdfs:range ids_rep:Kind;
+    rdfs:domain ids_da:Collection;
+    rdfs:range ids_da:Kind;
     rdfs:comment "Describes the members of a Collection."@en.
 
-ids_rep:homogenous a owl:DatatypeProperty;
+ids_da:homogenous a owl:DatatypeProperty;
     rdfs:label "homogenous"@en;
-    rdfs:domain ids_rep:Collection;
+    rdfs:domain ids_da:Collection;
     rdfs:range xsd:boolean;
     rdfs:comment "Indicates homogenous datatypes for all collection members."@en.
 
-ids_rep:coreSemantics a owl:ObjectProperty;
+ids_da:coreSemantics a owl:ObjectProperty;
     rdfs:label "coreSemantics"@en;
-    rdfs:domain ids_rep:Kind;
-    rdfs:range ids_rep:CoreKindSemantics;
+    rdfs:domain ids_da:Kind;
+    rdfs:range ids_da:CoreKindSemantics;
     rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
 
-ids_rep:extSemantics a owl:DatatypeProperty;
+ids_da:extSemantics a owl:DatatypeProperty;
     rdfs:label "extSemantics"@en;
-    rdfs:domain ids_rep:Kind;
+    rdfs:domain ids_da:Kind;
     rdfs:range ids_extkind:ExtKindSemantics;
     rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
 
-ids_rep:orderPolicy a owl:ObjectProperty;
+ids_da:orderPolicy a owl:ObjectProperty;
     rdfs:label "orderPolicy"@en;
-    rdfs:domain ids_rep:Collection;
-    rdfs:range ids_rep:OrderPolicy;
+    rdfs:domain ids_da:Collection;
+    rdfs:range ids_da:OrderPolicy;
     rdfs:comment "Indicates how a collection is ordered."@en.
-
-# todo: formalize
-#ids_rep:updatePolicy
-#    domain: kind
-#    range: ids_rep:UpdatePolicy

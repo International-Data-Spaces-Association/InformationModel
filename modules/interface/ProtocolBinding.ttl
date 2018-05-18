@@ -20,11 +20,13 @@ ids_int:ProtocolBinding a owl:Class;
 # ----------
 
 ids_int:uses a owl:ObjectProperty;
+    rdfs:label "uses"@en;
     rdfs:domain ids_int:ProtocolBinding;
     rdfs:range ids_int:Protocol;
     rdfs:comment "Defines the Protocol used by the binding."@en.
 
 ids_int:apiDocument a owl:DatatypeProperty;
+    rdfs:label "apiDocument"@en;
     rdfs:domain ids_int:ProtocolBinding;
     rdfs:range xsd:string;
     rdfs:comment "Textual representation of an API description, defining the binding, e.g., OpenAPI."@en.

@@ -168,6 +168,12 @@ ids_int:opDescription rdfs:subPropertyOf dct:description;
     rdfs:label "opDescription"@en;
     rdfs:comment "Freetext description of the Operation as it should be shown in public indexes."@en.
 
+ids_int:opSemantics a owl:ObjectProperty;
+    rdfs:domain ids_int:Operation;
+    rdfs:range ids_int:OperationSemantics;
+    rdfs:label "opSemantics"@en;
+    rdfs:comment "Semantic meaning of the Operation."@en.
+
 # Properties for describing a Parameter
 # -------------------------------------
 
