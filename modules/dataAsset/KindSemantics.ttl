@@ -44,7 +44,8 @@ ids_da:endDate a ids_da:CoreKindSemantics;
 
 ids_da:textual a ids_da:CoreKindSemantics;
     rdfs:comment "textual";
-    dct:identifier "TEXTUAL".
+    dct:identifier "TEXTUAL";
+    skos:narrower ids_da:freetext.
 
 ids_da:binary a ids_da:CoreKindSemantics;
     rdfs:comment "binary";
@@ -57,6 +58,11 @@ ids_da:image a ids_da:CoreKindSemantics;
 ids_da:identifier a ids_da:CoreKindSemantics;
     rdfs:comment "identifier";
     dct:identifier "IDENTIFIER".
+
+ids_da:freetext a ids_da:CoreKindSemantics;
+    rdfs:comment "freetext";
+    dct:identifier "FREETEXT";
+    skos:broader ids_da:textual.
 
 ids_da:sensor a ids_da:CoreKindSemantics;
     rdfs:comment "sensor measurement";
