@@ -6,6 +6,7 @@
 
 @prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
 @prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 
 # Classes
 # -------
@@ -35,6 +36,20 @@ ids_temp:Interval rdfs:subClassOf ids_temp:TemporalEntity;
         ids_rel:constraint ids_rel:NotNull;
     ].
 
+ids_temp:NamedInstant rdfs:subClassOf ids_temp:Instant;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "NamedInstant"@en ;
+    rdfs:comment "A temporal entity with a name that has no fixed value, e.g., \'today\'."@en.
+
+ids_temp:Today a ids_temp:NamedInstant;
+    rdfs:comment "Today";
+    dct:identifier "TODAY".
+
+ids_temp:NDaysAgo a ids_temp:NamedInstant;
+    rdfs:comment "NDaysAgo";
+    dct:identifier "N_DAYS_AGO".
+
 # Properties for describing temporal entities
 # -------------------------------------------
 
@@ -44,6 +59,18 @@ ids_temp:inXSDDateTime rdfs:subPropertyOf time:inXSDDateTime;
     rdfs:range xsd:dateTime;
     rdfs:label "inXSDDateTime"@en;
     rdfs:comment "Position of an Instant."@en.
+
+ids_temp:named a owl:ObjectProperty;
+    rdfs:domain ids_temp:Instant;
+    rdfs:range ids_temp:NamedInstant;
+    rdfs:label "named"@en;
+    rdfs:comment "Defines a temporal instant using a NamedInstant."@en.
+
+ids_temp:namedValue a owl:DatatypeProperty;
+    rdfs:domain ids_temp:Instant;
+    rdfs:range xsd:int;
+    rdfs:label "namedValue"@en;
+    rdfs:comment "Parameterizes a NamedInstant."@en.
 
 ids_temp:beginning rdfs:subPropertyOf time:hasBeginning;
     a owl:ObjectProperty;
