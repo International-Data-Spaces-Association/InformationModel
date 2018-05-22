@@ -16,6 +16,11 @@ ids_int:ProtocolBinding a owl:Class;
     rdfs:label "ProtocolBinding"@en;
     rdfs:comment "Mapping of abstract operation signatures onto the concrete structures (e.g., HTTP headers or query parameters)."@en.
 
+ids_int:ApiDocument a owl:Class;
+    rdfs:label "ApiDocument"@en;
+    rdfs:comment "Class of documents, fully and consistently describing an API, e.g., according to the OpenAPI specification."@en.
+
+
 # Properties
 # ----------
 
@@ -25,11 +30,26 @@ ids_int:uses a owl:ObjectProperty;
     rdfs:range ids_int:Protocol;
     rdfs:comment "Defines the Protocol used by the binding."@en.
 
-ids_int:apiDocument a owl:DatatypeProperty;
+ids_int:apiDocument a owl:ObjectProperty;
     rdfs:label "apiDocument"@en;
     rdfs:domain ids_int:ProtocolBinding;
+    rdfs:range ids_int:ApiDocument;
+    rdfs:comment "Document describing the API of the binding."@en.
+
+ids_int:apiDocumentReference a owl:DatatypeProperty;
+    rdfs:label "apiDocumentReference"@en;
+    rdfs:domain ids_int:ProtocolBinding;
     rdfs:range xsd:string;
-    rdfs:comment "Textual representation of an API description, defining the binding, e.g., OpenAPI."@en.
+    rdfs:comment "References a structure inside the ApiDocument's content, e.g., a JSON path for OpenAPI documents."@en.
 
+ids_int:apiDocumentType a owl:ObjectProperty;
+    rdfs:label "apiDocumentType"@en;
+    rdfs:domain ids_int:ApiDocument;
+    rdfs:range ids_int:ApiDocumentType;
+    rdfs:comment "Type of the ApiDocument."@en.
 
-
+ids_int:content a owl:DatatypeProperty;
+    rdfs:label "content"@en;
+    rdfs:domain ids_int:ApiDocument;
+    rdfs:range xsd:string;
+    rdfs:comment "Textual representation of an API description, e.g., the OpenAPI JSON structure."@en.

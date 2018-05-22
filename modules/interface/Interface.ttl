@@ -22,10 +22,6 @@ ids_int:ServiceInterface a owl:Class;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_int:binding;
-        ids_rel:relationType ids_rel:OneToMany;
-    ];
-    ids_rel:validation [
         ids_rel:forProperty ids_int:implementedBy;
         ids_rel:relationType ids_rel:OneToMany;
     ].
@@ -142,7 +138,6 @@ ids_int:binding a owl:ObjectProperty;
     rdfs:domain ids_int:DataService;
     rdfs:range ids_int:ProtocolBinding;
     rdfs:label "binding"@en;
-    ids_doc:labelPluralForm "bindings"@en;
     rdfs:comment "Links to the protocol bindings which define how to technically invoke the Service."@en.
 
 # Properties for describing an Operation
