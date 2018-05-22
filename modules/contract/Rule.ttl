@@ -12,8 +12,8 @@
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
 @prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
-@prefix ids_opbind: <https://schema.industrialdataspace.org/operationBinding/> .
 @prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
 
 # Classes
 # -------
@@ -104,7 +104,7 @@ ids_contr:assigner rdfs:subPropertyOf odrl:assigner;
 ids_contr:target rdfs:subPropertyOf odrl:target;
     a owl:ObjectProperty;
     rdfs:domain ids_contr:Rule;
-    rdfs:range ids_opbind:OperationBinding;
+    rdfs:range ids_int:Operation;
     ids_trans:refByURI true;
     rdfs:label "target"@en;
     rdfs:comment "The operation which is the subject of the policy statement."@en.

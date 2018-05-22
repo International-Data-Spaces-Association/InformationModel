@@ -57,6 +57,12 @@ ids_contr:licenseReference rdfs:subPropertyOf dct:license;
     rdfs:range xsd:anyURI;
     rdfs:comment "References a license document that is publicly available on the Web."@en.
 
+ids_contr:termsOfUse a owl:DatatypeProperty;
+    rdfs:label "termsOfUse"@en;
+    rdfs:domain ids_contr:Contract;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "References a document defining the terms of use of the provided data."@en.
+
 ids_contr:contractDuration a owl:ObjectProperty;
     rdfs:domain ids_contr:Contract;
     rdfs:range ids_temp:TemporalEntity;

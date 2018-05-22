@@ -14,6 +14,7 @@
 @prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_contentcat: <https://schema.industrialdataspace.org/content/> .
+@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
 
 # Classes
 # -------
@@ -106,3 +107,9 @@ ids_da:keyword a owl:DatatypeProperty;
     rdfs:domain ids_da:DataAsset;
     rdfs:range xsd:anyURI;
     rdfs:comment "Links to an item in a flat list of controlled keywords that describe content-related coverage of the DataAsset."@en.
+
+ids_da:contract a owl:ObjectProperty;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_contr:Contract;
+    rdfs:label "contract"@en;
+    rdfs:comment "The Contract regulating usage of the DataAsset."@en.
