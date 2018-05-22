@@ -11,8 +11,8 @@
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
-@prefix ids_dep: <https://schema.industrialdataspace.org/dataEndpoint/> .
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
 
 # Classes
 # -------
@@ -99,7 +99,7 @@ ids_dtr:sourceOperation
 	a owl:DatatypeProperty;
 	rdfs:label "sourceOperation"@en;
 	rdfs:domain ids_dtr:DataTransfer;
-	rdfs:range ids_dep:Operation;
+	rdfs:range ids_int:Operation;
 	ids_trans:refByURI true;
 	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
 
@@ -107,7 +107,7 @@ ids_dtr:targetOperation
     a owl:DatatypeProperty;
     rdfs:label "targetOperation"@en;
     rdfs:domain ids_dtr:DataTransfer;
-    rdfs:range ids_dep:Operation;
+    rdfs:range ids_int:Operation;
     ids_trans:refByURI true;
     rdfs:comment "The operation that is intended to receive the transferred data."@en.
 
