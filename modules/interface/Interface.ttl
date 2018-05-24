@@ -61,7 +61,7 @@ ids_int:Parameter a owl:Class;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
-        ids_rel:forProperty ids_int:addCoreKindSemantics;
+        ids_rel:forProperty ids_int:addKindSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
@@ -214,10 +214,10 @@ ids_int:refersTo a owl:ObjectProperty;
     rdfs:label "refersTo"@en;
     rdfs:comment "Indicates the Kind element to which the Parameter refers to."@en.
 
-ids_int:addCoreKindSemantics a owl:ObjectProperty;
+ids_int:addKindSemantics a owl:ObjectProperty;
     rdfs:domain ids_int:Parameter;
-    rdfs:range ids_da:CoreKindSemantics;
-    rdfs:label "addCoreKindSemantics"@en;
+    rdfs:range ids_da:KindSemantics;
+    rdfs:label "addKindSemantics"@en;
     rdfs:comment "Concretises semantics of a Parameter if it is more specific than the original Kind semantics."@en.
 
 # Properties for describing a ParameterGroup

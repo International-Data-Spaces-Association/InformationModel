@@ -8,7 +8,6 @@
 @prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
-@prefix ids_extkind: <https://schema.industrialdataspace.org/extension/kindsemantics/> .
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 
@@ -20,15 +19,11 @@ ids_da:Kind a owl:Class;
     rdfs:label "Kind"@en;
     rdfs:comment "Class of different kinds of DataAssets, regarding, e.g., their organization or update policy."@en;
     ids_rel:validation [
-        ids_rel:forProperty ids_da:coreSemantics;
+        ids_rel:forProperty ids_da:semantics;
         ids_rel:relationType ids_rel:OneToMany;
     ];
     ids_rel:validation [
         ids_rel:forProperty ids_da:representation;
-        ids_rel:relationType ids_rel:OneToMany;
-    ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_da:extSemantics;
         ids_rel:relationType ids_rel:OneToMany;
     ].
 
@@ -97,16 +92,10 @@ ids_da:homogenous a owl:DatatypeProperty;
     rdfs:range xsd:boolean;
     rdfs:comment "Indicates homogenous datatypes for all collection members."@en.
 
-ids_da:coreSemantics a owl:ObjectProperty;
-    rdfs:label "coreSemantics"@en;
+ids_da:semantics a owl:ObjectProperty;
+    rdfs:label "semantics"@en;
     rdfs:domain ids_da:Kind;
-    rdfs:range ids_da:CoreKindSemantics;
-    rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
-
-ids_da:extSemantics a owl:DatatypeProperty;
-    rdfs:label "extSemantics"@en;
-    rdfs:domain ids_da:Kind;
-    rdfs:range ids_extkind:ExtKindSemantics;
+    rdfs:range ids_da:KindSemantics;
     rdfs:comment "Indicates high-level, extendable semantics for Kinds."@en.
 
 ids_da:orderBy a owl:ObjectProperty;
