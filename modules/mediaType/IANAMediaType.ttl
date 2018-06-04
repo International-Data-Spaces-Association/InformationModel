@@ -1,6 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 @prefix ids_mt: <https://schema.industrialdataspace.org/mediaType/> .
 
@@ -9,4 +10,22 @@
 
 ids_mt:IANAMediaType a owl:Class;
     rdfs:label "IANAMediaType"@en ;
-    rdfs:comment "The class of media types (formerly known as MIME types) as defined by IANA.".
+    rdfs:comment "The class of media types (formerly known as MIME types) as defined by IANA."@en;
+    dct:created "2017-09-26"^^xsd:date ;
+    dct:modified "2018-06-04"^^xsd:date ;
+    owl:hasKey ( ids_mt:identifier ) ;
+.
+
+
+# Properties
+# ----------
+
+ids_mt:identifier a owl:DatatypeProperty;
+    rdfs:label "identifier"@en ;
+    rdfs:comment "A two-part reference string, uniquely identifying a media type"@en;
+    rdfs:subPropertyOf dct:identifier;
+    dct:created "2018-06-04"^^xsd:date ;
+    dct:modified "2018-06-04"^^xsd:date ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Media_type>, <https://www.ietf.org/rfc/rfc2045.txt>;
+.
+
