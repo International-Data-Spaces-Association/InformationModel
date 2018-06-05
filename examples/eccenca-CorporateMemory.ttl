@@ -1,0 +1,56 @@
+@prefix ids_b: <https://schema.industrialdataspace.org/base/> .
+@prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_c: <https://schema.industrialdataspace.org/connector/> .
+@prefix ids_t: <https://schema.industrialdataspace.org/temporal/> .
+@prefix ids_r: <https://schema.industrialdataspace.org/representation/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix : <urn:ids:example:>  .
+
+# top resource of the description tree
+<https://cmem-showcase.eccenca.com/#id> a ids_c:Connector ;
+    ids_b:entityName "eccenca Corporate Memory test instance" ;
+    ids_b:entityDescription "demo instance at https://cmem-showcase.eccenca.com" ;
+    ids_b:technicalResponsibility <https://ns.eccenca.com/eccenca> ;
+    ids_b:contentResponsibility <https://ns.eccenca.com/eccenca> ;
+    ids_c:provides <https://cmem-showcase.eccenca.com/#customerDataset> ;
+.
+
+<https://ns.eccenca.com/eccenca> a ids_b:Participant;
+    ids_b:entityName "eccenca GmbH";
+    ids_b:entityDescription "..." ;
+.
+
+<https://cmem-showcase.eccenca.com/#customerDataset> a ids_da:DataAsset ;
+    ids_b:entityName "customer data set" ;
+    ids_b:entityDescription "customer dataset exported from system xyz" ;
+    ids_da:keyword "customer", "RDF", "export";
+    ids_da:contentCategory <urn:TODO:contentCategory-system> ;
+    ids_da:version "0.0.1" ; # TODO needs more spec
+    ids_t:temporalCoverage [
+        a ids_t:TemporalEntity ; 
+        ids_t:beginning "2018-01-01"^^xsd:date ;
+        ids_t:end "2018-02-01"^^xsd:date 
+    ] ;
+    ids_da:representation <https://cmem-showcase.eccenca.com/#customerDataset-TurtleRepresentation> .
+
+<https://cmem-showcase.eccenca.com/#customerDataset-TurtleRepresentation> a ids_r:Representation;
+    ids_r:mediaType <urn:oneOfOurCuratedInstances> ;
+    ids_r:offeredBy <https://cmem-showcase.eccenca.com/#customerDataset-TurtleRepresentationService> ;
+.
+
+<https://cmem-showcase.eccenca.com/#customerDataset-TurtleRepresentationService> a ids_int:ServiceInterface;
+    ids_int:operation <https://cmem-showcase.eccenca.com/#customerDataset-TurtleRepresentationOperation> ;
+.
+
+<https://cmem-showcase.eccenca.com/#customerDataset-TurtleRepresentationOperation> a ids_int:Operation;
+    ids_int:semantics ids_int:provideData;
+
+
+.
+
