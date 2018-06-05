@@ -8,14 +8,21 @@
 # Classes
 # -------
 
-ids_mt:IANAMediaType a owl:Class;
-    rdfs:label "IANAMediaType"@en ;
-    rdfs:comment "The class of media types (formerly known as MIME types) as defined by IANA."@en;
-    dct:created "2017-09-26"^^xsd:date ;
-    dct:modified "2018-06-04"^^xsd:date ;
+ids_mt:MediaType a owl:Class;
+    rdfs:label "Media Type"@en ;
+    rdfs:comment "The class of all media types (IANA defined AND vendor specific)"@en;
+    dct:created "2018-06-05"^^xsd:date ;
+    dct:modified "2018-06-05"^^xsd:date ;
     owl:hasKey ( ids_mt:identifier ) ;
 .
 
+ids_mt:IANAMediaType a owl:Class;
+    rdfs:subClassOf ids_mt:MediaType;
+    rdfs:label "IANA defined Media Type"@en ;
+    rdfs:comment "The class of media types (formerly known as MIME types) as defined by IANA."@en;
+    dct:created "2017-09-26"^^xsd:date ;
+    dct:modified "2018-06-04"^^xsd:date ;
+.
 
 # Properties
 # ----------
