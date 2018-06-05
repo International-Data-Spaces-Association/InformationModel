@@ -3,16 +3,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-
-@prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
-@prefix ids_dapp: <https://schema.industrialdataspace.org/dataApp/> .
-@prefix ids_base: <https://schema.industrialdataspace.org/base/> .
+@prefix ids: <https://w3id.org/ids/core> .
 
 # Classes
 # -------
 
-ids_dapp:DataApp rdfs:subClassOf ids_base:EntityWithLifecycle;
-    rdfs:subClassOf ids_conn:Resource;
+ids:DataApp rdfs:subClassOf ids:EntityWithLifecycle;
+    rdfs:subClassOf ids:Resource;
     a owl:Class;
     rdfs:label "DataApp"@en;
     rdfs:comment "The class of apps designed for use on the Industrial Dataspace."@en.

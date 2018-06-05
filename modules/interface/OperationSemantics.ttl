@@ -1,45 +1,43 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-
-@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids: <https://w3id.org/ids/core> .
 
 # Classes
 # -------
 
-ids_int:OperationSemantics a owl:Class;
-    ids_trans:isAbstract true;
+ids:OperationSemantics a owl:Class;
+    ids:isAbstract true;
     rdfs:label "OperationSemantics"@en ;
     rdfs:comment "The class of semantics characterizing an Operation.".
 
 # Instances
 # ---------
 
-ids_int:listIdentifiers a ids_int:OperationSemantics;
+ids:listIdentifiers a ids:OperationSemantics;
     rdfs:comment "listIdentifiers";
     dct:identifier "LIST_IDENTIFIERS".
 
-ids_int:provideData a ids_int:OperationSemantics;
+ids:provideData a ids:OperationSemantics;
     rdfs:comment "provideData";
     dct:identifier "PROVIDE_DATA".
 
-ids_int:listData a ids_int:OperationSemantics;
+ids:listData a ids:OperationSemantics;
     rdfs:comment "listData";
     dct:identifier "LIST_DATA".
 
-ids_int:filterData a ids_int:OperationSemantics;
+ids:filterData a ids:OperationSemantics;
     rdfs:comment "filterData";
     dct:identifier "FILTER_DATA".
 
-ids_int:selectData a ids_int:OperationSemantics;
+ids:selectData a ids:OperationSemantics;
     rdfs:comment "selectData";
     dct:identifier "SELECT_DATA".
 
-ids_int:consumeData a ids_int:OperationSemantics;
+ids:consumeData a ids:OperationSemantics;
     rdfs:comment "consumeData";
     dct:identifier "CONSUME_DATA".
 
-ids_int:subscription a ids_int:OperationSemantics;
+ids:subscription a ids:OperationSemantics;
     rdfs:comment "subscription";
     dct:identifier "SUBSCRIPTION".

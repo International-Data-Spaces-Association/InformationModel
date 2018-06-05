@@ -3,13 +3,12 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-
-@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids: <https://w3id.org/ids/core> .
 
 # Classes
 # -------
 
-ids_contr:BinaryOperator rdfs:subClassOf odrl:Operator;
+ids:BinaryOperator rdfs:subClassOf odrl:Operator;
     a owl:Class;
     rdfs:label "BinaryOperator"@en;
     rdfs:comment "The class of binary operators."@en.
@@ -17,17 +16,17 @@ ids_contr:BinaryOperator rdfs:subClassOf odrl:Operator;
 # Instances
 # ---------
 
-ids_contr:eq a ids_contr:BinaryOperator;
+ids:eq a ids:BinaryOperator;
     rdfs:seeAlso odrl:eq;
     rdfs:comment "Equals operator.";
     dct:identifier "EQUALS".
 
-ids_contr:gt a ids_contr:BinaryOperator;
+ids:gt a ids:BinaryOperator;
     rdfs:seeAlso odrl:gt;
     rdfs:comment "Greater-than operator.";
     dct:identifier "GREATER_THAN".
 
-ids_contr:lt a ids_contr:BinaryOperator;
+ids:lt a ids:BinaryOperator;
     rdfs:seeAlso odrl:lt;
     rdfs:comment "Less-than operator.";
     dct:identifier "LESS_THAN".

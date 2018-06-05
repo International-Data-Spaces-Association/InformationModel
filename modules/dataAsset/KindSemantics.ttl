@@ -2,64 +2,62 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-
-@prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids: <https://w3id.org/ids/core> .
 
 # Classes
 # -------
 
-ids_da:KindSemantics a owl:Class;
-    ids_trans:isAbstract true;
+ids:KindSemantics a owl:Class;
+    ids:isAbstract true;
     rdfs:label "KindSemantics"@en ;
     rdfs:comment "The class of defined high-level semantics for DataAsset Kinds.".
 
 # Instances
 # ---------
 
-ids_da:hash a ids_da:KindSemantics;
+ids:hash a ids:KindSemantics;
     rdfs:comment "hash";
     dct:identifier "HASH".
 
-ids_da:date a ids_da:KindSemantics;
+ids:date a ids:KindSemantics;
     rdfs:comment "date";
     dct:identifier "DATE";
-    skos:narrower ids_da:startDate;
-    skos:narrower ids_da:endDate.
+    skos:narrower ids:startDate;
+    skos:narrower ids:endDate.
 
-ids_da:startDate a ids_da:KindSemantics;
+ids:startDate a ids:KindSemantics;
     rdfs:comment "start date";
     dct:identifier "START_DATE";
-    skos:broader ids_da:date.
+    skos:broader ids:date.
 
-ids_da:endDate a ids_da:KindSemantics;
+ids:endDate a ids:KindSemantics;
     rdfs:comment "end date";
     dct:identifier "END_DATE" ;
-    skos:broader ids_da:date.
+    skos:broader ids:date.
 
-ids_da:textual a ids_da:KindSemantics;
+ids:textual a ids:KindSemantics;
     rdfs:comment "textual";
     dct:identifier "TEXTUAL";
-    skos:narrower ids_da:freetext.
+    skos:narrower ids:freetext.
 
-ids_da:binary a ids_da:KindSemantics;
+ids:binary a ids:KindSemantics;
     rdfs:comment "binary";
     dct:identifier "BINARY".
 
-ids_da:image a ids_da:KindSemantics;
+ids:image a ids:KindSemantics;
     rdfs:comment "image";
     dct:identifier "IMAGE".
 
-ids_da:identifier a ids_da:KindSemantics;
+ids:identifier a ids:KindSemantics;
     rdfs:comment "identifier";
     dct:identifier "IDENTIFIER".
 
-ids_da:freetext a ids_da:KindSemantics;
+ids:freetext a ids:KindSemantics;
     rdfs:comment "freetext";
     dct:identifier "FREETEXT";
-    skos:broader ids_da:textual.
+    skos:broader ids:textual.
 
-ids_da:sensor a ids_da:KindSemantics;
+ids:sensor a ids:KindSemantics;
     rdfs:comment "sensor measurement";
     dct:identifier "SENSOR_MEASUREMENT".
 

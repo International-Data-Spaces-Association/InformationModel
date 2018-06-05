@@ -4,60 +4,56 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
-@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
-@prefix ids_mt: <https://schema.industrialdataspace.org/mediaType/> .
-@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids: <https://w3id.org/ids/core> .
 
 # Classes
 # -------
 
-ids_rep:Representation a owl:Class;
+ids:Representation a owl:Class;
     rdfs:label "Representation"@en;
     rdfs:comment "Class of Kind representations, i.e., implementation-focused descriptions using data- and media types or schemas."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_rep:offeredBy;
-        ids_rel:relationType ids_rel:OneToMany;
+    ids:validation [
+        ids:forProperty ids:offeredBy;
+        ids:relationType ids:OneToMany;
     ].
 
 # Properties
 # ----------
 
-ids_rep:format rdfs:subPropertyOf dct:format;
+ids:format rdfs:subPropertyOf dct:format;
     a owl:DatatypeProperty;
-    rdfs:domain ids_rep:Representation;
+    rdfs:domain ids:Representation;
     rdfs:range xsd:string;
     rdfs:label "format"@en;
-    rdfs:comment "The file format of the Representation. ids_rep:mediaType SHOULD be used if the type of the distribution is defined by IANA."@en.
+    rdfs:comment "The file format of the Representation. ids:mediaType SHOULD be used if the type of the distribution is defined by IANA."@en.
 
-ids_rep:mediaType rdfs:subPropertyOf dcat:mediaType;
+ids:mediaType rdfs:subPropertyOf dcat:mediaType;
     a owl:ObjectProperty;
-    rdfs:domain ids_rep:Representation;
-    rdfs:range ids_mt:IANAMediaType;
+    rdfs:domain ids:Representation;
+    rdfs:range ids:IANAMediaType;
     rdfs:label "mediaType"@en;
     rdfs:comment "The media type of the Representation, as defined by IANA."@en.
 
-ids_rep:conformsToStandard a owl:DatatypeProperty;
-    rdfs:domain ids_rep:Representation;
+ids:conformsToStandard a owl:DatatypeProperty;
+    rdfs:domain ids:Representation;
     rdfs:range xsd:anyURI;
     rdfs:label "conformsToStandard"@en;
     rdfs:comment "The standard the Representation conforms to."@en.
 
-ids_rep:schemaLink a owl:DatatypeProperty;
-    rdfs:domain ids_rep:Representation;
+ids:schemaLink a owl:DatatypeProperty;
+    rdfs:domain ids:Representation;
     rdfs:range xsd:anyURI;
     rdfs:label "schemaLink"@en;
     rdfs:comment "Links to a document that contains additional information like class and type descriptions or integrity constraints describing the Representation's structure."@en.
 
-ids_rep:schemaDefinition a owl:DatatypeProperty;
-    rdfs:domain ids_rep:Representation;
+ids:schemaDefinition a owl:DatatypeProperty;
+    rdfs:domain ids:Representation;
     rdfs:range xsd:string;
     rdfs:label "schemaDefinition"@en;
     rdfs:comment "Formal definition of the Representation's structure, matching its data and media type (e.g, JSON Schema or XSD)."@en.
 
-ids_rep:offeredBy a owl:ObjectProperty;
+ids:offeredBy a owl:ObjectProperty;
     rdfs:label "offeredBy"@en;
-    rdfs:domain ids_rep:Representation;
-    rdfs:range ids_int:ServiceInterface;
+    rdfs:domain ids:Representation;
+    rdfs:range ids:ServiceInterface;
     rdfs:comment "The interface providing the representation of the DataAsset."@en.

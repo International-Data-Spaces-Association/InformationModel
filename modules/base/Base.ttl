@@ -4,121 +4,113 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-@prefix ids: <https://schema.industrialdataspace.org/> .
-@prefix ids_base: <https://schema.industrialdataspace.org/base/> .
-@prefix ids_spatial: <https://schema.industrialdataspace.org/spatial/> .
-@prefix ids_activity: <https://schema.industrialdataspace.org/activity/> .
-@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
-@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
-@prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
+@prefix ids: <https://w3id.org/ids/core> .
 
 # Classes
 # -------
 
-ids_base:EntityWithLifecycle a owl:Class;
-    ids_trans:isAbstract true;
+ids:EntityWithLifecycle a owl:Class;
+    ids:isAbstract true;
     rdfs:label "EntityWithLifecycle"@en ;
     rdfs:comment "The class of all individuals that are subject of a lifecycle which needs to be tracked.";
-    ids_rel:validation [
-        ids_rel:forProperty ids_base:lifecycleActivity;
-        ids_rel:relationType ids_rel:OneToMany;
+    ids:validation [
+        ids:forProperty ids:lifecycleActivity;
+        ids:relationType ids:OneToMany;
     ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_base:entityName;
-        ids_rel:relationType ids_rel:OneToMany;
-        ids_rel:constraint ids_rel:NotNull;
+    ids:validation [
+        ids:forProperty ids:entityName;
+        ids:relationType ids:OneToMany;
+        ids:constraint ids:NotNull;
     ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_base:entityDescription;
-        ids_rel:relationType ids_rel:OneToMany;
+    ids:validation [
+        ids:forProperty ids:entityDescription;
+        ids:relationType ids:OneToMany;
     ].
 
-ids_base:InfrastructureComponent rdfs:subClassOf ids_base:EntityWithLifecycle;
+ids:InfrastructureComponent rdfs:subClassOf ids:EntityWithLifecycle;
     a owl:Class;
-    ids_trans:isAbstract true;
+    ids:isAbstract true;
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS.";
-    ids_rel:validation [
-        ids_rel:forProperty ids_base:technicalResponsibility;
-        ids_rel:constraint ids_rel:NotNull;
+    ids:validation [
+        ids:forProperty ids:technicalResponsibility;
+        ids:constraint ids:NotNull;
     ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_base:contentResponsibility;
-        ids_rel:constraint ids_rel:NotNull;
+    ids:validation [
+        ids:forProperty ids:contentResponsibility;
+        ids:constraint ids:NotNull;
     ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_base:supportedIMVersion;
-        ids_rel:relationType ids_rel:OneToMany;
+    ids:validation [
+        ids:forProperty ids:supportedIMVersion;
+        ids:relationType ids:OneToMany;
     ].
 
 # Properties of InfrastructureComponent
 # -------------------------------------
 
-ids_base:maintainer a owl:ObjectProperty;
+ids:maintainer a owl:ObjectProperty;
     rdfs:label "maintainer"@en;
-    rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_part:Participant;
-    ids_trans:refByURI true;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Participant;
+    ids:refByURI true;
     rdfs:comment "Participant responsible for maintaining the InfrastructureComponent."@en.
 
-ids_base:contentResponsibility a owl:ObjectProperty;
+ids:contentResponsibility a owl:ObjectProperty;
     rdfs:label "contentResponsibility"@en;
-    rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_part:Participant;
-    ids_trans:refByURI true;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Participant;
+    ids:refByURI true;
     rdfs:comment "Participant responsible for content provided by the InfrastructureComponent."@en.
 
-ids_base:technicalResponsibility a owl:ObjectProperty;
+ids:technicalResponsibility a owl:ObjectProperty;
     rdfs:label "technicalResponsibility"@en;
-    rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_part:Participant;
-    ids_trans:refByURI true;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Participant;
+    ids:refByURI true;
     rdfs:comment "Participant responsible for technical operation of the InfrastructureComponent."@en.
 
-ids_base:physicalLocation a owl:ObjectProperty;
+ids:physicalLocation a owl:ObjectProperty;
     rdfs:label "physicalLocation"@en;
-    rdfs:domain ids_base:InfrastructureComponent;
-    rdfs:range ids_spatial:Location;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Location;
     rdfs:comment "The location where the Connector is physically deployed."@en.
 
-ids_base:supportedIMVersion a owl:DatatypeProperty;
+ids:supportedIMVersion a owl:DatatypeProperty;
     rdfs:label "supportedIMVersion"@en;
-    ids_doc:labelPluralForm "supportedIMVersions"@en;
-    rdfs:domain ids_base:InfrastructureComponent;
+    ids:labelPluralForm "supportedIMVersions"@en;
+    rdfs:domain ids:InfrastructureComponent;
     rdfs:range xsd:anyURI;
     rdfs:comment "The versions of the Information Model that are supported by the InfrastructureComponent."@en.
 
 # Properties of EntityWithLifecycle
 # -------------------------------------
 
-ids_base:entityName rdfs:subPropertyOf dct:title;
+ids:entityName rdfs:subPropertyOf dct:title;
 	a owl:DatatypeProperty;
-	rdfs:domain ids_base:EntityWithLifecycle;
+	rdfs:domain ids:EntityWithLifecycle;
 	rdfs:range rdf:PlainLiteral;
     rdfs:label "entityName"@en;
-    ids_doc:labelPluralForm "entityNames"@en;
+    ids:labelPluralForm "entityNames"@en;
 	rdfs:comment "Name of the EntityWithLifecycle."@en.
 
-ids_base:entityDescription rdfs:subPropertyOf dct:description;
+ids:entityDescription rdfs:subPropertyOf dct:description;
 	a owl:DatatypeProperty;
-	rdfs:domain ids_base:EntityWithLifecycle;
+	rdfs:domain ids:EntityWithLifecycle;
 	rdfs:range rdf:PlainLiteral;
 	rdfs:label "entityDescription"@en;
-	ids_doc:labelPluralForm "entityDescriptions"@en;
+	ids:labelPluralForm "entityDescriptions"@en;
 	rdfs:comment "Freetext description of the EntityWithLifecycle.".
 
-ids_base:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
+ids:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
     a owl:ObjectProperty;
     rdfs:label "generationActivity"@en;
-    rdfs:domain ids_base:EntityWithLifecycle;
-    rdfs:range ids_activity:CreationActivity;
+    rdfs:domain ids:EntityWithLifecycle;
+    rdfs:range ids:CreationActivity;
     rdfs:comment "Activity that led to the generation of the InfrastructureComponent."@en.
 
-ids_base:lifecycleActivity a owl:ObjectProperty;
+ids:lifecycleActivity a owl:ObjectProperty;
     rdfs:label "lifecycleActivity"@en;
-    ids_doc:labelPluralForm "lifecycleActivities"@en;
-    rdfs:domain ids_base:EntityWithLifecycle;
-    rdfs:range ids_activity:Activity;
+    ids:labelPluralForm "lifecycleActivities"@en;
+    rdfs:domain ids:EntityWithLifecycle;
+    rdfs:range ids:Activity;
     rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.

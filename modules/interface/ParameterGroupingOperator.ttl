@@ -2,25 +2,23 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-
-@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids: <https://w3id.org/ids/core> .
 
 # Classes
 # -------
 
-ids_int:ParameterGroupingOperator a owl:Class;
-    ids_trans:isAbstract true;
+ids:ParameterGroupingOperator a owl:Class;
+    ids:isAbstract true;
     rdfs:label "ParameterGroupingOperator"@en ;
     rdfs:comment "The class of operators that relate all members of a ParameterGroup.".
 
 # Instances
 # ---------
 
-ids_int:and a ids_int:ParameterGroupingOperator;
+ids:and a ids:ParameterGroupingOperator;
     rdfs:comment "and";
     dct:identifier "AND".
 
-ids_int:or a ids_int:ParameterGroupingOperator;
+ids:or a ids:ParameterGroupingOperator;
     rdfs:comment "or";
     dct:identifier "OR".
