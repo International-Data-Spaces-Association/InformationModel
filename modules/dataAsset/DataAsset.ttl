@@ -15,6 +15,7 @@
 @prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
 @prefix ids_contentcat: <https://schema.industrialdataspace.org/content/> .
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
 
 # Classes
 # -------
@@ -44,10 +45,20 @@ ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
     ids_rel:validation [
         ids_rel:forProperty ids_da:coversLanguage;
         ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:retrievableBy;
+        ids_rel:relationType ids_rel:OneToMany;
     ].
 
 # Properties
 # ----------
+
+ids_da:retrievableBy a owl:ObjectProperty;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_int:ServiceInterface;
+    rdfs:label "retrievableBy"@en;
+    rdfs:comment "The Interfaces for accessing the provided DataAsset."@en.
 
 ids_da:kind a owl:ObjectProperty;
     rdfs:label "kind"@en;
