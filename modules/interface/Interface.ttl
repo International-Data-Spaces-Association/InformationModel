@@ -19,14 +19,6 @@ ids_int:ServiceInterface a owl:Class;
     rdfs:label "ServiceInterface"@en;
     rdfs:comment "Conceptualization of the interchange of digital artifacts as a set of uniform operations (interactions primitives)."@en.
 
-ids_int:DataService a owl:Class;
-    rdfs:label "DataService"@en;
-    rdfs:comment "Class of Services to invoke an Interface."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_int:binding;
-        ids_rel:constraint ids_rel:NotNull;
-    ].
-
 ids_int:Operation a owl:Class;
     rdfs:label "Operation"@en;
     rdfs:comment "Building block of an Interface; describes the interaction by defining input, output and error parameters."@en;
@@ -93,20 +85,14 @@ ids_int:Fault rdfs:subClassOf ids_int:OutputParameter;
     rdfs:label "Fault"@en ;
     rdfs:comment "Result on Operation failure."@en.
 
-# Properties for describing an Interface
-# --------------------------------------
+# Properties for describing an ServiceInterface
+# ---------------------------------------------
 
 ids_int:operation a owl:ObjectProperty;
     rdfs:domain ids_int:ServiceInterface;
     rdfs:range ids_int:Operation;
     rdfs:label "operation"@en;
     rdfs:comment "Declares the Operation to access a DataAsset."@en.
-
-ids_int:implementer a owl:ObjectProperty;
-    rdfs:domain ids_int:ServiceInterface;
-    rdfs:range ids_int:DataService;
-    rdfs:label "implementer"@en;
-    rdfs:comment "Links to executable service that implements an Interface."@en.
 
 ids_int:contract a owl:ObjectProperty;
     rdfs:domain ids_int:ServiceInterface;
@@ -115,11 +101,8 @@ ids_int:contract a owl:ObjectProperty;
     ids_doc:labelPluralForm "contracts"@en;
     rdfs:comment "The Contract regulating usage of the Interface; in addition to the contracts that may be attached to the DataAsset"@en.
 
-# Properties for describing a DataService
-# ---------------------------------------
-
 ids_int:binding a owl:ObjectProperty;
-    rdfs:domain ids_int:DataService;
+    rdfs:domain ids_int:ServiceInterface;
     rdfs:range ids_int:ProtocolBinding;
     rdfs:label "binding"@en;
     rdfs:comment "Links to the protocol bindings which define how to technically invoke the Service."@en.

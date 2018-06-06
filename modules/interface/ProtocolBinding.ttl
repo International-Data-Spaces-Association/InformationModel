@@ -32,8 +32,8 @@ ids_int:ApiDocument a owl:Class;
     rdfs:comment "Class of documents, fully and consistently describing an API, e.g., according to the OpenAPI specification."@en.
 
 ids_int:Endpoint a owl:Class;
-    rdfs:label "Reference"@en;
-    rdfs:comment "Class of URLs that return a DataAsset."@en.
+    rdfs:label "Endpoint"@en;
+    rdfs:comment "Class of invokable network Endpoints that return a DataAsset."@en.
 
 # General Properties
 # ------------------
@@ -44,20 +44,20 @@ ids_int:apiDocument a owl:ObjectProperty;
     rdfs:range ids_int:ApiDocument;
     rdfs:comment "Document describing the API of the binding."@en.
 
-ids_int:reference a owl:ObjectProperty;
-    rdfs:label "reference"@en;
+ids_int:apiDocumentReference a owl:ObjectProperty;
+    rdfs:label "apiDocumentReference"@en;
     rdfs:domain ids_int:ProtocolBinding;
-    rdfs:range ids_int:Reference;
+    rdfs:range xsd:string;
+    rdfs:comment "References a structure inside the ApiDocument's content, e.g., a JSON path for OpenAPI documents."@en.
+
+ids_int:endpoint a owl:ObjectProperty;
+    rdfs:label "endpoint"@en;
+    rdfs:domain ids_int:ProtocolBinding;
+    rdfs:range ids_int:Endpoint;
     rdfs:comment "Reference to be invoked in order to retrieve a DataAsset."@en.
 
 # Properties of ApiDocument
 # -------------------------
-
-ids_int:apiDocumentReference a owl:DatatypeProperty;
-    rdfs:label "apiDocumentReference"@en;
-    rdfs:domain ids_int:ApiDocument;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "References a structure inside the ApiDocument's content, e.g., a JSON path for OpenAPI documents."@en.
 
 ids_int:apiDocumentType a owl:ObjectProperty;
     rdfs:label "apiDocumentType"@en;
@@ -75,7 +75,7 @@ ids_int:content a owl:DatatypeProperty;
 # ----------------------
 
 ids_int:url a owl:DatatypeProperty;
-    rdfs:label "content"@en;
+    rdfs:label "url"@en;
     rdfs:domain ids_int:Endpoint;
     rdfs:range xsd:anyURI;
     rdfs:comment "URI that returns a certain representation of a DataAsset."@en.
