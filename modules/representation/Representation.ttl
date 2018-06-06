@@ -15,11 +15,7 @@
 
 ids_rep:Representation a owl:Class;
     rdfs:label "Representation"@en;
-    rdfs:comment "Class of Kind representations, i.e., implementation-focused descriptions using data- and media types or schemas."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_rep:offeredBy;
-        ids_rel:relationType ids_rel:OneToMany;
-    ].
+    rdfs:comment "Class of Kind representations, i.e., implementation-focused descriptions using data- and media types or schemas."@en.
 
 # Properties
 # ----------
@@ -55,9 +51,3 @@ ids_rep:schemaDefinition a owl:DatatypeProperty;
     rdfs:range xsd:string;
     rdfs:label "schemaDefinition"@en;
     rdfs:comment "Formal definition of the Representation's structure, matching its data and media type (e.g, JSON Schema or XSD)."@en.
-
-ids_rep:offeredBy a owl:ObjectProperty;
-    rdfs:label "offeredBy"@en;
-    rdfs:domain ids_rep:Representation;
-    rdfs:range ids_int:ServiceInterface;
-    rdfs:comment "The interface providing the representation of the DataAsset."@en.

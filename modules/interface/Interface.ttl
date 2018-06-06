@@ -10,6 +10,7 @@
 @prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
 @prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
 @prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_rep: <https://schema.industrialdataspace.org/representation/> .
 
 # Classes
 # -------
@@ -219,6 +220,12 @@ ids_int:addKindSemantics a owl:ObjectProperty;
     rdfs:range ids_da:KindSemantics;
     rdfs:label "addKindSemantics"@en;
     rdfs:comment "Concretises semantics of a Parameter if it is more specific than the original Kind semantics."@en.
+
+ids_int:covers a owl:ObjectProperty;
+    rdfs:domain ids_int:Parameter;
+    rdfs:range ids_rep:Representation;
+    rdfs:label "covers"@en;
+    rdfs:comment "The Representation consumed or returned by a Parameter."@en.
 
 # Properties for describing a ParameterGroup
 # ------------------------------------------
