@@ -1,0 +1,115 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+@prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_base: <https://schema.industrialdataspace.org/base/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
+@prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
+@prefix ids_spatial: <https://schema.industrialdataspace.org/spatial/> .
+@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_lang: <https://schema.industrialdataspace.org/language/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_contentcat: <https://schema.industrialdataspace.org/content/> .
+@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+
+# Classes
+# -------
+
+ids_da:DataAsset rdfs:subClassOf ids_base:EntityWithLifecycle;
+    rdfs:subClassOf ids_conn:Resource;
+    rdfs:subClassOf dcat:Dataset;
+    a owl:Class;
+    rdfs:label "DataAsset"@en;
+    rdfs:comment "Class describing data on the Industrial Dataspace. May be a data offering, data that is in the state of being transfered or an aggregation of multiple other dataassets."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:coversTemporal;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:coversSpatial;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:contentCategory;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:kind;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_da:coversLanguage;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
+
+# Properties
+# ----------
+
+ids_da:kind a owl:ObjectProperty;
+    rdfs:label "kind"@en;
+    ids_doc:labelPluralForm "kinds"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_da:Kind;
+    rdfs:comment "Describes the DataAsset's Kind."@en.
+
+ids_da:version rdfs:subPropertyOf dct:hasVersion;
+    a owl:DatatypeProperty;
+    rdfs:label "version"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range xsd:string;
+    rdfs:comment "Version identifier of the InfrastructureComponent."@en.
+
+ids_da:coversTemporal a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:temporal;
+    rdfs:label "coversTemporal"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_temp:TemporalEntity;
+    rdfs:comment "Temporal period or instance covered by the DataAsset."@en.
+
+ids_da:coversSpatial a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:spatial;
+    rdfs:label "coversSpatial"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_spatial:SpatialEntity;
+    rdfs:comment "Spatial location covered by the DataAsset."@en.
+
+ids_da:coversLanguage a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:language;
+    rdfs:label "coversLanguage"@en;
+    ids_doc:labelPluralForm "coversLanguages"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_lang:Language;
+    ids_trans:refByURI true;
+    rdfs:comment "States the languages that are used by the content of the DataAsset."@en.
+
+ids_da:origin a owl:DatatypeProperty;
+    rdfs:label "origin"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.
+
+ids_da:contentCategory a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:theme;
+    rdfs:label "contentCategory"@en;
+    ids_doc:labelPluralForm "contentCategories"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_contentcat:ContentCategory;
+    rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the DataAsset."@en.
+
+ids_da:keyword a owl:DatatypeProperty;
+    rdfs:subPropertyOf dcat:theme;
+    rdfs:label "keyword"@en;
+    ids_doc:labelPluralForm "keywords"@en;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Links to an item in a flat list of controlled keywords that describe content-related coverage of the DataAsset."@en.
+
+ids_da:contract a owl:ObjectProperty;
+    rdfs:domain ids_da:DataAsset;
+    rdfs:range ids_contr:Contract;
+    rdfs:label "contract"@en;
+    rdfs:comment "The Contract regulating usage of the DataAsset."@en.

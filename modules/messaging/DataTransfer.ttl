@@ -1,0 +1,172 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix credential: <http://www.daml.org/services/owl-s/security/credential.owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ids_dtr: <https://schema.industrialdataspace.org/dataTransfer/> .
+@prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
+@prefix ids_hash: <https://schema.industrialdataspace.org/hashFunction/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
+@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids_int: <https://schema.industrialdataspace.org/interface/> .
+
+# Classes
+# -------
+
+ids_dtr:DataTransfer
+	a owl:Class;
+	rdfs:label "DataTransfer"@en;
+	rdfs:comment "The class of resources that describe a data transfer on the IDS."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_dtr:customAttribute;
+        ids_rel:relationType ids_rel:OneToMany;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_dtr:sender;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_dtr:receiver;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_dtr:transferCreatedAt;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
+ids_dtr:TransferAttribute
+	a owl:Class;
+	rdfs:label "TransferAttribute"@en;
+	rdfs:comment "General attribute for additional description of security aspects of a data transfer."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_dtr:transferAttributeKey;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_dtr:transferAttributeValue;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
+ids_dtr:AuthToken rdfs:subClassOf credential:SimpleCredential;
+	a owl:Class;
+	rdfs:label "AuthToken"@en;
+	rdfs:comment "Authorization Token."@en;
+    ids_rel:validation [
+        ids_rel:forProperty ids_dtr:tokenValue;
+        ids_rel:constraint ids_rel:NotNull;
+    ].
+
+# Properties
+# ----------
+
+ids_dtr:sender
+	a owl:DatatypeProperty;
+	rdfs:label "sender"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_conn:Connector;
+	ids_trans:refByURI true;
+	rdfs:comment "The Connector which is the origin of the message."@en.
+
+ids_dtr:receiver
+	a owl:DatatypeProperty;
+	rdfs:label "receiver"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_conn:Connector;
+	ids_trans:refByURI true;
+	rdfs:comment "The Connector which is the recipient of the message."@en.
+
+ids_dtr:sendingParticipant
+	a owl:DatatypeProperty;
+	rdfs:label "sendingParticipant"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_part:Participant;
+	ids_trans:refByURI true;
+	rdfs:comment "The Participant which initiated the DataTransfer."@en.
+
+ids_dtr:receivingParticipant
+	a owl:DatatypeProperty;
+	rdfs:label "receivingParticipant"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_part:Participant;
+	ids_trans:refByURI true;
+	rdfs:comment "The Participant for which the DataTransfer is intended."@en.
+
+ids_dtr:sourceOperation
+	a owl:DatatypeProperty;
+	rdfs:label "sourceOperation"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_int:Operation;
+	ids_trans:refByURI true;
+	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
+
+ids_dtr:targetOperation
+    a owl:DatatypeProperty;
+    rdfs:label "targetOperation"@en;
+    rdfs:domain ids_dtr:DataTransfer;
+    rdfs:range ids_int:Operation;
+    ids_trans:refByURI true;
+    rdfs:comment "The operation that is intended to receive the transferred data."@en.
+
+ids_dtr:authToken
+	a owl:ObjectProperty;
+	rdfs:label "authToken"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_dtr:AuthToken;
+	rdfs:comment "An authorization token like JSON Web Token."@en.
+
+ids_dtr:contract
+	a owl:ObjectProperty;
+	rdfs:label "contract"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_contr:Contract;
+	ids_trans:refByURI true;
+	rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
+
+ids_dtr:payloadDigest
+	a owl:DatatypeProperty;
+	rdfs:label "payloadDigest"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range xsd:base64Binary;
+	rdfs:comment "The digest of the DataAsset being transfered."@en.
+
+ids_dtr:customAttribute
+	a owl:ObjectProperty;
+	rdfs:label "customAttribute"@en;
+	ids_doc:labelPluralForm "customAttributes"@en;
+	rdfs:domain ids_dtr:DataTransfer;
+	rdfs:range ids_dtr:TransferAttribute;
+	rdfs:comment "Additional attributes that can be specified for a DataTransfer."@en.
+
+ids_dtr:tokenValue a owl:DatatypeProperty;
+	rdfs:label "tokenValue"@en;
+	rdfs:domain ids_dtr:AuthToken;
+	rdfs:range xsd:string;
+	rdfs:comment "An authorization token value like JSON Web Token."@en.
+
+ids_dtr:transferAttributeKey a owl:DatatypeProperty;
+	rdfs:label "transferAttributeKey"@en;
+	rdfs:domain ids_dtr:TransferAttribute;
+	rdfs:range xsd:string.
+
+ids_dtr:transferAttributeValue a owl:DatatypeProperty;
+	rdfs:label "transferAttributeValue"@en;
+	rdfs:domain ids_dtr:TransferAttribute;
+	rdfs:range xsd:string.
+
+ids_dtr:transferCreatedAt rdfs:subPropertyOf dct:dateSubmitted;
+    a owl:DatatypeProperty;
+    rdfs:label "transferCreatedAt"@en;
+    rdfs:domain ids_dtr:DataTransfer;
+    rdfs:range xsd:dateTime;
+    rdfs:comment "Date of creation of the DataTransfer."@en.
+
+ids_dtr:hashFunction a owl:ObjectProperty;
+    rdfs:label "hashFunction"@en;
+    rdfs:domain ids_dtr:DataTransfer;
+    rdfs:range ids_hash:HashFunction;
+    rdfs:comment "Algorithm used to calculate the payload digest of a DataTransfer."@en.
+

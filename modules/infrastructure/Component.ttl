@@ -1,0 +1,74 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix ids: <https://schema.industrialdataspace.org/> .
+@prefix ids_base: <https://schema.industrialdataspace.org/base/> .
+@prefix ids_spatial: <https://schema.industrialdataspace.org/spatial/> .
+@prefix ids_activity: <https://schema.industrialdataspace.org/activity/> .
+@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids_part: <https://schema.industrialdataspace.org/participant/> .
+
+# Classes
+# -------
+
+ids_base:InfrastructureComponent rdfs:subClassOf ids_base:EntityWithLifecycle;
+    a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "InfrastructureComponent"@en ;
+    rdfs:comment "The class of all infrastructure components of the IDS.";
+    ids_rel:validation [
+        ids_rel:forProperty ids_base:technicalResponsibility;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_base:contentResponsibility;
+        ids_rel:constraint ids_rel:NotNull;
+    ];
+    ids_rel:validation [
+        ids_rel:forProperty ids_base:supportedIMVersion;
+        ids_rel:relationType ids_rel:OneToMany;
+    ].
+
+# Properties of InfrastructureComponent
+# -------------------------------------
+
+ids_base:maintainer a owl:ObjectProperty;
+    rdfs:label "maintainer"@en;
+    rdfs:domain ids_base:InfrastructureComponent;
+    rdfs:range ids_part:Participant;
+    ids_trans:refByURI true;
+    rdfs:comment "Participant responsible for maintaining the InfrastructureComponent."@en.
+
+ids_base:contentResponsibility a owl:ObjectProperty;
+    rdfs:label "contentResponsibility"@en;
+    rdfs:domain ids_base:InfrastructureComponent;
+    rdfs:range ids_part:Participant;
+    ids_trans:refByURI true;
+    rdfs:comment "Participant responsible for content provided by the InfrastructureComponent."@en.
+
+ids_base:technicalResponsibility a owl:ObjectProperty;
+    rdfs:label "technicalResponsibility"@en;
+    rdfs:domain ids_base:InfrastructureComponent;
+    rdfs:range ids_part:Participant;
+    ids_trans:refByURI true;
+    rdfs:comment "Participant responsible for technical operation of the InfrastructureComponent."@en.
+
+ids_base:physicalLocation a owl:ObjectProperty;
+    rdfs:label "physicalLocation"@en;
+    rdfs:domain ids_base:InfrastructureComponent;
+    rdfs:range ids_spatial:Location;
+    rdfs:comment "The location where the Connector is physically deployed."@en.
+
+ids_base:supportedIMVersion a owl:DatatypeProperty;
+    rdfs:label "supportedIMVersion"@en;
+    ids_doc:labelPluralForm "supportedIMVersions"@en;
+    rdfs:domain ids_base:InfrastructureComponent;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "The versions of the Information Model that are supported by the InfrastructureComponent."@en.
+

@@ -1,0 +1,65 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix ids_da: <https://schema.industrialdataspace.org/dataAsset/> .
+@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+
+# Classes
+# -------
+
+ids_da:KindSemantics a owl:Class;
+    ids_trans:isAbstract true;
+    rdfs:label "KindSemantics"@en ;
+    rdfs:comment "The class of defined high-level semantics for DataAsset Kinds.".
+
+# Instances
+# ---------
+
+ids_da:hash a ids_da:KindSemantics;
+    rdfs:comment "hash";
+    dct:identifier "HASH".
+
+ids_da:date a ids_da:KindSemantics;
+    rdfs:comment "date";
+    dct:identifier "DATE";
+    skos:narrower ids_da:startDate;
+    skos:narrower ids_da:endDate.
+
+ids_da:startDate a ids_da:KindSemantics;
+    rdfs:comment "start date";
+    dct:identifier "START_DATE";
+    skos:broader ids_da:date.
+
+ids_da:endDate a ids_da:KindSemantics;
+    rdfs:comment "end date";
+    dct:identifier "END_DATE" ;
+    skos:broader ids_da:date.
+
+ids_da:textual a ids_da:KindSemantics;
+    rdfs:comment "textual";
+    dct:identifier "TEXTUAL";
+    skos:narrower ids_da:freetext.
+
+ids_da:binary a ids_da:KindSemantics;
+    rdfs:comment "binary";
+    dct:identifier "BINARY".
+
+ids_da:image a ids_da:KindSemantics;
+    rdfs:comment "image";
+    dct:identifier "IMAGE".
+
+ids_da:identifier a ids_da:KindSemantics;
+    rdfs:comment "identifier";
+    dct:identifier "IDENTIFIER".
+
+ids_da:freetext a ids_da:KindSemantics;
+    rdfs:comment "freetext";
+    dct:identifier "FREETEXT";
+    skos:broader ids_da:textual.
+
+ids_da:sensor a ids_da:KindSemantics;
+    rdfs:comment "sensor measurement";
+    dct:identifier "SENSOR_MEASUREMENT".
+
