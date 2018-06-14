@@ -1,8 +1,8 @@
-# Module: Application
+# Module Application
 
 An Application functionally extends the Conenctor runtime with particular capabilities.
 
-There are 3 types of Applicatinons:
+There are 3 types of Applications:
 
 1. Data App
 2. Data App Plugin

@@ -1,1 +1,26 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
+# Classes
+# -------
+
+ids:Certification
+	rdfs:subClassOf ids:ManagedEntity ;
+    rdfs:label "Certification"@en ;
+    rdfs:comment "Abstract certification of compliance with predefined rules." ;
+    idsm:isAbstract true .
+    
+ids:MemberCertification
+	rdfs:subClassOf ids:Certification;
+    rdfs:label "Participant certification"@en ;
+    rdfs:comment "Process and result of certifying an interested party in order to become a certified member of the International Data Space." .
+
+ids:ComponentCertification
+	rdfs:subClassOf ids:Certification;
+    rdfs:label "Component certification"@en ;
+    rdfs:comment "Process and result of certifying a software component/servivce in order to become a certified part of the International Data Space infrastructure." .

@@ -2,20 +2,20 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-@prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Classes
 # -------
 
-ids_conn:AuthStandard a owl:Class;
+ids:AuthStandard a owl:Class;
     rdfs:label "AuthStandard"@en ;
     rdfs:comment "The class of authentication standards that may be supported by Connectors.".
 
 # Instances
 # ---------
 
-ids_conn:Oauth2_Jwt a ids_conn:AuthStandard;
+ids:Oauth2_Jwt a ids:AuthStandard;
     rdfs:comment "OAUTH2 via JWT";
     dct:identifier "OAUTH2_JWT".
 

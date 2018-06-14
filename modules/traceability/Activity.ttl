@@ -4,129 +4,126 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
-@prefix ids_activity: <https://schema.industrialdataspace.org/activity/> .
-@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
-@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Classes
 # -------
 
-ids_activity:Activity rdfs:subClassOf prov:Activity;
+ids:Activity rdfs:subClassOf prov:Activity;
     a owl:Class;
-    ids_trans:isAbstract true;
+    idsm:isAbstract true;
     rdfs:label "Activity"@en ;
     rdfs:comment "Something that occurs over a period of time and acts upon or with entities."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_activity:startedBy;
-        ids_rel:constraint ids_rel:NotNull;
+    idsm:validation [
+        idsm:forProperty ids:startedBy;
+        idsm:constraint idsm:NotNull;
     ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_activity:startedAt;
-        ids_rel:constraint ids_rel:NotNull;
+    idsm:validation [
+        idsm:forProperty ids:startedAt;
+        idsm:constraint idsm:NotNull;
     ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_activity:activityDescription;
-        ids_rel:relationType ids_rel:OneToMany;
+    idsm:validation [
+        idsm:forProperty ids:activityDescription;
+        idsm:relationType idsm:OneToMany;
     ].
 
-ids_activity:CreationActivity rdfs:subClassOf ids_activity:Activity;
+ids:CreationActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "CreationActivity"@en ;
     rdfs:comment "Activity with the goal to generate or produce an entity."@en.
 
-ids_activity:RemovalActivity rdfs:subClassOf ids_activity:Activity;
+ids:RemovalActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "RemovalActivity"@en ;
     rdfs:comment "Activity with the goal to decommission an entity so that it can never be used anymore."@en.
 
-ids_activity:ProvisioningActivity rdfs:subClassOf ids_activity:Activity;
+ids:ProvisioningActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "ProvisioningActivity"@en ;
     rdfs:comment "Activity with the goal to bring an entity into an operational state."@en.
 
-ids_activity:ShutdownActivity rdfs:subClassOf ids_activity:Activity;
+ids:ShutdownActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "ShutdownActivity"@en ;
     rdfs:comment "Activity with the goal to make an entity unoperational, while retaining it and make it operational again at a later point in time."@en.
 
-ids_activity:PublicationActivity rdfs:subClassOf ids_activity:Activity;
+ids:PublicationActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "PublicationActivity"@en ;
     rdfs:comment "Activity with the goal to make available an entity for public or restricted access."@en.
 
-ids_activity:WithdrawActivity rdfs:subClassOf ids_activity:Activity;
+ids:WithdrawActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "WithdrawActivity"@en ;
     rdfs:comment "Activity with the goal to withdraw public or restrict availability of an entity."@en.
 
-ids_activity:SuspensionActivity rdfs:subClassOf ids_activity:Activity;
+ids:SuspensionActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "SuspensionActivity"@en ;
     rdfs:comment "Activity with the goal to temporarily suspend operation of an entity."@en.
 
-ids_activity:ResumptionActivity rdfs:subClassOf ids_activity:Activity;
+ids:ResumptionActivity rdfs:subClassOf ids:Activity;
     a owl:Class;
     rdfs:label "ResumptionActivity"@en ;
     rdfs:comment "Activity with the goal to resume operation of a temporarily suspended entity."@en.
 
 
-# Properties of EntityWithLifecycle related to traceability
+# Properties of ManagedEntity related to traceability
 # -------------------------------------
 
-ids_base:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
+ids:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
     a owl:ObjectProperty;
     rdfs:label "generationActivity"@en;
-    rdfs:domain ids_base:EntityWithLifecycle;
-    rdfs:range ids_activity:CreationActivity;
+    rdfs:domain ids:ManagedEntity;
+    rdfs:range ids:CreationActivity;
     rdfs:comment "Activity that led to the generation of the InfrastructureComponent."@en.
 
-ids_base:lifecycleActivity a owl:ObjectProperty;
+ids:lifecycleActivity a owl:ObjectProperty;
     rdfs:label "lifecycleActivity"@en;
-    ids_doc:labelPluralForm "lifecycleActivities"@en;
-    rdfs:domain ids_base:EntityWithLifecycle;
-    rdfs:range ids_activity:Activity;
+    ids:labelPluralForm "lifecycleActivities"@en;
+    rdfs:domain ids:ManagedEntity;
+    rdfs:range ids:Activity;
     rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.
 
 
 # Properties
 # ----------
 
-ids_activity:activityDescription rdfs:subPropertyOf dct:description;
+ids:activityDescription rdfs:subPropertyOf dct:description;
     a owl:DatatypeProperty;
-    rdfs:domain ids_activity:Activity;
+    rdfs:domain ids:Activity;
     rdfs:range rdf:PlainLiteral;
     rdfs:label "activityDescription"@en;
-    ids_doc:labelPluralForm "activityDescriptions"@en;
+    ids:labelPluralForm "activityDescriptions"@en;
     rdfs:comment "Freetext description of what has been performed by the Activity."@en.
 
-ids_activity:startedBy rdfs:subPropertyOf prov:wasStartedBy;
+ids:startedBy rdfs:subPropertyOf prov:wasStartedBy;
     a owl:ObjectProperty;
-    rdfs:domain ids_activity:Activity;
-    rdfs:range ids_activity:Participant;
-    ids_trans:refByURI true;
+    rdfs:domain ids:Activity;
+    rdfs:range ids:Participant;
+    idsm:refByURI true;
     rdfs:label "startedBy"@en;
     rdfs:comment "The participant who started the Activity."@en.
 
-ids_activity:startedAt rdfs:subPropertyOf prov:wasStartedBy;
+ids:startedAt rdfs:subPropertyOf prov:wasStartedBy;
     a owl:DatatypeProperty;
-    rdfs:domain ids_activity:Activity;
+    rdfs:domain ids:Activity;
     rdfs:range xsd:dateTime;
     rdfs:label "startedAt"@en;
     rdfs:comment "The point in time when the Activity was started."@en.
 
-ids_activity:endedBy rdfs:subPropertyOf prov:wasEndedBy;
+ids:endedBy rdfs:subPropertyOf prov:wasEndedBy;
     a owl:ObjectProperty;
-    rdfs:domain ids_activity:Activity;
-    rdfs:range ids_activity:Participant;
-    ids_trans:refByURI true;
+    rdfs:domain ids:Activity;
+    rdfs:range ids:Participant;
+    idsm:refByURI true;
     rdfs:label "endedBy"@en;
     rdfs:comment "The participant who ended the Activity."@en.
 
-ids_activity:endedAt rdfs:subPropertyOf prov:wasEndedBy;
+ids:endedAt rdfs:subPropertyOf prov:wasEndedBy;
     a owl:DatatypeProperty;
-    rdfs:domain ids_activity:Activity;
+    rdfs:domain ids:Activity;
     rdfs:range xsd:dateTime;
     rdfs:label "endedAt"@en;
     rdfs:comment "The point in time when the Activity was ended."@en.

@@ -1,0 +1,35 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:Role
+	a owl:Class ;
+	rdfs:label "Certification"@en ;
+    rdfs:comment "Generic notion of role played by a party in a context." ;
+    idsm:isAbstract true .
+    
+ids:DataSovereign
+	rdfs:subClassOf ids:Role;
+    rdfs:label "Data Sovereign"@en ;
+    skos:altLabel "Data Owner"@en ;
+    rdfs:comment "Role of a Participant that holds all legal rights of, and has complete control over, its data."@en .
+
+ids:DataProvider
+	rdfs:subClassOf ids:Role;
+    rdfs:label "Data Provider"@en ;
+    rdfs:comment "Role of a Participant that makes data available for being exchanged between a Data Owner and a Data Consumer."@en .
+
+ids:DataConsumer
+	rdfs:subClassOf ids:Role;
+    rdfs:label "Data Consumer"@en ;
+    rdfs:comment "Role of a Participant that receives data from a Data Provider, often the Data User."@en .
+
+ids:DataUser
+	rdfs:subClassOf ids:Role;
+    rdfs:label "Data User"@en ;
+    rdfs:comment "Role of a Participant that has the legal right to use the data of a Data Sovereign as specified by the usage policy."@en .

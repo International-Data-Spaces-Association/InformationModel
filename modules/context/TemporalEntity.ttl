@@ -3,85 +3,83 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-@prefix ids_temp: <https://schema.industrialdataspace.org/temporal/> .
-@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Classes
 # -------
 
-ids_temp:TemporalEntity rdfs:subClassOf time:TemporalEntity;
+ids:TemporalEntity rdfs:subClassOf time:TemporalEntity;
     a owl:Class;
     rdfs:label "TemporalEntity"@en ;
     rdfs:comment "A temporal interval or instant."@en.
 
-ids_temp:Instant rdfs:subClassOf ids_temp:TemporalEntity;
+ids:Instant rdfs:subClassOf ids:TemporalEntity;
     rdfs:subClassOf time:Instant;
     a owl:Class;
     rdfs:label "Instant"@en ;
     rdfs:comment "A temporal entity with zero extent or duration."@en.
 
-ids_temp:Interval rdfs:subClassOf ids_temp:TemporalEntity;
+ids:Interval rdfs:subClassOf ids:TemporalEntity;
     rdfs:subClassOf time:Interval;
     a owl:Class;
     rdfs:label "Interval"@en ;
     rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_temp:beginning;
-        ids_rel:constraint ids_rel:NotNull;
+    idsm:validation [
+        idsm:forProperty ids:beginning;
+        idsm:constraint idsm:NotNull;
     ].
 
-ids_temp:NamedInstant rdfs:subClassOf ids_temp:Instant;
+ids:NamedInstant rdfs:subClassOf ids:Instant;
     a owl:Class;
-    ids_trans:isAbstract true;
+    idsm:isAbstract true;
     rdfs:label "NamedInstant"@en ;
-    rdfs:comment "A temporal entity with a name that has no fixed value, e.g., \'today\'."@en.
+    rdfs:comment "A temporal entity with a name that has no fixed value, e.g., 'today'."@en.
 
-ids_temp:Today a ids_temp:NamedInstant;
+ids:Today a ids:NamedInstant;
     rdfs:comment "Today";
     dct:identifier "TODAY".
 
-ids_temp:NDaysAgo a ids_temp:NamedInstant;
+ids:NDaysAgo a ids:NamedInstant;
     rdfs:comment "NDaysAgo";
     dct:identifier "N_DAYS_AGO".
 
-ids_temp:Momentary a ids_temp:NamedInstant;
+ids:Momentary a ids:NamedInstant;
     rdfs:comment "Momentary";
     dct:identifier "MOMENTARY".
 
 # Properties for describing temporal entities
 # -------------------------------------------
 
-ids_temp:inXSDDateTime rdfs:subPropertyOf time:inXSDDateTime;
+ids:inXSDDateTime rdfs:subPropertyOf time:inXSDDateTime;
     a owl:DatatypeProperty;
-    rdfs:domain ids_temp:Instant;
+    rdfs:domain ids:Instant;
     rdfs:range xsd:dateTime;
     rdfs:label "inXSDDateTime"@en;
     rdfs:comment "Position of an Instant."@en.
 
-ids_temp:named a owl:ObjectProperty;
-    rdfs:domain ids_temp:Instant;
-    rdfs:range ids_temp:NamedInstant;
+ids:named a owl:ObjectProperty;
+    rdfs:domain ids:Instant;
+    rdfs:range ids:NamedInstant;
     rdfs:label "named"@en;
     rdfs:comment "Defines a temporal instant using a NamedInstant."@en.
 
-ids_temp:namedValue a owl:DatatypeProperty;
-    rdfs:domain ids_temp:Instant;
+ids:namedValue a owl:DatatypeProperty;
+    rdfs:domain ids:Instant;
     rdfs:range xsd:int;
     rdfs:label "namedValue"@en;
     rdfs:comment "Parameterizes a NamedInstant."@en.
 
-ids_temp:beginning rdfs:subPropertyOf time:hasBeginning;
+ids:beginning rdfs:subPropertyOf time:hasBeginning;
     a owl:ObjectProperty;
-    rdfs:domain ids_temp:Interval;
-    rdfs:range ids_temp:Instant;
+    rdfs:domain ids:Interval;
+    rdfs:range ids:Instant;
     rdfs:label "beginning"@en;
     rdfs:comment "Beginning of an Interval."@en.
 
-ids_temp:end rdfs:subPropertyOf time:hasEnd;
+ids:end rdfs:subPropertyOf time:hasEnd;
     a owl:ObjectProperty;
-    rdfs:domain ids_temp:Interval;
-    rdfs:range ids_temp:Instant;
+    rdfs:domain ids:Interval;
+    rdfs:range ids:Instant;
     rdfs:label "end"@en;
     rdfs:comment "End of an Interval."@en.

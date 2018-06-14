@@ -1,13 +1,11 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-@prefix ids_broker: <https://schema.industrialdataspace.org/broker/> .
-@prefix ids_conn: <https://schema.industrialdataspace.org/connector/> .
+@prefix ids: <https://w3id.org/ids/core/> .
 
 # Classes
 # -------
 
-ids_broker:Broker rdfs:subClassOf ids_conn:Connector;
+ids:Broker rdfs:subClassOf ids:Connector;
     a owl:Class;
     rdfs:label "Broker"@en ;
     rdfs:comment "Broker holding an index of published data endpoints."@en.

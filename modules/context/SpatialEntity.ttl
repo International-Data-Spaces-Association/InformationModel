@@ -5,91 +5,88 @@
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-
-@prefix ids_spatial: <https://schema.industrialdataspace.org/spatial/> .
-@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
-@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Classes
 # -------
 
-ids_spatial:SpatialEntity rdfs:subClassOf wgs84:SpatialThing;
+ids:SpatialEntity rdfs:subClassOf wgs84:SpatialThing;
     a owl:Class;
-    ids_trans:isAbstract true;
+    idsm:isAbstract true;
     rdfs:label "SpatialEntity"@en ;
     rdfs:comment "Anything with spatial extent, i.e. size, shape, or position, e.g., places and unique positions."@en.
 
-ids_spatial:Location rdfs:subClassOf ids_spatial:SpatialEntity;
+ids:Location rdfs:subClassOf ids:SpatialEntity;
     rdfs:subClassOf dct:Location;
     a owl:Class;
-    ids_trans:isAbstract true;
+    idsm:isAbstract true;
     rdfs:label "Location"@en ;
     rdfs:comment "Class of all locations on Earth."@en.
 
-ids_spatial:GeoPoint rdfs:subClassOf ids_spatial:Location;
+ids:GeoPoint rdfs:subClassOf ids:Location;
     a owl:Class;
     rdfs:label "GeoPoint"@en ;
     rdfs:comment "A location identified by geo coordinates."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_spatial:latitude;
-        ids_rel:constraint ids_rel:NotNull;
+    idsm:validation [
+        idsm:forProperty ids:latitude;
+        idsm:constraint idsm:NotNull;
     ];
-    ids_rel:validation [
-        ids_rel:forProperty ids_spatial:longitude;
-        ids_rel:constraint ids_rel:NotNull;
+    idsm:validation [
+        idsm:forProperty ids:longitude;
+        idsm:constraint idsm:NotNull;
     ].
 
-ids_spatial:GeoFeature rdfs:subClassOf ids_spatial:Location;
+ids:GeoFeature rdfs:subClassOf ids:Location;
     a owl:Class;
     rdfs:label "GeoFeature"@en ;
     rdfs:comment "A location identified by a geonames identifier."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_spatial:geoFeatureId;
-        ids_rel:constraint ids_rel:NotNull;
+    idsm:validation [
+        idsm:forProperty ids:geoFeatureId;
+        idsm:constraint idsm:NotNull;
     ].
 
-ids_spatial:Geometry rdfs:subClassOf locn:Geometry;
-    rdfs:subClassOf ids_spatial:Location;
+ids:Geometry rdfs:subClassOf locn:Geometry;
+    rdfs:subClassOf ids:Location;
     a owl:Class;
-    ids_trans:isAbstract true;
+    idsm:isAbstract true;
     rdfs:label "Geometry"@en ;
     rdfs:comment "Geometrical shape indicating a spatial area of interest."@en.
 
-ids_spatial:BoundingPolygon rdfs:subClassOf ids_spatial:Geometry;
+ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
     a owl:Class;
     rdfs:label "BoundingPolygon"@en;
     rdfs:comment "Defines an area of interest as a set of connected points."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_spatial:geoPoint;
-        ids_rel:relationType ids_rel:OneToMany;
-        ids_rel:constraint ids_rel:NotEmpty;
+    idsm:validation [
+        idsm:forProperty ids:geoPoint;
+        idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotEmpty;
     ].
 
 # Properties for describing spatial entitites
 # -------------------------------------------
 
-ids_spatial:latitude rdfs:subPropertyOf wgs84:lat;
-    rdfs:domain ids_spatial:GeoPoint;
+ids:latitude rdfs:subPropertyOf wgs84:lat;
+    rdfs:domain ids:GeoPoint;
     rdfs:range xsd:float;
     rdfs:label "latitude"@en;
     rdfs:comment "Latitude of a GeoPoint (decimal degrees)."@en.
 
-ids_spatial:longitude rdfs:subPropertyOf wgs84:long;
-    rdfs:domain ids_spatial:GeoPoint;
+ids:longitude rdfs:subPropertyOf wgs84:long;
+    rdfs:domain ids:GeoPoint;
     rdfs:range xsd:float;
     rdfs:label "longitude"@en;
     rdfs:comment "Longitude of a GeoPoint (decimal degrees)."@en.
 
-ids_spatial:geoFeatureId rdfs:subPropertyOf gn:geonamesID;
-    rdfs:domain ids_spatial:GeoFeature;
+ids:geoFeatureId rdfs:subPropertyOf gn:geonamesID;
+    rdfs:domain ids:GeoFeature;
     rdfs:range xsd:string;
     rdfs:label "geoFeatureId"@en;
     rdfs:comment "Geonames identifier."@en.
 
-ids_spatial:geoPoint a owl:ObjectProperty;
-     rdfs:domain ids_spatial:BoundingPolygon;
-     rdfs:range ids_spatial:GeoPoint;
+ids:geoPoint a owl:ObjectProperty;
+     rdfs:domain ids:BoundingPolygon;
+     rdfs:range ids:GeoPoint;
      rdfs:label "geoPoint"@en;
-     ids_doc:labelPluralForm "geoPoints"@en;
+     ids:labelPluralForm "geoPoints"@en;
      rdfs:comment "Refers to a GeoPoint that is member of a BoundingPolygon."@en.

@@ -4,49 +4,49 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
-@prefix ids_contr: <https://schema.industrialdataspace.org/contract/> .
-@prefix ids_doc: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
-@prefix ids_trans: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
-@prefix ids_rel: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
+@prefix ids: <https://schema.industrialdataspace.org/contract/> .
+@prefix ids: <https://schema.iais.fraunhofer.de/ids/helper/documentation/> .
+@prefix idsm: <https://schema.iais.fraunhofer.de/ids/helper/transformation/> .
+@prefix idsm: <https://schema.iais.fraunhofer.de/ids/helper/relation/> .
 
 # Classes
 # -------
 
-ids_contr:Action rdfs:subClassOf odrl:Action;
+ids:Action rdfs:subClassOf odrl:Action;
     a owl:Class;
-    ids_trans:isAbstract true;
+    idsm:isAbstract true;
     rdfs:label "Action"@en;
-    ids_doc:labelPluralForm "Actions"@en;
+    ids:labelPluralForm "Actions"@en;
     rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en;
-    ids_rel:validation [
-        ids_rel:forProperty ids_contr:refinement;
-        ids_rel:relationType ids_rel:OneToMany;
+    idsm:validation [
+        idsm:forProperty ids:refinement;
+        idsm:relationType idsm:OneToMany;
     ].
 
-ids_contr:InvokeOperationAction rdfs:subClassOf ids_contr:Action;
+ids:InvokeOperationAction rdfs:subClassOf ids:Action;
     a owl:Class;
     rdfs:label "InvokeOperationAction"@en;
     rdfs:comment "The act of invoking a specific operation.".
 
-ids_contr:PaymentAction rdfs:subClassOf ids_contr:Action;
+ids:PaymentAction rdfs:subClassOf ids:Action;
     a owl:Class;
     rdfs:subClassOf odrl:pay;
     rdfs:label "PaymentAction"@en;
     rdfs:comment "The act of paying a monetary amount to a party.".
 
-ids_contr:DeleteAction rdfs:subClassOf ids_contr:Action;
+ids:DeleteAction rdfs:subClassOf ids:Action;
     a owl:Class;
     rdfs:subClassOf odrl:delete;
     rdfs:label "DeleteAction"@en;
     rdfs:comment "The act of permanently removing all copies of an Asset.".
 
-ids_contr:GrantUseAction rdfs:subClassOf ids_contr:Action;
+ids:GrantUseAction rdfs:subClassOf ids:Action;
     a owl:Class;
     rdfs:subClassOf odrl:grantUse;
     rdfs:label "GrantUseAction"@en;
     rdfs:comment "The act of granting the use of the Asset to third parties.".
 
-ids_contr:DistributeAction rdfs:subClassOf ids_contr:Action;
+ids:DistributeAction rdfs:subClassOf ids:Action;
     a owl:Class;
     rdfs:subClassOf odrl:distribute;
     rdfs:label "DistributeAction"@en;
