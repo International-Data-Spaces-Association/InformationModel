@@ -12,15 +12,19 @@
 ids:Certification
 	rdfs:subClassOf ids:ManagedEntity ;
     rdfs:label "Certification"@en ;
-    rdfs:comment "Abstract certification of compliance with predefined rules." ;
+    rdfs:comment "Abstract certification of compliance according to given Certification Scheme." ;
     idsm:isAbstract true .
+
+ids:CertificationScheme
+	rdfs:label "Certification Scheme"@en ;
+    rdfs:comment "Scheme defining the processes, roles, targets, and criteria involved in the certification of components and entities; maintained by the Certification Body." .
     
 ids:MemberCertification
-	rdfs:subClassOf ids:Certification;
+	rdfs:subClassOf ids:Certification ;
     rdfs:label "Participant certification"@en ;
     rdfs:comment "Process and result of certifying an interested party in order to become a certified member of the International Data Space." .
 
 ids:ComponentCertification
-	rdfs:subClassOf ids:Certification;
+	rdfs:subClassOf ids:Certification ;
     rdfs:label "Component certification"@en ;
     rdfs:comment "Process and result of certifying a software component/servivce in order to become a certified part of the International Data Space infrastructure." .

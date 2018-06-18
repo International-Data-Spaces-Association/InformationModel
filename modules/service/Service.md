@@ -24,7 +24,6 @@ ids:DataService rdfs:subClassOf ids:Service ;
         idsm:constraint idsm:NotNull;
     ].
 
-
 # Properties for describing a DataService
 # ---------------------------------------
 

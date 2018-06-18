@@ -14,7 +14,8 @@ ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
     rdfs:subClassOf dcat:Dataset;
     a owl:Class;
     rdfs:label "DataAsset"@en;
-    rdfs:comment "Class describing data on the Industrial Dataspace. May be a data offering, data that is in the state of being transfered or an aggregation of multiple other dataassets."@en;
+    # rdfs:comment "Class describing data on the Industrial Dataspace. May be a data offering, data that is in the state of being transfered or an aggregation of multiple other dataassets."@en;
+    rdfs:comment "Content exposed or received via Data Endpoints of the Connector. Data Assets are expected to be focused, homogeneous, and consistent over time with regard to granularity, coverage, context, data structure, and conceptual classification"@en ;
     idsm:validation [
         idsm:forProperty ids:coversTemporal;
         idsm:relationType idsm:OneToMany;

@@ -13,11 +13,21 @@ ids:Connector
     rdfs:subClassOf dcat:Catalog;
     a owl:Class;
     rdfs:label "Connector"@en ;
-    rdfs:comment "Connector for hosting data services."@en;
+    rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
     idsm:validation [
         idsm:forProperty ids:provides;
         idsm:relationType idsm:OneToMany;
-    ].
+    ] .
+
+ids:BaseConnector
+	rdfs:subClassOf ids:Connector ;
+    rdfs:label "Base Connector"@en ;
+    rdfs:comment "Implementation of the Connector specification providing only restricted security capabilities."@en .
+
+ids:TrustedConnector
+	rdfs:subClassOf ids:Connector ;
+    rdfs:label "Trusted Connector"@en ;
+    rdfs:comment "Hardened implementation of the Connector specification providing enhanced security capabilities."@en .
 
 # Properties
 # ----------
