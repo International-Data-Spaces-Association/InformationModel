@@ -1,12 +1,36 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_unit: <https://w3id.org/ids/code/unit/> .
 
-@prefix ids_unit: <https://schema.industrialdataspace.org/unit/> .
+# Instances
+# ---------
 
-# Classes
-# -------
+idsc_unit:euro a ids:Unit;
+    rdfs:comment "Euro";
+    dct:identifier "EUR".
 
-ids_unit:Unit a owl:Class;
-    rdfs:label "Unit"@en ;
-    rdfs:comment "The class of units.".
+idsc_unit:usd a ids:Unit;
+    rdfs:comment "US Dollar";
+    dct:identifier "USD".
+
+idsc_unit:kb a ids:Unit;
+    rdfs:comment "Kilobyte";
+    dct:identifier "KB".
+
+idsc_unit:day a ids:Unit;
+    rdfs:comment "Day";
+    dct:identifier "DAY".
+
+idsc_unit:week a ids:Unit;
+    rdfs:comment "Week";
+    dct:identifier "WEEK".
+
+idsc_unit:month a ids:Unit;
+    rdfs:comment "Month";
+    dct:identifier "MONTH".
+
+idsc_unit:year a ids:Unit;
+    rdfs:comment "Year";
+    dct:identifier "YEAR".
