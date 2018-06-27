@@ -8,7 +8,7 @@
 # Description of this ontology
 # ----------------------------
 
-ids: a owl:Ontology;
+ids:declarativeModel a owl:Ontology;
     dct:title "The Industrial Dataspace Information Model"@en;
     rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace.";
     dct:creator "Christian Mader" ;
@@ -18,9 +18,14 @@ ids: a owl:Ontology;
     dct:creator "Anna Kasprzik";
     dct:publisher "Fraunhofer IAIS/EIS";
     dct:publisher "Fraunhofer FIT";
-    dct:date "2017-06-20";
-    owl:versionInfo "0.9.0";
+    dct:date "2018-06-27";
+    owl:versionInfo "0.9.1";
     owl:imports
+        # Metamodel
+        <metamodel/Annotation.ttl>,
+        <metamodel/Validation.ttl>,
+        <metamodel/View.ttl>,
+        # Model
         <model/content/Artifact.ttl>,
         <model/content/Category.ttl>,
         <model/content/KindSemantics.ttl>,
@@ -74,7 +79,3 @@ ids: a owl:Ontology;
         <model/shared/Unit.ttl>,
         <model/traceability/Activity.ttl>,
         <model/traceability/ManagedEntity.ttl>.
-
-
-    
-    

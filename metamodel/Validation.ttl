@@ -1,26 +1,61 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 # Classes
 # -------
 
-#idsm:NotEmpty
-#idsm:NotNull
-#idsm:OneToMany
+idsm:PropertyValidation a owl:Class;
+    rdfs:label "PropertyValidation"@en ;
+    rdfs:comment "The class of all property validations.".
+
+idsm:RelationType a owl:Class;
+    rdfs:label "RelationType"@en ;
+    rdfs:comment "The class of relation types, i.e., cardinality definitions of left and right operands of a relation.".
+
+idsm:OneToMany a idsm:RelationType;
+    rdfs:label "OneToMany"@en.
+
+idsm:Constraint a owl:Class;
+    rdfs:label "Constraint"@en ;
+    rdfs:comment "The class of contraints concerning the right operand of a relation.".
+
+idsm:NotNull a idsm:Constraint;
+    rdfs:label "NotNull"@en.
+
+idsm:NotEmpty a idsm:Constraint;
+    rdfs:label "NotEmpty"@en.
 
 # Properties
 # ----------
 
-#idsm:constraint
-#idsm:forProperty
 #idsm:isAbstract
 #idsm:refByURI
-#idsm:relationType
-#idsm:validation
 
+# Properties
+# ----------
+
+idsm:validation a owl:ObjectProperty;
+    rdfs:label "validation"@en;
+    rdfs:domain owl:Class;
+    rdfs:range idsm:PropertyValidation;
+    rdfs:comment "Annotates a class with a validation concerning a specific property."@en.
+
+idsm:relationType a owl:ObjectProperty;
+    rdfs:label "relationType"@en;
+    rdfs:domain idsm:PropertyValidation;
+    rdfs:range idsm:RelationType;
+    rdfs:comment "Specifies the relation type for a PropertyValidation."@en.
+
+idsm:constraint a owl:ObjectProperty;
+    rdfs:label "constraint"@en;
+    rdfs:domain idsm:PropertyValidation;
+    rdfs:range idsm:Constraint;
+    rdfs:comment "Specifies the kind of constraint for a PropertyValidation."@en.
+
+idsm:forProperty a owl:DatatypeProperty;
+	rdfs:label "forProperty"@en;
+	rdfs:domain idsm:PropertyValidation;
+	rdfs:range rdf:Property;
+    rdfs:comment "The property a PropertyValidation targets."@en.

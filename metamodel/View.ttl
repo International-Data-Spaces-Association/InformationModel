@@ -13,15 +13,40 @@
 
 idsm:ModelView
     a owl:Class ;
-	rdfs:label "ModelView"@en ;
-    rdfs:comment "Selective view defined upon a model."@en .
+	rdfs:label "Model view"@en ;
+    rdfs:comment "Tailored view defined upon and generated from an ontology for a particular purpose."@en .
+
+idsm:Package a owl:Class;
+    rdfs:label "Package"@en ;
+    rdfs:comment "Abstract grouping of concepts relevant for a particular model view."@en .
 
 # Properties
 # ----------
 
 idsm:view a owl:ObjectProperty ;
-    rdfs:domain rdf:Resource ;
+    rdfs:domain rdfs:Resource ;
     rdfs:range idsm:ModelView ;
     rdfs:label "view"@en ;
     rdfs:comment "Model view associated with given resource."@en.
 
+idsm:viewOf a owl:ObjectProperty ;
+    rdfs:domain idsm:ModelView ;
+    rdfs:range rdfs:Resource ;
+    rdfs:label "view"@en ;
+    rdfs:comment "Resource associated with given model view."@en.
+
+
+# Properties
+# ----------
+
+idsm:package a owl:ObjectProperty;
+    rdfs:label "package"@en;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range idsm:Package;
+    rdfs:comment "Assigns membership of a resource to a package."@en.
+
+idsm:focusClass a owl:DatatypeProperty;
+    rdfs:domain owl:Class;
+    rdfs:range xsd:boolean;
+    rdfs:label "focusClass"@en;
+    rdfs:comment "Indicates a class as a \"central\" class that should be visualized in a particular way."@en.
