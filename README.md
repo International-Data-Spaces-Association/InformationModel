@@ -12,11 +12,11 @@ This Information Model group is chaired by [Jaroslav Pullmann](https://github.co
 
 This work has benefited from significant contributions, comments and support by (in alphabetical order):
 
-- Dr. Sandra Geisler ([Fraunhofer FIT](https://www.fit.fraunhofer.de/en))
-- Dr. Anna Kasprzik, ([TIB](https://www.tib.eu/en))
-- Dr. Christian Mader, ([Fraunhofer IAIS](https://www.iais.fraunhofer.de/en))
-- Andreas W. Müller, ([Schaeffler](https://www.schaeffler.de/content.schaeffler.de/en/))
-- Dr. Michael Theß, ([Signal Cruncher GmbH](https://signal-cruncher.com/))
+- Dr. Sandra Geisler, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
+- Dr. Anna Kasprzik, [TIB](https://www.tib.eu/en)
+- Dr. Christian Mader, [Fraunhofer IAIS](https://www.iais.fraunhofer.de/en)
+- Andreas W. Müller, [Schaeffler](https://www.schaeffler.de/content.schaeffler.de/en/)
+- Dr. Michael Theß, [Signal Cruncher GmbH](https://signal-cruncher.com/)
 
 Likewise the chairs would like to thank numerous colleagues at Fraunhofer, active participants of the
 [International Data Spaces Association](https://www.internationaldataspaces.org/en/), the members of the
