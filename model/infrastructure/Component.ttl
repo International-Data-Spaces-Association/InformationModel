@@ -10,8 +10,8 @@
 # Classes
 # -------
 
-ids:InfrastructureComponent
-	rdfs:subClassOf ids:ManagedEntity;
+ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
+    a owl:Class;
     idsm:isAbstract true;
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS.";
@@ -35,21 +35,21 @@ ids:maintainer a owl:ObjectProperty;
     rdfs:label "maintainer"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
-    ids:refByURI true;
+    idsm:refByURI true;
     rdfs:comment "Participant responsible for maintaining the InfrastructureComponent."@en.
 
 ids:contentResponsibility a owl:ObjectProperty;
     rdfs:label "contentResponsibility"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
-    ids:refByURI true;
+    idsm:refByURI true;
     rdfs:comment "Participant responsible for content provided by the InfrastructureComponent."@en.
 
 ids:technicalResponsibility a owl:ObjectProperty;
     rdfs:label "technicalResponsibility"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
-    ids:refByURI true;
+    idsm:refByURI true;
     rdfs:comment "Participant responsible for technical operation of the InfrastructureComponent."@en.
 
 ids:physicalLocation a owl:ObjectProperty;
@@ -60,7 +60,7 @@ ids:physicalLocation a owl:ObjectProperty;
 
 ids:supportedIMVersion a owl:DatatypeProperty;
     rdfs:label "supportedIMVersion"@en;
-    ids:labelPluralForm "supportedIMVersions"@en;
+    idsm:labelPluralForm "supportedIMVersions"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range xsd:anyURI;
     rdfs:comment "The versions of the Information Model that are supported by the InfrastructureComponent."@en.

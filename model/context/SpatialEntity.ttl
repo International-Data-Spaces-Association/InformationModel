@@ -67,18 +67,21 @@ ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
 # -------------------------------------------
 
 ids:latitude rdfs:subPropertyOf wgs84:lat;
+    a owl:DatatypeProperty;
     rdfs:domain ids:GeoPoint;
     rdfs:range xsd:float;
     rdfs:label "latitude"@en;
     rdfs:comment "Latitude of a GeoPoint (decimal degrees)."@en.
 
 ids:longitude rdfs:subPropertyOf wgs84:long;
+    a owl:DatatypeProperty;
     rdfs:domain ids:GeoPoint;
     rdfs:range xsd:float;
     rdfs:label "longitude"@en;
     rdfs:comment "Longitude of a GeoPoint (decimal degrees)."@en.
 
 ids:geoFeatureId rdfs:subPropertyOf gn:geonamesID;
+    a owl:DatatypeProperty;
     rdfs:domain ids:GeoFeature;
     rdfs:range xsd:string;
     rdfs:label "geoFeatureId"@en;
@@ -88,5 +91,5 @@ ids:geoPoint a owl:ObjectProperty;
      rdfs:domain ids:BoundingPolygon;
      rdfs:range ids:GeoPoint;
      rdfs:label "geoPoint"@en;
-     ids:labelPluralForm "geoPoints"@en;
+     idsm:labelPluralForm "geoPoints"@en;
      rdfs:comment "Refers to a GeoPoint that is member of a BoundingPolygon."@en.

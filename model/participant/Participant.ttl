@@ -59,7 +59,7 @@ ids:primarySite rdfs:subPropertyOf org:hasPrimarySite;
 
 ids:corporateEmailAddress rdfs:subPropertyOf foaf:mbox;
     a owl:DatatypeProperty;
-    ids:labelPluralForm "corporateEmailAddresses"@en;
+    idsm:labelPluralForm "corporateEmailAddresses"@en;
     rdfs:label "corporateEmailAddress"@en;
     rdfs:domain ids:Participant;
     rdfs:range xsd:string;
@@ -76,7 +76,7 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
     a owl:ObjectProperty;
     rdfs:domain ids:Participant;
     rdfs:range ids:Participant;
-    ids:labelPluralForm "memberParticipants"@en;
+    idsm:labelPluralForm "memberParticipants"@en;
     rdfs:label "memberParticipant"@en;
     rdfs:comment "Indicates that a participant has a member which is again a participant. This is useful for defining hierarchical relations in a participant's organization as well as identifying groups of participants to capture, e.g., members of a collaboration."@en.
 
@@ -84,7 +84,7 @@ ids:coversIndustry a owl:ObjectProperty;
     rdfs:label "coversIndustry"@en;
     rdfs:domain ids:Participant;
     rdfs:range ids:Industry;
-    ids:refByURI true;
+    idsm:refByURI true;
     rdfs:comment "Industry branch covered by the Participant."@en.
 
 # Properties for describing a Person
@@ -94,7 +94,7 @@ ids:memberPerson rdfs:subPropertyOf org:hasMember;
     a owl:ObjectProperty;
     rdfs:domain ids:Participant;
     rdfs:range ids:Person;
-    ids:labelPluralForm "memberPersons"@en;
+    idsm:labelPluralForm "memberPersons"@en;
     rdfs:label "memberPerson"@en;
     rdfs:comment "Indicates membership of a person to an organization."@en.
 
@@ -116,7 +116,7 @@ ids:phoneNumber rdfs:subPropertyOf foaf:phone;
     a owl:DatatypeProperty;
     rdfs:domain ids:Person;
     rdfs:range xsd:string;
-    ids:labelPluralForm "phoneNumbers"@en;
+    idsm:labelPluralForm "phoneNumbers"@en;
     rdfs:label "phoneNumber"@en;
     rdfs:comment "Phone number of a person."@en.
 
@@ -124,7 +124,7 @@ ids:emailAddress rdfs:subPropertyOf foaf:mbox;
     a owl:DatatypeProperty;
     rdfs:domain ids:Person;
     rdfs:range xsd:string;
-    ids:labelPluralForm "emailAddresses"@en;
+    idsm:labelPluralForm "emailAddresses"@en;
     rdfs:label "emailAddress"@en;
     rdfs:comment "Email contact of a person."@en.
 

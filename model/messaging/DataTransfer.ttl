@@ -60,7 +60,7 @@ ids:sender
 	rdfs:label "sender"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Connector;
-	ids:refByURI true;
+	idsm:refByURI true;
 	rdfs:comment "The Connector which is the origin of the message."@en.
 
 ids:receiver
@@ -68,7 +68,7 @@ ids:receiver
 	rdfs:label "receiver"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Connector;
-	ids:refByURI true;
+	idsm:refByURI true;
 	rdfs:comment "The Connector which is the recipient of the message."@en.
 
 ids:sendingParticipant
@@ -76,7 +76,7 @@ ids:sendingParticipant
 	rdfs:label "sendingParticipant"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Participant;
-	ids:refByURI true;
+	idsm:refByURI true;
 	rdfs:comment "The Participant which initiated the DataTransfer."@en.
 
 ids:receivingParticipant
@@ -84,7 +84,7 @@ ids:receivingParticipant
 	rdfs:label "receivingParticipant"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Participant;
-	ids:refByURI true;
+	idsm:refByURI true;
 	rdfs:comment "The Participant for which the DataTransfer is intended."@en.
 
 ids:sourceOperation
@@ -92,7 +92,7 @@ ids:sourceOperation
 	rdfs:label "sourceOperation"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Operation;
-	ids:refByURI true;
+	idsm:refByURI true;
 	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
 
 ids:targetOperation
@@ -100,7 +100,7 @@ ids:targetOperation
     rdfs:label "targetOperation"@en;
     rdfs:domain ids:DataTransfer;
     rdfs:range ids:Operation;
-    ids:refByURI true;
+    idsm:refByURI true;
     rdfs:comment "The operation that is intended to receive the transferred data."@en.
 
 ids:authToken
@@ -110,12 +110,12 @@ ids:authToken
 	rdfs:range ids:AuthToken;
 	rdfs:comment "An authorization token like JSON Web Token."@en.
 
-ids:contract
+ids:transferContract
 	a owl:ObjectProperty;
-	rdfs:label "contract"@en;
+	rdfs:label "transferContract"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Contract;
-	ids:refByURI true;
+	idsm:refByURI true;
 	rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
 
 ids:payloadDigest
@@ -128,7 +128,7 @@ ids:payloadDigest
 ids:customAttribute
 	a owl:ObjectProperty;
 	rdfs:label "customAttribute"@en;
-	ids:labelPluralForm "customAttributes"@en;
+	idsm:labelPluralForm "customAttributes"@en;
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:TransferAttribute;
 	rdfs:comment "Additional attributes that can be specified for a DataTransfer."@en.

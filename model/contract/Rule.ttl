@@ -75,7 +75,7 @@ ids:assignee rdfs:subPropertyOf odrl:assignee;
     rdfs:range ids:Participant;
     idsm:refByURI true;
     rdfs:label "assignee"@en;
-    ids:labelPluralForm "assignees"@en;
+    idsm:labelPluralForm "assignees"@en;
     rdfs:comment "The recipient of the policy statement."@en.
 
 ids:useAssigneeComplement a owl:DatatypeProperty;
@@ -90,7 +90,7 @@ ids:assigner rdfs:subPropertyOf odrl:assigner;
     rdfs:range ids:Participant;
     idsm:refByURI true;
     rdfs:label "assigner"@en;
-    ids:labelPluralForm "assigners"@en;
+    idsm:labelPluralForm "assigners"@en;
     rdfs:comment "The issuer of the policy statement."@en.
 
 ids:target rdfs:subPropertyOf odrl:target;
@@ -104,14 +104,14 @@ ids:target rdfs:subPropertyOf odrl:target;
 ids:duty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;
     rdfs:label "duty"@en;
-    ids:labelPluralForm "duties"@en;
+    idsm:labelPluralForm "duties"@en;
     rdfs:domain ids:Permission;
     rdfs:range ids:Duty;
     rdfs:comment "The Duties imposed by a Permission."@en.
 
 ids:ruleDescription rdfs:subPropertyOf dct:description;
     a owl:DatatypeProperty;
-    ids:labelPluralForm "ruleDescriptions"@en;
+    idsm:labelPluralForm "ruleDescriptions"@en;
     rdfs:label "ruleDescription"@en;
     rdfs:domain ids:Rule;
     rdfs:range rdf:PlainLiteral;
@@ -134,7 +134,7 @@ ids:constraint rdfs:subPropertyOf odrl:constraint;
 ids:refinement rdfs:subPropertyOf odrl:refinement;
     a owl:ObjectProperty;
     rdfs:label "refinement"@en;
-    ids:labelPluralForm "refinements"@en;
+    idsm:labelPluralForm "refinements"@en;
     rdfs:domain ids:Action;
     rdfs:range ids:Constraint;
     rdfs:comment "Constraint that refines an Action."@en.
