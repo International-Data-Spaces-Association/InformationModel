@@ -79,8 +79,8 @@ ids:Fault rdfs:subClassOf ids:OutputParameter;
     rdfs:label "Fault"@en ;
     rdfs:comment "Result on Operation failure."@en.
 
-# Properties for describing an Interface
-# --------------------------------------
+# Properties for describing an ServiceInterface
+# ---------------------------------------------
 
 ids:operation a owl:ObjectProperty;
     rdfs:domain ids:ServiceInterface;
@@ -88,23 +88,14 @@ ids:operation a owl:ObjectProperty;
     rdfs:label "operation"@en;
     rdfs:comment "Declares the Operation to access a DataAsset."@en.
 
-#ids:implementer a owl:ObjectProperty;
-#    rdfs:domain ids:ServiceInterface;
-#    rdfs:range ids:DataService;
-#    rdfs:label "implementer"@en;
-#    rdfs:comment "Links to executable service that implements an Interface."@en.
-
 ids:interfaceContract a owl:ObjectProperty;
     rdfs:domain ids:ServiceInterface;
     rdfs:range ids:Contract;
     rdfs:label "interfaceContract"@en;
     rdfs:comment "The Contract regulating usage of the Interface; in addition to the contracts that may be attached to the DataAsset"@en.
 
-# Properties for describing a DataService
-# ---------------------------------------
-
 ids:binding a owl:ObjectProperty;
-    rdfs:domain ids:DataService;
+    rdfs:domain ids:ServiceInterface;
     rdfs:range ids:ProtocolBinding;
     rdfs:label "binding"@en;
     rdfs:comment "Links to the protocol bindings which define how to technically invoke the Service."@en.
@@ -204,6 +195,12 @@ ids:addKindSemantics a owl:ObjectProperty;
     rdfs:range ids:KindSemantics;
     rdfs:label "addKindSemantics"@en;
     rdfs:comment "Concretises semantics of a Parameter if it is more specific than the original Kind semantics."@en.
+
+ids:covers a owl:ObjectProperty;
+    rdfs:domain ids:Parameter;
+    rdfs:range ids:Representation;
+    rdfs:label "covers"@en;
+    rdfs:comment "The Representation consumed or returned by a Parameter."@en.
 
 # Properties for describing a ParameterGroup
 # ------------------------------------------

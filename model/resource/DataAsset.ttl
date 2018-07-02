@@ -35,6 +35,10 @@ ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
     idsm:validation [
         idsm:forProperty ids:coversLanguage;
         idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:retrievableBy;
+        idsm:relationType idsm:OneToMany;
     ].
 
 # Properties
@@ -103,3 +107,9 @@ ids:dataAssetContract a owl:ObjectProperty;
     rdfs:range ids:Contract;
     rdfs:label "dataAssetContract"@en;
     rdfs:comment "The Contract regulating usage of the DataAsset."@en.
+
+ids:retrievableBy a owl:ObjectProperty;
+    rdfs:domain ids:DataAsset;
+    rdfs:range ids:ServiceInterface;
+    rdfs:label "retrievableBy"@en;
+    rdfs:comment "The Interfaces for accessing the provided DataAsset."@en.

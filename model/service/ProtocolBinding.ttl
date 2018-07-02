@@ -55,14 +55,14 @@ ids:apiDocumentType a owl:ObjectProperty;
 
 ids:content a owl:DatatypeProperty;
     rdfs:label "content"@en;
-    rdfs:domain ids_int:ApiDocument;
+    rdfs:domain ids:ApiDocument;
     rdfs:range xsd:string;
     rdfs:comment "Textual representation of an API description, e.g., the OpenAPI JSON structure."@en.
 
-ids_int:endpoint a owl:ObjectProperty;
+ids:endpoint a owl:ObjectProperty;
     rdfs:label "endpoint"@en;
-    rdfs:domain ids_int:ProtocolBinding;
-    rdfs:range ids_int:Endpoint;
+    rdfs:domain ids:ProtocolBinding;
+    rdfs:range ids:Endpoint;
     rdfs:comment "Reference to be invoked in order to retrieve a DataAsset."@en.
 
 # Properties of Endpoint
