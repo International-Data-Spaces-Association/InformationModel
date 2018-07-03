@@ -11,9 +11,13 @@ This Information Model group is chaired by [Jaroslav Pullmann](https://github.co
 ## Contributors
 
 [Jaroslav Pullmann](https://github.com/jpullmann)
+
 [Sebastian Tramp](https://sebastian.tramp.name)
+
 [Christian Mader](https://github.com/cmader)
+
 Andreas Müller
+
 Anna Kasprzik
 
 ## Additional Resources
