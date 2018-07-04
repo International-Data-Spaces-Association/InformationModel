@@ -10,13 +10,13 @@
 
 ids:Message a owl:Class;
     rdfs:label "Message"@en ;
-    idsm:isAbstract true;
+    idsm:abstract true;
 	rdfs:comment "Meaningful payload exchanged and interpreted by client or server as part of a message-oriented communication."@en .
   
 ids:BrokerMessage rdfs:subClassOf ids:Message;
     a owl:Class;
     rdfs:label "BrokerMessage"@en ;
-    idsm:isAbstract true;
+    idsm:abstract true;
     rdfs:comment "The class of all messages to interact with a Broker.";
     idsm:validation [
         idsm:forProperty ids:messageContent;
@@ -25,19 +25,19 @@ ids:BrokerMessage rdfs:subClassOf ids:Message;
 
 ids:BrokerDataMessage rdfs:subClassOf ids:BrokerMessage;
     a owl:Class;
-    idsm:isAbstract true;
+    idsm:abstract true;
     rdfs:label "BrokerDataMessage"@en ;
     rdfs:comment "The class of all messages intended for data transfer to/from a Broker.".
 
 ids:BrokerQueryMessage rdfs:subClassOf ids:BrokerMessage;
     a owl:Class;
-    idsm:isAbstract true;
+    idsm:abstract true;
     rdfs:label "BrokerQueryMessage"@en ;
     rdfs:comment "The class of all messages that query the broker for data.".
 
 ids:BrokerRequestMessage rdfs:subClassOf ids:BrokerMessage;
     a owl:Class;
-    idsm:isAbstract true;
+    idsm:abstract true;
     rdfs:label "BrokerRequestMessage"@en ;
     rdfs:comment "The class of all messages that represent requests to a Broker.";
     idsm:validation [
@@ -47,7 +47,7 @@ ids:BrokerRequestMessage rdfs:subClassOf ids:BrokerMessage;
 
 ids:BrokerResponseMessage rdfs:subClassOf ids:BrokerMessage;
     a owl:Class;
-    idsm:isAbstract true;
+    idsm:abstract true;
     rdfs:label "BrokerResponseMessage"@en ;
     rdfs:comment "The class of all messages that represent responses of a Broker.";
     idsm:validation [

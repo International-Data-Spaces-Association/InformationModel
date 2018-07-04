@@ -1,0 +1,207 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+ids:ContentType
+    rdf:type owl:Class ;
+    idsm:abstract true ;
+    rdfs:label "Content type"@en ;    
+    rdfs:comment "Nature of a Content providing hints on its usage, e.g. navigating a Structure or accessing a List by an index." ;
+    # TODO, discuss: rdfs:subClassOf dct:DCMIType or ..?    
+    rdfs:seeAlso <http://www.ontodm.com/doku.php?id=ontodt> ;
+    rdfs:seeAlso <https://schema.org/DataType> ;
+    rdfs:seeAlso <https://schema.org/additionalType> .
+
+# Abstract content types
+# ----------------------
+
+# ids:Named - via dct.Identifier?
+
+ids:Ordered
+    rdfs:subClassOf ids:ContentType ;
+    owl:equivalentClass
+    [
+      rdf:type          owl:Restriction ;
+      owl:onProperty    ids:ordered ;
+      owl:hasValue      "true"^^xsd:boolean 
+    ];
+    rdfs:label "Ordered content"@en ;
+    rdfs:comment "Type of Content ordered in a particular way. Domain of ordering-related properties."@en .
+
+ids:Homogenous
+    rdfs:subClassOf ids:ContentType ;
+    owl:equivalentClass
+    [
+      rdf:type          owl:Restriction ;
+      owl:onProperty    ids:homogenous ;
+      owl:hasValue      "true"^^xsd:boolean 
+    ];
+    rdfs:label "Homogenous content"@en ;
+    rdfs:comment "Type of Content that is homogenous (with regards to Type and Representation) and remains homogenous over the time (live Content) and thus allows for a uniform processing."@en .
+
+
+# Abstract data types
+# -------------------
+
+ids:RawType
+    rdfs:subClassOf ids:ContentType ;
+    owl:disjointWith ids:Structure ;
+    rdfs:label "Raw type"@en ;
+    rdfs:comment "Opaque type of Content that is not further specified."@en .
+    
+ids:Structure
+    rdfs:subClassOf ids:ContentType ;
+    owl:disjointWith ids:RawType ;
+    rdfs:label "Structure"@en ;
+    skos:altLabel "Record"@en ;
+    skos:altLabel "Struct"@en ;
+    rdfs:comment "Custom or generic structured data type, i.e. arrangement of data fields (possibly named, ordered, strongly typed etc.)."@en ;
+    rdfs:seeAlso <https://schema.org/StructuredValue> .
+    
+ids:Value
+    rdfs:subClassOf ids:ContentType ;
+    owl:disjointWith ids:RawType, ids:Structure ;
+    rdfs:label "Value"@en ;
+    rdfs:comment "Terminal node, from the modeling perspective an atomic, possibly typed value."@en .
+    
+# TODO, discuss: rdfs:subClassOf dcmitype:Collection/ids:ContentType ..or?
+ids:Collection
+    rdfs:subClassOf ids:Structure ;
+    idsm:abstract true ;
+    rdfs:label "Collection"@en ;
+    rdfs:comment "Group of entities supporting particular access operations based on the concrete subclass."@en ;
+    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html> .
+    
+ids:Map
+    rdfs:subClassOf ids:ContentType ;
+    rdfs:label "Map"@en ;
+    rdfs:comment "Collection of Contents allowing for a key based access."@en ;
+    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/Map.html> .
+
+ids:List
+    rdfs:subClassOf ids:Ordered, ids:Collection ;
+    rdfs:label "List"@en ;
+    rdfs:comment "Ordered Collection of Contents allowing for an index-based access."@en ;
+    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/List.html> .
+    
+ids:SortOrder a owl:Class ;
+    rdfs:label "Sort order"@en ;    
+    rdfs:comment "Sort order of entries within an ordered Collection."@en .
+
+# TODO, discuss how "Composite" aligns with Collection/Structure
+#ids:Composite rdfs:subClassOf ids:ContentType;
+#    a owl:Class;
+#    rdfs:label "Composite"@en;
+#    rdfs:comment "Class of composite elements a DataAsset contains of, e.g., the different information items an object is composed of."@en;
+#    idsm:validation [
+#        idsm:forProperty ids:part;
+#        idsm:relationType idsm:OneToMany;
+#    ].
+    
+# Properties
+# ----------
+
+ids:homogenous
+    a owl:DatatypeProperty ;
+    rdfs:label "homogenous"@en ;
+    rdfs:domain ids:ContentType ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Flag indicating whether the Content parts are homogenous."@en .
+
+ids:ordered
+    a owl:DatatypeProperty ;
+    rdfs:label "ordered"@en;
+    rdfs:domain ids:ContentType ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Property indicating whether this type of Content supports ordering in a particular way (natural and user-driven ordering)."@en .
+
+# Renamed from orderPolicy
+ids:sortOrder a owl:ObjectProperty;
+    rdfs:label "sort order"@en;
+    rdfs:domain ids:Ordered;
+    rdfs:range ids:SortOrder;
+    rdfs:comment "Indicates the sort order of an ordered Collection."@en.
+
+# TODO, clarify:
+#
+#ids:orderBy a owl:ObjectProperty;
+#    rdfs:label "orderBy"@en;
+#    rdfs:domain ids:Ordered;
+#    TODO, discuss: what is the appropriate range here / how do we link columns etc. -> Content /rdfs:Resource?
+#    rdfs:range ids:Content;
+#    rdfs:comment "Content (field) defining the current sort order of an ordered Content."@en.
+#
+#ids:key a owl:ObjectProperty;
+#    rdfs:label "key"@en;
+#    rdfs:domain ids:MapKind;
+#    rdfs:range ids:Kind;
+#    rdfs:comment "Describes the type of the key that indexes a Map."@en.
+#
+#ids:values a owl:ObjectProperty;
+#    rdfs:label "values"@en;
+#    rdfs:domain ids:MapKind;
+#    rdfs:range ids:Kind;
+#    rdfs:comment "Describes the type of the indexed values of a Map."@en.
+
+## Instances
+## ---------
+
+#ids:hash a ids:ContentType;
+#    rdfs:comment "hash";
+#    dct:identifier "HASH".
+#
+#ids:date a ids:ContentType;
+#    rdfs:comment "date";
+#    dct:identifier "DATE";
+#    skos:narrower ids:startDate;
+#    skos:narrower ids:endDate.
+#
+#ids:startDate a ids:ContentType;
+#    rdfs:comment "start date";
+#    dct:identifier "START_DATE";
+#    skos:broader ids:date.
+#
+#ids:endDate a ids:ContentType;
+#    rdfs:comment "end date";
+#    dct:identifier "END_DATE" ;
+#    skos:broader ids:date.
+#
+#ids:textual a ids:ContentType;
+#    rdfs:comment "textual";
+#    dct:identifier "TEXTUAL";
+#    skos:narrower ids:freetext.
+#
+#ids:binary a ids:ContentType;
+#    rdfs:comment "binary";
+#    dct:identifier "BINARY".
+#
+#ids:image a ids:ContentType;
+#    rdfs:comment "image";
+#    dct:identifier "IMAGE".
+#
+#ids:identifier a ids:ContentType;
+#    rdfs:comment "identifier";
+#    dct:identifier "IDENTIFIER".
+#
+#ids:weatherStationId a ids:ContentType;
+#    rdfs:comment "weatherStationId";
+#    dct:identifier "WEATHER_STATION_ID".
+#
+#ids:freetext a ids:ContentType;
+#    rdfs:comment "freetext";
+#    dct:identifier "FREETEXT";
+#    skos:broader ids:textual.
+#
+#ids:sensor a ids:ContentType;
+#    rdfs:comment "sensor measurement";
+#    dct:identifier "SENSOR_MEASUREMENT".
+

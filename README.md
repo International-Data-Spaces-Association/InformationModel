@@ -16,7 +16,9 @@ This work has benefited from significant contributions, comments and support by 
 - Dr. Anna Kasprzik, [TIB](https://www.tib.eu/en)
 - Dr. Christian Mader, [Fraunhofer IAIS](https://www.iais.fraunhofer.de/en)
 - Andreas W. Müller, [Schaeffler](https://www.schaeffler.de/content.schaeffler.de/en/)
+- Jaroslav Pullmann, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
 - Dr. Michael Theß, [Signal Cruncher GmbH](https://signal-cruncher.com/)
+- Sebastian Tramp, [eccenca GmbH](https://www.eccenca.com)
 
 Likewise the chairs would like to thank numerous colleagues at Fraunhofer, active participants of the
 [International Data Spaces Association](https://www.internationaldataspaces.org/en/), the members of the
