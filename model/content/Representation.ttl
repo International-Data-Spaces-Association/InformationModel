@@ -12,11 +12,7 @@
 
 ids:Representation a owl:Class;
     rdfs:label "Representation"@en;
-    rdfs:comment "Syntactic content representation, i.e., implementation-level description using data- and media types, schemas etc."@en;
-    idsm:validation [
-        idsm:forProperty ids:offeredBy;
-        idsm:relationType idsm:OneToMany;
-    ].
+    rdfs:comment "Syntactic content representation, i.e., implementation-level description using data- and media types, schemas etc."@en.
 
 # Properties
 # ----------
@@ -52,9 +48,3 @@ ids:schemaDefinition a owl:DatatypeProperty;
     rdfs:range xsd:string;
     rdfs:label "schemaDefinition"@en;
     rdfs:comment "Formal definition of the Representation's structure, matching its data and media type (e.g, JSON Schema or XSD)."@en.
-
-ids:offeredBy a owl:ObjectProperty;
-    rdfs:label "offeredBy"@en;
-    rdfs:domain ids:Representation;
-    rdfs:range ids:ServiceInterface;
-    rdfs:comment "The interface providing the representation of the DataAsset."@en.
