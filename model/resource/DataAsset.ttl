@@ -29,10 +29,6 @@ ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
         idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
-        idsm:forProperty ids:kind;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
         idsm:forProperty ids:coversLanguage;
         idsm:relationType idsm:OneToMany;
     ];
@@ -44,12 +40,11 @@ ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
 # Properties
 # ----------
 
-ids:kind a owl:ObjectProperty;
-    rdfs:label "kind"@en;
-    idsm:labelPluralForm "kinds"@en;
+ids:content a owl:ObjectProperty;
+    rdfs:label "content"@en;
     rdfs:domain ids:DataAsset;
-    rdfs:range ids:Kind;
-    rdfs:comment "Describes the DataAsset's Kind."@en.
+    rdfs:range ids:Content;
+    rdfs:comment "Describes the DataAsset's content."@en.
 
 ids:version rdfs:subPropertyOf dct:hasVersion;
     a owl:DatatypeProperty;

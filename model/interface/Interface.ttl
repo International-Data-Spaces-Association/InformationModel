@@ -46,10 +46,6 @@ ids:Parameter a owl:Class;
     idsm:validation [
         idsm:forProperty ids:paramDescription;
         idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:addKindSemantics;
-        idsm:relationType idsm:OneToMany;
     ].
 
 ids:ParameterGroup a owl:Class;
@@ -186,15 +182,9 @@ ids:dataType a owl:ObjectProperty;
 
 ids:refersTo a owl:ObjectProperty;
     rdfs:domain ids:Parameter;
-    rdfs:range ids:Kind;
+    rdfs:range ids:ContentType;
     rdfs:label "refersTo"@en;
     rdfs:comment "Indicates the Kind element to which the Parameter refers to."@en.
-
-ids:addKindSemantics a owl:ObjectProperty;
-    rdfs:domain ids:Parameter;
-    rdfs:range ids:KindSemantics;
-    rdfs:label "addKindSemantics"@en;
-    rdfs:comment "Concretises semantics of a Parameter if it is more specific than the original Kind semantics."@en.
 
 ids:covers a owl:ObjectProperty;
     rdfs:domain ids:Parameter;
