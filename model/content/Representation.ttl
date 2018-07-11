@@ -19,6 +19,13 @@ ids:Representation
 # Properties
 # ----------
 
+ids:artifact
+    a owl:ObjectProperty ;    
+    rdfs:domain ids:Representation ;
+    rdfs:range ids:Artifact ;
+    rdfs:label "artifact"@en ;
+    rdfs:comment "Reference to a materialization of this Resource Representation (Artifact)."@en.
+
 # TODO, clarify usage - there is no restriction on range!
 #ids:format rdfs:subPropertyOf dct:format;
 #    a owl:DatatypeProperty;
@@ -27,6 +34,16 @@ ids:Representation
 #    rdfs:label "format"@en;
 #    rdfs:comment "The file format of the Representation. ids:mediaType SHOULD be used if the type of the distribution is defined by IANA."@en.
 
+# ids:dataType xsd:Integer
+
+ids:dataType
+    a owl:ObjectProperty ;        
+    rdfs:domain ids:Representation ;
+    rdfs:range xsd:anyURI;
+    rdfs:label "datatype"@en ;
+    rdfs:comment "Reference to Datatype this Representation confirms to (defined in terms of a schema language)."@en;
+    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/DataType_1.0.html> .
+    
 ids:mediaType
     a owl:ObjectProperty ;
     # TODO, consider further types: dcterms:FileFormat/dcterms:MediaType etc
