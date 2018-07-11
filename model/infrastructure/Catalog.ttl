@@ -1,0 +1,47 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+
+# Classes
+# -------
+
+ids:Catalog a owl:Class;
+    rdfs:subClassOf ids:InfrastructureComponent;
+    rdfs:subClassOf dcat:Catalog;
+    rdfs:label "Catalog"@en ;
+    rdfs:comment "Metadata Catalog"@en;
+    idsm:validation [
+        idsm:forProperty ids:offer;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+# Properties
+# ----------
+
+ids:offer a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:dataset;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Resource;
+    rdfs:label "offer"@en;
+    rdfs:comment "The Resources offered by a Connector."@en.
+
+ids:request a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:dataset;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Resource;
+    rdfs:label "request"@en;
+    rdfs:comment "The Resources requested by a Connector."@en.
+
+ids:publisher a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:publisher;
+    rdfs:label "contentResponsibility"@en;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Participant;
+    rdfs:comment "Participant responsible for catalog curation."@en.
+
+ids:resource a owl:ObjectProperty;
+ids:participant a owl:ObjectProperty;
+ids:connector a owl:ObjectProperty;
+
+

@@ -69,24 +69,10 @@ ids:ResumptionActivity rdfs:subClassOf ids:Activity;
     rdfs:label "ResumptionActivity"@en ;
     rdfs:comment "Activity with the goal to resume operation of a temporarily suspended entity."@en.
 
-
-# Properties of ManagedEntity related to traceability
-# -------------------------------------
-
-ids:generationActivity rdfs:subPropertyOf prov:wasGeneratedBy;
-    a owl:ObjectProperty;
-    rdfs:label "generationActivity"@en;
-    rdfs:domain ids:ManagedEntity;
-    rdfs:range ids:CreationActivity;
-    rdfs:comment "Activity that led to the generation of the InfrastructureComponent."@en.
-
-ids:lifecycleActivity a owl:ObjectProperty;
-    rdfs:label "lifecycleActivity"@en;
-    idsm:labelPluralForm "lifecycleActivities"@en;
-    rdfs:domain ids:ManagedEntity;
-    rdfs:range ids:Activity;
-    rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.
-
+ids:ModificationActivity rdfs:subClassOf ids:Activity;
+    a owl:Class;
+    rdfs:label "ModificationActivity"@en ;
+    rdfs:comment "Activity that sustainably modifies the managed entity, resulting in a new version."@en.
 
 # Properties
 # ----------
@@ -126,3 +112,11 @@ ids:endedAt rdfs:subPropertyOf prov:wasEndedBy;
     rdfs:range xsd:dateTime;
     rdfs:label "endedAt"@en;
     rdfs:comment "The point in time when the Activity was ended."@en.
+
+ids:invalidated rdfs:subPropertyOf prov:invalidated;
+    a owl:DatatypeProperty;
+    rdfs:domain ids:ModificationActivity;
+    rdfs:range ids:ManagedEntity;
+    rdfs:label "originalEntity"@en;
+    rdfs:comment "Managed Entity that was the source of the modification."@en.
+

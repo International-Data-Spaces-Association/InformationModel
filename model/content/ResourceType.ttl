@@ -11,7 +11,7 @@
 # Classes
 # -------
 
-ids:ContentType
+ids:ResourceType
     rdf:type owl:Class ;
     idsm:abstract true ;
     rdfs:label "Content type"@en ;    
@@ -27,7 +27,7 @@ ids:ContentType
 # ids:Named - via dct.Identifier?
 
 ids:Ordered
-    rdfs:subClassOf ids:ContentType ;
+    rdfs:subClassOf ids:ResourceType ;
     owl:equivalentClass
     [
       rdf:type          owl:Restriction ;
@@ -38,7 +38,7 @@ ids:Ordered
     rdfs:comment "Type of Content ordered in a particular way. Domain of ordering-related properties."@en .
 
 ids:Homogenous
-    rdfs:subClassOf ids:ContentType ;
+    rdfs:subClassOf ids:ResourceType ;
     owl:equivalentClass
     [
       rdf:type          owl:Restriction ;
@@ -48,18 +48,17 @@ ids:Homogenous
     rdfs:label "Homogenous content"@en ;
     rdfs:comment "Type of Content that is homogenous (with regards to Type and Representation) and remains homogenous over the time (live Content) and thus allows for a uniform processing."@en .
 
-
 # Abstract data types
 # -------------------
 
-ids:RawType
-    rdfs:subClassOf ids:ContentType ;
+ids:Opaque a owl:Class;
+    rdfs:subClassOf ids:ResourceType ;
     owl:disjointWith ids:Structure ;
-    rdfs:label "Raw type"@en ;
+    rdfs:label "Opaque"@en ;
     rdfs:comment "Opaque type of Content that is not further specified."@en .
     
-ids:Structure
-    rdfs:subClassOf ids:ContentType ;
+ids:Structure a owl:Class;
+    rdfs:subClassOf ids:ResourceType ;
     owl:disjointWith ids:RawType ;
     rdfs:label "Structure"@en ;
     skos:altLabel "Record"@en ;
@@ -67,35 +66,44 @@ ids:Structure
     rdfs:comment "Custom or generic structured data type, i.e. arrangement of data fields (possibly named, ordered, strongly typed etc.)."@en ;
     rdfs:seeAlso <https://schema.org/StructuredValue> .
     
-ids:Value
-    rdfs:subClassOf ids:ContentType ;
+ids:Value a owl:Class;
+    rdfs:subClassOf ids:ResourceType ;
     owl:disjointWith ids:RawType, ids:Structure ;
     rdfs:label "Value"@en ;
     rdfs:comment "Terminal node, from the modeling perspective an atomic, possibly typed value."@en .
     
-# TODO, discuss: rdfs:subClassOf dcmitype:Collection/ids:ContentType ..or?
-ids:Collection
+ids:Collection a owl:Class;
     rdfs:subClassOf ids:Structure ;
     idsm:abstract true ;
     rdfs:label "Collection"@en ;
     rdfs:comment "Group of entities supporting particular access operations based on the concrete subclass."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html> .
     
-ids:Map
-    rdfs:subClassOf ids:ContentType ;
+ids:Map a owl:Class;
+    rdfs:subClassOf ids:Collection ;
     rdfs:label "Map"@en ;
     rdfs:comment "Collection of Contents allowing for a key based access."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/Map.html> .
 
-ids:List
+ids:List a owl:Class;
     rdfs:subClassOf ids:Ordered, ids:Collection ;
     rdfs:label "List"@en ;
     rdfs:comment "Ordered Collection of Contents allowing for an index-based access."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/List.html> .
-    
+
+ids:Application a owl:Class ;
+    rdfs:subClassOf ids:ResourceType ;
+    rdfs:label "Application"@en ;
+    rdfs:comment "IDS Application."@en .
+
+
+
+
+
 ids:SortOrder a owl:Class ;
     rdfs:label "Sort order"@en ;    
     rdfs:comment "Sort order of entries within an ordered Collection."@en .
+
 
 # TODO, discuss how "Composite" aligns with Collection/Structure
 #ids:Composite rdfs:subClassOf ids:ContentType;

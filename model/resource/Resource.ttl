@@ -11,3 +11,15 @@ ids:Resource a owl:Class;
     idsm:abstract true;
     rdfs:label "Resource"@en ;
     rdfs:comment "Superclass of digital resources that can be provided by a Connector."@en.
+
+# Properties
+------------
+
+ids:resourceType a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:type;
+    rdfs:label "content type"@en;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:ResourceType;
+    rdfs:comment "Reference to the abstract nature (type) of the Resource."@en;
+    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
+

@@ -16,7 +16,7 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS.";
     idsm:validation [
-        idsm:forProperty ids:technicalResponsibility;
+        idsm:forProperty ids:maintainer;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
@@ -37,27 +37,15 @@ ids:maintainer a owl:ObjectProperty;
     rdfs:range ids:Participant;
     rdfs:comment "Participant responsible for maintaining the InfrastructureComponent."@en.
 
-ids:contentResponsibility a owl:ObjectProperty;
-    rdfs:label "contentResponsibility"@en;
-    rdfs:domain ids:InfrastructureComponent;
-    rdfs:range ids:Participant;
-    rdfs:comment "Participant responsible for content provided by the InfrastructureComponent."@en.
-
-ids:technicalResponsibility a owl:ObjectProperty;
-    rdfs:label "technicalResponsibility"@en;
-    rdfs:domain ids:InfrastructureComponent;
-    rdfs:range ids:Participant;
-    rdfs:comment "Participant responsible for technical operation of the InfrastructureComponent."@en.
-
 ids:physicalLocation a owl:ObjectProperty;
     rdfs:label "physicalLocation"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Location;
     rdfs:comment "The location where the Connector is physically deployed."@en.
 
-ids:supportedIMVersion a owl:DatatypeProperty;
-    rdfs:label "supportedIMVersion"@en;
-    idsm:labelPluralForm "supportedIMVersions"@en;
+ids:supportedMetadataVersion a owl:DatatypeProperty;
+    rdfs:label "supportedMetadataVersion"@en;
+    idsm:labelPluralForm "supportedMetadataVersions"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range xsd:anyURI;
     rdfs:comment "The versions of the Information Model that are supported by the InfrastructureComponent."@en.

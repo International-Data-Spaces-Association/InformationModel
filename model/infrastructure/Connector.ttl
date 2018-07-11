@@ -9,14 +9,13 @@
 # -------
 
 ids:Connector
-	rdfs:subClassOf ids:InfrastructureComponent;
-    rdfs:subClassOf dcat:Catalog;
+    rdfs:subClassOf ids:Catalog;
     a owl:Class;
     idsm:abstract true;
     rdfs:label "Connector"@en ;
     rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
     idsm:validation [
-        idsm:forProperty ids:provides;
+        idsm:forProperty ids:request;
         idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
@@ -36,12 +35,6 @@ ids:TrustedConnector rdfs:subClassOf ids:Connector ;
 
 # Properties
 # ----------
-
-ids:provides a owl:ObjectProperty;
-    rdfs:domain ids:Connector;
-    rdfs:range ids:Resource;
-    rdfs:label "provides"@en;
-    rdfs:comment "The Resources provided by a Connector."@en.
 
 ids:securityProfile a owl:ObjectProperty;
     rdfs:domain ids:Connector;

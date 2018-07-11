@@ -47,7 +47,15 @@ ids:entityDescription rdfs:subPropertyOf dct:description;
 	idsm:labelPluralForm "entityDescriptions"@en;
 	rdfs:comment "Freetext description of the ManagedEntity."@en.
 
-# TODO add property ids:lifecycleActivity;
+ids:lifecycleActivity a owl:ObjectProperty;
+    rdfs:label "lifecycleActivity"@en;
+    idsm:labelPluralForm "lifecycleActivities"@en;
+    rdfs:domain ids:ManagedEntity;
+    rdfs:range ids:Activity;
+    rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.
 
-# TODO add property (string) version
-	
+ids:version a owl:DatatypeProperty;
+    rdfs:label "version"@en;
+    rdfs:domain ids:ManagedEntity;
+    rdfs:range xsd:string;
+    rdfs:comment "Version identifier of the Managed Entity"@en.
