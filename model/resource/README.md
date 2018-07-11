@@ -1,15 +1,10 @@
-# Module Application
+# Resource Model
 
-An Application functionally extends the Conenctor runtime with particular capabilities.
+`Resource` is the top level class of the hierarchy of digital assets comprising the `DataAsset` and `DatApp` subclasses.
 
-There are 3 types of Applications:
+![Resource taxonomy](figures/Resource_taxonomy.jpg)
 
-1. Data App
-2. Data App Plugin
-3. Data App Asset
+`Resource`s are modeled a three, incerementally layers of specialization.
 
-Those types are modeled according to 3 dimensions:
+![Resource model](figures/Resource.jpg)
 
-1. Resource: Application as a shared Resource
-2. Service
-3. Deployment & Maintenance
