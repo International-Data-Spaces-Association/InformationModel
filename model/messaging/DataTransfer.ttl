@@ -105,10 +105,10 @@ ids:authToken
 	rdfs:comment "An authorization token like JSON Web Token."@en.
 
 ids:transferContract
-	a owl:DatatypeProperty;
+	a owl:ObjectProperty;
 	rdfs:label "transferContract"@en;
 	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:anyURI;
+	rdfs:range ids:Contract;
 	rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
 
 ids:payloadDigest
