@@ -39,12 +39,19 @@ ids:input a owl:ObjectProperty;
     rdfs:range ids:Parameter;
     rdfs:label "input"@en;
     idsm:labelPluralForm "inputs"@en;
-    rdfs:comment "Parameterizes the input of an Operation."@en.
+    rdfs:comment "Reference to an input Parameter (optionaly) used by the Operation."@en.
+
+ids:mandatoryInput
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf ids:input;    
+    rdfs:label "mandatory input"@en;
+    idsm:labelPluralForm "mandatory inputs"@en;
+    rdfs:comment "Reference to an input Parameter required by the Operation."@en.
 
 ids:inputGroup a owl:ObjectProperty;
     rdfs:domain ids:Operation;
     rdfs:range ids:ParameterGroup;
-    rdfs:label "inputGroup"@en;
+    rdfs:label "input group"@en;
     rdfs:comment "Parameterizes the input of an Operation with a predefined paramter group."@en.
 
 ids:output a owl:ObjectProperty;

@@ -10,42 +10,29 @@
 # Classes
 # -------
 
-# TODO, rename e.g. to "File"
 ids:Artifact
-    a owl:Class; # partial subclass of dcat:Distribution    
+    a owl:Class; # partial subclass of dcat:Distribution w.r.t file/materialization aspects
     rdfs:label "Artifact"@en ;
-    rdfs:comment "Content materialized in a file, i.e. exposing properties like file name, size, creation date etc."@en.
-
-ids:downloadUrl
-    rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf dcat:downloadURL ;
-    rdfs:domain ids:Artifact ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "Artifact"@en ;
-    rdfs:comment "Literal HTTP(s) link for Artifact download."@en.
+    rdfs:comment "Resource Representation materialized in a file, i.e. possessing characteristics like file name, size, creation date etc."@en.
 
 ids:byteSize
     a owl:DatatypeProperty;
-    rdfs:subPropertyOf dcat:byteSize ;     
+    rdfs:subPropertyOf dcat:byteSize ;
     rdfs:label "byte size"@en ;    
-    rdfs:comment "Size of an artifact in bytes."@en ;  	
+    rdfs:comment "Size of the Artifact in bytes."@en ;  	
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:nonNegativeInteger .
 
 ids:fileName
     a owl:DatatypeProperty;    
     rdfs:label "file name"@en ;    
-    rdfs:comment "Name of the artifcat file."@en ;  	
+    rdfs:comment "Name of the Artifcat file."@en ;  	
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:String .
 
-# TODO, move into a general annotation class
-ids:created
-    a owl:DatatypeProperty ;  
-    rdfs:subPropertyOf dct:created ;
-    rdfs:label "created"@en ;
-    rdfs:comment "Date of creation of the Artifcat."@en ;
-    # TODO, discuss about losening range
-    rdfs:domain rdfs:Artifact ;
-    rdfs:range xsd:dateTime .
-    
+# dct:issued
+# dct:identifier
+# dct:title
+# dct:description
+# dct:licence
+# dct:rights

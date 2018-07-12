@@ -35,6 +35,12 @@ ids:Endpoint a owl:Class;
 # General Properties
 # ------------------
 
+ids:service a owl:ObjectProperty;
+    rdfs:label "service"@en;
+    rdfs:domain ids:Interface;
+    rdfs:range ids:Service;
+    rdfs:comment "Service."@en.
+
 ids:apiDocument a owl:ObjectProperty;
     rdfs:label "apiDocument"@en;
     rdfs:domain ids:ProtocolBinding;

@@ -9,11 +9,11 @@
 # Classes
 # -------
 
-ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
-    rdfs:subClassOf ids:Resource;
+ids:DataAsset
     a owl:Class;
+    rdfs:subClassOf ids:Resource;    
     rdfs:label "DataAsset"@en;
-    rdfs:comment "Content exposed or received via Data Endpoints of the Connector. Data Assets are expected to be focused, homogeneous, and consistent over time with regard to granularity, coverage, context, data structure, and conceptual classification"@en ;
+    rdfs:comment "Resource exchanged via Data Endpoints of the Connector. Data Assets are expected to be focused, homogeneous, and consistent over time with regard to granularity, coverage, context, data structure, and conceptual classification"@en ;
     idsm:validation [
         idsm:forProperty ids:coversTemporal;
         idsm:relationType idsm:OneToMany;
@@ -38,6 +38,25 @@ ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
 # Properties
 # ----------
 
+# clarify range, align with DCAT
+ids:theme a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:theme;
+    rdfs:label "theme"@en;
+    idsm:labelPluralForm "themes"@en;
+    rdfs:domain ids:DataAsset;
+    rdfs:range ids:ContentCategory;
+    rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the DataAsset."@en.
+
+# clarify range: rdfs:Literal?
+ids:keyword a owl:DatatypeProperty;
+    rdfs:subPropertyOf dcat:keyword;
+    rdfs:label "keyword"@en;
+    idsm:labelPluralForm "keywords"@en;
+    rdfs:domain ids:DataAsset;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Links to an item in a flat list of controlled keywords that describe content-related coverage of the DataAsset."@en.
+
+# check naming and purpose <-> Context?
 ids:coversTemporal a owl:ObjectProperty;
     rdfs:subPropertyOf dct:temporal;
     rdfs:label "coversTemporal"@en;
@@ -60,36 +79,9 @@ ids:coversLanguage a owl:ObjectProperty;
     rdfs:range ids:Language;
     rdfs:comment "States the languages that are used by the content of the DataAsset."@en.
 
-ids:origin a owl:DatatypeProperty;
-    rdfs:label "origin"@en;
-    rdfs:domain ids:DataAsset;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.
-
-ids:contentCategory a owl:ObjectProperty;
-    rdfs:subPropertyOf dcat:theme;
-    rdfs:label "contentCategory"@en;
-    idsm:labelPluralForm "contentCategories"@en;
-    rdfs:domain ids:DataAsset;
-    rdfs:range ids:ContentCategory;
-    rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the DataAsset."@en.
-
-ids:keyword a owl:DatatypeProperty;
-    rdfs:subPropertyOf dcat:theme;
-    rdfs:label "keyword"@en;
-    idsm:labelPluralForm "keywords"@en;
-    rdfs:domain ids:DataAsset;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "Links to an item in a flat list of controlled keywords that describe content-related coverage of the DataAsset."@en.
-
-ids:dataAssetContract a owl:ObjectProperty;
-    rdfs:domain ids:DataAsset;
-    rdfs:range ids:Contract;
-    rdfs:label "dataAssetContract"@en;
-    rdfs:comment "The Contract regulating usage of the DataAsset."@en.
-
-ids:retrievableBy a owl:ObjectProperty;
-    rdfs:domain ids:Resource;
-    rdfs:range ids:Interface;
-    rdfs:label "retrievableBy"@en;
-    rdfs:comment "The Interfaces for accessing the provided Resource."@en.
+# obsolated by Activity predicates?
+#ids:origin a owl:DatatypeProperty;
+#    rdfs:label "origin"@en;
+#    rdfs:domain ids:DataAsset;
+#    rdfs:range xsd:anyURI;
+#    rdfs:comment "Link to the original resource from which the content of the DataAsset has been derived or is a copy of."@en.

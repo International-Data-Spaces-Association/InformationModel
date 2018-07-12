@@ -12,10 +12,9 @@
 
 ids:Representation
     a owl:Class ;
-    rdfs:subClassOf ids:Serialization, dcat:Distribution;
-    #  discuss: rdfs:subClassOf dcat:Distribution / adms:AssetDistribution or ..?
+    rdfs:subClassOf ids:Serialization, dcat:Distribution;    
     rdfs:label "Representation"@en;
-    rdfs:comment "Serialization, i.e. syntactic description of a Resource."@en.
+    rdfs:comment "Serialization, i.e. syntactic blueprint of a Resource."@en.
 
 # Properties
 # ----------
@@ -25,4 +24,21 @@ ids:artifact
     rdfs:domain ids:Representation ;
     rdfs:range ids:Artifact ;
     rdfs:label "artifact"@en ;
-    rdfs:comment "Reference to a materialization of this Resource Representation (Artifact)."@en.
+    rdfs:comment "Reference to a materialization of this Representation in an existing Artifact."@en.
+    
+ids:mediaType
+    a owl:ObjectProperty ;
+    # consider alternatives: dcterms:FileFormat/dcterms:MediaType etc.
+    rdfs:subPropertyOf dcat:mediaType ;    
+    rdfs:domain ids:Representation ;
+    rdfs:range ids:MediaType ;
+    rdfs:label "mediaType"@en ;
+    rdfs:comment "Media Type of the Representation."@en.
+
+ids:conformsTo
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:conformsTo ;
+    rdfs:domain ids:Serialization;
+    rdfs:range ids:Standard;
+    rdfs:label "conforms to"@en;
+    rdfs:comment "Link to a standard the Representation conforms to."@en.

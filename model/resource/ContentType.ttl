@@ -14,8 +14,8 @@
 ids:ContentType
     rdf:type owl:Class ;
     idsm:abstract true ;
-    rdfs:label "Resource type"@en ;    
-    rdfs:comment "Nature of a Resource providing hints on its usage, e.g. navigating a Structure or accessing a List by an index." ;
+    rdfs:label "Content type"@en ;    
+    rdfs:comment "Nature of a Digital Content providing hints on its usage, e.g. navigating a Structure or accessing a List by an index." ;
     # discuss: rdfs:subClassOf dct:DCMIType or ..?    
     rdfs:seeAlso <http://www.ontodm.com/doku.php?id=ontodt> ;
     rdfs:seeAlso <https://schema.org/DataType> ;
@@ -26,17 +26,6 @@ ids:ContentType
 
 # ids:Named - via dct.Identifier?
 
-ids:Identifiable
-    rdfs:subClassOf ids:ContentType ;
-    owl:equivalentClass
-    [
-      rdf:type          owl:Restriction ;
-      owl:onProperty    ids:identifier ;
-      owl:cardinality   "1"^^xsd:nonNegativeInteger 
-    ];
-    rdfs:label "identifiable"@en ;
-    rdfs:comment "Digital Content that is globally and uniquely identifiable by means of an Identifier."@en .
-
 ids:Ordered
     rdfs:subClassOf ids:ContentType ;
     owl:equivalentClass
@@ -46,18 +35,18 @@ ids:Ordered
       owl:hasValue      "true"^^xsd:boolean 
     ];
     rdfs:label "Ordered content"@en ;
-    rdfs:comment "Type of Resource ordered in a particular way. Domain of ordering-related properties."@en .
+    rdfs:comment "Type of Digital Content ordered in a particular way. Serves as rdfs:domain of ordering-related properties."@en .
 
-ids:Homogenous
-    rdfs:subClassOf ids:ContentType ;
-    owl:equivalentClass
-    [
-      rdf:type          owl:Restriction ;
-      owl:onProperty    ids:homogenous ;
-      owl:hasValue      "true"^^xsd:boolean 
-    ];
-    rdfs:label "Homogenous resource"@en ;
-    rdfs:comment "Type of Resource that is homogenous (with regards to Type and Representation) and remains homogenous over the time (live Resource) and thus allows for a uniform processing."@en .
+#ids:Homogenous
+#    rdfs:subClassOf ids:ContentType ;
+#    owl:equivalentClass
+#    [
+#      rdf:type          owl:Restriction ;
+#      owl:onProperty    ids:homogenous ;
+#      owl:hasValue      "true"^^xsd:boolean 
+#    ];
+#    rdfs:label "Homogenous content"@en ;
+#    rdfs:comment "Type of Digital Content that is homogenous (with regards to Data Type and Serialization) thus allows for a uniform processing."@en .
 
 # Abstract data types
 # -------------------
@@ -114,20 +103,6 @@ ids:SortOrder a owl:Class ;
 # Properties
 # ----------
 
-
-ids:identifier a owl:ObjectProperty;
-    rdfs:label "identifier"@en;
-    rdfs:domain ids:DigitalContent;
-    rdfs:range rdfs:Resource;
-    rdfs:comment "Link to a globally unique Identifier."@en.
-
-ids:homogenous
-    a owl:DatatypeProperty ;
-    rdfs:label "homogenous"@en ;
-    rdfs:domain ids:ContentType ;
-    rdfs:range xsd:boolean ;
-    rdfs:comment "Flag indicating whether the Content parts are homogenous."@en .
-
 ids:ordered
     a owl:DatatypeProperty ;
     rdfs:label "ordered"@en;
@@ -143,6 +118,13 @@ ids:sortOrder a owl:ObjectProperty;
     rdfs:comment "Indicates the sort order of an ordered Collection."@en.
 
 # clarify:
+#
+#ids:homogenous
+#    a owl:DatatypeProperty ;
+#    rdfs:label "homogenous"@en ;
+#    rdfs:domain ids:ContentType ;
+#    rdfs:range xsd:boolean ;
+#    rdfs:comment "Flag indicating whether the Content parts are homogenous."@en .
 #
 #ids:orderBy a owl:ObjectProperty;
 #    rdfs:label "orderBy"@en;
@@ -215,5 +197,5 @@ ids:sortOrder a owl:ObjectProperty;
 #ids:sensor a ids:ContentType;
 #    rdfs:comment "sensor measurement";
 #    dct:identifier "SENSOR_MEASUREMENT".
-
+#
 # add "IDS Transfer Metadata" as content type

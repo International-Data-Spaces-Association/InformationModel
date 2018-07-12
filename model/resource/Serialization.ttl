@@ -23,25 +23,8 @@ ids:dataType
     rdfs:domain ids:Serialization ;
     rdfs:range xsd:anyURI;
     rdfs:label "datatype"@en ;
-    rdfs:comment "Reference to Datatype this Representation confirms to (defined in terms of a schema language)."@en;
+    rdfs:comment "Reference to Datatype this Serialization conforms to (defined in terms of a schema language)."@en;
     rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/DataType_1.0.html> .
-    
-ids:mediaType
-    a owl:ObjectProperty ;
-    # TODO, consider further types: dcterms:FileFormat/dcterms:MediaType etc
-    rdfs:subPropertyOf dcat:mediaType ;    
-    rdfs:domain ids:Serialization ;
-    rdfs:range ids:MediaType ;
-    rdfs:label "mediaType"@en ;
-    rdfs:comment "Media Type of the Representation."@en.
-
-ids:conformsToStandard
-    a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dct:conformsTo ;
-    rdfs:domain ids:Serialization;
-    rdfs:range xsd:anyURI;
-    rdfs:label "conforms to standard"@en;
-    rdfs:comment "An established standard the Representation conforms to."@en.
 
 ids:schemaLink a owl:DatatypeProperty;
     rdfs:domain ids:Serialization;

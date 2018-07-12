@@ -22,15 +22,8 @@ ids:operation a owl:ObjectProperty;
     rdfs:label "operation"@en;
     rdfs:comment "Declares the Operation to access a DataAsset."@en.
 
-ids:interfaceContract a owl:ObjectProperty;
-    rdfs:domain ids:Interface;
-    rdfs:range ids:Contract;
-    rdfs:label "interfaceContract"@en;
-    rdfs:comment "The Contract regulating usage of the Interface; in addition to the contracts that may be attached to the DataAsset"@en.
-
 ids:binding a owl:ObjectProperty;
     rdfs:domain ids:Interface;
     rdfs:range ids:ProtocolBinding;
     rdfs:label "binding"@en;
-    rdfs:comment "Links to the protocol bindings which define how to technically invoke the Service."@en.
-
+    rdfs:comment "Links to the Protocol Binding defining an invokable Service."@en.
