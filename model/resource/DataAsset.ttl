@@ -11,10 +11,8 @@
 
 ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
     rdfs:subClassOf ids:Resource;
-    rdfs:subClassOf dcat:Dataset;
     a owl:Class;
     rdfs:label "DataAsset"@en;
-    # rdfs:comment "Class describing data on the Industrial Dataspace. May be a data offering, data that is in the state of being transfered or an aggregation of multiple other dataassets."@en;
     rdfs:comment "Content exposed or received via Data Endpoints of the Connector. Data Assets are expected to be focused, homogeneous, and consistent over time with regard to granularity, coverage, context, data structure, and conceptual classification"@en ;
     idsm:validation [
         idsm:forProperty ids:coversTemporal;
@@ -39,19 +37,6 @@ ids:DataAsset rdfs:subClassOf ids:ManagedEntity;
 
 # Properties
 # ----------
-
-ids:content a owl:ObjectProperty;
-    rdfs:label "content"@en;
-    rdfs:domain ids:DataAsset;
-    rdfs:range ids:Content;
-    rdfs:comment "Describes the DataAsset's content."@en.
-
-ids:version rdfs:subPropertyOf dct:hasVersion;
-    a owl:DatatypeProperty;
-    rdfs:label "version"@en;
-    rdfs:domain ids:DataAsset;
-    rdfs:range xsd:string;
-    rdfs:comment "Version identifier of the InfrastructureComponent."@en.
 
 ids:coversTemporal a owl:ObjectProperty;
     rdfs:subPropertyOf dct:temporal;
@@ -105,6 +90,6 @@ ids:dataAssetContract a owl:ObjectProperty;
 
 ids:retrievableBy a owl:ObjectProperty;
     rdfs:domain ids:Resource;
-    rdfs:range ids:ServiceInterface;
+    rdfs:range ids:Interface;
     rdfs:label "retrievableBy"@en;
     rdfs:comment "The Interfaces for accessing the provided Resource."@en.

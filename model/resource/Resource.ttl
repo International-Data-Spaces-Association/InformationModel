@@ -1,25 +1,53 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ids: <https://w3id.org/ids/core/> .
-@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Classes
 # -------
 
 ids:Resource a owl:Class;
+    rdfs:subClassOf ids:Identifiable, ids:DigitalContent, dcat:Dataset, ids:ManagedEntity;
     idsm:abstract true;
     rdfs:label "Resource"@en ;
-    rdfs:comment "Superclass of digital resources that can be provided by a Connector."@en.
+    rdfs:comment "Superclass of digital Resources that is encoded according to a Representation and optionally materialized as an Artifact."@en;    
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset>;
+    idsm:validation [
+        idsm:forProperty ids:representation;
+        idsm:relationType idsm:OneToMany;
+    ].
+
 
 # Properties
-------------
+# ------------
 
-ids:resourceType a owl:ObjectProperty;
-    rdfs:subPropertyOf dct:type;
-    rdfs:label "resource type"@en;
+ids:representation a owl:ObjectProperty;
+    rdfs:label "representation"@en;    
     rdfs:domain ids:Resource;
-    rdfs:range ids:ResourceType;
-    rdfs:comment "Reference to the abstract nature (type) of the Resource."@en;
-    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
+    rdfs:range ids:Representation;
+    rdfs:comment "Reference to a Representation of the abstract Resource content."@en.
 
+ids:part a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:hasPart; # or adms:includedAsset or some upper-level ontology property?
+    rdfs:label "part"@en;    
+    rdfs:domain ids:Resource;
+    rdfs:range ids:Resource;
+    rdfs:comment "Reference to a Resources (physically or logically) included in given Resources supporting definition of part-whole hierarchies."@en .
+
+ids:sample a owl:ObjectProperty;
+    # dicuss: rdfs:subPropertyOf and range
+    rdfs:label "sample"@en;    
+    rdfs:domain ids:Resource;    
+    rdfs:range rdfs:Resource;
+    rdfs:comment "Sample Resource instance."@en.
+
+ids:variant a owl:ObjectProperty;
+    # dicuss: rdfs:subPropertyOf adms:translation or ..?    
+    idsm:abstract true ;
+    rdfs:label "variant"@en;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:Resource;
+    rdfs:comment "Equivalent variant of given Resource, e.g. a translation."@en.

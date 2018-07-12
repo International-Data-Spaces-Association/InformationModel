@@ -1,0 +1,38 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:ParameterGroup a owl:Class;
+    rdfs:label "ParameterGroup"@en ;
+    rdfs:comment "Class of grouped parameters, according to some grouping operator."@en;
+    idsm:validation [
+        idsm:forProperty ids:paramGroupingOperator;
+        idsm:relationType idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:paramGroupMember;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+# Properties for describing a ParameterGroup
+# ------------------------------------------
+
+ids:paramGroupMember a owl:ObjectProperty;
+    rdfs:domain ids:ParameterGroup;
+    rdfs:range ids:Parameter;
+    rdfs:label "paramGroupMember"@en;
+    idsm:labelPluralForm "paramGroupMembers"@en;
+    rdfs:comment "Declares a member of a ParameterGroup."@en.
+
+ids:paramGroupingOperator a owl:ObjectProperty;
+    rdfs:domain ids:ParameterGroup;
+    rdfs:range ids:ParameterGroupingOperator;
+    rdfs:label "paramGroupingOperator"@en;
+    rdfs:comment "Defines the operator that relates all members of the ParameterGroup."@en.

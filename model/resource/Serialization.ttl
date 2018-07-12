@@ -1,0 +1,56 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:Serialization
+    a owl:Class ;    
+    rdfs:label "Serialization"@en;
+    rdfs:comment "Serialization, i.e. syntactic description of a Digital Content."@en.
+
+# Properties
+# ----------
+
+ids:dataType
+    a owl:ObjectProperty ;        
+    rdfs:domain ids:Serialization ;
+    rdfs:range xsd:anyURI;
+    rdfs:label "datatype"@en ;
+    rdfs:comment "Reference to Datatype this Representation confirms to (defined in terms of a schema language)."@en;
+    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/DataType_1.0.html> .
+    
+ids:mediaType
+    a owl:ObjectProperty ;
+    # TODO, consider further types: dcterms:FileFormat/dcterms:MediaType etc
+    rdfs:subPropertyOf dcat:mediaType ;    
+    rdfs:domain ids:Serialization ;
+    rdfs:range ids:MediaType ;
+    rdfs:label "mediaType"@en ;
+    rdfs:comment "Media Type of the Representation."@en.
+
+ids:conformsToStandard
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:conformsTo ;
+    rdfs:domain ids:Serialization;
+    rdfs:range xsd:anyURI;
+    rdfs:label "conforms to standard"@en;
+    rdfs:comment "An established standard the Representation conforms to."@en.
+
+ids:schemaLink a owl:DatatypeProperty;
+    rdfs:domain ids:Serialization;
+    rdfs:range xsd:anyURI;
+    rdfs:label "Schema link"@en;
+    rdfs:comment "Link to a document that contains additional information like class and type descriptions or integrity constraints describing the Representation's structure."@en.
+
+ids:schemaDefinition a owl:DatatypeProperty;
+    rdfs:domain ids:Serialization;
+    rdfs:range xsd:string;
+    rdfs:label "Schema definition"@en;
+    rdfs:comment "Formal definition of the Representation's structure provided inline, matching its data and media type (e.g, JSON Schema or XSD)."@en.

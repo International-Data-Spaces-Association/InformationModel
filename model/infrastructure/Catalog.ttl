@@ -1,16 +1,17 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 # Classes
 # -------
 
 ids:Catalog a owl:Class;
-    rdfs:subClassOf ids:InfrastructureComponent;
-    rdfs:subClassOf dcat:Catalog;
+    rdfs:subClassOf dcat:Catalog, ids:InfrastructureComponent;
     rdfs:label "Catalog"@en ;
-    rdfs:comment "Metadata Catalog"@en;
+    rdfs:comment "Curated collection of metadata about Resources, Participants, Connectors and further IDS entities"@en;
     idsm:validation [
         idsm:forProperty ids:offer;
         idsm:relationType idsm:OneToMany;
@@ -19,19 +20,38 @@ ids:Catalog a owl:Class;
 # Properties
 # ----------
 
-ids:offer a owl:ObjectProperty;
+ids:resource a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:dataset;
+    rdfs:label "resource"@en;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Resource;
+    rdfs:comment "Reference to a Resource listed in the Catalog."@en.
+
+ids:offer a owl:ObjectProperty;
+    rdfs:subPropertyOf ids:resource;
     rdfs:domain ids:Catalog;
     rdfs:range ids:Resource;
     rdfs:label "offer"@en;
     rdfs:comment "The Resources offered by a Connector."@en.
 
 ids:request a owl:ObjectProperty;
-    rdfs:subPropertyOf dcat:dataset;
+    rdfs:subPropertyOf ids:resource;
     rdfs:domain ids:Catalog;
     rdfs:range ids:Resource;
     rdfs:label "request"@en;
     rdfs:comment "The Resources requested by a Connector."@en.
+
+ids:connector a owl:ObjectProperty;
+    rdfs:label "participant"@en;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Connector;
+    rdfs:comment "Reference to a Connector listed in the Catalog provising access to Catalog entities."@en.
+
+ids:participant a owl:ObjectProperty;
+    rdfs:label "participant"@en;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Participant;
+    rdfs:comment "Reference to a Participant listed in the Catalog (as a party related to other Catalog entities)."@en.
 
 ids:publisher a owl:ObjectProperty;
     rdfs:subPropertyOf dct:publisher;
@@ -39,9 +59,3 @@ ids:publisher a owl:ObjectProperty;
     rdfs:domain ids:Catalog;
     rdfs:range ids:Participant;
     rdfs:comment "Participant responsible for catalog curation."@en.
-
-ids:resource a owl:ObjectProperty;
-ids:participant a owl:ObjectProperty;
-ids:connector a owl:ObjectProperty;
-
-

@@ -7,6 +7,8 @@
     - `grep -rh --include "*.ttl" "@prefix"  | sed -E 's/[^<]+<([^>]+)>.*/\1/' | sort | uniq`
 - List resource QNames form the IDS namespace (i.e. ids, idsm, idsv, idsc_media etc.)
     - `grep -rEho --include "*.ttl" "ids(\w*):\w+" | sort | uniq`
+- Generate list of included ttl files (wenn run in $INFO_MODEL_ROOT)
+    - `find . -name "*.ttl" ! -name "Ontology.ttl" ! -path "*/references/*" | sort | sed -r 's/^\.\/(.*)/<\1>,/'`
 
 
 

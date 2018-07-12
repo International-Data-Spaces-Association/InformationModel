@@ -12,9 +12,10 @@
 
 ids:Representation
     a owl:Class ;
-    #  TODO, discuss: rdfs:subClassOf dcat:Distribution / adms:AssetDistribution or ..?
+    rdfs:subClassOf ids:Serialization, dcat:Distribution;
+    #  discuss: rdfs:subClassOf dcat:Distribution / adms:AssetDistribution or ..?
     rdfs:label "Representation"@en;
-    rdfs:comment "Serialization, i.e. syntactic description of Content."@en.
+    rdfs:comment "Serialization, i.e. syntactic description of a Resource."@en.
 
 # Properties
 # ----------
@@ -25,50 +26,3 @@ ids:artifact
     rdfs:range ids:Artifact ;
     rdfs:label "artifact"@en ;
     rdfs:comment "Reference to a materialization of this Resource Representation (Artifact)."@en.
-
-# TODO, clarify usage - there is no restriction on range!
-#ids:format rdfs:subPropertyOf dct:format;
-#    a owl:DatatypeProperty;
-#    rdfs:domain ids:Representation;
-#    rdfs:range xsd:string;
-#    rdfs:label "format"@en;
-#    rdfs:comment "The file format of the Representation. ids:mediaType SHOULD be used if the type of the distribution is defined by IANA."@en.
-
-# ids:dataType xsd:Integer
-
-ids:dataType
-    a owl:ObjectProperty ;        
-    rdfs:domain ids:Representation ;
-    rdfs:range xsd:anyURI;
-    rdfs:label "datatype"@en ;
-    rdfs:comment "Reference to Datatype this Representation confirms to (defined in terms of a schema language)."@en;
-    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/DataType_1.0.html> .
-    
-ids:mediaType
-    a owl:ObjectProperty ;
-    # TODO, consider further types: dcterms:FileFormat/dcterms:MediaType etc
-    rdfs:subPropertyOf dcat:mediaType ;    
-    rdfs:domain ids:Representation ;
-    rdfs:range ids:MediaType ;
-    rdfs:label "mediaType"@en ;
-    rdfs:comment "Media Type of the Representation."@en.
-
-ids:conformsToStandard
-    a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dct:conformsTo ;
-    rdfs:domain ids:Representation;
-    rdfs:range xsd:anyURI;
-    rdfs:label "conforms to standard"@en;
-    rdfs:comment "An established standard the Representation conforms to."@en.
-
-ids:schemaLink a owl:DatatypeProperty;
-    rdfs:domain ids:Representation;
-    rdfs:range xsd:anyURI;
-    rdfs:label "Schema link"@en;
-    rdfs:comment "Link to a document that contains additional information like class and type descriptions or integrity constraints describing the Representation's structure."@en.
-
-ids:schemaDefinition a owl:DatatypeProperty;
-    rdfs:domain ids:Representation;
-    rdfs:range xsd:string;
-    rdfs:label "Schema definition"@en;
-    rdfs:comment "Formal definition of the Representation's structure provided inline, matching its data and media type (e.g, JSON Schema or XSD)."@en.
