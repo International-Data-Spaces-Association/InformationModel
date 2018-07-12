@@ -13,8 +13,18 @@
 # Classes
 # -------
 
-ids:Retrievable
+ids:Communicable
     rdf:type owl:Class ;
     idsm:abstract true;
-    rdfs:label "retrievable"@en ;
-    rdfs:comment "."@en .
+    rdfs:label "Communicable"@en ;    
+    rdfs:comment "Data that is capable of being (digitally) communicated via a Data Endpoint."@en .
+
+# Properties
+# ----------
+
+ids:endpoint
+    a owl:ObjectProperty ;    
+    rdfs:domain ids:Communicable ;
+    rdfs:range ids:DataEndpoint ;
+    rdfs:label "endpoint"@en ;
+    rdfs:comment "Reference to the mediating DataEndpoint."@en.

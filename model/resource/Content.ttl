@@ -9,7 +9,7 @@
 # Classes
 # -------
 
-ids:DigitalContent a owl:Class;    
+ids:Content a owl:Class;    
     idsm:abstract true;
     rdfs:label "Digital content"@en ;
     rdfs:comment "Digital content oy any kind"@en;
@@ -24,7 +24,7 @@ ids:DigitalContent a owl:Class;
 ids:contentType a owl:ObjectProperty;
     rdfs:subPropertyOf dct:type;
     rdfs:label "content type"@en;
-    rdfs:domain ids:DigitalContent;
+    rdfs:domain ids:Content;
     rdfs:range ids:ContentType;
     rdfs:comment "Reference to the abstract nature (type) of the Digital Content."@en;
     rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
@@ -32,12 +32,12 @@ ids:contentType a owl:ObjectProperty;
 ids:part a owl:ObjectProperty;
     rdfs:subPropertyOf dct:hasPart;
     rdfs:label "part"@en;    
-    rdfs:domain ids:DigitalContent;
-    rdfs:range ids:DigitalContent;
+    rdfs:domain ids:Content;
+    rdfs:range ids:Content;
     rdfs:comment "Reference to a Digital Content (physically or logically) included, definition of part-whole hierarchies."@en .
 
 ids:serialization a owl:ObjectProperty;
     rdfs:label "serialization"@en;    
-    rdfs:domain ids:DigitalContent;
+    rdfs:domain ids:Content;
     rdfs:range ids:Serialization;
     rdfs:comment "Serialization of a Digital Content."@en.

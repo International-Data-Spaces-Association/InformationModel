@@ -11,7 +11,8 @@
 # -------
 
 ids:Artifact
-    a owl:Class; # partial subclass of dcat:Distribution w.r.t file/materialization aspects
+    a owl:Class;
+    rdfs:subClassOf ids:Communicable, ids:Materialization, dcat:Distribution ;# partial subclass of dcat:Distribution w.r.t materialization aspects
     rdfs:label "Artifact"@en ;
     rdfs:comment "Resource Representation materialized in a file, i.e. possessing characteristics like file name, size, creation date etc."@en.
 
