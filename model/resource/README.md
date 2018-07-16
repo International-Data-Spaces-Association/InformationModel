@@ -19,12 +19,18 @@
 
 # Related resources
 
+Listing of auxiliary, informative resources.
+
 ## Models
 - [Dataset Descriptions: HCLS Community Profile. W3C Interest Group Note 14 May 2015](https://www.w3.org/TR/hcls-dataset/)
 - [The Statistical Core Vocabulary (scovo)](http://sw.joanneum.at/scovo/schema.html), core statistical structures
 - [Metadata Vocabulary for Tabular Data. W3C Recommendation 17 December 2015](https://www.w3.org/TR/tabular-metadata/)
 - [DDI RDF Vocabularies](http://www.ddialliance.org/Specification/RDF)
 - [DDI 3.2 XML Schema Documentation (2014-02-05)](https://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/)
+- [Ontology for Media Resources 1.0. W3C Recommendation 09 February 2012](https://www.w3.org/TR/mediaont-10/)
+
+## Analysis and discussion
+- [DXWG GitHub Wiki: Data aspects semantics](https://github.com/w3c/dxwg/wiki/Data-aspects---semantics) 
 
 ## Guidelines and methodolgies
 - [Data on the Web Best Practices. W3C Recommendation 31 January 2017](https://www.w3.org/TR/dwbp/), best practices related to the publication and usage of data on the Web, making data discoverable and understandable by humans and machines
@@ -33,6 +39,16 @@
 - [Modelling Statistical Domains in SDMX, Version 2.0, June 2018](https://sdmx.org/wp-content/uploads/Modelling-statistical-domains-in-SDMX-v2-201806.docx), guideline on design and creation of SDMX information model instances
 - [Best Practices for Usage of DDI 3.2 and Future Versions](https://www.ddialliance.org/system/files/DDI%203.2%20Best%20Practices_0.pdf), guideline on identification etc.
 
+## Data type
+- Meek, B.: A taxonomy of datatypes, 1994 ([paper](https://dl.acm.org/citation.cfm?id=185042&dl=ACM&coll=DL))
+- ISO/IEC 11404, General Purpose Datatypes ([specification](http://standards.iso.org/ittf/PubliclyAvailableStandards/c039479_ISO_IEC_11404_2007%28E%29.zip))
+- Panov, L. Soldatova, and S. Dzeroski: OntoDT - Generic Ontology of Datatypes, 2014 ([paper](https://www.sciencedirect.com/science/article/pii/S0020025515005800), [homepage](http://www.ontodm.com/doku.php?id=ontodt))
+
+# Issues/Questions/Ideas
+
+## Content type
+- Consider conversion of ContentType`-Subclasses to instances (i.e. value set of `contentType` predicate)
+- Consider provision of content type-related description templates, e.g. what are the appropriate "audio" vs. "document" metadata?
 
 
 
