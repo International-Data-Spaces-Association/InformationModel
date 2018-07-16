@@ -9,7 +9,7 @@
 # Classes
 # -------
 
-ids:Interface a owl:Class;
+ids:CommInterface a owl:Class;
     rdfs:label "Interface"@en;
     rdfs:comment "Conceptualization of the interchange of digital artifacts as a set of uniform operations (interactions primitives)."@en.
 
@@ -17,13 +17,13 @@ ids:Interface a owl:Class;
 # ---------------------------------------------
 
 ids:operation a owl:ObjectProperty;
-    rdfs:domain ids:Interface;
+    rdfs:domain ids:CommInterface;
     rdfs:range ids:Operation;
     rdfs:label "operation"@en;
     rdfs:comment "Declares the Operation to access a DataAsset."@en.
 
 ids:binding a owl:ObjectProperty;
-    rdfs:domain ids:Interface;
+    rdfs:domain ids:CommInterface;
     rdfs:range ids:ProtocolBinding;
     rdfs:label "binding"@en;
     rdfs:comment "Links to the Protocol Binding defining an invokable Service."@en.

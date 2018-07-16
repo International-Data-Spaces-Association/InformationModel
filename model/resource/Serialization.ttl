@@ -18,22 +18,15 @@ ids:Serialization
 # Properties
 # ----------
 
-ids:dataType
-    a owl:ObjectProperty ;        
-    rdfs:domain ids:Serialization ;
+ids:schemaReference a owl:DatatypeProperty;
+    rdfs:domain ids:Serialization;
     rdfs:range xsd:anyURI;
-    rdfs:label "datatype"@en ;
+    rdfs:label "schema reference"@en;
     rdfs:comment "Reference to Datatype this Serialization conforms to (defined in terms of a schema language)."@en;
     rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/DataType_1.0.html> .
 
-ids:schemaLink a owl:DatatypeProperty;
-    rdfs:domain ids:Serialization;
-    rdfs:range xsd:anyURI;
-    rdfs:label "Schema link"@en;
-    rdfs:comment "Link to a document that contains additional information like class and type descriptions or integrity constraints describing the Representation's structure."@en.
-
-ids:schemaDefinition a owl:DatatypeProperty;
+ids:schemaInline a owl:DatatypeProperty;
     rdfs:domain ids:Serialization;
     rdfs:range xsd:string;
-    rdfs:label "Schema definition"@en;
+    rdfs:label "schema inline"@en;
     rdfs:comment "Formal definition of the Representation's structure provided inline, matching its data and media type (e.g, JSON Schema or XSD)."@en.

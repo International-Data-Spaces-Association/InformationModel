@@ -28,16 +28,12 @@ ids:ApiDocument a owl:Class;
     rdfs:label "ApiDocument"@en;
     rdfs:comment "Class of documents, fully and consistently describing an API, e.g., according to the OpenAPI specification."@en.
 
-ids:Endpoint a owl:Class;
-    rdfs:label "Endpoint"@en;
-    rdfs:comment "Class of invokable network Endpoints that return a DataAsset."@en.
-
 # General Properties
 # ------------------
 
 ids:service a owl:ObjectProperty;
     rdfs:label "service"@en;
-    rdfs:domain ids:Interface;
+    rdfs:domain ids:CommInterface;
     rdfs:range ids:Service;
     rdfs:comment "Service."@en.
 
@@ -70,15 +66,6 @@ ids:endpoint a owl:ObjectProperty;
     rdfs:domain ids:ProtocolBinding;
     rdfs:range ids:Endpoint;
     rdfs:comment "Reference to be invoked in order to retrieve a DataAsset."@en.
-
-# Properties of Endpoint
-# ----------------------
-
-ids:url a owl:DatatypeProperty;
-    rdfs:label "url"@en;
-    rdfs:domain ids:Endpoint;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "URI that returns a certain representation of a DataAsset."@en.
 
 # Properties
 # ----------
