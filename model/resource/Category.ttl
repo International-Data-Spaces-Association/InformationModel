@@ -10,8 +10,13 @@
 # Classes
 # -------
 
-ids:ContentCategory rdfs:subClassOf skos:Concept;
-    a owl:Class;
+ids:ContentCategory
+    rdf:type owl:Class;
+    rdfs:subClassOf skos:Concept;
     idsm:abstract true;
     rdfs:label "Content Category"@en ;
-    rdfs:comment "Class of categories for classification of Resources.".
+    rdfs:comment "Class of categories for classification of Resources.";
+    rdfs:seeAlso
+        <https://www.w3.org/TR/vocab-dcat/#Property:dataset_theme> ,
+        <https://github.com/w3c/dxwg/wiki/Data-aspects---semantics> .
+        

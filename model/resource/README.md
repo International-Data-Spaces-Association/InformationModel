@@ -50,5 +50,7 @@ Listing of auxiliary, informative resources.
 - Consider conversion of ContentType`-Subclasses to instances (i.e. value set of `contentType` predicate)
 - Consider provision of content type-related description templates, e.g. what are the appropriate "audio" vs. "document" metadata?
 
+## Keyword
+- Clarify range of `ids:keyword` (xsd:anyURI), compare: [dcat:keyword](https://www.w3.org/TR/vocab-dcat/#Property:dataset_keyword)
 
 
