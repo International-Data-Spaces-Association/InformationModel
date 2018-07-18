@@ -43,7 +43,9 @@ ids:input a owl:ObjectProperty;
 
 ids:mandatoryInput
     a owl:ObjectProperty;
-    rdfs:subPropertyOf ids:input;    
+    rdfs:subPropertyOf ids:input;
+    rdfs:domain ids:Operation;
+    rdfs:range ids:Parameter;
     rdfs:label "mandatory input"@en;
     idsm:labelPluralForm "mandatory inputs"@en;
     rdfs:comment "Reference to an input Parameter required by the Operation."@en.
@@ -54,11 +56,24 @@ ids:inputGroup a owl:ObjectProperty;
     rdfs:label "input group"@en;
     rdfs:comment "Parameterizes the input of an Operation with a predefined paramter group."@en.
 
+ids:mandatoryInputGroup a owl:ObjectProperty;
+    rdfs:domain ids:Operation;
+    rdfs:range ids:ParameterGroup;
+    rdfs:label "mandatory input group"@en;
+    rdfs:comment "Parameterizes the input of an Operation with a predefined mandatory parameter group."@en.
+
 ids:output a owl:ObjectProperty;
     rdfs:domain ids:Operation;
     rdfs:range ids:Parameter;
     rdfs:label "output"@en;
     idsm:labelPluralForm "outputs"@en;
+    rdfs:comment "Holds the result of an Operation."@en.
+
+ids:mandatoryOutput a owl:ObjectProperty;
+    rdfs:domain ids:Operation;
+    rdfs:range ids:Parameter;
+    rdfs:label "mandatoryOutput"@en;
+    idsm:labelPluralForm "mandatoryOutputs"@en;
     rdfs:comment "Holds the result of an Operation."@en.
 
 ids:fault a owl:ObjectProperty;

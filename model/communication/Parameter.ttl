@@ -10,8 +10,6 @@
 # -------
 
 ids:Parameter a owl:Class;
-#    rdfs:subClassOf ids:Named, ids:DigitalContent;
-    rdfs:subClassOf ids:DigitalContent;
     rdfs:label "Parameter"@en ;
     rdfs:comment "Named slot of an Interface Operation i.e., an input, output or fault (exception)."@en;
     idsm:abstract true;
@@ -27,43 +25,21 @@ ids:Parameter a owl:Class;
 # Properties for describing a Parameter
 # -------------------------------------
 
-ids:paramLabel rdfs:subPropertyOf rdfs:label;
-    a owl:DatatypeProperty;
-    rdfs:domain ids:Parameter;
-    rdfs:range rdf:PlainLiteral;
-    rdfs:label "paramLabel"@en;
-    idsm:labelPluralForm "paramLabels"@en;
-    rdfs:comment "Freetext label of the Parameter as it should be shown in public indexes."@en.
+ids:parameterName a owl:DatatypeProperty;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:label "name"@en ;
+    rdfs:domain ids:Parameter ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Locally unique name."@en .
 
-ids:paramName rdfs:subPropertyOf dct:identifier;
-    a owl:DatatypeProperty;
+ids:parameterType a owl:ObjectProperty;
     rdfs:domain ids:Parameter;
-    rdfs:range xsd:string;
-    rdfs:label "paramName"@en;    
-    rdfs:comment "Name of the Parameter as it must be used in service requests."@en.
+    rdfs:range ids:ParameterType;
+    rdfs:label "parameterType"@en;
+    rdfs:comment "Indicates the intended usage of the Parameter."@en.
 
-ids:paramDescription rdfs:subPropertyOf dct:description;
-    a owl:DatatypeProperty;
+ids:parameterContent a owl:ObjectProperty;
     rdfs:domain ids:Parameter;
-    rdfs:range rdf:PlainLiteral;
-    rdfs:label "paramDescription"@en;
-    idsm:labelPluralForm "paramDescriptions"@en;
-    rdfs:comment "Freetext description of the Parameter as it should be shown in public indexes."@en.
-
-ids:dataType a owl:ObjectProperty;
-    rdfs:domain ids:Parameter;
-    rdfs:range ids:ParameterDataType;
-    rdfs:label "dataType"@en;
-    rdfs:comment "Indicates the datatype of the Parameter."@en.
-
-ids:refersTo a owl:ObjectProperty;
-    rdfs:domain ids:Parameter;
-    rdfs:range ids:Resource;
-    rdfs:label "refersTo"@en;
+    rdfs:range ids:DigitalContent;
+    rdfs:label "parameterContent"@en;
     rdfs:comment "Indicates the Resource to which the Parameter refers to."@en.
-
-ids:covers a owl:ObjectProperty;
-    rdfs:domain ids:Parameter;
-    rdfs:range ids:Representation;
-    rdfs:label "covers"@en;
-    rdfs:comment "The Representation consumed or returned by a Parameter."@en.
