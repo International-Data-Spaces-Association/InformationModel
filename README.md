@@ -23,7 +23,7 @@ This work has benefited from significant contributions, comments and support by 
 Likewise the chairs would like to thank numerous colleagues at Fraunhofer, active participants of the
 [International Data Spaces Association](https://www.internationaldataspaces.org/en/), the members of the
 W3C [Dataset Exchange Group](https://www.w3.org/2017/dxwg/wiki/Main_Page) and [Data Market Austria](https://datamarket.at/en/) for
-illuminating conversations and support in shaping the Information Model. 
+illuminating conversations and support in shaping the Information Model.
 
 ## Directory layout
 
@@ -41,3 +41,6 @@ Further resources (directories) may optionally augment the above contents:
 
 - `examples`: Example instances providing a guidance on recommended model usage and best practices
 - `references`: Versioned source of external models used as a reference
+
+## Related resources
+- [EU Vocabularies](https://publications.europa.eu/en/web/eu-vocabularies/models), collection of models and controlled vocabularies (e.g. EuroVoc) managed by EU institutions
