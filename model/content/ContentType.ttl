@@ -73,22 +73,22 @@ ids:Value a owl:Class;
     rdfs:label "Value"@en ;
     rdfs:comment "Terminal node, from the modeling perspective an atomic, possibly typed value."@en .
     
-ids:Aggregate a owl:Class;
+ids:Collection a owl:Class;
     rdfs:subClassOf ids:Structure ;
     idsm:abstract true ;
-    rdfs:label "Aggregate"@en ;
+    rdfs:label "Collection"@en ;
     rdfs:comment "Group of entities supporting particular access operations based on the concrete subclass."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html> .
     
-ids:Mapping a owl:Class;
-    rdfs:subClassOf ids:Aggregate ;
-    rdfs:label "Mapping"@en ;
+ids:Map a owl:Class;
+    rdfs:subClassOf ids:Collection ;
+    rdfs:label "Map"@en ;
     rdfs:comment "Collection of Resources allowing for a key based access."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/Map.html> .
 
-ids:Listing a owl:Class;
-    rdfs:subClassOf ids:Ordered, ids:Aggregate ;
-    rdfs:label "Listing"@en ;
+ids:List a owl:Class;
+    rdfs:subClassOf ids:Ordered, ids:Collection ;
+    rdfs:label "List"@en ;
     rdfs:comment "Ordered Collection of Resources allowing for an index-based access."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/List.html> .
 
