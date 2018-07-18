@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_atf: <https://w3id.org/ids/code/authtokenformat/> .
+
+# Instances
+# ---------
+
+idsc_atf:jwt a ids:AuthTokenFormat ;
+    rdfs:comment "Json Web Token";
+	dct:identifier "JWT".
+
+idsc_atf:swt a ids:AuthTokenFormat ;
+    rdfs:comment "Simple Web Token";
+	dct:identifier "SWT".
+
+idsc_atf:saml11 a ids:AuthTokenFormat ;
+    rdfs:comment "Security Assertion Markup Language (SAML) 1.1";
+	dct:identifier "SAML11".
+
+idsc_atf:saml20 a ids:AuthTokenFormat ;
+    rdfs:comment "Security Assertion Markup Language (SAML) 2.0";
+    dct:identifier "SAML20".
+
+

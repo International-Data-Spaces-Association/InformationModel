@@ -52,6 +52,11 @@ ids:AuthToken rdfs:subClassOf credential:SimpleCredential;
         idsm:constraint idsm:NotNull;
     ].
 
+ids:AuthTokenFormat a owl:Class;
+    idsm:abstract true;
+	rdfs:label "AuthTokenFormat"@en;
+	rdfs:comment "Authorization Token Format."@en.
+
 # Properties
 # ----------
 
@@ -131,6 +136,12 @@ ids:tokenValue a owl:DatatypeProperty;
 	rdfs:domain ids:AuthToken;
 	rdfs:range xsd:string;
 	rdfs:comment "An authorization token value like JSON Web Token."@en.
+
+ids:tokenFormat a owl:ObjectProperty;
+	rdfs:label "tokenFormat"@en;
+	rdfs:domain ids:AuthToken;
+	rdfs:range ids:AuthTokenFormat;
+	rdfs:comment "Describes the format of the authorization token."@en.
 
 ids:transferAttributeKey a owl:DatatypeProperty;
 	rdfs:label "transferAttributeKey"@en;
