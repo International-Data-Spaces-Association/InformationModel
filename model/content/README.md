@@ -24,7 +24,7 @@ Listing of auxiliary, informative resources.
 ## Models
 - [Dataset Descriptions: HCLS Community Profile. W3C Interest Group Note 14 May 2015](https://www.w3.org/TR/hcls-dataset/)
 - [The Statistical Core Vocabulary (scovo)](http://sw.joanneum.at/scovo/schema.html), core statistical structures
-- [Metadata Vocabulary for Tabular Data. W3C Recommendation 17 December 2015](https://www.w3.org/TR/tabular-metadata/)
+- [Metadata Vocabulary for Tabular Data. W3C Recommendation 17 December 2015](https://www.w3.org/TR/tabular-metadata/), metadata for annotation of tabular data at various levels
 - [DDI RDF Vocabularies](http://www.ddialliance.org/Specification/RDF)
 - [DDI 3.2 XML Schema Documentation (2014-02-05)](https://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/)
 - [Ontology for Media Resources 1.0. W3C Recommendation 09 February 2012](https://www.w3.org/TR/mediaont-10/)
