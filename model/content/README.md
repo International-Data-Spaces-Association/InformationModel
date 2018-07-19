@@ -21,12 +21,25 @@
 
 Listing of auxiliary, informative resources.
 
-## Models
+## General dataset models
 - [Dataset Descriptions: HCLS Community Profile. W3C Interest Group Note 14 May 2015](https://www.w3.org/TR/hcls-dataset/)
-- [The Statistical Core Vocabulary (scovo)](http://sw.joanneum.at/scovo/schema.html), core statistical structures
-- [Metadata Vocabulary for Tabular Data. W3C Recommendation 17 December 2015](https://www.w3.org/TR/tabular-metadata/), metadata for annotation of tabular data at various levels
 - [DDI RDF Vocabularies](http://www.ddialliance.org/Specification/RDF)
 - [DDI 3.2 XML Schema Documentation (2014-02-05)](https://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/)
+
+## Data structures
+- [The Statistical Core Vocabulary (scovo)](http://sw.joanneum.at/scovo/schema.html), core statistical structures
+- [Metadata Vocabulary for Tabular Data. W3C Recommendation 17 December 2015](https://www.w3.org/TR/tabular-metadata/), metadata for annotation of tabular data at various levels
+
+## Data types, quantities, units etc.
+- [Custom Datatypes. Towards a web of Linked Datatypes. Draft 20 March 2018](https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html), specification of RDF datatypes for quantity value literals complaint with Code of Units of Measures [UCUM](https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html#bib-UCUM)
+- [Quantities, Units, Dimensions and Types (QUDT) Schema - Version 2.0](http://www.qudt.org/doc/2017/DOC_SCHEMA-QUDT-v2.0.html)
+- [QUDT Schema for Datatypes - Version 2.0](http://www.qudt.org/doc/2017/DOC_SCHEMA-QUDT-DATATYPES-v2.0.html)
+- [Meek, B.: A taxonomy of datatypes, 1994](https://dl.acm.org/citation.cfm?id=185042&dl=ACM&coll=DL)
+- [ISO/IEC 11404, General Purpose Datatypes](http://standards.iso.org/ittf/PubliclyAvailableStandards/c039479_ISO_IEC_11404_2007%28E%29.zip)
+- [Panov, L. Soldatova, and S. Dzeroski: OntoDT - Generic Ontology of Datatypes, 2014](https://www.sciencedirect.com/science/article/pii/S0020025515005800), [homepage](http://www.ontodm.com/doku.php?id=ontodt)
+
+
+## Media
 - [Ontology for Media Resources 1.0. W3C Recommendation 09 February 2012](https://www.w3.org/TR/mediaont-10/)
 
 ## Analysis and discussion
@@ -40,9 +53,6 @@ Listing of auxiliary, informative resources.
 - [Best Practices for Usage of DDI 3.2 and Future Versions](https://www.ddialliance.org/system/files/DDI%203.2%20Best%20Practices_0.pdf), guideline on identification etc.
 
 ## Data type
-- Meek, B.: A taxonomy of datatypes, 1994 ([paper](https://dl.acm.org/citation.cfm?id=185042&dl=ACM&coll=DL))
-- ISO/IEC 11404, General Purpose Datatypes ([specification](http://standards.iso.org/ittf/PubliclyAvailableStandards/c039479_ISO_IEC_11404_2007%28E%29.zip))
-- Panov, L. Soldatova, and S. Dzeroski: OntoDT - Generic Ontology of Datatypes, 2014 ([paper](https://www.sciencedirect.com/science/article/pii/S0020025515005800), [homepage](http://www.ontodm.com/doku.php?id=ontodt))
 
 # Issues/Questions/Ideas
 
