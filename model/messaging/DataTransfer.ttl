@@ -11,6 +11,7 @@
 
 ids:DataTransfer
 	a owl:Class;
+    rdfs:subClassOf ids:Message;
 	rdfs:label "DataTransfer"@en;
 	rdfs:comment "The class of resources that describe a data transfer on the IDS."@en;
     idsm:validation [
@@ -43,71 +44,11 @@ ids:TransferAttribute
         idsm:constraint idsm:NotNull;
     ].
 
-ids:AuthToken rdfs:subClassOf credential:SimpleCredential;
-	a owl:Class;
-	rdfs:label "AuthToken"@en;
-	rdfs:comment "Authorization Token."@en;
-    idsm:validation [
-        idsm:forProperty ids:tokenValue;
-        idsm:constraint idsm:NotNull;
-    ].
-
-ids:AuthTokenFormat a owl:Class;
-    idsm:abstract true;
-	rdfs:label "AuthTokenFormat"@en;
-	rdfs:comment "Authorization Token Format."@en.
 
 # Properties
 # ----------
 
-ids:sender
-	a owl:DatatypeProperty;
-	rdfs:label "sender"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:anyURI;
-	rdfs:comment "The Connector which is the origin of the message."@en.
 
-ids:receiver
-	a owl:DatatypeProperty;
-	rdfs:label "receiver"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:anyURI;
-	rdfs:comment "The Connector which is the recipient of the message."@en.
-
-ids:sendingParticipant
-	a owl:DatatypeProperty;
-	rdfs:label "sendingParticipant"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:anyURI;
-	rdfs:comment "The Participant which initiated the DataTransfer."@en.
-
-ids:receivingParticipant
-	a owl:DatatypeProperty;
-	rdfs:label "receivingParticipant"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:anyURI;
-	rdfs:comment "The Participant for which the DataTransfer is intended."@en.
-
-ids:sourceOperation
-	a owl:DatatypeProperty;
-	rdfs:label "sourceOperation"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:anyURI;
-	rdfs:comment "The operation that has been invoked to retrieve the transferred data."@en.
-
-ids:targetOperation
-    a owl:DatatypeProperty;
-    rdfs:label "targetOperation"@en;
-    rdfs:domain ids:DataTransfer;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "The operation that is intended to receive the transferred data."@en.
-
-ids:authToken
-	a owl:ObjectProperty;
-	rdfs:label "authToken"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range ids:AuthToken;
-	rdfs:comment "An authorization token like JSON Web Token."@en.
 
 ids:transferContract
 	a owl:ObjectProperty;
@@ -115,13 +56,6 @@ ids:transferContract
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Contract;
 	rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
-
-ids:payloadDigest
-	a owl:DatatypeProperty;
-	rdfs:label "payloadDigest"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:base64Binary;
-	rdfs:comment "The digest of the DataAsset being transfered."@en.
 
 ids:customAttribute
 	a owl:ObjectProperty;
@@ -131,17 +65,7 @@ ids:customAttribute
 	rdfs:range ids:TransferAttribute;
 	rdfs:comment "Additional attributes that can be specified for a DataTransfer."@en.
 
-ids:tokenValue a owl:DatatypeProperty;
-	rdfs:label "tokenValue"@en;
-	rdfs:domain ids:AuthToken;
-	rdfs:range xsd:string;
-	rdfs:comment "An authorization token value like JSON Web Token."@en.
 
-ids:tokenFormat a owl:ObjectProperty;
-	rdfs:label "tokenFormat"@en;
-	rdfs:domain ids:AuthToken;
-	rdfs:range ids:AuthTokenFormat;
-	rdfs:comment "Describes the format of the authorization token."@en.
 
 ids:transferAttributeKey a owl:DatatypeProperty;
 	rdfs:label "transferAttributeKey"@en;
@@ -153,22 +77,5 @@ ids:transferAttributeValue a owl:DatatypeProperty;
 	rdfs:domain ids:TransferAttribute;
 	rdfs:range xsd:string.
 
-ids:transferCreatedAt rdfs:subPropertyOf dct:dateSubmitted;
-    a owl:DatatypeProperty;
-    rdfs:label "transferCreatedAt"@en;
-    rdfs:domain ids:DataTransfer;
-    rdfs:range xsd:dateTime;
-    rdfs:comment "Date of creation of the DataTransfer."@en.
 
-ids:hashFunction a owl:ObjectProperty;
-    rdfs:label "hashFunction"@en;
-    rdfs:domain ids:DataTransfer;
-    rdfs:range ids:HashFunction;
-    rdfs:comment "Algorithm used to calculate the payload digest of a DataTransfer."@en.
-
-ids:modelVersion a owl:DatatypeProperty;
-    rdfs:label "modelVersion"@en;
-    rdfs:domain ids:DataTransfer;
-    rdfs:range xsd:string;
-    rdfs:comment "Version of the information model against which the instances should be interpreted."@en.
 

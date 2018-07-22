@@ -45,17 +45,17 @@ ids:DataConsumer
 
 ids:DataSovereign
 	rdfs:subClassOf ids:Role;
-    rdfs:label "Data Sovereign"@en ;
+    rdfs:label "Data Sovereign"@en ;# ids:Agent -> will become an contract assigner
     skos:altLabel "Data Owner"@en ;
     rdfs:comment "Core participant owning the legal rights for, and having complete control over, the data it makes available in the Industrial Data Space; defines the terms and conditions of use of its data."@en .
 
 ids:DataProvider
-	rdfs:subClassOf ids:Role;
+	rdfs:subClassOf ids:Role; # ids:Agent
     rdfs:label "Data Provider"@en ;
     rdfs:comment "Core participant exposing Data Sources via a Connector; a Data Provider may be an enterprise or other organization, a data marketplace, an individual, or a “smart thing”."@en .
 
 ids:DataUser
-	rdfs:subClassOf ids:Role;
+	rdfs:subClassOf ids:Role;# ids:Agent -> will become an contract assignee
     rdfs:label "Data User"@en ;
     rdfs:comment "Role of a Participant that has the legal right to use the data of a Data Sovereign as specified by the usage policy."@en .
 

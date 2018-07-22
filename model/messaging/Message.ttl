@@ -1,4 +1,5 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -11,7 +12,94 @@
 ids:Message a owl:Class;
     rdfs:label "Message"@en ;
     idsm:abstract true;
-	rdfs:comment "Meaningful payload exchanged and interpreted by client or server as part of a message-oriented communication."@en .
+	rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;    
+    idsm:validation [
+        idsm:forProperty ids:providerConnector;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:consumerConnector;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:issued;
+        idsm:constraint idsm:NotNull;
+    ].
+
+# Properties
+# ----------
+
+ids:modelVersion
+    a owl:DatatypeProperty;
+    rdfs:label "model version"@en;
+    rdfs:domain ids:Message;
+    rdfs:range xsd:string;
+    rdfs:comment "Version of the Information Model against which the Message should be interpreted."@en.
+
+ids:issued
+    rdfs:subPropertyOf dct:issued;
+    a owl:DatatypeProperty;
+    rdfs:label "issued"@en;
+    rdfs:domain ids:Message;
+    rdfs:range xsd:dateTime;
+    rdfs:comment "Date of issuing the Message."@en.
+
+ids:correlationMessage
+	a owl:ObjectProperty;
+	rdfs:label "consumer connector"@en;
+	rdfs:domain ids:Message;
+	rdfs:range ids:MessageIdentifier; # implies reference to a corelated Message
+	rdfs:comment "Correlated message, e.g. a response to a previous request."@en.
+
+ids:providerConnector
+	a owl:DatatypeProperty;
+	rdfs:label "provider connector"@en;
+	rdfs:domain ids:Message;
+	rdfs:range ids:ConnectorIdentifier;# implies reference to Data Provider
+	rdfs:comment "The Connector which is the origin of the message."@en.
+
+ids:consumerConnector
+	a owl:ObjectProperty;
+	rdfs:label "consumer connector"@en;
+	rdfs:domain ids:Message;
+	rdfs:range ids:ConnectorIdentifier;# implies reference to Data Consumer
+	rdfs:comment "The Connector which is the recipient of the message."@en.
+
+ids:senderAgent
+	a owl:DatatypeProperty;
+	rdfs:label "sender agent"@en;
+	rdfs:domain ids:DataTransfer;
+	rdfs:range ids:AgentIdentifier;#  terminal origin e.g. the Data Sovereign
+	rdfs:comment "The Agent which initiated the Message."@en.
+
+ids:recipientAgent 
+	a owl:DatatypeProperty;
+	rdfs:label "recipient agent"@en;
+	rdfs:domain ids:Message;
+	rdfs:range ids:AgentIdentifier;# terminal addressee e.g. the Data User
+	rdfs:comment "The Agemnt for which the Mesaage is intended."@en.
+
+ids:payloadDigest
+	a owl:DatatypeProperty;
+	rdfs:label "payload digest"@en;
+	rdfs:domain ids:Message;
+	rdfs:range xsd:base64Binary;
+	rdfs:comment "The digest of the DataAsset being transfered."@en.
+
+ids:hashFunction a owl:ObjectProperty;
+    rdfs:label "hash function"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:HashFunction;
+    rdfs:comment "Algorithm used to calculate the payload digest of a DataTransfer."@en.
+
+ids:authorizationToken
+	a owl:ObjectProperty;
+	rdfs:label "authorization token"@en;
+	rdfs:domain ids:Message;
+	rdfs:range ids:AuthorizationToken;
+	rdfs:comment "An authorization token like JSON Web Token."@en.
+
+## .. check:
   
 ids:BrokerMessage rdfs:subClassOf ids:Message;
     a owl:Class;

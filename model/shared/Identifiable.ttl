@@ -26,9 +26,42 @@ ids:Identifiable
 
 # check domain and range
 ids:identifier
-    a owl:ObjectProperty;
+    rdf:type owl:ObjectProperty, owl:InverseFunctionalProperty;# i.e. uniquely identifies the instance
     rdfs:subPropertyOf dc:identifier ;# dct:identifier restricts the domain to rdfs:Literal!
     rdfs:label "identifier"@en ;
     rdfs:domain ids:Identifiable ;
-    rdfs:range rdfs:Resource ;
-    rdfs:comment "Link to a globally unique Identifier."@en .
+    rdfs:range ids:Identifier ;
+    rdfs:comment "(Globally) unique Identifier."@en .
+
+ids:Identifier
+    rdf:type owl:Class ;
+    idsm:abstract true ;    
+    rdfs:label "Identifier"@en ;
+    rdfs:comment "Abstract notion of a (globally) unique Identifier, e.g. a URI."@en .
+
+ids:ResourceIdentifier
+    rdf:type owl:Class ;
+    rdfs:subClassOf ids:Identifier ;
+    rdfs:label "Resource identifier"@en ;
+    rdfs:comment "Globally unique Identifier of an IDS Resource."@en .
+
+# ids:ParticipantIdentifier
+# Attributed to Agent, since parties are not necessarily IDS Participant
+ids:AgentIdentifier
+    rdf:type owl:Class ;
+    rdfs:subClassOf ids:Identifier ;
+    rdfs:label "Agent identifier"@en ;
+    rdfs:comment "Unique Identifier of an Agent as a party involved in Resource exchange."@en .
+
+ids:ConnectorIdentifier
+    rdf:type owl:Class ;
+    rdfs:subClassOf ids:Identifier ;
+    rdfs:label "Connector identifier"@en ;
+    rdfs:comment "Globally unique Identifier of an IDS Connector."@en .        
+
+ids:MessageIdentifier
+    rdf:type owl:Class ;
+    rdfs:subClassOf ids:Identifier ;
+    rdfs:label "Message identifier"@en ;
+    rdfs:comment "Unique Identifier of an IDS Message."@en .        
+

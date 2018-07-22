@@ -3,6 +3,7 @@
 @prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsm: <https://w3id.org/ids/metamodel/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -10,8 +11,13 @@
 # -------
 
 ids:Resource a owl:Class;
-#    rdfs:subClassOf ids:Identifiable, ids:Content, dcat:Dataset, ids:ManagedEntity;
-    rdfs:subClassOf ids:Identifiable, dcat:Dataset, ids:ManagedEntity;
+    rdfs:subClassOf ids:Identifiable, ids:DigitalContent, dcat:Dataset, ids:ManagedEntity;
+    rdfs:subClassOf
+    [
+      rdf:type          owl:Restriction ;
+      owl:onProperty    ids:identifier ;
+      owl:allValuesForm   ids:ResourceIdentifier;
+    ];
     idsm:abstract true;
     rdfs:label "Resource"@en ;
     rdfs:comment "Superclass of digital Resources that is encoded according to a Representation and optionally materialized as an Artifact."@en;    
@@ -30,7 +36,7 @@ ids:representation a owl:ObjectProperty;
     rdfs:range ids:Representation;
     rdfs:comment "Reference to a Representation of the abstract Resource."@en.
 
-ids:commInterface a owl:ObjectProperty;
+ids:interface a owl:ObjectProperty;
     rdfs:label "interface"@en;    
     rdfs:domain ids:Resource;
     rdfs:range ids:Interface;
@@ -51,6 +57,14 @@ ids:contract
     rdfs:range ids:Contract;
     rdfs:label "contract"@en;
     rdfs:comment "Reference to Contract(s) regulating a particular usage of the Resource."@en.
+
+ids:sovereign
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dct:publisher ;
+    rdfs:domain ids:Resource ;
+    rdfs:range ids:Agent ;
+    rdfs:label "sovereign"@en;
+    rdfs:comment "The original issuer, i.e. sovergin of the data."@en.
 
 ids:sample a owl:ObjectProperty;
     # dicuss: rdfs:subPropertyOf and range

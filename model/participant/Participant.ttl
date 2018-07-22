@@ -1,4 +1,5 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
@@ -10,10 +11,21 @@
 # Classes
 # -------
 
-ids:Participant rdfs:subClassOf ids:ManagedEntity;
+ids:Agent 
+    a owl:Class;    
+    rdfs:subClassOf odrl:Party ;# makes it a relibale party in contracting
+    rdfs:label "Agent"@en;
+	rdfs:comment "Internal or external Agent interacting with the Industrial Data Space."@en.
+
+ids:Participant
     a owl:Class;
-    rdfs:subClassOf org:Organization;
-    rdfs:subClassOf odrl:Party;
+    rdfs:subClassOf ids:Agent, ids:ManagedEntity, org:Organization;
+    rdfs:subClassOf
+    [
+      rdf:type          owl:Participant ;
+      owl:onProperty    ids:identifier ;
+      owl:allValuesForm   ids:ParticipantIdentifier;
+    ];
 	rdfs:label "Participant"@en;
 	rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
     idsm:validation [

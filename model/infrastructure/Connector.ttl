@@ -1,3 +1,4 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -9,9 +10,16 @@
 # -------
 
 ids:Connector
-    rdfs:subClassOf ids:Catalog;
+    #rdfs:subClassOf ids:NetworkNode
+    #rdfs:subClassOf ids:MetadataRepository - maintains -> Catalog
     a owl:Class;
     idsm:abstract true;
+    rdfs:subClassOf
+    [
+      rdf:type          owl:Connector ;
+      owl:onProperty    ids:identifier ;
+      owl:allValuesForm   ids:ConnectorIdentifier;
+    ];
     rdfs:label "Connector"@en ;
     rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
     idsm:validation [
