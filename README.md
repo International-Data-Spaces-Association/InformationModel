@@ -29,10 +29,11 @@ illuminating conversations and support in shaping the Information Model.
 
 There are following top-level files and directories:
 
-- `codes`: Shared code lists (IRIs) and enumerations of literal values
-- `model`: Core models (T-Box) split into sub-model directories each serving a particular modelling aspect
-- `metamodel`: Utility models related to annotation and processing of `model` concepts
-- `views`: Individual tailored views defined upon the overall model for a particular purpose
+- `codes`: Code lists of enumerated *literal values* and unique, *singleton concept instances*. Code lists are the preferred way to encode and reference re-usable instances of a more or less homogeneous model.
+- `taxonomies`: Hierarchical arrangement of concepts (classes) extending a base concept defined by the core `model`. Taxonomies are the preferred way to express concepts variants (sub-classes) for purposes of creating individual, custom instances.
+- `model`: Core models split into sub-model directories each serving a particular modelling aspect.
+- `metamodel`: Utility models related to annotation and processing of `model` concepts.
+- `views`: Individual tailored views defined upon the overall model for a particular purpose.
 - `Ontology.ttl`: Complete declarative model of the Industrial Data Space linking all of the above sources.
    This file is intended for *internal purposes only*, the normative version will be published as result of
    a build-process at [https://w3id.org/ids/core/](ttps://w3id.org/ids/core/) by Q4/2018.
