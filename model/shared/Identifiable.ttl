@@ -22,7 +22,8 @@ ids:Identifiable
       owl:cardinality   "1"^^xsd:nonNegativeInteger 
     ];
     rdfs:label "identifiable"@en ;
-    rdfs:comment "Type of Digital Content that is globally and uniquely identifiable by means of an Identifier."@en .
+    rdfs:comment "Type of Digital Content that is globally and uniquely identifiable by means of an Identifier."@en ;
+    owl:hasKey ( ids:identifier ) .
 
 # check domain and range
 ids:identifier
