@@ -1,0 +1,71 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+## Metadata
+
+ids:CatalogRequestMessage
+    rdfs:type owl:Class ;
+    rdfs:subClassOf ids:Message ;
+    rdfs:label "Catalog request message"@en ;
+    rdfs:comment "Message requesting the entire metadata Catalog."@en.    
+    # endpoint: provider ConnectorIdentifier
+
+ids:CatalogResponseMessage
+    rdfs:type owl:Class ;
+    rdfs:subClassOf ids:Message ;
+    rdfs:label "Catalog response message"@en ;
+    rdfs:comment "Message containing the entire Catalog of the sender Connector."@en.    
+    # payload: Catalog
+    # correlationMessage previous Request
+
+ids:CatalogFilterMessage
+    rdf:type owl:Class; 
+    rdfs:subClassOf ids:CatalogRequestMessage;    
+    rdfs:label "Catalog filter message"@en ;
+    rdfs:comment "Message requesting a filtered Catalog of the sender Connector."@en.    
+
+## Contract negotatiation
+    
+ids:ContractOfferMessage
+    rdfs:type owl:Class ;
+    rdfs:subClassOf ids:Message ;
+    rdfs:comment "Message ."@en.
+    # payload: ODRL Offer based on Request, optionally typed as a "Final Offer"
+    
+ids:ContractRequestMessage
+    rdfs:type owl:Class ;
+    rdfs:subClassOf ids:Message .
+    # payload: ODRL request based on Offer
+
+ids:ContractAgreementMessage
+    rdfs:type owl:Class ;
+    rdfs:subClassOf ids:Message .
+    # payload: ODRL Agreement 
+    # correlationMessage previous *equivalent* Request
+
+# Resource exchange
+
+ids:ResourceRequestMessage  # optional, a Resource may be sent on Subscription base
+    idsm:abstract true; #  this is not necessarily instantiated, since custom provider protocols apply
+    rdfs:type owl:Class ;
+    rdfs:subClassOf ids:Message .
+    # payload: *Resource request*
+
+ids:ResourceTransferMessage
+    # this is not necessarily instantiated, since custom provider protocols apply
+    rdfs:type owl:Class ;
+    rdfs:subClassOf ids:Message .
+    # payload: Agreement identifer
+    # correlation: no
+
+ids:ResourceResponseMessage
+    rdfs:subClassOf ids:ResourceTransferMessage .
+    # correlation -> Request

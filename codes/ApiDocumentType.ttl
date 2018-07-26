@@ -1,0 +1,37 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix idsc_api: <https://w3id.org/ids/core/> .
+@prefix idsc_api: <https://w3id.org/ids/code/api/> .
+
+# Instances
+# ---------
+
+idsc_api:openApiV2 a idsc_api:ApiDocumentType;
+    rdfs:label "OpenApiV2";
+    rdfs:comment "Endpoint-oriented, standardized description of REST APIs, version 2."@en ;
+    dct:identifier "OPENAPI_V2";
+    rdfs:isDefinedBy <https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md> .
+    
+idsc_api:openApiV3 a idsc_api:ApiDocumentType;
+    rdfs:label "OpenApiV3";
+    rdfs:comment "Endpoint-oriented, standardized description of REST APIs, version 3."@en ;
+    dct:identifier "OPENAPI_V3";
+    rdfs:isDefinedBy <https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md> .
+
+idsc_api:GraphQL a idsc_api:ApiDocumentType;
+    rdfs:label "GraphQL";
+    rdfs:comment "Type-oriented description of and query language for data APIs."@en ;
+    dct:identifier "GRAPHQL";
+    rdfs:isDefinedBy <http://facebook.github.io/graphql/> .
+
+idsc_api:ApiBlueprint a idsc_api:ApiDocumentType;
+    rdfs:label "ApiBlueprint";
+    rdfs:comment "High-level, textual API description language for web APIs."@en ;
+    dct:identifier "ApiBlueprint";
+    rdfs:isDefinedBy <https://apiblueprint.org/documentation/specification.html> .
+
+# Rationale?
+idsc_api:unordered a idsc_api:ApiDocumentType;
+    rdfs:comment "unordered";
+    dct:identifier "UNKNOWN".

@@ -1,0 +1,62 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:ManagedEntity a owl:Class;
+    idsm:abstract true;
+    rdfs:label "ManagedEntity"@en ;
+    rdfs:comment "The class of all individuals that are subject of a lifecycle which needs to be tracked.";
+    idsm:validation [
+        idsm:forProperty ids:lifecycleActivity;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:entityName;
+        idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:entityDescription;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+# Properties of ManagedEntity
+# -------------------------------------
+
+ids:entityName rdfs:subPropertyOf dct:title;
+	a owl:DatatypeProperty;
+	rdfs:domain ids:ManagedEntity;
+	rdfs:range rdf:PlainLiteral;
+    rdfs:label "entityName"@en;
+    idsm:labelPluralForm "entityNames"@en;
+	rdfs:comment "Name of the ManagedEntity."@en.
+
+ids:entityDescription rdfs:subPropertyOf dct:description;
+	a owl:DatatypeProperty;
+	rdfs:domain ids:ManagedEntity;
+	rdfs:range rdf:PlainLiteral;
+	rdfs:label "entityDescription"@en;
+	idsm:labelPluralForm "entityDescriptions"@en;
+	rdfs:comment "Freetext description of the ManagedEntity."@en.
+
+ids:lifecycleActivity a owl:ObjectProperty;
+    rdfs:label "lifecycleActivity"@en;
+    idsm:labelPluralForm "lifecycleActivities"@en;
+    rdfs:domain ids:ManagedEntity;
+    rdfs:range ids:Activity;
+    rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.
+
+ids:version a owl:DatatypeProperty;
+    rdfs:subPropertyOf dct:hasVersion;
+    rdfs:label "version"@en;
+    rdfs:domain ids:ManagedEntity;
+    rdfs:range xsd:string;
+    rdfs:comment "Version identifier of the Managed Entity"@en.

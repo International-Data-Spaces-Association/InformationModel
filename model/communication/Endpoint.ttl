@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:Endpoint a owl:Class ;
+	idsm:abstract true;
+	rdfs:label "Endpoint"@en ;
+    rdfs:comment "Data exchange point for publication (Data Source) and/or consumption (Data Sink) of Communicable objects."@en .
+
+ids:DataSink
+	rdfs:subClassOf ids:Endpoint ;
+	rdfs:label "Data Sink"@en ;
+    rdfs:comment "Endpoint consuming data supplied by a Data Provider."@en .
+
+ids:DataSource
+	rdfs:subClassOf ids:Endpoint ;
+	rdfs:label "Data Source"@en ;
+    rdfs:comment "Endpoint exposing data for being retrieved or subscribed to by a Data Consumer."@en .
+
+# Properties of Endpoint
+# ----------------------
+
+ids:url a owl:DatatypeProperty;
+    rdfs:label "url"@en;
+    rdfs:domain ids:Endpoint;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "URI that returns a certain representation of a DataAsset."@en.

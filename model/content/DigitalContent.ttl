@@ -1,0 +1,44 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+ids:DigitalContent a owl:Class;    
+    idsm:abstract true;
+    rdfs:label "Digital content"@en ;
+    rdfs:comment "Content available in a particular digital Serialization."@en;
+    idsm:validation [
+        idsm:forProperty ids:contentType;
+        idsm:relationType idsm:OneToMany;
+    ];
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Digital_content> .
+    
+# Properties
+# ------------
+
+ids:contentType a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:type;
+    rdfs:label "content type"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:ContentType;
+    rdfs:comment "Reference to the abstract nature (type) of the Digital Content."@en;
+    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
+
+ids:part a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:hasPart;
+    rdfs:label "part"@en;    
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:DigitalContent;
+    rdfs:comment "Reference to a Digital Content (physically or logically) included, definition of part-whole hierarchies."@en .
+
+ids:serialization a owl:ObjectProperty;
+    rdfs:label "serialization"@en;    
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:Serialization;
+    rdfs:comment "Serialization of a Digital Content."@en.

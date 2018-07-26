@@ -1,0 +1,105 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+
+# Description of this ontology
+# ----------------------------
+
+ids:declarativeModel a owl:Ontology;
+    dct:title "The Industrial Dataspace Information Model"@en;
+    rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace.";
+    dct:creator "Christian Mader" ;
+    dct:creator "Jaroslav Pullmann" ;
+    dct:creator "Sebastian Tramp";
+    dct:creator "Andreas Müller";
+    dct:creator "Anna Kasprzik";
+    dct:publisher "Fraunhofer IAIS/EIS";
+    dct:publisher "Fraunhofer FIT";
+    dct:date "2018-06-27";
+    owl:versionInfo "0.9.1";
+    owl:imports
+        <codes/AuthTokenFormat.ttl>,
+        <codes/Category.ttl>,
+        <codes/ContentType.ttl>,
+        <codes/HashFunction.ttl>,
+        <codes/IndustrialClassification.ttl>,
+        <codes/Language.ttl>,
+        <codes/License.ttl>,
+        <codes/MediaType.ttl>,
+        <codes/SortOrder.ttl>,
+        <codes/Unit.ttl>,
+        <examples/CreationActivity.ttl>,
+        <examples/dwd.ttl>,
+        <examples/eccenca-CorporateMemory.ttl>,
+        <metamodel/Annotation.ttl>,
+        <metamodel/Validation.ttl>,
+        <metamodel/View.ttl>,
+        <model/communication/ApiDocumentType.ttl>,
+        <model/communication/Endpoint.ttl>,
+        <model/communication/HttpDownloadService.ttl>,
+        <model/communication/Http.ttl>,
+        <model/communication/Interface.ttl>,
+        <model/communication/Mqtt.ttl>,
+        <model/communication/OperationSemantics.ttl>,
+        <model/communication/Operation.ttl>,
+        <model/communication/ParameterDataType.ttl>,
+        <model/communication/ParameterGroupingOperator.ttl>,
+        <model/communication/ParameterGroup.ttl>,
+        <model/communication/Parameter.ttl>,
+        <model/communication/ParameterType.ttl>,
+        <model/communication/ProtocolBinding.ttl>,
+        <model/communication/Protocol.ttl>,
+        <model/communication/Service.ttl>,
+        <model/communication/WebSocket.ttl>,
+        <model/content/Artifact.ttl>,
+        <model/content/Category.ttl>,
+        <model/content/ContentType.ttl>,
+        <model/content/DataApp.ttl>,
+        <model/content/DataAsset.ttl>,
+        <model/content/DigitalContent.ttl>,
+        <model/content/Language.ttl>,
+        <model/content/MediaType.ttl>,
+        <model/content/Representation.ttl>,
+        <model/content/Resource.ttl>,
+        <model/content/Serialization.ttl>,
+        <model/context/SpatialEntity.ttl>,
+        <model/context/TemporalEntity.ttl>,
+        <model/context/WorldEntity.ttl>,
+        <model/contract/Action.ttl>,
+        <model/contract/BinaryOperator.ttl>,
+        <model/contract/Contract.ttl>,
+        <model/contract/LeftOperand.ttl>,
+        <model/contract/Policy.ttl>,
+        <model/contract/Rule.ttl>,
+        <model/governance/Certification.ttl>,
+        <model/governance/DataSovereignty.ttl>,
+        <model/governance/Governance.ttl>,
+        <model/governance/License.ttl>,
+        <model/governance/Standard.ttl>,
+        <model/infrastructure/AppStore.ttl>,
+        <model/infrastructure/Broker.ttl>,
+        <model/infrastructure/Catalog.ttl>,
+        <model/infrastructure/Component.ttl>,
+        <model/infrastructure/Connector.ttl>,
+        <model/infrastructure/VocabularyHub.ttl>,
+        <model/messaging/DataTransfer.ttl>,
+        <model/messaging/Message.ttl>,
+        <model/participant/IndustrialClassification.ttl>,
+        <model/participant/Participant.ttl>,
+        <model/participant/Role.ttl>,
+        <model/security/AuthInfo.ttl>,
+        <model/security/AuthorizationToken.ttl>,
+        <model/security/AuthStandard.ttl>,
+        <model/security/HashFunction.ttl>,
+        <model/security/SecurityProfile.ttl>,
+        <model/shared/Communicable.ttl>,
+        <model/shared/Identifiable.ttl>,
+        <model/shared/Unit.ttl>,
+        <model/traceability/Activity.ttl>,
+        <model/traceability/ManagedEntity.ttl>,
+        <taxonomies/Content.ttl>,
+        <taxonomies/Message.ttl>,
+        <views/GlossaryView.ttl>.

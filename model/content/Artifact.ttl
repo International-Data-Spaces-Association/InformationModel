@@ -1,0 +1,46 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .    
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:Artifact
+    a owl:Class;
+    rdfs:subClassOf ids:Communicable, dcat:Distribution ;# partial subclass of dcat:Distribution w.r.t materialization aspects
+    rdfs:label "Artifact"@en ;
+    rdfs:comment "Resource Representation materialized in a file, i.e. possessing characteristics like file name, size, creation date etc."@en.
+
+ids:byteSize
+    a owl:DatatypeProperty;
+    rdfs:subPropertyOf dcat:byteSize ;
+    rdfs:label "byte size"@en ;    
+    rdfs:comment "Size of the Artifact in bytes."@en ;  	
+    rdfs:domain ids:Artifact ;
+    rdfs:range xsd:nonNegativeInteger .
+
+#ids:megabyteSize
+#    a owl:DatatypeProperty;    
+#    rdfs:label "megabyte size"@en ;
+#    rdfs:comment "Size of the Artifact in megabytes."@en ;
+#    rdfs:domain ids:Artifact ;
+#    rdfs:range xsd:decimal .
+
+ids:fileName
+    a owl:DatatypeProperty;    
+    rdfs:label "file name"@en ;    
+    rdfs:comment "Name of the Artifcat file."@en ;  	
+    rdfs:domain ids:Artifact ;
+    rdfs:range xsd:string .
+
+# dct:issued
+# dct:identifier
+# dct:title
+# dct:description
+# dct:licence
+# dct:rights

@@ -1,0 +1,19 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:DataApp
+    a owl:Class;
+    rdfs:subClassOf ids:Resource;    
+    rdfs:label "DataApp"@en;
+    rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en.
+
+ids:SystemAdapter
+    rdfs:subClassOf ids:DataApp;
+    rdfs:label "System Adapter"@en;
+    rdfs:comment "Data App used for integration of custom Data Sources and legacy systems with a Connector."@en.

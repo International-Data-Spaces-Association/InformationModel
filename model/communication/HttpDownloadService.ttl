@@ -1,0 +1,29 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+ids:HttpDownloadService
+    rdf:type owl:Class ;
+    rdfs:subClassOf ids:Service ;
+    rdfs:label "Http download service"@en ;    
+    rdfs:comment "Simple, non interactive download via HTTP(s)." .
+        
+# Properties
+# ----------
+
+ids:downloadURL
+    rdf:type owl:ObjectProperty ;
+    # rdfs:subPropertyOf dcat:downloadURL ;
+    rdfs:domain ids:HttpDownloadService ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Download URL"@en ;
+    rdfs:comment "Literal HTTP(s) link for download."@en.

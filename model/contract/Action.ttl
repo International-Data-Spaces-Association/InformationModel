@@ -1,0 +1,50 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:Action rdfs:subClassOf odrl:Action;
+    a owl:Class;
+    idsm:abstract true;
+    rdfs:label "Action"@en;
+    idsm:labelPluralForm "Actions"@en;
+    rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en;
+    idsm:validation [
+        idsm:forProperty ids:refinement;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+ids:InvokeOperationAction rdfs:subClassOf ids:Action;
+    a owl:Class;
+    rdfs:label "InvokeOperationAction"@en;
+    rdfs:comment "The act of invoking a specific operation.".
+
+ids:PaymentAction rdfs:subClassOf ids:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:pay;
+    rdfs:label "PaymentAction"@en;
+    rdfs:comment "The act of paying a monetary amount to a party.".
+
+ids:DeleteAction rdfs:subClassOf ids:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:delete;
+    rdfs:label "DeleteAction"@en;
+    rdfs:comment "The act of permanently removing all copies of an Asset.".
+
+ids:GrantUseAction rdfs:subClassOf ids:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:grantUse;
+    rdfs:label "GrantUseAction"@en;
+    rdfs:comment "The act of granting the use of the Asset to third parties.".
+
+ids:DistributeAction rdfs:subClassOf ids:Action;
+    a owl:Class;
+    rdfs:subClassOf odrl:distribute;
+    rdfs:label "DistributeAction"@en;
+    rdfs:comment "The act of distributing the Asset.".

@@ -1,0 +1,83 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:DataExchangeAgreement a owl:Class;
+    rdfs:label "DataExchangeAgreement"@en ;
+    rdfs:comment "Contractual agreement between a Data Provider and a Data Consumer regarding the exchange of data in the Industrial Data Space." .
+
+ids:Contract rdfs:subClassOf odrl:Policy; # Contract "contains" policies, but does not extend those?
+    a owl:Class;
+    rdfs:label "Contract"@en ;
+    idsm:abstract true;
+    rdfs:comment "Legal agreement and selection of a particular resource configuration.";
+    idsm:validation [
+        idsm:forProperty ids:permission;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:prohibition;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+ids:AgreedContract rdfs:subClassOf ids:Contract;
+    rdfs:subClassOf odrl:Agreement;
+    a owl:Class;
+    rdfs:label "AgreedContract"@en ;
+    rdfs:comment "A service contract that has been agreed upon by parties.".
+
+ids:OfferedContract rdfs:subClassOf ids:Contract;
+    rdfs:subClassOf odrl:Offer;
+    a owl:Class;
+    rdfs:label "OfferedContract"@en ;
+    rdfs:comment "An service contract that is offered for acceptance by requesting parties."@en.
+
+# Properties of Contract
+# ----------------------
+
+ids:licenseDocument rdfs:subPropertyOf dct:license;
+    a owl:ObjectProperty;
+    rdfs:label "license"@en;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:License;
+    rdfs:comment "License the contract offers or refers to."@en.
+
+ids:licenseReference rdfs:subPropertyOf dct:license;
+    a owl:DatatypeProperty;
+    rdfs:label "licenseReference"@en;
+    rdfs:domain ids:Contract;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "References a license document that is publicly available on the Web."@en.
+
+ids:termsOfUse a owl:DatatypeProperty;
+    rdfs:label "termsOfUse"@en;
+    rdfs:domain ids:Contract;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "References a document defining the terms of use of the provided data."@en.
+
+ids:contractDuration a owl:ObjectProperty;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:TemporalEntity;
+    rdfs:label "contractDuration"@en;
+    rdfs:comment "The duration for which the ServiceContract is valid."@en.
+
+ids:permission rdfs:subPropertyOf odrl:permission;
+    a owl:ObjectProperty;
+    rdfs:label "permission"@en;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:Permission;
+    rdfs:comment "The Permissions granted by a ServiceContract."@en.
+
+ids:prohibition rdfs:subPropertyOf odrl:prohibition;
+    a owl:ObjectProperty;
+    rdfs:label "prohibition"@en;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:Prohibition;
+    rdfs:comment "The Prohibitions imposed by a ServiceContract."@en.

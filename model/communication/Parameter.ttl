@@ -1,0 +1,45 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:Parameter a owl:Class;
+    rdfs:label "Parameter"@en ;
+    rdfs:comment "Named slot of an Interface Operation i.e., an input, output or fault (exception)."@en;
+    idsm:abstract true;
+    idsm:validation [
+        idsm:forProperty ids:paramLabel;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:paramDescription;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+# Properties for describing a Parameter
+# -------------------------------------
+
+ids:parameterName a owl:DatatypeProperty;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:label "name"@en ;
+    rdfs:domain ids:Parameter ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Locally unique name."@en .
+
+ids:parameterType a owl:ObjectProperty;
+    rdfs:domain ids:Parameter;
+    rdfs:range ids:ParameterType;
+    rdfs:label "parameterType"@en;
+    rdfs:comment "Indicates the intended usage of the Parameter."@en.
+
+ids:parameterContent a owl:ObjectProperty;
+    rdfs:domain ids:Parameter;
+    rdfs:range ids:DigitalContent;
+    rdfs:label "parameterContent"@en;
+    rdfs:comment "Indicates the Resource to which the Parameter refers to."@en.

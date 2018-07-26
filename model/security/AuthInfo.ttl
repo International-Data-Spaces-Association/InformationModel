@@ -1,0 +1,36 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:AuthInfo a owl:Class;
+    rdfs:label "AuthInfo"@en ;
+    rdfs:comment "Holds authentication information so that connections to the Connector's data offerings can be establised."@en;
+    idsm:validation [
+        idsm:forProperty ids:authService;
+        ids:constraint idsm:NotNull;
+    ].
+
+
+# Properties
+# ----------
+
+ids:authService a owl:ObjectProperty;
+    rdfs:domain ids:AuthInfo;
+    rdfs:range xsd:anyURI;
+    rdfs:label "authService"@en;
+    rdfs:comment "The URL of the authentication service that is provided by the Connector."@en.
+
+ids:authStandard a owl:ObjectProperty;
+    rdfs:domain ids:AuthInfo;
+    rdfs:range ids:AuthStandard;
+    rdfs:label "authStandard"@en;
+    rdfs:comment "The standard used by the authentication service that is provided by the Connector."@en.
+
+
+

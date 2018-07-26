@@ -1,0 +1,25 @@
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Properties
+# ----------
+
+idsm:abstract a owl:DatatypeProperty;
+    rdfs:label "isAbstract"@en;
+    rdfs:domain owl:Class;
+    rdfs:range xsd:boolean;
+    rdfs:comment "Abstract concept, i.e. it is expected there are no instantiations of this class, but concrete subclasses."@en.
+
+idsm:labelPluralForm a owl:DatatypeProperty;
+    rdfs:subPropertyOf skos:prefLabel;
+	rdfs:label "labelPluralForm"@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdf:PlainLiteral;
+    rdfs:comment "The preferred lexical label for a resource, in plural form in a given language."@en.
+
+# idsm:note, obsolate, replaced by skos:note
+# rdfs:comment "Explanation on design, rationale or intended purpose of a construt." .
