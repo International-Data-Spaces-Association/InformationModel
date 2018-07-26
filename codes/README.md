@@ -45,6 +45,14 @@ Collection of *code lists* and taxonomies of values, instances of classes define
 - Inconsistent license URIs
 - Add existing identifiers, e.g. GPLv3, LGPLv2 
 - Add sources/references for the listing
+- Add reference to https://tldrlegal.com/
+- Evaluate and align with: https://en.wikipedia.org/wiki/Software_Package_Data_Exchange#License_syntax
+- Align identifiers with: https://spdx.org/licenses/
+    - see: https://spdx.org/sites/cpstandard/files/pages/files/using_spdx_license_list_short_identifiers.pdf
+- Link definitions in https://github.com/spdx/license-list-data
+    - linked data versions available:             https://github.com/spdx/license-list-data/tree/master/rdfturtle
+    - refer to via rawgit, e.g. -  https://raw.githubusercontent.com/spdx/license-list-data/master/rdfturtle/AAL.turtle
+                                            https://cdn.rawgit.com/spdx/license-list-data/8651cf2a/rdfturtle/AAL.turtle
 
 ## Mime type
 - Currently only IANA types - evaluate alternative registries/sources

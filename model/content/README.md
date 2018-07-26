@@ -59,6 +59,14 @@ Listing of auxiliary, informative resources.
 ## Content type
 - Consider conversion of ContentType`-Subclasses to instances (i.e. value set of `contentType` predicate)
 - Consider provision of content type-related description templates, e.g. what are the appropriate "audio" vs. "document" metadata?
+- Consider discussions on [`type of data`](https://github.com/w3c/dxwg/issues/64)
+- DCMI Type vocabulary - http://dublincore.org/documents/dcmi-terms/#section-7
+- ISO 19115 Scope Code vocabulary - http://registry.it.csiro.au/def/isotc211/MD_ScopeCode https://geo-ide.noaa.gov/wiki/index.php?title=ISO_19115_and_19115-2_CodeList_Dictionaries#MD_ScopeCode
+- PARSE.Insight content-types recommended for Re3data - http://www.re3data.org/schema http://gfzpublic.gfz-potsdam.de/pubman/item/escidoc:1397899
+- https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/documentation/Mappings.md
+-  intellectual resource types: http://id.loc.gov/vocabulary/marcgt.html
+- Individual (Linked Data) URIs for DataCite resource types are available here: http://registry.it.csiro.au/def/datacite/resourceType
+
 
 ## Keyword
 - Clarify range of `ids:keyword` (xsd:anyURI), compare: [dcat:keyword](https://www.w3.org/TR/vocab-dcat/#Property:dataset_keyword)
