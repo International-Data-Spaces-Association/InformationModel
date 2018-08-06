@@ -24,21 +24,30 @@ ids:artifact
     rdfs:domain ids:Representation ;
     rdfs:range ids:Artifact ;
     rdfs:label "artifact"@en ;
-    rdfs:comment "Reference to a materialization of this Representation in an existing Artifact."@en.
-    
+    rdfs:comment "Reference to an Artifact corresponding to given Representation."@en.
+
 ids:mediaType
     a owl:ObjectProperty ;
     # consider alternatives: dcterms:FileFormat/dcterms:MediaType etc.
     rdfs:subPropertyOf dcat:mediaType ;    
     rdfs:domain ids:Representation ;
     rdfs:range ids:MediaType ;
-    rdfs:label "mediaType"@en ;
+    rdfs:label "media type"@en ;
     rdfs:comment "Media Type of the Representation."@en.
 
-ids:conformsTo
-    a owl:DatatypeProperty ;
+# RAM: Standard at Represenation level
+ids:representationStandard
+    a owl:ObjectProperty ;
     rdfs:subPropertyOf dct:conformsTo ;
-    rdfs:domain ids:Serialization;
+    rdfs:domain ids:Representation;
     rdfs:range ids:Standard;
-    rdfs:label "conforms to"@en;
-    rdfs:comment "Link to a standard the Representation conforms to."@en.
+    rdfs:label "representation standard"@en;
+    rdfs:comment "Standards document defining the given Representation (in contrast to general Resource content). The Representation is assumed to conform to that Standard."@en.
+
+ids:schema
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dct:conformsTo ;
+    rdfs:domain ids:Representation;
+    rdfs:range ids:Standard;
+    rdfs:label "representation standard"@en;
+    rdfs:comment "Machine-processable Schema resource."@en.

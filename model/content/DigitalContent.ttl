@@ -9,14 +9,11 @@
 # Classes
 # -------
 
-ids:DigitalContent a owl:Class;    
-    idsm:abstract true;
+ids:DigitalContent
+    a owl:Class;    
+    idsm:abstract true; # for concrete subtypes see taxonomy/Content.ttl
     rdfs:label "Digital content"@en ;
-    rdfs:comment "Content available in a particular digital Serialization."@en;
-    idsm:validation [
-        idsm:forProperty ids:contentType;
-        idsm:relationType idsm:OneToMany;
-    ];
+    rdfs:comment "Digital content of a particular type available in a variety of Serializations."@en;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Digital_content> .
     
 # Properties

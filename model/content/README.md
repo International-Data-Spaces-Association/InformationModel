@@ -57,15 +57,44 @@ Listing of auxiliary, informative resources.
 # Issues/Questions/Ideas
 
 ## Content type
-- Consider conversion of ContentType`-Subclasses to instances (i.e. value set of `contentType` predicate)
 - Consider provision of content type-related description templates, e.g. what are the appropriate "audio" vs. "document" metadata?
 - Consider discussions on [`type of data`](https://github.com/w3c/dxwg/issues/64)
-- DCMI Type vocabulary - http://dublincore.org/documents/dcmi-terms/#section-7
-- ISO 19115 Scope Code vocabulary - http://registry.it.csiro.au/def/isotc211/MD_ScopeCode https://geo-ide.noaa.gov/wiki/index.php?title=ISO_19115_and_19115-2_CodeList_Dictionaries#MD_ScopeCode
-- PARSE.Insight content-types recommended for Re3data - http://www.re3data.org/schema http://gfzpublic.gfz-potsdam.de/pubman/item/escidoc:1397899
+
 - https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/documentation/Mappings.md
--  intellectual resource types: http://id.loc.gov/vocabulary/marcgt.html
 - Individual (Linked Data) URIs for DataCite resource types are available here: http://registry.it.csiro.au/def/datacite/resourceType
+
+# Recent TODOs
+
+References evaluated in definition of ContentType:
+
+- [DCMI Type Vocabulary](http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary)
+    - `Event` - Non-persistent, time-based occurrence, e.g. exhibition, conference
+    - `Collection` - Aggregation of resources with parts described separately
+    - `Dataset` - Data encoded in a defined structure intended for direct machine processing
+    - `Text` - Resource consisting primarily of words for reading, e.g. book, newspaper, article, archives of mailing lists. Readable images of textual material are considered Text
+    - `Image`  - Visual, non-textual electronic and physical representation of a static and dynamic graphical content, e.g. image, painting, video
+    - `StillImage`  - Static visual representation, e.g. painting, drawing, graphic design
+    - `MovingImage` - Subclass of Image, sequence of images imparting an impression of motion, e.g. movie, television program, video
+    - `Sound` - Resource primarily intended to be heard, e.g. an recorded speech, sound, music
+    - `InteractiveResource` - Resource requiring an interaction from the user, e.g. applets, multimedia learning objects, VR environments
+    - `PhysicalObject` - Inanimate, three-dimensional object or substance with digital representations like Image or Text
+    - `Service` - System that provides one or more functions, e.g. authentication service, web server etc.
+    - `Software` - Computer program in source or compiled form, e.g. C source file, MS-Windows .exe executable, or Perl script
+
+Not considered were `dctype:Image`, an abstract superclass of visual resources, with no concrete use case in IDS. Likewise
+`dctype:Service` is a means of provision and generation of Digital Content, instead of being itself mediated as such
+(this holds for `Software`). Since IDS deals with digital Resources, `dctype:PhysicalObject` is out of scope.
+
+- [ISO-19115, B.3.28 MD_ScopeCode](https://geo-ide.noaa.gov/wiki/index.php?title=ISO_19115_and_19115-2_CodeList_Dictionaries#MD_ScopeCode)
+
+ Classes for a variety of resources and services that that are subject of meta-data modelling by the standard.
+ They represent entities of different purposes (`attribute`vs. `attributeType`) and levels of granularity (`attribute`
+ vs. `repository`) which only partially match the IDS Digital Content domain.
+
+- [PARSE.Insight content-types recommended for Re3data](http://www.re3data.org/schema http://gfzpublic.gfz-potsdam.de/pubman/item/escidoc:1397899)
+
+- [MARC Genre Term List](http://id.loc.gov/vocabulary/marcgt.html) enumerates intellectual resource types with no immediate relevance for
+ IDS, since generally covered by DCMI types or otherwise irrelevant (e.g. physical objects)
 
 
 ## Keyword

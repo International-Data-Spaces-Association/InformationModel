@@ -2,6 +2,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/ids/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
 
 # Classes
 # -------
@@ -16,3 +18,13 @@ ids:IANAMediaType rdfs:subClassOf ids:MediaType;
     rdfs:comment "The class of media types (formerly known as MIME types) as defined by IANA.".
 
 # See ../codes/MediaType.ttl for instances defined in namespace "https://w3id.org/ids/code/media/" .
+
+# Proeprties
+# ----------
+
+ids:ianaReference
+    a owl:ObjectProperty ;    
+    rdfs:domain ids:IANAMediaType ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "IANA reference"@en ;
+    rdfs:comment "Reference to a IANA Media Type definition."@en.
