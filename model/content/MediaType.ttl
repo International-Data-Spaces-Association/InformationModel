@@ -17,14 +17,19 @@ ids:IANAMediaType rdfs:subClassOf ids:MediaType;
     rdfs:label "IANA Media Type"@en ;
     rdfs:comment "The class of media types (formerly known as MIME types) as defined by IANA.".
 
-# See ../codes/MediaType.ttl for instances defined in namespace "https://w3id.org/ids/code/media/" .
-
-# Proeprties
+# Properties
 # ----------
 
 ids:ianaReference
     a owl:ObjectProperty ;    
-    rdfs:domain ids:IANAMediaType ;
+    rdfs:domain ids:MediaType ;
     rdfs:range xsd:anyURI ;
     rdfs:label "IANA reference"@en ;
     rdfs:comment "Reference to a IANA Media Type definition."@en.
+
+ids:ianaListed
+    a owl:ObjectProperty ;
+    rdfs:domain ids:MediaType ;
+    rdfs:range ids:IANAMediaType ;
+    rdfs:label "IANA listed type"@en ;
+    rdfs:comment "Listed type from the IANA Media Type definition."@en.

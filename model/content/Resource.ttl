@@ -21,11 +21,7 @@ ids:Resource a owl:Class;
     idsm:abstract true;
     rdfs:label "Resource"@en ;
     rdfs:comment "Superclass of digital Resources that is encoded according to a Representation and optionally materialized as an Artifact."@en;    
-    rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset>;
-    idsm:validation [
-        idsm:forProperty ids:representation;
-        idsm:relationType idsm:OneToMany;
-    ].
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset>.
 
 # Properties
 # ------------
@@ -37,7 +33,7 @@ ids:representation a owl:ObjectProperty;
     rdfs:comment "Reference to a Representation of the abstract Resource."@en.
 
 ids:interface a owl:ObjectProperty;
-    rdfs:label "interface"@en;    
+    rdfs:label "interface"@en;
     rdfs:domain ids:Resource;
     rdfs:range ids:Interface;
     rdfs:comment "Reference to the Interface defining Operations supported by the Resource."@en.
