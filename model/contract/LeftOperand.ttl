@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Classes
 # -------
@@ -19,32 +20,32 @@ ids:LeftOperand rdfs:subClassOf odrl:LeftOperand;
 ids:payAmount a ids:LeftOperand;
     rdfs:seeAlso odrl:payAmount;
     rdfs:comment "Monetary amount to pay.";
-    dct:identifier "PAY_AMOUNT".
+    idsm:constantIdentifier "PAY_AMOUNT".
 
 ids:dateTime a ids:LeftOperand;
     rdfs:seeAlso odrl:dateTime;
     rdfs:comment "The date (and optional time and timezone) of exercising the action of the Rule.";
-    dct:identifier "DATE_TIME".
+    idsm:constantIdentifier "DATE_TIME".
 
 ids:timeInterval a ids:LeftOperand;
     rdfs:seeAlso odrl:timeInterval;
     rdfs:comment "Recurring Time Interval.";
-    dct:identifier "TIME_INTERVAL".
+    idsm:constantIdentifier "TIME_INTERVAL".
 
 ids:purpose a ids:LeftOperand;
     rdfs:seeAlso odrl:purpose;
     rdfs:comment "A defined purpose for exercising the action of the Rule.";
-    dct:identifier "PURPOSE".
+    idsm:constantIdentifier "PURPOSE".
 
 ids:count a ids:LeftOperand;
     rdfs:seeAlso odrl:count;
     rdfs:comment "Numeric count of executions of the action of the Rule.";
-    dct:identifier "COUNT".
+    idsm:constantIdentifier "COUNT".
 
 ids:quantity a ids:LeftOperand;
     rdfs:comment "Quantity limitation for exercising the action of the Rule.";
-    dct:identifier "QUANTITY".
+    idsm:constantIdentifier "QUANTITY".
 
 ids:recurrenceRate a ids:LeftOperand;
     rdfs:comment "The limit how often exercising the action of the Rule may be possible.";
-    dct:identifier "RECURRENCE_RATE".
+    idsm:constantIdentifier "RECURRENCE_RATE".

@@ -3,13 +3,13 @@
 # Issues/Questions/Ideas
 
 - Consider adding general properties:
-    - `dct:identifier`
+    - `idsm:constantIdentifier`
 
 - Consider adding general documentation properties:
     - `dcat:contactPoint`
     - `dct:title`
     - `dct:description`
-    - `dct:identifier`
+    - `idsm:constantIdentifier`
 
 
 

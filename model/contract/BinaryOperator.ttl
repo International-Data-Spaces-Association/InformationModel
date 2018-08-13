@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Classes
 # -------
@@ -19,14 +20,14 @@ ids:BinaryOperator rdfs:subClassOf odrl:Operator;
 ids:eq a ids:BinaryOperator;
     rdfs:seeAlso odrl:eq;
     rdfs:comment "Equals operator.";
-    dct:identifier "EQUALS".
+    idsm:constantIdentifier "EQUALS".
 
 ids:gt a ids:BinaryOperator;
     rdfs:seeAlso odrl:gt;
     rdfs:comment "Greater-than operator.";
-    dct:identifier "GREATER_THAN".
+    idsm:constantIdentifier "GREATER_THAN".
 
 ids:lt a ids:BinaryOperator;
     rdfs:seeAlso odrl:lt;
     rdfs:comment "Less-than operator.";
-    dct:identifier "LESS_THAN".
+    idsm:constantIdentifier "LESS_THAN".
