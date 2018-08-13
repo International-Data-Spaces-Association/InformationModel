@@ -73,7 +73,6 @@ When resources (e.g., Data Assets) are offered by the Connector
 
 - RequestResource (contains resource id and, optionally, a contract)
 - OfferResource (offers the transfer of a resource)
-- TransferResource (contains the resource or parts of it as the message payload)
 
 #### Events
 
