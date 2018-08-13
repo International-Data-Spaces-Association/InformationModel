@@ -17,9 +17,8 @@ Collection of *code lists* and taxonomies of values, instances of classes define
 
 ## General (model)
 - Agree on URI style rules, e.g. intial or no upper-case etc. - currently inconsistent usage
-- How is the `dct:identifier` used, what is its purpose ("APPLICATION_GEO_JSON")?
-- Decide the right predicate for well known, established IDs (e.g. "application/geo+json"), currently `rdfs:comment`, e.g. [`rdf:value`](https://www.w3.org/TR/rdf-schema/#ch_value)?
-- Define and follow a minimal annotation set (e.g. rdfs:lael sometimes missing)
+- Decide the right predicate for well known, established IDs (e.g. "application/geo+json"), currently `rdfs:label`, e.g. [`rdf:value`](https://www.w3.org/TR/rdf-schema/#ch_value)?
+- Define and follow a minimal annotation set (e.g. rdfs:label sometimes missing)
 - Consider adding `owl:differentFrom` annotation, at least to top-level, incompatible instances
 
 ## Category
@@ -93,8 +92,8 @@ Collection of *code lists* and taxonomies of values, instances of classes define
 ```
     idsc_media:text_csv a ids:IANAMediaType ;
 	rdfs:label "text/csv" ; # use the well-known, registered Media Type as label
-    dct:identifier "TEXT_CSV" ; # literal identifier -> Enum value
-    rdfs:comment "Comma separated values format for exchanging and converting data between various spreadsheet programs."@en ;
+    idsm:constantIdentifier "TEXT_CSV" ; # literal identifier -> Enum value
+    rdfs:label "Comma separated values format for exchanging and converting data between various spreadsheet programs."@en ;
     rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/text/csv> ;# IANA registration page, missing for some mime types
     rdfs:seeAlso <https://tools.ietf.org/html/rfc4180> .# "informative" RFC, optional because often unknown or non existent
 ```

@@ -5,6 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsc_cat: <https://w3id.org/ids/code/category/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Instances
 # ---------
@@ -15,7 +16,7 @@ idsc_cat:topic a skos:ConceptScheme ;
 idsc_cat:weather a skos:Concept ;
     a ids:ContentCategory;
     skos:prefLabel "weather"@en ;
-	dct:identifier "WEATHER";
+	idsm:constantIdentifier "WEATHER";
     skos:topConceptOf idsc_cat:topic;
 	skos:narrower idsc_cat:roadcondition;
 	skos:narrower idsc_cat:alert;
@@ -25,23 +26,23 @@ idsc_cat:weather a skos:Concept ;
 idsc_cat:roadcondition a skos:Concept ;
 	a ids:ContentCategory;
     skos:prefLabel "road condition"@en ;
-	dct:identifier "WEATHER_ROAD_CONDITION";
+	idsm:constantIdentifier "WEATHER_ROAD_CONDITION";
 	skos:broader idsc_cat:weather .
 
 idsc_cat:alert a skos:Concept ;
 	a ids:ContentCategory;
 	skos:prefLabel "alert"@en ;
-	dct:identifier "WEATHER_ALERT";
+	idsm:constantIdentifier "WEATHER_ALERT";
 	skos:broader idsc_cat:weather .
 
 idsc_cat:analysis a skos:Concept ;
 	a ids:ContentCategory;
 	skos:prefLabel "analysis"@en ;
-	dct:identifier "WEATHER_ANALYSIS";
+	idsm:constantIdentifier "WEATHER_ANALYSIS";
 	skos:broader idsc_cat:weather .
 
 idsc_cat:forecast a skos:Concept ;
 	a ids:ContentCategory;
 	skos:prefLabel "forecast"@en ;
-	dct:identifier "WEATHER_FORECAST";
+	idsm:constantIdentifier "WEATHER_FORECAST";
     skos:broader idsc_cat:weather .

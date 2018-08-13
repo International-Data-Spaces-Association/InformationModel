@@ -4,24 +4,25 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsc_atf: <https://w3id.org/ids/code/authtokenformat/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
 
 # Instances
 # ---------
 
 idsc_atf:jwt a ids:AuthorizationTokenFormat ;
-    rdfs:comment "Json Web Token";
-	dct:identifier "JWT".
+    rdfs:label "Json Web Token";
+	idsm:constantIdentifier "JWT".
 
 idsc_atf:swt a ids:AuthorizationTokenFormat ;
-    rdfs:comment "Simple Web Token";
-	dct:identifier "SWT".
+    rdfs:label "Simple Web Token";
+	idsm:constantIdentifier "SWT".
 
 idsc_atf:saml11 a ids:AuthorizationTokenFormat ;
-    rdfs:comment "Security Assertion Markup Language (SAML) 1.1";
-	dct:identifier "SAML11".
+    rdfs:label "Security Assertion Markup Language (SAML) 1.1";
+	idsm:constantIdentifier "SAML11".
 
 idsc_atf:saml20 a ids:AuthorizationTokenFormat ;
-    rdfs:comment "Security Assertion Markup Language (SAML) 2.0";
-    dct:identifier "SAML20".
+    rdfs:label "Security Assertion Markup Language (SAML) 2.0";
+    idsm:constantIdentifier "SAML20".
 
 

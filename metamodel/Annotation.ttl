@@ -14,12 +14,14 @@ idsm:abstract a owl:DatatypeProperty;
     rdfs:range xsd:boolean;
     rdfs:comment "Abstract concept, i.e. it is expected there are no instantiations of this class, but concrete subclasses."@en.
 
-idsm:labelPluralForm a owl:DatatypeProperty;
+idsm:labelPluralForm a owl:ObjectProperty;
     rdfs:subPropertyOf skos:prefLabel;
 	rdfs:label "labelPluralForm"@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdf:PlainLiteral;
     rdfs:comment "The preferred lexical label for a resource, in plural form in a given language."@en.
 
-# idsm:note, obsolate, replaced by skos:note
-# rdfs:comment "Explanation on design, rationale or intended purpose of a construt." .
+idsm:constantIdentifier a owl:DatatypeProperty;
+    rdfs:label "constantIdentifier"@en;
+    rdfs:range xsd:string;
+    rdfs:comment "Defines the identifier of an individual when represented as an enumeration type in the target programming language."@en.
