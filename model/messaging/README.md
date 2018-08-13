@@ -32,6 +32,8 @@ is a message that expresses the desire to obtain information and that may be ans
 by a _result_ that describes an aspect of the domain object at the point in time when the
 query was processed." (Reactive Design Patterns)
 
+_rejections_ are responses to messages that are incorrect syntactically or content-wise. 
+
 ### Broker
 
 #### Connector Management Commands
@@ -70,6 +72,7 @@ query was processed." (Reactive Design Patterns)
 When resources (e.g., Data Assets) are offered by the Connector 
 
 - RequestResource (contains resource id and, optionally, a contract)
+- OfferResource (offers the transfer of a resource)
 - TransferResource (contains the resource or parts of it as the message payload)
 
 #### Events
