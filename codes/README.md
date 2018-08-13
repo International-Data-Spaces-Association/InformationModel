@@ -93,14 +93,16 @@ Collection of *code lists* and taxonomies of values, instances of classes define
     idsc_media:text_csv a ids:IANAMediaType ;
 	rdfs:label "text/csv" ; # use the well-known, registered Media Type as label
     idsm:constantIdentifier "TEXT_CSV" ; # literal identifier -> Enum value
-    rdfs:label "Comma separated values format for exchanging and converting data between various spreadsheet programs."@en ;
+    rdfs:comment "Comma separated values format for exchanging and converting data between various spreadsheet programs."@en ;
     rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/text/csv> ;# IANA registration page, missing for some mime types
     rdfs:seeAlso <https://tools.ietf.org/html/rfc4180> .# "informative" RFC, optional because often unknown or non existent
 ```
 - Make the translation rules into Java explicit:
-    - NS bound to prefix is turned into a java Enum package according to Java convention, e.g. org.w3id.ids.code.media
+    - NS bound to prefix is turned into a java Enum package according to Java convention, e.g. org.w3id.ids.code.media 
     - Class name of the instance becomes the Enum type: IANAMediaType
-    - Local instance name ist the capitalized local name (i.e. same as identifer) : TEXT_CSV
+    - Local instance name is the capitalized value of the property ```idsm:constantIdentifier```
+    - each enum is documented by the value of their ```rdfs:comment``` annotation 
+    - if no ```rdfs:comment``` annotation exists, the value of ```rdfs:label``` is used for documentation (see "text/csv" javadoc line in the example below)
     - complete example:
     
 ```
