@@ -63,6 +63,16 @@ Listing of auxiliary, informative resources.
 - https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/documentation/Mappings.md
 - Individual (Linked Data) URIs for DataCite resource types are available here: http://registry.it.csiro.au/def/datacite/resourceType
 
+## Resource
+
+- Consider samples of further relations/types of Resources
+    - ISO 19115:StereoMate collection of image datasets (Aggregate) covering the *same subject* from different perspectives *providing a stereo view*
+    - ISO19115: Series: collection of resources related by a common heritage adhering to a common specification
+        - DS_Series is a subtype of the abstract DS_Aggregate
+        - Series has three MD_Metadata objects, each with a different scope
+            - object with scope = series contains the metadata shared by the whole collection
+            - objects with scope = dimensionGroup are contained in a DS_Dataset, hold the 2D and 3D MD_SpatialRepresentation entities
+            
 # Recent TODOs
 
 References evaluated in definition of ContentType:
@@ -84,6 +94,10 @@ References evaluated in definition of ContentType:
 Not considered were `dctype:Image`, an abstract superclass of visual resources, with no concrete use case in IDS. Likewise
 `dctype:Service` is a means of provision and generation of Digital Content, instead of being itself mediated as such
 (this holds for `Software`). Since IDS deals with digital Resources, `dctype:PhysicalObject` is out of scope.
+
+- [DDI Controlled Vocabulary for General Data Format](http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html)
+
+ Collection of abstract data formats (kinds), largely overlapping with DCMI Type Vocabulary.  
 
 - [ISO-19115, B.3.28 MD_ScopeCode](https://geo-ide.noaa.gov/wiki/index.php?title=ISO_19115_and_19115-2_CodeList_Dictionaries#MD_ScopeCode)
 

@@ -1,0 +1,90 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_cert: <https://w3id.org/ids/code/certification/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
+# Instances
+# ---------
+
+# Re-usable certification instances based on <a href="https://www.internationaldataspaces.org/publications/idsa-whitepaper-certification/">White Paper Certification. Framework for the IDS Certification Scheme, Version 2</a>
+#
+# ParticipantCertification
+
+idsc_cert:EntryLevelSelfAssessment
+    a skos:Concept, ids:ParticipantCertification ;
+    rdfs:label "Entry Level Self-Assessment Certification of Participants"@en ;
+    idsm:constantIdentifier "PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT" .
+
+idsc_cert:EntryLevelManagementSystem
+    a skos:Concept, ids:ParticipantCertification ;
+    rdfs:label "Entry Level Management System Certification of Participants"@en ;
+    idsm:constantIdentifier "PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM" ;
+    skos:narrower idsc_cert:EntryLevelSelfAssessment .
+
+idsc_cert:MemberLevelManagementSystem
+    a skos:Concept, ids:ParticipantCertification ;
+    rdfs:label "Member Level Management System Certification of Participants"@en ;
+    idsm:constantIdentifier "PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM" ;
+    skos:narrower idsc_cert:EntryLevelManagementSystem .
+
+idsc_cert:MemberLevelControlFramework
+    a skos:Concept, ids:ParticipantCertification ;
+    rdfs:label "Member Level ControlFramework Certification of Participants"@en ;
+    idsm:constantIdentifier "PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK" ;
+    skos:narrower idsc_cert:MemberLevelManagementSystem .
+
+idsc_cert:CentralLevelManagementSystem
+    a skos:Concept, ids:ParticipantCertification ;
+    rdfs:label "Central Level Management System Certification of Participants"@en ;
+    idsm:constantIdentifier "PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM" ;
+    skos:narrower idsc_cert:MemberLevelControlFramework .
+
+idsc_cert:CentralLevelControlFramework
+    a skos:Concept, ids:ParticipantCertification ;
+    rdfs:label "Central Level Control Framework Certification of Participants"@en ;
+    idsm:constantIdentifier "PARTICIPANT_CENTRAL_LEVEL_CONTROL_FRAMEWORK" ;
+    skos:narrower idsc_cert:CentralLevelManagementSystem .
+
+# ComponentCertification
+
+idsc_cert:BaseSecurityProfileChecklistApproach
+    a skos:Concept, ids:ComponentCertification ;
+    rdfs:label "Base Security Profile Certification of Components based on Checklist Approach"@en ;
+    idsm:constantIdentifier "COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH" .
+
+idsc_cert:BaseSecurityProfileConceptReview
+    a skos:Concept, ids:ComponentCertification ;
+    rdfs:label "Base Security Profile Certification of Components based on Concept Review"@en ;
+    idsm:constantIdentifier "COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW" ;
+    skos:narrower idsc_cert:BaseSecurityProfileChecklistApproach .
+
+idsc_cert:TrustSecurityProfileConceptReview
+    a skos:Concept, ids:ComponentCertification ;
+    rdfs:label "Trust Security Profile Certification of Components based on Concept Review"@en ;
+    idsm:constantIdentifier "COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW" ;
+    skos:narrower idsc_cert:BaseSecurityProfileConceptReview .
+
+idsc_cert:TrustSecurityProfileHighAssuranceEvaluation
+    a skos:Concept, ids:ComponentCertification ;
+    rdfs:label "Trust Security Profile Certification of Components based on High Assurance Evaluation"@en ;
+    idsm:constantIdentifier "COMPONENT_TRUST_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION" ;
+    skos:narrower idsc_cert:TrustSecurityProfileConceptReview .
+
+idsc_cert:TrustPlusSecurityProfileConceptReview
+    a skos:Concept, ids:ComponentCertification ;
+    rdfs:label "Trust-Plus Security Profile Certification of Components based on Concept Review"@en ;
+    idsm:constantIdentifier "COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW" ;
+    skos:narrower idsc_cert:TrustSecurityProfileHighAssuranceEvaluation .
+
+idsc_cert:TrustPlusSecurityProfileHighAssuranceEvaluation
+    a skos:Concept, ids:ComponentCertification ;
+    rdfs:label "Trust-Plus Security Profile Certification of Components based on High AssuranceEvaluation"@en ;
+    idsm:constantIdentifier "COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION" ;
+    skos:narrower idsc_cert:TrustPlusSecurityProfileConceptReview .
+
+
