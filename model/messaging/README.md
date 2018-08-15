@@ -4,7 +4,7 @@
 in a **message-driven** way
 
 - The protocols used for exchanging these messages are
-    - HTTPS, details such as the HTTP method name still need to be defined
+    - HTTPS or MQTT, details such as the HTTP method or MQTT topic name still need to be defined
     - IDSCP 
 
 - Transfer of participant data (aka "payload data" provided on the IDS) may use any type of protocol and data exchange method. Two scenarios can be differentiated:
@@ -34,19 +34,46 @@ query was processed." (Reactive Design Patterns)
 
 _rejections_ are responses to messages that are incorrect syntactically or content-wise. 
 
+### General Message Structure
+
 ### Broker
 
-#### Connector Management Commands
+This section names the message types that **must** be processed by any Broker implementation in order to be IDS compliant.
 
-- RegisterConnector
-- UnregisterConnector
-- UpdateConnector
-- EnableConnector
-- DisableConnector
+#### Connector Management Command
+
+These messages deal with announcing information about IDS Connectors to the Broker. On message reception, the Broker **must** 
+reply either with an Event or a Rejection Message. The rejection message references the command message by the correlation
+id property. 
+
+##### RegisterConnector
+mandatory properties:
+* String : connector self description 
+OR
+* URL : unique identifier of the connector 
+
+##### UpdateConnector
+mandatory properties: same as for RegisterConnector
+
+##### UnregisterConnector
+mandatory properties:
+* URL : unique identifier of the connector
+
+##### EnableConnector
+mandatory properties: same as for UnregisterConnector
+
+##### DisableConnector
+mandatory properties: same as for UnregisterConnector
 
 #### Events
 
-- ConnectorRegistered, ConnectorUnregistered, ConnectorUpdated,...
+For each Command message a corresponding Event message exists that is sent as a reply to the command. Their correlation 
+id attribute must be set in order to reference the command message that caused the event. 
+
+##### ConnectorRegistered, ConnectorUnregistered, ConnectorUpdated,...
+mandatory properties:
+* URL : correlation id (command message identifier)
+* URL : connector 
 
 #### Queries 
 
