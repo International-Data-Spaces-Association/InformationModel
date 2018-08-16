@@ -43,9 +43,17 @@ ids:physicalLocation a owl:ObjectProperty;
     rdfs:range ids:Location;
     rdfs:comment "The location where the Connector is physically deployed."@en.
 
+# TODO: Clarify, should not this be a (semantic version) string?
 ids:supportedMetadataVersion a owl:DatatypeProperty;
     rdfs:label "supportedMetadataVersion"@en;
     idsm:labelPluralForm "supportedMetadataVersions"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range xsd:anyURI;
     rdfs:comment "The versions of the Information Model that are supported by the InfrastructureComponent."@en.
+
+ids:componentCertification
+    a owl:ObjectProperty;
+    rdfs:label "component certification"@en;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:ComponentCertification;
+    rdfs:comment "Certification issued for the given Infrastructure Component."@en.

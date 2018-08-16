@@ -12,6 +12,7 @@
 ids:Operation a owl:Class;
     rdfs:label "Operation"@en;
     rdfs:comment "Building block of an Interface; describes the interaction by defining input, output and error parameters."@en;
+    idsm:abstract true;
     idsm:validation [
         idsm:forProperty ids:operationLabel;
         ids:constraint idsm:NotNull;
@@ -99,8 +100,9 @@ ids:operationDescription rdfs:subPropertyOf dct:description;
     rdfs:label "Operation Description"@en;
     rdfs:comment "Freetext description of the Operation as it should be shown in public indexes."@en.
 
-ids:operationSemantics a owl:ObjectProperty;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:OperationSemantics;
-    rdfs:label "Operation Semantics"@en;
-    rdfs:comment "Semantic meaning of the Operation."@en.
+# Translated into taxonomies/Operation.ttl
+#ids:operationSemantics a owl:ObjectProperty;
+#    rdfs:domain ids:Operation;
+#    rdfs:range ids:OperationSemantics;
+#    rdfs:label "Operation Semantics"@en;
+#    rdfs:comment "Semantic meaning of the Operation."@en.

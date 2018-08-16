@@ -9,37 +9,44 @@
 # Classes
 # -------
 
-ids:Parameter a owl:Class;
+# Parameter
+# re-usable for in/out/fault, usage indicated by predicates
+# purpose/interpretation is not necessarily re-usable, e.g. startDate vs. endDate
+# default cardinality: {0,1} (because fault is optional, consequence: any API parameter is optional by default)
+# explicitly required usage ({1}) must be marked by predicate mandatoryInput (client-side contract) or mandatoryOutput (server-side conract)
+
+ids:Parameter
+    a ids:Named, owl:Class;
     rdfs:label "Parameter"@en ;
     rdfs:comment "Named slot of an Interface Operation i.e., an input, output or fault (exception)."@en;
-    idsm:abstract true;
-    idsm:validation [
-        idsm:forProperty ids:paramLabel;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:paramDescription;
-        idsm:relationType idsm:OneToMany;
-    ].
+    idsm:abstract true .
+    # TODO, check constraints:
+    # 
+    #idsm:validation [
+    #    idsm:forProperty ids:name;
+    #    idsm:relationType idsm:OneToMany;
+    #];
+    #idsm:validation [
+    #    idsm:forProperty ids:paramDescription;
+    #    idsm:relationType idsm:OneToMany;
+    #].
 
 # Properties for describing a Parameter
 # -------------------------------------
 
-ids:parameterName a owl:DatatypeProperty;
-    rdfs:subPropertyOf idsm:constantIdentifier ;
-    rdfs:label "name"@en ;
-    rdfs:domain ids:Parameter ;
-    rdfs:range xsd:string ;
-    rdfs:comment "Locally unique name."@en .
+# Re-used from shared/Named.ttl 
+#ids:parameterName a owl:DatatypeProperty;
+#    rdfs:subPropertyOf idsm:constantIdentifier ;
+#    rdfs:label "name"@en ;
+#    rdfs:domain ids:Parameter ;
+#    rdfs:range xsd:string ;
+#    rdfs:comment "Locally unique name."@en .
 
-ids:parameterType a owl:ObjectProperty;
-    rdfs:domain ids:Parameter;
-    rdfs:range ids:ParameterType;
-    rdfs:label "parameterType"@en;
-    rdfs:comment "Indicates the intended usage of the Parameter."@en.
+# Translated into taxonomies/Parameter.ttl
+#ids:parameterType a owl:ObjectProperty;
+#    rdfs:domain ids:Parameter;
+#    rdfs:range ids:ParameterType;
+#    rdfs:label "parameterType"@en;
+#    rdfs:comment "Indicates the intended usage of the Parameter."@en.
 
-ids:parameterContent a owl:ObjectProperty;
-    rdfs:domain ids:Parameter;
-    rdfs:range ids:DigitalContent;
-    rdfs:label "parameterContent"@en;
-    rdfs:comment "Indicates the Resource to which the Parameter refers to."@en.
+

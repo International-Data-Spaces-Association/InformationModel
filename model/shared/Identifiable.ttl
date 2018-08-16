@@ -40,29 +40,3 @@ ids:Identifier
     rdfs:label "Identifier"@en ;
     rdfs:comment "Abstract notion of a (globally) unique Identifier, e.g. a URI."@en .
 
-ids:ResourceIdentifier
-    rdf:type owl:Class ;
-    rdfs:subClassOf ids:Identifier ;
-    rdfs:label "Resource identifier"@en ;
-    rdfs:comment "Globally unique Identifier of an IDS Resource."@en .
-
-# ids:ParticipantIdentifier
-# Attributed to Agent, since parties are not necessarily IDS Participant
-ids:AgentIdentifier
-    rdf:type owl:Class ;
-    rdfs:subClassOf ids:Identifier ;
-    rdfs:label "Agent identifier"@en ;
-    rdfs:comment "Unique Identifier of an Agent as a party involved in Resource exchange."@en .
-
-ids:ConnectorIdentifier
-    rdf:type owl:Class ;
-    rdfs:subClassOf ids:Identifier ;
-    rdfs:label "Connector identifier"@en ;
-    rdfs:comment "Globally unique Identifier of an IDS Connector."@en .        
-
-ids:MessageIdentifier
-    rdf:type owl:Class ;
-    rdfs:subClassOf ids:Identifier ;
-    rdfs:label "Message identifier"@en ;
-    rdfs:comment "Unique Identifier of an IDS Message."@en .        
-
