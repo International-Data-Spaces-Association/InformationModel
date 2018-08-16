@@ -112,24 +112,44 @@ When resources (e.g., Data Assets) are offered by the Connector
 #### Contract Negotiation
 
 - ContractOfferMessage
+mandatory properties:
+* URL : requested resource identifier
+* String : offered contract (according to the infomodel, i.e., currently based on ODRL) 
 
 #### Events
 
 - ResourceRequestAccepted
+mandatory properties:
+* URL : resource identifier
+* String : offered resource description (according to the infomodel) 
+
 - ContractAgreement
+mandatory properties:
+* URL : identifier for which the contract has been negotiated
+* String : description of the contract according to the infomodel
 
 #### Queries
 
 - GetSelfDescription
+mandatory properties: none
+
 - ContractRequestMessage
+mandatory properties:
+* URL : resource identifier for which the contract should be requested
 
 #### Results
 
 - SelfDescription
+mandatory properties:
+* String : self description according to infomodel
+
 
 #### Rejections
 
 - ContractNotAccepted (contains alternative offers of contracts)
+optional properties:
+List<String> : alternative contracts according to infomodel, each identified with an own (local) URL
+
 - MalformedContract (contract misses information or is not compliant to a certain schema)
 - TransferNotAuthorized
 
