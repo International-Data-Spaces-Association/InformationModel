@@ -12,17 +12,17 @@
 ids:Message a owl:Class;
     rdfs:label "Message"@en ;
     idsm:abstract true;
-	rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;    
+	rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
     idsm:validation [
-        idsm:forProperty ids:providerConnector;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:consumerConnector;
+        idsm:forProperty ids:modelVersion;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
         idsm:forProperty ids:issued;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:issuingConnector;
         idsm:constraint idsm:NotNull;
     ].
     # FIPA ACL Message Structure Specification, http://www.fipa.org/specs/fipa00061/index.html
@@ -52,7 +52,7 @@ ids:correlationMessage
 	rdfs:range ids:MessageIdentifier; # implies reference to a corelated Message
 	rdfs:comment "Correlated message, e.g. a response to a previous request."@en.
 
-ids:providerConnector
+ids:issuingConnector
 	a owl:DatatypeProperty;
 	rdfs:label "provider connector"@en;
 	rdfs:domain ids:Message;
@@ -79,19 +79,6 @@ ids:recipientAgent
 	rdfs:domain ids:Message;
 	rdfs:range ids:AgentIdentifier;# terminal addressee e.g. the Data User
 	rdfs:comment "The Agemnt for which the Mesaage is intended."@en.
-
-ids:payloadDigest
-	a owl:DatatypeProperty;
-	rdfs:label "payload digest"@en;
-	rdfs:domain ids:Message;
-	rdfs:range xsd:base64Binary;
-	rdfs:comment "The digest of the DataAsset being transfered."@en.
-
-ids:hashFunction a owl:ObjectProperty;
-    rdfs:label "hash function"@en;
-    rdfs:domain ids:Message;
-    rdfs:range ids:HashFunction;
-    rdfs:comment "Algorithm used to calculate the payload digest of a DataTransfer."@en.
 
 ids:authorizationToken
 	a owl:ObjectProperty;
