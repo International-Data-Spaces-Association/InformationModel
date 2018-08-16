@@ -1,9 +1,21 @@
+# Resource modeling concerns
+
+<div align="center"><img alt="Explanation of the main Resources modeling concerns" src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Concerns_explained.jpg" width="90%" /></div>
+
+# Relationships of main modeling concerns
+
+<div align="center"><img alt="Relationships of the main Resources modeling concerns" src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Concerns_related.jpg" width="40%"/></div>
+
+# Detailed view at main modeling concerns
+
+<div align="center"><img alt="Detailed view of the main Resources modeling concerns" src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Concerns_formalized.jpg" width="60%"/></div>
+
 # Resource Model
 
 `Resource` is the top level class of the hierarchy of digital assets comprising the `DataAsset` and `DatApp` subclasses.
 
 <!--- ![Resource taxonomy](figures/Resource_taxonomy.jpg) --->
-<img src="figures/Resource_taxonomy.jpg" alt="Resource taxonomy" width="250px"></img>
+<img src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Resource_taxonomy.jpg" alt="Resource taxonomy" width="250px"></img>
 
 `Resource` content is modeled at 3 abstraction layers defined in the Reference Architecture Document v2:
 
@@ -12,7 +24,7 @@
 3. Artifact - materialization
 
 <!--- ![Resource model](figures/Resource.jpg) --->
-<img src="figures/Resource.jpg" alt="Resource model" height="250px"></img>
+<img src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Resource.jpg" alt="Resource model" height="250px"></img>
 
 # References
 - [Data Catalog Vocabulary (DCAT). W3C Recommendation 16 January 2014](https://www.w3.org/TR/vocab-dcat/)
@@ -43,7 +55,7 @@ Listing of auxiliary, informative resources.
 - [Ontology for Media Resources 1.0. W3C Recommendation 09 February 2012](https://www.w3.org/TR/mediaont-10/)
 
 ## Analysis and discussion
-- [DXWG GitHub Wiki: Data aspects semantics](https://github.com/w3c/dxwg/wiki/Data-aspects---semantics) 
+- [DXWG GitHub Wiki: Data aspects semantics](https://github.com/w3c/dxwg/wiki/Data-aspects---semantics)
 
 ## Guidelines and methodolgies
 - [Data on the Web Best Practices. W3C Recommendation 31 January 2017](https://www.w3.org/TR/dwbp/), best practices related to the publication and usage of data on the Web, making data discoverable and understandable by humans and machines
@@ -72,7 +84,7 @@ Listing of auxiliary, informative resources.
         - Series has three MD_Metadata objects, each with a different scope
             - object with scope = series contains the metadata shared by the whole collection
             - objects with scope = dimensionGroup are contained in a DS_Dataset, hold the 2D and 3D MD_SpatialRepresentation entities
-            
+
 # Recent TODOs
 
 References evaluated in definition of ContentType:
@@ -113,5 +125,3 @@ Not considered were `dctype:Image`, an abstract superclass of visual resources, 
 
 ## Keyword
 - Clarify range of `ids:keyword` (xsd:anyURI), compare: [dcat:keyword](https://www.w3.org/TR/vocab-dcat/#Property:dataset_keyword)
-
-
