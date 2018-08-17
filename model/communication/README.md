@@ -1,31 +1,53 @@
 # Information Model - Communication module
 - implemenation of an Interface w.r.t. a particular communication protocol
 
-# Messages
+## Establishing Data Exchange
 
-- Infrastructure Components exchange data that is related to IDS operation (e.g., registration and querying of connector self-descriptions)
-in a **message-driven** way
+### Enable Authenticated Communication
 
-- The protocols used for exchanging these messages are
-    - HTTPS or MQTT, details such as the HTTP method or MQTT topic name still need to be defined
-    - IDSCP 
+At first, a secure, encrypted communication channel must be established that ensures authentication of the communication partners. IDSCP
+suggests the following workflow:
 
-- Transfer of participant data (aka "payload data" provided on the IDS) may use any type of protocol and data exchange method. Two scenarios can be differentiated:
-    - proprietary protocols, imposed by the participant, e.g., messaging, RPC, shared databases, etc. and is not within the control of the IDS architecture
-    - IDS messages, as defined in this module 
+![Enable Authenticated Communication](../../images/establish_authenticated_connection.png)
 
-- For exchanging payload data, regardless of the communication method, metadata needs to be attached to the payload data to, e.g.,
-document source, destination, and terms of the data flow. This information is captured in the DataTransfer class.
+However, authenticated channels may also be established by using TLS in combination with, e.g., HTTP. In that case the above workflow
+will take place implictly when requesting the access token (without presenting the dynamic attribute token, see next section).
 
-- The technical implementation to attach DataTransfer information to the payload data depends on the data exchange method
+### Ensure Authorized Access  
 
-- Therefore, DataTransfer is **not** a message in the way of, e.g., Broker registration or query messages, but is composed of fields
-and properties of the Message class, which are necessary for **any** payload data flow.  
+Based on an authenticated connection,  consumers need to request an access token in order to authorize for resource usage. The actual
+method that must called to retrieve the token (step 1a) is stated in the connector's self description.
 
-- In cases where proprietary protocols are used to transfer data, instances of DataTransfer need to be associated to the data as 
-    - payload of a participant's proprietary message format
-    - part of communication protocol (e.g., HTTP multipart)
-    - embedded in the transfered payload data itself (e.g., image header fields)   
+![Enable Authenticated Communication](../../images/establish_authorized_connection.png)
+
+## Resource Usage
+
+In order to use (download, query,...) a resource, consumers invoke a certain operation (as retrieved from the set of possible
+operations from the connector's self description). Invoking the operation is done by creating a request as stated in the connector's
+self description. That request depends on the provider's connector configuration and may be a http call, mqtt publication, a certain 
+message type or others.  
+
+![Resource Usage](../../images/resource_usage.png)
+
+Prior to invoke an operation to a resource, a contract for using the resource can be optionally negotiated. This is inititated by issuing
+a ContractOffer message (defined in the IDS information model) to the resource provider's messaging endpoint. A workflow of a successful
+contract agreement is depicted below.
+
+![Contract Negotiation](../../images/contract_negotiation.png)
+
+## Broker Interaction
+
+Information exchange with Broker instances is defined by a set of messages (see Section "Messages" below). Basis of each interaction is 
+an established authorized connection, i.e. an access token is attached to each message. The case of registering a connector at a Broker 
+with the means of a RegisterConnector message is depicted below.
+
+![Contract Negotiation](../../images/broker_interaction.png)
+
+## Messages
+
+Certain infrastructure-relevant communication (such as, e.g, connector registration at brokers) is implemented by exchanging messages
+of defined content. This section lists the specified messages and the type infrastructure components that must be able to accept and
+interpret them.  
 
 ## List of message types by targeted infrastructure components 
 
@@ -43,6 +65,9 @@ Each message is required to contain the following information (see the Informati
 * String : modelVersion
 * ??? issuingConnector -> @jaro: the ttl says the domain is ConnecotrIdentifier. Why can't this be URL?
 * DateTime : issued
+
+### General Messages
+* RequestAccessToken
 
 ### Broker
 
@@ -142,7 +167,6 @@ mandatory properties:
 - SelfDescription
 mandatory properties:
 * String : self description according to infomodel
-
 
 #### Rejections
 
