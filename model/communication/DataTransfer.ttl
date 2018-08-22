@@ -31,20 +31,6 @@ ids:DataTransfer
         idsm:constraint idsm:NotNull;
     ].
 
-ids:TransferAttribute
-	a owl:Class;
-	rdfs:label "TransferAttribute"@en;
-	rdfs:comment "General attribute for additional description of security aspects of a data transfer."@en;
-    idsm:validation [
-        idsm:forProperty ids:transferAttributeKey;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:transferAttributeValue;
-        idsm:constraint idsm:NotNull;
-    ].
-
-
 # Properties
 # ----------
 
@@ -54,24 +40,6 @@ ids:transferContract
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Contract;
 	rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
-
-ids:customAttribute
-	a owl:ObjectProperty;
-	rdfs:label "customAttribute"@en;
-	idsm:labelPluralForm "customAttributes"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range ids:TransferAttribute;
-	rdfs:comment "Additional attributes that can be specified for a DataTransfer."@en.
-
-ids:transferAttributeKey a owl:DatatypeProperty;
-	rdfs:label "transferAttributeKey"@en;
-	rdfs:domain ids:TransferAttribute;
-	rdfs:range xsd:string.
-
-ids:transferAttributeValue a owl:DatatypeProperty;
-	rdfs:label "transferAttributeValue"@en;
-	rdfs:domain ids:TransferAttribute;
-	rdfs:range xsd:string.
 
 ids:payloadDigest
 	a owl:DatatypeProperty;
@@ -85,5 +53,7 @@ ids:hashFunction a owl:ObjectProperty;
     rdfs:domain ids:DataTransfer;
     rdfs:range ids:HashFunction;
     rdfs:comment "Algorithm used to calculate the payload digest of a DataTransfer."@en.
+
+# todo: we also need to add a property that holds the instances of the operation parameters
 
 

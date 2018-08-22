@@ -1,5 +1,70 @@
-# Information Model - Communication module
-- implemenation of an Interface w.r.t. a particular communication protocol
+# Information Model - Communication Module
+Information exchange between two IDS infrastructure components can be distinguished into two categories:
+
+## Payload Data Exchange
+This category covers exchange of business data between two IDS participants. Each of them may have their own services
+deployed, following specific (sometimes proprietary) protocols. Even though we encourage the usage of widely adopted de-facto
+standards such as HTTP/REST and MQTT these sometimes don't get the job done or service reimplementation is too costly. Hence,
+the information model does not impose any restrictions on how communication in this category should be done. However, participants
+should strive for *describing* the protocols they used as exactly as possible using classes of the information model. The starting
+point to do so is the ProtocolBinding class that spans a taxonomy of popular protocol implementations (currently formalized for
+HTTP and MQTT but more will be added in future as needed).
+
+Example Problem: As a data provider, Alice wants to offer her annual business reports on the IDS as PDF file like so:
+
+``http://alice.idsparticipant.com/connector/businessReport?year=2018``
+
+Solution: She describes her Connector using the Information Model and defines the offered resource (=the business report), what
+consumers can do with it (the retrieve operation), what parameters they need to provide in order to do that (=a year), what 
+they would get (a PDF representation), and how this is implemented (as a HTTP call following a certain template).
+
+**TODO: move protocolbindings to taxonomies?**    
+
+## IDS Ecosystem Supportive Communication
+All communication that belongs to this category has the goal to ensure that the IDS ecosystem can fulfill its promises such as 
+providing a data market, establish trust, or ensure data sovereignty. Example use cases are:
+- Connector registration at a Broker,
+- Data synchronization across Brokers,
+- Searching a Broker for matching data offers, 
+- Resource usage contract/policy negotiations,
+- Authentication and authorization.
+
+In contrast to the "Payload Data Exchange" category, the IDS architecture and the information model *do* define how this
+communication is performed. The use cases mentioned above are of diverse nature: some of them (e.g., connector registration)
+may follow a synchronous request-response pattern. Others (e.g., contract negotiations) might require time-consuming processing
+or even a human in the loop and are thus best addressed with an asynchronous approach.
+In order to cover both information exchange paradigms, we follow a message-based approach. It can be both implemented in 
+a synchronous way (the message sender blocks further processing until a certain response message is received) as well as
+in an asynchronous way (the message sender continues with other tasks while his message is processed and until he is notified on 
+the availability of the message's result).
+Various protocols exist that support implementation of synchronous and asynchronous messaging approaches. On the IDS,
+synchronous communication should be implemented via HTTP(S) and asynchronous communication via MQTT. Each infrastructure
+component (e.g., Connector, Broker,...) may choose the type of communication it supports but must stick to these implementation
+guidelines:
+
+### Synchronous Message Exchange
+
+To support synchronous message exchange, IDS components must expose the following method call on their HTTP API, allowing both
+GET and POST requests and serializing input and return value as JSON:
+
+```Message process(Message input)```
+
+``Message`` refers to the corresponding class as defined in the information model. An implementation of all information model
+classes is available as Java library. 
+
+Example: Alice runs a Broker and Bob wants to register his connector there, using synchronous messaging. Bob would
+issue the following HTTP GET request:
+
+``http://alice.idsparticipant.com/broker/process?input={"@type":"ConnectorRegistration","issuingConnector":"http://bob.participant.com/connector/","consumerConnector":"http://alice.participant.com/broker/",...}``
+
+(for clarity we omitted proper encoding and shortened the JSON part in the above URL)
+     
+### Asynchronous Message Exchange
+
+requirement: local mqtt broker installed (announced in connector self description)
+
+MQTT topic name: default, fail
+
 
 ## Establishing Data Exchange
 
