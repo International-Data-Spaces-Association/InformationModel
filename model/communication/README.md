@@ -61,7 +61,7 @@ or by a custom implementation.
 To support synchronous message exchange, IDS components must expose the following method call on their HTTP API, allowing both
 GET and POST requests and serializing input and return value as JSON:
 
-```Message process(Message input)```
+```Optional<Message> process(Message input)```
 
 ``Message`` refers to the corresponding class as defined in the information model. An implementation of all information model
 classes is available as Java library. 
@@ -79,6 +79,14 @@ purposes. As an alternative, for instance, such a REST-like interface can also b
 [ActiveMQ](http://activemq.apache.org/rest.html). 
      
 ### Asynchronous Message Exchange (bilateral)
+
+For use cases where an immediate reponse to a message cannot be ensured, communication must be done in an asynchronous way. On the IDS,
+asynchronous messaging is done using MQTT. For bilateral communication, IDS infrastructure components that should be enabled for
+asynchronous message exchange, need to offer a *local* messaging server that implements the MQTT protocol, e.g., an MQTT Broker (not to be 
+confused with the IDS Broker). The necessary information about how to connect to this messaging server (URL, optional topic) need to
+be provided by the infrastructure operator in the self-description of the infrastructure component.    
+
+todo(cm): check useful default queues/topics
 
 requirement: local mqtt broker installed (announced in connector self description)
 
