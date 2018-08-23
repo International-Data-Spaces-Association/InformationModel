@@ -10,11 +10,11 @@ should strive for *describing* the protocols they used as exactly as possible us
 point to do so is the ProtocolBinding class that spans a taxonomy of popular protocol implementations (currently formalized for
 HTTP and MQTT but more will be added in future as needed).
 
-Example Problem: As a data provider, Alice wants to offer her annual business reports on the IDS as PDF file like so:
+**Example:** As a data provider, Alice wants to offer her annual business reports on the IDS as PDF file like this:
 
 ``http://alice.idsparticipant.com/connector/businessReport?year=2018``
 
-Solution: She describes her Connector using the Information Model and defines the offered resource (=the business report), what
+**Solution:** She describes her Connector using the Information Model and defines the offered resource (=the business report), what
 consumers can do with it (the retrieve operation), what parameters they need to provide in order to do that (=a year), what 
 they would get (a PDF representation), and how this is implemented (as a HTTP call following a certain template).
 
@@ -42,7 +42,21 @@ synchronous communication should be implemented via HTTP(S) and asynchronous com
 component (e.g., Connector, Broker,...) may choose the type of communication it supports but must stick to these implementation
 guidelines:
 
-### Synchronous Message Exchange
+### Message Transport
+
+The concept of messages allows us to formalize snippets of information exchange as a shared, linked data model (ontology). A taxonomy
+and definition of all message types for ecosystem supportive communication on the IDS is available in the information model (file Model.ttl).
+When it comes to transporting the messages from the sender to a receiver, these requirements need to be taken into account: 
+
+1. Communication should be strictly bilateral (synchronously or asynchronous, e.g., contract negotiations, Connector registrations at a Broker)
+2. Communicating partners don't know each other (e.g., a Broker communicates local updates to other Brokers)
+3. Messages should be persisted (logging and clearing of all data exchange, compensate temporal unavailability of infrastructure components)
+
+(1) and (2) have implications on the protocols used for message exchange and where the messaging infrastructure is deployed. These are described
+in the following sections. Depending on the used implementations for (1) and (2), requirement (3) is either satisfied by the used messaging subsystem
+or by a custom implementation. 
+
+### Synchronous Message Exchange (bilateral)
 
 To support synchronous message exchange, IDS components must expose the following method call on their HTTP API, allowing both
 GET and POST requests and serializing input and return value as JSON:
@@ -52,18 +66,30 @@ GET and POST requests and serializing input and return value as JSON:
 ``Message`` refers to the corresponding class as defined in the information model. An implementation of all information model
 classes is available as Java library. 
 
-Example: Alice runs a Broker and Bob wants to register his connector there, using synchronous messaging. Bob would
+**Example:** Alice runs a Broker and Bob wants to register his connector there, using synchronous messaging. Bob would
 issue the following HTTP GET request:
 
 ``http://alice.idsparticipant.com/broker/process?input={"@type":"ConnectorRegistration","issuingConnector":"http://bob.participant.com/connector/","consumerConnector":"http://alice.participant.com/broker/",...}``
 
 (for clarity we omitted proper encoding and shortened the JSON part in the above URL)
+
+Note: This scenario can also be set up without a dedicated messaging service needs to be set up. As a result, however, the infrastructure component 
+(e.g., Broker) is responsible for persisting the incoming and outgoing messages in case of future exploitation for, e.g., billing
+purposes. As an alternative, for instance, such a REST-like interface can also be realized with off-the shelf messaging servers such as
+[ActiveMQ](http://activemq.apache.org/rest.html). 
      
-### Asynchronous Message Exchange
+### Asynchronous Message Exchange (bilateral)
 
 requirement: local mqtt broker installed (announced in connector self description)
 
 MQTT topic name: default, fail
+
+messaging middleware runs on the connector
+
+
+### Asynchronous Message Exchange (1-to-n)
+
+messaging middleware runs on a separate server; not implemented yet
 
 
 ## Establishing Data Exchange
