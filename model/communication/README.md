@@ -3,8 +3,8 @@ Information exchange between two IDS infrastructure components can be distinguis
 
 ## Payload Data Exchange
 This category covers exchange of business data between two IDS participants. Each of them may have their own services
-deployed, following specific (sometimes proprietary) protocols. Even though we encourage the usage of widely adopted de-facto
-standards such as HTTP/REST and MQTT these sometimes don't get the job done or service reimplementation is too costly. Hence,
+deployed, following specific (sometimes proprietary) protocols. While for many applications widely adopted de-facto
+standards such as HTTP/REST and MQTT suffice, these are sometimes too limited or service reimplementation is too costly. Hence,
 the information model does not impose any restrictions on how communication in this category should be done. However, participants
 should strive for *describing* the protocols they used as exactly as possible using classes of the information model. The starting
 point to do so is the ProtocolBinding class that spans a taxonomy of popular protocol implementations (currently formalized for
@@ -18,7 +18,18 @@ HTTP and MQTT but more will be added in future as needed).
 consumers can do with it (the retrieve operation), what parameters they need to provide in order to do that (=a year), what 
 they would get (a PDF representation), and how this is implemented (as a HTTP call following a certain template).
 
-**TODO: move protocolbindings to taxonomies?**    
+### Annotating Data Transfers
+
+payload data exchange is strictly bilateral (point-to-point). in order to support usage control, data is transfered from
+a provider to a consumer must be accompanied with metadata information to make the transfer traceable. fields of this metadata
+structure are formalized in the class DataTransfer. examples are:
+- sending and receiving component and sovereign 
+- transfer initiation date
+- payload signature
+- underlying contract/policy
+
+
+**TODO:** describe annotated communication (TransferHeader)    
 
 ## IDS Ecosystem Supportive Communication
 All communication that belongs to this category has the goal to ensure that the IDS ecosystem can fulfill its promises such as 

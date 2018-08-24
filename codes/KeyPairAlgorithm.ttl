@@ -1,0 +1,25 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_kpa: <https://w3id.org/ids/code/kpa/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Instances
+# ---------
+
+idsc_kpa:DSA a ids:KeyPairAlgorithm;
+	rdfs:label "DSA";
+	idsm:constantIdentifier "DSA".
+
+idsc_kpa:RSA a ids:KeyPairAlgorithm;
+    rdfs:label "RSA";
+    idsm:constantIdentifier "RSA".
+
+idsc_kpa:EC a ids:KeyPairAlgorithm;
+    rdfs:label "EC";
+    idsm:constantIdentifier "EC".
+
+idsc_kpa:DH a ids:KeyPairAlgorithm;
+    rdfs:label "DiffieHellman";
+    idsm:constantIdentifier "DH".
