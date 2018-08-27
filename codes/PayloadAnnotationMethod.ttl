@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_pam: <https://w3id.org/ids/code/pam/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Instances
+# ---------
+
+idsc_pam:NONE a ids:PayloadAnnotationMethod;
+	rdfs:label "NONE";
+	rdfs:comment "No data payload annotation";
+	idsm:constantIdentifier "NONE".
+
+idsc_pam:ARCHIVE a ids:PayloadAnnotationMethod;
+	rdfs:label "ARCHIVE";
+	rdfs:comment "Payload annotation by wrapping metadata and payload into a single archive file.";
+	idsm:constantIdentifier "ARCHIVE".
+
+idsc_pam:EMBEDDED a ids:PayloadAnnotationMethod;
+	rdfs:label "EMBEDDED";
+	rdfs:comment "Payload annotation by embedding transfer metadata into the payload data format.";
+	idsm:constantIdentifier "EMBEDDED".
+
+idsc_pam:HTTP_MULTIPART a ids:PayloadAnnotationMethod;
+    rdfs:label "HTTP_MULTIPART";
+    rdfs:comment "Transfer metadata is contained in the first part of a HTTP multipart message.";
+    idsm:constantIdentifier "HTTP_MULTIPART".
+
+idsc_pam:HTTP_CUSTOMHEADER a ids:PayloadAnnotationMethod;
+    rdfs:label "HTTP_CUSTOMHEADER";
+    rdfs:comment "Transfer metadata is contained in a custom HTTP response header.";
+    idsm:constantIdentifier "HTTP_CUSTOMHEADER".
+
+idsc_pam:MQTT_CORRELATION_BY_TOPIC a ids:PayloadAnnotationMethod;
+    rdfs:label "MQTT_CORRELATION_BY_TOPIC";
+    rdfs:comment "Transfer metadata is contained in a custom HTTP response header.";
+    idsm:constantIdentifier "MQTT_CORRELATION_BY_TOPIC".

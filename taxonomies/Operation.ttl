@@ -13,14 +13,14 @@
 #
 # Note, definition misses the REST-like distinction of (not) "safe" and (not) "idempotent"
 ids:CommandOperation
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:Operation ;
     rdfs:label "Command"@en ; 
     rdfs:comment "Mutating operation that changes the internal state of the providing component."@en ;
     idsm:abstract true .
 
 ids:QueryOperation
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:Operation ;
     rdfs:label "Query"@en ; 
     rdfs:comment "Reading operation considered 'safe' by not affecting the state of the provising component."@en ;
@@ -30,7 +30,7 @@ ids:QueryOperation
 # 
 # Mandatory input parameters of type „SortOrder“, „Sort Key“
 ids:Sorting
-    rdfs:type owl:Class ;    
+    a owl:Class ;
     # rdfs:subClassOf ids:ListingOperation ; # Requires a List result
     rdfs:label "Sorting operation "@en ; 
     rdfs:comment "Operation allowing for sorting of an underlying List."@en ;
@@ -40,7 +40,7 @@ ids:Sorting
 #
 # Mandatory input parameters of type „Offset“ and „Limit“
 ids:ClientPaginating
-    rdfs:type owl:Class ;
+    a owl:Class ;
     # rdfs:subClassOf ids:ListingOperation ; # Requires a List result
     rdfs:label "Client paginating operation"@en ; 
     rdfs:comment "Operation allowing the Client for custom pagination of underlying list."@en ;
@@ -50,7 +50,7 @@ ids:ClientPaginating
 #
 # Mandatory input parameter of type „PageIndex"
 ids:ServerAbsolutePaginating
-    rdfs:type owl:Class ;
+    a owl:Class ;
     # rdfs:subClassOf ids:ListingOperation ; # Requires a List result
     rdfs:label "Server-side absolute paginating operation "@en ; 
     rdfs:comment "Operation allowing the Client to navigate list content based on index of Server-defined sections."@en ;
@@ -58,7 +58,7 @@ ids:ServerAbsolutePaginating
 
 # Mandatory input parameter of type "PageReference" (first, last, previous, next)
 ids:ServerRelativePaginating
-    rdfs:type owl:Class ;
+    a owl:Class ;
     # rdfs:subClassOf ids:ListingOperation ; # Requires a List result
     rdfs:label "Server-side relative paginating operation "@en ; 
     rdfs:comment "Operation allowing the Client to navigate list content by references to Server-defined sections."@en ;
@@ -68,7 +68,7 @@ ids:ServerRelativePaginating
 
 # Mandatory output type: List
 ids:ListOperation
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:QueryOperation ;
     rdfs:label "List operation"@en ; 
     rdfs:comment "Operation exposing a list (ordered collection) of Digital Content."@en ;
@@ -76,21 +76,21 @@ ids:ListOperation
 
 # Add mandatory input "parameter name" to introspect
 ids:ListParameterValuesOperation # former name: "Query parameter range"
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:ListOperation ;
     rdfs:label "List parameter values operation"@en ; 
     rdfs:comment "Operation used by a (potential) Data Consumer to retrieve (a dynamically generated) enumeration of input parameter values (its enumerated value domain); suitable for use cases in which the complete parameter range cannot be specified beforehand."@en.
 
 # Additional restriction on type of considered parameter applies - must be of "Identifier"
 ids:ListIdentifiersOperation
-    rdfs:type owl:Class ;
-    rdfs:subClassOf ids:ListParameterValues ;
+    a owl:Class ;
+    rdfs:subClassOf ids:ListParameterValuesOperation ;
     rdfs:label "List identifiers"@en ;
     rdfs:comment "Operation used to retrieve the enumeration of available values for an 'Identifier' Parameter type. Depending on the type of underlying Resource collection, the identifier may be a unique name (map) or a numeric index (list); the Data Consumer may use the identifier for a subsequent call to 'GetResource' operation."@en.
 
 # Clarify input parameter, e.g. identifier of a Collection Resource?
 ids:ListResourcesOperation # former name: List data
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:ListOperation ;
     rdfs:label "List resources operation"@en ;
     rdfs:comment "Operation used by a Data Consumer to retrieve an enumeration of values for an output parameter of type 'Resource'."@en.
@@ -100,7 +100,7 @@ ids:ListResourcesOperation # former name: List data
 # on mandatoryInput someValues FilterParameter
 # on output someValues [ ContentParameter, on contentList allValuesFrom Resource]
 ids:FilterResourcesOperation # former name: Filter data
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:ListResourcesOperation ;
     rdfs:label "Filter resources operation"@en ;
     rdfs:comment "Operation provides the Data Consumer with a selection of the Resource collection according to supplied Filter Parameter. The Filter is applied to 'structured' Resource content or file properties of Artifatcs (such as file extension, file name, file type, etc.)."@en.
@@ -110,7 +110,7 @@ ids:FilterResourcesOperation # former name: Filter data
 # mandatoryInput some Selector, some Identifier (Resource or Collection)
 # output  [ ContentParameter, on contentList allValuesFrom Content ]
 ids:SelectContentOperation # former name: Select data
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:QueryOperation ; # or ids:ListResourcesOperation ?
     rdfs:label "Select content operation"@en ;
     rdfs:comment "Operation provides the Data Consumer with custom fragments of the original Resource collection according to supplied 'Selector' Parameter. The Selector is applied to 'structured' Resource content."@en.
@@ -119,7 +119,7 @@ ids:SelectContentOperation # former name: Select data
 # Additional restriction on the output parameter type applies - must be of type "Resource"
 # Clien-driven PULL-request 
 ids:ReadResourceOperation # former name: Provide data
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:QueryOperation ;
     rdfs:label "Provide resource operation"@en ;
     rdfs:comment "Operation for providing a single Resource via the operation’s output parameter(s) from the Data Provider to the Data Consumer."@en.
@@ -127,7 +127,7 @@ ids:ReadResourceOperation # former name: Provide data
 # Mandatory input of type Subscription
 # Clien-driven SUBSCRIBE-request
 ids:SubscribeResourceOperation # 
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:CommandOperation ; # affects Provider's state, requests to persist and subsequently execute the Subscription
     rdfs:label "Consume resource"@en ;
     rdfs:comment "Operation for receiving data via the operation’s input parameter(s) from the Data Provider to the Data Consumer."@en.
@@ -135,7 +135,7 @@ ids:SubscribeResourceOperation #
 # Has a mandatory input parameter of type Resource, optional input of type Identifier (PUT), otherwise the identifier is generated (POST)
 # Server-driven PUSH-request
 ids:WriteResourceOperation # former name: Consume data
-    rdfs:type owl:Class ;
+    a owl:Class ;
     rdfs:subClassOf ids:CommandOperation ; # since chnages the Collection's state
     rdfs:label "Consume resource"@en ;
     rdfs:comment "Operation for receiving data via the operation’s input parameter(s) from the Data Provider to the Data Consumer."@en.

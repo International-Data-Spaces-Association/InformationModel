@@ -21,13 +21,21 @@ they would get (a PDF representation), and how this is implemented (as a HTTP ca
 ### Annotating Data Transfers
 
 payload data exchange is strictly bilateral (point-to-point). in order to support usage control, data is transfered from
-a provider to a consumer must be accompanied with metadata information to make the transfer traceable. fields of this metadata
+a provider to a consumer must be accompanied (annotated) with metadata information to make the transfer traceable. fields of this metadata
 structure are formalized in the class DataTransfer. examples are:
 - sending and receiving component and sovereign 
 - transfer initiation date
 - payload signature
 - underlying contract/policy
 
+connector self-information describes how the metadata is added to the payload data. options are:
+- no transfer annotation
+- wrapping archive
+- embedded (in the resource representation, e.g., image header)
+- protocol specific
+    - http: multipart or custom headers
+    - mqtt: payload messages are correlated to data transfer metadata by the message ID which is shared via the topic identifiers
+(similar to [implementing request/response for MQTT](http://www.bitreactive.com/blog/2014/09/24/mqtt-request-response/))
 
 **TODO:** describe annotated communication (TransferHeader)    
 
