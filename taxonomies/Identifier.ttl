@@ -19,6 +19,22 @@ ids:ResourceIdentifier
     rdfs:label "Resource identifier"@en ;
     rdfs:comment "Globally unique Identifier of an IDS Resource."@en .
 
+# Example of a derived datatype, supplies an interpretation for anyURI
+#
+#ids:ResourceIdentifier owl:equivalentClass
+#  [ rdf:type  rdfs:Datatype;
+#    owl:onDatatype  xsd:anyURI;
+#    owl:withRestrictions (
+#       [ xsd:minLength  "1"^^xsd:integer ]
+#       [ xsd:pattern ".*/resource/.*" ]
+#    )
+#  ] .
+# Usage: "https://server.org/resource/123"^^ids:ResourceIdentifier
+# Pros: allows for definition of identifier syntax rules, is more specific about interpretation type than anyURI
+# Cons: more verbose ..(?)
+
+
+
 # ids:ParticipantIdentifier, attributed to Agent, since parties are not necessarily IDS Participants:
 
 ids:AgentIdentifier
