@@ -9,30 +9,146 @@
 # Classes
 # -------
 
-## Metadata
+# Basic Message Types
+# -------------------
 
-ids:CatalogRequestMessage
-    a owl:Class ;
+ids:Command a owl:Class;
     rdfs:subClassOf ids:Message ;
-    rdfs:label "Catalog request message"@en ;
-    rdfs:comment "Message requesting the entire metadata Catalog."@en.    
+    idsm:abstract true;
+    rdfs:label "Command Message"@en ;
+    rdfs:comment "Command messages are usally sent when a response is expected by the sender."@en.
+
+ids:Event a owl:Class ;
+    rdfs:subClassOf ids:Message ;
+    idsm:abstract true;
+    rdfs:label "Event Message"@en ;
+    rdfs:comment "Event messages are informative and no response is expected by the sender."@en.
+
+ids:Response a owl:Class;
+    rdfs:subClassOf ids:Event ;
+    idsm:abstract true;
+    rdfs:label "Response Message"@en ;
+    rdfs:comment "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en;
+    idsm:validation [
+        idsm:forProperty ids:correlationMessage;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:Query a owl:Class ;
+    rdfs:subClassOf ids:Command ;
+    idsm:abstract true;
+    rdfs:label "Query Command"@en ;
+    rdfs:comment "Query commands are intended to annotate query strings in a specified query language or address a specific resource."@en.
+
+ids:QueryPayloadType a owl:Class;
+    rdfs:label "QueryPayloadType"@en ;
+    rdfs:comment "Class of payload types to be attached to Query Commands."@en.
+
+ids:QueryLanguage a owl:Class;
+    rdfs:label "QueryLanguage"@en ;
+    rdfs:comment "Class of query languages in which query strings may be formalized."@en.
+
+ids:queryPayloadType a owl:ObjectProperty;
+    rdfs:domain ids:Query;
+    rdfs:range ids:QueryPayloadType;
+    rdfs:label "queryPayloadType"@en;
+    rdfs:comment "Specifies the type of the query payload."@en.
+
+ids:queryLanguage a owl:ObjectProperty;
+    rdfs:domain ids:Query;
+    rdfs:range ids:QueryLanguage;
+    rdfs:label "queryLanguage"@en;
+    rdfs:comment "If queryPayloadType refers to a query string, this property specifies the language of the query."@en.
+
+ids:Result a owl:Class;
+    rdfs:subClassOf ids:Response ;
+    rdfs:label "Result Message"@en ;
+    rdfs:comment "Result messages are intended to annotate the results of a query command. "@en.
+
+ids:Rejection a owl:Class;
+    rdfs:subClassOf ids:Response ;
+    rdfs:label "Rejection Message"@en ;
+    rdfs:comment "Rejection messages are specialized response messages that notify the sender of a message that processing of this message has failed."@en.
+
+ids:RejectionReason a owl:Class;
+    rdfs:label "RejectionReason"@en ;
+    rdfs:comment "Class of reasons that might lead to issuing a Rejection message."@en.
+
+ids:rejectionReason a owl:ObjectProperty;
+    rdfs:domain ids:Rejection;
+    rdfs:range ids:RejectionReason;
+    rdfs:label "rejectionReason"@en;
+    rdfs:comment "Specifies the reason of the rejection."@en.
+
+# Catalog Content Access
+# ----------------------
+
+# war: ids:CatalogResponseMessage
+ids:DumpCatalogContent a owl:Class;
+    rdfs:subClassOf ids:Command ;
+    rdfs:label "Dump Catalog"@en ;
+    rdfs:comment "Message requesting the entire catalog content, i.e., self-description of a connector or broker."@en.
     # endpoint: provider ConnectorIdentifier
 
-ids:CatalogResponseMessage
-    a owl:Class ;
-    rdfs:subClassOf ids:Message ;
-    rdfs:label "Catalog response message"@en ;
+# war: ids:CatalogResponseMessage
+ids:CatalogContentDump a owl:Class ;
+    rdfs:subClassOf ids:Response ;
+    rdfs:label "Catalog Content Dump response"@en ;
     rdfs:comment "Message containing the entire Catalog of the sender Connector."@en.    
     # payload: Catalog
     # correlationMessage previous Request
 
-ids:CatalogFilterMessage
-    a owl:Class;
-    rdfs:subClassOf ids:CatalogRequestMessage;    
-    rdfs:label "Catalog filter message"@en ;
-    rdfs:comment "Message requesting a filtered Catalog of the sender Connector."@en.    
+# überflüssig?
+#ids:FilterCatalog a owl:Class;
+#    rdfs:subClassOf ids:Query;
+#    rdfs:label "Catalog Filter query"@en ;
+#    rdfs:comment "Message requesting a filtered Catalog of the sender Connector."@en.
 
-## Contract negotatiation
+ids:QueryCatalog a owl:Class;
+    rdfs:subClassOf ids:Query ;
+    rdfs:label "Query Catalog"@en ;
+    rdfs:comment "Command for sending a query to the catalog. The payload of the message must therefore contain the query string to be intended for recipient execution."@en.
+
+# Broker Messages
+# ---------------
+
+ids:ConnectorAvailable a owl:Class;
+    rdfs:subClassOf ids:Event ;
+    rdfs:label "Connector Available"@en ;
+    rdfs:comment "Event notifying the recipient(s) about the availability of a new connector. The payload of the message must contain the new connector's self-description."@en.
+
+ids:ConnectorUnavailable a owl:Class;
+    rdfs:subClassOf ids:Event ;
+    rdfs:label "Connector Unavailable"@en ;
+    rdfs:comment "Event notifying the recipient(s) that a connector will be unavailable and never be available again."@en.
+
+ids:ConnectorTemporarilyUnavailable a owl:Class;
+    rdfs:subClassOf ids:Event ;
+    rdfs:label "Connector Temporarlily Unavailable"@en ;
+    rdfs:comment "Event notifying the recipient(s) that a connector will be temporarily unavailable and most likely be available again in the future."@en.
+
+ids:ConnectorUpdated a owl:Class;
+    rdfs:subClassOf ids:Event ;
+    rdfs:label "Connector Updated"@en ;
+    rdfs:comment "Event notifying the recipient(s) about updated self-description of a connector. The payload of the message must therefore contain the updated connector's self-description."@en.
+
+ids:BrokerQueryScope a owl:Class;
+    rdfs:label "RejectionReason"@en ;
+    rdfs:comment "Class of scopes that may limit the space of broker query results."@en.
+
+ids:BrokerQuery a owl:Class;
+    rdfs:subClassOf ids:Query;
+    rdfs:label "Broker Query"@en ;
+    rdfs:comment "Query command intended to be consumed by a Broker."@en.
+
+ids:brokerQueryScope a owl:ObjectProperty;
+    rdfs:label "brokerQueryScope"@en;
+    rdfs:domain ids:BrokerQuery;
+    rdfs:range ids:BrokerQueryScope;
+    rdfs:comment "The scope of a query defined in a BrokerQuery message."@en.
+
+# Contract Negotiation
+# --------------------
     
 ids:ContractOfferMessage a owl:Class ;
     rdfs:subClassOf ids:Message ;

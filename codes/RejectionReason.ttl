@@ -1,0 +1,33 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_rr: <https://w3id.org/ids/code/rr/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Instances
+# ---------
+
+idsc_rr:NOT_AUTHORIZED a ids:RejectionReason;
+	rdfs:label "NOT_AUTHORIZED";
+	rdfs:comment "Sender is not authorized to initiate the command.";
+	idsm:constantIdentifier "NOT_AUTHORIZED".
+
+idsc_rr:TOO_MANY_RESULTS a ids:RejectionReason;
+	rdfs:label "TOO_MANY_RESULTS";
+	rdfs:comment "Processing of the command would lead to too many results (computational or bandwidth limitations)";
+	idsm:constantIdentifier "TOO_MANY_RESULTS".
+
+idsc_rr:MALFORMED_MESSAGE a ids:RejectionReason;
+	rdfs:label "MALFORMED_MESSAGE";
+	rdfs:comment "The originating message is malformed or missing information.";
+	idsm:constantIdentifier "MALFORMED_MESSAGE".
+
+idsc_rr:INTERNAL_RECIPIENT_ERROR a ids:RejectionReason;
+	rdfs:label "INTERNAL_RECIPIENT_ERROR";
+	rdfs:comment "The message recipient encountered an internal error while processing the message (e.g., storage capacity exceeded).";
+	idsm:constantIdentifier "INTERNAL_RECIPIENT_ERROR".
+
+
+
+
