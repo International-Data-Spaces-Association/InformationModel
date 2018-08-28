@@ -1,0 +1,47 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:PaymentModel
+    a owl:Class ;
+    rdfs:label "Payment model"@en;
+    rdfs:comment "Payment model."@en ;
+    idsm:abstract true .
+
+ids:InstantPayment
+    a owl:Class ;
+    rdfs:subClassOf ids:PaymentModel ;
+    rdfs:label "Instant payment model"@en;
+    rdfs:comment "Instant payment model."@en .
+
+ids:SubscriptionPayment
+    a owl:Class ;
+    rdfs:subClassOf ids:PaymentModel ;
+    rdfs:label "Instant payment model"@en;
+    rdfs:comment "Instant payment model."@en ;
+    owl:disjointWith ids:InstantPayment .
+
+ids:CashMachine # Pattern: Cash machine
+    a owl:Class ;
+    rdfs:subClassOf ids:InstantPayment ;
+    rdfs:label "Cash machine"@en;
+    rdfs:comment "e.g. Paypal"@en .
+
+ids:PrePaidCredit
+    a owl:Class ;
+    rdfs:subClassOf ids:InstantPayment ;
+    rdfs:label "Pre-paid payment"@en;
+    rdfs:comment "e.g. prepaid SIM"@en .
+
+ids:PostPaidCredit
+    a owl:Class ;
+    rdfs:subClassOf ids:SubscriptionPayment ;
+    rdfs:label "Post-paid payment"@en;
+    rdfs:comment "Requires a contract"@en .
