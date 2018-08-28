@@ -10,7 +10,7 @@
 # -------
 
 ids:Connector
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf ids:InfrastructureComponent;
     a owl:Class;
     idsm:abstract true;
     rdfs:subClassOf
@@ -42,6 +42,20 @@ ids:TrustedConnector rdfs:subClassOf ids:Connector ;
 
 # Properties
 # ----------
+
+ids:offer a owl:ObjectProperty;
+    rdfs:subPropertyOf ids:resource;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Resource;
+    rdfs:label "offer"@en;
+    rdfs:comment "The Resources offered by a Connector."@en.
+
+ids:request a owl:ObjectProperty;
+    rdfs:subPropertyOf ids:resource;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Resource;
+    rdfs:label "request"@en;
+    rdfs:comment "The Resources requested by a Connector."@en.
 
 ids:securityProfile a owl:ObjectProperty;
     rdfs:domain ids:Connector;

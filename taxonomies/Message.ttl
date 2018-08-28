@@ -12,20 +12,14 @@
 # Basic Message Types
 # -------------------
 
-ids:Command a owl:Class;
+ids:Request a owl:Class;
     rdfs:subClassOf ids:Message ;
     idsm:abstract true;
-    rdfs:label "Command Message"@en ;
-    rdfs:comment "Command messages are usally sent when a response is expected by the sender."@en.
-
-ids:Event a owl:Class ;
-    rdfs:subClassOf ids:Message ;
-    idsm:abstract true;
-    rdfs:label "Event Message"@en ;
-    rdfs:comment "Event messages are informative and no response is expected by the sender."@en.
+    rdfs:label "Request Message"@en ;
+    rdfs:comment "Client-generated message initiating a communication, motived by a certain reason."@en;
 
 ids:Response a owl:Class;
-    rdfs:subClassOf ids:Event ;
+    rdfs:subClassOf ids:Message ;
     idsm:abstract true;
     rdfs:label "Response Message"@en ;
     rdfs:comment "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en;
@@ -34,8 +28,20 @@ ids:Response a owl:Class;
         idsm:constraint idsm:NotNull;
     ].
 
+ids:Event a owl:Class ;
+    rdfs:subClassOf ids:Message ;
+    idsm:abstract true;
+    rdfs:label "Event Message"@en ;
+    rdfs:comment "Event messages are informative and no response is expected by the sender."@en.
+
+ids:Command a owl:Class;
+    rdfs:subClassOf ids:Request ;
+    idsm:abstract true;
+    rdfs:label "Command Message"@en ;
+    rdfs:comment "Command messages are usally sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en.
+
 ids:Query a owl:Class ;
-    rdfs:subClassOf ids:Command ;
+    rdfs:subClassOf ids:Request ;
     idsm:abstract true;
     rdfs:label "Query Command"@en ;
     rdfs:comment "Query commands are intended to annotate query strings in a specified query language or address a specific resource."@en.
@@ -83,7 +89,7 @@ ids:rejectionReason a owl:ObjectProperty;
 # Catalog Content Access
 # ----------------------
 
-# war: ids:CatalogResponseMessage
+# war: ids:CatalogRequestMessage
 ids:DumpCatalogContent a owl:Class;
     rdfs:subClassOf ids:Command ;
     rdfs:label "Dump Catalog"@en ;

@@ -8,4 +8,23 @@
 ids:Broker rdfs:subClassOf ids:Connector;
     a owl:Class;
     rdfs:label "Broker"@en ;
-    rdfs:comment "Broker holding an index of published data endpoints."@en.
+    rdfs:comment "Broker holding an index of published data endpoints."@en;
+    idsm:validation [
+        idsm:forProperty ids:connector;
+        idsm:relationType idsm:OneToMany;
+    ];
+
+ids:connector a owl:ObjectProperty;
+    rdfs:label "connector"@en;
+    rdfs:domain ids:Broker;
+    rdfs:range ids:Connector;
+    rdfs:comment "Reference to a Connector listed in the Broker."@en.
+
+ids:publisher a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:publisher;
+    rdfs:label "contentResponsibility"@en;
+    rdfs:domain ids:Broker;
+    rdfs:range ids:Participant;
+    rdfs:comment "Participant responsible for broker metadata curation."@en.
+
+
