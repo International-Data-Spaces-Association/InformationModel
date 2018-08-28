@@ -1,6 +1,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 # Classes
 # -------
@@ -12,7 +14,7 @@ ids:Broker rdfs:subClassOf ids:Connector;
     idsm:validation [
         idsm:forProperty ids:connector;
         idsm:relationType idsm:OneToMany;
-    ];
+    ].
 
 ids:connector a owl:ObjectProperty;
     rdfs:label "connector"@en;

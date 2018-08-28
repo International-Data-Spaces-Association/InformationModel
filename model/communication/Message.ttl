@@ -47,37 +47,42 @@ ids:issued
 
 ids:correlationMessage
 	a owl:ObjectProperty;
+	idsm:referenceByUri true;
 	rdfs:label "consumer connector"@en;
 	rdfs:domain ids:Message;
-	rdfs:range ids:MessageIdentifier; # implies reference to a corelated Message
+	rdfs:range ids:Message;
 	rdfs:comment "Correlated message, e.g. a response to a previous request."@en.
 
 ids:issuingConnector
 	a owl:DatatypeProperty;
+	idsm:referenceByUri true;
 	rdfs:label "provider connector"@en;
 	rdfs:domain ids:Message;
-	rdfs:range ids:ConnectorIdentifier;# implies reference to Data Provider
+	rdfs:range ids:Connector;
 	rdfs:comment "The Connector which is the origin of the message."@en.
 
 ids:consumerConnector
 	a owl:ObjectProperty;
+    idsm:referenceByUri true;
 	rdfs:label "consumer connector"@en;
 	rdfs:domain ids:Message;
-	rdfs:range ids:ConnectorIdentifier;# implies reference to Data Consumer
+	rdfs:range ids:Connector;
 	rdfs:comment "The Connector which is the recipient of the message."@en.
 
 ids:senderAgent
 	a owl:DatatypeProperty;
+	idsm:referenceByUri true;
 	rdfs:label "sender agent"@en;
 	rdfs:domain ids:DataTransfer;
-	rdfs:range ids:AgentIdentifier;#  terminal origin e.g. the Data Sovereign
+	rdfs:range ids:Agent;
 	rdfs:comment "The Agent which initiated the Message."@en.
 
 ids:recipientAgent 
 	a owl:DatatypeProperty;
+	idsm:referenceByUri true;
 	rdfs:label "recipient agent"@en;
 	rdfs:domain ids:Message;
-	rdfs:range ids:AgentIdentifier;# terminal addressee e.g. the Data User
+	rdfs:range ids:Agent;
 	rdfs:comment "The Agent for which the Mesaage is intended."@en.
 
 ids:authorizationToken
