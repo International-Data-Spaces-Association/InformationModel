@@ -97,10 +97,10 @@ ids:ConnectorTemporarilyUnavailable a owl:Class;
     rdfs:label "Connector Temporarlily Unavailable"@en ;
     rdfs:comment "Event notifying the recipient(s) that a connector will be temporarily unavailable and most likely be available again in the future."@en.
 
-ids:ConnectorUpdated a owl:Class;
+ids:ConnectorConfigurationChange a owl:Class;
     rdfs:subClassOf ids:Event ;
-    rdfs:label "Connector Updated"@en ;
-    rdfs:comment "Event notifying the recipient(s) about updated self-description of a connector. The payload of the message must therefore contain the updated connector's self-description."@en.
+    rdfs:label "Connector Configuration Change"@en ;
+    rdfs:comment "Event notifying the recipient(s) about a connector's configuration change. The payload of the message must contain the updated connector's self-description."@en.
 
 ids:BrokerQueryScope a owl:Class;
     rdfs:label "RejectionReason"@en ;
@@ -134,16 +134,21 @@ ids:queryLanguage a owl:ObjectProperty;
 ids:ContractOffer a owl:Class ;
     rdfs:subClassOf ids:Request ;
     rdfs:label "Contract Offer"@en;
-    rdfs:comment "Message containing a formal (ODRL-based) policy for accessing the data in the associated payload.".
+    rdfs:comment "Message containing a contract with resource access modalities (as offered by the data provider to the data consumer) in the associated payload.".
 
-ids:ContractAgreed a owl:Class ;
+ids:ContractRequest a owl:Class ;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Contract Request"@en;
+    rdfs:comment "Message containing a contract with resource access modalities (as offered by the data consumer to the data provider) in the associated payload.".
+
+ids:ContractAgreement a owl:Class ;
     rdfs:subClassOf ids:Event;
     rdfs:label "Contract Agreement"@en;
-    rdfs:comment "Message containing a formal (ODRL-based) policy on which two parties have agreed."@en.
+    rdfs:comment "Message containing a contract with resource access modalities on which two parties have agreed."@en.
 
-ids:ContractRejected a owl:Class ;
+ids:ContractRejection a owl:Class ;
     rdfs:subClassOf ids:Rejection;
-    rdfs:label "Contract Rejected"@en;
+    rdfs:label "Contract Rejection"@en;
     rdfs:comment "Message indicating rejection of a contract."@en.
 
 ids:contractRejectionReason a owl:DatatypeProperty;
@@ -176,3 +181,8 @@ ids:RequestInProcess a owl:Class ;
     rdfs:subClassOf ids:Response;
     rdfs:label "Request In Process"@en;
     rdfs:comment "Notification that a request has been accepted and is being processed."@en;
+
+ids:MessageProcessed a owl:Class ;
+    rdfs:subClassOf ids:Response;
+    rdfs:label "Message Processed"@en;
+    rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en;

@@ -1,9 +1,16 @@
 # Information Model - Communication Module
 Information exchange between two IDS infrastructure components can be distinguished into two categories:
 
+## Preliminaries
+Participants on the IDS offer resources (data or apps) that they want to make accessible to other participants under
+certain conditions. in order to do so, data providers need to publish a description about  
+* the general nature of the resources (topic, ) 
+
 ## Payload Data Exchange
 This category covers exchange of business data between two IDS participants. Each of them may have their own services
-deployed, following specific (sometimes proprietary) protocols. While for many applications widely adopted de-facto
+deployed, following specific (sometimes proprietary) protocols. 
+
+While for many applications widely adopted de-facto
 standards such as HTTP/REST and MQTT suffice, these are sometimes too limited or service reimplementation is too costly. Hence,
 the information model does not impose any restrictions on how communication in this category should be done. However, participants
 should strive for *describing* the protocols they used as exactly as possible using classes of the information model. The starting
