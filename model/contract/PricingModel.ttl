@@ -38,7 +38,7 @@ ids:ChargeableUse
     rdfs:subClassOf ids:PricingOption ;
     rdfs:label "Chargeable use"@en;
     rdfs:comment "The product is subject to a fee-based use."@en ;
-    idsm:abstract true ;
+    idsm:abstract true;
     owl:disjointWith ids:FreeUse .
 
 # Distinction according to type of charged product
@@ -66,18 +66,18 @@ ids:FlatratePricing # Pattern: Flat Rate / Subscription etc.
     a owl:Class ;
     rdfs:subClassOf ids:ChargeableUse ;
     rdfs:label "Flatrate pricing"@en;
-    rdfs:comment "The product is charged on subscription base independently of the actual consumption."@en ;
+    rdfs:comment "The product is charged on subscription base independently of the actual consumption."@en;
     owl:disjointWith ids:ConsumptionBasedPricing .
     
 ids:FreemiumModel # Pattern: Freemium
     a owl:Class ;
     rdfs:subClassOf ids:PricingModel ;
     rdfs:label "Freemium model"@en ;
-    rdfs:comment "Model that exposes limited parts of the product at no cost, while additional parts are charged."@en ;
+    rdfs:comment "Model that exposes limited parts of the product at no cost, while additional parts are charged."@en;
     rdfs:subClassOf [
         a owl:Restriction ;
         owl:onProperty ids:pricingOption ;
-        owl:someValuesFrom ids:FreeUse  
+        owl:someValuesFrom ids:FreeUse
     ] ;
     rdfs:subClassOf [
         a owl:Restriction ;
@@ -88,8 +88,8 @@ ids:FreemiumModel # Pattern: Freemium
 # Properties
 # ----------
 
-ids:pricingOption a owl:PricingOption;
-    rdfs:label "commodization option"@en;
+ids:pricingOption a owl:DatatypeProperty ;
     rdfs:domain ids:PricingModel;
     rdfs:range ids:PricingOption;
+    rdfs:label "commodization option"@en;
     rdfs:comment "Commodization option supplied by the model."@en.
