@@ -136,7 +136,7 @@ ids:ContractOffer a owl:Class ;
     rdfs:label "Contract Offer"@en;
     rdfs:comment "Message containing a formal (ODRL-based) policy for accessing the data in the associated payload.".
 
-ids:ContractAgreement a owl:Class ;
+ids:ContractAgreed a owl:Class ;
     rdfs:subClassOf ids:Event;
     rdfs:label "Contract Agreement"@en;
     rdfs:comment "Message containing a formal (ODRL-based) policy on which two parties have agreed."@en.
@@ -172,7 +172,7 @@ ids:operationReference rdf:type owl:DatatypeProperty ;
 
 #todo: how to describe parameter instance values?
 
-ids:OperationInvoked a owl:Class ;
+ids:RequestInProcess a owl:Class ;
     rdfs:subClassOf ids:Response;
-    rdfs:label "Operation Invoded"@en;
-    rdfs:comment "Notification that an operation invocation request has been registered and is being processed."@en;
+    rdfs:label "Request In Process"@en;
+    rdfs:comment "Notification that a request has been accepted and is being processed."@en;
