@@ -16,7 +16,7 @@ ids:Request a owl:Class;
     rdfs:subClassOf ids:Message ;
     idsm:abstract true;
     rdfs:label "Request Message"@en ;
-    rdfs:comment "Client-generated message initiating a communication, motived by a certain reason."@en.
+    rdfs:comment "Client-generated message initiating a communication, motivated by a certain reason and with an answer expected."@en.
 
 ids:Response a owl:Class;
     rdfs:subClassOf ids:Message ;
@@ -38,33 +38,13 @@ ids:Command a owl:Class;
     rdfs:subClassOf ids:Request ;
     idsm:abstract true;
     rdfs:label "Command Message"@en ;
-    rdfs:comment "Command messages are usally sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en.
+    rdfs:comment "Command messages are usually sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en.
 
 ids:Query a owl:Class ;
     rdfs:subClassOf ids:Request ;
     idsm:abstract true;
     rdfs:label "Query Command"@en ;
     rdfs:comment "Query commands are intended to annotate query strings in a specified query language or address a specific resource."@en.
-
-ids:QueryPayloadType a owl:Class;
-    rdfs:label "QueryPayloadType"@en ;
-    rdfs:comment "Class of payload types to be attached to Query Commands."@en.
-
-ids:QueryLanguage a owl:Class;
-    rdfs:label "QueryLanguage"@en ;
-    rdfs:comment "Class of query languages in which query strings may be formalized."@en.
-
-ids:queryPayloadType a owl:ObjectProperty;
-    rdfs:domain ids:Query;
-    rdfs:range ids:QueryPayloadType;
-    rdfs:label "queryPayloadType"@en;
-    rdfs:comment "Specifies the type of the query payload."@en.
-
-ids:queryLanguage a owl:ObjectProperty;
-    rdfs:domain ids:Query;
-    rdfs:range ids:QueryLanguage;
-    rdfs:label "queryLanguage"@en;
-    rdfs:comment "If queryPayloadType refers to a query string, this property specifies the language of the query."@en.
 
 ids:Result a owl:Class;
     rdfs:subClassOf ids:Response ;
@@ -86,34 +66,18 @@ ids:rejectionReason a owl:ObjectProperty;
     rdfs:label "rejectionReason"@en;
     rdfs:comment "Specifies the reason of the rejection."@en.
 
-# Catalog Content Access
-# ----------------------
+# Self-description Access
+# -----------------------
 
-# war: ids:CatalogRequestMessage
-ids:DumpCatalogContent a owl:Class;
-    rdfs:subClassOf ids:Command ;
-    rdfs:label "Dump Catalog"@en ;
-    rdfs:comment "Message requesting the entire catalog content, i.e., self-description of a connector or broker."@en.
-    # endpoint: provider ConnectorIdentifier
+ids:RequestSelfDescription a owl:Class;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Request Self Description"@en ;
+    rdfs:comment "Message requesting the self-description of an Infrastructure Component."@en.
 
-# war: ids:CatalogResponseMessage
-ids:CatalogContentDump a owl:Class ;
+ids:SelfDescriptionResponse a owl:Class ;
     rdfs:subClassOf ids:Response ;
-    rdfs:label "Catalog Content Dump response"@en ;
-    rdfs:comment "Message containing the entire Catalog of the sender Connector."@en.    
-    # payload: Catalog
-    # correlationMessage previous Request
-
-# überflüssig?
-#ids:FilterCatalog a owl:Class;
-#    rdfs:subClassOf ids:Query;
-#    rdfs:label "Catalog Filter query"@en ;
-#    rdfs:comment "Message requesting a filtered Catalog of the sender Connector."@en.
-
-ids:QueryCatalog a owl:Class;
-    rdfs:subClassOf ids:Query ;
-    rdfs:label "Query Catalog"@en ;
-    rdfs:comment "Command for sending a query to the catalog. The payload of the message must therefore contain the query string to be intended for recipient execution."@en.
+    rdfs:label "Self Description Response"@en ;
+    rdfs:comment "Message containing the self-description of an Infrastructure Component."@en.
 
 # Broker Messages
 # ---------------
@@ -153,47 +117,62 @@ ids:brokerQueryScope a owl:ObjectProperty;
     rdfs:range ids:BrokerQueryScope;
     rdfs:comment "The scope of a query defined in a BrokerQuery message."@en.
 
+ids:QueryLanguage a owl:Class;
+    rdfs:label "QueryLanguage"@en ;
+    rdfs:comment "Class of query languages in which query strings may be formalized."@en.
+
+ids:queryLanguage a owl:ObjectProperty;
+    rdfs:domain ids:Query;
+    rdfs:range ids:BrokerQuery;
+    rdfs:label "queryLanguage"@en;
+    rdfs:comment "If queryPayloadType refers to a query string, this property specifies the language of the query."@en.
+
+
 # Contract Negotiation
 # --------------------
     
-ids:ContractOfferMessage a owl:Class ;
-    rdfs:subClassOf ids:Message ;
-    rdfs:label "ContractOfferMessage"@en;
-    rdfs:comment "ContractOfferMessage".
-    # payload: ODRL Offer based on Request, optionally typed as a "Final Offer"
-    
-ids:ContractRequestMessage
-    a owl:Class ;
-    rdfs:subClassOf ids:Message;
-    rdfs:label "ContractRequestMessage"@en;
-    rdfs:comment "ContractRequestMessage"@en.
-    # payload: ODRL request based on Offer
+ids:ContractOffer a owl:Class ;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Contract Offer"@en;
+    rdfs:comment "Message containing a formal (ODRL-based) policy for accessing the data in the associated payload.".
 
-ids:ContractAgreementMessage
-    a owl:Class ;
-    rdfs:subClassOf ids:Message;
-    rdfs:label "ContractAgreementMessage"@en;
-    rdfs:comment "ContractAgreementMessage"@en.
-    # payload: ODRL Agreement 
-    # correlationMessage previous *equivalent* Request
+ids:ContractAgreement a owl:Class ;
+    rdfs:subClassOf ids:Event;
+    rdfs:label "Contract Agreement"@en;
+    rdfs:comment "Message containing a formal (ODRL-based) policy on which two parties have agreed."@en.
 
-# Resource exchange
+ids:ContractRejected a owl:Class ;
+    rdfs:subClassOf ids:Rejection;
+    rdfs:label "Contract Rejected"@en;
+    rdfs:comment "Message indicating rejection of a contract."@en.
 
-ids:ResourceRequestMessage  # optional, a Resource may be sent on Subscription base
-    a owl:Class ;
-    rdfs:subClassOf ids:Message;
-    rdfs:label "ResourceRequestMessage"@en;
-    rdfs:comment "ResourceRequestMessage"@en.
+ids:contractRejectionReason a owl:DatatypeProperty;
+	rdfs:label "Contract Rejection Reason"@en ;
+	rdfs:domain ids:ContractRejected;
+    rdfs:range rdf:PlainLiteral;
+	rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
 
-ids:ResourceTransferMessage
-    # this is not necessarily instantiated, since custom provider protocols apply
-    a owl:Class ;
-    rdfs:subClassOf ids:Message;
-    rdfs:label "ResourceTransferMessage"@en;
-    rdfs:comment "ResourceTransferMessage"@en.
-    # payload: Agreement identifer
-    # correlation: no
+# Resource Exchange
+# -----------------
 
-ids:ResourceResponseMessage
-    rdfs:subClassOf ids:ResourceTransferMessage .
-    # correlation -> Request
+ids:InvokeOperation a owl:Class ;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Invoke Operation"@en;
+    rdfs:comment "Message requesting the recipient to invoke a specific operation."@en;
+    idsm:validation [
+        idsm:forProperty ids:operationReference;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:operationReference rdf:type owl:DatatypeProperty ;
+    rdfs:domain ids:InvokeOperation ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Operation Reference"@en ;
+    rdfs:comment "References the operation to be invoked on the recipient's side."@en.
+
+#todo: how to describe parameter instance values?
+
+ids:OperationInvoked a owl:Class ;
+    rdfs:subClassOf ids:Response;
+    rdfs:label "Operation Invoded"@en;
+    rdfs:comment "Notification that an operation invocation request has been registered and is being processed."@en;

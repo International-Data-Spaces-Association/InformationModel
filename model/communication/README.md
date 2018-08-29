@@ -18,7 +18,7 @@ HTTP and MQTT but more will be added in future as needed).
 consumers can do with it (the retrieve operation), what parameters they need to provide in order to do that (=a year), what 
 they would get (a PDF representation), and how this is implemented (as a HTTP call following a certain template).
 
-### Annotating Data Transfers
+### Annotated Data Transfers
 
 payload data exchange is strictly bilateral (point-to-point). in order to support usage control, data is transfered from
 a provider to a consumer must be accompanied (annotated) with metadata information to make the transfer traceable. fields of this metadata
@@ -61,7 +61,7 @@ synchronous communication should be implemented via HTTP(S) and asynchronous com
 component (e.g., Connector, Broker,...) may choose the type of communication it supports but must stick to these implementation
 guidelines:
 
-### Message Transport
+## Message Transport
 
 The concept of messages allows us to formalize snippets of information exchange as a shared, linked data model (ontology). A taxonomy
 and definition of all message types for ecosystem supportive communication on the IDS is available in the information model (file Model.ttl).
@@ -75,7 +75,7 @@ When it comes to transporting the messages from the sender to a receiver, these 
 in the following sections. Depending on the used implementations for (1) and (2), requirement (3) is either satisfied by the used messaging subsystem
 or by a custom implementation. 
 
-### Synchronous Message Exchange (bilateral)
+### Synchronous Message Exchange Implementation (bilateral)
 
 To support synchronous message exchange, IDS components must expose the following method call on their HTTP API, allowing both
 GET and POST requests and serializing input and return value as JSON:
@@ -97,7 +97,7 @@ Note: This scenario can also be set up without a dedicated messaging service nee
 purposes. As an alternative, for instance, such a REST-like interface can also be realized with off-the shelf messaging servers such as
 [ActiveMQ](http://activemq.apache.org/rest.html). 
      
-### Asynchronous Message Exchange (bilateral)
+### Asynchronous Message Exchange Implementation (bilateral)
 
 For use cases where an immediate reponse to a message cannot be ensured, communication must be done in an asynchronous way. On the IDS,
 asynchronous messaging is done using MQTT. For bilateral communication, IDS infrastructure components that should be enabled for

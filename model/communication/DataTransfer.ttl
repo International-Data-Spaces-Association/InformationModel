@@ -15,18 +15,6 @@ ids:DataTransfer
 	rdfs:label "DataTransfer"@en;
 	rdfs:comment "The class of resources that describe a data transfer on the IDS."@en;
     idsm:validation [
-        idsm:forProperty ids:customAttribute;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:sender;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:receiver;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
         idsm:forProperty ids:transferCreatedAt;
         idsm:constraint idsm:NotNull;
     ].
