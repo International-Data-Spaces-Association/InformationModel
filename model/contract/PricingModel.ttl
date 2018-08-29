@@ -1,0 +1,95 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:PricingModel
+    a owl:Class ;
+    rdfs:label "Commodization model"@en;
+    rdfs:comment "Overall commodization model composed of options."@en ;
+    idsm:abstract true .
+
+ids:PricingOption
+    a owl:Class ;
+    rdfs:label "Commodization option"@en;
+    rdfs:comment "Option of turning a Resource or Service into a product."@en ;
+    idsm:abstract true .
+
+# Distinction according to fee-based/chargeable use
+#
+ids:FreeUse # Pattern: Free
+    a owl:Class ;
+    rdfs:subClassOf ids:PricingOption ;
+    rdfs:label "Free use"@en;
+    rdfs:comment "The product is free of charge, its usage is optionally restricted by non-financial constraints."@en .
+# Possible constraints:
+# - odrl:license (Actio, deprecated by grantUse)
+# - odrl:purpose (leftOperand) non_commercial, educational etc.
+# - odrl:attribution (Action, see: https://creativecommons.org/ns#Attribution)
+    
+ids:ChargeableUse
+    a owl:Class ;
+    rdfs:subClassOf ids:PricingOption ;
+    rdfs:label "Chargeable use"@en;
+    rdfs:comment "The product is subject to a fee-based use."@en ;
+    idsm:abstract true ;
+    owl:disjointWith ids:FreeUse .
+
+# Distinction according to type of charged product
+#
+ids:ConsumptionBasedPricing # Pattern: Pay-per-Use / Pay on demand etc.
+    a owl:Class ;
+    rdfs:subClassOf ids:ChargeableUse ;
+    rdfs:label "Consumption-based pricing"@en;
+    rdfs:comment "The product is charged based on an effective consumoption/demand (as opposed to a flat rate subscription)."@en ;
+    idsm:abstract true .
+
+ids:QuantityBasedPricing
+    a owl:Class ;
+    rdfs:subClassOf ids:ConsumptionBasedPricing ;
+    rdfs:label "Quantity-based pricing"@en;
+    rdfs:comment "The product is charged by instances of usage based on a particular metrics (byte size, number of API calls, ports etc.)."@en .
+
+ids:FeatureBasedPricing
+    a owl:Class ;
+    rdfs:subClassOf ids:ConsumptionBasedPricing ;
+    rdfs:label "Feature-based pricing"@en;
+    rdfs:comment "The product is charged based on a selection of features (i.e. map overlays, service set etc.)"@en .
+    
+ids:FlatratePricing # Pattern: Flat Rate / Subscription etc.
+    a owl:Class ;
+    rdfs:subClassOf ids:ChargeableUse ;
+    rdfs:label "Flatrate pricing"@en;
+    rdfs:comment "The product is charged on subscription base independently of the actual consumption."@en ;
+    owl:disjointWith ids:ConsumptionBasedPricing .
+    
+ids:FreemiumModel # Pattern: Freemium
+    a owl:Class ;
+    rdfs:subClassOf ids:PricingModel ;
+    rdfs:label "Freemium model"@en ;
+    rdfs:comment "Model that exposes limited parts of the product at no cost, while additional parts are charged."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ids:pricingOption ;
+        owl:someValuesFrom ids:FreeUse  
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ids:pricingOption ;
+        owl:someValuesFrom ids:ChargeableUse # Consumption-based or Flatrate
+    ] .
+    
+# Properties
+# ----------
+
+ids:pricingOption a owl:PricingOption;
+    rdfs:label "commodization option"@en;
+    rdfs:domain ids:PricingModel;
+    rdfs:range ids:PricingOption;
+    rdfs:comment "Commodization option supplied by the model."@en.

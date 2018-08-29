@@ -1,0 +1,52 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:PaymentModel
+    a owl:Class ;
+    rdfs:label "Payment model"@en;
+    rdfs:comment "Model considering the type and timing of the payment (the effective financial compensation)."@en ;
+    idsm:abstract true .
+
+# Distinction by payment timing
+#
+ids:ImmediatePayment
+    a owl:Class ;
+    rdfs:subClassOf ids:PaymentModel ;
+    rdfs:label "Immediate payment"@en;
+    rdfs:comment "Payment taking place immediately before or simultaneously to product consumption."@en ;
+    idsm:abstract true .
+
+ids:SubscriptionPayment # TODO: Reword
+    a owl:Class ;
+    rdfs:subClassOf ids:PaymentModel ;
+    rdfs:label "Subscription payment"@en;
+    rdfs:comment "Payment taking on periodical rate according to underlying contract terms."@en ;
+    owl:disjointWith ids:ImmediatePayment .
+
+# Distinction by type of payment
+#
+ids:CashMachine # Pattern: Cash machine
+    a owl:Class ;
+    rdfs:subClassOf ids:ImmediatePayment ;
+    rdfs:label "Cash machine"@en;
+    rdfs:comment "e.g. Paypal, Visa Card"@en .
+
+ids:PrePaidCredit
+    a owl:Class ;
+    rdfs:subClassOf ids:ImmediatePayment ;
+    rdfs:label "Pre-paid payment"@en;
+    rdfs:comment "e.g. prepaid SIM"@en .
+
+ids:PostPaidCredit
+    a owl:Class ;
+    rdfs:subClassOf ids:SubscriptionPayment ;
+    rdfs:label "Post-paid payment"@en;
+    rdfs:comment "Payment method requiring a contract allowing the product provider to charge the subscriber."@en .
