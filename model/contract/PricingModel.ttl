@@ -6,6 +6,15 @@
 @prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsm: <https://w3id.org/ids/metamodel/> .
 
+# Add: reference to service  / content: target as URI of the Resource content or Interface / Service
+# Res -> commod -> PriceModel
+
+    
+
+
+# Contr -> PriceModel mit mind. einer Option
+
+
 # Classes
 # -------
 
@@ -29,7 +38,7 @@ ids:FreeUse # Pattern: Free
     rdfs:label "Free use"@en;
     rdfs:comment "The product is free of charge, its usage is optionally restricted by non-financial constraints."@en .
 # Possible constraints:
-# - odrl:license (Actio, deprecated by grantUse)
+# - odrl:license (Action, deprecated by grantUse)
 # - odrl:purpose (leftOperand) non_commercial, educational etc.
 # - odrl:attribution (Action, see: https://creativecommons.org/ns#Attribution)
     
@@ -61,6 +70,8 @@ ids:FeatureBasedPricing
     rdfs:subClassOf ids:ConsumptionBasedPricing ;
     rdfs:label "Feature-based pricing"@en;
     rdfs:comment "The product is charged based on a selection of features (i.e. map overlays, service set etc.)"@en .
+
+# TODO: add quality of service pricing
     
 ids:FlatratePricing # Pattern: Flat Rate / Subscription etc.
     a owl:Class ;

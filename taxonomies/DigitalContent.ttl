@@ -7,16 +7,16 @@
 @prefix idsc_content: <https://w3id.org/ids/code/content/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-ids:Dataset a owl:Class;
+ids:Data a owl:Class;
     # ISO 19115: identifiable collection of data
     rdfs:subClassOf ids:DigitalContent, dctype:Dataset ;
-    rdfs:label "Dataset"@en ;
-    rdfs:comment "Custom or generic (structured) data intended for machine processing, i.e. arrangement of data fields (optionally defined by a schema)."@en .
+    rdfs:label "Data"@en ;
+    rdfs:comment "Custom or generic (structured) data intended for machine processing, i.e. scalars or arrangements of data fields (optionally defined by a schema)."@en .
 
 # language is mandatory
 ids:Text a owl:Class;
     rdfs:subClassOf ids:DigitalContent, dctype:Text ;
-    rdfs:label "Document"@en ;
+    rdfs:label "Text"@en ;
     rdfs:comment "Textual content intended for reading and interpretation by humans and other intelligent agents. Comprises any digital representation of text, e.g. document and image (screenshot)."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.1> .
 

@@ -34,8 +34,9 @@ ids:part a owl:ObjectProperty;
     rdfs:range ids:DigitalContent;
     rdfs:comment "Reference to a Digital Content (physically or logically) included, definition of part-whole hierarchies."@en .
 
-ids:serialization a owl:ObjectProperty;
-    rdfs:label "serialization"@en;    
-    rdfs:domain ids:DigitalContent;
-    rdfs:range ids:Serialization;
-    rdfs:comment "Serialization of a Digital Content."@en.
+ids:language a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:language;
+    rdfs:domain ids:Content;
+    rdfs:range ids:Language;
+    rdfs:label "language"@en;
+    rdfs:comment "Natural language(s) used within the Content."@en.

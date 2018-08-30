@@ -1,19 +1,23 @@
 # Contract model
 
-Binding agreement made between 2 or more contracting parties.
-It re-uses models of usage policies, configuration models for
-execution of remote Data Apps etc.
-
-# Payment model
-- Immediate payment
-- Pre-paid credits
-- Post-paid charge
-
-
+Contract Agreements are the result of a `Contract negotiation process`.
+Consumers interested in acquiring a Resource are obliged to evaluate
+the associated Contract offer and submit a Contract Request containing
+a set of applicable rules, optionally modified to meet Consumer's needs
+and capabilities. The Provider will in turn respond with an accordingly
+adapted Contract Offer (when different) or Contract Agreement (when
+semantically equivalent to Contract Request).
 
 # Issues/Questions/Ideas
-- Remove subclassing of `ids:Contract` to `odrl:Policy`, - Contract "contains" policies, but does not extend those
-- Real "contract" models are still missing
-- References to rea-world processes and agremment closed are *not* covered
-- Coverage of `ODRL` concepts (i.e. resultant Java model) is incomplete!
+- References to real-world processes and agreements are *not* covered
+- Clarify relation among singing/contractual parties and parties entitled by policies
+    - may contracts affecting owners/users be signed by substitutes (providers/consumers)
+- Add explicit *revocation/termination options* beyond contractual period
+- Add *consequence* (on infringed permission), *remedy* (on prohibition) duties and handling of quality/service flaws ("Mängelrechte")
+- Clarify how to express / formalize reliability ("Haftung") ?
+- Add support for definition of duties on provider, e.g. to pre-process (aggregate) the provided data (e.g. based on supplied CEP-rule)
+    - any related resources are attached/linked to the Contract
+- Add validation rules checking for:
+    - presence of parties (assignee) within the embedded rules
+    - appropriateness of party types (i.e. ensuring constraints on parties enforced)
 

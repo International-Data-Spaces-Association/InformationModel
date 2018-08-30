@@ -9,11 +9,12 @@
 # Classes
 # -------
 
-ids:Contract rdfs:subClassOf odrl:Policy; # Contract "contains" policies, but does not extend those?
+ids:Contract
     a owl:Class;
+    rdfs:subClassOf odrl:Policy; 
     rdfs:label "Contract"@en ;
     idsm:abstract true;
-    rdfs:comment "Legal agreement and selection of a particular resource configuration.";
+    rdfs:comment "Abstract set of rules governing the usage of a Resource.";
     idsm:validation [
         idsm:forProperty ids:permission;
         idsm:relationType idsm:OneToMany;
@@ -21,59 +22,107 @@ ids:Contract rdfs:subClassOf odrl:Policy; # Contract "contains" policies, but do
     idsm:validation [
         idsm:forProperty ids:prohibition;
         idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:obligation;
+        idsm:relationType idsm:OneToMany;
     ].
+    # Ensure the parties are set at rule level (i.e. assignee)
 
-ids:AgreedContract rdfs:subClassOf ids:Contract;
-    rdfs:subClassOf odrl:Agreement;
+ids:ContractAgreement
     a owl:Class;
-    rdfs:label "AgreedContract"@en ;
-    rdfs:comment "A service contract that has been agreed upon by parties.".
+    rdfs:subClassOf ids:Contract, odrl:Agreement;    
+    rdfs:label "Contract agreement"@en ;
+    rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties.";
+    # End is optional
+    idsm:validation [
+        idsm:forProperty ids:contractStart;
+        idsm:constraint idsm:NotNull;
+    ];
+    owl:disjointWith ids:ContractRequest, ids:ContractOffer .
 
-ids:OfferedContract rdfs:subClassOf ids:Contract;
-    rdfs:subClassOf odrl:Offer;
+ids:ContractRequest
     a owl:Class;
-    rdfs:label "OfferedContract"@en ;
-    rdfs:comment "An service contract that is offered for acceptance by requesting parties."@en.
+    rdfs:subClassOf ids:Contract, odrl:Request;
+    rdfs:label "Contract request"@en ;
+    rdfs:comment "Contract issued by the Data Consumer requesting the usage of a Resource at particular conditions." ;
+    owl:disjointWith ids:ContractAgreement, ids:ContractOffer .
+
+ids:ContractOffer
+    a owl:Class;
+    rdfs:subClassOf ids:Contract, odrl:Offer;    
+    rdfs:label "Contract offer"@en ;
+    rdfs:comment "Contract issued by the Data Provider offering the usage of a Resource at particular conditions."@en ;
+    owl:disjointWith ids:ContractAgreement, ids:ContractRequest .
 
 # Properties of Contract
 # ----------------------
 
-ids:licenseDocument rdfs:subPropertyOf dct:license;
-    a owl:ObjectProperty;
-    rdfs:label "license"@en;
+ids:contractStart a owl:DatatypeProperty;
     rdfs:domain ids:Contract;
-    rdfs:range ids:License;
-    rdfs:comment "License the contract offers or refers to."@en.
+    rdfs:range xsd:dateTime;
+    rdfs:label "Contract start"@en ;
+    rdfs:comment "Date and time the Contract is requested, offered or expected to start, depending on the type of Contract."@en.
 
-ids:licenseReference rdfs:subPropertyOf dct:license;
-    a owl:DatatypeProperty;
-    rdfs:label "licenseReference"@en;
+# Optional
+ids:contractEnd a owl:DatatypeProperty;
     rdfs:domain ids:Contract;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "References a license document that is publicly available on the Web."@en.
+    rdfs:range xsd:dateTime;
+    rdfs:label "Contract end"@en ;
+    rdfs:comment "Date and time the Contract is requested, offered or expected to end. If omitted, the contract has to be explicitly terminated by any of the parties."@en.
 
-ids:termsOfUse a owl:DatatypeProperty;
-    rdfs:label "termsOfUse"@en;
+ids:contractDate a owl:DatatypeProperty;
     rdfs:domain ids:Contract;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "References a document defining the terms of use of the provided data."@en.
+    rdfs:range xsd:date;
+    rdfs:label "Contract date"@en ;
+    rdfs:comment "Date of singing the Contract."@en.
 
-ids:contractDuration a owl:ObjectProperty;
+# "Datengeber"
+ids:provider a owl:ObjectProperty;
     rdfs:domain ids:Contract;
-    rdfs:range ids:TemporalEntity;
-    rdfs:label "contractDuration"@en;
-    rdfs:comment "The duration for which the ServiceContract is valid."@en.
+    rdfs:range ids:Participant;
+    rdfs:label "Provider"@en ;
+    rdfs:comment "Provider of a Resource or Service that is the subject matter of the contract. This party may differ from the Assigner specified by the Contract rules."@en.
+
+# "Datennutzer" .. oder Konsument?
+ids:consumer a owl:ObjectProperty;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:Participant;
+    rdfs:label "Consumer"@en ;
+    rdfs:comment "Consumer of a Resource or Service that is the subject matter of the Contract. This party may differ from the Assignee specified by the Contract rules."@en.
+
+ids:contractDocument a owl:ObjectProperty;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:TextResource;
+    rdfs:label "Contract document"@en ;
+    rdfs:comment "Equivalent human-readable encoding of this machine-interpretable Contract."@en.
+
+ids:contractAnnex a owl:ObjectProperty;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:Resource;
+    rdfs:label "Annex to contract"@en ;
+    rdfs:comment "Any type of resource related to the Contract."@en.
+
+# Properties
+# ----------
 
 ids:permission rdfs:subPropertyOf odrl:permission;
     a owl:ObjectProperty;
     rdfs:label "permission"@en;
     rdfs:domain ids:Contract;
     rdfs:range ids:Permission;
-    rdfs:comment "The Permissions granted by a ServiceContract."@en.
+    rdfs:comment "A Permission granted by the Contract."@en.
 
 ids:prohibition rdfs:subPropertyOf odrl:prohibition;
     a owl:ObjectProperty;
     rdfs:label "prohibition"@en;
     rdfs:domain ids:Contract;
     rdfs:range ids:Prohibition;
-    rdfs:comment "The Prohibitions imposed by a ServiceContract."@en.
+    rdfs:comment "A Prohibition imposed by the Contract."@en.
+
+ids:obligation rdfs:subPropertyOf odrl:obligation;
+    a owl:ObjectProperty;
+    rdfs:label "obligation"@en;
+    rdfs:domain ids:Contract;
+    rdfs:range ids:Duty;
+    rdfs:comment "A Duty imposed by the Contract."@en.

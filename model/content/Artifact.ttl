@@ -16,6 +16,22 @@ ids:Artifact
     rdfs:label "Artifact"@en ;
     rdfs:comment "Instance of a Representation materialized at a partiuclar version and point in time. Possesses characteristics like file name, size, creation date etc."@en.
 
+ids:InlineArtifact
+    a owl:Class;
+    rdfs:subClassOf ids:Artifact ;
+    rdfs:label "Inline Artifact"@en ;
+    rdfs:comment "Artifact which content is maintained along with the description and is available for immediate retrieval."@en.
+
+ids:RemoteArtifact
+    a owl:Class;
+    rdfs:subClassOf ids:Artifact ;
+    rdfs:label "Remote Artifact"@en ;
+    rdfs:comment "Artifact which content is maintained separately from the description."@en ;
+    owl:disjointWith ids:InlineArtifact .
+
+# Properties
+# ----------
+
 ids:byteSize
     a owl:DatatypeProperty;
     rdfs:subPropertyOf dcat:byteSize ;
@@ -24,20 +40,41 @@ ids:byteSize
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:nonNegativeInteger .
 
-#ids:megabyteSize
-#    a owl:DatatypeProperty;    
-#    rdfs:label "megabyte size"@en ;
-#    rdfs:comment "Size of the Artifact in megabytes."@en ;
-#    rdfs:domain ids:Artifact ;
-#    rdfs:range xsd:decimal .
-
 ids:fileName
     a owl:DatatypeProperty;    
     rdfs:label "file name"@en ;    
     rdfs:comment "Name of the Artifcat file."@en ;  	
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:string .
+    
+ids:literalValue
+    a owl:DatatypeProperty;    
+    rdfs:domain ids:InlineArtifact ;
+    rdfs:range xsd:string ;
+    rdfs:label "literal value"@en ;    
+    rdfs:comment "Literal value of the Artifcat."@en .
+    
+ids:base64Value
+    a owl:DatatypeProperty;
+    rdfs:domain ids:InlineArtifact ;
+    rdfs:range xsd:base64Binary ;
+    rdfs:label "Base64-encoded value"@en ;    
+    rdfs:comment "Base64-encoded value of the Artifcat."@en .
 
+ids:downloadUrl # since domain of dcat:downloadURL is rdfs:Resource not applicable as super-property, URL is not a resource
+    a owl:DatatypeProperty;
+    rdfs:domain ids:RemoteArtifact ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Download URL"@en ;
+    rdfs:comment "Resolvable web address providing for the direct download of Artifact content."@en .
+
+ids:accessUrl # since domain of dcat:accessURL is rdfs:Resource not applicable as super-property, URL is not a resource
+    a owl:DatatypeProperty;
+    rdfs:domain ids:RemoteArtifact ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Access URL"@en ;
+    rdfs:comment "Resolvable web address providing for an indirect access to artifact contents."@en .
+    
 # dct:issued
 # idsm:constantIdentifier
 # dct:title
