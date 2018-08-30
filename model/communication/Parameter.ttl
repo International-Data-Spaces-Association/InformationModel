@@ -15,38 +15,16 @@
 # default cardinality: {0,1} (because fault is optional, consequence: any API parameter is optional by default)
 # explicitly required usage ({1}) must be marked by predicate mandatoryInput (client-side contract) or mandatoryOutput (server-side conract)
 
-ids:Parameter
-    a ids:Named, owl:Class;
+ids:Parameter a owl:Class;
+    rdfs:subClassOf ids:Named;
     rdfs:label "Parameter"@en ;
     rdfs:comment "Named slot of an Interface Operation i.e., an input, output or fault (exception)."@en;
     idsm:abstract true .
-    # TODO, check constraints:
-    # 
-    #idsm:validation [
-    #    idsm:forProperty ids:name;
-    #    idsm:relationType idsm:OneToMany;
-    #];
-    #idsm:validation [
-    #    idsm:forProperty ids:paramDescription;
-    #    idsm:relationType idsm:OneToMany;
-    #].
 
-# Properties for describing a Parameter
-# -------------------------------------
-
-# Re-used from shared/Named.ttl 
-#ids:parameterName a owl:DatatypeProperty;
-#    rdfs:subPropertyOf idsm:constantIdentifier ;
-#    rdfs:label "name"@en ;
-#    rdfs:domain ids:Parameter ;
-#    rdfs:range xsd:string ;
-#    rdfs:comment "Locally unique name."@en .
-
-# Translated into taxonomies/Parameter.ttl
-#ids:parameterType a owl:ObjectProperty;
-#    rdfs:domain ids:Parameter;
-#    rdfs:range ids:ParameterType;
-#    rdfs:label "parameterType"@en;
-#    rdfs:comment "Indicates the intended usage of the Parameter."@en.
+ids:representation a owl:ObjectProperty;
+    rdfs:label "representation"@en ;
+    rdfs:domain ids:Parameter ;
+    rdfs:range ids:Representation ;
+    rdfs:comment "Indicates how the parameter is technically represented."@en .
 
 

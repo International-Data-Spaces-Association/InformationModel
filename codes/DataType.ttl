@@ -3,70 +3,72 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_dt: <https://w3id.org/ids/code/dt/> .
 @prefix idsm: <https://w3id.org/ids/metamodel/> .
-
-# Classes
-# -------
-
-ids:ParameterDataType a owl:Class;
-    rdfs:label "ParameterDataType"@en ;
-    rdfs:comment "The class of datatypes for usage by Operation Parameters.".
 
 # Instances
 # ---------
 
-ids:dateTime a  ids:ParameterType;
+idsc_dt:dateTime a  ids:DataType;
     rdfs:seeAlso <xsd:dateTime>;
     idsm:constantIdentifier "XSD_DATETIME".
 
-ids:string a  ids:ParameterType;
+idsc_dt:string a  ids:DataType;
     rdfs:seeAlso <xsd:string>;
     idsm:constantIdentifier "XSD_STRING".
 
-ids:bigint a  ids:ParameterType;
+idsc_dt:bigint a  ids:DataType;
     rdfs:seeAlso <xsd:integer>;
     idsm:constantIdentifier "XSD_INTEGER".
 
-ids:integer a  ids:ParameterType;
+idsc_dt:integer a  ids:DataType;
     rdfs:seeAlso <xsd:int>;
     idsm:constantIdentifier "XSD_INT".
 
-ids:long a  ids:ParameterType;
+idsc_dt:long a  ids:DataType;
     rdfs:seeAlso <xsd:long>;
     idsm:constantIdentifier "XSD_LONG".
 
-ids:short a  ids:ParameterType;
+idsc_dt:short a  ids:DataType;
     rdfs:seeAlso <xsd:short>;
     idsm:constantIdentifier "XSD_SHORT".
 
-ids:float a  ids:ParameterType;
+idsc_dt:float a  ids:DataType;
     rdfs:seeAlso <xsd:float>;
     idsm:constantIdentifier "XSD_FLOAT".
 
-ids:double a  ids:ParameterType;
+idsc_dt:double a  ids:DataType;
     rdfs:seeAlso <xsd:double>;
     idsm:constantIdentifier "XSD_DOUBLE".
 
-ids:boolean a  ids:ParameterType;
+idsc_dt:boolean a  ids:DataType;
     rdfs:seeAlso <xsd:boolean>;
     idsm:constantIdentifier "XSD_BOOLEAN".
 
-ids:byte a  ids:ParameterType;
+idsc_dt:byte a  ids:DataType;
     rdfs:seeAlso <xsd:byte>;
     idsm:constantIdentifier "XSD_BYTE".
 
-ids:base64Binary a  ids:ParameterType;
+idsc_dt:base64Binary a  ids:DataType;
     rdfs:seeAlso <xsd:base64Binary>;
     idsm:constantIdentifier "XSD_BASE64BINARY".
 
-ids:time a  ids:ParameterType;
+idsc_dt:time a  ids:DataType;
     rdfs:seeAlso <xsd:time>;
     idsm:constantIdentifier "XSD_TIME".
 
-ids:date a  ids:ParameterType;
+idsc_dt:date a  ids:DataType;
     rdfs:seeAlso <xsd:date>;
     idsm:constantIdentifier "XSD_DATE".
 
-ids:anyURI a  ids:ParameterType;
+idsc_dt:anyURI a  ids:DataType;
     rdfs:seeAlso <xsd:anyURI>;
     idsm:constantIdentifier "XSD_ANY_URI".
+
+idsc_dt:complexType a  ids:DataType;
+    rdfs:comment "Complex nested data type.";
+    idsm:constantIdentifier "COMPLEX_TYPE".
+
+idsc_dt:unspecified a  ids:DataType;
+    idsm:constantIdentifier "UNSPECIFIED".
+
