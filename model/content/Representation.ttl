@@ -44,10 +44,16 @@ ids:representationStandard
     rdfs:label "representation standard"@en;
     rdfs:comment "Standards document defining the given Representation (in contrast to general Resource content). The Representation is assumed to conform to that Standard."@en.
 
-ids:schema
+ids:dataType a owl:ObjectProperty;
+    rdfs:domain ids:Representation;
+    rdfs:range ids:DataType;
+    rdfs:label "Data Type"@en;
+    rdfs:comment "Indicates the data type of the Representation."@en.
+
+ids:standard
     a owl:ObjectProperty ;
     rdfs:subPropertyOf dct:conformsTo ;
     rdfs:domain ids:Representation;
     rdfs:range ids:Standard;
     rdfs:label "representation standard"@en;
-    rdfs:comment "Machine-processable Schema resource."@en.
+    rdfs:comment "The standard which the representation conforms to."@en.
