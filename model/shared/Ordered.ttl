@@ -8,24 +8,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# Classes
-# -------
-
-ids:ContentType
-    rdf:type owl:Class ;
-    idsm:abstract true ;
-    rdfs:label "Content type"@en ;
-    rdfs:comment "Nature of a Digital Content providing hints on its usage, e.g. listing an Audio, navigating a Structure or accessing a List by an index." ;
-    # discuss: rdfs:subClassOf dct:DCMIType or ..?    
-    rdfs:seeAlso <http://www.ontodm.com/doku.php?id=ontodt> ;
-    rdfs:seeAlso <https://schema.org/DataType> ;
-    rdfs:seeAlso <https://schema.org/additionalType> ;
-    rdfs:seeAlso <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> .
-
-# Abstract content types
-# ----------------------
-
-# ids:Named - via dct.Identifier?
 
 ids:Ordered a owl:Class;
 #    rdfs:subClassOf ids:ContentType ;
@@ -58,39 +40,7 @@ ids:Opaque a owl:Class;
     rdfs:label "Opaque"@en ;
     rdfs:comment "Opaque type of Resource that is not further specified."@en .
     
-ids:Structure a owl:Class;
-#    rdfs:subClassOf ids:ContentType ;
-    owl:disjointWith ids:RawType ;
-    rdfs:label "Structure"@en ;
-    skos:altLabel "Record"@en ;
-    skos:altLabel "Struct"@en ;
-    rdfs:comment "Custom or generic structured data type, i.e. arrangement of data fields (possibly named, ordered, strongly typed etc.)."@en ;
-    rdfs:seeAlso <https://schema.org/StructuredValue> .
-    
-ids:Value a owl:Class;
-#    rdfs:subClassOf ids:ContentType ;
-    owl:disjointWith ids:Opaque, ids:Structure ;
-    rdfs:label "Value"@en ;
-    rdfs:comment "Terminal node, from the modeling perspective an atomic, possibly typed value."@en .
-    
-ids:Collection a owl:Class;
-    rdfs:subClassOf ids:Structure ;
-    idsm:abstract true ;
-    rdfs:label "Collection"@en ;
-    rdfs:comment "Group of entities supporting particular access operations based on the concrete subclass."@en ;
-    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html> .
-    
-ids:Map a owl:Class;
-    rdfs:subClassOf ids:Collection ;
-    rdfs:label "Map"@en ;
-    rdfs:comment "Collection of Resources allowing for a key based access."@en ;
-    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/Map.html> .
 
-ids:List a owl:Class;
-    rdfs:subClassOf ids:Ordered, ids:Collection ;
-    rdfs:label "List"@en ;
-    rdfs:comment "Ordered Collection of Resources allowing for an index-based access."@en ;
-    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/List.html> .
 
 ids:Application a owl:Class ;
 #    rdfs:subClassOf ids:ContentType ;

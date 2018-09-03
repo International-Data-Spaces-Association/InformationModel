@@ -12,9 +12,9 @@
 
 ids:Representation
     a owl:Class ;
-    rdfs:subClassOf ids:Communicable, ids:Serialization, dcat:Distribution;
+    rdfs:subClassOf ids:Communicable, dcat:Distribution;# covers the generalizable parts of a Distribution
     rdfs:label "Representation"@en;
-    rdfs:comment "Serialization, i.e. syntactic blueprint of a Resource."@en.
+    rdfs:comment "Syntactic template of a Resource."@en.
 
 # Properties
 # ----------
@@ -24,7 +24,7 @@ ids:artifact
     rdfs:domain ids:Representation ;
     rdfs:range ids:Artifact ;
     rdfs:label "artifact"@en ;
-    rdfs:comment "Reference to an Artifact corresponding to given Representation."@en.
+    rdfs:comment "Reference to an artifact, i.e. materialized instance of given representation."@en.
 
 ids:mediaType
     a owl:ObjectProperty ;
@@ -35,7 +35,7 @@ ids:mediaType
     rdfs:label "media type"@en ;
     rdfs:comment "Media Type of the Representation."@en.
 
-# RAM: Standard at Represenation level
+# Standard followed at representation level, i.e. it governs the serialization of an abstract content like RDF/XML, Turtle for RDF
 ids:representationStandard
     a owl:ObjectProperty ;
     rdfs:subPropertyOf dct:conformsTo ;
@@ -43,17 +43,3 @@ ids:representationStandard
     rdfs:range ids:Standard;
     rdfs:label "representation standard"@en;
     rdfs:comment "Standards document defining the given Representation (in contrast to general Resource content). The Representation is assumed to conform to that Standard."@en.
-
-ids:dataType a owl:ObjectProperty;
-    rdfs:domain ids:Representation;
-    rdfs:range ids:DataType;
-    rdfs:label "Data Type"@en;
-    rdfs:comment "Indicates the data type of the Representation."@en.
-
-ids:standard
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf dct:conformsTo ;
-    rdfs:domain ids:Representation;
-    rdfs:range ids:Standard;
-    rdfs:label "representation standard"@en;
-    rdfs:comment "The standard which the representation conforms to."@en.

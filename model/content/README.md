@@ -11,11 +11,10 @@
 <div align="center"><img alt="Detailed view of the main Resources modeling concerns" src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Concerns_formalized.jpg" width="60%"/></div>
 
 # Resource Model
-
 `Resource` is the top level class of the hierarchy of digital assets comprising the `DataAsset` and `DatApp` subclasses.
 
 <!--- ![Resource taxonomy](figures/Resource_taxonomy.jpg) --->
-<img src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Resource_taxonomy.jpg" alt="Resource taxonomy" width="250px"></img>
+<!--<img src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Resource_taxonomy.jpg" alt="Resource taxonomy" width="250px"></img>-->
 
 `Resource` content is modeled at 3 abstraction layers defined in the Reference Architecture Document v2:
 
@@ -23,8 +22,20 @@
 2. Representation - concrete content (syntax)
 3. Artifact - materialization
 
+The `dcat:Distribution` class seems to combine the aspects of the general physical nature (representation) of a `dcat:Dataset`,
+its concrete materialization as a file and provisioning via the WWW (i.e. `dcat:downloadURL`). In order to support scenarios,
+where the materialization of a resource is not a priori provided on server-side but is a result of a client query the `ids:Representation`
+and `ids:Artifact` classes were separated. The exchange is modeled in a protocol independent way by classes of the `communication` model.
+
+
+
+ unicies the aspects of specifing the pyhiscal format
+
+
+
 <!--- ![Resource model](figures/Resource.jpg) --->
-<img src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Resource.jpg" alt="Resource model" height="250px"></img>
+<!--- <img src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Resource.jpg" alt="Resource model" height="250px"></img> --->
+
 
 # References
 - [Data Catalog Vocabulary (DCAT). W3C Recommendation 16 January 2014](https://www.w3.org/TR/vocab-dcat/)

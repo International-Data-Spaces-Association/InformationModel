@@ -1,0 +1,82 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# Top-level representation classes
+# -------------------------
+
+ids:DataRepresentation
+    a owl:Class;
+    rdfs:subClassOf ids:Representation ;
+    rdfs:label "Data representation"@en ;
+    rdfs:comment "Physical representation of (structured) data."@en .
+
+# Only DR deals with schema, dataType etc.
+ids:schema a owl:ObjectProperty;
+    rdfs:domain ids:DataRepresentation;
+    rdfs:range ids:Schema;
+    rdfs:label "data schema"@en;
+    rdfs:comment "Schema this representation conforms to (defined in terms of a schema language)."@en;
+    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/DataType_1.0.html> .
+
+# TODO: this will not work for custom datatypes like GS1 message types
+# define range as anyURI (type defining schema element) or literal (JSON schema reference)
+ids:dataType a owl:ObjectProperty;
+    rdfs:domain ids:DataRepresentation;
+    rdfs:range ids:DataType;
+    rdfs:label "Data Type"@en;
+    rdfs:comment "Indicates the data type of the Representation (with regard to a standard or given schema document)."@en.
+
+ids:TextRepresentation a owl:Class;
+    rdfs:subClassOf ids:Representation ;
+    rdfs:label "Text representation"@en ;
+    rdfs:comment "Representation of a textual content."@en .
+    
+ids:AudioRepresentation a owl:Class;
+    rdfs:subClassOf ids:Representation ;
+    rdfs:label "Audio representation"@en ;
+    rdfs:comment "Audio representation" .
+
+ids:samplingRate a owl:DatatypeProperty;
+    rdfs:domain ids:AudioRepresentation;
+    rdfs:range xsd:decimal ;# samples per second
+    rdfs:label "sampling rate"@en;
+    rdfs:comment "Audio sampling rate."@en.
+
+ids:ImageRepresentation a owl:Class;
+    rdfs:subClassOf ids:Representation ;
+    rdfs:label "Image representation";
+	rdfs:comment "Image representation" .
+
+ids:width a owl:DatatypeProperty;
+    rdfs:domain ids:ImageRepresentation;
+    rdfs:range xsd:decimal ;# pixel
+    rdfs:label "width"@en;
+    rdfs:comment "Width of the visible frame."@en.
+
+ids:height a owl:DatatypeProperty;
+    rdfs:domain ids:ImageRepresentation;
+    rdfs:range xsd:decimal ;# pixel
+    rdfs:label "height"@en;
+    rdfs:comment "Height of the visible frame."@en.
+
+ids:VideoRepresentation a owl:Class;
+    rdfs:subClassOf ids:ImageRepresentation ;
+    rdfs:label "Video representation";
+	rdfs:comment "Video representation" .
+
+ids:frameRate a owl:DatatypeProperty;
+    rdfs:domain ids:VideoRepresentation;
+    rdfs:range xsd:decimal ;# frames/second
+    rdfs:label "frame rate"@en;
+    rdfs:comment "Video frame rate."@en.
+
+ids:SoftwareRepresentation a owl:Class;
+    rdfs:subClassOf ids:Representation ;
+    rdfs:label "Software representation"@en ;
+    rdfs:comment "Software representation"@en .

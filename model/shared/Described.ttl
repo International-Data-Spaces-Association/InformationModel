@@ -1,0 +1,34 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+ids:Described
+    a owl:Class ;    
+    rdfs:label "described"@en ;
+    rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en .
+    
+ids:title
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:title ;
+    rdfs:label "title"@en ;
+    rdfs:domain ids:Described ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "(Localized) name of the entity."@en .
+
+ids:description
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:description ;
+    rdfs:label "description"@en ;
+    rdfs:domain ids:Described ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "(Localized) textual description of the entity."@en .

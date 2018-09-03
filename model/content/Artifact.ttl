@@ -61,6 +61,21 @@ ids:base64Value
     rdfs:label "Base64-encoded value"@en ;    
     rdfs:comment "Base64-encoded value of the Artifcat."@en .
 
+ids:checkSum 
+    a owl:DatatypeProperty;# spdx:checksum has range spdx:Checksum; https://spdx.org/rdf/terms/#checksum
+    rdfs:domain ids:Artifact ;
+    rdfs:range xsd:string ;
+    rdfs:label "checksum"@en ;    
+    rdfs:comment "Checksum of the artifact"@en .
+
+# Media artifacts
+ids:duration 
+    a owl:DatatypeProperty;
+    rdfs:domain ids:Artifact ;
+    rdfs:range xsd:decimal ;# duration in seconds
+    rdfs:label "duration"@en ;    
+    rdfs:comment "Duration of the media resource in seconds."@en .
+
 ids:downloadUrl # since domain of dcat:downloadURL is rdfs:Resource not applicable as super-property, URL is not a resource
     a owl:DatatypeProperty;
     rdfs:domain ids:RemoteArtifact ;

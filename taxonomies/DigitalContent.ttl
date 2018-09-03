@@ -4,10 +4,12 @@
 @prefix dctype: <http://purl.org/dc/dcmitype/> .
 @prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsm: <https://w3id.org/ids/metamodel/> .
-@prefix idsc_content: <https://w3id.org/ids/code/content/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-ids:Data a owl:Class;
+# Top-level content classes
+# -------------------------
+
+ids:Data
+    a owl:Class;
     # ISO 19115: identifiable collection of data
     rdfs:subClassOf ids:DigitalContent, dctype:Dataset ;
     rdfs:label "Data"@en ;
@@ -46,8 +48,86 @@ ids:Software a owl:Class;
     rdfs:comment "Executable software (binary), interpreted program code (source) or fragments thereof. Intended purpose is an optional preprocessing (i.e. compilation, installation) and subsequnt execution/invokation of the software."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.5> .
 
-# Schema documents are a valuable (and highly-reusable) type of Resources therefore modeled as part of its taxonomy
-# Relate to supported content/media type - via class axiom?
+#ids:BinaryContent a owl:Class; - obsolate, DigitalContent made a concrete class
+#    rdfs:subClassOf ids:DigitalContent;
+#    rdfs:label "Binary content"@en ;
+#    rdfs:comment "Opaque, not further specified type of custom, binary content."@en .
+
+# Derived content classes
+# -----------------------
+
+# Data
+# ----
+
+#ids:Composite a owl:Class;
+#   rdfs:subClassOf ids:DigitalContent, dctype:Collection ; # ISO-19115 "aggregate"
+#   rdfs:label "Composite content";
+#   rdfs:comment "Container resource composed of multiple (individually defined) parts.";	
+#   rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-5.1> .
+    
+ids:Value a owl:Class;
+    rdfs:subClassOf ids:Data ;
+    owl:disjointWith ids:Structure ;
+    rdfs:label "Value"@en ;
+    rdfs:comment "Terminal data node, i.e. an atomic, possibly typed scalar."@en .
+    
+# common scalar types
+ids:NumericValue a owl:Class;
+    rdfs:subClassOf ids:Value ;
+    rdfs:label "Numeric value"@en ;
+    rdfs:comment "Numeric value."@en .
+
+ids:BooleanValue a owl:Class;
+    rdfs:subClassOf ids:Value ;
+    rdfs:label "Boolean value"@en ;
+    rdfs:comment "Boolean value."@en .
+
+ids:StringValue a owl:Class;
+    rdfs:subClassOf ids:Value ;
+    rdfs:label "String value"@en ;
+    rdfs:comment "String value."@en .
+
+ids:Structure
+    a owl:Class;
+    rdfs:subClassOf ids:Data ;
+    owl:disjointWith ids:Value ;
+    rdfs:label "Structure"@en , "Record"@en ;
+    rdfs:comment "Custom or generic structured data type, i.e. arrangement of data fields (possibly named, ordered, strongly typed etc.)."@en ;
+    rdfs:seeAlso <https://schema.org/StructuredValue> .
+
+ids:Collection a owl:Class;
+    idsm:abstract true ;
+    rdfs:label "Collection"@en ;
+    rdfs:comment "Group of elements supporting particular access operations based on the concrete subclass."@en ;
+    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html> .
+    # elementType
+    
+ids:Map a owl:Class;
+    rdfs:subClassOf ids:Collection ;
+    rdfs:label "Map"@en ;
+    rdfs:comment "Collection of elements allowing for a key based access."@en ;
+    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/Map.html> .
+    # adds keyType; 
+
+ids:List a owl:Class;
+    rdfs:subClassOf ids:Collection ;
+    rdfs:label "List"@en ;
+    rdfs:comment "Ordered collection of elements allowing for an index-based access."@en ;
+    rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/List.html> .
+    # minIndex: 0 or 1 based etc.
+
+# Renamed from orderPolicy
+ids:sortOrder a owl:ObjectProperty;
+    rdfs:label "sort order"@en;
+    rdfs:domain ids:List;
+    rdfs:range ids:SortOrder;
+    rdfs:comment "Indicates the sort order of a List."@en.
+
+# Software
+# --------
+
+# Schema documents are a valuable (and highly-reusable) content type therefore modeled as part of taxonomy
+
 ids:Schema a owl:Class;
     rdfs:subClassOf ids:Software ;
     rdfs:label "Schema"@en ;
@@ -84,14 +164,3 @@ ids:JSONSchema a owl:Class;
 	rdfs:isDefinedBy <https://tools.ietf.org/id/draft-handrews-json-schema> ; 
     rdfs:seeAlso <http://json-schema.org/specification> .
     # ids:targetMediaType idsc_media:application_json . # Applies to JSON-based media types
-    
-ids:Composite a owl:Class;
-    rdfs:subClassOf ids:DigitalContent, dctype:Collection ; # ISO-19115 "aggregate"
-    rdfs:label "Composite content";
-	rdfs:comment "Container resource composed of multiple (individually defined) parts.";	
-    rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-5.1> .
-
-ids:OpaqueContent a owl:Class;
-    rdfs:subClassOf ids:DigitalContent;
-    rdfs:label "Opaque content"@en ;
-    rdfs:comment "Opaque, not further specified type of custom, binary content."@en .

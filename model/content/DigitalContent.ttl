@@ -11,21 +11,21 @@
 
 ids:DigitalContent
     a owl:Class;    
-    idsm:abstract true; # for concrete subtypes see taxonomy/Content.ttl
+    # idsm:abstract true; made  concrete as a generic replacement to opaque, BinaryContent
     rdfs:label "Digital content"@en ;
-    rdfs:comment "Digital content of a particular type available in a variety of Serializations."@en;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Digital_content> .
+    rdfs:comment "Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index." ;
+    rdfs:seeAlso
+        <https://en.wikipedia.org/wiki/Digital_content> ,
+        <http://www.ontodm.com/doku.php?id=ontodt> ,
+        <https://schema.org/DataType> ,
+        <https://schema.org/additionalType> ,
+        <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> ,
+        <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
     
 # Properties
 # ------------
 
-ids:contentType a owl:ObjectProperty;
-    rdfs:subPropertyOf dct:type;
-    rdfs:label "content type"@en;
-    rdfs:domain ids:DigitalContent;
-    rdfs:range ids:ContentType;
-    rdfs:comment "Reference to the abstract nature (type) of the Digital Content."@en;
-    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
+# put abstract, general "content" properties here, otherwise with concrete subclasses
 
 ids:part a owl:ObjectProperty;
     rdfs:subPropertyOf dct:hasPart;
@@ -37,6 +37,6 @@ ids:part a owl:ObjectProperty;
 ids:language a owl:ObjectProperty;
     rdfs:subPropertyOf dct:language;
     rdfs:domain ids:Content;
-    rdfs:range ids:Language;
+    rdfs:range ids:Language; # does not fit the defined range of dct:language - dct:LinguisticSystem !
     rdfs:label "language"@en;
     rdfs:comment "Natural language(s) used within the Content."@en.
