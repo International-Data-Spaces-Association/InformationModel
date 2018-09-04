@@ -21,10 +21,17 @@ ids:Parameter a owl:Class;
     rdfs:comment "Named slot of an Interface Operation i.e., an input, output or fault (exception)."@en;
     idsm:abstract true .
 
-ids:representation a owl:ObjectProperty;
-    rdfs:label "representation"@en ;
+ids:parameterContent a owl:ObjectProperty; 
+    rdfs:label "parameter content"@en ;
     rdfs:domain ids:Parameter ;
-    rdfs:range ids:Representation ;
-    rdfs:comment "Indicates how the parameter is technically represented."@en .
+    rdfs:range ids:DigitalContent ;
+    rdfs:comment "Content model of the parameter."@en .
+
+# obsolate by reference to Content model:
+#ids:representation a owl:ObjectProperty; 
+#    rdfs:label "representation"@en ;
+#    rdfs:domain ids:Parameter ;
+#    rdfs:range ids:Representation ;
+#    rdfs:comment "Indicates how the parameter is technically represented."@en .
 
 

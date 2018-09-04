@@ -12,7 +12,7 @@ ids:DataResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:someValuesFrom ids:Data 
     ] ;
     rdfs:label "Data Resource"@en ;
@@ -23,7 +23,7 @@ ids:TextResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:someValuesFrom ids:Text 
     ] ;
     rdfs:label "Text Resource"@en ;
@@ -34,7 +34,7 @@ ids:AudioResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:someValuesFrom ids:Audio 
     ] ;
     rdfs:label "Text Resource"@en ;
@@ -45,7 +45,7 @@ ids:ImageResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:someValuesFrom ids:Image
     ] ;
     rdfs:label "Image Resource"@en ;
@@ -57,7 +57,7 @@ ids:VideoResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:someValuesFrom ids:Video 
     ] ;
     rdfs:label "Video Resource"@en ;
@@ -68,7 +68,7 @@ ids:SoftwareResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:someValuesFrom ids:Software 
     ] ;
     rdfs:label "Software Resource"@en ;
@@ -79,7 +79,7 @@ ids:SimpleResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:cardinality 1
     ] ;
     rdfs:label "Simple Resource"@en ;
@@ -90,9 +90,15 @@ ids:CompositeResource
     rdfs:subClassOf ids:Resource ,
     [
         a owl:Restriction ;
-        owl:onProperty ids:content ;
+        owl:onProperty ids:contentPart ;
         owl:minCardinality 2
     ] ;
     rdfs:label "Composite Resource"@en ;
     rdfs:comment "Resource comprising multiple Digital Contents."@en .
+
+ids:CollectionResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource, ids:Collection;
+    rdfs:label "Collection resource"@en ;
+    rdfs:comment "Resource comprising a set of named (Map) or ordered (List) elements."@en .
 

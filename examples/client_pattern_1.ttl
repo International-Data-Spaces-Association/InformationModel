@@ -1,0 +1,73 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_media: <https://w3id.org/ids/code/mediatype/> .
+@prefix idsc_pack: <https://w3id.org/ids/code/pack/> .
+@prefix idsc_lic: <https://w3id.org/ids/code/license/> .
+@prefix idsc_api: <https://w3id.org/ids/code/api/> .
+@prefix exc: <urn:example:client:pattern:> .
+
+
+exc:RSC1
+    a ids:SimpleResource; # there is only a single content provided
+    ids:title "Water consumption statistics"@en ;
+    ids:description "Service providing data on yearly water consumption of EU countries since 2000."@en;
+    ids:keyword "water", "consumption", "statistics";
+    # should be a complicated Time-Onto construct:
+    ids:temporalCoverage [ ids:beginning "2000-01-01"^^xsd:date ] ;    
+    ids:licence idsc_lic:OtherOpenLicense ;
+    ids:contentPart exc:RSC1_CNT ;
+    ids:resourceInterface exc:RSC1_INT.
+
+# describe general structure using e.g. https://www.w3.org/TR/tabular-data-model/
+exc:RSC1_CNT
+    a ids:TabularData;
+    # there is no artifact, since generated on request
+    ids:representation [
+        a ids:DataRepresentation ;
+        ids:mediaType idsc_media:text_csv; 
+    ].
+
+# resource access/query interface
+exc:RSC1_INT
+    a ids:Interface;
+    ids:operation exc:RSC1_INT_OP;
+    ids:binding [
+        a ids:HttpProtocolBinding;
+        ids:apiDocument <http://mycloud.org/api/document/1>;
+        ids:apiDocumentType idsc_api:openApiV3
+    ].
+
+exc:RSC1_INT_OP
+    a ids:QueryOperation;
+    ids:input exc:RSC1_INT_OP_PAR_YEAR, exc:RSC1_INT_OP_PAR_COUNTRY_NAME.
+    
+exc:RSC1_INT_OP_PAR_YEAR
+    a ids:Parameter;
+    ids:name "year";
+    ids:parameterContent [
+        a ids:Number;
+        ids:theme _:Year;# ~ interpretation
+        ids:representation [
+            ids:dataType xsd:integer
+        ]
+    ].
+
+exc:RSC1_INT_OP_PAR_COUNTRY_NAME
+    a ids:Parameter;
+    ids:name "country_name";
+    ids:parameterContent [
+        a ids:String;
+        ids:theme _:CountryName; # ~ interpretation
+        ids:representation [
+            ids:dataType xsd:string
+        ]
+    ].
+    

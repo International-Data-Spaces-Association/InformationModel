@@ -9,9 +9,6 @@
 # Add: reference to service  / content: target as URI of the Resource content or Interface / Service
 # Res -> commod -> PriceModel
 
-    
-
-
 # Contr -> PriceModel mit mind. einer Option
 
 
@@ -64,6 +61,11 @@ ids:QuantityBasedPricing
     rdfs:subClassOf ids:ConsumptionBasedPricing ;
     rdfs:label "Quantity-based pricing"@en;
     rdfs:comment "The product is charged by instances of usage based on a particular metrics (byte size, number of API calls, ports etc.)."@en .
+    
+# DataVolume - amount:int unit:data_volume_unit target:representation|artifact: <x> amount of <target> 
+# RequestCount to <Endpoint> (within <timeframe>)? cost 
+# PortCount cost
+# ClientCount  - stateful multi-client app, cost
 
 ids:FeatureBasedPricing
     a owl:Class ;

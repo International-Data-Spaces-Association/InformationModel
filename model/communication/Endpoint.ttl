@@ -24,11 +24,30 @@ ids:DataSource
 	rdfs:label "Data Source"@en ;
     rdfs:comment "Endpoint exposing data for being retrieved or subscribed to by a Data Consumer."@en .
 
+ids:HttpEndpoint
+    a owl:Class ;
+	rdfs:label "HTTP endpoint"@en ;
+    rdfs:comment "Endpoint operated via HTTP accessible at a URL."@en .
+
+
 # Properties of Endpoint
 # ----------------------
 
 ids:url a owl:DatatypeProperty;
     rdfs:label "url"@en;
-    rdfs:domain ids:Endpoint;
+    rdfs:domain ids:HttpEndpoint;
     rdfs:range xsd:anyURI;
-    rdfs:comment "URI that returns a certain representation of a DataAsset."@en.
+    rdfs:comment "url exposing an instance or the access service of a Resource."@en.
+
+ids:resourceInstance a owl:ObjectProperty;
+    rdfs:label "resource instance"@en;
+    rdfs:domain ids:HttpEndpoint;
+    rdfs:range ids:Artifact;
+    rdfs:comment "Artifact exposed by the HTTP Endpoint."@en.
+
+ids:resourceService a owl:ObjectProperty;
+    rdfs:label "resource service"@en;
+    rdfs:domain ids:HttpEndpoint;
+    rdfs:range ids:ResourceService;
+    rdfs:comment "Resource service exposed by the HTTP Endpoint."@en.
+    

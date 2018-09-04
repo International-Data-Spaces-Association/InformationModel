@@ -48,6 +48,12 @@ ids:Software a owl:Class;
     rdfs:comment "Executable software (binary), interpreted program code (source) or fragments thereof. Intended purpose is an optional preprocessing (i.e. compilation, installation) and subsequnt execution/invokation of the software."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.5> .
 
+ids:Container a owl:Class;
+   rdfs:subClassOf ids:DigitalContent, dctype:Collection ; # ISO-19115 "aggregate"
+   rdfs:label "Container content";
+   rdfs:comment "Container resource composed of multiple (individually defined) parts.";	
+   rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-5.1> .
+
 #ids:BinaryContent a owl:Class; - obsolate, DigitalContent made a concrete class
 #    rdfs:subClassOf ids:DigitalContent;
 #    rdfs:label "Binary content"@en ;
@@ -58,12 +64,6 @@ ids:Software a owl:Class;
 
 # Data
 # ----
-
-#ids:Composite a owl:Class;
-#   rdfs:subClassOf ids:DigitalContent, dctype:Collection ; # ISO-19115 "aggregate"
-#   rdfs:label "Composite content";
-#   rdfs:comment "Container resource composed of multiple (individually defined) parts.";	
-#   rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-5.1> .
     
 ids:Value a owl:Class;
     rdfs:subClassOf ids:Data ;
@@ -91,12 +91,31 @@ ids:Structure
     a owl:Class;
     rdfs:subClassOf ids:Data ;
     owl:disjointWith ids:Value ;
-    rdfs:label "Structure"@en , "Record"@en ;
-    rdfs:comment "Custom or generic structured data type, i.e. arrangement of data fields (possibly named, ordered, strongly typed etc.)."@en ;
+    rdfs:label "Structure"@en ;
+    rdfs:comment "Custom or standardized structured data"@en ;
     rdfs:seeAlso <https://schema.org/StructuredValue> .
 
-ids:Collection a owl:Class;
-    idsm:abstract true ;
+ids:Record 
+    a owl:Class;
+    rdfs:subClassOf ids:Structure ;
+    rdfs:label  "Record"@en ;
+    rdfs:comment "Named arrangement of fields (possibly named, ordered, strongly typed etc.)."@en .
+
+ids:TabularData
+    a owl:Class;
+    rdfs:subClassOf ids:Structure ;
+    rdfs:label "Table"@en ;
+    rdfs:comment "Tabular / relational data structure."@en .
+
+ids:DataCube
+    a owl:Class;
+    rdfs:subClassOf ids:Structure ;
+    rdfs:label "Data cube"@en, "Hypercube"@en ;
+    rdfs:comment "n-dimensional data structure"@en .    
+
+ids:Collection
+    a owl:Class;
+    rdfs:subClassOf ids:Structure ;
     rdfs:label "Collection"@en ;
     rdfs:comment "Group of elements supporting particular access operations based on the concrete subclass."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html> .
@@ -125,6 +144,11 @@ ids:sortOrder a owl:ObjectProperty;
 
 # Software
 # --------
+
+ids:DataApp a owl:Class;
+    rdfs:subClassOf ids:Software ;
+    rdfs:label "Data App"@en ;
+    rdfs:comment "Data processing or mediating software executed within the Connector runtime."@en .
 
 # Schema documents are a valuable (and highly-reusable) content type therefore modeled as part of taxonomy
 
