@@ -131,24 +131,24 @@ ids:queryLanguage a owl:ObjectProperty;
 # Contract Negotiation
 # --------------------
     
-ids:ContractOffer a owl:Class ;
+ids:ContractOfferMessage a owl:Class ;
     rdfs:subClassOf ids:Request ;
-    rdfs:label "Contract Offer"@en;
+    rdfs:label "Contract Offer Message"@en;
     rdfs:comment "Message containing a contract with resource access modalities (as offered by the data provider to the data consumer) in the associated payload.".
 
-ids:ContractRequest a owl:Class ;
+ids:ContractRequestMessage a owl:Class ;
     rdfs:subClassOf ids:Request ;
-    rdfs:label "Contract Request"@en;
+    rdfs:label "Contract Request Message"@en;
     rdfs:comment "Message containing a contract with resource access modalities (as offered by the data consumer to the data provider) in the associated payload.".
 
-ids:ContractAgreement a owl:Class ;
+ids:ContractAgreementMessage a owl:Class ;
     rdfs:subClassOf ids:Event;
-    rdfs:label "Contract Agreement"@en;
+    rdfs:label "Contract Agreement Message"@en;
     rdfs:comment "Message containing a contract with resource access modalities on which two parties have agreed."@en.
 
-ids:ContractRejection a owl:Class ;
+ids:ContractRejectionMessage a owl:Class ;
     rdfs:subClassOf ids:Rejection;
-    rdfs:label "Contract Rejection"@en;
+    rdfs:label "Contract Rejection Message"@en;
     rdfs:comment "Message indicating rejection of a contract."@en.
 
 ids:contractRejectionReason a owl:DatatypeProperty;

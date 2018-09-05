@@ -110,7 +110,7 @@ ids:TabularData
 ids:DataCube
     a owl:Class;
     rdfs:subClassOf ids:Structure ;
-    rdfs:label "Data cube"@en, "Hypercube"@en ;
+    rdfs:label "Data cube"@en;
     rdfs:comment "n-dimensional data structure"@en .    
 
 ids:Collection
@@ -134,6 +134,10 @@ ids:List a owl:Class;
     rdfs:comment "Ordered collection of elements allowing for an index-based access."@en ;
     rdfs:seeAlso <https://docs.oracle.com/javase/8/docs/api/java/util/List.html> .
     # minIndex: 0 or 1 based etc.
+
+ids:SortOrder a owl:Class;
+    rdfs:label "Sort Order"@en ;
+    rdfs:comment "Class of possible order methods for collections."@en.
 
 # Renamed from orderPolicy
 ids:sortOrder a owl:ObjectProperty;
