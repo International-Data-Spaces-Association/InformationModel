@@ -27,6 +27,12 @@ ids:parameterContent a owl:ObjectProperty;
     rdfs:range ids:DigitalContent ;
     rdfs:comment "Content model of the parameter."@en .
 
+ids:parameterContentList a owl:ObjectProperty;
+    rdfs:domain ids:ContentParameter;
+    rdfs:range ids:DigitalContent;
+    rdfs:label "parameter content list"@en;
+    rdfs:comment "List of Digital Contents mediated by the Parameter."@en.
+
 # obsolate by reference to Content model:
 #ids:representation a owl:ObjectProperty; 
 #    rdfs:label "representation"@en ;

@@ -35,23 +35,12 @@ ids:IndexParameter
 #    4) mandatoryInput P parameterContent C {1}
 #    5) mandatoryInput P parameterContentList C {1,n}
 
-ids:ContentParameter
-    a owl:Class ;
-    rdfs:subClassOf ids:Parameter ;
-    rdfs:label "Content parameter"@en ; 
-    rdfs:comment "Parameter used to mediate a Content Representation, contrasted to parameters conveying auxiliary information."@en .
+#ids:ContentParameter
+#    a owl:Class ;
+#    rdfs:subClassOf ids:Parameter ;
+#    rdfs:label "Content parameter"@en ; 
+#    rdfs:comment "Parameter used to mediate a Content Representation, contrasted to parameters conveying auxiliary information."@en .
 
-ids:parameterContent a owl:ObjectProperty;
-    rdfs:domain ids:ContentParameter;
-    rdfs:range ids:DigitalContent;
-    rdfs:label "parameterContent"@en;
-    rdfs:comment "Digital Content mediated by the Parameter."@en.
-
-ids:parameterContentList a owl:ObjectProperty;
-    rdfs:domain ids:ContentParameter;
-    rdfs:range ids:DigitalContent;
-    rdfs:label "parameter content list"@en;
-    rdfs:comment "List of Digital Contents mediated by the Parameter."@en.
 
     
 # Sorting
