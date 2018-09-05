@@ -145,11 +145,6 @@ ids:sortOrder a owl:ObjectProperty;
 # Software
 # --------
 
-ids:DataApp a owl:Class;
-    rdfs:subClassOf ids:Software ;
-    rdfs:label "Data App"@en ;
-    rdfs:comment "Data processing or mediating software executed within the Connector runtime."@en .
-
 # Schema documents are a valuable (and highly-reusable) content type therefore modeled as part of taxonomy
 
 ids:Schema a owl:Class;
@@ -157,34 +152,34 @@ ids:Schema a owl:Class;
     rdfs:label "Schema"@en ;
     rdfs:comment "Machine-processable instructions defining a set of conformant, valid Serializations of a Content."@en .
     
-ids:XMLSchema a owl:Class;
-    rdfs:subClassOf ids:Schema ;
-    rdfs:label "XML Schema (v1.1)";
-	rdfs:comment "XML Schema Definition Language, version 1.1";
-	rdfs:isDefinedBy <https://www.w3.org/TR/xmlschema11-1/> ; # Structure
-    rdfs:isDefinedBy <https://www.w3.org/TR/xmlschema11-2/> . # Datatype
-    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
+#ids:XMLSchema a owl:Class;
+#    rdfs:subClassOf ids:Schema ;
+#    rdfs:label "XML Schema (v1.1)";
+#	rdfs:comment "XML Schema Definition Language, version 1.1";
+#	rdfs:isDefinedBy <https://www.w3.org/TR/xmlschema11-1/> ; # Structure
+#    rdfs:isDefinedBy <https://www.w3.org/TR/xmlschema11-2/> . # Datatype
+#    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
     
-ids:SchematronSchema a owl:Class;
-    rdfs:subClassOf ids:Schema ;
-    rdfs:label "Schematron";
-	rdfs:comment "Schematron schema language for XML";
-	rdfs:isDefinedBy <https://www.iso.org/standard/74515.html> ; # ISO/IEC 19757-3:2016
-    rdfs:seeAlso <http://schematron.com/> .
-    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
+#ids:SchematronSchema a owl:Class;
+#    rdfs:subClassOf ids:Schema ;
+#    rdfs:label "Schematron";
+#	rdfs:comment "Schematron schema language for XML";
+#	rdfs:isDefinedBy <https://www.iso.org/standard/74515.html> ; # ISO/IEC 19757-3:2016
+#    rdfs:seeAlso <http://schematron.com/> .
+#    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
 
-ids:RelaxNGSchema a owl:Class;
-    rdfs:subClassOf ids:Schema ;
-    rdfs:label "Relax NG";
-	rdfs:comment "Relax NG schema language for XML";
-	rdfs:isDefinedBy <https://www.iso.org/standard/52348.html> ; # ISO/IEC 19757-2:2008
-    rdfs:seeAlso <http://www.relaxng.org/> .
-    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
+#ids:RelaxNGSchema a owl:Class;
+#    rdfs:subClassOf ids:Schema ;
+#    rdfs:label "Relax NG";
+#	rdfs:comment "Relax NG schema language for XML";
+#	rdfs:isDefinedBy <https://www.iso.org/standard/52348.html> ; # ISO/IEC 19757-2:2008
+#    rdfs:seeAlso <http://www.relaxng.org/> .
+#    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
 
-ids:JSONSchema a owl:Class;
-    rdfs:subClassOf ids:Schema ;
-    rdfs:label "JSON Schema";
-	rdfs:comment "JSON-based schema language for describing the structure of JSON data.";
-	rdfs:isDefinedBy <https://tools.ietf.org/id/draft-handrews-json-schema> ; 
-    rdfs:seeAlso <http://json-schema.org/specification> .
-    # ids:targetMediaType idsc_media:application_json . # Applies to JSON-based media types
+#ids:JSONSchema a owl:Class;
+#    rdfs:subClassOf ids:Schema ;
+#    rdfs:label "JSON Schema";
+#	rdfs:comment "JSON-based schema language for describing the structure of JSON data.";
+#	rdfs:isDefinedBy <https://tools.ietf.org/id/draft-handrews-json-schema> ; 
+#    rdfs:seeAlso <http://json-schema.org/specification> .
+#    # ids:targetMediaType idsc_media:application_json . # Applies to JSON-based media types
