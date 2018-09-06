@@ -20,7 +20,7 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
-        idsm:forProperty ids:contentResponsibility;
+        idsm:forProperty ids:curator;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
@@ -32,10 +32,19 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
 # -------------------------------------
 
 ids:maintainer a owl:ObjectProperty;
-    rdfs:label "maintainer"@en;
+    idsm:referenceByUrl true;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
-    rdfs:comment "Participant responsible for maintaining the InfrastructureComponent."@en.
+    rdfs:label "maintainer"@en;
+    rdfs:comment "Participant responsible for technical maintenance of the InfrastructureComponent."@en.
+
+ids:curator a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:publisher;
+    idsm:referenceByUrl true;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Participant;
+    rdfs:label "curator"@en;
+    rdfs:comment "Participant responsible for the correctness of the content offered by the InfrastructureComponent."@en.
 
 ids:physicalLocation a owl:ObjectProperty;
     rdfs:label "physicalLocation"@en;
