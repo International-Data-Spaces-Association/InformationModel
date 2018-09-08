@@ -127,7 +127,6 @@ ids:queryLanguage a owl:ObjectProperty;
     rdfs:label "queryLanguage"@en;
     rdfs:comment "If queryPayloadType refers to a query string, this property specifies the language of the query."@en.
 
-
 # Contract Negotiation
 # --------------------
     
@@ -157,6 +156,19 @@ ids:contractRejectionReason a owl:DatatypeProperty;
     rdfs:range rdf:PlainLiteral;
 	rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
 
+# Security Messages
+# -----------------
+
+ids:AuthorizationTokenRequest a owl:Class ;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Authorization Token Request"@en;
+    rdfs:comment "Message requesting an authorization token. It intended for point-to-point communication with Brokers or DAPS. The associated payload is supposed to be either the requester's certificate or a dynamic attribute token (to be futher specified)."@en.
+
+ids:AuthorizationTokenResponse a owl:Class ;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Authorization Token Response"@en;
+    rdfs:comment "Response to an authorization token request, intended for point-to-point communication."@en.
+
 # Resource Exchange
 # -----------------
 
@@ -174,8 +186,6 @@ ids:operationReference rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:anyURI ;
     rdfs:label "Operation Reference"@en ;
     rdfs:comment "References the operation to be invoked on the recipient's side."@en.
-
-#todo: how to describe parameter instance values?
 
 ids:RequestInProcess a owl:Class ;
     rdfs:subClassOf ids:Response;
