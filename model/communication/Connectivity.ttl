@@ -1,0 +1,35 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:Connectivity a owl:Class;
+    rdfs:label "Connectivity"@en ;
+    rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en.
+
+# Properties
+# ----------
+
+ids:httpBaseUrl a owl:DatatypeProperty;
+    rdfs:domain ids:Connectivity;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "httpBaseUrl"@en;
+    rdfs:comment "Defines the base URL in case it is different from the infrastructure component's URL."@en.
+
+ids:mqttBrokerUrl a owl:DatatypeProperty;
+    rdfs:domain ids:Connectivity;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "mqttBrokerUrl"@en;
+    rdfs:comment "Defines the URL of the MQTT Broker instance used by the infrastructure component."@en.
+
+ids:websocketUrl a owl:DatatypeProperty;
+    rdfs:domain ids:Connectivity;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "websocketUrl"@en;
+    rdfs:comment "Defines the URL of the Websocket that is used by the infrastructure component for IDSCP communication."@en.

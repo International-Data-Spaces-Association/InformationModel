@@ -30,7 +30,13 @@ ids:dataType a owl:ObjectProperty;
     rdfs:domain ids:DataRepresentation;
     rdfs:range ids:DataType;
     rdfs:label "Data Type"@en;
-    rdfs:comment "Indicates the data type of the Representation (with regard to a standard or given schema document)."@en.
+    rdfs:comment "Indicates the data type of the Representation."@en.
+
+ids:dataTypeSchema a owl:ObjectProperty;
+    rdfs:domain ids:DataRepresentation;
+    rdfs:range ids:SchemaResource;
+    rdfs:label "Data Type Schema"@en;
+    rdfs:comment "Indicates the data type schema of the Representation."@en.
 
 ids:TextRepresentation a owl:Class;
     rdfs:subClassOf ids:Representation ;

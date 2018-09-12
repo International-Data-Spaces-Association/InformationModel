@@ -23,6 +23,10 @@ ids:Resource
         idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
+        idsm:forProperty ids:resourceEndpoint;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
         idsm:forProperty ids:resourcePart;
         idsm:relationType idsm:OneToMany;
     ].
@@ -49,6 +53,14 @@ ids:resourceInterface
     rdfs:domain ids:Resource;
     rdfs:range ids:Interface;
     rdfs:comment "Reference to the Interface defining Operations supported by the Resource."@en.
+
+ids:resourceEndpoint
+    a owl:ObjectProperty;
+    rdfs:label "resource endpoint"@en;
+    idsm:labelPluralForm "resourceEndpoints"@en;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:Endpoint;
+    rdfs:comment "Reference to the Endpoints serving the resource's content."@en.
 
 ids:standardLicense
     a owl:ObjectProperty ;

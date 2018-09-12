@@ -18,14 +18,6 @@ ids:Connector
     idsm:validation [
         idsm:forProperty ids:request;
         idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:offer;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:authInfo;
-        idsm:constraint idsm:NotNull;
     ].
 
 ids:BaseConnector rdfs:subClassOf ids:Connector ;
@@ -41,20 +33,6 @@ ids:TrustedConnector rdfs:subClassOf ids:Connector ;
 # Properties
 # ----------
 
-ids:offer a owl:ObjectProperty;
-    rdfs:subPropertyOf ids:resource;
-    rdfs:domain ids:Connector;
-    rdfs:range ids:Resource;
-    rdfs:label "offer"@en;
-    rdfs:comment "The Resources offered by a Connector."@en.
-
-ids:request a owl:ObjectProperty;
-    rdfs:subPropertyOf ids:resource;
-    rdfs:domain ids:Connector;
-    rdfs:range ids:Resource;
-    rdfs:label "request"@en;
-    rdfs:comment "The Resources requested by a Connector."@en.
-
 ids:securityProfile a owl:ObjectProperty;
     rdfs:domain ids:Connector;
     rdfs:range ids:SecurityProfile;
@@ -66,3 +44,9 @@ ids:authInfo a owl:ObjectProperty;
     rdfs:range ids:AuthInfo;
     rdfs:label "authInfo"@en;
     rdfs:comment "Information of the authentication service used by the Connector."@en.
+
+ids:catalog a owl:ObjectProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Catalog;
+    rdfs:label "catalog"@en;
+    rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.

@@ -172,6 +172,21 @@ ids:AuthorizationTokenResponse a owl:Class ;
 # Resource Exchange
 # -----------------
 
+ids:RetrieveArtifact a owl:Class ;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Retrieve Artifact"@en;
+    rdfs:comment "Message requesting a specific artifact."@en;
+    idsm:validation [
+        idsm:forProperty ids:artifactReference;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:artifactReference rdf:type owl:DatatypeProperty ;
+    rdfs:domain ids:RetrieveArtifact;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Retrieve Artifact"@en ;
+    rdfs:comment "References an artifact requested for retrieval."@en.
+
 ids:InvokeOperation a owl:Class ;
     rdfs:subClassOf ids:Request ;
     rdfs:label "Invoke Operation"@en;

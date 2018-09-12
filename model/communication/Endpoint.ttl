@@ -12,42 +12,54 @@
 ids:Endpoint a owl:Class ;
 	idsm:abstract true;
 	rdfs:label "Endpoint"@en ;
-    rdfs:comment "Data exchange point for publication (Data Source) and/or consumption (Data Sink) of Communicable objects."@en .
+    rdfs:comment "Data exchange point for publication and/or consumption of Artifacts."@en .
 
 ids:DataSink
+    idsm:abstract true ;
 	rdfs:subClassOf ids:Endpoint ;
 	rdfs:label "Data Sink"@en ;
     rdfs:comment "Endpoint consuming data supplied by a Data Provider."@en .
 
 ids:DataSource
+    idsm:abstract true ;
 	rdfs:subClassOf ids:Endpoint ;
 	rdfs:label "Data Source"@en ;
     rdfs:comment "Endpoint exposing data for being retrieved or subscribed to by a Data Consumer."@en .
 
-ids:HttpEndpoint
-    a owl:Class ;
+ids:HttpEndpoint a owl:Class ;
+    rdfs:subClassOf ids:Endpoint ;
 	rdfs:label "HTTP endpoint"@en ;
     rdfs:comment "Endpoint operated via HTTP accessible at a URL."@en .
 
+ids:MqttEndpoint a owl:Class ;
+    rdfs:subClassOf ids:Endpoint ;
+	rdfs:label "MQTT endpoint"@en ;
+    rdfs:comment "Endpoint operated via HTTP accessible at a URL."@en .
 
 # Properties of Endpoint
 # ----------------------
 
-ids:url a owl:DatatypeProperty;
-    rdfs:label "url"@en;
-    rdfs:domain ids:HttpEndpoint;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "url exposing an instance or the access service of a Resource."@en.
-
-ids:resourceInstance a owl:ObjectProperty;
-    rdfs:label "resource instance"@en;
+ids:targetArtifact a owl:ObjectProperty;
+    rdfs:label "Target Artifact"@en;
     rdfs:domain ids:HttpEndpoint;
     rdfs:range ids:Artifact;
-    rdfs:comment "Artifact exposed by the HTTP Endpoint."@en.
+    idsm:referenceByUrl true;
+    rdfs:comment "Artifact exposed by the Endpoint."@en.
 
-#ids:resourceService a owl:ObjectProperty;
-#    rdfs:label "resource service"@en;
-#    rdfs:domain ids:HttpEndpoint;
-#    rdfs:range ids:ResourceService;
-#    rdfs:comment "Resource service exposed by the HTTP Endpoint."@en.
-    
+# Properties of HttpEndpoint
+# --------------------------
+
+ids:artifactUrl a owl:DatatypeProperty;
+    rdfs:label "Artifact URL"@en;
+    rdfs:domain ids:HttpEndpoint;
+    rdfs:range xsd:anyURI;
+    rdfs:comment "URL exposing an instance of an Artifact."@en.
+
+# Properties of MqttEndpoint
+# --------------------------
+
+ids:publicationTopic a owl:DatatypeProperty;
+    rdfs:label "Publication Topic"@en;
+    rdfs:domain ids:MqttEndpoint;
+    rdfs:range xsd:string;
+    rdfs:comment "Defines a topic that is used for announcing the availabiltiy of an Artifact."@en.

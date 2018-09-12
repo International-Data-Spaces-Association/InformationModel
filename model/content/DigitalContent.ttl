@@ -18,6 +18,26 @@ ids:DigitalContent
         idsm:forProperty ids:contentPart;
         idsm:relationType idsm:OneToMany;
     ];
+    idsm:validation [
+        idsm:forProperty ids:spatialCoverage;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:temporalCoverage;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:language;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:theme;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:keyword;
+        idsm:relationType idsm:OneToMany;
+    ];
     rdfs:seeAlso
         <https://en.wikipedia.org/wiki/Digital_content> ,
         <http://www.ontodm.com/doku.php?id=ontodt> ,
@@ -60,11 +80,13 @@ ids:language a owl:ObjectProperty;
     rdfs:domain ids:Content;
     rdfs:range ids:Language; # does not fit the defined range of dct:language - dct:LinguisticSystem !
     rdfs:label "language"@en;
+    idsm:labelPluralForm "languages"@en;
     rdfs:comment "Natural language(s) used within the Content."@en.
 
 ids:theme a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:theme;
     rdfs:label "theme"@en;
+    idsm:labelPluralForm "themes"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:ContentCategory;
     rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the Resources."@en.
