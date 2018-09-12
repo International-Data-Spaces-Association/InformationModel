@@ -13,14 +13,6 @@ ids:DataTransfer
 	a owl:Class;
     rdfs:subClassOf ids:Message;
 	rdfs:label "DataTransfer"@en;
-	rdfs:comment "The class of resources that describe a data transfer on the IDS."@en;
-    idsm:validation [
-        idsm:forProperty ids:transferCreatedAt;
-        idsm:constraint idsm:NotNull;
-    ].
-
-ids:PublicKey a owl:Class;
-	rdfs:label "PublicKey"@en;
 	rdfs:comment "The class of resources that describe a data transfer on the IDS."@en.
 
 # Properties of DataTransfer
@@ -32,36 +24,3 @@ ids:transferContract
 	rdfs:domain ids:DataTransfer;
 	rdfs:range ids:Contract;
 	rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
-
-ids:payloadSignature
-	a owl:DatatypeProperty;
-	rdfs:label "payload signature"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range xsd:base64Binary;
-	rdfs:comment "Digital signature of the data payload associated to this DataTransfer instance."@en.
-
-ids:senderPublicKey
-	a owl:ObjectProperty;
-	rdfs:label "sender public key"@en;
-	rdfs:domain ids:DataTransfer;
-	rdfs:range ids:PublicKey;
-	rdfs:comment "The public key of the sending connector."@en.
-
-# Properties of PublicKey
-# -----------------------
-
-ids:keyPairAlgorithm a owl:ObjectProperty;
-    rdfs:label "keyPairAlgorithm"@en;
-    rdfs:domain ids:PublicKey;
-    rdfs:range ids:KeyPairAlgorithm;
-    rdfs:comment "Algorithm used to generate the public key."@en.
-
-ids:keyValue a owl:DatatypeProperty;
-    rdfs:label "keyValue"@en;
-    rdfs:domain ids:PublicKey;
-    rdfs:range xsd:base64Binary;
-    rdfs:comment "Encoded value of the key."@en.
-
-# todo: we also need to add a property that holds the instances of the operation parameters
-
-
