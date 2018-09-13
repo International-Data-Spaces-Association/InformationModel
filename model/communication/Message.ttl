@@ -11,7 +11,6 @@
 
 ids:Message a owl:Class;
     rdfs:label "Message"@en ;
-    idsm:abstract true;
 	rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
     idsm:validation [
         idsm:forProperty ids:modelVersion;
@@ -73,7 +72,7 @@ ids:senderAgent
 	a owl:DatatypeProperty;
 	idsm:referenceByUrl true;
 	rdfs:label "sender agent"@en;
-	rdfs:domain ids:DataTransfer;
+	rdfs:domain ids:Message;
 	rdfs:range ids:Agent;
 	rdfs:comment "The Agent which initiated the Message."@en.
 
@@ -91,3 +90,10 @@ ids:authorizationToken
 	rdfs:domain ids:Message;
 	rdfs:range ids:AuthorizationToken;
 	rdfs:comment "An authorization token like JSON Web Token."@en.
+
+ids:transferContract
+    a owl:ObjectProperty;
+    rdfs:label "transferContract"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:Contract;
+    rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
