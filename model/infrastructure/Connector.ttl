@@ -16,8 +16,8 @@ ids:Connector
     rdfs:label "Connector"@en ;
     rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
     idsm:validation [
-        idsm:forProperty ids:request;
-        idsm:relationType idsm:OneToMany;
+        idsm:forProperty ids:catalog;
+        idsm:relationType idsm:NotNull;
     ].
 
 ids:BaseConnector rdfs:subClassOf ids:Connector ;
