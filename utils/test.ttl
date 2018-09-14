@@ -1,0 +1,48 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsc_cat: <https://w3id.org/ids/code/category/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Instances
+# ---------
+
+idsc_cat:topic a skos:ConceptScheme ;
+    dct:title "Dataset content classification by topic" .
+    
+idsc_cat:weather a [] ;
+    a ids:ContentCategory;
+    skos:prefLabel "weather"@en ;
+	idsm:constantIdentifier "WEATHER";
+    skos:topConceptOf idsc_cat:topic;
+	skos:narrower idsc_cat:roadconditionn;
+	skos:narrower idsc_cat:alert;
+	skos:narrower idsc_cat:analysis;
+	skos:narrower [].
+
+idsc_cat:roadcondition a skos:Concept ;
+	a ids:ContentCategory;
+    skos:prefLabel "road condition"@en ;
+	idsm:constantIdentifier "WEATHER_ROAD_CONDITION";
+	skos:broader idsc_cat:weather .
+
+idsc_cat:alert a skos:Concept ;
+	a ids:ContentCategory;
+	skos:prefLabel "alert"@en ;
+	idsm:constantIdentifier "WEATHER_ALERT";
+	skos:broader idsc_cat:weather .
+
+idsc_cat:analysis a skos:Concept ;
+	a ids:ContentCategory;
+	skos:prefLabel "analysis"@en ;
+	idsm:constantIdentifier "WEATHER_ANALYSIS";
+	skos:broader idsc_cat:weather .
+
+idsc_cat:forecast a skos:Concept ;
+	a ids:ContentCategory;
+	skos:prefLabel "forecast"@en ;
+	idsm:constantIdentifier "WEATHER_FORECAST";
+    skos:broader idsc_cat:weather .

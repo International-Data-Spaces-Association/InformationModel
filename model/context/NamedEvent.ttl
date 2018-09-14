@@ -2,12 +2,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix time: <http://www.w3.org/2006/time#> .
 
 # Classes
 # -------
 
-ids:EventType
+ids:NamedEvent 
     a owl:Class;
+    rdfs:subClassOf time:ProperInterval;
     idsm:abstract true;
     rdfs:label "event type"@en ;
-    rdfs:comment "Named event with a duration."@en.
+    rdfs:comment "Named event with a non-zero duration."@en.

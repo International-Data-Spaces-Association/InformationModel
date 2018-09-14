@@ -49,11 +49,11 @@ ids:targetArtifact a owl:ObjectProperty;
 # Properties of HttpEndpoint
 # --------------------------
 
-ids:artifactUrl a owl:DatatypeProperty;
-    rdfs:label "Artifact URL"@en;
+ids:path a owl:DatatypeProperty;
+    rdfs:label "path"@en;
     rdfs:domain ids:HttpEndpoint;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "URL exposing an instance of an Artifact."@en.
+    rdfs:range xsd:string;
+    rdfs:comment "Path exposing an instance of an Artifact."@en.
 
 # Properties of MqttEndpoint
 # --------------------------

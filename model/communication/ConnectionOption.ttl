@@ -19,11 +19,13 @@ ids:ConnectionOption a owl:Class;
 ids:protocol a owl:ObjectProperty;
     rdfs:domain ids:ConnectionOption;
     rdfs:range ids:Protocol ;
-    rdfs:label "httpBaseUrl"@en;
+    rdfs:label "protocol"@en;
     rdfs:comment "References the supported communication protocol."@en.
 
 ids:accessUrl a owl:DatatypeProperty;
     rdfs:domain ids:Connectivity;
     rdfs:range xsd:anyURI ;
     rdfs:label "Access URL"@en;
-    rdfs:comment "Defines the URL (e.g., websocket host and path, mqtt broker ip address and port) required for communication using the protocol."@en.
+    rdfs:comment "Defines the URL (e.g., websocket host, mqtt broker ip address and port) required for communication using the protocol."@en.
+
+
