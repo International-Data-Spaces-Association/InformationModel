@@ -76,19 +76,20 @@ ids:duration
     rdfs:label "duration"@en ;    
     rdfs:comment "Duration of the media resource in seconds."@en .
 
-ids:downloadUrl # since domain of dcat:downloadURL is rdfs:Resource not applicable as super-property, URL is not a resource
-    a owl:DatatypeProperty;
-    rdfs:domain ids:RemoteArtifact ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "Download URL"@en ;
-    rdfs:comment "Resolvable web address providing for the direct download of Artifact content."@en .
+# with integration of endpoints for direct artifact download, download url and access url may be obsolete
+#ids:downloadUrl # since domain of dcat:downloadURL is rdfs:Resource not applicable as super-property, URL is not a resource
+#    a owl:DatatypeProperty;
+#    rdfs:domain ids:RemoteArtifact ;
+#    rdfs:range xsd:anyURI ;
+#    rdfs:label "Download URL"@en ;
+#    rdfs:comment "Resolvable web address providing for the direct download of Artifact content."@en .
 
-ids:accessUrl # since domain of dcat:accessURL is rdfs:Resource not applicable as super-property, URL is not a resource
-    a owl:DatatypeProperty;
-    rdfs:domain ids:RemoteArtifact ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "Access URL"@en ;
-    rdfs:comment "Resolvable web address providing for an indirect access to artifact contents."@en .
+#ids:accessUrl # since domain of dcat:accessURL is rdfs:Resource not applicable as super-property, URL is not a resource
+#    a owl:DatatypeProperty;
+#    rdfs:domain ids:RemoteArtifact ;
+#    rdfs:range xsd:anyURI ;
+#    rdfs:label "Access URL"@en ;
+#    rdfs:comment "Resolvable web address providing for an indirect access to artifact contents."@en .
     
 # dct:issued
 # idsm:constantIdentifier

@@ -24,7 +24,11 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
-        idsm:forProperty ids:supportedIMVersion;
+        idsm:forProperty ids:supportedMetadataVersion;
+        ids:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:connectionOption;
         ids:relationType idsm:OneToMany;
     ].
 
@@ -52,13 +56,12 @@ ids:physicalLocation a owl:ObjectProperty;
     rdfs:range ids:Location;
     rdfs:comment "The location where the Connector is physically deployed."@en.
 
-# TODO: Clarify, should not this be a (semantic version) string?
 ids:supportedMetadataVersion a owl:DatatypeProperty;
     rdfs:label "supportedMetadataVersion"@en;
     idsm:labelPluralForm "supportedMetadataVersions"@en;
     rdfs:domain ids:InfrastructureComponent;
-    rdfs:range xsd:anyURI;
-    rdfs:comment "The versions of the Information Model that are supported by the InfrastructureComponent."@en.
+    rdfs:range xsd:string;
+    rdfs:comment "Semantic version string of the Information Model versions that are supported by the InfrastructureComponent."@en.
 
 ids:componentCertification
     a owl:ObjectProperty;
@@ -67,9 +70,10 @@ ids:componentCertification
     rdfs:range ids:ComponentCertification;
     rdfs:comment "Certification issued for the given Infrastructure Component."@en.
 
-ids:connectivity
+ids:connectionOption
     a owl:ObjectProperty;
-    rdfs:label "connectivity"@en;
+    rdfs:label "Connection Option"@en;
+    idsm:labelPluralForm "connectionOptions"@en;
     rdfs:domain ids:InfrastructureComponent;
-    rdfs:range ids:Connectivity;
-    rdfs:comment "Describes the connectivity options of the Infrastructure Component."@en.
+    rdfs:range ids:ConnectionOption;
+    rdfs:comment "Describes the supported protocol and the URL and path information needed for connections over this protocols."@en.

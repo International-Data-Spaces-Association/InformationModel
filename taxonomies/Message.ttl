@@ -211,3 +211,17 @@ ids:MessageProcessed a owl:Class ;
     rdfs:subClassOf ids:Response;
     rdfs:label "Message Processed"@en;
     rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en.
+
+ids:RetrieveArtifact a owl:Class ;
+    rdfs:subClassOf ids:Request ;
+    rdfs:label "Retrieve Artifact"@en;
+    rdfs:comment "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en;
+    idsm:validation [
+        idsm:forProperty ids:artifactReference;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:ArtifactResponse a owl:Class ;
+    rdfs:subClassOf ids:Response;
+    rdfs:label "Artifact Response"@en;
+    rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
