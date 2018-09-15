@@ -33,6 +33,15 @@ ids:TrustedConnector rdfs:subClassOf ids:Connector ;
 # Properties
 # ----------
 
+# renamed from ids:connectionOption
+ids:host
+    a owl:ObjectProperty;
+    rdfs:label "host"@en;
+    idsm:labelPluralForm "hosts"@en;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Host;
+    rdfs:comment "Networked host operated by the Connector in order to serve and consume resource content and services."@en.
+
 ids:securityProfile a owl:ObjectProperty;
     rdfs:domain ids:Connector;
     rdfs:range ids:SecurityProfile;
