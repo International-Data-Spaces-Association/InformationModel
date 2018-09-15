@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:MessageExchangePattern
+    a owl:Class;
+    rdfs:label "Message exchange pattern"@en ;
+    rdfs:comment "Pattern governing the sequencing and cardinality of operation parameters."@en ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-adjuncts/#meps> ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-additional-meps/> .
+
+# Properties
+# ----------
+
+ids:faultPropagationRule
+    a owl:ObjectProperty;
+    rdfs:domain ids:MessageExchangePattern;
+    rdfs:range ids:FaultPropagationRule;
+    rdfs:label "fault propagation rule"@en;
+    rdfs:comment "Reference to corresponding fault propagation rule."@en.
+
