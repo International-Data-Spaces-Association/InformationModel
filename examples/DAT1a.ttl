@@ -1,0 +1,90 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_media: <https://w3id.org/ids/code/mediatype/> .
+@prefix idsc_pack: <https://w3id.org/ids/code/pack/> .
+@prefix idsc_lic: <https://w3id.org/ids/code/license/> .
+@prefix idsc_prot: <https://w3id.org/ids/protocol/> .
+@prefix : <urn:ids:example:> .
+
+# Modeling approach: enumerated content descriptions / instantiations
+
+# TODO -> make part of the connector
+:HTTP_HOST
+    a ids:Host ;
+    ids:protocol idsc_prot:HTTP2;
+    ids:accessUrl "https://myserver.org"^^xsd:anyURI .
+
+:DAT1
+    ids:title "European highway statistics"@en ;
+    ids:description "Data collection about usage statistics of European highways"@en;
+    ids:keyword "highway", "statistics", "Europe";
+    # Compressed representation of the overall resource
+    ids:representation [
+        a ids:ContainerRepresentation ;
+        ids:packaging idsc_pack:TAR ;
+        ids:compression idsc_pack:GZIP ;
+        ids:instance :DAT1_TAR_GZIP 
+    ] ;
+    ids:contentPart :E1_01_2000 ;
+    #
+    # many enumerated data sets ..
+    #
+    ids:contentPart :E421_09_2018 ;
+    # 
+    ids:endpoint [
+        ids:endpointHost :HTTP_HOST ;
+        ids:endpointContent :DAT1_TAR_GZIP ;
+        ids:path "/Archive" 
+    ] ;
+    ids:endpoint [
+        ids:endpointHost :HTTP_HOST ;
+        ids:endpointContent :E1_01_2000 ;
+        ids:path "/content/E1_01_2000.csv"
+    ] .
+    
+
+# Resources archive available download
+:DAT1_TAR_GZIP
+    a ids:ContentInstance ;
+    ids:byteSize 2123178072 ;
+    ids:fileName "EuropeanHighwayStatistics_2000_2018.tar.gzip" .
+
+# Enumeration of individual content instances
+:E1_01_2000
+    a ids:Data ;
+    ids:spatialCoverage [] ;
+    ids:temporalCoverage [] ; # 01 2000
+    ids:representation [
+        a ids:Representation ;
+        ids:mediaType idsc_media:TEXT_CSV ;
+        ids:instance :E1_01_2000_CSV 
+    ] .
+
+:E1_01_2018_CSV
+    a ids:ContentInstance;
+    ids:byteSize 9823132;
+    ids:fileName "E1_01_2000.csv" .
+
+:E421_09_2018
+    a ids:Data ;
+    ids:spatialCoverage [] ;
+    ids:temporalCoverage [] ; # 09 2018
+    ids:representation [
+        a ids:Representation ;
+        ids:mediaType idsc_media:TEXT_CSV ;
+        ids:instance :E421_09_2018 
+    ] .
+
+:E421_09_2018
+    a ids:ContentInstance;
+    ids:byteSize 6174035;
+    ids:fileName "E421_09_2018.csv" .
+    

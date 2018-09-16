@@ -39,12 +39,12 @@ ids:MqttEndpoint a owl:Class ;
 # Properties of Endpoint
 # ----------------------
 
-ids:host
+ids:endpointHost
     a owl:ObjectProperty;
-    rdfs:label "host"@en;
+    rdfs:label "endpoint host"@en;
     rdfs:domain ids:Endpoint;
     rdfs:range ids:Host;
-    rdfs:comment "Network host that exposes resource content and Connector services."@en ;
+    rdfs:comment "Network host that exposes resource content and Connector services via this endpoint."@en ;
     idsm:referenceByUrl true .
 
 ids:endpointContent
@@ -57,13 +57,14 @@ ids:endpointContent
     
 # Properties of HttpEndpoint
 # --------------------------
+# apply to IDSCP as well
 
 ids:path
     a owl:DatatypeProperty;
     rdfs:label "path"@en;
     rdfs:domain ids:HttpEndpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Path at which the content is published by the related host."@en.
+    rdfs:comment "Absolute path at which the content is published by the related host."@en.
 
 # Properties of MqttEndpoint
 # --------------------------
