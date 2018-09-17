@@ -21,6 +21,20 @@ idsm:labelPluralForm a owl:ObjectProperty;
 	rdfs:range rdf:PlainLiteral;
     rdfs:comment "The preferred lexical label for a resource, in plural form in a given language."@en.
 
+idsm:explanation a owl:DatatypeProperty;
+    rdfs:label "explanation"@en;
+    rdfs:domain owl:Class;
+    rdfs:range xsd:string;
+    rdfs:comment "Verbose description of motivations and design decisions underlying the concept."@en.
+
+idsm:competencyQuestion a owl:DatatypeProperty;
+    rdfs:label "competency question"@en;
+    rdfs:domain owl:Class;
+    rdfs:range xsd:string;
+    rdfs:comment "Single 'competency question' the concept is intended to address."@en ;
+    rdfs:seeAlso <https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html#Step1> ;
+    .
+
 idsm:constantIdentifier a owl:DatatypeProperty;
     rdfs:label "constantIdentifier"@en;
     rdfs:range xsd:string;

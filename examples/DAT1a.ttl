@@ -16,12 +16,6 @@
 
 # Modeling approach: enumerated content descriptions / instantiations
 
-# TODO -> make part of the connector
-:HTTP_HOST
-    a ids:Host ;
-    ids:protocol idsc_prot:HTTP2;
-    ids:accessUrl "https://myserver.org"^^xsd:anyURI .
-
 :DAT1
     ids:title "European highway statistics"@en ;
     ids:description "Data collection about usage statistics of European highways"@en;
@@ -34,22 +28,8 @@
         ids:instance :DAT1_TAR_GZIP 
     ] ;
     ids:contentPart :E1_01_2000 ;
-    #
     # many enumerated data sets ..
-    #
-    ids:contentPart :E421_09_2018 ;
-    # 
-    ids:endpoint [
-        ids:endpointHost :HTTP_HOST ;
-        ids:endpointContent :DAT1_TAR_GZIP ;
-        ids:path "/Archive" 
-    ] ;
-    ids:endpoint [
-        ids:endpointHost :HTTP_HOST ;
-        ids:endpointContent :E1_01_2000 ;
-        ids:path "/content/E1_01_2000.csv"
-    ] .
-    
+    ids:contentPart :E421_09_2018 .
 
 # Resources archive available download
 :DAT1_TAR_GZIP
@@ -57,34 +37,73 @@
     ids:byteSize 2123178072 ;
     ids:fileName "EuropeanHighwayStatistics_2000_2018.tar.gzip" .
 
-# Enumeration of individual content instances
+:DAT1
+    ids:endpoint [
+        ids:endpointHost :HTTP_HOST ;
+        ids:endpointContent :DAT1_TAR_GZIP ;
+        # Link to the latest archive available
+        ids:path "/archive"
+    ] .
+
+# Enumeration of individual content instances -
+# Content with alternative, equivalent representations
 :E1_01_2000
     a ids:Data ;
     ids:spatialCoverage [] ;
     ids:temporalCoverage [] ; # 01 2000
     ids:representation [
-        a ids:Representation ;
         ids:mediaType idsc_media:TEXT_CSV ;
         ids:instance :E1_01_2000_CSV 
+    ] ;
+    ids:representation [
+        ids:mediaType idsc_media:APPLICATION_VND_MS-EXCEL ;
+        ids:instance :E1_01_2000_XLS
     ] .
 
 :E1_01_2018_CSV
-    a ids:ContentInstance;
-    ids:byteSize 9823132;
+    ids:creationDate "2000-02-01"^^xsd:date ;
+    ids:byteSize 982313;
     ids:fileName "E1_01_2000.csv" .
 
+:E1_01_2018_XLS
+    ids:creationDate "2000-02-01"^^xsd:date ;
+    ids:byteSize 9823132;
+    ids:fileName "E1_01_2000.xls" .
+
+# Content with single representation
 :E421_09_2018
     a ids:Data ;
     ids:spatialCoverage [] ;
-    ids:temporalCoverage [] ; # 09 2018
+    ids:temporalCoverage [] ; # 09 2018 ids:temporalCoverage [  a ids:TemporalEntity ; ids:beginning "2018-09-01"^^xsd:date ; ids:end "2018-09-30"^^xsd:date ] ;
     ids:representation [
         a ids:Representation ;
         ids:mediaType idsc_media:TEXT_CSV ;
-        ids:instance :E421_09_2018 
+        ids:instance :E421_09_2018_CSV
     ] .
 
 :E421_09_2018
-    a ids:ContentInstance;
+    ids:creationDate "2018-10-01"^^xsd:date ;
     ids:byteSize 6174035;
     ids:fileName "E421_09_2018.csv" .
-    
+
+
+# Materialization / instances
+:DAT1
+    ids:endpoint [
+        ids:endpointHost :HTTP_HOST ;
+        ids:endpointContent :E1_01_2000 ;
+        # Fixed / versioned endpoint
+        ids:path "/content/E1_01_2000.csv"
+    ] ;
+    ids:endpoint [
+        ids:endpointHost :HTTP_HOST ;
+        ids:endpointContent :E1_01_2000 ;
+        ids:path "/content/E1_01_2000.xls"
+    ] .
+
+
+
+
+
+
+

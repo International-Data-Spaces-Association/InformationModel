@@ -1,0 +1,62 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_media: <https://w3id.org/ids/code/mediatype/> .
+@prefix idsc_pack: <https://w3id.org/ids/code/pack/> .
+@prefix idsc_lic: <https://w3id.org/ids/code/license/> .
+@prefix idsc_prot: <https://w3id.org/ids/protocol/> .
+@prefix idsc_auth: <https://w3id.org/ids/code/auth/> .
+@prefix idsc_cert: <https://w3id.org/ids/code/certification/> .
+@prefix : <urn:ids:example:> .
+
+
+:CONN2
+    a ids:TrustedConnector ;
+    # General properties
+    ids:title "EU Traffic statistics hub" ;
+    ids:description "Description of an example Trusted Connector maintained by PAT1" ;
+    ids:maintainer [] ; # Participant ~ service provider PAT1
+    ids:curator [] ; # Content manager
+    ids:physicalLocation [] ; #Location
+    ids:supportedMetadataVersion "1.0.0" ;
+
+    # Network hosts maintained by the Connector
+    ids:host :HTTP_HOST_CONN2 ;
+
+    # Security and trust features
+    ids:authInfo :AUTH_INFO_CONN2 ;
+    ids:securityProfile :SEC_PROFILE_CONN2 ;
+    ids:componentCertification :CERTIFICATION_CONN2 ;
+
+    # Catalog of mediated resources
+    ids:catalog :CATALOG_CONN2 ;
+    .
+
+:HTTP_HOST_CONN2
+    a ids:Host ;
+    ids:protocol idsc_prot:HTTP2;
+    ids:accessUrl "https://myserver.org:8080"^^xsd:anyURI ;
+    .
+
+:SEC_PROFILE_CONN2
+    ids:securityProfile ids:Level2SecurityProfile .
+
+:AUTH_INFO_CONN2
+    a ids:AuthInfo ;
+    ids:authService "https://myserver.org:8081/keycloak"^^xsd:anyURI ;
+    ids:authStandard idsc_auth:OAUTH2_JWT ;
+    .
+
+:CERTIFICATION_CONN2
+    a ids:ComponentCertification ;
+    ids:certificationLevel idsc_cert:TrustSecurityProfileConceptReview ;
+    ids:evaluationFacility [] ; # EvaluationFacility
+    ids:lastValidDate "2020-12-31"^^xsd:date ;
+    .

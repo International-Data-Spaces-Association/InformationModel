@@ -12,7 +12,10 @@ ids:SecurityProfile a owl:Class;
     rdfs:label "SecurityProfile"@en ;
     rdfs:comment "Defined set of a Connector’s security properties; specifies several security aspects expressing the minimum requirements a Data Consumer must meet to be granted access to the Data Endpoints exposed by a providing Connector."@en.
 
-ids:PredefinedSecurityProfile a owl:Class;
+# TODO: Clarify: how is this class used?
+ids:PredefinedSecurityProfile
+    a owl:Class;
+    rdfs:subClassOf ids:SecurityProfile ;
     rdfs:label "PredefinedSecurityProfile"@en ;
     rdfs:comment "The class of predefined SecurityProfiles."@en.
 
