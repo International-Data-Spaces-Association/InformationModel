@@ -26,6 +26,9 @@
         ids:compression idsc_pack:GZIP ;
         ids:instance :DAT1_TAR_GZIP 
     ] ;
+    ids:descriptionParameter :HIGHWAY_PARAM ;
+    ids:descriptionParameter :YEAR_PARAM ;
+    ids:descriptionParameter :MONTH_PARAM ;
     # Generic content template 
     ids:contentPart :EHS_TEMPLATE .
 
@@ -40,9 +43,7 @@
 # Parametrized description makes the instances comparable.
 
 :EHS_TEMPLATE
-    ids:descriptionParameter :HIGHWAY_PARAM ;
-    ids:descriptionParameter :YEAR_PARAM ;
-    ids:descriptionParameter :MONTH_PARAM ;
+    ids:parameterSet ( :HIGHWAY_PARAM :YEAR_PARAM :MONTH_PARAM ) ;
     ids:representation [
         a ids:Representation ;
         ids:mediaType idsc_media:TEXT_CSV ;
