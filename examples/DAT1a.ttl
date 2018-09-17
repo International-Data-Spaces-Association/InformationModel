@@ -74,7 +74,7 @@
 :E421_09_2018
     a ids:Data ;
     ids:spatialCoverage [] ;
-    ids:temporalCoverage [] ; # 09 2018
+    ids:temporalCoverage [] ; # 09 2018 ids:temporalCoverage [  a ids:TemporalEntity ; ids:beginning "2018-09-01"^^xsd:date ; ids:end "2018-09-30"^^xsd:date ] ;
     ids:representation [
         a ids:Representation ;
         ids:mediaType idsc_media:TEXT_CSV ;
@@ -88,8 +88,6 @@
 
 
 # Materialization / instances
-
-
 :DAT1
     ids:endpoint [
         ids:endpointHost :HTTP_HOST ;

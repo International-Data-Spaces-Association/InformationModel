@@ -45,7 +45,13 @@ ids:endpointHost
     rdfs:domain ids:Endpoint;
     rdfs:range ids:Host;
     rdfs:comment "Network host that exposes resource content and Connector services via this endpoint."@en ;
-    idsm:referenceByUrl true .
+    idsm:referenceByUrl true ;
+    idsm:explanation
+"""Definition of a Resource Endpoint is by purpose split into an address part (path, topic etc.)
+and host information used to augment and resolve the address. Such the overall address space
+is self-contained and may move across hosts. Further, changes of either component (address vs. host)
+do not affect the other."""@en
+    .
 
 ids:endpointContent
     a owl:ObjectProperty;
