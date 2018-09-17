@@ -37,14 +37,11 @@ ids:GeoPoint rdfs:subClassOf ids:Location;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:GeoFeature rdfs:subClassOf ids:Location;
-    a owl:Class;
+ids:GeoFeature a owl:Class;
+    rdfs:subClassOf gn:Feature;
+    rdfs:subClassOf ids:Location;
     rdfs:label "GeoFeature"@en ;
-    rdfs:comment "A location identified by a geonames identifier."@en;
-    idsm:validation [
-        idsm:forProperty ids:geoFeatureId;
-        idsm:constraint idsm:NotNull;
-    ].
+    rdfs:comment "A location identified by a geonames URL."@en.
 
 ids:Geometry rdfs:subClassOf locn:Geometry;
     rdfs:subClassOf ids:Location;
@@ -79,13 +76,6 @@ ids:longitude rdfs:subPropertyOf wgs84:long;
     rdfs:range xsd:float;
     rdfs:label "longitude"@en;
     rdfs:comment "Longitude of a GeoPoint (decimal degrees)."@en.
-
-ids:geoFeatureId rdfs:subPropertyOf gn:geonamesID;
-    a owl:DatatypeProperty;
-    rdfs:domain ids:GeoFeature;
-    rdfs:range xsd:string;
-    rdfs:label "geoFeatureId"@en;
-    rdfs:comment "Geonames identifier."@en.
 
 ids:geoPoint a owl:ObjectProperty;
      rdfs:domain ids:BoundingPolygon;

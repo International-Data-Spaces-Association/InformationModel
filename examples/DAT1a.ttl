@@ -12,6 +12,8 @@
 @prefix idsc_pack: <https://w3id.org/ids/code/pack/> .
 @prefix idsc_lic: <https://w3id.org/ids/code/license/> .
 @prefix idsc_prot: <https://w3id.org/ids/protocol/> .
+
+@prefix : <https://aastat.gov.de/connector/> .
 @prefix : <urn:ids:example:> .
 
 # Modeling approach: enumerated content descriptions / instantiations
@@ -39,7 +41,7 @@
 
 :DAT1
     ids:endpoint [
-        ids:endpointHost :HTTP_HOST ;
+        ids:endpointHost <https://aastat.gov.de/connector/HTTP_HOST_CONN2> ;
         ids:endpointContent :DAT1_TAR_GZIP ;
         # Link to the latest archive available
         ids:path "/archive"
@@ -74,7 +76,7 @@
 :E421_09_2018
     a ids:Data ;
     ids:spatialCoverage [] ;
-    ids:temporalCoverage [] ; # 09 2018 ids:temporalCoverage [  a ids:TemporalEntity ; ids:beginning "2018-09-01"^^xsd:date ; ids:end "2018-09-30"^^xsd:date ] ;
+    ids:temporalCoverage [] ; # 09 2018 ids:temporalCoverage [  a ids:Interval ; ids:beginning [ids:inXSDDateTime "2018-09-01"^^xsd:date] ; ids:end [ids:inXSDDateTime "2018-09-30"^^xsd:date ]] ;
     ids:representation [
         a ids:Representation ;
         ids:mediaType idsc_media:TEXT_CSV ;
