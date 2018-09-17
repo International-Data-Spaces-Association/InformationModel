@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/ids/core/> .
 @prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix idsc_auth: <https://w3id.org/ids/code/auth/> .
 
 # Classes
 # -------
@@ -15,7 +16,7 @@ ids:AuthStandard a owl:Class;
 # Instances
 # ---------
 
-ids:Oauth2_Jwt a ids:AuthStandard;
+idsc_auth:OAUTH2_JWT a ids:AuthStandard;
     rdfs:comment "OAUTH2 via JWT";
     idsm:constantIdentifier "OAUTH2_JWT".
 
