@@ -20,7 +20,9 @@
 :CONN2
     a ids:TrustedConnector ;
     # General properties
-    ids:maintainer [] ; # Participant ~ service provider
+    ids:title "EU Traffic statistics hub" ;
+    ids:description "Description of an example Trusted Connector maintained by PAT1" ;
+    ids:maintainer [] ; # Participant ~ service provider PAT1
     ids:curator [] ; # Content manager
     ids:physicalLocation [] ; #Location
     ids:supportedMetadataVersion "1.0.0" ;
@@ -31,7 +33,7 @@
     # Security and trust features
     ids:authInfo :AUTH_INFO_CONN2 ;
     ids:securityProfile :SEC_PROFILE_CONN2 ;
-    ids:componentCertification :CERTIFICATION_CONN2 .
+    ids:componentCertification :CERTIFICATION_CONN2 ;
 
     # Catalog of mediated resources
     ids:catalog :CATALOG_CONN2 ;
@@ -40,19 +42,21 @@
 :HTTP_HOST_CONN2
     a ids:Host ;
     ids:protocol idsc_prot:HTTP2;
-    ids:accessUrl "https://myserver.org:8080"^^xsd:anyURI .
+    ids:accessUrl "https://myserver.org:8080"^^xsd:anyURI ;
+    .
 
 :SEC_PROFILE_CONN2
     ids:securityProfile ids:Level2SecurityProfile .
 
 :AUTH_INFO_CONN2
     a ids:AuthInfo ;
-    ids:authService "https://myserver.org:8081/keycloak"^^xsd:anyURI .
-    ids:authStandard idsc_auth:OAUTH2_JWT .
+    ids:authService "https://myserver.org:8081/keycloak"^^xsd:anyURI ;
+    ids:authStandard idsc_auth:OAUTH2_JWT ;
+    .
 
 :CERTIFICATION_CONN2
-    a ids:ComponentCertification
+    a ids:ComponentCertification ;
     ids:certificationLevel idsc_cert:TrustSecurityProfileConceptReview ;
     ids:evaluationFacility [] ; # EvaluationFacility
     ids:lastValidDate "2020-12-31"^^xsd:date ;
-
+    .
