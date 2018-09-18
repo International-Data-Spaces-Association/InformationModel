@@ -212,6 +212,11 @@ ids:MessageProcessed a owl:Class ;
     rdfs:label "Message Processed"@en;
     rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en.
 
+ids:OperationResult  a owl:Class ;
+    rdfs:subClassOf ids:MessageProcessed;
+    rdfs:label "Operation Result"@en;
+    rdfs:comment "Message indicating that the result of a former InvokeOperation message is availble. May transfer the result data in its associated payload section."@en.
+
 ids:RetrieveArtifact a owl:Class ;
     rdfs:subClassOf ids:Request ;
     rdfs:label "Retrieve Artifact"@en;

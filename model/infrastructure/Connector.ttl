@@ -18,6 +18,10 @@ ids:Connector
     idsm:validation [
         idsm:forProperty ids:catalog;
         idsm:relationType idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:host;
+        idsm:relationType idsm:OneToMany;
     ].
 
 ids:BaseConnector rdfs:subClassOf ids:Connector ;

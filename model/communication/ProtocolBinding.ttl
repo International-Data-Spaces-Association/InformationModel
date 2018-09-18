@@ -23,11 +23,6 @@ ids:HttpProtocolBinding a owl:Class;
     rdfs:label "HttpProtocolBinding"@en;
     rdfs:comment "Class of mapping of abstract operation signatures to the HTTP protocol."@en.
 
-ids:MqttProtocolBinding a owl:Class;
-    rdfs:subClassOf ids:ProtocolBinding;
-    rdfs:label "MqttProtocolBinding"@en;
-    rdfs:comment "Class of mapping of abstract operation signatures to the MQTT protocol."@en.
-
 ids:ApiDocument a owl:Class;
     rdfs:label "ApiDocument"@en;
     rdfs:comment "Class of documents, fully and consistently describing an API, e.g., according to the OpenAPI specification."@en.
@@ -36,8 +31,8 @@ ids:PayloadAnnotationMethod a owl:Class;
     rdfs:label "PayloadAnnotationMethod"@en;
     rdfs:comment "Class of methods to link payload data with data transfer metadata information."@en.
 
-# General Properties
-# ------------------
+# Properties
+# ----------
 
 #ids:service a owl:ObjectProperty;
 #    rdfs:label "service"@en;
@@ -74,12 +69,3 @@ ids:payloadAnnotationMethod a owl:ObjectProperty;
     rdfs:domain ids:ProtocolBinding;
     rdfs:range ids:PayloadAnnotationMethod;
     rdfs:comment "Describes the used method for connecting data transfer metadata and payload data."@en.
-
-# Properties
-# ----------
-
-ids:topic a owl:DatatypeProperty;
-    rdfs:label "topic"@en;
-    rdfs:domain ids:MqttProtocolBinding;
-    rdfs:range xsd:string;
-    rdfs:comment "Defines a topic that is used for message exchange."@en.
