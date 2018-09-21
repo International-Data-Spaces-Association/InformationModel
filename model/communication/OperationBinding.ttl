@@ -1,0 +1,29 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:OperationBinding
+    a owl:Class;
+    rdfs:label "operation binding"@en;
+    rdfs:comment "Mapping of abstract operation signatures onto the concrete structures (e.g., HTTP headers or query parameters)."@en .
+
+#ids:ApiDocument a owl:Class;
+#    rdfs:label "ApiDocument"@en;
+#    rdfs:comment "Class of documents, fully and consistently describing an API, e.g., according to the OpenAPI specification."@en.
+
+# Properties
+# ----------
+
+ids:apiDocument a owl:ObjectProperty;
+    rdfs:label "apiDocument"@en;
+    rdfs:domain ids:OperationBinding;
+    rdfs:range ids:Resource;
+    rdfs:comment "Document describing the operations exposed by the endpoint."@en.
+    # The document must define at least operations on the exact (concatenated/full) path of the endpoint

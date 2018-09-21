@@ -12,29 +12,52 @@
 ids:Endpoint a owl:Class ;
 	idsm:abstract true;
 	rdfs:label "Endpoint"@en ;
-    rdfs:comment "Access point of data exchange and service interaction."@en .
+    rdfs:comment "Access point of data exchange and service interaction."@en ;
+    # idsm:validation [ # endpoint is optional, when only one per type defined on connector
+    #    idsm:forProperty ids:endpointHost;
+    #    idsm:constraint idsm:NotNull;
+    # ]
+    idsm:validation [
+        idsm:forProperty ids:path;
+        idsm:constraint idsm:NotNull;
+    ] .
+
+ids:StaticEndpoint
+    a owl:Class ;
+	rdfs:subClassOf ids:Endpoint ;
+	rdfs:label "static endpoint"@en ;
+    rdfs:comment "Endpoint exposing  an Artifact."@en ;
+    idsm:validation [
+        idsm:forProperty ids:endpointArtifact;
+        idsm:constraint idsm:NotNull;
+    ] ;
+    owl:disjointWith ids:InteractiveEndpoint .
+
+ids:InteractiveEndpoint
+    a owl:Class ;
+	rdfs:subClassOf ids:Endpoint ;
+	rdfs:label "interactive endpoint"@en ;
+    rdfs:comment "Endpoint exposing a digital content in a interacitve way."@en ;
+    idsm:validation [
+        idsm:forProperty ids:endpointOperationBinding;
+        idsm:constraint idsm:NotNull;
+    ] ;
+    owl:disjointWith ids:StaticEndpoint .
+
 
 ids:DataSink
     idsm:abstract true ;
 	rdfs:subClassOf ids:Endpoint ;
 	rdfs:label "Data Sink"@en ;
-    rdfs:comment "Endpoint consuming digital content supplied by a Data Provider."@en .
+    rdfs:comment "Endpoint consuming digital content supplied by a Data Provider."@en ;
+    idsm:abstract true.
 
 ids:DataSource
     idsm:abstract true ;
 	rdfs:subClassOf ids:Endpoint ;
 	rdfs:label "Data Source"@en ;
-    rdfs:comment "Endpoint providing digital content for being retrieved or subscribed to by a Data Consumer."@en .
-
-ids:HttpEndpoint a owl:Class ;
-    rdfs:subClassOf ids:Endpoint ;
-	rdfs:label "HTTP endpoint"@en ;
-    rdfs:comment "Endpoint exposed via the Hypertext Transfer Protocol."@en .
-
-ids:MqttEndpoint a owl:Class ;
-    rdfs:subClassOf ids:Endpoint ;
-	rdfs:label "MQTT endpoint"@en ;
-    rdfs:comment "Endpoint exposed via the Message Queuing Telemetry Transport protocol."@en .
+    rdfs:comment "Endpoint providing digital content for being retrieved or subscribed to by a Data Consumer."@en ;
+    idsm:abstract true.
 
 # Properties of Endpoint
 # ----------------------
@@ -53,45 +76,40 @@ is self-contained and may move across hosts. Further, changes of either componen
 do not affect the other."""@en
     .
 
-ids:endpointContent
+ids:endpointArtifact
     a owl:ObjectProperty;
-    rdfs:label "endpoint content"@en;
+    rdfs:label "endpoint artifact"@en;
     rdfs:domain ids:Endpoint;
     rdfs:range ids:Artifact;
     rdfs:comment "Content instance mediated via this individual endpoint (1:1 mapping)."@en ;
     idsm:referenceByUrl true .
-    
-# Properties of HttpEndpoint
-# --------------------------
-# apply to IDSCP as well
+
+ids:endpointOperationBinding
+    a owl:ObjectProperty;
+    rdfs:label "endpoint operation binding"@en;
+    rdfs:domain ids:InteractiveEndpoint;
+    rdfs:range ids:OperationBinding;
+    rdfs:comment "Operation bound to te endpoint by means of a protocol binding."@en ;
+    idsm:referenceByUrl true .
 
 ids:path
     a owl:DatatypeProperty;
     rdfs:label "path"@en;
-    rdfs:domain ids:HttpEndpoint;
+    rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Absolute path at which the content is published by the related host."@en.
+    rdfs:comment "Relative path, topic or queue at which the content is published by the related host."@en.
+    # The property is mandatory for Artifact exposing Endpoints i.e. the only discriminating element
 
-# Properties of MqttEndpoint
-# --------------------------
-
-ids:topic
-    a owl:DatatypeProperty;
-    rdfs:label "topic"@en;
-    rdfs:domain ids:MqttEndpoint;
-    rdfs:range xsd:string;
-    rdfs:comment "Topic used for bi-directional MQTT communication via this endpoint."@en.
-
-ids:inboundTopic
+ids:inboundPath
     a owl:DatatypeProperty;
     rdfs:label "inbound topic"@en;
-    rdfs:domain ids:MqttEndpoint;
+    rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Topic used for inbound MQTT communication via this endpoint, i.e. input messages and faults only."@en.
+    rdfs:comment "Relative path used for inbound communication via this endpoint, i.e. input messages and faults only."@en.
 
-ids:outboundTopic
+ids:outboundPath
     a owl:DatatypeProperty;
     rdfs:label "outbound topic"@en;
-    rdfs:domain ids:MqttEndpoint;
+    rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Topic used for outbound MQTT communication via this endpoint, i.e. output messages and faults only."@en.
+    rdfs:comment "Relative path used for outbound communication via this endpoint, i.e. output messages and faults only."@en.

@@ -11,6 +11,7 @@
 @prefix idsc_media: <https://w3id.org/ids/code/mediatype/> .
 @prefix idsc_pack: <https://w3id.org/ids/code/pack/> .
 @prefix idsc_lic: <https://w3id.org/ids/code/license/> .
+@prefix idsc_api: <https://w3id.org/ids/code/api/> .
 @prefix : <urn:ids:example:> .
 
 # Modeling approach: generic content description, enumerated instances distinguished by parameter settings
@@ -40,11 +41,13 @@
     ids:input :HIGHWAY_PARAM ;
     ids:output :TABLE_PARAM ;
     ids:binding [
-        a ids:HttpBinding ;
-
-
+        a ids:OperationBinding ;
+        ids:apiDocument :API_DOC
     ] .
 
+:API_DOC
+    a ids:Software ;
+    ids:type idsc_api:openApiV3 .
 
 
 # Overall table retrieved as result
