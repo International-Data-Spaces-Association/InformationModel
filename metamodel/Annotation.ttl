@@ -27,13 +27,20 @@ idsm:explanation a owl:DatatypeProperty;
     rdfs:range xsd:string;
     rdfs:comment "Verbose description of motivations and design decisions underlying the concept."@en.
 
-idsm:competencyQuestion a owl:DatatypeProperty;
+idsm:competencyQuestion
+    a owl:DatatypeProperty;
     rdfs:label "competency question"@en;
     rdfs:domain owl:Class;
     rdfs:range xsd:string;
     rdfs:comment "Single 'competency question' the concept is intended to address."@en ;
-    rdfs:seeAlso <https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html#Step1> ;
-    .
+    rdfs:seeAlso <https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html#Step1> .
+
+idsm:example
+    a owl:DatatypeProperty;
+    rdfs:label "example"@en;
+    rdfs:domain owl:Class;
+    rdfs:range xsd:string;
+    rdfs:comment "Short (code) example."@en .
 
 idsm:constantIdentifier a owl:DatatypeProperty;
     rdfs:label "constantIdentifier"@en;

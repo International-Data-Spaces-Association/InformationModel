@@ -64,28 +64,35 @@ ids:Container a owl:Class;
 
 # Data
 # ----
-    
-ids:Value a owl:Class;
+
+ids:Scalar a owl:Class;
     rdfs:subClassOf ids:Data ;
     owl:disjointWith ids:Structure ;
-    rdfs:label "Value"@en ;
+    rdfs:label "Scalar"@en ;
     rdfs:comment "Terminal data node, i.e. an atomic, possibly typed scalar."@en .
+
+# obsolate - concept reused for inline representation instance
+#ids:Value a owl:Class;
+#    rdfs:subClassOf ids:Data ;
+#    owl:disjointWith ids:Structure ;
+#    rdfs:label "Value"@en ;
+#    rdfs:comment "Terminal data node, i.e. an atomic, possibly typed scalar."@en .
     
 # common scalar types
-ids:NumericValue a owl:Class;
-    rdfs:subClassOf ids:Value ;
-    rdfs:label "Numeric value"@en ;
-    rdfs:comment "Numeric value."@en .
+#ids:NumericValue a owl:Class;
+#    rdfs:subClassOf ids:Value ;
+#    rdfs:label "Numeric value"@en ;
+#    rdfs:comment "Numeric value."@en .
 
-ids:BooleanValue a owl:Class;
-    rdfs:subClassOf ids:Value ;
-    rdfs:label "Boolean value"@en ;
-    rdfs:comment "Boolean value."@en .
+#ids:BooleanValue a owl:Class;
+#    rdfs:subClassOf ids:Value ;
+#    rdfs:label "Boolean value"@en ;
+#    rdfs:comment "Boolean value."@en .
 
-ids:StringValue a owl:Class;
-    rdfs:subClassOf ids:Value ;
-    rdfs:label "String value"@en ;
-    rdfs:comment "String value."@en .
+#ids:StringValue a owl:Class;
+#    rdfs:subClassOf ids:Value ;
+#    rdfs:label "String value"@en ;
+#    rdfs:comment "String value."@en .
 
 ids:Structure
     a owl:Class;
@@ -95,23 +102,23 @@ ids:Structure
     rdfs:comment "Custom or standardized structured data"@en ;
     rdfs:seeAlso <https://schema.org/StructuredValue> .
 
-ids:Record 
-    a owl:Class;
-    rdfs:subClassOf ids:Structure ;
-    rdfs:label  "Record"@en ;
-    rdfs:comment "Named arrangement of fields (possibly named, ordered, strongly typed etc.)."@en .
+#ids:Record
+#    a owl:Class;
+#    rdfs:subClassOf ids:Structure ;
+#    rdfs:label  "Record"@en ;
+#    rdfs:comment "Named arrangement of fields (possibly named, ordered, strongly typed etc.)."@en .
 
-ids:TabularData
-    a owl:Class;
-    rdfs:subClassOf ids:Structure ;
-    rdfs:label "Table"@en ;
-    rdfs:comment "Tabular / relational data structure."@en .
+#ids:TabularData
+#    a owl:Class;
+#    rdfs:subClassOf ids:Structure ;
+#    rdfs:label "Table"@en ;
+#    rdfs:comment "Tabular / relational data structure."@en .
 
-ids:DataCube
-    a owl:Class;
-    rdfs:subClassOf ids:Structure ;
-    rdfs:label "Data cube"@en;
-    rdfs:comment "n-dimensional data structure"@en .    
+#ids:DataCube
+#    a owl:Class;
+#    rdfs:subClassOf ids:Structure ;
+#    rdfs:label "Data cube"@en;
+#    rdfs:comment "n-dimensional data structure"@en .
 
 ids:Collection
     a owl:Class;
@@ -187,3 +194,11 @@ ids:Schema a owl:Class;
 #	rdfs:isDefinedBy <https://tools.ietf.org/id/draft-handrews-json-schema> ; 
 #    rdfs:seeAlso <http://json-schema.org/specification> .
 #    # ids:targetMediaType idsc_media:application_json . # Applies to JSON-based media types
+
+
+ids:exposedSoftwareInterface
+    a owl:ObjectProperty;
+    rdfs:label "software interface"@en;
+    rdfs:domain ids:Software;
+    rdfs:range ids:Interface;
+    rdfs:comment "Interface exposed by the Software, e.g. for configuration, data processing etc."@en.

@@ -9,12 +9,36 @@
 
 ids:DataApp
     a owl:Class;
-    rdfs:subClassOf ids:Resource;    
+    rdfs:subClassOf ids:Software;
     rdfs:label "DataApp"@en;
     rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en.
+    # Purpose: mediation and processing of "data"
     # rdfs:comment "Data processing or mediating software executed within the Connector runtime."@en .
+    # TODO: exposes at least one interface
 
-ids:SystemAdapter
+ids:SystemAdapter # ~ Driver
     rdfs:subClassOf ids:DataApp;
     rdfs:label "System Adapter"@en;
-    rdfs:comment "Data App used for integration of custom Data Sources and legacy systems with a Connector."@en.
+    rdfs:comment "Data Apps that integrate sources and sinks of digital content maintained internally on Participant's premises with a Connector."@en ;
+    # idsm:abstract true
+    # May offer Data Processing capabilities, therefore not defined as disjoint
+    .
+
+ids:DataProcessingApp
+    rdfs:subClassOf ids:DataApp;
+    rdfs:label "DataProcessingApp"@en;
+    rdfs:comment "Data App for a (stateless) processing of digital content according to exposed software interfaces."@en.
+
+ids:DataAppPlugin
+    a owl:Class;
+    rdfs:subClassOf ids:Software;
+    rdfs:label "DataApp-Plugin"@en;
+    rdfs:comment "Add-on software extending a host Data App with a dedicated capability. The plugin depends on a particular version (range) of the host Data App which governs its integration, configuration and life-cycle."@en.
+
+ids:DataAppAsset
+    a owl:Class;
+    rdfs:subClassOf ids:Software;
+    rdfs:label "DataApp-Plugin"@en;
+    rdfs:comment "Script code, algorithm or any other kind of interpreted software."@en.
+
+

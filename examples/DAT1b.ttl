@@ -24,7 +24,7 @@
         a ids:ContainerRepresentation ;
         ids:packaging idsc_pack:TAR ;
         ids:compression idsc_pack:GZIP ;
-        ids:artifact :DAT1_TAR_GZIP
+        ids:instance :DAT1_TAR_GZIP
     ] ;
     ids:descriptionParameter :HIGHWAY_PARAM ;
     ids:descriptionParameter :YEAR_PARAM ;
@@ -47,7 +47,7 @@
     ids:representation [
         a ids:Representation ;
         ids:mediaType idsc_media:TEXT_CSV ;
-        ids:artifact
+        ids:instance
             :E1_01_2000_CSV ,
             # ...
             :E421_09_2018_CSV
@@ -92,17 +92,17 @@
     a ids:ContentInstance ;
     ids:byteSize 9823132 ;
     ids:fileName "E1_01_2000.csv" ;
-    ids:parameterSetting [
+    ids:parameterAssignment [
         ids:parameter :HIGHWAY_PARAM ;
-        ids:content  [ ids:value "E1" ];
+        ids:contentValue [ ids:value "E1" ];
     ] ;
-    ids:parameterSetting [
+    ids:parameterAssignment [
         ids:parameter :YEAR_PARAM ;
-        ids:content  [ ids:value 2000 ];
+        ids:contentValue [ ids:value 2000 ];
     ] ;
-    ids:parameterSetting [
+    ids:parameterAssignment [
         ids:parameter :MONTH_PARAM ;
-        ids:content  [ ids:value 01 ];
+        ids:contentValue [ ids:value 01 ];
     ] .
 
 # ...
@@ -111,15 +111,15 @@
     a ids:ContentInstance;
     ids:byteSize 6174035 ;
     ids:fileName "E421_09_2018.csv" ;
-    ids:parameterSetting [
+    ids:parameterAssignment [
         ids:parameter :HIGHWAY_PARAM ;
-        ids:content  [ ids:value "E421" ];
+        ids:contentValue  [ ids:value "E421" ];
     ] ;
-    ids:parameterSetting [
+    ids:parameterAssignment [
         ids:parameter :YEAR_PARAM ;
-        ids:content  [ ids:value 2018 ];
+        ids:contentValue  [ ids:value 2018 ];
     ] ;
-    ids:parameterSetting [
+    ids:parameterAssignment [
         ids:parameter :MONTH_PARAM ;
-        ids:content  [ ids:value 09 ];
+        ids:contentValue  [ ids:value 09 ];
     ] .

@@ -16,15 +16,30 @@ ids:Representation
     rdfs:label "Representation"@en;
     rdfs:comment "Syntactic template of a Resource."@en.
 
+ids:RepresentationInstance
+    a owl:Class ;
+    rdfs:label "Representation instance"@en;
+    rdfs:comment "A particular instance of given representation."@en ;
+    idsm:abstract true ;
+    .
+
+ids:Value
+    a owl:Class ;
+    rdfs:subClassOf ids:RepresentationInstance ;
+    rdfs:label "Value"@en;
+    rdfs:comment "Literal, inline value instantiation of a representation."@en ;
+    owl:disjointWith ids:Artifact ;
+    .
+
 # Properties
 # ----------
 
-ids:artifact
+ids:instance
     a owl:ObjectProperty ;    
     rdfs:domain ids:Representation ;
-    rdfs:range ids:Artifact ;
-    rdfs:label "artifact"@en ;
-    rdfs:comment "Reference to an artifact, i.e. materialized instance of given representation."@en.
+    rdfs:range ids:RepresentationInstance;
+    rdfs:label "instance"@en ;
+    rdfs:comment "Reference to an instance of given representation, i.e. inline value or file placeholder."@en.
 
 ids:mediaType
     a owl:ObjectProperty ;

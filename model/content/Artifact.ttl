@@ -12,22 +12,25 @@
 
 ids:Artifact
     a owl:Class;
-    rdfs:subClassOf dcat:Distribution ;# partial subclass of dcat:Distribution w.r.t materialization aspects
+    rdfs:subClassOf ids:RepresentationInstance, dcat:Distribution ;# partial subclass of dcat:Distribution w.r.t materialization aspects
     rdfs:label "Artifact"@en ;
-    rdfs:comment "Instance of a Representation materialized at a partiuclar version and point in time. Possesses characteristics like file name, size, creation date etc."@en.
+    rdfs:comment "Instance of a Representation materialized at a partiuclar version and point in time. Possesses characteristics like file name, size, creation date etc."@en ;
+    owl:disjointWith ids:Value .
 
-ids:InlineArtifact
-    a owl:Class;
-    rdfs:subClassOf ids:Artifact ;
-    rdfs:label "Inline Artifact"@en ;
-    rdfs:comment "Artifact which content is maintained along with the description and is available for immediate retrieval."@en.
+# Replaced by ids:Value
+#ids:InlineArtifact
+#    a owl:Class;
+#    rdfs:subClassOf ids:Artifact ;
+#    rdfs:label "Inline Artifact"@en ;
+#    rdfs:comment "Artifact which content is maintained along with the description and is available for immediate retrieval."@en.
 
-ids:RemoteArtifact
-    a owl:Class;
-    rdfs:subClassOf ids:Artifact ;
-    rdfs:label "Remote Artifact"@en ;
-    rdfs:comment "Artifact which content is maintained separately from the description."@en ;
-    owl:disjointWith ids:InlineArtifact .
+# Obsolated by Artifact exposed by an endpoint
+#ids:RemoteArtifact
+#    a owl:Class;
+#    rdfs:subClassOf ids:Artifact ;
+#    rdfs:label "Remote Artifact"@en ;
+#    rdfs:comment "Artifact which content is maintained separately from the description."@en ;
+#    owl:disjointWith ids:InlineArtifact .
 
 # Properties
 # ----------
@@ -46,20 +49,29 @@ ids:fileName
     rdfs:comment "Name of the Artifcat file."@en ;  	
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:string .
-    
-ids:literalValue
-    a owl:DatatypeProperty;    
-    rdfs:domain ids:InlineArtifact ;
-    rdfs:range xsd:string ;
-    rdfs:label "literal value"@en ;    
-    rdfs:comment "Literal value of the Artifcat."@en .
-    
-ids:base64Value
+
+ids:creationDate
     a owl:DatatypeProperty;
-    rdfs:domain ids:InlineArtifact ;
-    rdfs:range xsd:base64Binary ;
-    rdfs:label "Base64-encoded value"@en ;    
-    rdfs:comment "Base64-encoded value of the Artifcat."@en .
+    rdfs:subClassOf dct:created ;
+    rdfs:label "creation date"@en ;
+    rdfs:comment "Date when the artifact was created, i.e. persisted."@en ;
+    rdfs:domain ids:Artifact ;
+    rdfs:range xsd:date .
+
+# replaced by ids:Value
+#ids:literalValue
+#    a owl:DatatypeProperty;
+#    rdfs:domain ids:InlineArtifact ;
+#    rdfs:range xsd:string ;
+#    rdfs:label "literal value"@en ;
+#    rdfs:comment "Literal value of the Artifcat."@en .
+    
+#ids:base64Value
+#    a owl:DatatypeProperty;
+#    rdfs:domain ids:InlineArtifact ;
+#    rdfs:range xsd:base64Binary ;
+#    rdfs:label "Base64-encoded value"@en ;
+#    rdfs:comment "Base64-encoded value of the Artifcat."@en .
 
 ids:checkSum 
     a owl:DatatypeProperty;# spdx:checksum has range spdx:Checksum; https://spdx.org/rdf/terms/#checksum

@@ -17,9 +17,14 @@
 - Consider versioning properties, e.g. `dcterms:date` 
 - Consider versioning predicates,  e.g. `adms:prev, adms:next, adms:last, dcterms:isReplacedBy`
 - Consider annotation properties, e.g. `dcterms:abstract, dcterms:description`
+- Consider use of schema-level constructs to specify abstract content templates 
+  (see qb:DataStructureDefinition, tabular metadata schema), such a generalized
+  structure easies comparisons of instances  
 
 ## Identification
 - What are the entities to be permanently and uniformally identified, e.g. their PID
   must be immutable and constant across catalogs? Examples: Participant, Connector.
 
-    
+## TODOs
+- include [integrity constraints](https://www.w3.org/TR/vocab-data-cube#h3_wf-rules), validating resource (SPARQL ASK, SHACL etc.) and prose description
+

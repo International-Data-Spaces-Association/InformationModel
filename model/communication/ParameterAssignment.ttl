@@ -1,0 +1,44 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+
+# Classes
+# -------
+
+ids:ParameterAssignment
+    a owl:Class;
+    rdfs:label "Parameter assignment"@en ;
+    rdfs:comment "Expression of assigning a value to a parameter without creating an immediate reference."@en ;
+    idsm:example """
+
+        [] ids:parameterAssignment [ # reified parameter assigment
+            ids:parameter ex:Year ;
+            ids:value [ rdf:value "2018"^^xsd:gYear ]
+        ]
+    """
+    .
+
+ids:parameter
+    a owl:ObjectProperty;
+    rdfs:label "parameter"@en ;
+    rdfs:domain ids:ParameterAssignment;
+    rdfs:range ids:Parameter ;
+    rdfs:comment "Parameter which value is being assigned."@en .
+
+ids:contentValue
+    a owl:ObjectProperty;
+    rdfs:domain ids:ParameterAssignment;
+    rdfs:range ids:Value;
+    rdfs:label "value"@en;
+    rdfs:comment "Value being assigned to a parameter."@en.
+
+ids:parameterAssignment
+    a owl:ObjectProperty;
+    rdfs:range ids:ParameterAssignment;
+    rdfs:label "parameter assignment"@en;
+    rdfs:comment "Reference to a parameter assignment."@en.
+

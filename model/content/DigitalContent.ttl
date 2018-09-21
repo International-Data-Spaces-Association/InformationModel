@@ -84,12 +84,12 @@ ids:language a owl:ObjectProperty;
     rdfs:comment "Natural language(s) used within the Content."@en.
 
 ids:theme a owl:ObjectProperty;
-    rdfs:subPropertyOf dcat:theme;
+    rdfs:subPropertyOf dcat:theme; # is a sub-property of dct:subject, comparable to qb:concept (?)
     rdfs:label "theme"@en;
     idsm:labelPluralForm "themes"@en;
     rdfs:domain ids:DigitalContent;
-    rdfs:range ids:ContentCategory;
-    rdfs:comment "Links to a taxonomy entry point that categorizes content-related coverage of the Resources."@en.
+    rdfs:range ids:ContentCategory; # skos:Concepts organized in a skos:ConceptScheme
+    rdfs:comment "One of the categories providing a classification of the content as unit. Links to a taxonomy entry point that categorizes content-related coverage of the content."@en.
 
 ids:keyword a owl:DatatypeProperty;
     rdfs:subPropertyOf dcat:keyword;

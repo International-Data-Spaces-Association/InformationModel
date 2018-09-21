@@ -67,7 +67,7 @@ _:cdoc
         ids:language idsc_lang:English ;
         ids:representation [
             ids:mediaType idsc_media:text_plain ;
-            ids:artifact [
+            ids:instance [
                 a ids:InlineArtifact ;
                 ids:literalValue "Short version of the contract signed by FOO and BAR."@en 
             ]
@@ -79,7 +79,7 @@ _:cdoc
         ids:language idsc_lang:German ;
         ids:representation [
             ids:mediaType idsc_media:text_plain ;
-            ids:artifact [
+            ids:instance [
                 a ids:RemoteArtifact ;
                 ids:downloadUrl "https://mydocs.org/contracts/foo/bar/1" 
             ]
@@ -94,7 +94,7 @@ _:can
         ids:representation [
             ids:representationType ids:ESPER_EPL ; # ?
             ids:mediaType idsc_media:text_plain ; # text_epl ~ Event Processing Language (EPL)
-            ids:artifact [
+            ids:instance [
                 a ids:InlineArtifact ;
                 ids:literalValue "select avg(value) from value_stream#time_batch(60 sec)"@en 
             ]
