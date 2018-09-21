@@ -13,10 +13,10 @@ ids:Endpoint a owl:Class ;
 	idsm:abstract true;
 	rdfs:label "Endpoint"@en ;
     rdfs:comment "Access point of data exchange and service interaction."@en ;
-    # idsm:validation [ # endpoint is optional, when only one per type defined on connector
-    #    idsm:forProperty ids:endpointHost;
-    #    idsm:constraint idsm:NotNull;
-    # ]
+    idsm:validation [
+        idsm:forProperty ids:endpointHost;
+        idsm:constraint idsm:NotNull;
+    ];
     idsm:validation [
         idsm:forProperty ids:path;
         idsm:constraint idsm:NotNull;

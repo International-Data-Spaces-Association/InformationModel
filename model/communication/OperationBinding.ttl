@@ -27,3 +27,10 @@ ids:apiDocument a owl:ObjectProperty;
     rdfs:range ids:Resource;
     rdfs:comment "Document describing the operations exposed by the endpoint."@en.
     # The document must define at least operations on the exact (concatenated/full) path of the endpoint
+
+ids:boundOperation
+    owl:ObjectProperty;
+    rdfs:label "bound operation"@en;
+    rdfs:domain ids:OperationBinding;
+    rdfs:range ids:Operation;
+    rdfs:comment "Operation bound to a particular protocol endpoint."@en.

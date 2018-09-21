@@ -30,25 +30,37 @@
     ids:title "Read-only interface for statistics access" ;
     ids:operation :READ .
 
-:HTTP_END
-    a ids:HttpEndpoint;
-    ids:endpointHost :HTTP_HOST ;
-    ids:endpointOperation :READ ;
-    ids:path "/content/{highway}" .
-
 :READ
     a ids:ReadOperation ;
     ids:input :HIGHWAY_PARAM ;
     ids:output :TABLE_PARAM ;
-    ids:binding [
-        a ids:OperationBinding ;
-        ids:apiDocument :API_DOC
-    ] .
+
+:WRITE
+    a ids:WriteOperation ;
+    ids:input  :HIGHWAY_PARAM .
+    ids:input  :TABLE_PARAM .
+
+:OP_BINDING
+    a ids:OperationBinding ;
+    ids:boundOperation :READ ;
+    ids:apiDocument :API_DOC .
+
+:OP_BINDING2
+    a ids:OperationBinding ;
+    ids:boundOperation :WRITE ;
+    ids:apiDocument :API_DOC .
+
+
+:HTTP_END
+    a ids:InteractiveEndpoint;
+    ids:endpointHost :HTTP_HOST ;
+    ids:path "/content/{highway}" ;
+    ids:endpointOperationBinding :OP_BINDING ; # GET
+    ids:endpointOperationBinding :OP_BINDING2 . # POST
 
 :API_DOC
     a ids:Software ;
     ids:type idsc_api:openApiV3 .
-
 
 # Overall table retrieved as result
 :TABLE_PARAM
