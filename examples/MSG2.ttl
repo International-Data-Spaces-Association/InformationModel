@@ -14,17 +14,56 @@
 @prefix idsc_api: <https://w3id.org/ids/code/api/> .
 @prefix : <urn:ids:example:> .
 
-# Modeling approach: generic content description, enumerated instances distinguished by parameter settings
 
-:DAT2
-    a ids:Resource ;
-    ids:title "Interactive European highway statistics portal"@en ;
-    ids:description "Data collection about usage statistics of European highways supporting client queries."@en;
-    ids:keyword "interactive", "highway", "statistics", "Europe" ;
-    # Required for message-oriented requests
-    ids:resourceInterface :API ;
-    # used for protocol specific access to operations
-    ids:resourceEndpoint :HTTP_END .
+:MSG_REQ
+    a ids:InvokeOperationMessage;
+    # Must not be a bnode!
+    # Requires the interface operation defined, not necessarily an endpoint
+    ids:operationReference :READ;
+    ids:parameterAssignment [
+        a ids:ParameterAssignment ;
+         ids:parameter :HIGHWAY_PARAM ;
+         ids:contentValue [
+            a ids:Value ;
+            ids:value "E37";
+         ]
+    ];
+    ids:parameterRepresnetationSelector[
+         ids:parameter :TABLE_OUT;
+         ids:repre :CSV;
+    ] .
+
+:MSG_REQ
+    a ids:InvokeOperationResult;
+    ids:correlationMessage :MSG_REQ ;
+    ids:parameterAssignment [
+        a ids:ParameterAssignment ;
+         ids:parameter :TABLE_PARAM ;
+         ids:artifact [
+            # Convention clients should look for message part containing this file (via Content-Disposition)
+            a ids:Artifact ;
+                ids:fileName "look for this";
+                ids:byteSize "..";
+                ids:creationDate "..";
+         ]
+    ].
+
+# Overall table retrieved as result
+:TABLE_PARAM
+    a ids:Parameter ;
+    ids:name "tabular data" ;
+    ids:parameterContent [
+        a ids:Data;
+        ids:representation [
+            ids:mediaType idsc_media:text_csv
+        ];
+         ids:representation [
+                    ids:mediaType idsc_media:text_tsv
+         ]
+    ] .
+
+
+
 
 :API
     ids:title "Read-only interface for statistics access" ;
@@ -62,16 +101,6 @@
     a ids:Software ;
     ids:type idsc_api:openApiV3 .
 
-# Overall table retrieved as result
-:TABLE_PARAM
-    a ids:Parameter ;
-    ids:name "tabular data" ;
-    ids:parameterContent [
-        a ids:Data;
-        ids:representation [
-            ids:mediaType idsc_media:text_csv
-        ]
-    ] .
 
 
 
