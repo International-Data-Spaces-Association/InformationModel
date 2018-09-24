@@ -159,15 +159,15 @@ ids:contractRejectionReason a owl:DatatypeProperty;
 # Security Messages
 # -----------------
 
-ids:AuthorizationTokenRequest a owl:Class ;
+ids:AuthenticationTokenRequest a owl:Class ;
     rdfs:subClassOf ids:Request ;
-    rdfs:label "Authorization Token Request"@en;
-    rdfs:comment "Message requesting an authorization token. It intended for point-to-point communication with Brokers or DAPS. The associated payload is supposed to be either the requester's certificate or a dynamic attribute token (to be futher specified)."@en.
+    rdfs:label "Authentication Token Request"@en;
+    rdfs:comment "Message requesting an authentication token. It intended for point-to-point communication with, e.g., Brokers."@en.
 
-ids:AuthorizationTokenResponse a owl:Class ;
+ids:AuthenticationTokenResponse a owl:Class ;
     rdfs:subClassOf ids:Request ;
-    rdfs:label "Authorization Token Response"@en;
-    rdfs:comment "Response to an authorization token request, intended for point-to-point communication."@en.
+    rdfs:label "Authentication Token Response"@en;
+    rdfs:comment "Response to an authentication token request, intended for point-to-point communication."@en.
 
 # Resource Exchange
 # -----------------
