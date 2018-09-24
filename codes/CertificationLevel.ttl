@@ -15,74 +15,62 @@
 #
 # ParticipantCertification
 
-idsc_cert:EntryLevelSelfAssessment
+idsc_cert:PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT
     a ids:ParticipantCertificationLevel ;
-    rdfs:label "Entry Level Self-Assessment Certification of Participants"@en ;
-    idsm:constantIdentifier "PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT" .
+    rdfs:label "Entry Level Self-Assessment Certification of Participants"@en .
 
-idsc_cert:EntryLevelManagementSystem
+idsc_cert:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Entry Level Management System Certification of Participants"@en ;
-    idsm:constantIdentifier "PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM" ;
-    ids:includedCertificationLevel idsc_cert:EntryLevelSelfAssessment .
+    ids:includedCertificationLevel idsc_cert:PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT .
 
-idsc_cert:MemberLevelManagementSystem
+idsc_cert:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Member Level Management System Certification of Participants"@en ;
-    idsm:constantIdentifier "PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM" ;
-    ids:includedCertificationLevel idsc_cert:EntryLevelManagementSystem .
+    ids:includedCertificationLevel idsc_cert:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM .
     
-idsc_cert:MemberLevelControlFramework
+idsc_cert:PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Member Level ControlFramework Certification of Participants"@en ;
-    idsm:constantIdentifier "PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK" ;
-    ids:includedCertificationLevel idsc_cert:MemberLevelManagementSystem .
+    ids:includedCertificationLevel idsc_cert:PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK .
 
-idsc_cert:CentralLevelManagementSystem
+idsc_cert:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Central Level Management System Certification of Participants"@en ;
-    idsm:constantIdentifier "PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM" ;
-    ids:includedCertificationLevel idsc_cert:MemberLevelManagementSystem . #  Reference according to same methodology
+    ids:includedCertificationLevel idsc_cert:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM . #  Reference according to same methodology
 
-idsc_cert:CentralLevelControlFramework
+idsc_cert:PARTICIPANT_CENTRAL_LEVEL_CONTROL_FRAMEWORK
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Central Level Control Framework Certification of Participants"@en ;
-    idsm:constantIdentifier "PARTICIPANT_CENTRAL_LEVEL_CONTROL_FRAMEWORK" ;
-    ids:includedCertificationLevel idsc_cert:CentralLevelManagementSystem .
+    ids:includedCertificationLevel idsc_cert:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM .
 
 # ComponentCertification
 
-idsc_cert:BaseSecurityProfileChecklistApproach
+idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH
     a ids:ComponentCertificationLevel ;
-    rdfs:label "Base Security Profile Certification of Components based on Checklist Approach"@en ;
-    idsm:constantIdentifier "COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH" .
+    rdfs:label "Base Security Profile Certification of Components based on Checklist Approach"@en .
 
-idsc_cert:BaseSecurityProfileConceptReview
+idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW
     a ids:ComponentCertificationLevel ;
     rdfs:label "Base Security Profile Certification of Components based on Concept Review"@en ;
-    idsm:constantIdentifier "COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW" ;
-    ids:includedCertificationLevel idsc_cert:BaseSecurityProfileChecklistApproach .
+    ids:includedCertificationLevel idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH .
 
-idsc_cert:TrustSecurityProfileConceptReview
+idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust Security Profile Certification of Components based on Concept Review"@en ;
-    idsm:constantIdentifier "COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW" ;
-    ids:includedCertificationLevel idsc_cert:BaseSecurityProfileConceptReview .
+    ids:includedCertificationLevel idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW .
 
-idsc_cert:TrustSecurityProfileHighAssuranceEvaluation
+idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust Security Profile Certification of Components based on High Assurance Evaluation"@en ;
-    idsm:constantIdentifier "COMPONENT_TRUST_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION" ;
-    ids:includedCertificationLevel idsc_cert:TrustSecurityProfileConceptReview .
+    ids:includedCertificationLevel idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW .
 
-idsc_cert:TrustPlusSecurityProfileConceptReview
+idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust-Plus Security Profile Certification of Components based on Concept Review"@en ;
-    idsm:constantIdentifier "COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW" ;
-    ids:includedCertificationLevel idsc_cert:TrustSecurityProfileConceptReview . #  Reference according to same methodology
+    ids:includedCertificationLevel idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW . #  Reference according to same methodology
 
-idsc_cert:TrustPlusSecurityProfileHighAssuranceEvaluation
+idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust-Plus Security Profile Certification of Components based on High AssuranceEvaluation"@en ;
-    idsm:constantIdentifier "COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION" ;
-    ids:includedCertificationLevel idsc_cert:TrustPlusSecurityProfileConceptReview .
+    ids:includedCertificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW .
