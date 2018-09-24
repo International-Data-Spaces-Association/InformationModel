@@ -36,4 +36,12 @@ ids:accessUrl
     rdfs:seeAlso <https://github.com/mqtt/mqtt.github.io/wiki/URI-Scheme> .
     # https://example.org:8080
     # mqtts://198.41.30.241:8883
-    
+
+ids:pathPrefix # optional
+    a owl:DatatypeProperty;
+    rdfs:label "path prefix"@en;
+    rdfs:domain ids:Host;
+    rdfs:range xsd:string;
+    rdfs:comment "Prefix optionally appended to all of the paths served by the host."@en.
+
+

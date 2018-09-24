@@ -68,6 +68,7 @@
     ids:fileName "E1_01_2000.csv" .
 
 :E1_01_2018_XLS
+    a ids:Artifact ;
     ids:creationDate "2000-02-01"^^xsd:date ;
     ids:byteSize 9823132;
     ids:fileName "E1_01_2000.xls" .
@@ -90,16 +91,18 @@
 
 
 # Materialization / instances
+# Resource must link exposed Endpoints
 :DAT1
     ids:endpoint [
+        a ids:StaticEndpoint ;
         ids:endpointHost :HTTP_HOST ;
-        ids:endpointContent :E1_01_2000 ;
+        ids:endpointArtifact :E1_01_2018_CSV ;
         # Fixed / versioned endpoint
         ids:path "/content/E1_01_2000.csv"
     ] ;
     ids:endpoint [
         ids:endpointHost :HTTP_HOST ;
-        ids:endpointContent :E1_01_2000 ;
+        ids:endpointArtifact :E1_01_2018_XLS ;
         ids:path "/content/E1_01_2000.xls"
     ] .
 

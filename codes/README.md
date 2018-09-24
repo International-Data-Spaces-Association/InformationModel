@@ -61,7 +61,7 @@ Collection of *code lists* and taxonomies of values, instances of classes define
     - https://www.europeandataportal.eu/en/content/show-license
     - https://www.europeandataportal.eu/data/api/action/license_list
     - https://www.w3.org/TR/void/#license
-- Listing of licenses used in Eu Data Portal (by query)
+- Listing of licenses used in [EU Data Portal](https://www.europeandataportal.eu/de/content/show-license)
 
 ### Norms
 - non-binding / habitual conditions of use applied in a community
