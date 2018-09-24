@@ -4,51 +4,70 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://vocab.org/vann/> .
 
 # Properties
 # ----------
 
-idsm:abstract a owl:DatatypeProperty;
-    rdfs:label "isAbstract"@en;
+idsm:abstract
+    a owl:DatatypeProperty;
+    rdfs:label "abstract"@en;
     rdfs:domain owl:Class;
     rdfs:range xsd:boolean;
-    rdfs:comment "Abstract concept, i.e. it is expected there are no instantiations of this class, but concrete subclasses."@en.
+    rdfs:comment "Abstract concept marker, its instantiation is delegated to extending constructs (sub-classes or sub-properties)."@en.
 
-idsm:labelPluralForm a owl:ObjectProperty;
-    rdfs:subPropertyOf skos:prefLabel;
-	rdfs:label "labelPluralForm"@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range rdf:PlainLiteral;
-    rdfs:comment "The preferred lexical label for a resource, in plural form in a given language."@en.
-
-idsm:explanation a owl:DatatypeProperty;
-    rdfs:label "explanation"@en;
-    rdfs:domain owl:Class;
-    rdfs:range xsd:string;
-    rdfs:comment "Verbose description of motivations and design decisions underlying the concept."@en.
-
-idsm:competencyQuestion
+idsm:constantIdentifier
     a owl:DatatypeProperty;
-    rdfs:label "competency question"@en;
-    rdfs:domain owl:Class;
+    rdfs:label "constant identifier"@en;
     rdfs:range xsd:string;
-    rdfs:comment "Single 'competency question' the concept is intended to address."@en ;
-    rdfs:seeAlso <https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html#Step1> .
+    rdfs:comment "Identifier of an individual when represented as an enumeration type in the target programming language."@en.
 
-idsm:example
+idsm:referenceByUrl
     a owl:DatatypeProperty;
-    rdfs:label "example"@en;
-    rdfs:domain owl:Class;
-    rdfs:range xsd:string;
-    rdfs:comment "Short (code) example."@en .
-
-idsm:constantIdentifier a owl:DatatypeProperty;
-    rdfs:label "constantIdentifier"@en;
-    rdfs:range xsd:string;
-    rdfs:comment "Defines the identifier of an individual when represented as an enumeration type in the target programming language."@en.
-
-idsm:referenceByUrl a owl:DatatypeProperty;
     rdfs:label "Reference by URL"@en;
     rdfs:domain owl:Class;
     rdfs:range xsd:boolean;
     rdfs:comment "States that a reference to a class should not be implemented by a local in-memory reference but as a URL addressing the remote instance."@en.
+
+# annotation properties
+# - generic domain rdfs:Resource applies to any classes and predicates
+# - language-tagged text, rdf:PlainLiteral
+
+idsm:labelPluralForm
+    a owl:DatatypeProperty;
+    rdfs:subPropertyOf skos:prefLabel;
+	rdfs:label "plural label form"@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdf:PlainLiteral;
+    rdfs:comment "The preferred lexical label for a resource, in plural form in a given language."@en.
+
+idsm:example
+    a owl:DatatypeProperty;
+    # not extending vann:example because derived from rdfs:seeAlso with range rdfs:Resource
+    rdfs:label "example"@en;
+    rdfs:domain rdfs:Resource;
+    rdfs:range rdf:PlainLiteral;
+    rdfs:comment "Literal in-line example of instantiating given modeling construct."@en .
+
+idsm:usage
+    a owl:DatatypeProperty;
+    # not extending vann:usageNote for same reason (*reference to* an explanatory resource)
+    rdfs:label "usage"@en;
+    rdfs:domain rdfs:Resource;
+    rdfs:range rdf:PlainLiteral;
+    rdfs:comment "Literal in-line note recommending a particular usage of given modeling construct."@en .
+
+idsm:rationale
+    a owl:DatatypeProperty;
+    rdfs:label "rationale"@en;
+    rdfs:domain rdfs:Resource;
+    rdfs:range rdf:PlainLiteral;
+    rdfs:comment "Literal description of motivations, requirements and design decisions underlying the modeling of a construct."@en.
+
+idsm:competencyQuestion
+    a owl:DatatypeProperty;
+    rdfs:label "competency question"@en;
+    rdfs:domain rdfs:Resource;
+    rdfs:range rdf:PlainLiteral;
+    rdfs:comment "Single 'competency question' the modeling construct is intended to address."@en ;
+    rdfs:seeAlso <https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html#Step1> .

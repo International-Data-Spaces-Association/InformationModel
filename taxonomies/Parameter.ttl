@@ -9,96 +9,104 @@
 # Classes
 # -------
 
-# Parameter subclasses serve the definition of restriction based on Parameter type
-#
+# Parameter subclasses reflect the purpose of a Parameter and support
+# the definition of restrictions on Operation signatures based on Parameter type
+
 # Identification
 
-# TODO, clarify how IdentifierParameter refers to/relates to Identifier (of Resource, Connector etc.)?
 ids:IdentifierParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
-    rdfs:label "Identifier parameter"@en ; 
-    rdfs:comment "Parameter for passing Resource identifiers as defined by a Resource Collection. The Resource identifier is unique and valid regardless of the actual extent, ordering, and view (filtering) of the Collection."@en .
+    rdfs:label "Identifier parameter"@en ;
+    rdfs:comment "Parameter for conveying identifiers as defined by, e.g. an element collection (name/key). The identifier is unique and valid (in a defined context) regardless of the actual extent, ordering, and view (filtering)."@en ;
+    .
 
 ids:IndexParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
     rdfs:label "Index parameter"@en ; 
-    rdfs:comment "Parameter conveying the transient, positional identifier of a resource in the context of an ordered Collection. The resource index is temporarily unique and valid only with respect to the actual extent, ordering, and view (filtering) of the Collection."@en .
+    rdfs:comment "Parameter conveying the transient, positional identifier of a resource in the context of an ordered Collection. The resource index is temporarily unique and valid only with respect to the actual extent, ordering, and view (filtering) of the Collection."@en ;
+    .
 
+# Content
 
+ids:ResourceParameter
+    a owl:Class ;
+    rdfs:subClassOf ids:Parameter ;
+    rdfs:label "Resource parameter"@en ;
+    rdfs:comment "Parameter conveying a representation of resource's principal content, contrasted to parameters mediating arbitrary data."@en ;
+    .
 
-#ids:ContentParameter
-#    a owl:Class ;
-#    rdfs:subClassOf ids:Parameter ;
-#    rdfs:label "Content parameter"@en ; 
-#    rdfs:comment "Parameter used to mediate a Content Representation, contrasted to parameters conveying auxiliary information."@en .
-
-
-    
 # Sorting
 
+# ASC / DESC
 ids:SortOrderParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
     rdfs:label "Sort order parameter"@en ;
-    rdfs:comment "Parameter indicating the ordering of list items."@en .
+    rdfs:comment "Parameter indicating the sort direction of an ordered Collection."@en ;
+    .
 
+# List of column identifiers
 ids:SortKeyParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
     rdfs:label "Sort key parameter"@en ;
-    rdfs:comment "Parameter indicating the key values underlying the sorting of items in a list."@en .
+    rdfs:comment "Parameter indicating the keys underlying the sorting of an ordered Collection."@en ;
+    .
 
-# Client-defined content view
+# Client-defined content view - support for "content pagination"
 
-# int
+# Signed int
 ids:OffsetParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
     rdfs:label "Offset parameter"@en ;
-    rdfs:comment "Parameter indicating the absolute offset (number of data elements to skip) within an ordered data Collection. Negative values are bounded at Collections's end (reverse index)."@en .
+    rdfs:comment "Parameter indicating the absolute offset (number of data elements to skip) within an ordered data Collection. Negative values are bounded at Collections's end (reverse) index."@en ;
+    .
 
 # nonNegativeInt > 0
 ids:LimitParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
     rdfs:label "Limit parameter"@en ;
-    rdfs:comment "Parameter indicating the number of elements retrieved or provided at once within a paginated subset (page)."@en .
+    rdfs:comment "Parameter indicating the number of elements retrieved or provided at once within a paginated subset (page)."@en ;
+    .
 
-# Server-defined content view, pre-selected page size
+# Server-defined content view, i.e. clients navigate predefined content "pages" by index or reference
 
-# int, same as offset
+# Signed int, same as offset
 ids:PageIndexParameter
     a owl:Class ;
     rdfs:subClassOf ids:IndexParameter ;
     rdfs:label "Page index parameter"@en ; 
-    rdfs:comment "Parameter conveying the transient, positional identifier of a content page within a server-defined pagination."@en .
+    rdfs:comment "Parameter conveying the transient, positional identifier of a content page within a server-defined pagination."@en ;
+    .
 
-# one of codes/PageReference.ttl
+# Relative page reference (first/last etc.), see codes/PageReference.ttl
 ids:PageReferenceParameter
     a owl:Class ;
+    rdfs:subClassOf ids:Parameter ;
     rdfs:label "Page reference parameter"@en ; 
-    rdfs:comment "Parameter conveying the relative reference to a content page within a server-defined pagination."@en .
+    rdfs:comment "Parameter conveying a relative reference to a content page within a server-defined pagination."@en ;
+    .
 
-# Filtering
+# Filtering - listing matching contents
 
+# LDAP Filter, XPath/JSONPath
 ids:FilterParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
     rdfs:label "Filter parameter"@en ; 
-    rdfs:comment "Parameter holding a filter expression (matcher) used to identify a matching subset of a collec­tion’s Resources."@en .
-    # Extension of "Filter" parameter supporting hierarchical, nested data structures: SparqlPropertyPath, XPath, JSONPath, LDAP-Path etc.
-    # LDAP-Path („Distinguished Name“, "DN")
-    #   - https://docs.ldap.com/specs/rfc4514.txt
-    #   - distinguished name (usually just shortened to “DN”) uniquely identifies an entry and describes its position in the DIT.
-    # value "literal"^^ids:LDAPFilter; ""^^GraphPatternFilter -> custom datatype?
+    rdfs:comment "Parameter holding a filter expression (matcher) used to identify a matching selection of contents."@en ;
+    .
 
-# Selection / extraction
-    
+# Selection - extracting matching content parts
+
+# XQuery, SPARQL Construct/Select
 ids:SelectorParameter
     a owl:Class ;
     rdfs:subClassOf ids:Parameter ;
     rdfs:label "Selector parameter"@en ; 
-    rdfs:comment "Parameter holding a selector expression used to retrieve a matching subset of a collection’s Resource contents."@en .
-    # Examples: XQuery, SPARQL Construct/Select
+    rdfs:comment "Parameter holding a selector expression used to retrieve a subset of a Resource contents."@en ;
+    .

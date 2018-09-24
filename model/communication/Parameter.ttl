@@ -9,8 +9,7 @@
 # Classes
 # -------
 
-# Parameter
-# re-usable for in/out/fault, usage indicated by predicates
+# Parameter is a re-usable for in/out/fault, usage indicated by predicates
 # purpose/interpretation is not necessarily re-usable, e.g. startDate vs. endDate
 # default cardinality: {0,1} (because fault is optional, consequence: any API parameter is optional by default)
 # explicitly required usage ({1}) must be marked by predicate mandatoryInput (client-side contract) or mandatoryOutput (server-side conract)
@@ -18,11 +17,11 @@
 ids:Parameter a owl:Class;
     rdfs:subClassOf ids:Named;
     rdfs:label "Parameter"@en ;
-    rdfs:comment "Named slot of an Interface Operation i.e., an input, output or fault (exception)."@en;
-    idsm:abstract true .
+    rdfs:comment "Named slot of an interface operation i.e., an input, output or fault (exception)."@en;
+    .
 
 # Content
-# adds reference to Content via "parameterContent" link, single cardinality per default ({1})
+# reference to Content via "parameterContent" link, single cardinality per default ({1})
 # explicit multiplicity marked by predicate parameterContentList ({1,n}), range of parameterContentList is Content #rdf:List
 # content cardinalities along the predicate path:
 #    1) input P parameterContent C {0,1}
@@ -34,19 +33,12 @@ ids:parameterContent a owl:ObjectProperty;
     rdfs:label "parameter content"@en ;
     rdfs:domain ids:Parameter ;
     rdfs:range ids:DigitalContent ;
-    rdfs:comment "Content model of the parameter."@en .
+    rdfs:comment "Content model of a monovalent parameter, i.e. it bounds one value at most."@en ;
+    .
 
 ids:parameterContentList a owl:ObjectProperty;
     rdfs:domain ids:ContentParameter;
     rdfs:range ids:DigitalContent;
     rdfs:label "parameter content list"@en;
-    rdfs:comment "List of Digital Contents mediated by the Parameter."@en.
-
-# obsolate by reference to Content model:
-#ids:representation a owl:ObjectProperty; 
-#    rdfs:label "representation"@en ;
-#    rdfs:domain ids:Parameter ;
-#    rdfs:range ids:Representation ;
-#    rdfs:comment "Indicates how the parameter is technically represented."@en .
-
-
+    rdfs:comment "Content model of a multivalent parameter, i.e. it may bind multiple corresponding values."@en ;
+    .

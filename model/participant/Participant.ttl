@@ -13,9 +13,9 @@
 
 ids:Agent 
     a owl:Class;    
-    rdfs:subClassOf odrl:Party, foaf:Agent ;# odrl:Party makes it a reliable party in contracting
+    rdfs:subClassOf ids:Described, odrl:Party, foaf:Agent ;# odrl:Party makes it a reliable party in contracting
     rdfs:label "Agent"@en;
-	rdfs:comment "Internal or external Agent interacting with the Industrial Data Space."@en.
+	rdfs:comment "Internal or external Agent interacting with the Industrial Data Space, not necessarily an IDS Participant."@en.
 
 ids:Participant
     a owl:Class;
@@ -92,8 +92,8 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
     rdfs:label "memberParticipant"@en;
     rdfs:comment "Indicates that a participant has a member which is again a participant. This is useful for defining hierarchical relations in a participant's organization as well as identifying groups of participants to capture, e.g., members of a collaboration."@en.
 
-ids:coversIndustry a owl:ObjectProperty;
-    rdfs:label "coversIndustry"@en;
+ids:industrialClassification a owl:ObjectProperty;
+    rdfs:label "industrial classification"@en;
     rdfs:domain ids:Participant;
     rdfs:range ids:IndustrialClassification;
     rdfs:comment "Industry branch covered by the Participant."@en.
