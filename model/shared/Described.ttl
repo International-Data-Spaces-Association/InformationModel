@@ -15,12 +15,21 @@
 ids:Described
     a owl:Class ;    
     rdfs:label "described"@en ;
-    rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en .
+    rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en;
+    idsm:validation [
+        idsm:forProperty ids:title;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:description;
+        idsm:relationType idsm:OneToMany;
+    ].
     
 ids:title
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:title ;
     rdfs:label "title"@en ;
+    idsm:labelPluralForm "titles"@en;
     rdfs:domain ids:Described ;
     rdfs:range rdfs:Literal ;
     rdfs:comment "(Localized) name of the entity."@en .
@@ -29,6 +38,7 @@ ids:description
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:description ;
     rdfs:label "description"@en ;
+    idsm:labelPluralForm "descriptions"@en;
     rdfs:domain ids:Described ;
     rdfs:range rdfs:Literal ;
     rdfs:comment "(Localized) textual description of the entity."@en .
