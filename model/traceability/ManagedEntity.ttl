@@ -10,10 +10,12 @@
 # Classes
 # -------
 
-ids:ManagedEntity a owl:Class;
+ids:ManagedEntity
+    a owl:Class;
+    rdfs:subClassOf ids:Described ;
     idsm:abstract true;
-    rdfs:label "ManagedEntity"@en ;
-    rdfs:comment "The class of all individuals that are subject of a lifecycle which needs to be tracked.";
+    rdfs:label "Managed entity"@en ;
+    rdfs:comment "The class of mutable individuals that are a potential subject to lifecycle management which may need to be tracked.";
     idsm:validation [
         idsm:forProperty ids:lifecycleActivity;
         idsm:relationType idsm:OneToMany;
@@ -31,28 +33,12 @@ ids:ManagedEntity a owl:Class;
 # Properties of ManagedEntity
 # -------------------------------------
 
-ids:entityName rdfs:subPropertyOf dct:title;
-	a owl:DatatypeProperty;
-	rdfs:domain ids:ManagedEntity;
-	rdfs:range rdf:PlainLiteral;
-    rdfs:label "entityName"@en;
-    idsm:labelPluralForm "entityNames"@en;
-	rdfs:comment "Name of the ManagedEntity."@en.
-
-ids:entityDescription rdfs:subPropertyOf dct:description;
-	a owl:DatatypeProperty;
-	rdfs:domain ids:ManagedEntity;
-	rdfs:range rdf:PlainLiteral;
-	rdfs:label "entityDescription"@en;
-	idsm:labelPluralForm "entityDescriptions"@en;
-	rdfs:comment "Freetext description of the ManagedEntity."@en.
-
 ids:lifecycleActivity a owl:ObjectProperty;
     rdfs:label "lifecycleActivity"@en;
     idsm:labelPluralForm "lifecycleActivities"@en;
     rdfs:domain ids:ManagedEntity;
     rdfs:range ids:Activity;
-    rdfs:comment "Activity that occurs during the lifecycle of the InfrastructureComponent."@en.
+    rdfs:comment "Activity that occurs during the lifecycle of the Managed Entity."@en.
 
 ids:version a owl:DatatypeProperty;
     rdfs:subPropertyOf dct:hasVersion;
