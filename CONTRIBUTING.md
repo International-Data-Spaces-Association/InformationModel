@@ -7,6 +7,12 @@ This file documents the decisions we made for our processes and quality.
 We document changes in the CHANGELOG.md on root level which is formatted and
 maintained according to the rules documented on http://keepachangelog.com.
 
+## General source code rules
+
+- strip whitespace at the end of lines
+- do not use tabs (use 4 spaces instead)
+- end each file with a newline (its easier to concat them then)
+
 ## Commits
 
 ### Requirements
