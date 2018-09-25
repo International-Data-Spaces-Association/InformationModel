@@ -2,7 +2,7 @@
 #schemas are ontology files, instances contain individuals instantiating ontology resources
 #manualtests in form of RDFUnit testcase definitions can be added as well
 MANUALSRC=$(wildcard testing/*.rdfunit.ttl)
-INSTANCESRC=$(wildcard examples/*.ttl)
+# INSTANCESRC=$(wildcard examples/*.ttl)
 ##include files which should be used for widoco generation
 DOCSRC=Ontology.ttl $(wildcard model/*/*.ttl)
 SCHEMASRC=Ontology.ttl $(wildcard model/*/*.ttl) $(wildcard codes/*.ttl) $(wildcard taxonomies/*.ttl)
