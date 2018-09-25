@@ -126,11 +126,46 @@ annotated with metadata (instances of the Message class in the header part). Met
 Therefore, the IDS infomodel introduces a concise set of message types specifying metadata fields that must/should/can be set in order to 
 facilitate the business interactions. 
 
-## Example INTER1: Catalog publication in Broker
+## Example INTER1: Connector registration at Broker
+- msg. type: ids:ConnectorAvailable 
+    - ids:issuingConnector :CONN2
+    - ids:consumerConnector :BROKER
+    - ids:issued DATE
+    - ids:modelVersion # of the payload/sender
+    - ids:authenticationToken [ ids:tokenValue .. ; ids:tokenFormat ..]
+    - payload: Graph representation of CONN2 
 
-## Example INTER2: Broker search and content identification
+## Example INTER2: Broker search and identification of content offerings
+.. assuming the availability of all the above mentioned contents
+- msg in: <uriq> BrokerQuery
+    - ids:queryScope ACTIVE
+    - ids:queryLanguage SPARQL_1.1 # compare codes 
+    - ids:issuingConnector :CONN2
+    - ids:consumerConnector :BROKER
+    - ids:issued DATE
+    - ids:modelVersion # of the payload/sender
+    - ids:authenticationToken [ ids:tokenValue .. ; ids:tokenFormat ..]
+    - payload type: not defined explictly (SPARQL Query - e.g. 
+    
+        DESCRIBE ?content WHERE { ?content a ids:Content; ids:theme }
+    
+    )
+    
+- msg out
+    a ids:Result
+    - ids:correlationMessage <uriq>
+    - ids:issuingConnector :BROKER
+    - ids:consumerConnector :CONN2
+    - ids:issued DATE
+    - ids:modelVersion # of the payload/sender   
+    - payload type: not defined explictly 
+    
+        RDF Graph
+    
 
-## Example INTER3: Contract negotiation of the Resource(s) selected  
+## Example INTER3: Contract negotiation of the selected contents
+
+
 
 ## Example INTER4: Content retrieval
 
