@@ -4,11 +4,13 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#>.
 
 # Description of this ontology
 # ----------------------------
 
-ids:declarativeModel a owl:Ontology;
+ids: a owl:Ontology;
     dct:title "The Industrial Dataspace Information Model"@en;
     rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace.";
     dct:creator "Christian Mader" ;
@@ -19,120 +21,11 @@ ids:declarativeModel a owl:Ontology;
     dct:publisher "Fraunhofer IAIS/EIS";
     dct:publisher "Fraunhofer FIT";
     dct:date "2018-06-27";
-    owl:versionInfo "0.9.1";
-    owl:imports
-        
-<codes/ApiDocumentType.ttl>,
-<codes/ArchiveFormat.ttl>,
-<codes/AuthenticationTokenFormat.ttl>,
-<codes/BrokerQueryScope.ttl>,
-<codes/Category.ttl>,
-<codes/CertificationLevel.ttl>,
-<codes/ContentType.ttl>,
-<codes/DataType.ttl>,
-<codes/FaultPropagationRule.ttl>,
-<codes/IndustrialClassification.ttl>,
-<codes/Language.ttl>,
-<codes/License.ttl>,
-<codes/MediaType.ttl>,
-<codes/MessageExchangePattern.ttl>,
-<codes/NamedEvent.ttl>,
-<codes/PageReference.ttl>,
-<codes/ParameterType.ttl>,
-<codes/PayloadAnnotationMethod.ttl>,
-<codes/Protocol.ttl>,
-<codes/QueryLanguage.ttl>,
-<codes/RejectionReason.ttl>,
-<codes/RelativeReference.ttl>,
-<codes/SchemaType.ttl>,
-<codes/SortOrder.ttl>,
-<codes/Unit.ttl>,
-<examples/client_pattern_1.ttl>,
-<examples/CONN2.ttl>,
-<examples/ContractOffer.ttl>,
-<examples/CreationActivity.ttl>,
-<examples/DAT1a.ttl>,
-<examples/DAT1b.ttl>,
-<examples/DAT2.ttl>,
-<examples/dwd.ttl>,
-<examples/eccenca-CorporateMemory.ttl>,
-<examples/MSG2.ttl>,
-<examples/PART1.ttl>,
-<examples/server_pattern_1_archive.ttl>,
-<metamodel/Annotation.ttl>,
-<metamodel/Validation.ttl>,
-<metamodel/View.ttl>,
-<model/communication/ApiDocumentType.ttl>,
-<model/communication/DataType.ttl>,
-<model/communication/Endpoint.ttl>,
-<model/communication/FaultPropagationRule.ttl>,
-<model/communication/Host.ttl>,
-<model/communication/Interface.ttl>,
-<model/communication/MessageExchangePattern.ttl>,
-<model/communication/Message.ttl>,
-<model/communication/OperationBinding.ttl>,
-<model/communication/Operation.ttl>,
-<model/communication/ParameterAssignment.ttl>,
-<model/communication/ParameterGroupingOperator.ttl>,
-<model/communication/ParameterGroup.ttl>,
-<model/communication/Parameter.ttl>,
-<model/communication/ParameterType.ttl>,
-<model/communication/Protocol.ttl>,
-<model/communication/Service.ttl>,
-<model/communication/WebSocket.ttl>,
-<model/content/Artifact.ttl>,
-<model/content/Category.ttl>,
-<model/content/DataApp.ttl>,
-<model/content/DigitalContent.ttl>,
-<model/content/Language.ttl>,
-<model/content/MediaType.ttl>,
-<model/content/Representation.ttl>,
-<model/content/Resource.ttl>,
-<model/context/NamedEvent.ttl>,
-<model/context/SpatialEntity.ttl>,
-<model/context/TemporalEntity.ttl>,
-<model/context/WorldEntity.ttl>,
-<model/contract/Action.ttl>,
-<model/contract/BinaryOperator.ttl>,
-<model/contract/Contract.ttl>,
-<model/contract/LeftOperand.ttl>,
-<model/contract/Payment.ttl>,
-<model/contract/Policy.ttl>,
-<model/contract/PricingModel.ttl>,
-<model/contract/Rule.ttl>,
-<model/governance/Certification.ttl>,
-<model/governance/DataSovereignty.ttl>,
-<model/governance/Governance.ttl>,
-<model/governance/License.ttl>,
-<model/governance/Standard.ttl>,
-<model/infrastructure/AppStore.ttl>,
-<model/infrastructure/Broker.ttl>,
-<model/infrastructure/Catalog.ttl>,
-<model/infrastructure/ClearingHouse.ttl>,
-<model/infrastructure/Component.ttl>,
-<model/infrastructure/Connector.ttl>,
-<model/infrastructure/IdentityProvider.ttl>,
-<model/infrastructure/VocabularyHub.ttl>,
-<model/participant/IndustrialClassification.ttl>,
-<model/participant/Participant.ttl>,
-<model/participant/Role.ttl>,
-<model/security/AuthInfo.ttl>,
-<model/security/AuthenticationToken.ttl>,
-<model/security/AuthStandard.ttl>,
-<model/security/SecurityProfile.ttl>,
-<model/shared/Described.ttl>,
-<model/shared/Identifiable.ttl>,
-<model/shared/Named.ttl>,
-<model/shared/Reference.ttl>,
-<model/shared/Unit.ttl>,
-<model/traceability/Activity.ttl>,
-<model/traceability/ManagedEntity.ttl>,
-<taxonomies/Certification.ttl>,
-<taxonomies/DigitalContent.ttl>,
-<taxonomies/Message.ttl>,
-<taxonomies/Operation.ttl>,
-<taxonomies/Parameter.ttl>,
-<taxonomies/Representation.ttl>,
-<taxonomies/Resource.ttl>,
-<views/GlossaryView.ttl>
+    owl:versionInfo "SNAPTSHOT";
+    vann:preferredNamespaceUri "https://w3id.org/idsa/core/";
+    vann:preferredNamespacePrefix "ids" ;
+    void:vocabulary
+       <http://purl.org/dc/terms/> ,
+       <http://purl.org/vocab/vann/> ,
+       <http://xmlns.com/foaf/0.1/> ;
 .

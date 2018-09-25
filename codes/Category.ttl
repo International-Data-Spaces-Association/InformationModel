@@ -15,37 +15,38 @@
 
 idsc_cat:topic a skos:ConceptScheme ;
     dct:title "Dataset content classification by topic" .
-    
+
 idsc_cat:weather a skos:Concept ;
     a ids:ContentCategory;
     skos:prefLabel "weather"@en ;
-	idsm:constantIdentifier "WEATHER";
+    idsm:constantIdentifier "WEATHER";
     skos:topConceptOf idsc_cat:topic;
-	skos:narrower idsc_cat:roadcondition;
-	skos:narrower idsc_cat:alert;
-	skos:narrower idsc_cat:analysis;
-	skos:narrower idsc_cat:forecast.
+    skos:narrower idsc_cat:roadcondition;
+    skos:narrower idsc_cat:alert;
+    skos:narrower idsc_cat:analysis;
+    skos:narrower idsc_cat:forecast.
 
 idsc_cat:roadcondition a skos:Concept ;
-	a ids:ContentCategory;
+    a ids:ContentCategory;
     skos:prefLabel "road condition"@en ;
-	idsm:constantIdentifier "WEATHER_ROAD_CONDITION";
-	skos:broader idsc_cat:weather .
+    idsm:constantIdentifier "WEATHER_ROAD_CONDITION";
+    skos:broader idsc_cat:weather .
 
 idsc_cat:alert a skos:Concept ;
-	a ids:ContentCategory;
-	skos:prefLabel "alert"@en ;
-	idsm:constantIdentifier "WEATHER_ALERT";
-	skos:broader idsc_cat:weather .
+    a ids:ContentCategory;
+    skos:prefLabel "alert"@en ;
+    idsm:constantIdentifier "WEATHER_ALERT";
+    skos:broader idsc_cat:weather .
 
 idsc_cat:analysis a skos:Concept ;
-	a ids:ContentCategory;
-	skos:prefLabel "analysis"@en ;
-	idsm:constantIdentifier "WEATHER_ANALYSIS";
-	skos:broader idsc_cat:weather .
+    a ids:ContentCategory;
+    skos:prefLabel "analysis"@en ;
+    idsm:constantIdentifier "WEATHER_ANALYSIS";
+    skos:broader idsc_cat:weather .
 
 idsc_cat:forecast a skos:Concept ;
-	a ids:ContentCategory;
-	skos:prefLabel "forecast"@en ;
-	idsm:constantIdentifier "WEATHER_FORECAST";
+    a ids:ContentCategory;
+    skos:prefLabel "forecast"@en ;
+    idsm:constantIdentifier "WEATHER_FORECAST";
     skos:broader idsc_cat:weather .
+
