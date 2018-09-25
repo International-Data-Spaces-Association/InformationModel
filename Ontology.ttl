@@ -4,11 +4,13 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ids: <https://w3id.org/ids/core/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#>.
 
 # Description of this ontology
 # ----------------------------
 
-ids:declarativeModel a owl:Ontology;
+ids: a owl:Ontology;
     dct:title "The Industrial Dataspace Information Model"@en;
     rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace.";
     dct:creator "Christian Mader" ;
@@ -19,7 +21,13 @@ ids:declarativeModel a owl:Ontology;
     dct:publisher "Fraunhofer IAIS/EIS";
     dct:publisher "Fraunhofer FIT";
     dct:date "2018-06-27";
-    owl:versionInfo "0.9.1";
+    owl:versionInfo "SNAPTSHOT";
+    vann:preferredNamespaceUri "https://w3id.org/ids/core/";
+    vann:preferredNamespacePrefix "ids" ;
+    void:vocabulary
+       <http://purl.org/dc/terms/> ,
+       <http://purl.org/vocab/vann/> ,
+       <http://xmlns.com/foaf/0.1/> ;
     owl:imports
         
 <codes/ApiDocumentType.ttl>,
