@@ -130,15 +130,37 @@ ids:queryLanguage a owl:ObjectProperty;
 # Contract Negotiation
 # --------------------
 
-ids:ContractOfferMessage a owl:Class ;
-    rdfs:subClassOf ids:Request ;
-    rdfs:label "Contract Offer Message"@en;
-    rdfs:comment "Message containing a contract with resource access modalities (as offered by the data provider to the data consumer) in the associated payload.".
-
 ids:ContractRequestMessage a owl:Class ;
     rdfs:subClassOf ids:Request ;
     rdfs:label "Contract Request Message"@en;
-    rdfs:comment "Message containing a contract with resource access modalities (as offered by the data consumer to the data provider) in the associated payload.".
+    rdfs:comment "Message containing a suggested content contract (as offered by the data consumer to the data provider) in the associated payload.";
+    idsm:validation [
+        idsm:forProperty ids:targetContent;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:baseContractOffer;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:targetContent a owl:ObjectProperty;
+    rdfs:label "Target Content"@en ;
+    idsm:referenceByUrl true;
+    rdfs:domain ids:ContractRequestMessage;
+    rdfs:range ids:DigitalContent;
+    rdfs:comment "The content that the contract request message refers to."@en.
+
+ids:baseContractOffer a owl:ObjectProperty;
+    rdfs:label "Base Contract Offer"@en ;
+    idsm:referenceByUrl true;
+    rdfs:domain ids:ContractRequestMessage;
+    rdfs:range ids:ContractOffer;
+    rdfs:comment "The basic offered contract that the contract request message refers to."@en.
+
+ids:ContractOfferMessage a owl:Class ;
+    rdfs:subClassOf ids:Response ;
+    rdfs:label "Contract Offer Message"@en;
+    rdfs:comment "Message containing a offered content contract (as offered by the data provider to the data consumer) in the associated payload.".
 
 ids:ContractAgreementMessage a owl:Class ;
     rdfs:subClassOf ids:Event;
@@ -165,7 +187,7 @@ ids:AuthenticationTokenRequest a owl:Class ;
     rdfs:comment "Message requesting an authentication token. It intended for point-to-point communication with, e.g., Brokers."@en.
 
 ids:AuthenticationTokenResponse a owl:Class ;
-    rdfs:subClassOf ids:Request ;
+    rdfs:subClassOf ids:Response ;
     rdfs:label "Authentication Token Response"@en;
     rdfs:comment "Response to an authentication token request, intended for point-to-point communication."@en.
 

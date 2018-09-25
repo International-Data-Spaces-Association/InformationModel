@@ -127,45 +127,27 @@ Therefore, the IDS infomodel introduces a concise set of message types specifyin
 facilitate the business interactions. 
 
 ## Example INTER1: Connector registration at Broker
-- msg. type: ids:ConnectorAvailable 
-    - ids:issuingConnector :CONN2
-    - ids:consumerConnector :BROKER
-    - ids:issued DATE
-    - ids:modelVersion # of the payload/sender
-    - ids:authenticationToken [ ids:tokenValue .. ; ids:tokenFormat ..]
-    - payload: Graph representation of CONN2 
+A Connector (CONN2 from the example above) registers at a Broker by crafting a ConnectorAvailable message ([INTER1](INTER1.ttl)) and sending it to the Broker. The message, apart
+from the mandatory fields, should contain the consumerConnector and an authenticationToken. The payload associated with the message is the self-description
+document of the registering connector, i.e., the content of [CONN2](CONN2.ttl) in JSON(-LD) format.
 
 ## Example INTER2: Broker search and identification of content offerings
-.. assuming the availability of all the above mentioned contents
-- msg in: <uriq> BrokerQuery
-    - ids:queryScope ACTIVE
-    - ids:queryLanguage SPARQL_1.1 # compare codes 
-    - ids:issuingConnector :CONN2
-    - ids:consumerConnector :BROKER
-    - ids:issued DATE
-    - ids:modelVersion # of the payload/sender
-    - ids:authenticationToken [ ids:tokenValue .. ; ids:tokenFormat ..]
-    - payload type: not defined explictly (SPARQL Query - e.g. 
-    
-        DESCRIBE ?content WHERE { ?content a ids:Content; ids:theme }
-    
-    )
-    
-- msg out
-    a ids:Result
-    - ids:correlationMessage <uriq>
-    - ids:issuingConnector :BROKER
-    - ids:consumerConnector :CONN2
-    - ids:issued DATE
-    - ids:modelVersion # of the payload/sender   
-    - payload type: not defined explictly 
-    
-        RDF Graph
-    
+A Connector (CONN2 from the example above) queries a Broker by creating an instance of BrokerQuery message. In addition to the mandatory message fields it may contain
+a query scope that allows to query only active connectors and a query language statement that helps the Broker to interpret the message. We provide an example of a 
+BrokerQuery message in [INTER2](INTER2.ttl). The payload that is associated to the message is the actual query string. In case of a SPARQL query this could
+be ```DESCRIBE ?content WHERE { ?content a ids:Content; ids:theme }``` (retrieving information about all the content that connectors which are registered at the Broker 
+provide). 
+When the query has been performed by the Broker, a Result message is sent back to the issuing connector (CONN2 in our example). The Result message is fairly minimal, 
+containing only the mandatory fields and a correlationMessage URL that refers to the previously sent BrokerQuery message. The payload associated to this message is
+the result of the previously issued query. In our example this is an RDF graph in the default serialization format of the Broker's internal triple store's SPARQL engine.      
 
 ## Example INTER3: Contract negotiation of the selected contents
 
+[INTER3](INTER3.ttl)
 
 
 ## Example INTER4: Content retrieval
+
+[INTER4](INTER4.ttl)
+
 
