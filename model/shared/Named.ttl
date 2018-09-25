@@ -14,16 +14,16 @@
 # -------
 
 ids:Named
-    rdf:type owl:Class ;    
+    rdf:type owl:Class ;
     owl:equivalentClass
     [
       rdf:type          owl:Restriction ;
       owl:onProperty    ids:name ;
-      owl:cardinality   "1"^^xsd:nonNegativeInteger 
+      owl:cardinality   "1"^^xsd:nonNegativeInteger
     ];
     rdfs:label "Named"@en ;
     rdfs:comment "Entity that is identifiable within a context by means of a name."@en .
-    
+
 ids:name
     rdf:type owl:DatatypeProperty, owl:FunctionalProperty;
     rdfs:label "name"@en ;

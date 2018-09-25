@@ -11,7 +11,7 @@
 
 ids:Message a owl:Class;
     rdfs:label "Message"@en ;
-	rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
+    rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
     idsm:validation [
         idsm:forProperty ids:modelVersion;
         idsm:constraint idsm:NotNull;
@@ -45,51 +45,51 @@ ids:issued
     rdfs:comment "Date of issuing the Message."@en.
 
 ids:correlationMessage
-	a owl:ObjectProperty;
-	idsm:referenceByUrl true;
-	rdfs:label "consumer connector"@en;
-	rdfs:domain ids:Message;
-	rdfs:range ids:Message;
-	rdfs:comment "Correlated message, e.g. a response to a previous request."@en.
+    a owl:ObjectProperty;
+    idsm:referenceByUrl true;
+    rdfs:label "consumer connector"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:Message;
+    rdfs:comment "Correlated message, e.g. a response to a previous request."@en.
 
 ids:issuerConnector
-	a owl:DatatypeProperty;
-	idsm:referenceByUrl true;
-	rdfs:label "issuer connector"@en;
-	rdfs:domain ids:Message;
-	rdfs:range ids:Connector;
-	rdfs:comment "The Connector which is the origin of the message."@en.
+    a owl:DatatypeProperty;
+    idsm:referenceByUrl true;
+    rdfs:label "issuer connector"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:Connector;
+    rdfs:comment "The Connector which is the origin of the message."@en.
 
 ids:consumerConnector
-	a owl:ObjectProperty;
+    a owl:ObjectProperty;
     idsm:referenceByUrl true;
-	rdfs:label "consumer connector"@en;
-	rdfs:domain ids:Message;
-	rdfs:range ids:Connector;
-	rdfs:comment "The Connector which is the recipient of the message."@en.
+    rdfs:label "consumer connector"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:Connector;
+    rdfs:comment "The Connector which is the recipient of the message."@en.
 
 ids:senderAgent
-	a owl:DatatypeProperty;
-	idsm:referenceByUrl true;
-	rdfs:label "sender agent"@en;
-	rdfs:domain ids:Message;
-	rdfs:range ids:Agent;
-	rdfs:comment "The Agent which initiated the Message."@en.
+    a owl:DatatypeProperty;
+    idsm:referenceByUrl true;
+    rdfs:label "sender agent"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:Agent;
+    rdfs:comment "The Agent which initiated the Message."@en.
 
-ids:recipientAgent 
-	a owl:DatatypeProperty;
-	idsm:referenceByUrl true;
-	rdfs:label "recipient agent"@en;
-	rdfs:domain ids:Message;
-	rdfs:range ids:Agent;
-	rdfs:comment "The Agent for which the Mesaage is intended."@en.
+ids:recipientAgent
+    a owl:DatatypeProperty;
+    idsm:referenceByUrl true;
+    rdfs:label "recipient agent"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:Agent;
+    rdfs:comment "The Agent for which the Mesaage is intended."@en.
 
 ids:authenticationToken
-	a owl:ObjectProperty;
-	rdfs:label "authentication token"@en;
-	rdfs:domain ids:Message;
-	rdfs:range ids:AuthenticationToken;
-	rdfs:comment "An authentication token like JSON Web Token."@en.
+    a owl:ObjectProperty;
+    rdfs:label "authentication token"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:AuthenticationToken;
+    rdfs:comment "An authentication token like JSON Web Token."@en.
 
 ids:transferContract
     a owl:ObjectProperty;
@@ -98,3 +98,4 @@ ids:transferContract
     rdfs:domain ids:Message;
     rdfs:range ids:Contract;
     rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
+

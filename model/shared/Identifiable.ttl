@@ -14,12 +14,12 @@
 # -------
 
 ids:Identifiable
-    rdf:type owl:Class ;    
+    rdf:type owl:Class ;
     owl:equivalentClass
     [
       rdf:type          owl:Restriction ;
       owl:onProperty    ids:identifier ;
-      owl:cardinality   "1"^^xsd:nonNegativeInteger 
+      owl:cardinality   "1"^^xsd:nonNegativeInteger
     ];
     rdfs:label "identifiable"@en ;
     rdfs:comment "Type of Digital Content that is globally and uniquely identifiable by means of an Identifier."@en ;
@@ -36,7 +36,7 @@ ids:identifier
 
 ids:Identifier
     rdf:type owl:Class ;
-    idsm:abstract true ;    
+    idsm:abstract true ;
     rdfs:label "Identifier"@en ;
     rdfs:comment "Abstract notion of a (globally) unique Identifier, e.g. a URI."@en .
 

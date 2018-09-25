@@ -1,7 +1,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .    
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
@@ -38,15 +38,15 @@ ids:Artifact
 ids:byteSize
     a owl:DatatypeProperty;
     rdfs:subPropertyOf dcat:byteSize ;
-    rdfs:label "byte size"@en ;    
-    rdfs:comment "Size of the Artifact in bytes."@en ;  	
+    rdfs:label "byte size"@en ;
+    rdfs:comment "Size of the Artifact in bytes."@en ;
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:nonNegativeInteger .
 
 ids:fileName
-    a owl:DatatypeProperty;    
-    rdfs:label "file name"@en ;    
-    rdfs:comment "Name of the Artifcat file."@en ;  	
+    a owl:DatatypeProperty;
+    rdfs:label "file name"@en ;
+    rdfs:comment "Name of the Artifcat file."@en ;
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:string .
 
@@ -65,7 +65,7 @@ ids:creationDate
 #    rdfs:range xsd:string ;
 #    rdfs:label "literal value"@en ;
 #    rdfs:comment "Literal value of the Artifcat."@en .
-    
+
 #ids:base64Value
 #    a owl:DatatypeProperty;
 #    rdfs:domain ids:InlineArtifact ;
@@ -73,19 +73,19 @@ ids:creationDate
 #    rdfs:label "Base64-encoded value"@en ;
 #    rdfs:comment "Base64-encoded value of the Artifcat."@en .
 
-ids:checkSum 
+ids:checkSum
     a owl:DatatypeProperty;# spdx:checksum has range spdx:Checksum; https://spdx.org/rdf/terms/#checksum
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:string ;
-    rdfs:label "checksum"@en ;    
+    rdfs:label "checksum"@en ;
     rdfs:comment "Checksum of the artifact"@en .
 
 # Media artifacts
-ids:duration 
+ids:duration
     a owl:DatatypeProperty;
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:decimal ;# duration in seconds
-    rdfs:label "duration"@en ;    
+    rdfs:label "duration"@en ;
     rdfs:comment "Duration of the media resource in seconds."@en .
 
 # with integration of endpoints for direct artifact download, download url and access url may be obsolete
@@ -102,10 +102,11 @@ ids:duration
 #    rdfs:range xsd:anyURI ;
 #    rdfs:label "Access URL"@en ;
 #    rdfs:comment "Resolvable web address providing for an indirect access to artifact contents."@en .
-    
+
 # dct:issued
 # idsm:constantIdentifier
 # dct:title
 # dct:description
 # dct:licence
 # dct:rights
+

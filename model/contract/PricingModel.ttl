@@ -38,7 +38,7 @@ ids:FreeUse # Pattern: Free
 # - odrl:license (Action, deprecated by grantUse)
 # - odrl:purpose (leftOperand) non_commercial, educational etc.
 # - odrl:attribution (Action, see: https://creativecommons.org/ns#Attribution)
-    
+
 ids:ChargeableUse
     a owl:Class ;
     rdfs:subClassOf ids:PricingOption ;
@@ -61,9 +61,9 @@ ids:QuantityBasedPricing
     rdfs:subClassOf ids:ConsumptionBasedPricing ;
     rdfs:label "Quantity-based pricing"@en;
     rdfs:comment "The product is charged by instances of usage based on a particular metrics (byte size, number of API calls, ports etc.)."@en .
-    
-# DataVolume - amount:int unit:data_volume_unit target:representation|artifact: <x> amount of <target> 
-# RequestCount to <Endpoint> (within <timeframe>)? cost 
+
+# DataVolume - amount:int unit:data_volume_unit target:representation|artifact: <x> amount of <target>
+# RequestCount to <Endpoint> (within <timeframe>)? cost
 # PortCount cost
 # ClientCount  - stateful multi-client app, cost
 
@@ -74,14 +74,14 @@ ids:FeatureBasedPricing
     rdfs:comment "The product is charged based on a selection of features (i.e. map overlays, service set etc.)"@en .
 
 # TODO: add quality of service pricing
-    
+
 ids:FlatratePricing # Pattern: Flat Rate / Subscription etc.
     a owl:Class ;
     rdfs:subClassOf ids:ChargeableUse ;
     rdfs:label "Flatrate pricing"@en;
     rdfs:comment "The product is charged on subscription base independently of the actual consumption."@en;
     owl:disjointWith ids:ConsumptionBasedPricing .
-    
+
 ids:FreemiumModel # Pattern: Freemium
     a owl:Class ;
     rdfs:subClassOf ids:PricingModel ;
@@ -97,7 +97,7 @@ ids:FreemiumModel # Pattern: Freemium
         owl:onProperty ids:pricingOption ;
         owl:someValuesFrom ids:ChargeableUse # Consumption-based or Flatrate
     ] .
-    
+
 # Properties
 # ----------
 
@@ -106,3 +106,4 @@ ids:pricingOption a owl:ObjectProperty ;
     rdfs:range ids:PricingOption;
     rdfs:label "commodization option"@en;
     rdfs:comment "Commodization option supplied by the model."@en.
+

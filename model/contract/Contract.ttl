@@ -11,7 +11,7 @@
 
 ids:Contract
     a owl:Class;
-    rdfs:subClassOf odrl:Policy; 
+    rdfs:subClassOf odrl:Policy;
     rdfs:label "Contract"@en ;
     idsm:abstract true;
     rdfs:comment "Abstract set of rules governing the usage of a Resource.";
@@ -31,7 +31,7 @@ ids:Contract
 
 ids:ContractAgreement
     a owl:Class;
-    rdfs:subClassOf ids:Contract, odrl:Agreement;    
+    rdfs:subClassOf ids:Contract, odrl:Agreement;
     rdfs:label "Contract agreement"@en ;
     rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties.";
     # End is optional
@@ -50,7 +50,7 @@ ids:ContractRequest
 
 ids:ContractOffer
     a owl:Class;
-    rdfs:subClassOf ids:Contract, odrl:Offer;    
+    rdfs:subClassOf ids:Contract, odrl:Offer;
     rdfs:label "Contract offer"@en ;
     rdfs:comment "Contract issued by the Data Provider offering the usage of a Resource at particular conditions."@en ;
     owl:disjointWith ids:ContractAgreement, ids:ContractRequest .
@@ -126,3 +126,4 @@ ids:obligation rdfs:subPropertyOf odrl:obligation;
     rdfs:domain ids:Contract;
     rdfs:range ids:Duty;
     rdfs:comment "A Duty imposed by the Contract."@en.
+

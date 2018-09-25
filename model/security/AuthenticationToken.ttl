@@ -10,7 +10,7 @@
 # -------
 
 ids:AuthenticationToken
-    a owl:Class;    
+    a owl:Class;
     rdfs:label "Authentication Token."@en;
     rdfs:comment "Holds authentication information so that connections to the Connector's data offerings can be establised."@en ;
     idsm:validation [
@@ -20,21 +20,22 @@ ids:AuthenticationToken
 
 ids:AuthenticationTokenFormat a owl:Class;
     idsm:abstract true;
-	rdfs:label "Authentication token format"@en;
-	rdfs:comment "Authentication Token Format."@en.
+    rdfs:label "Authentication token format"@en;
+    rdfs:comment "Authentication Token Format."@en.
 
 
 # Properties
 # ----------
 
 ids:tokenValue a owl:DatatypeProperty;
-	rdfs:label "tokenValue"@en;
-	rdfs:domain ids:AuthenticationToken;
-	rdfs:range xsd:base64Binary;
-	rdfs:comment "An authentication token value like JSON Web Token."@en.
+    rdfs:label "tokenValue"@en;
+    rdfs:domain ids:AuthenticationToken;
+    rdfs:range xsd:base64Binary;
+    rdfs:comment "An authentication token value like JSON Web Token."@en.
 
 ids:tokenFormat a owl:ObjectProperty;
-	rdfs:label "tokenFormat"@en;
-	rdfs:domain ids:AuthenticationToken;
-	rdfs:range ids:AuthenticationTokenFormat;
-	rdfs:comment "Describes the format of the authentication token."@en.
+    rdfs:label "tokenFormat"@en;
+    rdfs:domain ids:AuthenticationToken;
+    rdfs:range ids:AuthenticationTokenFormat;
+    rdfs:comment "Describes the format of the authentication token."@en.
+

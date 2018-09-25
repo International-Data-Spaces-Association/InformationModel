@@ -11,11 +11,11 @@
 # Classes
 # -------
 
-ids:Agent 
-    a owl:Class;    
+ids:Agent
+    a owl:Class;
     rdfs:subClassOf ids:Described, odrl:Party, foaf:Agent ;# odrl:Party makes it a reliable party in contracting
     rdfs:label "Agent"@en;
-	rdfs:comment "Internal or external Agent interacting with the Industrial Data Space, not necessarily an IDS Participant."@en.
+    rdfs:comment "Internal or external Agent interacting with the Industrial Data Space, not necessarily an IDS Participant."@en.
 
 ids:Participant
     a owl:Class;
@@ -26,8 +26,8 @@ ids:Participant
       owl:onProperty    ids:identifier ;
       owl:allValuesForm   ids:ParticipantIdentifier;
     ];
-	rdfs:label "Participant"@en;
-	rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
+    rdfs:label "Participant"@en;
+    rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
     idsm:validation [
         idsm:forProperty ids:memberPerson;
         ids:relationType idsm:OneToMany;
@@ -43,9 +43,9 @@ ids:Participant
 
 ids:Person rdfs:subClassOf foaf:Person;
     a owl:Class;
-	rdfs:label "Person"@en;
-	rdfs:comment "The class of persons (people)"@en;
-	idsm:validation [
+    rdfs:label "Person"@en;
+    rdfs:comment "The class of persons (people)"@en;
+    idsm:validation [
         idsm:forProperty ids:phoneNumber;
         ids:relationType idsm:OneToMany;
     ];
@@ -57,7 +57,7 @@ ids:Person rdfs:subClassOf foaf:Person;
 ids:Site a owl:Class;
     rdfs:subclassOf org:Site;
     rdfs:label "Site"@en;
-	rdfs:comment "An office or other premise at which the organization is located"@en.
+    rdfs:comment "An office or other premise at which the organization is located"@en.
 
 # Properties for describing a Participant
 # ---------------------------------------
@@ -163,3 +163,4 @@ ids:siteAddress rdfs:subPropertyOf org:siteAddress;
     rdfs:range xsd:string;
     rdfs:label "siteAddress"@en;
     rdfs:comment "Indicates an address for the site."@en.
+

@@ -136,3 +136,4 @@ Not considered were `dctype:Image`, an abstract superclass of visual resources, 
 
 ## Keyword
 - Clarify range of `ids:keyword` (xsd:anyURI), compare: [dcat:keyword](https://www.w3.org/TR/vocab-dcat/#Property:dataset_keyword)
+

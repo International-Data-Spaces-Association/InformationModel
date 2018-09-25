@@ -11,29 +11,29 @@
 
 ids:CertificationBody
     a owl:Class ;
-	rdfs:label "Certification Body"@en ;
+    rdfs:label "Certification Body"@en ;
     rdfs:comment "Appointed by the International Data Spaces Association the Certification Body manages the certification process, defines the standardized evaluation procedures and supervises the activities of the Evaluation Facilities."@en .
 
 ids:EvaluationFacility
     a owl:Class ;
-	rdfs:label "Evaluation Facility"@en ;
+    rdfs:label "Evaluation Facility"@en ;
     rdfs:comment "Evaluation Facilities carry out the evaluation work during a certification process and issue the corresponding Certifications."@en .
 
 ids:Certification
     a owl:Class ;
-	rdfs:subClassOf ids:ManagedEntity ;
+    rdfs:subClassOf ids:ManagedEntity ;
     rdfs:label "Certification"@en ;
     rdfs:comment "Abstract certification of compliance according to given Certification Scheme." ;
     idsm:abstract true .
 
 ids:CertificationScheme
     a owl:Class ;
-	rdfs:label "Certification Scheme"@en ;
+    rdfs:label "Certification Scheme"@en ;
     rdfs:comment "Scheme defining the processes, roles, targets, and criteria involved in the certification of components and entities; maintained by the Certification Body." .
 
 ids:CertificationLevel
     a owl:Class ;
-	rdfs:label "Certification Level"@en ;
+    rdfs:label "Certification Level"@en ;
     rdfs:comment "Level of Certification" ;
     idsm:abstract true .
 
@@ -70,3 +70,4 @@ ids:evaluationFacility a owl:ObjectProperty;
     rdfs:domain ids:Certification;
     rdfs:range ids:EvaluationFacility;
     rdfs:comment "Evaluation Facility that performed and issued given Certification"@en.
+

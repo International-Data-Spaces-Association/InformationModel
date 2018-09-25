@@ -10,3 +10,4 @@
 - [DCAT GitHub-Wiki: Quality documentation](https://github.com/w3c/dxwg/wiki/Quality-documentation)
 - [DCAT GitHub-Milestone: Description of quality in DCAT](https://github.com/w3c/dxwg/milestone/12)
 - [European Data Portall quality page](https://www.europeandataportal.eu/mqa-service/en)
+

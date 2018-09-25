@@ -45,7 +45,7 @@ ids:DigitalContent
         <https://schema.org/additionalType> ,
         <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> ,
         <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
-    
+
 # Properties
 # ------------
 
@@ -59,7 +59,7 @@ ids:contentPart
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:DigitalContent;
     rdfs:comment "Reference to a Digital Content (physically or logically) included, definition of part-whole hierarchies."@en .
-    
+
 ids:representation
     a owl:ObjectProperty;
     #rdfs:subPropertyOf dcat:distribution ; # Links to non-materialized part of Distribution
@@ -114,3 +114,4 @@ ids:spatialCoverage a owl:ObjectProperty;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:SpatialEntity;
     rdfs:comment "Named spatial entity covered by the Resource."@en.
+

@@ -10,8 +10,8 @@
 # -------
 
 ids:Endpoint a owl:Class ;
-	idsm:abstract true;
-	rdfs:label "Endpoint"@en ;
+    idsm:abstract true;
+    rdfs:label "Endpoint"@en ;
     rdfs:comment "Access point of data exchange and service interaction."@en ;
     idsm:validation [
         idsm:forProperty ids:endpointHost;
@@ -24,8 +24,8 @@ ids:Endpoint a owl:Class ;
 
 ids:StaticEndpoint
     a owl:Class ;
-	rdfs:subClassOf ids:Endpoint ;
-	rdfs:label "static endpoint"@en ;
+    rdfs:subClassOf ids:Endpoint ;
+    rdfs:label "static endpoint"@en ;
     rdfs:comment "Endpoint exposing  an Artifact."@en ;
     idsm:validation [
         idsm:forProperty ids:endpointArtifact;
@@ -35,8 +35,8 @@ ids:StaticEndpoint
 
 ids:InteractiveEndpoint
     a owl:Class ;
-	rdfs:subClassOf ids:Endpoint ;
-	rdfs:label "interactive endpoint"@en ;
+    rdfs:subClassOf ids:Endpoint ;
+    rdfs:label "interactive endpoint"@en ;
     rdfs:comment "Endpoint exposing a digital content in a interacitve way."@en ;
     idsm:validation [
         idsm:forProperty ids:endpointOperationBinding;
@@ -47,15 +47,15 @@ ids:InteractiveEndpoint
 
 ids:DataSink
     idsm:abstract true ;
-	rdfs:subClassOf ids:Endpoint ;
-	rdfs:label "Data Sink"@en ;
+    rdfs:subClassOf ids:Endpoint ;
+    rdfs:label "Data Sink"@en ;
     rdfs:comment "Endpoint consuming digital content supplied by a Data Provider."@en ;
     idsm:abstract true.
 
 ids:DataSource
     idsm:abstract true ;
-	rdfs:subClassOf ids:Endpoint ;
-	rdfs:label "Data Source"@en ;
+    rdfs:subClassOf ids:Endpoint ;
+    rdfs:label "Data Source"@en ;
     rdfs:comment "Endpoint providing digital content for being retrieved or subscribed to by a Data Consumer."@en ;
     idsm:abstract true.
 
@@ -113,3 +113,4 @@ ids:outboundPath
     rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
     rdfs:comment "Relative path used for outbound communication via this endpoint, i.e. output messages and faults only."@en.
+
