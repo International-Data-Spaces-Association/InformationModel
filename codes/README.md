@@ -113,7 +113,7 @@ Collection of *code lists* and taxonomies of values, instances of classes define
     package org.w3id.ids.code.media
     public enum IANAMediaType {
         /** text/csv */
-        TEXT_CSV("https://w3id.org/ids/code/media/text_csv")
+        TEXT_CSV("https://w3id.org/idsa/code/media/text_csv")
     }
 
 ```

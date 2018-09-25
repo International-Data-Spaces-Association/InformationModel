@@ -20,6 +20,6 @@ SCHEMASRC=Ontology.ttl $(wildcard model/*/*.ttl)
 # the dataplatform where "make publish" will publish the schema graph
 # SCHEMASRC_PUBLISH_DP=https://vocab.eccenca.com/
 # the graph into which "make publish" will publish the schema graph
-SCHEMASRC_PUBLISH_GRAPH=https://w3id.org/ids/core/
+SCHEMASRC_PUBLISH_GRAPH=https://w3id.org/idsa/core/
 ONTOLOGY_URI=${SCHEMASRC_PUBLISH_GRAPH}
 

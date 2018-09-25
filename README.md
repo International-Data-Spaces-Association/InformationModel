@@ -36,7 +36,7 @@ There are following top-level files and directories:
 - `views`: Individual tailored views defined upon the overall model for a particular purpose.
 - `Ontology.ttl`: Complete declarative model of the Industrial Data Space linking all of the above sources.
    This file is intended for *internal purposes only*, the normative version will be published as result of
-   a build-process at [https://w3id.org/ids/core/](ttps://w3id.org/ids/core/) by Q4/2018.
+   a build-process at [https://w3id.org/idsa/core/](ttps://w3id.org/ids/core/) by Q4/2018.
 
 Further resources (directories) may optionally augment the above contents:
 
