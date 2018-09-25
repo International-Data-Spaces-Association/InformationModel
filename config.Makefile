@@ -23,3 +23,4 @@ SCHEMASRC=Ontology.ttl $(wildcard model/*/*.ttl) $(wildcard codes/*.ttl) $(wildc
 SCHEMASRC_PUBLISH_GRAPH=https://w3id.org/idsa/core/
 ONTOLOGY_URI=${SCHEMASRC_PUBLISH_GRAPH}
 
+BUILDPREFIX=IDS-InformationModel

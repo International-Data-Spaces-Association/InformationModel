@@ -24,7 +24,7 @@ Collection of *code lists* and taxonomies of values, instances of classes define
 ## Category
 - Defines an own skos:ConceptScheme, move to model/resource/Category
 - There are custom examples from a weather/traffic domain, how are themes / categories handeld in general -> review and purge
-- Consider standards like eCl@ss, ETIM, UNSPSC, proficl@ss 
+- Consider standards like eCl@ss, ETIM, UNSPSC, proficl@ss
 
 ## Content type
 - How do the instances relate to model/resource/ContentType subclasses?
@@ -34,7 +34,7 @@ Collection of *code lists* and taxonomies of values, instances of classes define
 
 ## Hash function
 - Discuss usage of capitalized local names (e.g. MD2)
-- Comments/documentation (related to isage in IDS is missing) 
+- Comments/documentation (related to isage in IDS is missing)
 
 ## Industrial classification
 - Currently based on ISIC (IndustrialClassificationISIC) - how competitive/alternative classfications are used/integrated?
@@ -44,10 +44,10 @@ Collection of *code lists* and taxonomies of values, instances of classes define
 ## Language
 - Augment existing standard identifiers/language codes, e.g. IETF language tag, ISO 639-1, ISO 639-2 and ISO 639-3
 
-    
+
 ## License
 - Inconsistent license URIs (idsc_lic:license_cc_by_nc_nd_2_0 <-> idsc_lic:Creative_Commons_Attribution_No_Derivs_International_CC_BYND_4_0)
-- Add existing identifiers, e.g. GPLv3, LGPLv2 
+- Add existing identifiers, e.g. GPLv3, LGPLv2
 - Add sources/references for the listing
 - Add reference to https://tldrlegal.com/
 - Evaluate and align with: https://en.wikipedia.org/wiki/Software_Package_Data_Exchange#License_syntax
@@ -81,7 +81,7 @@ Collection of *code lists* and taxonomies of values, instances of classes define
     ODC-ODbL
     OGL2.0
     PSEUL
-``` 
+```
 
 ## Media type
 - Currently only IANA types - evaluate alternative registries/sources
@@ -102,13 +102,13 @@ Collection of *code lists* and taxonomies of values, instances of classes define
     rdfs:seeAlso <https://tools.ietf.org/html/rfc4180> .# "informative" RFC, optional because often unknown or non existent
 ```
 - Make the translation rules into Java explicit:
-    - NS bound to prefix is turned into a java Enum package according to Java convention, e.g. org.w3id.ids.code.media 
+    - NS bound to prefix is turned into a java Enum package according to Java convention, e.g. org.w3id.ids.code.media
     - Class name of the instance becomes the Enum type: IANAMediaType
     - Local instance name is the capitalized value of the property ```idsm:constantIdentifier```
-    - each enum is documented by the value of their ```rdfs:comment``` annotation 
+    - each enum is documented by the value of their ```rdfs:comment``` annotation
     - if no ```rdfs:comment``` annotation exists, the value of ```rdfs:label``` is used for documentation (see "text/csv" javadoc line in the example below)
     - complete example:
-    
+
 ```
     package org.w3id.ids.code.media
     public enum IANAMediaType {
@@ -117,4 +117,4 @@ Collection of *code lists* and taxonomies of values, instances of classes define
     }
 
 ```
-    
+
