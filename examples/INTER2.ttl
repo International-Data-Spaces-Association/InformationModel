@@ -1,0 +1,35 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_bqs: <https://w3id.org/idsa/code/bqs/> .
+@prefix idsc_ql: <https://w3id.org/idsa/code/ql/> .
+
+@prefix conn2: <https://aastat.gov.de/connector/> .
+@prefix broker: <https://aastat.gov.de/broker/> .
+@prefix : <https://aastat.gov.de/comm/> .
+
+:INTER2_Q a ids:BrokerQuery;
+    ids:queryScope idsc_bqs:ACTIVE_ONLY;
+    ids:queryLanguage idsc_ql:SPARQL;
+    ids:issuingConnector conn2:;
+    ids:consumerConnector broker:;
+    ids:issued "2018-10-01T15:57:00"^^xsd:dateTime;
+    ids:modelVersion "1.0.0";
+    ids:authenticationToken :TOKEN.
+
+:TOKEN a ids:AuthenticationToken;
+    ids:tokenValue "2YotnFZFEjr1zCsicMWpAA".
+
+:INTER2_R a ids:Result;
+    ids:correlationMessage :INTER2_Q;
+    ids:issuingConnector broker:;
+    ids:consumerConnector conn2:;
+    ids:issued "2018-10-01T15:57:01"^^xsd:dateTime;
+    ids:modelVersion "1.0.0".
