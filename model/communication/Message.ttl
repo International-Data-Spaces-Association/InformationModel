@@ -21,7 +21,7 @@ ids:Message a owl:Class;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
-        idsm:forProperty ids:issuingConnector;
+        idsm:forProperty ids:issuerConnector;
         idsm:constraint idsm:NotNull;
     ].
     # FIPA ACL Message Structure Specification, http://www.fipa.org/specs/fipa00061/index.html
@@ -52,10 +52,10 @@ ids:correlationMessage
 	rdfs:range ids:Message;
 	rdfs:comment "Correlated message, e.g. a response to a previous request."@en.
 
-ids:issuingConnector
+ids:issuerConnector
 	a owl:DatatypeProperty;
 	idsm:referenceByUrl true;
-	rdfs:label "provider connector"@en;
+	rdfs:label "issuer connector"@en;
 	rdfs:domain ids:Message;
 	rdfs:range ids:Connector;
 	rdfs:comment "The Connector which is the origin of the message."@en.
