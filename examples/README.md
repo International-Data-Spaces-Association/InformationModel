@@ -128,6 +128,8 @@ facilitate the business interactions.
 
 ## Example INTER1: Catalog publication in Broker
 
+
+
 ## Example INTER2: Broker search and content identification
 
 ## Example INTER3: Contract negotiation of the Resource(s) selected  

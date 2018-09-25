@@ -24,7 +24,8 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
-        idsm:forProperty ids:supportedMetadataVersion;
+        idsm:forProperty ids:acceptableModelVersion;
+        idsm:constraint idsm:NotNull;
         ids:relationType idsm:OneToMany;
     ];
     idsm:validation [
@@ -56,12 +57,18 @@ ids:physicalLocation a owl:ObjectProperty;
     rdfs:range ids:Location;
     rdfs:comment "The location where the Connector is physically deployed."@en.
 
-ids:supportedMetadataVersion a owl:DatatypeProperty;
-    rdfs:label "supportedMetadataVersion"@en;
-    idsm:labelPluralForm "supportedMetadataVersions"@en;
+ids:inboundModelVersion a owl:DatatypeProperty;
+    rdfs:label "inboundModelVersion"@en;
+    idsm:labelPluralForm "inboundModelVersions"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range xsd:string;
-    rdfs:comment "Semantic version string of the Information Model versions that are supported by the InfrastructureComponent."@en.
+    rdfs:comment "Semantic version string of the Information Model versions that are readable by the InfrastructureComponent."@en.
+
+ids:outboundModelVersion a owl:DatatypeProperty;
+     rdfs:label "outboundModelVersion"@en;
+     rdfs:domain ids:InfrastructureComponent;
+     rdfs:range xsd:string;
+     rdfs:comment "Semantic version string of the Information Model versions produced by the InfrastructureComponent."@en.
 
 ids:componentCertification
     a owl:ObjectProperty;
