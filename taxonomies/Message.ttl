@@ -129,7 +129,7 @@ ids:queryLanguage a owl:ObjectProperty;
 
 # Contract Negotiation
 # --------------------
-    
+
 ids:ContractOfferMessage a owl:Class ;
     rdfs:subClassOf ids:Request ;
     rdfs:label "Contract Offer Message"@en;
@@ -151,10 +151,10 @@ ids:ContractRejectionMessage a owl:Class ;
     rdfs:comment "Message indicating rejection of a contract."@en.
 
 ids:contractRejectionReason a owl:DatatypeProperty;
-	rdfs:label "Contract Rejection Reason"@en ;
-	rdfs:domain ids:ContractRejectionMessage;
+    rdfs:label "Contract Rejection Reason"@en ;
+    rdfs:domain ids:ContractRejectionMessage;
     rdfs:range rdf:PlainLiteral;
-	rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
+    rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
 
 # Security Messages
 # -----------------
@@ -230,3 +230,4 @@ ids:ArtifactResponse a owl:Class ;
     rdfs:subClassOf ids:Response;
     rdfs:label "Artifact Response"@en;
     rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
+

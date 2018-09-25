@@ -42,7 +42,7 @@ ids:TextRepresentation a owl:Class;
     rdfs:subClassOf ids:Representation ;
     rdfs:label "Text representation"@en ;
     rdfs:comment "Representation of a textual content."@en .
-    
+
 ids:AudioRepresentation a owl:Class;
     rdfs:subClassOf ids:Representation ;
     rdfs:label "Audio representation"@en ;
@@ -57,7 +57,7 @@ ids:samplingRate a owl:DatatypeProperty;
 ids:ImageRepresentation a owl:Class;
     rdfs:subClassOf ids:Representation ;
     rdfs:label "Image representation";
-	rdfs:comment "Image representation" .
+    rdfs:comment "Image representation" .
 
 ids:width a owl:DatatypeProperty;
     rdfs:domain ids:ImageRepresentation;
@@ -74,7 +74,7 @@ ids:height a owl:DatatypeProperty;
 ids:VideoRepresentation a owl:Class;
     rdfs:subClassOf ids:ImageRepresentation ;
     rdfs:label "Video representation";
-	rdfs:comment "Video representation" .
+    rdfs:comment "Video representation" .
 
 ids:frameRate a owl:DatatypeProperty;
     rdfs:domain ids:VideoRepresentation;
@@ -98,7 +98,7 @@ ids:ArchiveFormat
     rdfs:label "Archive format"@en ;
     rdfs:comment "Archive format."@en .
 
-ids:packaging a owl:ObjectProperty; # tar 
+ids:packaging a owl:ObjectProperty; # tar
     rdfs:domain ids:ContainerRepresentation;
     rdfs:range  ids:ArchiveFormat;
     rdfs:label "packaging"@en;
@@ -115,4 +115,4 @@ ids:CollectionRepresentation
     rdfs:subClassOf ids:Representation ;
     rdfs:label "Collection representation"@en ;
     rdfs:comment "Representation of a Collection, i.e. a Map or List of elements."@en .
-    
+

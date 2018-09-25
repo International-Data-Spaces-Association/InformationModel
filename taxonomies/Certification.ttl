@@ -7,18 +7,18 @@
 
 ids:ParticipantCertificationLevel
     a owl:Class ;
-	rdfs:label "Participant Certification Level"@en ;
+    rdfs:label "Participant Certification Level"@en ;
     rdfs:comment "Level of a Participant Certification" .
 
 ids:ComponentCertificationLevel
     a owl:Class ;
     owl:disjointWith ids:ParticipantCertificationLevel ;
-	rdfs:label "Component Certification Level"@en ;
+    rdfs:label "Component Certification Level"@en ;
     rdfs:comment "Level of a Component Certification" .
 
 ids:ParticipantCertification
     a owl:Class ;
-	rdfs:subClassOf
+    rdfs:subClassOf
         ids:Certification ,
         [
             a owl:Restriction ;
@@ -27,7 +27,7 @@ ids:ParticipantCertification
         ] ;
     rdfs:label "Participant Certification"@en ;
     rdfs:comment "Process and result of certifying an interested party in order to become a certified member of the International Data Space." .
-    
+
 ids:ComponentCertification
     a owl:Class ;
     rdfs:subClassOf
@@ -40,3 +40,4 @@ ids:ComponentCertification
     owl:disjointWith ids:ParticipantCertification ;
     rdfs:label "Component Certification"@en ;
     rdfs:comment "Process and result of certifying a software component/servivce in order to become a certified part of the International Data Space infrastructure." .
+
