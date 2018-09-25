@@ -1,11 +1,11 @@
 #defined schemas and data files you want to test as filenames separated by whitespace
 #schemas are ontology files, instances contain individuals instantiating ontology resources
 #manualtests in form of RDFUnit testcase definitions can be added as well
-#MANUALSRC=./includes/rdfunit-owl-tests.ttl
-#INSTANCESRC=test-test-cases.ttl
+MANUALSRC=$(wildcard testing/*.rdfunit.ttl)
+INSTANCESRC=$(wildcard examples/*.ttl)
 ##include files which should be used for widoco generation
 DOCSRC=Ontology.ttl $(wildcard model/*/*.ttl)
-SCHEMASRC=Ontology.ttl $(wildcard model/*/*.ttl)
+SCHEMASRC=Ontology.ttl $(wildcard model/*/*.ttl) $(wildcard codes/*.ttl) $(wildcard taxonomies/*.ttl)
 
 #XML file containing the uncompressed XML export of a drawio ontology diagram
 #DRAWIOSRC=$(wildcard schema/*.xml)
