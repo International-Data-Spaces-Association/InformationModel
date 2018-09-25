@@ -4,8 +4,8 @@
 #MANUALSRC=./includes/rdfunit-owl-tests.ttl
 #INSTANCESRC=test-test-cases.ttl
 ##include files which should be used for widoco generation
-DOCSRC=$(wildcard model/*/*.ttl)
-SCHEMASRC=$(wildcard model/*/*.ttl)
+DOCSRC=Ontology.ttl $(wildcard model/*/*.ttl)
+SCHEMASRC=Ontology.ttl $(wildcard model/*/*.ttl)
 
 #XML file containing the uncompressed XML export of a drawio ontology diagram
 #DRAWIOSRC=$(wildcard schema/*.xml)
