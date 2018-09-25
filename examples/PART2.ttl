@@ -1,0 +1,38 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix idsm: <https://w3id.org/ids/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_media: <https://w3id.org/ids/code/mediatype/> .
+@prefix idsc_pack: <https://w3id.org/ids/code/pack/> .
+@prefix idsc_lic: <https://w3id.org/ids/code/license/> .
+@prefix idsc_prot: <https://w3id.org/ids/protocol/> .
+@prefix idsc_auth: <https://w3id.org/ids/code/auth/> .
+@prefix idsc_cert: <https://w3id.org/ids/code/certification/> .
+@prefix : <urn:ids:example:> .
+
+# Assuming resolution of the hypothetical participant URI (urn:ids:example:PART1) by the Identity Provider
+:PART1
+    a ids:Participant ;
+    ids:title "Agentur für Autobahnstatistik"@de;
+    ids:title "Highway monitoring and statistics agency"@en;
+    ids:corporateEmailAddress "info@aastat.de" ;
+    ids:corporateHomepage "http://aastat.de"^^xsd:anyURI ;
+    # ids:industrialClassification?
+    ids:primarySite [
+        a ids:Site ;
+        ids:siteAddress "Agentur für Autobahnstatistik, Am Hügel 5, D-53121 Bonn" ;
+    ] ;
+    ids:participantCertification [
+        a ids:ParticipantCertification ;
+        ids:certificationLevel idsc_cert:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM ;
+        # ids:evaluationFacility?
+        ids:lastValidDate "2020-12-31"^^xsd:date
+    ]
+    .
+
