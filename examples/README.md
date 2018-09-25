@@ -79,24 +79,24 @@ Connectors are the central building blocks, the edge nodes of the IDS network. T
 located close to a traffic hot spot. It hosts a data processing pipeline where image data received form APP1 is fed into APP2, optionally cached 
 and exposed as example resource MEDIA1.
 
-## Example CONN2: Trusted connector
+## Example CONN2: Trusted connector (stable)
 
 The Trusted Connector CONN2 represents a hardened version of the Connector runtime, a certified platform for data integration, processing and publishing 
 maintained by the participant PART1 as part of its data provisioning infrastructure.  
        
-## Example INFRA1: Logistics broker
+## Example BROKER1: Logistics broker
 
 Because of the vast amount of resources a dedicated Broker for the "logistics domain" is operated by the service provider PART2. Next to a customer-oriented 
 GUI the data registry exposes a series of service interfaces (APIs) for lif-cycle management (publication,updated, removal) and search of content offerings.  
 
-## Example INFRA2: General purpose AppStore
+## Example APPST1: General purpose AppStore
 
 The example AppStore INFRA2 maintains metadata and software resources across IDS communities and providers. The software company PART2 advertises and distributes 
 its Data Apps (e.g. APP2) via that registry.   
 
 # Participants
 
-## Example PART1: European traffic data provider
+## Example PART1: European traffic data provider (stable)
 
 The hypothetical "Highway monitoring and statistics agency" acts as a data provider. It maintains a large-scale infrastructure for monitoring, 
 analysis and prediction of highway utilization statistics in European context. The agency has deployed a range of mobile connectors (e.g. CONN1) 
@@ -104,16 +104,16 @@ for distributed collection and publication of geo-tagged, regional sensor data, 
 reports and predictions.
   
 
-## Example PART2:
+## Example PART2: Software development and service provision (stable)
  
 App4Traffic GmbH provides a wide range of software development, consultancy and data hosting services and thus implements multiple roles 
 within the IDS ecosystem. Based in Switzerland (Musterstraße 2, Zürich) the SME develops and distributes IDS Data Apps (e.g. APP1) and serves 
 customers like PAT3 with advanced analytics services based upon data from PART1.   
 
-## Example PAT3: Global logistics company
+## Example PAT3: Global logistics company (stable)
 
 The international "Supercargo Logistics" company provides services around the globe with subsidiaries in a number of countries, among others 
-Supercargo GmbH (Musterstraße 5, Köln, Deutschland), Supercargo LLC (Yлица пример 120, Moscow), and Supercargo Ltd. (Sample Road 15c, Hongkong).
+Supercargo GmbH - headquarters - (Musterstraße 5, Köln, Deutschland), Supercargo OOO (Yлица пример 120, Москва), and Supercargo Ltd. (Sample Road 15c, Hongkong).
 Their businesses are thus subject to international, national and optionally some custom regulations (legal areas). The organization complies 
 with the ISIC classification rev. 4 and has ISIC code 4923 (freight transport via road). The company retrieves live traffic monitoring data, 
 in order to supply its drivers with up-to-date traffic information, efficient routing and timely hazard warnings. 
@@ -122,25 +122,27 @@ in order to supply its drivers with up-to-date traffic information, efficient ro
 
 In the following examples of business interactions among participants are given. The realization of the core IDS value propositions 
 (secure data transfer between standardized components while ensuring data sovereignty) is supported by interactions (e.g. data transfer) 
-annotated with metadata (instances of the Message class in the header part). Metadata descriptions of content being exchanged are mandatory. 
-Therefore, the IDS infomodel introduces a concise set of message types specifying metadata fields that must/should/can be set in order to 
+annotated with metadata (instances of the `Message`class in the header part). Metadata descriptions of content being exchanged are mandatory. 
+Therefore, the IDS infomodel introduces a concise set of message types specifying metadata fields that must/should/can be given in order to 
 facilitate the business interactions. 
 
-## Example INTER1: Connector registration at Broker
-A Connector (CONN2 from the example above) registers at a Broker by crafting a ConnectorAvailable message ([INTER1](INTER1.ttl)) and sending it to the Broker. The message, apart
-from the mandatory fields, should contain the consumerConnector and an authenticationToken. The payload associated with the message is the self-description
-document of the registering connector, i.e., the content of [CONN2](CONN2.ttl) in JSON(-LD) format.
+## Example INTER1: Connector registration at Broker (stable)
 
-## Example INTER2: Broker search and identification of content offerings
-A Connector (CONN2 from the example above) queries a Broker by creating an instance of BrokerQuery message. In addition to the mandatory message fields it may contain
-a query scope that allows to query only active connectors and a query language statement that helps the Broker to interpret the message. We provide an example of a 
-BrokerQuery message in [INTER2](INTER2.ttl). The payload that is associated to the message is the actual query string. In case of a SPARQL query this could
-be ```DESCRIBE ?content WHERE { ?content a ids:Content; ids:theme }``` (retrieving information about all the content that connectors which are registered at the Broker 
-provide). 
-When the query has been performed by the Broker, a Result message is sent back to the issuing connector (CONN2 in our example). The Result message is fairly minimal, 
-containing only the mandatory fields and a correlationMessage URL that refers to the previously sent BrokerQuery message. The payload associated to this message is
-the result of the previously issued query. In our example this is an RDF graph in the default serialization format of the Broker's internal triple store's SPARQL engine.      
+The example [INTER1](INTER1.ttl) showcases the publication of Resources as part of the overall "self-description" of a Connector. 
+Connector CONN2 registers at the Broker INFRA1 by dispatching a dedicated message to the generic Message-API of the Broker (`ConnectorAvailable`). 
+Next to the mandatory fields, the message header identifies the consumer connector (Broker). The message payload comprises the complete "self-description" 
+document of the registering Connector, i.e., the content of [CONN2](CONN2.ttl) in JSON(-LD) format (default). 
 
+## Example INTER2: Broker search and identification of content offerings (stable)
+
+Later on the Connector CONN2 may issue queries on the Broker to learn about Resources available ([INTER2](INTER2.ttl)). For this purpose it dispatches a 
+dedicated request message (`BrokerQuery`), indicating the target scope of the query ("all", or only "active", i.e. live connectors) and the query language 
+type. The respective query string is supplied as the literal payload. In case of a SPARQL this might be a DESCRIBE_QUERY, e.g. ```DESCRIBE ?content 
+WHERE { ?content a ids:Content  }``` retrieving information about any content available. 
+Upon request completion, a Result message is sent back to the issuing connector CONN2. The Result message is fairly minimal containing only the mandatory 
+fields and a correlation attibute referring to the previously sent request. The resultant payload is an RDF graph serialized as a default or client-selected 
+Representation.  
+      
 ## Example INTER3: Contract negotiation of the selected contents
 
 [INTER3](INTER3.ttl)

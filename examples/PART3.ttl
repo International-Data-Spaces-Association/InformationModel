@@ -1,38 +1,55 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
-@prefix idsc_pack: <https://w3id.org/idsa/code/pack/> .
-@prefix idsc_lic: <https://w3id.org/idsa/code/license/> .
-@prefix idsc_prot: <https://w3id.org/idsa/protocol/> .
-@prefix idsc_auth: <https://w3id.org/idsa/code/auth/> .
 @prefix idsc_cert: <https://w3id.org/idsa/code/certification/> .
-@prefix : <urn:ids:example:> .
+@prefix part3: <https://im.internationaldataspaces.org/participant/part3> .
 
-# Assuming resolution of the hypothetical participant URI (urn:ids:example:PART1) by the Identity Provider
-:PART1
+part3:
     a ids:Participant ;
-    ids:title "Agentur für Autobahnstatistik"@de;
-    ids:title "Highway monitoring and statistics agency"@en;
-    ids:corporateEmailAddress "info@aastat.de" ;
-    ids:corporateHomepage "http://aastat.de"^^xsd:anyURI ;
+    ids:title "Supercargo GmbH"@en;
+    ids:description "Interational logistics company"@en ;
+    ids:corporateEmailAddress "info@supercargo.de" ;
+    ids:corporateHomepage "http://www.supercargo.de"^^xsd:anyURI ;
     # ids:industrialClassification?
     ids:primarySite [
         a ids:Site ;
-        ids:siteAddress "Agentur für Autobahnstatistik, Am Hügel 5, D-53121 Bonn" ;
+        ids:siteAddress "Supercargo Gmbh, Musterstraße 5, Köln, Deutschland" ;
     ] ;
     ids:participantCertification [
         a ids:ParticipantCertification ;
         ids:certificationLevel idsc_cert:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM ;
         # ids:evaluationFacility?
         ids:lastValidDate "2020-12-31"^^xsd:date
+    ] ;
+    # Subsidiaries
+    ids:memberParticipant part3:ru, part3:hk
+    .
+
+part3:ru
+    a ids:Participant ;
+    ids:title "Supercargo OOO"@en;
+    ids:description "Interational logistics company"@en ;
+    ids:corporateEmailAddress "info@supercargo.ru" ;
+    ids:corporateHomepage "http://www.supercargo.ru"^^xsd:anyURI ;
+    # ids:industrialClassification?
+    ids:primarySite [
+        a ids:Site ;
+        ids:siteAddress "Supercargo OOO, Yлица пример 120, Москва, Россия" ;
     ]
     .
+
+part3:hk
+    a ids:Participant ;
+    ids:title "Supercargo Ltd."@en;
+    ids:description "Interational logistics company"@en ;
+    ids:corporateEmailAddress "info@supercargo.hk" ;
+    ids:corporateHomepage "http://www.supercargo.hk"^^xsd:anyURI ;
+    # ids:industrialClassification?
+    ids:primarySite [
+        a ids:Site ;
+        ids:siteAddress "Supercargo OOO, Yлица пример 120, Москва, Россия" ;
+    ]
+    .
+
+
+
 

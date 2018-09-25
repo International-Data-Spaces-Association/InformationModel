@@ -12,21 +12,22 @@
 @prefix conn1: <https://someCompany.de/connector/> .
 @prefix conn2: <https://aastat.gov.de/connector/> .
 @prefix : <https://aastat.gov.de/comm/> .
+@prefix broker1: <https://aastat.gov.de/connector/broker1/> .
 
 :INTER3_R a ids:ContractRequestMessage;
-    ids:issuingConnector conn1:;
-    ids:consumerConnector conn2 broker:;
+    ids:issuingConnector conn1: ;
+    ids:consumerConnector conn2: ;
     ids:issued "2018-10-01T15:57:00"^^xsd:dateTime;
-    ids:modelVersion "1.0.0";
+    ids:modelVersion "1.0.0".
 
-    ids:targetContent ???
-    ids:baseContractOffer
+    #ids:targetContent ???
+    #ids:baseContractOffer
 
 :TOKEN a ids:AuthenticationToken;
     ids:tokenValue "2YotnFZFEjr1zCsicMWpAA".
 
-:INTER3_O a ids:ContractOffer;
+:INTER3_O a ids:ContractOffer.
 
-:INTER3_A a ids:ContractAgreement;
+:INTER3_A a ids:ContractAgreement.
 
 

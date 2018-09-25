@@ -4,16 +4,15 @@
 @prefix idsc_auth: <https://w3id.org/idsa/code/auth/> .
 @prefix idsc_cert: <https://w3id.org/idsa/code/certification/> .
 
-# Participant URI is resolved by Identity Manager
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
-
-# Connector-related description nodes reside in its own namespace
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
+@prefix broker1: <https://aastat.gov.de/connector/broker1/> .
 
-conn2:
-    a ids:TrustedConnector ;
+
+broker1:
+    a ids:Broker;
     # General properties
-    ids:title "EU Traffic statistics hub" ;
+    ids:title "Logistics registry" ;
     ids:description "Description of an example Trusted Connector maintained by PART1" ;
     ids:maintainer part1: ; # Participant ~ service provider PART1
     ids:curator part1: ; # Content manager

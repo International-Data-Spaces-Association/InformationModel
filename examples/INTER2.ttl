@@ -11,25 +11,29 @@
 @prefix idsc_bqs: <https://w3id.org/idsa/code/bqs/> .
 @prefix idsc_ql: <https://w3id.org/idsa/code/ql/> .
 
-@prefix conn2: <https://aastat.gov.de/connector/> .
-@prefix broker: <https://aastat.gov.de/broker/> .
-@prefix : <https://aastat.gov.de/comm/> .
+@prefix conn2:   <https://aastat.gov.de/connector/conn2/> .
+@prefix broker1: <https://aastat.gov.de/broker/broker1/> .
+@prefix : <https://aastat.gov.de/message/> .
 
-:INTER2_Q a ids:BrokerQuery;
-    ids:queryScope idsc_bqs:ACTIVE_ONLY;
-    ids:queryLanguage idsc_ql:SPARQL;
-    ids:issuingConnector conn2:;
-    ids:consumerConnector broker:;
+:inter2_q
+    # Query part
+    a ids:BrokerQuery;
+    ids:queryScope idsc_bqs:ACTIVE_ONLY ;
+    ids:queryLanguage idsc_ql:SPARQL ;
+    ids:issuerConnector conn2: ;
+    ids:consumerConnector broker1: ;
     ids:issued "2018-10-01T15:57:00"^^xsd:dateTime;
     ids:modelVersion "1.0.0";
-    ids:authenticationToken :TOKEN.
+    ids:authenticationToken [
+        a ids:AuthenticationToken;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ].
 
-:TOKEN a ids:AuthenticationToken;
-    ids:tokenValue "2YotnFZFEjr1zCsicMWpAA".
-
-:INTER2_R a ids:Result;
-    ids:correlationMessage :INTER2_Q;
-    ids:issuingConnector broker:;
-    ids:consumerConnector conn2:;
+:INTER2_R
+    # Response part
+    a ids:Result;
+    ids:correlationMessage :inter2_q ;
+    ids:issuerConnector broker1: ;
+    ids:consumerConnector conn2: ;
     ids:issued "2018-10-01T15:57:01"^^xsd:dateTime;
     ids:modelVersion "1.0.0".
