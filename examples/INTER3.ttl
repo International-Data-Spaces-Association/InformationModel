@@ -14,20 +14,41 @@
 @prefix : <https://aastat.gov.de/comm/> .
 @prefix broker1: <https://aastat.gov.de/connector/broker1/> .
 
-:INTER3_R a ids:ContractRequestMessage;
+# original request from (potential) consuming connector to providing connector
+conn1:inter3_r a ids:ContractRequestMessage;
     ids:issuingConnector conn1: ;
-    ids:consumerConnector conn2: ;
+    ids:consumerConnector conn2 ;
     ids:issued "2018-10-01T15:57:00"^^xsd:dateTime;
+    ids:modelVersion "1.0.0";
+    ids:authenticationToken [
+        a ids:AuthenticationToken;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ];
+    ids:baseContractOffer conn2:contract;
+
+# counteroffer from providing connector
+conn2:inter3_o a ids:ContractOfferMessage
+    ids:issuingConnector conn2: ;
+    ids:consumerConnector conn1: ;
+    ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
     ids:modelVersion "1.0.0".
+    ids:authenticationToken [
+        a ids:AuthenticationToken;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ];
+    ids:correlationMessage conn1:inter3.
 
-    #ids:targetContent ???
-    #ids:baseContractOffer
+# mutual agreement on a contract
+conn1:inter3_a a ids:ContractAgreementMessage
+    ids:issuingConnector ??? ;
+    ids:consumerConnector ??? ;
+    ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
+    ids:modelVersion "1.0.0".
+    ids:authenticationToken [
+        a ids:AuthenticationToken;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ];
+    ids:correlationMessage
 
-:TOKEN a ids:AuthenticationToken;
-    ids:tokenValue "2YotnFZFEjr1zCsicMWpAA".
-
-:INTER3_O a ids:ContractOffer.
-
-:INTER3_A a ids:ContractAgreement.
 
 
