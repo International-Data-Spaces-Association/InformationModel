@@ -193,8 +193,9 @@ ids:ArtifactAvailableMessage a owl:Class ;
     ].
 
 ids:artifactReference rdf:type owl:DatatypeProperty ;
+    idsm:referenceByUrl true;
     rdfs:domain ids:ArtifactAvailable;
-    rdfs:range xsd:anyURI ;
+    rdfs:range ids:Artifact ;
     rdfs:label "Artifact Reference"@en ;
     rdfs:comment "References an artifact from an availability indication."@en.
 
@@ -208,8 +209,9 @@ ids:InvokeOperationMessage a owl:Class ;
     ].
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
+    idsm:referenceByUrl true;
     rdfs:domain ids:InvokeOperation ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range ids:Operation ;
     rdfs:label "Operation Reference"@en ;
     rdfs:comment "References the operation to be invoked on the recipient's side."@en.
 

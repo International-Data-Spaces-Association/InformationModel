@@ -12,7 +12,16 @@
 ids:Host
     a owl:Class;
     rdfs:label "host"@en ;
-    rdfs:comment "Network host capable of serving and consuming digital content and services."@en.
+    rdfs:comment "Network host capable of serving and consuming digital content and services."@en;
+    idsm:validation [
+        idsm:forProperty ids:protocol;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:accessUrl;
+        idsm:constraint idsm:NotNull;
+    ].
+
 
 #ids:ConnectionOption a owl:Class;
 #    rdfs:label "ConnectionOption"@en ;
