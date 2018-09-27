@@ -17,7 +17,7 @@ as individual files (“artifacts”) via the Trusted Connector CONN2.  The file
 by convention the discriminating parameters, i.e. the highway (e.g., “E37”), year (e.g., “2018”), month (e.g., “01”).
 The reports comprise tabular data in CSV format. The data may be used free of charge, the policy requires a credits 
 citation for a commercial use. An example of a verbose ([DATA1a](DATA1a.ttl)) and a more streamlined modelling 
-([DATA1b](DATA1b.ttl)) of repetitive artifacts is given.   
+([DATA1b](DATA2.ttl)) of repetitive artifacts is given.   
 
 ## Example DATA2: On-line, commercial data query
 
