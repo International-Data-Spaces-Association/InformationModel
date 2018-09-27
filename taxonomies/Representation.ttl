@@ -87,28 +87,30 @@ ids:SoftwareRepresentation a owl:Class;
     rdfs:label "Software representation"@en ;
     rdfs:comment "Software representation"@en .
 
+# this is in fact covered by a (custom) media type
+# is a specific container representation format required?
 ids:ContainerRepresentation
     a owl:Class;
     rdfs:subClassOf ids:Representation ;
     rdfs:label "Container representation"@en ;
     rdfs:comment "Container representation, i.e. of a (compressed) archive."@en .
 
-ids:ArchiveFormat
-    a owl:Class;
-    rdfs:label "Archive format"@en ;
-    rdfs:comment "Archive format."@en .
+#ids:ArchiveFormat
+#    a owl:Class;
+#    rdfs:label "Archive format"@en ;
+#    rdfs:comment "Archive format."@en .
 
-ids:packaging a owl:ObjectProperty; # tar
-    rdfs:domain ids:ContainerRepresentation;
-    rdfs:range  ids:ArchiveFormat;
-    rdfs:label "packaging"@en;
-    rdfs:comment "archive format (including or independent of compression)"@en.
+#ids:packaging a owl:ObjectProperty; # tar
+#    rdfs:domain ids:ContainerRepresentation;
+#    rdfs:range  ids:ArchiveFormat;
+#    rdfs:label "packaging"@en;
+#    rdfs:comment "archive format (including or independent of compression)"@en.
 
-ids:compression a owl:ObjectProperty; # gzip, 7zip etc.
-    rdfs:domain ids:ContainerRepresentation;
-    rdfs:range  ids:ArchiveFormat; # TODO: should be a more specific class?
-    rdfs:label "compression"@en;
-    rdfs:comment "compression format (including or independent of packaging)"@en.
+#ids:compression a owl:ObjectProperty; # gzip, 7zip etc.
+#    rdfs:domain ids:ContainerRepresentation;
+#    rdfs:range  ids:ArchiveFormat; # TODO: should be a more specific class?
+#    rdfs:label "compression"@en;
+#    rdfs:comment "compression format (including or independent of packaging)"@en.
 
 ids:CollectionRepresentation
     a owl:Class;

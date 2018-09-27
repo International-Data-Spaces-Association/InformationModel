@@ -1,0 +1,79 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
+@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
+
+@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
+@prefix data1: <https://aastat.gov.de/connector/conn2/data1> .
+@prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
+
+data1:
+    # Basic example, download of simple content     
+    # - Resource is equivalent with published content here, since only a single one
+    # - Download, i.e. non-interactive access - no interface definition needed
+    # - Significant IP derived from plain sources (data2), commercial use
+    #
+    a ids:Text ;
+    ids:title "European highway statistics - accident report"@en ;
+    ids:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
+    ids:keyword "report", "highway", "statistics", "Europe" ;
+    ids:temporalCoverage [
+        a ids:Interval ;
+        ids:begin [ ids:date "2000-01-01"^^xsd:date ];
+        ids:end   [ ids:date "2017-31-01"^^xsd:date ]
+    ] ;
+    ids:language idsc_lang:ENGLISH ;
+    ids:representation [
+        a ids:TextRepresentation ;
+        ids:mediaType idsc_media:APPLICATION_PDF;
+        ids:artifact data1:artifact ;
+    ] ;
+
+    # Communication
+    ids:endpoint [
+        a ids:StaticEndpoint ;
+        ids:endpointHost conn2:http_host ;
+        ids:endpointArtifact data1:artifact ;
+        ids:path "/reports/Highway_accident_statistics.pdf"
+    ] ;
+
+    # Commodization
+    ids:contractOffer data1:offer .
+
+    # Identifiable materialization(s) - no blank nodes
+data1:artifact
+    a ids:Artifact ;
+    ids:byteSize "1923497"^^xsd:nonNegativeInteger ;
+    ids:fileName "Highway_accident_statistics.pdf" ;
+    ids:creationDate "2018-06-01"^^xsd:date ;
+    .
+
+data1:offer
+    a ids:ContractOffer ;
+    ids:permission [
+        ids:assigner part1: ;
+        # individual target
+        ids:targetArtifact data1:artifact ;
+        ids:action ids:use;
+        # Obligation
+        ids:duty [
+            ids:action ids:compensate ;
+            ids:constraint [
+                ids:leftOperand     ids:payAmount ;
+                  ids:operator      ids:eq ;
+                  ids:rightOperand  25 ;
+                  ids:unit          <http://dbpedia.org/resource/Euro>
+            ]
+            # original ODRL construct is broken because of indirect action-reference via rdf:value
+            #ids:action [
+            #    rdf:value ids:compensate ;
+            #    ids:refinement  [
+            #        ids:leftOperand     ids:payAmount ;
+            #          ids:operator      ids:eq ;
+            #          ids:rightOperand  25 ;
+            #          ids:unit          <http://dbpedia.org/resource/Euro>
+            #    ]
+            #]
+        ]
+    ] .
