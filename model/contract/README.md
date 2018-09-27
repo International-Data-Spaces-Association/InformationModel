@@ -1,4 +1,4 @@
-# Contract model
+## Contract Module
 
 Contract Agreements are the result of a `Contract negotiation process`.
 Consumers interested in acquiring a Resource are obliged to evaluate
@@ -8,7 +8,9 @@ and capabilities. The Provider will in turn respond with an accordingly
 adapted Contract Offer (when different) or Contract Agreement (when
 semantically equivalent to Contract Request).
 
-# Issues/Questions/Ideas
+### Content
+
+### Issues/Questions/Ideas
 - References to real-world processes and agreements are *not* covered
 - Clarify relation among singing/contractual parties and parties entitled by policies
     - may contracts affecting owners/users be signed by substitutes (providers/consumers)

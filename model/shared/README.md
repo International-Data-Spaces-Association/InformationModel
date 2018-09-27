@@ -1,6 +1,8 @@
-# Shared model
+## Shared Module
 
-# Issues/Questions/Ideas
+### Content
+
+### Issues/Questions/Ideas
 
 - Consider adding general properties:
     - `idsm:constantIdentifier`

@@ -1,8 +1,10 @@
-# Infrastructure Model
+## Infrastructure Module
 
 <img src="figures/Catalog.jpg" alt="Catalog" width="250px"></img>
 
-# References
+### Content
 
-# Related resources
+### References
+
+### Related resources
 
