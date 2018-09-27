@@ -14,16 +14,19 @@ ids:Role
     idsm:abstract true .
 
 ids:Applicant
+    a owl:Class ;
     rdfs:subClassOf ids:Role ;
     rdfs:label "Applicant"@en ;
     rdfs:comment "Organization formally applying for being certified by the Certification Body."@en .
 
 ids:BrokerServiceProvider
+    a owl:Class ;
     rdfs:subClassOf ids:Role ;
     rdfs:label "Broker Service Provider"@en ;
     rdfs:comment "Intermediary managing a metadata repository that provides information about the Data Sources available in the Industrial Data Space; multiple Broker Service Providers may be around at the same time, maintaining references to different, domain-specific subsets of Data Endpoints."@en .
 
 ids:CertificationAuthority
+    a owl:Class ;
     rdfs:subClassOf ids:Role ;
     rdfs:label "Certification Authority"@en ;
     rdfs:comment "Trusted third-party entity issuing digital certificates (e.g., x509 certificates); may host services to validate certificates issued."@en .
@@ -39,22 +42,26 @@ ids:CertificationAuthority
 #    rdfs:comment "Intermediary providing clearing and settlement services for all financial and data exchange transactions within the Industrial Data Space."@en .
 
 ids:DataConsumer
+    a owl:Class ;
     rdfs:subClassOf ids:Role;
     rdfs:label "Data Consumer"@en ;
     rdfs:comment "Core participant in the Industrial Data Space requesting and using data provided by a Data Provider."@en .
 
 ids:DataSovereign
+    a owl:Class ;
     rdfs:subClassOf ids:Role;
     rdfs:label "Data Sovereign"@en ;# ids:Agent -> will become an contract assigner
     skos:altLabel "Data Owner"@en ;
     rdfs:comment "Core participant owning the legal rights for, and having complete control over, the data it makes available in the Industrial Data Space; defines the terms and conditions of use of its data."@en .
 
 ids:DataProvider
+    a owl:Class ;
     rdfs:subClassOf ids:Role; # ids:Agent
     rdfs:label "Data Provider"@en ;
     rdfs:comment "Core participant exposing Data Sources via a Connector; a Data Provider may be an enterprise or other organization, a data marketplace, an individual, or a “smart thing”."@en .
 
 ids:DataUser
+    a owl:Class ;
     rdfs:subClassOf ids:Role;# ids:Agent -> will become an contract assignee
     rdfs:label "Data User"@en ;
     rdfs:comment "Role of a Participant that has the legal right to use the data of a Data Sovereign as specified by the usage policy."@en .

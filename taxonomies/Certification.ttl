@@ -7,11 +7,13 @@
 
 ids:ParticipantCertificationLevel
     a owl:Class ;
+    rdfs:subClassOf ids:CertificationLevel;
     rdfs:label "Participant Certification Level"@en ;
     rdfs:comment "Level of a Participant Certification" .
 
 ids:ComponentCertificationLevel
     a owl:Class ;
+    rdfs:subClassOf ids:CertificationLevel;
     owl:disjointWith ids:ParticipantCertificationLevel ;
     rdfs:label "Component Certification Level"@en ;
     rdfs:comment "Level of a Component Certification" .

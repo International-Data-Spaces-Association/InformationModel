@@ -25,7 +25,7 @@ ids:Endpoint a owl:Class ;
 ids:StaticEndpoint
     a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
-    rdfs:label "static endpoint"@en ;
+    rdfs:label "Static Endpoint"@en ;
     rdfs:comment "Endpoint exposing  an Artifact."@en ;
     idsm:validation [
         idsm:forProperty ids:endpointArtifact;
@@ -36,7 +36,7 @@ ids:StaticEndpoint
 ids:InteractiveEndpoint
     a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
-    rdfs:label "interactive endpoint"@en ;
+    rdfs:label "Interactive Endpoint"@en ;
     rdfs:comment "Endpoint exposing a digital content in a interacitve way."@en ;
     idsm:validation [
         idsm:forProperty ids:endpointOperationBinding;
@@ -44,20 +44,19 @@ ids:InteractiveEndpoint
     ] ;
     owl:disjointWith ids:StaticEndpoint .
 
-
 ids:DataSink
-    idsm:abstract true ;
+    a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
+    idsm:abstract true ;
     rdfs:label "Data Sink"@en ;
-    rdfs:comment "Endpoint consuming digital content supplied by a Data Provider."@en ;
-    idsm:abstract true.
+    rdfs:comment "Endpoint consuming digital content supplied by a Data Provider."@en.
 
 ids:DataSource
-    idsm:abstract true ;
+    a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
+    idsm:abstract true ;
     rdfs:label "Data Source"@en ;
-    rdfs:comment "Endpoint providing digital content for being retrieved or subscribed to by a Data Consumer."@en ;
-    idsm:abstract true.
+    rdfs:comment "Endpoint providing digital content for being retrieved or subscribed to by a Data Consumer."@en.
 
 # Properties of Endpoint
 # ----------------------
