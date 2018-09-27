@@ -38,6 +38,7 @@ ids:date
     a owl:DatatypeProperty;
     rdfs:subPropertyOf time:inXSDDate;
     rdfs:domain ids:Instant;
+    rdfs:range xsd:date;
     rdfs:label "date"@en;
     rdfs:comment "Date coordinate of the instant."@en;
     idsm:example "2018-12-31";
@@ -48,6 +49,7 @@ ids:dateTime
     a owl:DatatypeProperty;
     rdfs:subPropertyOf time:inXSDDateTimeStamp;#  time-zone is mandatory
     rdfs:domain ids:Instant;
+    rdfs:range xsd:dateTime;
     rdfs:label "date time"@en;
     rdfs:comment "Date time with a defined time zone."@en;
     idsm:example "2018-12-31T13:20:00+02:00";

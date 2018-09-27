@@ -105,7 +105,7 @@ ids:targetArtifact
 ids:targetContent
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
-    rdfs:range ids:Content ;
+    rdfs:range ids:DigitalContent ;
     rdfs:label "target content"@en;
     rdfs:comment "Abstract content which is the subject of the policy statement."@en.
 
@@ -137,8 +137,8 @@ ids:contentRefinement
     a owl:ObjectProperty;
     # rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "content refinement"@en;
-    idsm:labelPluralForm "content refinements"@en;
-    rdfs:domain ids:Content;
+    idsm:labelPluralForm "contentRefinements"@en;
+    rdfs:domain ids:DigitalContent;
     rdfs:range ids:Constraint;
     rdfs:comment "Constraint that refines a (composite) Digital Content."@en.
 
