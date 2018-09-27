@@ -1,3 +1,4 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix idsv: <https://w3id.org/idsa/view/> .
@@ -23,6 +24,10 @@ idsv:glossaryView a idsm:ModelView;
         ids:ClearingHouse,
         ids:Connector,
         ids:Contract,
+        [
+            a owl:Class ;
+            rdfs:label "Data soveregnity";
+        ],
         ids:DataApp,
         ids:DataAsset,
         ids:DataConsumer,
