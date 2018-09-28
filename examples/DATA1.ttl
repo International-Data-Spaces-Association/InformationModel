@@ -78,7 +78,7 @@ data1:offer
         ids:action ids:use;
         # Obligation
         ids:duty [
-            ids:action ids:compensate ;
+            ids:action idsc_action:COMPENSATE ;
             ids:constraint [
                 ids:leftOperand     ids:payAmount ;
                   ids:operator      ids:eq ;
@@ -87,7 +87,7 @@ data1:offer
             ]
             # original ODRL construct does not fit model transformation because of indirect action-reference via rdf:value
             #ids:action [
-            #    rdf:value ids:compensate ;
+            #    rdf:value idsc_action:COMPENSATE ;
             #    ids:refinement  [
             #        ids:leftOperand     ids:payAmount ;
             #          ids:operator      ids:eq ;

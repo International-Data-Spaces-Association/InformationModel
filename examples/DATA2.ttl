@@ -4,6 +4,7 @@
 @prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
 @prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
 @prefix idsc_concept: <https://w3id.org/idsa/code/concept/> .
+@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data2: <https://aastat.gov.de/connector/conn2/data2/> .
@@ -121,14 +122,12 @@ data2:generic_content
         ids:mediaType idsc_media:TEXT_CSV ;
         ids:artifact
             data2:E1_20000101,
-            #
-            # ... plenty of artifacts ...
-            #
+            # imagine plenty of artifacts here ...
             data2:E421_20171231
     ] .
 
 
-# Enumeration of individual content instances
+# Enumeration of individual parametrized content instances
 data2:E1_20000101
     a ids:Artifact ;
     ids:byteSize 9823132 ;
@@ -177,4 +176,16 @@ data2:
       ids:endpointHost conn2:http_host ;
       ids:endpointArtifact data2:E421_20171231 ;
       ids:path "/resource/content/E421_20171231.csv"
+    ] ;
+    ids:contractOffer [
+        a ids:ContractOffer ;
+        ids:permission [
+            ids:assigner part1: ;
+            ids:targetContent data2:generic_content ; # i.e. applies to any artifact / instance of given content
+            ids:action ids:use;
+            # Obligation
+            ids:duty [
+                ids:action idsc_action:ATTRIBUTE ;
+            ]
+        ]
     ] .
