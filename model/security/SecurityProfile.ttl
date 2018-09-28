@@ -112,6 +112,7 @@ ids:localDataConfidentiality a owl:ObjectProperty;
 # -----------
 
 ids:Level0SecurityProfile a ids:PredefinedSecurityProfile;
+    rdfs:label "Level 0 Security Profile";
     rdfs:comment "Level 0 Security Profile";
     ids:integrityProtectionAndVerificationSupport ids:No_Integrity_Protection;
     ids:authenticationSupport ids:No_Authentication;
@@ -123,6 +124,7 @@ ids:Level0SecurityProfile a ids:PredefinedSecurityProfile;
     ids:localDataConfidentiality ids:No_Confidentiality.
 
 ids:Level1SecurityProfile a ids:PredefinedSecurityProfile;
+    rdfs:label "Level 1 Security Profile";
     rdfs:comment "Level 1 Security Profile";
     ids:integrityProtectionAndVerificationSupport ids:Local_Integrity_Protection;
     ids:authenticationSupport ids:Server_Side_Only;
@@ -134,6 +136,7 @@ ids:Level1SecurityProfile a ids:PredefinedSecurityProfile;
     ids:localDataConfidentiality ids:Secure_Data_Erasure.
 
 ids:Level2SecurityProfile a ids:PredefinedSecurityProfile;
+    rdfs:label "Level 2 Security Profile";
     rdfs:comment "Level 2 Security Profile";
     ids:integrityProtectionAndVerificationSupport ids:Remote_Integrity_Verification;
     ids:authenticationSupport ids:Mutual;
@@ -145,6 +148,7 @@ ids:Level2SecurityProfile a ids:PredefinedSecurityProfile;
     ids:localDataConfidentiality ids:No_Confidentiality.
 
 ids:BaseConnectorSecurityProfile a ids:PredefinedSecurityProfile;
+    rdfs:label "Base Connector Security Profile";
     rdfs:comment "Base Connector Security Profile";
     ids:integrityProtectionAndVerificationSupport ids:No_Integrity_Protection;
     ids:authenticationSupport ids:Mutual;
@@ -159,95 +163,119 @@ ids:BaseConnectorSecurityProfile a ids:PredefinedSecurityProfile;
 # -------------------------------------
 
 ids:Local_Integrity_Protection a ids:IntegrityProtectionAndVerificationSupport;
+    rdfs:label "Local Integrity Protection";
     rdfs:comment "Local Integrity Protection".
 
 ids:Remote_Integrity_Verification a ids:IntegrityProtectionAndVerificationSupport;
+    rdfs:label "Remote Integrity Verification";
     rdfs:comment "Remote Integrity Verification".
 
 ids:No_Integrity_Protection a ids:IntegrityProtectionAndVerificationSupport;
+    rdfs:label "No Integrity Protection Or Verification";
     rdfs:comment "No Integrity Protection Or Verification".
 
 # Authentication
 # --------------
 
 ids:Server_Side_Only a ids:AuthenticationSupport;
+    rdfs:label "Server Side Only Authentication";
     rdfs:comment "Server Side Only Authentication".
 
 ids:Mutual a ids:AuthenticationSupport;
+    rdfs:label "Mutual authentication (both sides present id token / certificate)";
     rdfs:comment "Mutual authentication (both sides present id token / certificate)".
 
 ids:No_Authentication a ids:AuthenticationSupport;
+    rdfs:label "No authentication";
     rdfs:comment "No authentication".
 
 # Service Isolation
 # -----------------
 
 ids:Process_Group_Isolation a ids:ServiceIsolationSupport;
+    rdfs:label "Process group Isolation";
     rdfs:comment "Process group Isolation".
 
 ids:Least_Privilege_Based_Isolation a ids:ServiceIsolationSupport;
+    rdfs:label "Least privilege based Isolation";
     rdfs:comment "Least privilege based Isolation".
 
 ids:No_Service_Isolation a ids:ServiceIsolationSupport;
+    rdfs:label "No Service Isolation";
     rdfs:comment "No Service Isolation".
 
 # Integrity Protection / Verification Scope
 # -----------------------------------------
 
 ids:Kernel_and_Core_Container a ids:IntegrityProtectionScope;
+    rdfs:label "Kernel and Core Container";
     rdfs:comment "Kernel and Core Container".
 
 ids:Kernel_and_Core_Container_and_Application_Containers a ids:IntegrityProtectionScope;
+    rdfs:label "Kernel and Core Container and Application Containers";
     rdfs:comment "Kernel and Core Container and Application Containers".
 
 ids:Unknown_Integrity_Protection_Scope a ids:IntegrityProtectionScope;
+    rdfs:label "Unknown Integrity Protection Scope";
     rdfs:comment "Unknown Integrity Protection Scope".
 
 # App Execution Resources
 # -----------------------
 
 ids:Local_Enforcement a ids:AppExecutionResources;
+    rdfs:label "Local enforcement";
     rdfs:comment "Local enforcement".
 
 ids:Remote_Verification a ids:AppExecutionResources;
+    rdfs:label "Remote verification";
     rdfs:comment "Remote verification".
 
 ids:No_App_Execution a ids:AppExecutionResources;
+    rdfs:label "No app execution";
     rdfs:comment "No app execution".
 
 # Data Usage Control
 # ------------------
 
 ids:Usage_Control_Policy_Enforcement a ids:DataUsageControlSupport;
+    rdfs:label "Usage control policy enforcement";
     rdfs:comment "Usage control policy enforcement".
 
 ids:Remote_Policy_Compliance_Verification a ids:DataUsageControlSupport;
+    rdfs:label "Remote policy compliance verification";
     rdfs:comment "Remote policy compliance verification".
 
 ids:No_Usage_Control a ids:DataUsageControlSupport;
+    rdfs:label "No_Usage_Control";
     rdfs:comment "No_Usage_Control".
 
 # Audit Logging
 # -------------
 
 ids:Local_Logging_Capabilities_And_Integrity_Protection a ids:AuditLogging;
+    rdfs:label "Local logging capabilities and integrity protection";
     rdfs:comment "Local logging capabilities and integrity protection".
 
 ids:Remote_Audit_Log_Tracing a ids:AuditLogging;
+    rdfs:label "Remote audit log tracing";
     rdfs:comment "Remote audit log tracing".
 
 ids:No_Audit_Logging a ids:AuditLogging;
+    rdfs:label "No Audit Logging";
     rdfs:comment "No Audit Logging".
 
 # Local Data Confidentiality
 # --------------------------
 
 ids:Secure_Data_Erasure a ids:LocalDataConfidentiality;
+    rdfs:label "Secure data erasure";
     rdfs:comment "Secure data erasure".
 
 ids:Local_Full_Data_Encryption  a ids:LocalDataConfidentiality;
+    rdfs:label "Local full data encryption";
     rdfs:comment "Local full data encryption".
 
 ids:No_Confidentiality a ids:LocalDataConfidentiality;
+    rdfs:label "No Confidentiality";
     rdfs:comment "No Confidentiality".
 
