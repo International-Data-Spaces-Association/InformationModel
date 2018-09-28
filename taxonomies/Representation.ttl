@@ -30,7 +30,7 @@ ids:DataRepresentation
 ids:dataType
     a owl:DatatypeProperty;
     rdfs:domain ids:DataRepresentation;
-    rdfs:range rdfs:Datatype ; # xsd:anyURI; ids:DataType;
+    rdfs:range xsd:anyURI; # rdfs:Datatype breaks generation of the Java model
     rdfs:label "Data type"@en;
     rdfs:comment "Indicates the data type of the Representation."@en.
 

@@ -31,7 +31,7 @@ data2:
     a ids:Container ;# this resource may be treated as a container
     ids:representation [
         a ids:ContainerRepresentation ;
-        ids:mediaType idsc_media:APPLICATION_TAR-GZIP ;# application/tar+gzip is not an official IANA Media type!
+        ids:mediaType idsc_media:APPLICATION_TAR_GZIP ;# application/tar+gzip is not an official IANA Media type!
         ids:artifact data2:tar_gzip_archive ;
         # a possible alternative:
         # ids:packaging idsc_pack:TAR ;
@@ -70,7 +70,7 @@ data2:highway_param
         ids:theme idsc_concept:HIGHWAY ;
         ids:representation [
             a ids:DataRepresentation ;
-            ids:dataType xsd:string
+            ids:dataType "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI ;
         ]
     ] .
 
@@ -82,7 +82,7 @@ data2:year_param
         ids:theme idsc_concept:YEAR ;
         ids:representation [
             a ids:DataRepresentation ;
-            ids:dataType xsd:gYear
+            ids:dataType "http://www.w3.org/2001/XMLSchema#gYear"^^xsd:anyURI ;
         ]
     ] .
 
@@ -94,7 +94,7 @@ data2:month_param
         ids:concept idsc_concept:MONTH ;
         ids:representation [
             a ids:DataRepresentation ;
-            ids:dataType xsd:int
+            ids:dataType "http://www.w3.org/2001/XMLSchema#int"^^xsd:anyURI ;
         ]
     ] .
 
@@ -191,7 +191,7 @@ data2:
         ids:permission [
             ids:assigner part1: ;
             ids:targetContent data2:generic_content ; # i.e. applies to any artifact / instance of given content
-            ids:action ids:use;
+            ids:action idsc_action:USE ;
             # Obligation
             ids:duty [
                 ids:action idsc_action:ATTRIBUTE ;

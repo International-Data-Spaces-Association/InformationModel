@@ -34,7 +34,33 @@ idsc_media:TEXT_XML
     ids:filenameExtension "xml" ;
     .
 
-# Media Type "application/*"
+# Image
+
+idsc_media:IMAGE_JPEG
+    a ids:IANAMediaType ;
+    rdfs:label "image/jpeg" ;
+    rdfs:comment "JPG file"@en ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/image/jpeg> ;
+    ids:filenameExtension "jpg" ;
+    .
+
+idsc_media:IMAGE_PNG
+    a ids:IANAMediaType ;
+    rdfs:label "image/png" ;
+    rdfs:comment "PNG file"@en ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/image/png> ;
+    ids:filenameExtension "png" ;
+    .
+
+idsc_media:IMAGE_TIFF
+    a ids:IANAMediaType ;
+    rdfs:label "image/tiff" ;
+    rdfs:comment "TIFF file"@en ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/image/tiff> ;
+    ids:filenameExtension "tiff" ;
+    .
+
+# Data types
 
 idsc_media:APPLICATION_JSON
     a ids:IANAMediaType ;
@@ -79,13 +105,6 @@ idsc_media:APPLICATION_PDF
 	rdfs:label "application/pdf" ;
     owl:sameAs <http://www.sparontologies.net/mediatype/application/pdf> ;
     ids:filenameExtension "pdf" ;
-    .
-
-idsc_media:APPLICATION_TAR_GZIP
-    a ids:MediaType;
-	rdfs:label "application/tar+gzip" ;
-	rdfs:comment "Tape archive (tar) package compressed using GNU Gzip" ;
-    ids:filenameExtension "tar.gz" ;
     .
 
 idsc_media:APPLICATION_MSWORD
@@ -138,6 +157,13 @@ idsc_media:APPLICATION_ZIP
     rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/application/zip> ;
     ids:filenameExtension "zip" ;
     .
+    
+idsc_media:APPLICATION_TAR_GZIP
+    a ids:MediaType;
+	rdfs:label "application/tar+gzip" ;
+	rdfs:comment "Tape archive (tar) package compressed using GNU Gzip" ;
+    ids:filenameExtension "tar.gz" ;
+    .
 
 # Software & code
 
@@ -153,3 +179,5 @@ idsc_media:APPLICATION_DATAAPP
     rdfs:label "application/dataapp";
     rdfs:comment "Data App sofware package";
     .
+
+    
