@@ -9,14 +9,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix conn1: <https://someCompany.de/connector/> .
-@prefix conn2: <https://aastat.gov.de/connector/> .
-@prefix : <https://aastat.gov.de/comm/> .
-@prefix broker1: <https://aastat.gov.de/connector/broker1/> .
+@prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
+@prefix conn3: <https://someCompany.de/connector/conn3> .
+@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 
 # original request from (potential) consuming connector to providing connector
-conn1:inter3_r a ids:ContractRequestMessage;
-    ids:issuerConnector conn1: ;
+conn3:inter3_r a ids:ContractRequestMessage;
+    ids:issuerConnector conn3: ;
     ids:recipientConnector conn2: ;
     ids:issued "2018-10-01T15:57:00"^^xsd:dateTime;
     ids:modelVersion "1.0.0";
@@ -24,23 +23,23 @@ conn1:inter3_r a ids:ContractRequestMessage;
         a ids:AuthenticationToken;
         ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
     ];
-    ids:baseContractOffer conn2:contract.
+    ids:baseContractOffer data1:offer.
 
-# counteroffer from providing connector
+# counteroffer from providing connector as part of the payload
 conn2:inter3_o a ids:ContractOfferMessage;
     ids:issuerConnector conn2: ;
-    ids:recipientConnector conn1: ;
+    ids:recipientConnector conn3: ;
     ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
     ids:modelVersion "1.0.0";
     ids:authenticationToken [
         a ids:AuthenticationToken;
         ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
     ];
-    ids:correlationMessage conn1:inter3_r.
+    ids:correlationMessage conn3:inter3_r.
 
 # agreement on a contract
-conn1:inter3_a a ids:ContractAgreementMessage;
-    ids:issuerConnector conn1: ;
+conn3:inter3_a a ids:ContractAgreementMessage;
+    ids:issuerConnector conn3: ;
     ids:recipientConnector conn2: ;
     ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
     ids:modelVersion "1.0.0";
@@ -53,14 +52,14 @@ conn1:inter3_a a ids:ContractAgreementMessage;
 # confirmation of contract agreement
 conn2:inter3_a a ids:ContractAgreementMessage;
     ids:issuerConnector conn2: ;
-    ids:recipientConnector conn1: ;
+    ids:recipientConnector conn3: ;
     ids:issued "2018-10-01T15:59:00"^^xsd:dateTime;
     ids:modelVersion "1.0.0";
     ids:authenticationToken [
         a ids:AuthenticationToken;
         ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
     ];
-    ids:correlationMessage conn1:inter3_a.
+    ids:correlationMessage conn3:inter3_a.
 
 
 

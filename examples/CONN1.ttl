@@ -8,47 +8,47 @@
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
 # Connector-related description nodes reside in its own namespace
-@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
+@prefix conn1: <https://aastat.gov.de/connector/conn1/> .
 
-conn2:
-    a ids:TrustedConnector ;
+conn1:
+    a ids:BaseConnector ;
     # General properties
-    ids:title "EU Traffic statistics hub" ;
-    ids:description "Example Trusted Connector maintained by PART1" ;
-    ids:maintainer part1: ; # Participant ~ service provider PART1
-    ids:curator part1: ; # Content manager
-    ids:physicalLocation <http://sws.geonames.org/3247450/> ; #Datacenter located in Bonn
+    ids:title "Mobile base connector" ;
+    ids:description "Mobile base connector operated by PART1" ;
+    ids:maintainer part1: ;
+    ids:curator part1: ;
+    ids:physicalLocation <http://sws.geonames.org/3247450/> ; # Bonn
     ids:outboundModelVersion "1.0.0" ;
 
     # Network hosts maintained by the Connector
-    ids:host conn2:http_host ;
+    ids:host conn1:http_host ;
 
     # Security and trust features
-    ids:authInfo conn2:auth_info ;
+    ids:authInfo conn1:auth_info ;
     ids:securityProfile ids:Level2SecurityProfile ;
-    ids:componentCertification conn2:certification ;
+    ids:componentCertification conn1:certification ;
 
     # Catalog of mediated resources
     ids:catalog [
         a ids:Catalog;
-        ids:offer conn2:data1, conn2:data2, conn2:data3 ; # those resources are "offer(s)", in contrast to "request"
+        # no offerings
     ].
 
-conn2:http_host
+conn1:http_host
     a ids:Host ;
     ids:protocol idsc_prot:HTTP2;
-    ids:accessUrl "https://connector.aastat.gov.de"^^xsd:anyURI ; # how does the host url relate to the connector description?
+    ids:accessUrl "https://monconnector.aastat.gov.de"^^xsd:anyURI ;
     .
 
-conn2:auth_info
+conn1:auth_info
     a ids:AuthInfo ;
     ids:authService "https://keycloak.aastat.gov.de"^^xsd:anyURI ;
     ids:authStandard idsc_auth:OAUTH2_JWT ;
     .
 
-conn2:certification
+conn1:certification
     a ids:ComponentCertification ;
-    ids:certificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
+    ids:certificationLevel idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW ;
     # ids:evaluationFacility
     ids:lastValidDate "2020-12-31"^^xsd:date ;
     .
