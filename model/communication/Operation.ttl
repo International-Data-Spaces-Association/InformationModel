@@ -30,6 +30,10 @@ ids:Operation a owl:Class;
     idsm:validation [
         idsm:forProperty ids:output;
         idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:fault;
+        idsm:relationType idsm:OneToMany;
     ].
 
 # Properties for describing an Operation
@@ -78,6 +82,7 @@ ids:output a owl:ObjectProperty;
     rdfs:comment "Holds the result of an Operation."@en.
 
 ids:mandatoryOutput a owl:ObjectProperty;
+    rdfs:subPropertyOf ids:output;
     rdfs:domain ids:Operation;
     rdfs:range ids:Parameter;
     rdfs:label "mandatoryOutput"@en;
