@@ -5,14 +5,6 @@
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
 
-<https://w3id.org/idsa/code/mediatype/>
-    a owl:Ontology ;
-    dct:title "IDS Media Type Vocabulary" ;
-    rdfs:comment "Collection of Media Types instances used by the International Data Space."@en ;
-    dct:date "2018-10-01" ;
-    owl:versionInfo "1.0.0" ;
-    .
-
 # Instances
 # ---------
 
@@ -22,7 +14,7 @@ idsc_media:TEXT_PLAIN
     a ids:IANAMediaType ;
     rdfs:label "text/plain" ;
     rdfs:comment "Plain text file" ;
-    owl:sameAs <www.sparontologies.net/mediatype/text/plain> ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/text/plain> ;
     ids:filenameExtension "txt" ;
     .
 
@@ -30,7 +22,7 @@ idsc_media:TEXT_CSV
     a ids:IANAMediaType ;
     rdfs:label "text/csv" ;
     rdfs:comment "Comma-separated text file (CSV)" ;
-    owl:sameAs <www.sparontologies.net/mediatype/text/csv> ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/text/csv> ;
     ids:filenameExtension "json" ;
     .
 
@@ -38,7 +30,7 @@ idsc_media:TEXT_XML
     a ids:IANAMediaType ;
     rdfs:label "text/xml" ;
     rdfs:comment "Alias for the application/xml Media Type."@en ;
-    owl:sameAs <www.sparontologies.net/mediatype/text/xml> ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/text/xml> ;
     ids:filenameExtension "xml" ;
     .
 
@@ -48,7 +40,7 @@ idsc_media:APPLICATION_JSON
     a ids:IANAMediaType ;
     rdfs:label "application/json" ;
     rdfs:comment "JavaScript Object Notation file"@en ;
-    owl:sameAs <www.sparontologies.net/mediatype/application/json> ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/application/json> ;
     ids:filenameExtension "json" ;
     .
 
@@ -85,7 +77,7 @@ idsc_media:TEXT_VND_APIBLUEPRINT
 idsc_media:APPLICATION_PDF
     a ids:IANAMediaType;
 	rdfs:label "application/pdf" ;
-    owl:sameAs <www.sparontologies.net/mediatype/application/pdf> ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/application/pdf> ;
     ids:filenameExtension "pdf" ;
     .
 
@@ -100,7 +92,7 @@ idsc_media:APPLICATION_MSWORD
     a ids:IANAMediaType;
 	rdfs:label "application/msword";
 	rdfs:comment "Microsoft Word document format" ;
-	owl:sameAs <www.sparontologies.net/mediatype/application/msword> ;
+	owl:sameAs <http://www.sparontologies.net/mediatype/application/msword> ;
 	ids:filenameExtension "doc" ;
 	.
 	
@@ -141,7 +133,7 @@ idsc_media:APPLICATION_SCHEMA_JSON
 
 idsc_media:APPLICATION_ZIP
     a ids:IANAMediaType ;
-    owl:sameAs <www.sparontologies.net/mediatype/application/zip> ;
+    owl:sameAs <http://www.sparontologies.net/mediatype/application/zip> ;
     rdfs:label "application/zip" ;
     rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/application/zip> ;
     ids:filenameExtension "zip" ;
