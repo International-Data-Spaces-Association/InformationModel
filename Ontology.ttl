@@ -9,24 +9,26 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cc: <http://creativecommons.org/ns#>. 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 # Description of this ontology
 # ----------------------------
 
 ids:
     a voaf:Vocabulary, owl:Ontology ;
+    rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
     rdfs:label "IDS Information Model"@en;
     dct:title "The Industrial Dataspace Information Model"@en;
     rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace.";
     cc:license <http://www.apache.org/licenses/LICENSE-2.0> ;
-    dct:creator ids:ChristianMader ;
-    dct:creator ids:JaroslavPullmann ;
+    dct:creator <https://github.com/cmader> ;
+    dct:creator <https://github.com/jpullmann> ;
     dct:creator <http://sebastian.tramp.name> ;
-    dct:contributor ids:AndreasMueller ;
-    dct:contributor ids:AnnaKasprzik ;
+    dct:contributor _:AndreasMueller ;
+    dct:contributor _:AnnaKasprzik ;
     dct:publisher ids:IDSA ;
-    dct:created "2017-09-26";
-    dct:modified "2018-09-28";
+    dct:created "2017-09-26"^^xsd:date;
+    dct:modified "2018-09-28"^^xsd:date;
     owl:versionInfo "SNAPSHOT";
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/";
     vann:preferredNamespacePrefix "ids" ;
@@ -54,109 +56,23 @@ ids:IDSA
     foaf:name "Sebastian Tramp";
 .
 
-ids:ChristianMader
+<https://github.com/cmader>
     a dct:Agent, foaf:Person ;
     foaf:name "Christian Mader";
 .
 
-ids:JaroslavPullmann
+<https://github.com/jpullmann>
     a dct:Agent, foaf:Person ;
     foaf:name "Jaroslav Pullmann";
 .
 
-ids:AndreasMueller
+_:AndreasMueller
     a dct:Agent, foaf:Person ;
     foaf:name "Andreas Müller";
 .
 
-ids:AnnaKasprzik
+_:AnnaKasprzik
     a dct:Agent, foaf:Person ;
     foaf:name "Anna Kasprzik";
 .
 
-ids: owl:imports
-<codes/ApiDocumentType.ttl>,
-<codes/ArchiveFormat.ttl>,
-<codes/AuthenticationTokenFormat.ttl>,
-<codes/BrokerQueryScope.ttl>,
-<codes/Category.ttl>,
-<codes/CertificationLevel.ttl>,
-<codes/ContentType.ttl>,
-<codes/FaultPropagationRule.ttl>,
-<codes/IndustrialClassification.ttl>,
-<codes/Language.ttl>,
-<codes/License.ttl>,
-<codes/MediaType.ttl>,
-<codes/MessageExchangePattern.ttl>,
-<codes/PageReference.ttl>,
-<codes/Protocol.ttl>,
-<codes/QueryLanguage.ttl>,
-<codes/RejectionReason.ttl>,
-<codes/RelativeReference.ttl>,
-<codes/SchemaType.ttl>,
-<codes/SortOrder.ttl>,
-<codes/Unit.ttl>,
-<metamodel/Annotation.ttl>,
-<metamodel/Validation.ttl>,
-<metamodel/View.ttl>,
-<model/communication/ApiDocumentType.ttl>,
-<model/communication/DataType.ttl>,
-<model/communication/Endpoint.ttl>,
-<model/communication/FaultPropagationRule.ttl>,
-<model/communication/Host.ttl>,
-<model/communication/Interface.ttl>,
-<model/communication/MessageExchangePattern.ttl>,
-<model/communication/Message.ttl>,
-<model/communication/OperationBinding.ttl>,
-<model/communication/Operation.ttl>,
-<model/communication/ParameterAssignment.ttl>,
-<model/communication/ParameterGroupingOperator.ttl>,
-<model/communication/ParameterGroup.ttl>,
-<model/communication/Parameter.ttl>,
-<model/communication/Protocol.ttl>,
-<model/content/Artifact.ttl>,
-<model/content/Category.ttl>,
-<model/content/DataApp.ttl>,
-<model/content/DigitalContent.ttl>,
-<model/content/Language.ttl>,
-<model/content/MediaType.ttl>,
-<model/content/Representation.ttl>,
-<model/content/Resource.ttl>,
-<model/context/SpatialEntity.ttl>,
-<model/context/TemporalEntity.ttl>,
-<model/contract/Action.ttl>,
-<model/contract/BinaryOperator.ttl>,
-<model/contract/Contract.ttl>,
-<model/contract/LeftOperand.ttl>,
-<model/contract/Payment.ttl>,
-<model/contract/PricingModel.ttl>,
-<model/contract/Rule.ttl>,
-<model/governance/Certification.ttl>,
-<model/governance/License.ttl>,
-<model/governance/Standard.ttl>,
-<model/infrastructure/AppStore.ttl>,
-<model/infrastructure/Broker.ttl>,
-<model/infrastructure/Catalog.ttl>,
-<model/infrastructure/ClearingHouse.ttl>,
-<model/infrastructure/Component.ttl>,
-<model/infrastructure/Connector.ttl>,
-<model/infrastructure/IdentityProvider.ttl>,
-<model/participant/IndustrialClassification.ttl>,
-<model/participant/Participant.ttl>,
-<model/security/AuthenticationToken.ttl>,
-<model/security/AuthInfo.ttl>,
-<model/security/AuthStandard.ttl>,
-<model/security/SecurityProfile.ttl>,
-<model/shared/Described.ttl>,
-<model/shared/Named.ttl>,
-<model/shared/Unit.ttl>,
-<model/traceability/Activity.ttl>,
-<model/traceability/ManagedEntity.ttl>,
-<taxonomies/Certification.ttl>,
-<taxonomies/DigitalContent.ttl>,
-<taxonomies/Message.ttl>,
-<taxonomies/Operation.ttl>,
-<taxonomies/Parameter.ttl>,
-<taxonomies/Representation.ttl>,
-<taxonomies/Resource.ttl> ,
-<views/GlossaryView.ttl> .
