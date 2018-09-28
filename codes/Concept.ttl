@@ -16,25 +16,33 @@ idsc_concept:concept
 
 idsc_concept:place
     a skos:Concept ;
+    skos:inScheme idsc_concept:concept;
     skos:topConceptOf idsc_concept:concept;
-    skos:prefLabel "place"@en .
+    skos:prefLabel "place"@en;
+    skos:definition "top concept describing all places"@en.
 
 idsc_concept:time
     a skos:Concept ;
+    skos:inScheme idsc_concept:concept;
     skos:topConceptOf idsc_concept:concept;
-    skos:prefLabel "time"@en .
+    skos:prefLabel "time"@en;
+    skos:definition "top concept describing terms of time"@en.
 
 idsc_concept:HIGHWAY
     a skos:Concept ;
+    skos:inScheme idsc_concept:concept;
     skos:broader idsc_concept:place;
-    skos:prefLabel "highway"@en .
+    skos:prefLabel "highway"@en;
+    skos:definition "Any public or private road or other public way on land."@en.
 
 idsc_concept:YEAR
     a skos:Concept ;
+    skos:inScheme idsc_concept:concept;
     skos:broader idsc_concept:time;
-    skos:prefLabel "year"@en .
+    skos:prefLabel "Orbital period of the Earth moving in its orbit around the Sun."@en .
 
 idsc_concept:MONTH
     a skos:Concept ;
+    skos:inScheme idsc_concept:concept;
     skos:broader idsc_concept:time;
-    skos:prefLabel "month"@en .
+    skos:prefLabel "A unit of time, used with calendars, which is approximately as long as a natural period related to the motion of the Moon."@en .
