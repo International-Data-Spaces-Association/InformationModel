@@ -46,7 +46,7 @@ data2:
 
 data2:tar_gzip_archive # Overall resource archive
     a ids:Artifact ;
-    ids:byteSize 2123178072 ;
+    ids:byteSize "2123178072"^^xsd:nonNegativeInteger ;
     ids:fileName "EuropeanHighwayStatistics_2000_2017.tar.gz" ;
     ids:creationDate "2018-10-01"^^xsd:date .
 
@@ -133,17 +133,20 @@ data2:generic_content
 # Enumeration of individual parametrized content instances
 data2:E1_20000101
     a ids:Artifact ;
-    ids:byteSize 9823132 ;
+    ids:byteSize "9823132"^^xsd:nonNegativeInteger ;
     ids:fileName "E1_20000101.csv" ;
     ids:artifactParameterization [
+        a ids:ParameterAssignment;
         ids:parameter data2:highway_param ;
         ids:contentValue [ ids:value "E1" ];
     ] ;
     ids:artifactParameterization [
+        a ids:ParameterAssignment;
         ids:parameter data2:year_param ;
         ids:contentValue [ ids:value 2000 ];
     ] ;
     ids:artifactParameterization [
+        a ids:ParameterAssignment;
         ids:parameter data2:month_param ;
         ids:contentValue [ ids:value 1 ];
     ] .
@@ -152,17 +155,20 @@ data2:E1_20000101
 
 data2:E421_20171231
     a ids:Artifact;
-    ids:byteSize 6174035 ;
+    ids:byteSize "6174035"^^xsd:nonNegativeInteger ;
     ids:fileName "E421_20171231.csv" ;
     ids:artifactParameterization [
+        a ids:ParameterAssignment;
         ids:parameter data2:highway_param ;
         ids:contentValue  [ ids:value "E421" ];
     ] ;
     ids:artifactParameterization [
+        a ids:ParameterAssignment;
         ids:parameter data2:year_param ;
         ids:contentValue  [ ids:value 2018 ];
     ] ;
     ids:artifactParameterization [
+        a ids:ParameterAssignment;
         ids:parameter data2:month_param ;
         ids:contentValue  [ ids:value 9 ];
     ] .

@@ -30,13 +30,13 @@ ids:DataRepresentation
 ids:dataType
     a owl:DatatypeProperty;
     rdfs:domain ids:DataRepresentation;
-    rdfs:range xsd:anyURI; #rdfs:Datatype ; ids:DataType;
+    rdfs:range rdfs:Datatype ; # xsd:anyURI; ids:DataType;
     rdfs:label "Data type"@en;
     rdfs:comment "Indicates the data type of the Representation."@en.
 
 ids:dataTypeSchema a owl:ObjectProperty;
     rdfs:domain ids:DataRepresentation;
-    rdfs:range ids:SchemaResource;
+    rdfs:range ids:Resource; # expects a Resource holding a Schema content
     rdfs:label "Data Type Schema"@en;
     rdfs:comment "Indicates the data type schema of the Representation."@en.
 
