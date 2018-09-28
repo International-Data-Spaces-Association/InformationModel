@@ -14,14 +14,27 @@ idsc_concept:concept
     a skos:ConceptScheme ;
     dct:title "Collection of concepts referenced by content" .
 
+idsc_concept:place
+    a skos:Concept ;
+    skos:topConceptOf idsc_concept:concept;
+    skos:prefLabel "place"@en .
+
+idsc_concept:time
+    a skos:Concept ;
+    skos:topConceptOf idsc_concept:concept;
+    skos:prefLabel "time"@en .
+
 idsc_concept:HIGHWAY
     a skos:Concept ;
+    skos:broader idsc_concept:place;
     skos:prefLabel "highway"@en .
 
 idsc_concept:YEAR
     a skos:Concept ;
+    skos:broader idsc_concept:time;
     skos:prefLabel "year"@en .
 
 idsc_concept:MONTH
     a skos:Concept ;
+    skos:broader idsc_concept:time;
     skos:prefLabel "month"@en .
