@@ -14,7 +14,11 @@ ids:Representation
     a owl:Class ;
     rdfs:subClassOf dcat:Distribution;# covers the generalizable parts of a Distribution
     rdfs:label "Representation"@en;
-    rdfs:comment "Syntactic template of a Resource."@en.
+    rdfs:comment "Syntactic template of a Resource."@en;
+    idsm:validation [
+        idsm:forProperty ids:instance;
+        idsm:relationType idsm:OneToMany;
+    ].
 
 ids:RepresentationInstance
     a owl:Class ;
@@ -39,6 +43,7 @@ ids:instance
     rdfs:domain ids:Representation ;
     rdfs:range ids:RepresentationInstance;
     rdfs:label "instance"@en ;
+    idsm:labelPluralForm "instances"@en;
     rdfs:comment "Reference to an instance of given representation, i.e. inline value or file placeholder."@en.
 
 ids:mediaType

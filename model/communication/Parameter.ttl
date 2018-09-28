@@ -18,7 +18,11 @@ ids:Parameter a owl:Class;
     rdfs:subClassOf ids:Named;
     rdfs:label "Parameter"@en ;
     rdfs:comment "Named slot of an interface operation i.e., an input, output or fault (exception)."@en;
-    .
+    idsm:validation [
+        idsm:forProperty ids:parameterContent;
+        idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotNull;
+    ].
 
 # Content
 # reference to Content via "parameterContent" link, single cardinality per default ({1})

@@ -42,6 +42,10 @@ ids:DigitalContent
         idsm:forProperty ids:contentRefinement;
         idsm:relationType idsm:OneToMany;
     ];
+    idsm:validation [
+        idsm:forProperty ids:representation;
+        idsm:relationType idsm:OneToMany;
+    ];
     rdfs:seeAlso
         <https://en.wikipedia.org/wiki/Digital_content> ,
         <http://www.ontodm.com/doku.php?id=ontodt> ,
@@ -68,6 +72,7 @@ ids:representation
     a owl:ObjectProperty;
     #rdfs:subPropertyOf dcat:distribution ; # Links to non-materialized part of Distribution
     rdfs:label "representation"@en;
+    idsm:labelPluralForm "representations"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:Representation;
     rdfs:comment "Representation of the content."@en.
