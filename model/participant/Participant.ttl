@@ -156,10 +156,12 @@ ids:homepage rdfs:subPropertyOf foaf:homepage;
 # Properties for describing a Site
 # --------------------------------
 
-ids:siteAddress rdfs:subPropertyOf org:siteAddress;
-    a owl:ObjectProperty;
+ids:siteAddress
+    # rdfs:subPropertyOf org:siteAddress;
+    # a owl:ObjectProperty;
+    a owl:DatatypeProperty ;
     rdfs:domain ids:Site;
     rdfs:range xsd:string;
-    rdfs:label "siteAddress"@en;
+    rdfs:label "site address"@en;
     rdfs:comment "Indicates an address for the site."@en.
 
