@@ -19,10 +19,6 @@ ids:Resource
     rdfs:comment "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."@en;
     rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset>;
     idsm:validation [
-        idsm:forProperty ids:resourceInterface;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
         idsm:forProperty ids:resourceEndpoint;
         idsm:relationType idsm:OneToMany;
     ];
@@ -66,7 +62,6 @@ ids:resourcePart a owl:ObjectProperty;
 ids:resourceInterface
     a owl:ObjectProperty;# Renamed from "interface" to be distinguished from a Software's programming interface
     rdfs:label "resource interface"@en;
-    idsm:labelPluralForm "resourceInterfaces"@en;
     rdfs:domain ids:Resource;
     rdfs:range ids:Interface;
     rdfs:comment "Reference to the Interface defining Operations supported by the Resource."@en.
