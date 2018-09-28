@@ -39,6 +39,13 @@ ids:Operation a owl:Class;
 # Properties for describing an Operation
 # --------------------------------------
 
+ids:operationType
+    a owl:ObjectProperty;
+    rdfs:domain ids:Operation;
+    rdfs:range ids:OperationType;
+    rdfs:label "operation type"@en;
+    rdfs:comment "Detailed type, genre or interpretation of the Operation."@en.
+
 ids:pattern
     a owl:ObjectProperty;
     rdfs:domain ids:Operation;

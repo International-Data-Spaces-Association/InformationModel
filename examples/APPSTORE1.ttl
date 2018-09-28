@@ -12,40 +12,38 @@ appstore1:
     a ids:AppStore ;
     ids:title "AppStore" ;
     ids:description "Generic Data App " ;
-    ids:maintainer part1: ; # Participant ~ service provider PART1
-    ids:curator part1: ; # Content manager
-    ids:physicalLocation <http://sws.geonames.org/3247450/> ; #Datacenter located in Bonn
+    ids:maintainer part2: ;
+    ids:curator part2: ;
     ids:outboundModelVersion "1.0.0" ;
 
     # Network hosts maintained by the Connector
-    ids:host conn2:http_host ;
+    ids:host appstore1:http_host ;
 
     # Security and trust features
-    ids:authInfo conn2:auth_info ;
+    ids:authInfo appstore1:auth_info ;
     ids:securityProfile ids:Level2SecurityProfile ;
-    ids:componentCertification conn2:certification ;
+    ids:componentCertification appstore1:certification ;
 
     # Catalog of mediated resources
     ids:catalog [
         a ids:Catalog;
-        ids:offer conn2:data1, conn2:data2, conn2:media1 ; # those resources are "offer(s)", in contrast to "request"
+        ids:offer appstore1:app1, appstore1:app2
     ].
 
-conn2:http_host
+appstore1:http_host
     a ids:Host ;
     ids:protocol idsc_prot:HTTP2;
-    ids:accessUrl "https://connector.aastat.gov.de"^^xsd:anyURI ; # how does the host url relate to the connector description?
+    ids:accessUrl "https://store.app4traffic.de"^^xsd:anyURI ; # how does the host url relate to the connector description?
     .
 
-conn2:auth_info
+appstore1:auth_info
     a ids:AuthInfo ;
-    ids:authService "https://keycloak.aastat.gov.de"^^xsd:anyURI ;
+    ids:authService "https://keycloak.app4traffic.de"^^xsd:anyURI ;
     ids:authStandard idsc_auth:OAUTH2_JWT ;
     .
 
-conn2:certification
+appstore1:certification
     a ids:ComponentCertification ;
     ids:certificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
-    # ids:evaluationFacility
     ids:lastValidDate "2020-12-31"^^xsd:date ;
     .
