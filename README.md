@@ -54,6 +54,9 @@ For members of the International Data Spaces Association we provide additional r
 operated by Fraunhofer [ISST](https://www.isst.fraunhofer.de/). The library is intended to simplify development against
 the information model without in-depth knowledge of RDF ontologies.
 
+- A visualization of the informaton model's classes and properties, including cardinalities. It is available on the
+Nexus Repository mentioned above, under the same base path (visualization component).
+
 - A working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), on the association's Jive platform, explaining
 the usage of the information model for communication on the Industrial Data Space. 
 
