@@ -119,3 +119,39 @@ data3:highway_statistics
             ids:mediaType idsc_media:TEXT_CSV ;
         ]
     ] .
+
+
+data3:offer
+    a ids:ContractOffer ;
+    ids:permission [
+        ids:assigner part1: ;
+        # potentially multi-valued
+        ids:targetContent data3:content
+        ids:action ids:use;
+        # Obligation
+         ids:duty [
+            ids:action ids:compensate ;
+            ids:constraint [
+                ids:leftOperand     ids:paymentOptionApplied;
+                  ids:operator      ids:isAnyOf ;
+                  ids:rightOperandpolicyUsage "https://blablabla/"^^xsd:anyURI ;
+
+
+
+
+                  ( PriceOption , PriceOption , PriceOption ) ;
+
+
+         ]
+    ] .
+
+:pm
+ a PriceModel;
+ options (a b c) ;
+
+
+ option [
+    a ids:ConsumptionBasedPricing ;
+ ];
+ option[
+ ];

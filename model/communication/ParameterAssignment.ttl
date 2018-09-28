@@ -27,18 +27,18 @@ ids:parameter
     rdfs:label "parameter"@en ;
     rdfs:domain ids:ParameterAssignment;
     rdfs:range ids:Parameter ;
-    rdfs:comment "Parameter which value is being assigned."@en .
+    rdfs:comment "Parameter which content is being assigned."@en .
 
-ids:contentValue
+ids:parameterValue
     a owl:ObjectProperty;
     rdfs:domain ids:ParameterAssignment;
     rdfs:range ids:Value;
-    rdfs:label "value"@en;
+    rdfs:label "parameter value"@en;
     rdfs:comment "Value being assigned to parameter."@en.
 
-ids:parameterAssignment
+ids:parameterArtifact
     a owl:ObjectProperty;
-    rdfs:range ids:ParameterAssignment;
-    rdfs:label "parameter assignment"@en;
-    rdfs:comment "Reference to a parameter assignment."@en.
-
+    rdfs:domain ids:ParameterAssignment;
+    rdfs:range ids:Artifact;
+    rdfs:label "parameter artifact"@en;
+    rdfs:comment "Artifact being assigned to parameter."@en.

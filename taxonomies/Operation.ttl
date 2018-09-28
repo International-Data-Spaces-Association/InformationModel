@@ -121,10 +121,10 @@ ids:SelectContentOperation # former name: Select data
 # Clien-driven PULL-request, expects input paramter of type "Identifier",
 # Additional restriction on the output parameter type applies - must be of type "Resource"
 #
-ids:ReadOperation # former name: Provide data
+ids:ProvideContentOperation # former name: Provide data
     a owl:Class ;
     rdfs:subClassOf ids:QueryOperation ;
-    rdfs:label "Read operation"@en ;
+    rdfs:label "Provide content operation"@en ;
     rdfs:comment "Operation for providing a single Resource content via an operation’s output parameter from the Data Provider to the Data Consumer."@en.
 
 # Clien-driven SUBSCRIBE-request, mandatory input of type Subscription
@@ -139,9 +139,9 @@ ids:ReadOperation # former name: Provide data
 # Has a mandatory input parameter of type DigitalContent, optional input of type Identifier (PUT), otherwise the identifier is generated (POST)
 # Server-driven PUSH-request
 #
-ids:WriteOperation # former name: Consume data
+ids:ConsumeContentOperation # former name: Consume data
     a owl:Class ;
     rdfs:subClassOf ids:CommandOperation ; # since chnages the Collection's state
-    rdfs:label "Write operation"@en ;
+    rdfs:label "Consume content operation"@en ;
     rdfs:comment "Operation for receiving data via the operation’s input parameter(s) from the Data Provider to the Data Consumer."@en.
 
