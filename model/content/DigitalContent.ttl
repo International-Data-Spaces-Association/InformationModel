@@ -51,9 +51,15 @@ ids:DigitalContent
         <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
 
 # Properties
+# general "content" properties here, otherwise with concrete subclasses
 # ------------
 
-# set abstract, general "content" properties here, otherwise with concrete subclasses
+ids:contentType
+    a owl:ObjectProperty;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:ContentType;
+    rdfs:label "content type"@en;
+    rdfs:comment "Detailed type, genre or interpretation of the Digital Content."@en.
 
 ids:contentPart
     a owl:ObjectProperty;
@@ -134,3 +140,12 @@ ids:accrualPeriodicity # consider irregular updates as well
     rdfs:domain ids:DigitalContent;
     rdfs:range xsd:duration;
     .
+
+ids:contentStandard
+    idsm:referenceByUrl true;
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dct:conformsTo ;
+    rdfs:domain ids:DigitalContent ;
+    rdfs:range ids:Standard;
+    rdfs:label "content standard"@en;
+    rdfs:comment "Standards document defining the given Digital Content. The content is assumed to conform to that Standard."@en.

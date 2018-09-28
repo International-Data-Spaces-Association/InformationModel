@@ -2,14 +2,15 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
+@prefix idsc_mep: <https://w3id.org/idsa/code/mep/> .
 @prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
 
-@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
-@prefix app1: <https://aastat.gov.de/connector/conn2/data1/> .
-@prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
+@prefix appstore1:  <http://app4traffic.de/connector/appstore1/> .
+@prefix app1:       <http://app4traffic.de/connector/appstore1/app1/> .
+@prefix part1:      <https://im.internationaldataspaces.org/participant/part1> .
 
 app1:
-    a ids:SystemAdapter ; # Software
+    a ids:Resource, ids:SystemAdapter ;
     ids:title "Camera driver"@en ;
     ids:description "Camera driver ingesting image content into a Connector via defined interface."@en;
     ids:keyword "driver", "camera" ;
@@ -23,10 +24,11 @@ app1:
     # Provision of the Data App Resource
     ids:resourceEndpoint [
         a ids:StaticEndpoint ;
-        ids:endpointHost appsStore2:http_host ; # this resource is available via the App Store
+        ids:endpointHost appstore1:http_host ; # this resource is available via the App Store
         ids:endpointArtifact app1:adapter_app ;
         ids:path "/apps/adapter/CameraAdapter.app"
-    ] ;
+    ]
+    .
 
 app1:adapter_app
     a ids:Artifact ;
