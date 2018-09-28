@@ -12,7 +12,15 @@
 ids:OperationBinding
     a owl:Class;
     rdfs:label "operation binding"@en;
-    rdfs:comment "Mapping of abstract operation signatures onto the concrete structures (e.g., HTTP headers or query parameters)."@en .
+    rdfs:comment "Mapping of abstract operation signatures onto the concrete structures (e.g., HTTP headers or query parameters)."@en;
+    idsm:validation [
+        idsm:forProperty ids:apiDocument;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:boundOperation;
+        idsm:constraint idsm:NotNull;
+    ].
 
 #ids:ApiDocument a owl:Class;
 #    rdfs:label "ApiDocument"@en;

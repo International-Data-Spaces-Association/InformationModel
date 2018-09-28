@@ -20,25 +20,23 @@ ids:Agent
 ids:Participant
     a owl:Class;
     rdfs:subClassOf ids:Agent, ids:ManagedEntity, org:Organization; # foaf:Organization is implied
-#    rdfs:subClassOf
-#    [
-#      rdf:type          owl:Participant ;
-#      owl:onProperty    ids:identifier ;
-#      owl:allValuesForm   ids:ParticipantIdentifier;
-#    ];
     rdfs:label "Participant"@en;
     rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
     idsm:validation [
         idsm:forProperty ids:memberPerson;
-        ids:relationType idsm:OneToMany;
+        idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
         idsm:forProperty ids:memberParticipant;
-        ids:relationType idsm:OneToMany;
+        idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
         idsm:forProperty ids:corporateEmailAddress;
-        ids:relationType idsm:OneToMany;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:industrialClassification;
+        idsm:relationType idsm:OneToMany;
     ].
 
 ids:Person rdfs:subClassOf foaf:Person;
@@ -47,11 +45,11 @@ ids:Person rdfs:subClassOf foaf:Person;
     rdfs:comment "The class of persons (people)"@en;
     idsm:validation [
         idsm:forProperty ids:phoneNumber;
-        ids:relationType idsm:OneToMany;
+        idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
         idsm:forProperty ids:emailAddress;
-        ids:relationType idsm:OneToMany;
+        idsm:relationType idsm:OneToMany;
     ].
 
 ids:Site a owl:Class;
@@ -94,6 +92,7 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
 
 ids:industrialClassification a owl:ObjectProperty;
     rdfs:label "industrial classification"@en;
+    idsm:labelPluralForm "industrialClassifications"@en;
     rdfs:domain ids:Participant;
     rdfs:range ids:IndustrialClassification;
     rdfs:comment "Industry branch covered by the Participant."@en.

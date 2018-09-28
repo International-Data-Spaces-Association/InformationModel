@@ -29,7 +29,16 @@ ids:Resource
     idsm:validation [
         idsm:forProperty ids:resourcePart;
         idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:contractOffer;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:sample;
+        idsm:relationType idsm:OneToMany;
     ].
+
     # As a single root of (a series of) content(s) Resource is the natural home for a "Data Structure Definition" (compare DQ)
     # See: https://www.w3.org/TR/vocab-data-cube#h2_dsd
     #
@@ -49,7 +58,7 @@ ids:Resource
 ids:resourcePart a owl:ObjectProperty;
     rdfs:subPropertyOf ids:contentPart;
     rdfs:label "resource part"@en;
-    idsm:labelPluralForm "resourcetParts"@en;
+    idsm:labelPluralForm "resourceParts"@en;
     rdfs:domain ids:Resource;
     rdfs:range ids:Resource;
     rdfs:comment "Reference to a Resource (physically or logically) included, definition of part-whole hierarchies."@en .
@@ -92,6 +101,7 @@ ids:contractOffer
     rdfs:domain ids:Resource;
     rdfs:range ids:ContractOffer;
     rdfs:label "contract offer"@en;
+    idsm:labelPluralForm "contractOffers"@en;
     rdfs:comment "Reference to a Contract Offer defining the authorized use of the Resource."@en.
 
 ids:publisher
@@ -112,6 +122,7 @@ ids:sovereign
 ids:sample a owl:ObjectProperty;
     # dicuss: rdfs:subPropertyOf and range
     rdfs:label "sample"@en;
+    idsm:labelPluralForm "samples"@en;
     rdfs:domain ids:Resource;
     rdfs:range ids:Resource;# Web-retrievable or inline content
     rdfs:comment "Sample Resource instance."@en.

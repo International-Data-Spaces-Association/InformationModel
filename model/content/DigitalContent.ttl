@@ -38,6 +38,10 @@ ids:DigitalContent
         idsm:forProperty ids:keyword;
         idsm:relationType idsm:OneToMany;
     ];
+    idsm:validation [
+        idsm:forProperty ids:contentRefinement;
+        idsm:relationType idsm:OneToMany;
+    ];
     rdfs:seeAlso
         <https://en.wikipedia.org/wiki/Digital_content> ,
         <http://www.ontodm.com/doku.php?id=ontodt> ,
@@ -108,6 +112,7 @@ ids:temporalCoverage
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:temporal;
     rdfs:label "temporal coverage"@en;
+    idsm:labelPluralForm "temporalCoverages"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:TemporalEntity;
     rdfs:comment "Temporal period or instance covered by the content."@en.
@@ -116,6 +121,7 @@ ids:spatialCoverage
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:spatial;
     rdfs:label "spatial coverage"@en;
+    idsm:labelPluralForm "spatialCoverages"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:SpatialEntity;
     rdfs:comment "Named spatial entity covered by the Resource."@en.

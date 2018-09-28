@@ -31,6 +31,14 @@ ids:Rule
     idsm:validation [
         idsm:forProperty ids:assignee;
         idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:action;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:actionRefinement;
+        idsm:relationType idsm:OneToMany;
     ].
 
 ids:Permission rdfs:subClassOf ids:Rule;
@@ -67,6 +75,7 @@ ids:action
     rdfs:subPropertyOf odrl:action;
     a owl:ObjectProperty;
     rdfs:label "action"@en;
+    idsm:labelPluralForm "actions"@en;
     rdfs:domain ids:Rule;
     rdfs:range ids:Action;
     rdfs:comment "The operation relating to the asset for which permission is being granted."@en.
@@ -127,8 +136,8 @@ ids:constraint rdfs:subPropertyOf odrl:constraint;
 ids:actionRefinement
     a owl:ObjectProperty;
     # rdfs:subPropertyOf odrl:refinement ;
-    rdfs:label "refinement"@en;
-    idsm:labelPluralForm "refinements"@en;
+    rdfs:label "action refinement"@en;
+    idsm:labelPluralForm "actionRefinements"@en;
     rdfs:domain ids:Action;
     rdfs:range ids:Constraint;
     rdfs:comment "Constraint that refines an Action."@en.
@@ -141,7 +150,6 @@ ids:contentRefinement
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:Constraint;
     rdfs:comment "Constraint that refines a (composite) Digital Content."@en.
-
 
 ids:leftOperand
     a owl:ObjectProperty;
