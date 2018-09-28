@@ -13,17 +13,14 @@ ids:ParameterAssignment
     a owl:Class;
     rdfs:label "Parameter assignment"@en ;
     rdfs:comment "Expression of assigning a value to a parameter without creating an immediate reference."@en ;
-    idsm:example
-"""
-    [] ids:parameterAssignment [ # reified parameter assigment
-        ids:parameter ex:Year ;
-        ids:contentValue [ ids:value "2018"^^xsd:gYear ]
-    ]
-"""
-    .
+    idsm:validation [
+        idsm:forProperty ids:parameter;
+        idsm:constraint idsm:NotNull;
+    ].
 
 ids:parameter
     a owl:ObjectProperty;
+    idsm:referenceByUrl true ;
     rdfs:label "parameter"@en ;
     rdfs:domain ids:ParameterAssignment;
     rdfs:range ids:Parameter ;

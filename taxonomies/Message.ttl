@@ -206,6 +206,10 @@ ids:InvokeOperationMessage a owl:Class ;
     idsm:validation [
         idsm:forProperty ids:operationReference;
         idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:operationParameterization;
+        idsm:constraint idsm:NotNull;
     ].
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
@@ -214,6 +218,12 @@ ids:operationReference rdf:type owl:DatatypeProperty ;
     rdfs:range ids:Operation ;
     rdfs:label "Operation Reference"@en ;
     rdfs:comment "References the operation to be invoked on the recipient's side."@en.
+
+ids:operationParameterization rdf:type owl:DatatypeProperty ;
+    rdfs:domain ids:InvokeOperationMessage ;
+    rdfs:range ids:ParameterAssignment ;
+    rdfs:label "Operation Parameterization"@en ;
+    rdfs:comment "Parameter assignment of the invoked operation's input parameters."@en.
 
 ids:RequestInProcessMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage;

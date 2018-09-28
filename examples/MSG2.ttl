@@ -20,7 +20,7 @@
     # Must not be a bnode!
     # Requires the interface operation defined, not necessarily an endpoint
     ids:operationReference :READ;
-    ids:parameterAssignment [
+    ids:artifactParameterization [
         a ids:ParameterAssignment ;
          ids:parameter :HIGHWAY_PARAM ;
          ids:contentValue [
@@ -36,7 +36,7 @@
 :MSG_REQ
     a ids:InvokeOperationResult;
     ids:correlationMessage :MSG_REQ ;
-    ids:parameterAssignment [
+    ids:artifactParameterization [
         a ids:ParameterAssignment ;
          ids:parameter :TABLE_PARAM ;
          ids:artifact [

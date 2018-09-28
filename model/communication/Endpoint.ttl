@@ -67,7 +67,6 @@ ids:endpointHost
     rdfs:domain ids:Endpoint;
     rdfs:range ids:Host;
     rdfs:comment "Network host that exposes resource content and Connector services via this endpoint."@en ;
-    idsm:referenceByUrl true ;
     idsm:explanation
 """Definition of a Resource Endpoint is by purpose split into an address part (path, topic etc.)
 and host information used to augment and resolve the address. Such the overall address space
@@ -80,16 +79,14 @@ ids:endpointArtifact
     rdfs:label "endpoint artifact"@en;
     rdfs:domain ids:StaticEndpoint;
     rdfs:range ids:Artifact;
-    rdfs:comment "Content instance mediated via this individual endpoint (1:1 mapping)."@en ;
-    idsm:referenceByUrl true .
+    rdfs:comment "Content instance mediated via this individual endpoint (1:1 mapping)."@en.
 
 ids:endpointOperationBinding
     a owl:ObjectProperty;
     rdfs:label "endpoint operation binding"@en;
     rdfs:domain ids:InteractiveEndpoint;
     rdfs:range ids:OperationBinding;
-    rdfs:comment "Operation bound to te endpoint by means of a protocol binding."@en ;
-    idsm:referenceByUrl true .
+    rdfs:comment "Operation bound to te endpoint by means of a protocol binding."@en.
 
 ids:path
     a owl:DatatypeProperty;
