@@ -23,7 +23,16 @@ ids:Message a owl:Class;
     idsm:validation [
         idsm:forProperty ids:issuerConnector;
         idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:recipientConnector;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:recipientAgent;
+        idsm:relationType idsm:OneToMany;
     ].
+
     # FIPA ACL Message Structure Specification, http://www.fipa.org/specs/fipa00061/index.html
 
 # Properties
@@ -60,10 +69,11 @@ ids:issuerConnector
     rdfs:range ids:Connector;
     rdfs:comment "The Connector which is the origin of the message."@en.
 
-ids:consumerConnector
+ids:recipientConnector
     a owl:ObjectProperty;
     idsm:referenceByUrl true;
-    rdfs:label "consumer connector"@en;
+    rdfs:label "recipient connector"@en;
+    idsm:labelPluralForm "recipientConnectors"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Connector;
     rdfs:comment "The Connector which is the recipient of the message."@en.
@@ -80,6 +90,7 @@ ids:recipientAgent
     a owl:DatatypeProperty;
     idsm:referenceByUrl true;
     rdfs:label "recipient agent"@en;
+    idsm:labelPluralForm "recipientAgents"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Agent;
     rdfs:comment "The Agent for which the Mesaage is intended."@en.
