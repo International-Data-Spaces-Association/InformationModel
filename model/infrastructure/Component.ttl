@@ -24,13 +24,13 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
-        idsm:forProperty ids:acceptableModelVersion;
+        idsm:forProperty ids:inboundModelVersion;
         idsm:constraint idsm:NotNull;
         idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
-        idsm:forProperty ids:connectionOption;
-        idsm:relationType idsm:OneToMany;
+        idsm:forProperty ids:outboundModelVersion;
+        idsm:constraint idsm:NotNull;
     ].
 
 # Properties of InfrastructureComponent

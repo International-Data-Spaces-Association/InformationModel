@@ -31,8 +31,8 @@ data2:
     a ids:Container ;# this resource may be treated as a container
     ids:representation [
         a ids:ContainerRepresentation ;
-        ids:mediaType idsc_media:APPLICATION_TAR_GZIP ;# application/tar+gzip is not an official IANA Media type!
-        ids:artifact data2:tar_gzip_archive ;
+        ids:mediaType idsc_media:APPLICATION_TAR-GZIP ;# application/tar+gzip is not an official IANA Media type!
+        ids:instance data2:tar_gzip_archive ;
         # a possible alternative:
         # ids:packaging idsc_pack:TAR ;
         # ids:compression idsc_pack:GZIP ;
@@ -123,7 +123,7 @@ data2:generic_content
     ids:representation [
         a ids:DataRepresentation ;
         ids:mediaType idsc_media:TEXT_CSV ;
-        ids:artifact
+        ids:instance
             data2:E1_20000101,
             # imagine plenty of artifacts here ...
             data2:E421_20171231
