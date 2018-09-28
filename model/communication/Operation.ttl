@@ -10,19 +10,10 @@
 # -------
 
 ids:Operation a owl:Class;
+    rdfs:subClassOf ids:Described;
     rdfs:label "Operation"@en;
     rdfs:comment "Building block of an Interface; describes the interaction by defining input, output and error parameters."@en;
     idsm:abstract true;
-    idsm:validation [
-        idsm:forProperty ids:operationLabel;
-        idsm:constraint idsm:NotNull;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:operationDescription;
-        idsm:relationType idsm:OneToMany;
-        idsm:constraint idsm:NotNull;
-    ];
     idsm:validation [
         idsm:forProperty ids:input;
         idsm:relationType idsm:OneToMany;
