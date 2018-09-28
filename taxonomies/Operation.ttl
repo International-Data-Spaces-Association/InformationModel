@@ -57,7 +57,7 @@ ids:ServerAbsolutePaginatingOperation
     idsm:abstract true .
 
 # Mandatory input parameter of type "PageReference" (first, last, previous, next)
-ids:ServerRelativePaginating
+ids:ServerRelativePaginatingOperation
     a owl:Class ;
     rdfs:subClassOf ids:ListOperation ; # Requires a List result
     rdfs:label "Server-side relative paginating operation "@en ;
@@ -88,22 +88,23 @@ ids:ListIdentifiersOperation
     rdfs:comment "Operation used to retrieve the enumeration of available values for an 'Identifier' Parameter type. Depending on the type of underlying Resource collection, the identifier may be a unique name (map) or a numeric index (list); the Data Consumer may use the identifier for a subsequent call to 'Read' operation."@en.
 
 # Clarify input parameter, e.g. identifier of a Collection Resource?
-ids:ListCollectionOperation # former name: List data
+ids:ListContentOperation # former name: List data
     a owl:Class ;
     rdfs:subClassOf ids:ListOperation ;
-    rdfs:label "List collection operation"@en ;
-    rdfs:comment "Operation used by a Data Consumer to retrieve an enumeration of Collection contents."@en.
+    rdfs:label "List content operation"@en ;
+    rdfs:comment "Operation used by a Data Consumer to retrieve an enumeration of Collection's contents."@en.
 
 # Requires a mandatory input parameter of the “Filter” type (for example, an LDAP filter)
 # IN: Filter, OUT List<Resorce>, list of matching Resources
 # - on mandatoryInput someValues FilterParameter
 # - on output someValues [ ContentParameter, on contentList allValuesFrom Content ]
 #
-ids:FilterCollectionOperation # former name: Filter data
+ids:FilterContentOperation # former name: Filter data
     a owl:Class ;
-    rdfs:subClassOf ids:ListCollectionOperation ;
-    rdfs:label "Filter collection operation"@en ;
-    rdfs:comment "Operation provides the Data Consumer with a selection of a Collection contents according to supplied Filter Parameter. The Filter is applied to 'structured' Resource content or file properties of Artifatcs (such as file extension, file name, file type, etc.)."@en.
+    rdfs:subClassOf ids:ListContentOperation ;
+    rdfs:label "Filter content operation"@en ;
+    rdfs:comment "Operation provides the Data Consumer with a selection of a Collection contents according to supplied Filter Parameter. The Filter is applied to 'structured' Resource content or file properties of Artifatcs (such as file extension, file name, file type, etc.)."@en ;
+    idsm:rationale "Extends ids:ListContentOperation, since filtering upon entire Digital Contents which definition still applies."@en.
 
 # Compared to ListResources only incomplete, selective fragments are provided which definition can't be provided beforehand
 # i.e. the output of the opetration is undefined, since based on user selection (no representation / schema etc.)
@@ -114,7 +115,8 @@ ids:SelectContentOperation # former name: Select data
     a owl:Class ;
     rdfs:subClassOf ids:QueryOperation ; # or ids:ListResourcesOperation ?
     rdfs:label "Select content operation"@en ;
-    rdfs:comment "Operation provides the Data Consumer with custom fragments of the original Collection according to supplied 'Selector' Parameter. The Selector is applied to 'structured' Resource content."@en.
+    rdfs:comment "Operation provides the Data Consumer with custom fragments of the original Collection according to supplied 'Selector' Parameter. The Selector is applied to 'structured' Resource content."@en ;
+    idsm:rationale "Extends ids:QueryOperation, since content selection is driven by user-provided logic and can hardly be defined at description time"@en.
 
 # Clien-driven PULL-request, expects input paramter of type "Identifier",
 # Additional restriction on the output parameter type applies - must be of type "Resource"

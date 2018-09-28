@@ -85,15 +85,17 @@ ids:language
     idsm:labelPluralForm "languages"@en;
     rdfs:comment "Natural language(s) used within the content."@en.
 
-ids:theme a owl:ObjectProperty;
+ids:theme # ... "topic" / "subject" ?
+    a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:theme; # is a sub-property of dct:subject, comparable to qb:concept (?)
     rdfs:label "theme"@en;
     idsm:labelPluralForm "themes"@en;
     rdfs:domain ids:DigitalContent;
-    rdfs:range ids:ContentCategory; # skos:Concepts organized in a skos:ConceptScheme
-    rdfs:comment "One of the categories providing a classification of the content as unit. Links to a taxonomy entry point that categorizes content-related coverage of the content."@en.
+    rdfs:range ids:Concept; # former "ContentCategory", skos:Concepts organized in a skos:ConceptScheme
+    rdfs:comment "Abstract or concrete concept related to or referred by the content."@en.
 
-ids:keyword a owl:DatatypeProperty;
+ids:keyword
+    a owl:DatatypeProperty;
     rdfs:subPropertyOf dcat:keyword;
     rdfs:label "keyword"@en;
     idsm:labelPluralForm "keywords"@en;
@@ -101,17 +103,27 @@ ids:keyword a owl:DatatypeProperty;
     rdfs:range rdfs:Literal;
     rdfs:comment "Controlled keywords that describe the nature, purpose, or use of the content."@en.
 
-ids:temporalCoverage a owl:ObjectProperty;
+ids:temporalCoverage
+    a owl:ObjectProperty;
     rdfs:subPropertyOf dct:temporal;
     rdfs:label "temporal coverage"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:TemporalEntity;
     rdfs:comment "Temporal period or instance covered by the content."@en.
 
-ids:spatialCoverage a owl:ObjectProperty;
+ids:spatialCoverage
+    a owl:ObjectProperty;
     rdfs:subPropertyOf dct:spatial;
     rdfs:label "spatial coverage"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:SpatialEntity;
     rdfs:comment "Named spatial entity covered by the Resource."@en.
 
+ids:accrualPeriodicity # consider irregular updates as well
+    a owl:DatatypeProperty;
+    # rdfs:subPropertyOf dct:accrualPeriodicity - not applicable, since range is a dct:Frequency
+    rdfs:label "Accrual periodicity"@en;
+    rdfs:comment "The regular period with which items are added to a collection."@en ;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range xsd:duration;
+    .

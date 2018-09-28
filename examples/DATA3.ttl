@@ -1,119 +1,121 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
 @prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
-@prefix idsc_pack: <https://w3id.org/idsa/code/pack/> .
-@prefix idsc_lic: <https://w3id.org/idsa/code/license/> .
-@prefix idsc_api: <https://w3id.org/idsa/code/api/> .
-@prefix : <urn:ids:example:> .
+@prefix idsc_mep: <https://w3id.org/idsa/code/mep/> .
+@prefix idsc_content: <https://w3id.org/idsa/code/content/> .
 
-# Modeling approach: generic content description, enumerated instances distinguished by parameter settings
+@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
+@prefix data3: <https://aastat.gov.de/connector/conn2/data3/> .
+@prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
 data3:
+    # Interactive example
+    #
     a ids:Resource ;
     ids:title "Interactive European highway statistics portal"@en ;
     ids:description "Data collection about usage statistics of European highways supporting client queries."@en;
     ids:keyword "interactive", "highway", "statistics", "Europe" ;
-    # Required for message-oriented requests
-    # used for protocol specific access to operations
 
-    ids:contentPart  data3:content .
+    ids:resourceInterface [
+        a ids:Interface ;
+        ids:title "Query interface for highway statistics" ;
+        ids:operation data3:query_highway_operation ;
+    ] ;
 
-    ids:resourceInterface :API ;
+    # Resource's content as exposed by the resource interface
+    ids:contentPart data3:highway_statistics ;
 
-    ids:resourceEndpoint :HTTP_END ;
+    # Point of protocol-specific access
+    ids:resourceEndpoint data3:endpoint ;
+    .
 
+data3:query_highway_operation
+    a ids:QueryOperation ;
+    ids:pattern idsc_mep:IN_OUT ;
+    ids:name "Get statistics by highway" ;
+    ids:mandatoryInput # required dimension
+        data3:highway_param ;
+    ids:input # optional, additive
+        data3:year_param ,
+        data3:month_param ;
+    ids:output
+        data3:highway_statistics
+    .
 
-
-
-:API
-    ids:title "Read-only interface for statistics access" ;
-    ids:operation :READ .
-
-:READ
-    a ids:ReadOperation ;
-    ids:input :HIGHWAY_PARAM ;
-    ids:output [
-        a ids:Parameter ;
-        ids:name "highway" ;
-        ids:description "highway ID (european route signage, e.g. E37)" ;
-        ids:parameterContent data3:content
-    ]
-
-
-:OP_BINDING
-    a ids:OperationBinding ;
-    ids:boundOperation :READ ;
-    ids:apiDocument :API_DOC .
-
-
-:HTTP_END
+data3:endpoint
     a ids:InteractiveEndpoint;
-    ids:endpointHost :HTTP_HOST ;
-    ids:path "/content/{highway}" ;
-    ids:endpointOperationBinding :OP_BINDING ; # GET
-    # ids:endpointOperationBinding :OP_BINDING2 . # POST
+    ids:endpointHost conn2:http_host ;
+    ids:path "/content/{highway}/{year?}/{month?}" ;
+    ids:endpointOperationBinding [
+        a ids:OperationBinding ;
+        ids:boundOperation  data3:query_highway_operation ;
+        ids:apiDefinition   data3:api_definition_resource ;
+    ] .
 
-:API_DOC
+data3:api_definition_resource
     a ids:Software ;
-    ids:type idsc_api:openApiV3 .
+    ids:contentType idsc_content:INTERFACE_DEFINITION ;
+    ids:representation [
+        ids:mediaType idsc_media:APPLICATION_OPENAPI_JSON ;
+        ids:artifact data3:api_definition_artifact;
+    ];
+    ids:endpoint [
+        a ids:StaticEndpoint ;
+        ids:endpointHost conn2:http_host ;
+        ids:endpointArtifact data3:api_definition_artifact ;
+        ids:path "/api/OpenAPI.json"
+    ] .
 
-# Overall table retrieved as result
-:TABLE_PARAM
+data3:api_definition_artifact
+    a ids:Artifact ;
+    ids:byteSize "1923497"^^xsd:nonNegativeInteger ;
+    ids:fileName "OpenAPI.json" ;
+    ids:creationDate "2018-06-01"^^xsd:date .
+
+# Same definition as in data2
+data3:highway_param
     a ids:Parameter ;
-    ids:name "tabular data" ;
+    ids:name "highway" ;
+    ids:description "highway ID (european route signage, e.g. E37)" ;
     ids:parameterContent [
-        a ids:Data;
+        a ids:String ;
+        ids:theme idsc_concept:HIGHWAY ;
         ids:representation [
-            ids:mediaType idsc_media:text_csv
+            ids:dataType xsd:string
         ]
     ] .
 
-data3:content
-    a ids:Data;
-    ids:representation [
-        ids:mediaType idsc_media:text_csv
+data3:year_param
+    a ids:Parameter ;
+    ids:name "year" ;
+    ids:parameterContent [
+        a ids:Number;
+        ids:theme idsc_concept:YEAR ;
+        ids:representation [
+            ids:dataType xsd:gYear
+        ]
     ] .
 
-
-data3:offer
-    a ids:ContractOffer ;
-    ids:permission [
-        ids:assigner part1: ;
-        # potentially multi-valued
-        ids:targetContent data3:content
-        ids:action ids:use;
-        # Obligation
-         ids:duty [
-            ids:action ids:compensate ;
-            ids:constraint [
-                ids:leftOperand     ids:paymentOptionApplied;
-                  ids:operator      ids:isAnyOf ;
-                  ids:rightOperandpolicyUsage "https://blablabla/"^^xsd:anyURI ;
-
-
-
-
-                  ( PriceOption , PriceOption , PriceOption ) ;
-
-
-         ]
+data3:month_param
+    a ids:Parameter ;
+    ids:name "month" ;
+    ids:parameterContent [
+        a ids:Number;
+        ids:theme idsc_concept:MONTH ;
+        ids:representation [
+            ids:dataType xsd:int
+        ]
     ] .
 
-:pm
- a PriceModel;
- options (a b c) ;
-
-
- option [
-    a ids:ConsumptionBasedPricing ;
- ];
- option[
- ];
+# Overall table retrieved as result
+data3:highway_statistics
+    a ids:Parameter ;
+    ids:name "highway statistics" ;
+    ids:parameterContent [
+        a ids:Data;
+        ids:representation [
+            ids:mediaType idsc_media:TEXT_CSV ;
+        ]
+    ] .

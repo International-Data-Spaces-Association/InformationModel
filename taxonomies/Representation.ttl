@@ -26,10 +26,11 @@ ids:schema a owl:ObjectProperty;
 
 # TODO: this will not work for custom datatypes like GS1 message types
 # define range as anyURI (type defining schema element) or literal (JSON schema reference)
-ids:dataType a owl:ObjectProperty;
+ids:dataType
+    a owl:ObjectProperty;
     rdfs:domain ids:DataRepresentation;
-    rdfs:range ids:DataType;
-    rdfs:label "Data Type"@en;
+    rdfs:range rdfs:Datatype ; # ids:DataType;
+    rdfs:label "Data type"@en;
     rdfs:comment "Indicates the data type of the Representation."@en.
 
 ids:dataTypeSchema a owl:ObjectProperty;

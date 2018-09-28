@@ -3,9 +3,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
 @prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
+@prefix idsc_concept: <https://w3id.org/idsa/code/concept/> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
-@prefix data2: <https://aastat.gov.de/connector/conn2/data2> .
+@prefix data2: <https://aastat.gov.de/connector/conn2/data2/> .
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
 data2:
@@ -21,123 +22,159 @@ data2:
     ids:description "Data collection about usage statistics of European highways"@en;
     ids:keyword "highway", "statistics", "Europe";
 
-    # Compressed representation of the overall resource
+    # the collection is extended once per month
+    ids:accrualPeriodicity "P1M"^^xsd:duration ;
+
+    # Compressed representation of an overall resource snapshot
     #
     a ids:Container ;# this resource may be treated as a container
     ids:representation [
-        a ids:ContainerRepresentation
-        ids:mediaType idsc_media:APPLICATION_TAR-GZIP ;# application/tar+gzip is not an official IANA Media type
+        a ids:ContainerRepresentation ;
+        ids:mediaType idsc_media:APPLICATION_TAR-GZIP ;# application/tar+gzip is not an official IANA Media type!
         ids:artifact data2:tar_gzip_archive ;
-
-        # a possible explicit description
+        # a possible alternative:
         # ids:packaging idsc_pack:TAR ;
         # ids:compression idsc_pack:GZIP ;
+    ] ;
+    ids:endpoint [
+        a ids:StaticEndpoint ;
+        ids:endpointHost conn2:http_host ;
+        ids:endpointArtifact data2:tar_gzip_archive  ;
+        ids:path "/resource/archive/EuropeanHighwayStatistics_2000_2017.tar.gz"
     ] .
-
 
 data2:tar_gzip_archive # Overall resource archive
     a ids:Artifact ;
     ids:byteSize 2123178072 ;
-    ids:fileName "EuropeanHighwayStatistics_2000_2018.tar.gzip" ;
+    ids:fileName "EuropeanHighwayStatistics_2000_2017.tar.gz" ;
     ids:creationDate "2018-10-01"^^xsd:date .
 
 data2:
-    # general definition of descriptive parameters
-    # for usage with individual contents/artifacts
+    # general definition of descriptive parameters (dimensions) at resource level
     #
-    ids:descriptionParameter data2:HIGHWAY_PARAM ;
-    ids:descriptionParameter data2:YEAR_PARAM ;
-    ids:descriptionParameter data2:MONTH_PARAM ;
+    ids:descriptionParameter data2:highway_param ;
+    ids:descriptionParameter data2:year_param ;
+    ids:descriptionParameter data2:month_param ;
+
     # Generic content template
-    ids:contentPart :EHS_TEMPLATE .
+    ids:contentPart data2:generic_content ;
+    .
 
-# Content is generally described in terms of "description parameters",
-# instances correspond to individual permutations of those parameters.
-# Parametrized description makes the instances comparable.
-
-:EHS_TEMPLATE
-    ids:parameterSet ( :HIGHWAY_PARAM :YEAR_PARAM :MONTH_PARAM ) ;
-    ids:temporalCoverage [
-            a ids:Interval ;
-            ids:begin [ ids:date "2000-01-01"^^xsd:date ];
-            ids:end   [ ids:date "2017-31-01"^^xsd:date ]
-        ] ;
-    ids:representation [
-        a ids:Representation ;
-        ids:mediaType idsc_media:TEXT_CSV ;
-        ids:instance
-            :E1_01_2000_CSV ,
-            # ...
-            :E421_09_2018_CSV
-    ] .
-
-:HIGHWAY_PARAM
+data2:highway_param
     a ids:Parameter ;
     ids:name "highway" ;
     ids:description "highway ID (european route signage, e.g. E37)" ;
     ids:parameterContent [
         a ids:String ;
-        ids:concept :HIGHWAY ;# undefined!
+        ids:theme idsc_concept:HIGHWAY ;
         ids:representation [
-            ids:dataType xsd:string 
-        ] 
+            ids:dataType xsd:string
+        ]
     ] .
-    
-:YEAR_PARAM
+
+data2:year_param
     a ids:Parameter ;
     ids:name "year" ;
     ids:parameterContent [
         a ids:Number;
-        ids:concept :CALENDAR_YEAR ;# undefined!
+        ids:theme idsc_concept:YEAR ;
         ids:representation [
-            ids:dataType xsd:gYear 
-        ] 
+            ids:dataType xsd:gYear
+        ]
     ] .
 
-:MONTH_PARAM
+data2:month_param
     a ids:Parameter ;
     ids:name "month" ;
     ids:parameterContent [
         a ids:Number;
-        ids:concept :CALENDAR_MONTH ;# undefined!
+        ids:concept idsc_concept:MONTH
         ids:representation [
-            ids:dataType xsd:int 
-        ] 
+            ids:dataType xsd:int
+        ]
     ] .
-       
+
+# Content is generally described in terms of "description parameters",
+# Artifacts correspond to individual permutations of those parameters.
+# Parametrized description makes the instances comparable.
+#
+data2:generic_content
+
+    # parameter (sub)set that applies to given content's artifacts
+    # any single artifact should provide a value assignment for all of them
+    #
+    ids:parameterSet (
+        data2:highway_param
+        data2:year_param
+        data2:month_param
+    ) ;
+
+    # general coverage of the entire dataset
+    ids:temporalCoverage [
+        a ids:Interval ;
+        ids:begin [ ids:date "2000-01-01"^^xsd:date ];
+        ids:end   [ ids:date "2017-12-31"^^xsd:date ]
+    ] ;
+
+    ids:representation [
+        a ids:Representation ;
+        ids:mediaType idsc_media:TEXT_CSV ;
+        ids:artifact
+            data2:E1_20000101,
+            #
+            # ... plenty of artifacts ...
+            #
+            data2:E421_20171231
+    ] .
+
+
 # Enumeration of individual content instances
-:E1_01_2000_CSV
-    a ids:ContentInstance ;
+data2:E1_20000101
+    a ids:Artifact ;
     ids:byteSize 9823132 ;
-    ids:fileName "E1_01_2000.csv" ;
+    ids:fileName "E1_20000101.csv" ;
     ids:parameterAssignment [
-        ids:parameter :HIGHWAY_PARAM ;
+        ids:parameter data2:highway_param ;
         ids:contentValue [ ids:value "E1" ];
     ] ;
     ids:parameterAssignment [
-        ids:parameter :YEAR_PARAM ;
+        ids:parameter data2:year_param ;
         ids:contentValue [ ids:value 2000 ];
     ] ;
     ids:parameterAssignment [
-        ids:parameter :MONTH_PARAM ;
-        ids:contentValue [ ids:value 01 ];
+        ids:parameter data2:month_param ;
+        ids:contentValue [ ids:value 1 ];
     ] .
 
 # ...
 
-:E421_12_2018
-    a ids:ContentInstance;
+data2:E421_20171231
+    a ids:Artifact;
     ids:byteSize 6174035 ;
-    ids:fileName "E421_09_2018.csv" ;
+    ids:fileName "E421_20171231.csv" ;
     ids:parameterAssignment [
-        ids:parameter :HIGHWAY_PARAM ;
+        ids:parameter data2:highway_param ;
         ids:contentValue  [ ids:value "E421" ];
     ] ;
     ids:parameterAssignment [
-        ids:parameter :YEAR_PARAM ;
+        ids:parameter data2:year_param ;
         ids:contentValue  [ ids:value 2018 ];
     ] ;
     ids:parameterAssignment [
-        ids:parameter :MONTH_PARAM ;
-        ids:contentValue  [ ids:value 09 ];
+        ids:parameter data2:month_param ;
+        ids:contentValue  [ ids:value 9 ];
+    ] .
+
+data2:
+    ids:endpoint [
+      a ids:StaticEndpoint ;
+      ids:endpointHost conn2:http_host ;
+      ids:endpointArtifact data2:E1_20000101  ;
+      ids:path "/resource/content/E1_20000101.csv"
+    ] ;
+    ids:endpoint [
+      a ids:StaticEndpoint ;
+      ids:endpointHost conn2:http_host ;
+      ids:endpointArtifact data2:E421_20171231 ;
+      ids:path "/resource/content/E421_20171231.csv"
     ] .

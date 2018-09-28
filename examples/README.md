@@ -9,7 +9,14 @@ A Resource is a single digital content or a coherent set of digital contents exp
 Types of digital content range from structured data, documents, media, software etc. Examples below illustrate the various types and 
 different aspects of resources.
 
-## Example DATA1: Free, historical data download
+## Example DATA1: Commercial report
+
+- 2 representations 
+- significant intellectual effort
+
+
+
+## Example DATA2: Free download of raw, historical data 
  
 The resource example DATA1 showcases an easy, non-interactive access to historical data provided 
 by the participant PART1. Monthly traffic statistics collected during a year since 2010 are exposed for download 
