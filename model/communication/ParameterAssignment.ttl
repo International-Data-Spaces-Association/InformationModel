@@ -19,7 +19,7 @@ ids:ParameterAssignment
     ];
     idsm:example
 """
-    [] ids:artifactParameterization [ # reified parameter assigment
+    [] ids:parameterAssignment [ # reified parameter assigment
         ids:parameter ex:Year ;
         ids:contentValue [ ids:value "2018"^^xsd:gYear ]
     ]
@@ -32,13 +32,18 @@ ids:parameter
     rdfs:label "parameter"@en ;
     rdfs:domain ids:ParameterAssignment;
     rdfs:range ids:Parameter ;
-    rdfs:comment "Parameter which value is being assigned."@en .
+    rdfs:comment "Parameter which content is being assigned."@en .
 
-ids:contentValue
+ids:parameterValue
     a owl:ObjectProperty;
     rdfs:domain ids:ParameterAssignment;
     rdfs:range ids:Value;
-    rdfs:label "value"@en;
+    rdfs:label "parameter value"@en;
     rdfs:comment "Value being assigned to parameter."@en.
 
-
+ids:parameterArtifact
+    a owl:ObjectProperty;
+    rdfs:domain ids:ParameterAssignment;
+    rdfs:range ids:Artifact;
+    rdfs:label "parameter artifact"@en;
+    rdfs:comment "Artifact being assigned to parameter."@en.

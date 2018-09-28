@@ -137,16 +137,27 @@ idsc_media:APPLICATION_SCHEMA_JSON
     rdfs:seeAlso <http://json-schema.org/latest/json-schema-core.html> ;
     .
 
-# Container
+# Container, archive and package formats
 
 idsc_media:APPLICATION_ZIP
     a ids:IANAMediaType ;
     owl:sameAs <www.sparontologies.net/mediatype/application/zip> ;
     rdfs:label "application/zip" ;
     rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/application/zip> ;
-#    ids:magicNumber "50 4B 03 04" ;
-#    ids:magicNumber "50 4B 05 06" ;
-#    ids:magicNumber "50 4B 07 08" ;
     ids:filenameExtension "zip" ;
     .
 
+# Software & code
+
+idsc_media:APPLICATION_FLATPAK
+    a ids:MediaType;
+    rdfs:label "application/flatpak";
+    rdfs:comment "Flatpak, a portable application format";
+    rdfs:seeAlso <https://flatpak.org/> ;
+    .
+
+idsc_media:APPLICATION_DATAAPP
+    a ids:MediaType;
+    rdfs:label "application/dataapp";
+    rdfs:comment "Data App sofware package";
+    .
