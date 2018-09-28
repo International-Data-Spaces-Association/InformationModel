@@ -12,7 +12,7 @@
 ids:AuthenticationToken
     a owl:Class;
     rdfs:label "Authentication Token."@en;
-    rdfs:comment "Holds authentication information so that connections to the Connector's data offerings can be establised."@en ;
+    rdfs:comment "Authentication token mediated as part of the message."@en ;
     idsm:validation [
         idsm:forProperty ids:tokenValue;
         idsm:constraint idsm:NotNull;
@@ -30,7 +30,7 @@ ids:AuthenticationTokenFormat a owl:Class;
 ids:tokenValue a owl:DatatypeProperty;
     rdfs:label "tokenValue"@en;
     rdfs:domain ids:AuthenticationToken;
-    rdfs:range xsd:base64Binary;
+    rdfs:range xsd:string ; # xsd:base64Binary;
     rdfs:comment "An authentication token value like JSON Web Token."@en.
 
 ids:tokenFormat a owl:ObjectProperty;

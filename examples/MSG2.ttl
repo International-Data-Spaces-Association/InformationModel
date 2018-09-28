@@ -15,105 +15,21 @@
 @prefix : <urn:ids:example:> .
 
 
-:MSG_REQ
+:msg_req
     a ids:InvokeOperationMessage;
     # Must not be a bnode!
     # Requires the interface operation defined, not necessarily an endpoint
     ids:operationReference :READ;
     ids:artifactParameterization [
         a ids:ParameterAssignment ;
-         ids:parameter :HIGHWAY_PARAM ;
+         #ids:parameter :HIGHWAY_PARAM ;
          ids:contentValue [
             a ids:Value ;
             ids:value "E37";
          ]
     ];
-    ids:parameterRepresnetationSelector[
-         ids:parameter :TABLE_OUT;
+    ids:parameterRepresentationSelector[
+         #ids:parameter :TABLE_OUT;
          ids:repre :CSV;
     ] .
 
-:MSG_REQ
-    a ids:InvokeOperationResult;
-    ids:correlationMessage :MSG_REQ ;
-    ids:artifactParameterization [
-        a ids:ParameterAssignment ;
-         ids:parameter :TABLE_PARAM ;
-         ids:artifact [
-            # Convention clients should look for message part containing this file (via Content-Disposition)
-            a ids:Artifact ;
-                ids:fileName "look for this";
-                ids:byteSize "..";
-                ids:creationDate "..";
-         ]
-    ].
-
-# Overall table retrieved as result
-:TABLE_PARAM
-    a ids:Parameter ;
-    ids:name "tabular data" ;
-    ids:parameterContent [
-        a ids:Data;
-        ids:representation [
-            ids:mediaType idsc_media:text_csv
-        ];
-         ids:representation [
-                    ids:mediaType idsc_media:text_tsv
-         ]
-    ] .
-
-
-
-
-:API
-    ids:title "Read-only interface for statistics access" ;
-    ids:operation :READ .
-
-:READ
-    a ids:ReadOperation ;
-    ids:input :HIGHWAY_PARAM ;
-    ids:output :TABLE_PARAM .
-
-:WRITE
-    a ids:WriteOperation ;
-    ids:input  :HIGHWAY_PARAM ;
-    ids:input  :TABLE_PARAM .
-
-:OP_BINDING
-    a ids:OperationBinding ;
-    ids:boundOperation :READ ;
-    ids:apiDocument :API_DOC .
-
-:OP_BINDING2
-    a ids:OperationBinding ;
-    ids:boundOperation :WRITE ;
-    ids:apiDocument :API_DOC .
-
-
-:HTTP_END
-    a ids:InteractiveEndpoint;
-    ids:endpointHost :HTTP_HOST ;
-    ids:path "/content/{highway}" ;
-    ids:endpointOperationBinding :OP_BINDING ; # GET
-    ids:endpointOperationBinding :OP_BINDING2 . # POST
-
-:API_DOC
-    a ids:Software ;
-    ids:type idsc_api:openApiV3 .
-
-
-
-
-
-:HIGHWAY_PARAM
-    a ids:Parameter ;
-    ids:name "highway" ;
-    ids:description "highway ID (european route signage, e.g. E37)" ;
-    ids:parameterContent [
-        a ids:String ;
-        ids:concept :HIGHWAY ;# undefined!
-        ids:representation [
-            ids:dataType xsd:string 
-        ] 
-    ] .
-    

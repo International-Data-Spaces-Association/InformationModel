@@ -60,6 +60,7 @@ data3:api_definition_resource
     a ids:Software ;
     ids:contentType idsc_content:INTERFACE_DEFINITION ;
     ids:representation [
+        a ids:SoftwareRepresentation ;
         ids:mediaType idsc_media:APPLICATION_OPENAPI_JSON ;
         ids:artifact data3:api_definition_artifact;
     ];
@@ -82,9 +83,10 @@ data3:highway_param
     ids:name "highway" ;
     ids:description "highway ID (european route signage, e.g. E37)" ;
     ids:parameterContent [
-        a ids:String ;
+        a ids:Data ; # ids:String ;
         ids:theme idsc_concept:HIGHWAY ;
         ids:representation [
+            a ids:DataRepresentation ;
             ids:dataType xsd:string
         ]
     ] .
@@ -93,9 +95,10 @@ data3:year_param
     a ids:Parameter ;
     ids:name "year" ;
     ids:parameterContent [
-        a ids:Number;
+        a ids:Data ; # ids:Number;
         ids:theme idsc_concept:YEAR ;
         ids:representation [
+            a ids:DataRepresentation ;
             ids:dataType xsd:gYear
         ]
     ] .
@@ -104,9 +107,10 @@ data3:month_param
     a ids:Parameter ;
     ids:name "month" ;
     ids:parameterContent [
-        a ids:Number;
+        a ids:Data ; # ids:Number;
         ids:theme idsc_concept:MONTH ;
         ids:representation [
+            a ids:DataRepresentation ;
             ids:dataType xsd:int
         ]
     ] .
@@ -118,6 +122,7 @@ data3:highway_statistics
     ids:parameterContent [
         a ids:Data;
         ids:representation [
+            a ids:DataRepresentation ;
             ids:mediaType idsc_media:TEXT_CSV ;
         ]
     ]
