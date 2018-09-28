@@ -46,4 +46,15 @@ There are following top-level files and directories:
 - `Ontology.ttl`: Detailed metadata of the Industrial Data Space Information Model.
 
 ## Related resources
-- [EU Vocabularies](https://publications.europa.eu/en/web/eu-vocabularies/models), collection of models and controlled vocabularies (e.g. EuroVoc) managed by EU institutions
+
+For members of the International Data Spaces Association we provide additional resources: 
+
+- A mapping of the information model to a Java class library. It is hosted as a Maven Artifact on a
+[Nexus Repository](https://mvn.isst.fraunhofer.de/nexus/#browse/browse:ids-local:de%2Ffraunhofer%2Fiais%2Feis%2Fids%2Finfomodel), 
+operated by Fraunhofer [ISST](https://www.isst.fraunhofer.de/). The library is intended to simplify development against
+the information model without in-depth knowledge of RDF ontologies.
+
+- A working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), on the association's Jive platform, explaining
+the usage of the information model for communication on the Industrial Data Space. 
+
+
