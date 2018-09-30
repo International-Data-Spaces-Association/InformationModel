@@ -1,0 +1,40 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rlog:    <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#> .
+@prefix rutg: <http://rdfunit.aksw.org/data/generators#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rut: <http://rdfunit.aksw.org/ns/core#> .
+@prefix rutp: <http://rdfunit.aksw.org/data/patterns#> .
+@prefix rutt: <http://rdfunit.aksw.org/data/tests#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+rutt:ontologies-vann-preferredNamespacePrefix
+    a rut:ManualTestCase ;
+    dcterms:description "All ontologies should have vann:preferredNamespacePrefix" ;
+    rut:appliesTo rut:Schema ;
+    rut:generated rut:ManuallyGenerated ;
+    rut:source <http://purl.org/vocab/vann/> ;
+    rut:sparqlWhere """ { ?this a owl:Ontology .
+        OPTIONAL { ?this <http://purl.org/vocab/vann/preferredNamespacePrefix> ?vannPrefix }
+        FILTER (
+            !bound(?vannPrefix)
+        )} """ ;
+    rut:sparqlPrevalence """ SELECT (count(?this) AS ?total) WHERE {
+                                 ?this a owl:Ontology . } """ ;
+    rut:resultAnnotation [
+        a rut:ResultAnnotation ;
+        rut:annotationProperty sh:predicate ;
+        rut:annotationValue <http://purl.org/vocab/vann/preferredNamespacePrefix>
+    ];
+    rut:resultAnnotation [
+        a rut:ResultAnnotation ;
+        rut:annotationProperty sh:object ;
+        rut:annotationValue """?vannPrefix""";
+    ];
+    rut:testCaseLogLevel
+              rlog:ERROR .

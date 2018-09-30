@@ -1,0 +1,41 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:ParameterAssignment
+    a owl:Class;
+    rdfs:label "Parameter assignment"@en ;
+    rdfs:comment "Expression of assigning a value to a parameter without creating an immediate reference."@en ;
+    idsm:validation [
+        idsm:forProperty ids:parameter;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:parameter
+    a owl:ObjectProperty;
+    idsm:referenceByUrl true ;
+    rdfs:label "parameter"@en ;
+    rdfs:domain ids:ParameterAssignment;
+    rdfs:range ids:Parameter ;
+    rdfs:comment "Parameter which content is being assigned."@en .
+
+ids:parameterValue
+    a owl:ObjectProperty;
+    rdfs:domain ids:ParameterAssignment;
+    rdfs:range ids:Value;
+    rdfs:label "parameter value"@en;
+    rdfs:comment "Value being assigned to parameter."@en.
+
+ids:parameterArtifact
+    a owl:ObjectProperty;
+    rdfs:domain ids:ParameterAssignment;
+    rdfs:range ids:Artifact;
+    rdfs:label "parameter artifact"@en;
+    rdfs:comment "Artifact being assigned to parameter."@en.

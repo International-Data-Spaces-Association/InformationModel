@@ -1,0 +1,27 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+# Consider definition of abstract subclasses according to exchange pattern, e.g. request-reply, repeated request-reply, publish-subscribe, and stream (push and pull)
+# Protocol may be more complex than an interface which specifies only one interaction at a time between the caller and the receiver
+
+ids:Protocol
+    a owl:Class ;
+    rdfs:label "Communication Protocol"@en ;
+    rdfs:comment "Set of communication rules by which a Service implements its Interface(s) in order to become invocable." .
+
+#ids:ProtocolPhase
+#    a owl:Class ;
+#    rdfs:label "Protocol phase"@en ;
+#    rdfs:comment "Communication phase defined by the corresponding protocol standard." .
+
+#ids:ProtocolConstituent
+#    a owl:Class ;
+#    rdfs:label "Protocol constituent"@en ;
+#    rdfs:comment "Named constituent invloved within a Communication phase defined by the corresponding protocol standard." .
+

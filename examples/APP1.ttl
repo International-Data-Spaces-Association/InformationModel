@@ -1,0 +1,65 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
+@prefix idsc_mep: <https://w3id.org/idsa/code/mep/> .
+@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
+
+@prefix appstore1:  <http://app4traffic.de/connector/appstore1/> .
+@prefix app1:       <http://app4traffic.de/connector/appstore1/app1/> .
+@prefix part1:      <https://im.internationaldataspaces.org/participant/part1> .
+
+app1:
+    a ids:Resource, ids:SystemAdapter ;
+    ids:title "Camera driver"@en ;
+    ids:description "Camera driver ingesting image content into a Connector via defined interface."@en;
+    ids:keyword "driver", "camera" ;
+    ids:representation [
+        a ids:SoftwareRepresentation ;
+        ids:mediaType idsc_media:APPLICATION_DATAAPP ; # assuming future support by TrustMe
+        # https://industrial-data-space.github.io/trusted-connector-documentation/docs/overview/#trustedplatform
+        ids:instance app1:adapter_app ;
+    ] ;
+
+    # Provision of the Data App Resource
+    ids:resourceEndpoint [
+        a ids:StaticEndpoint ;
+        ids:endpointHost appstore1:http_host ; # this resource is available via the App Store
+        ids:endpointArtifact app1:adapter_app ;
+        ids:path "/apps/adapter/CameraAdapter.app"
+    ]
+    .
+
+app1:adapter_app
+    a ids:Artifact ;
+    ids:byteSize "28467297"^^xsd:nonNegativeInteger ;
+    ids:fileName "CameraAdapter.app" ;
+    ids:creationDate "2018-06-01"^^xsd:date ;
+    .
+
+app1:
+    ids:softwareInterface [ # exposes the functionality of the Data App, instead of the Data App resource itself (ids:resourceInterface)
+        a ids:Interface ;
+        ids:title "Image provision interface" ;
+        ids:operation app1:provide_image ;
+    ] ;
+    .
+
+app1:provide_image
+    a ids:ProvideContentOperation ; # the driver e.g. pushes the images to via a PUB/SUB protocol
+    ids:pattern idsc_mep:OUT_ONLY ; # no client input needed
+    ids:name "Provide camera image" ;
+    ids:mandatoryOutput [
+        a ids:Parameter ;
+        ids:name "image" ;
+        ids:parameterContent [
+            a ids:Image ;
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_JPEG;
+                ids:width 5184;
+                ids:height 3888;
+            ]
+        ]
+    ]
+    .

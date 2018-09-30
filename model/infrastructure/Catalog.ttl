@@ -1,0 +1,42 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:Catalog
+    rdfs:subClassOf dcat:Catalog;
+    a owl:Class;
+    rdfs:label "Catalog"@en ;
+    rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en ;
+    idsm:validation [
+        idsm:forProperty ids:request;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:offer;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+# Properties
+# ----------
+
+ids:offer a owl:ObjectProperty;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Resource;
+    rdfs:label "offer"@en;
+    idsm:labelPluralForm "offers"@en;
+    rdfs:comment "A Resource that is part of a Connector, indicating a offering (of, e.g., data)."@en.
+
+ids:request a owl:ObjectProperty;
+    rdfs:domain ids:Catalog;
+    rdfs:range ids:Resource;
+    rdfs:label "request"@en;
+    idsm:labelPluralForm "requests"@en;
+    rdfs:comment "A Resource that is part of a Connector, indicating a request (of, e.g., data, software,...)."@en.
+

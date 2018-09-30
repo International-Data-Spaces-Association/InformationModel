@@ -1,0 +1,52 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:LeftOperand rdfs:subClassOf odrl:LeftOperand;
+    a owl:Class;
+    rdfs:label "LeftOperand"@en;
+    rdfs:comment "Instances of the LeftOperand class are used as the leftOperand of a Constraint."@en.
+
+# Instances
+# ---------
+
+ids:payAmount a ids:LeftOperand;
+    rdfs:seeAlso odrl:payAmount;
+    rdfs:label "payAmount";
+    rdfs:comment "Monetary amount to pay.".
+
+ids:DATE_TIME a ids:LeftOperand;
+    rdfs:seeAlso odrl:dateTime;
+    rdfs:label "dateTime";
+    rdfs:comment "The date (and optional time and timezone) of exercising the action of the Rule.".
+
+ids:timeInterval a ids:LeftOperand;
+    rdfs:seeAlso odrl:timeInterval;
+    rdfs:label "timeInterval";
+    rdfs:comment "Recurring Time Interval.".
+
+ids:purpose a ids:LeftOperand;
+    rdfs:seeAlso odrl:purpose;
+    rdfs:label "purpose";
+    rdfs:comment "A defined purpose for exercising the action of the Rule.".
+
+ids:count a ids:LeftOperand;
+    rdfs:seeAlso odrl:count;
+    rdfs:label "count";
+    rdfs:comment "Numeric count of executions of the action of the Rule.".
+
+ids:quantity a ids:LeftOperand;
+    rdfs:label "quantity";
+    rdfs:comment "Quantity limitation for exercising the action of the Rule.".
+
+ids:recurrenceRate a ids:LeftOperand;
+    rdfs:label "recurrenceRate";
+    rdfs:comment "The limit how often exercising the action of the Rule may be possible.".
+

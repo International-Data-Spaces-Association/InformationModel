@@ -1,0 +1,70 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:Connector
+    rdfs:subClassOf ids:InfrastructureComponent;
+    a owl:Class;
+    idsm:abstract true;
+    rdfs:label "Connector"@en ;
+    rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
+    idsm:validation [
+        idsm:forProperty ids:catalog;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:securityProfile;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:host;
+        idsm:relationType idsm:OneToMany;
+    ].
+
+ids:BaseConnector rdfs:subClassOf ids:Connector ;
+    a owl:Class;
+    rdfs:label "Base Connector"@en ;
+    rdfs:comment "Implementation of the Connector specification providing only restricted security capabilities."@en .
+
+ids:TrustedConnector rdfs:subClassOf ids:Connector ;
+    a owl:Class;
+    rdfs:label "Trusted Connector"@en ;
+    rdfs:comment "Hardened implementation of the Connector specification providing enhanced security capabilities."@en .
+
+# Properties
+# ----------
+
+# renamed from ids:connectionOption
+ids:host
+    a owl:ObjectProperty;
+    rdfs:label "host"@en;
+    idsm:labelPluralForm "hosts"@en;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Host;
+    rdfs:comment "Networked host operated by the Connector in order to serve and consume resource content and services."@en.
+
+ids:securityProfile a owl:ObjectProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:SecurityProfile;
+    rdfs:label "securityProfile"@en;
+    rdfs:comment "The SecurityProfile supported by the Connector."@en.
+
+ids:authInfo a owl:ObjectProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:AuthInfo;
+    rdfs:label "authInfo"@en;
+    rdfs:comment "Information of the authentication service used by the Connector."@en.
+
+ids:catalog a owl:ObjectProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Catalog;
+    rdfs:label "catalog"@en;
+    rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
+

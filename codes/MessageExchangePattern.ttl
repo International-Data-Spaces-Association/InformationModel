@@ -1,0 +1,71 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc_mep: <https://w3id.org/idsa/code/mep/> .
+@prefix idsc_fpr: <https://w3id.org/idsa/code/fpr/> .
+
+# Instances
+# ---------
+
+idsc_mep:IN_ONLY
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:NO_FAULT ;
+    rdfs:label "In-Only MEP" ;
+    rdfs:comment "Unreliable asynchronous notification" ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-adjuncts/#in-only> .
+
+idsc_mep:ROBUST_IN_ONLY
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:MESSAGE_TRIGGERS_FAULT ;
+    rdfs:label "Robust In-Only MEP" ;
+    rdfs:comment "Reliable asynchronous notification (one-way message exchange)." ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-adjuncts/#robust-in-only> ;
+    rdfs:seeAlso <https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html> ;
+    rdfs:seeAlso <http://camel.apache.org/event-message.html> .
+
+idsc_mep:IN_OUT
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:FAULT_REPLACES_MESSAGE ;
+    rdfs:label "In-Out MEP" ;
+    rdfs:comment "Request - response interaction (synchronous or asynchronous)." ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-adjuncts/#in-out> ;
+    rdfs:seeAlso <http://camel.apache.org/request-reply.html> .
+
+idsc_mep:IN_OPTIONAL_OUT
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:MESSAGE_TRIGGERS_FAULT ;
+    rdfs:label "In-Optional-Out MEP" ;
+    rdfs:comment "Request - response interaction with an optional response." ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-additional-meps#in-opt-out> .
+
+idsc_mep:OUT_ONLY
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:NO_FAULT ;
+    rdfs:label "Out-Only MEP" ;
+    rdfs:comment "Unreliable server-side notification." ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-additional-meps#out-only> .
+
+idsc_mep:ROBUST_OUT_ONLY
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:MESSAGE_TRIGGERS_FAULT ;
+    rdfs:label "Robust Out-Only MEP" ;
+    rdfs:comment "Reliable server-side notification." ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-additional-meps#robust-out-only> .
+
+idsc_mep:OUT_IN
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:FAULT_REPLACES_MESSAGE ;
+    rdfs:label "Out-In MEP" ;
+    rdfs:comment "Out-In message exchange pattern." ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-additional-meps#out-in> .
+
+idsc_mep:OUT_OPTIONAL_IN
+    a ids:MessageExchangePattern ;
+    ids:faultPropagationRule idsc_fpr:MESSAGE_TRIGGERS_FAULT ;
+    rdfs:label "Out-Optional-In MEP" ;
+    rdfs:comment "Out-Optional-In message exchange pattern." ;
+    rdfs:seeAlso <https://www.w3.org/TR/wsdl20-additional-meps#out-opt-in> .
+

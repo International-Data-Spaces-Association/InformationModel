@@ -1,0 +1,38 @@
+#!/bin/bash
+# Provides simply sanity check of the graph testing for undefined resources (standalone objects).
+# Depends on the `roqet` CLI utility provided by the Rasqal RDF library: http://librdf.org/rasqal/
+# Install e.g. via "sudo apt install rasqal-utils"
+# Usage: validate_graph Ontology.ttl
+
+if [ ! -f "$1" ]
+    then
+        echo "Ontology file is missing, usage: validate_graph Ontology.ttl"
+    exit 2
+fi
+
+GRAPH_QUERY="
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    SELECT distinct (concat('FROM <', ?subonto, '>') as ?graph)
+    WHERE {?onto owl:imports ?subonto}
+" 
+# Select list of default graphs (FROM) linked in the (manually edited) Ontology.ttl file
+# Post-process removing the column name (tail) and quotations (sed)
+GRAPH_LIST=`roqet -q -e "$GRAPH_QUERY" -D Ontology.ttl -r tsv | tail -n +2| sed 's/"//g'`
+
+STANDALONE_NODES_QUERY="
+    SELECT distinct (?o as ?standalone_node) $GRAPH_LIST
+    WHERE {
+        ?s ?p ?o .
+        OPTIONAL { ?o ?pp ?oo }
+        FILTER (
+            # test on resources, not bnodes
+            isIri(?o) &&
+            # restrict to IDS namespace
+            regex(str(?o), 'ids' ) &&
+            # there is no binding / annotation available
+            ! bound(?oo)
+        )
+    }
+"
+roqet -q -e "$STANDALONE_NODES_QUERY" -r tsv
+
