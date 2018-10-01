@@ -5,7 +5,6 @@ The Information Model is an RDFS/OWL-ontology covering the fundamental concepts 
 The model development is based on [GitHub](https://github.com/IndustrialDataSpace/InformationModel), following a [defined branching model](CONTRIBUTING.md). Contributions and community feedback are maintained via the GitHub [ticketing system](images/Issue_Lifecycle.jpg). The [release process](images/Release_process.jpg) is aligned with the International Data Spaces Association architecture
 working group meetings, i.e. there are 2 releases scheduled per year with intermediary updates to the development branch. The Information Model and associated resources published on Github are available under the [Apache License 2.0](https://github.com/IndustrialDataSpace/InformationModel/blob/master/LICENSE).
 
-
 ## Authors and contributors
 
 The Information Model was created by Jaroslav Pullmann, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en), Dr. Christian Mader, [Fraunhofer IAIS](https://www.iais.fraunhofer.de/en) and Dr. Sebastian Tramp, [eccenca GmbH](https://www.eccenca.com) with significant contributions, comments and support by (in alphabetical order):
@@ -17,17 +16,6 @@ The Information Model was created by Jaroslav Pullmann, [Fraunhofer FIT](https:/
 - Dr. Michael Theß, [Signal Cruncher GmbH](https://signal-cruncher.com/)
 
 Likewise the authors would like to thank numerous colleagues at Fraunhofer, active participants of the [International Data Spaces Association](https://www.internationaldataspaces.org/en/), the members of the W3C [Dataset Exchange Group](https://www.w3.org/2017/dxwg/wiki/Main_Page) and [Data Market Austria](https://datamarket.at/en/) for illuminating conversations and support in shaping the Information Model.
-
-## Overview
-
-The RDFS/OWL-ontology maintained in Github is the normative, *declarative representation* of the IDS Information Model. It is framed by the *conceptual representation* laid down in the *Reference Architecture Model* ([RAM v2](https://www.internationaldataspaces.org/publications/idsa-ram/)) and mapped to *programmatic representations* supporting a native development within a programming language, e.g. Java. The overall purpose of this formal model is to enable a (semi)automated exchange of digital assets within a network of distributed parties while maintaining their sovereignty on those assets. Given such a broad functional scope intersected with respective business domains (logistics, agriculture, energy etc.) the Information Model is a subject to perpetual evolution and refinement lead by clear design principles. These are, among others:
-- *reuse*: body of existing work (standards, ontologies, scientific publications etc.) is evaluated and re-used. It either informs or is effectively used in the development of the Information Model, e.g. by extending classes and properties of vocabularies like [DCAT](https://www.w3.org/TR/vocab-dcat/).
-- *re-usability*: model constituents are designed for re-usability within different contexts, thus reducing model extent and complexity
-- *separation of concerns*: as a prerequisite to re-usability each constituent or set of constituents is modeled according to a dedicated concern addressed.
-
-The mnemonic hexagonal arrangement of **C**arbon atoms was reused to depict main **C**oncerns of the Information Model: 
-
-<div align="center"><img alt="Concerns hexagon" src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Hexagon_simple.jpg" width="90%" /></div>
 
 ## Directory layout
 
