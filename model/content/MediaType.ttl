@@ -13,15 +13,15 @@ ids:MediaType
     rdfs:subClassOf dct:MediaType ; # *not* restricted to IANA media types
     rdfs:label "Media Type"@en ;
     rdfs:comment "General class of media types (formerly known as MIME types)." ;
-    idsm:usage "ids:CommonMediaType is used only when no ids:IANAMediaType available."@en ;
+    idsm:usage "ids:GeneralMediaType is used only when no ids:IANAMediaType available."@en ;
     idsm:abstract true;
     .
 
-ids:CommonMediaType
+ids:GeneralMediaType
     a owl:Class ;
     rdfs:subClassOf ids:MediaType;
-    rdfs:label "Common Media Type"@en ;
-    rdfs:comment "A selection of common media types to be used for data published on the IDS.".
+    rdfs:label "General Media Type"@en ;
+    rdfs:comment "A selection of general media types to be used for data published on the IDS when no IANA type is available.".
 
 ids:IANAMediaType
     a owl:Class ;
