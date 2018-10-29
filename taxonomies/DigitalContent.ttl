@@ -15,7 +15,7 @@ ids:Data
     # ISO 19115: identifiable collection of data
     rdfs:subClassOf ids:DigitalContent, dctype:Dataset ;
     rdfs:label "Data"@en ;
-    rdfs:comment "Custom or generic (structured) data intended for machine processing, i.e. scalars or arrangements of data fields (optionally defined by a schema)."@en .
+    rdfs:comment "Custom or generic (semi)structured data intended for machine processing, i.e. atomic values or arrangements of data fields (optionally defined by a schema)."@en .
 
 
 ids:Text a owl:Class; # .. or "Document" ?
@@ -63,8 +63,11 @@ ids:Container a owl:Class;
    rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-5.1> ;
    .
 
-# ids:BinaryContent a owl:Class; - obsolate, DigitalContent made a concrete class
-# rdfs:comment "Opaque, not further specified type of custom, binary content."@en .
+ids:OpaqueContent a owl:Class;
+   rdfs:subClassOf ids:DigitalContent ;
+   rdfs:label "Opaque content";
+   rdfs:comment "Opaque, not further specified type of custom, binary content."@en ;  
+   .
 
 # Derived content classes
 # -----------------------
