@@ -10,7 +10,7 @@
 # -------
 
 ids:DigitalContent
-    a owl:Class;
+    a owl:Class;    
     rdfs:subClassOf ids:Described, dcat:Dataset;
     rdfs:label "Digital content"@en ;
     rdfs:comment "Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index." ;
@@ -46,6 +46,7 @@ ids:DigitalContent
         idsm:forProperty ids:representation;
         idsm:relationType idsm:OneToMany;
     ];
+    idsm:abstract true ;
     rdfs:seeAlso
         <https://en.wikipedia.org/wiki/Digital_content> ,
         <http://www.ontodm.com/doku.php?id=ontodt> ,
