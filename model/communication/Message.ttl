@@ -95,12 +95,19 @@ ids:recipientAgent
     rdfs:range ids:Agent;
     rdfs:comment "The Agent for which the Mesaage is intended."@en.
 
-ids:authenticationToken
+ids:securityToken
     a owl:ObjectProperty;
-    rdfs:label "authentication token"@en;
+    rdfs:label "Security token"@en;
     rdfs:domain ids:Message;
-    rdfs:range ids:AuthenticationToken;
-    rdfs:comment "An authentication token like JSON Web Token."@en.
+    rdfs:range ids:Token;
+    rdfs:comment "A token representing a claim that the message sender supports a certain security profile."@en.
+
+ids:authorizationToken
+    a owl:ObjectProperty;
+    rdfs:label "Authorization token"@en;
+    rdfs:domain ids:Message;
+    rdfs:range ids:Token;
+    rdfs:comment "An authorization token like JSON Web Token."@en.
 
 ids:transferContract
     a owl:ObjectProperty;
@@ -109,4 +116,3 @@ ids:transferContract
     rdfs:domain ids:Message;
     rdfs:range ids:Contract;
     rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
-

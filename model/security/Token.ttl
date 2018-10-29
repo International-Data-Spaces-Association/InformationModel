@@ -9,33 +9,32 @@
 # Classes
 # -------
 
-ids:AuthenticationToken
+ids:Token
     a owl:Class;
-    rdfs:label "Authentication Token."@en;
-    rdfs:comment "Authentication token mediated as part of the message."@en ;
+    rdfs:label "Token."@en;
+    rdfs:comment "A token (e.g., for authorization) mediated as part of the message."@en ;
     idsm:validation [
         idsm:forProperty ids:tokenValue;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:AuthenticationTokenFormat a owl:Class;
+ids:TokenFormat a owl:Class;
     idsm:abstract true;
-    rdfs:label "Authentication token format"@en;
-    rdfs:comment "Authentication Token Format."@en.
-
+    rdfs:label "Token format"@en;
+    rdfs:comment "Possible formats for (security-related) tokens."@en.
 
 # Properties
 # ----------
 
 ids:tokenValue a owl:DatatypeProperty;
     rdfs:label "tokenValue"@en;
-    rdfs:domain ids:AuthenticationToken;
+    rdfs:domain ids:Token;
     rdfs:range xsd:string ; # xsd:base64Binary;
     rdfs:comment "An authentication token value like JSON Web Token."@en.
 
 ids:tokenFormat a owl:ObjectProperty;
     rdfs:label "tokenFormat"@en;
-    rdfs:domain ids:AuthenticationToken;
-    rdfs:range ids:AuthenticationTokenFormat;
+    rdfs:domain ids:Token;
+    rdfs:range ids:TokenFormat;
     rdfs:comment "Describes the format of the authentication token."@en.
 
