@@ -43,3 +43,11 @@ ids:ComponentCertification
     rdfs:label "Component Certification"@en ;
     rdfs:comment "Process and result of certifying a software component/servivce in order to become a certified part of the International Data Space infrastructure." .
 
+# Properties
+# ----------
+
+ids:membershipEnd a owl:DatatypeProperty ;
+    rdfs:label "membership end"@en;
+    rdfs:domain ids:ParticipantCertification ;
+    rdfs:range xsd:date ;
+    rdfs:comment "End of the participant's IDS membership."@en .
