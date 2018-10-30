@@ -167,8 +167,8 @@ ids:contractRejectionReason a owl:DatatypeProperty;
     rdfs:range rdf:PlainLiteral;
     rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
 
-# Security Messages
-# -----------------
+# Security-related Messages
+# -------------------------
 
 ids:AccessTokenRequest a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
@@ -179,6 +179,16 @@ ids:AccessTokenResponse a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage ;
     rdfs:label "Access Token Response"@en;
     rdfs:comment "Response to an access token request, intended for point-to-point communication."@en.
+
+ids:DynamicAttributeTokenRequest a owl:Class ;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "Dynamic Attribute Token Request"@en;
+    rdfs:comment "Message for requesting a dynamic attribute token that ensures validity of the attribute values. This is intended for point-to-point communication with the Dynamic Attribute Provisioning Service (DAPS)."@en.
+
+ids:DynamicAttributeTokenResponse a owl:Class ;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "Dynamic Attribute Token Response"@en;
+    rdfs:comment "Response to an access token request. Contains a JSON Web Token in the associated payload part, signed by the issuing DAPS."@en.
 
 # Resource Exchange
 # -----------------
