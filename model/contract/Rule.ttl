@@ -31,10 +31,6 @@ ids:Rule
     idsm:validation [
         idsm:forProperty ids:action;
         idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:actionRefinement;
-        idsm:relationType idsm:OneToMany;
     ].
 
 ids:Permission rdfs:subClassOf ids:Rule;
@@ -129,15 +125,6 @@ ids:constraint rdfs:subPropertyOf odrl:constraint;
     rdfs:domain ids:Rule;
     rdfs:range ids:Constraint;
     rdfs:comment "The constraint to be used for a specific rule."@en.
-
-ids:actionRefinement
-    a owl:ObjectProperty;
-    # rdfs:subPropertyOf odrl:refinement ;
-    rdfs:label "action refinement"@en;
-    idsm:labelPluralForm "actionRefinements"@en;
-    rdfs:domain ids:Action;
-    rdfs:range ids:Constraint;
-    rdfs:comment "Constraint that refines an Action."@en.
 
 ids:contentRefinement
     a owl:ObjectProperty;
