@@ -188,16 +188,16 @@ ids:ArtifactAvailableMessage a owl:Class ;
     rdfs:label "Artifact Available Message"@en;
     rdfs:comment "Message indicating availability of a specific artifact."@en;
     idsm:validation [
-        idsm:forProperty ids:artifactReference;
+        idsm:forProperty ids:newArtifact;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:artifactReference rdf:type owl:DatatypeProperty ;
+ids:newArtifact rdf:type owl:DatatypeProperty ;
     idsm:referenceByUrl true;
     rdfs:domain ids:ArtifactAvailableMessage;
     rdfs:range ids:Artifact ;
-    rdfs:label "Artifact Reference"@en ;
-    rdfs:comment "References an artifact from an availability indication."@en.
+    rdfs:label "New Artifact"@en ;
+    rdfs:comment "References a new artifact from an availability indication."@en.
 
 ids:InvokeOperationMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
@@ -248,16 +248,23 @@ ids:OperationResultMessage  a owl:Class ;
     rdfs:label "Operation Result Message"@en;
     rdfs:comment "Message indicating that the result of a former InvokeOperation message is available. May transfer the result data in its associated payload section."@en.
 
-ids:ArtifactRequest a owl:Class ;
+ids:ArtifactRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Retrieve Artifact"@en;
     rdfs:comment "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en;
     idsm:validation [
-        idsm:forProperty ids:artifactReference;
+        idsm:forProperty ids:requestArtifact;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:ArtifactResponse a owl:Class ;
+ids:requestArtifact rdf:type owl:DatatypeProperty ;
+    idsm:referenceByUrl true;
+    rdfs:domain ids:ArtifactRequestMessage;
+    rdfs:range ids:Artifact ;
+    rdfs:label "Request Artifact"@en ;
+    rdfs:comment "References an artifact in the context of a request."@en.
+
+ids:ArtifactResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Artifact Response"@en;
     rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
