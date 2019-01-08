@@ -188,15 +188,15 @@ ids:ArtifactAvailableMessage a owl:Class ;
     rdfs:label "Artifact Available Message"@en;
     rdfs:comment "Message indicating availability of a specific artifact."@en;
     idsm:validation [
-        idsm:forProperty ids:newArtifact;
+        idsm:forProperty ids:availableArtifact;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:newArtifact rdf:type owl:DatatypeProperty ;
+ids:availableArtifact rdf:type owl:DatatypeProperty ;
     idsm:referenceByUrl true;
     rdfs:domain ids:ArtifactAvailableMessage;
     rdfs:range ids:Artifact ;
-    rdfs:label "New Artifact"@en ;
+    rdfs:label "Available Artifact"@en ;
     rdfs:comment "References a new artifact from an availability indication."@en.
 
 ids:InvokeOperationMessage a owl:Class ;
@@ -253,15 +253,15 @@ ids:ArtifactRequestMessage a owl:Class ;
     rdfs:label "Retrieve Artifact"@en;
     rdfs:comment "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en;
     idsm:validation [
-        idsm:forProperty ids:requestArtifact;
+        idsm:forProperty ids:requestedArtifact;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:requestArtifact rdf:type owl:DatatypeProperty ;
+ids:requestedArtifact rdf:type owl:DatatypeProperty ;
     idsm:referenceByUrl true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
-    rdfs:label "Request Artifact"@en ;
+    rdfs:label "Requested Artifact"@en ;
     rdfs:comment "References an artifact in the context of a request."@en.
 
 ids:ArtifactResponseMessage a owl:Class ;
