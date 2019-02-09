@@ -1,0 +1,158 @@
+@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/ids/core/declarativeModel> .
+
+<https://w3id.org/ids/core/declarativeModel> rdf:type owl:Ontology ;
+                                              owl:versionInfo "0.9.1" ;
+                                              dct:creator "Jaroslav Pullmann" ,
+                                                          "Christian Mader" ,
+                                                          "Anna Kasprzik" ;
+                                              dct:title "The Industrial Dataspace Information Model"@en ;
+                                              rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace." ;
+                                              dct:publisher "Fraunhofer IAIS/EIS" ;
+                                              dct:creator "Andreas Müller" ;
+                                              dct:date "2018-06-27" ;
+                                              dct:creator "Sebastian Tramp" ;
+                                              dct:publisher "Fraunhofer FIT" ;
+
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/Action.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/AuthenticationTokenFormat.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/BrokerQueryScope.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/CertificationLevel.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/ContentType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/FaultPropagationRule.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/IndustrialClassification.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/Language.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/License.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/MediaType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/MessageExchangePattern.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/OperationType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/PageReference.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/Protocol.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/QueryLanguage.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/RejectionReason.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/SortOrder.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/codes/Standard.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/APP1.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/APP2.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/APPSTORE1.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/BROKER1.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/Concept.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/CONN1.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/CONN2.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/DATA1.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/DATA2.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/DATA3.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/INTER1.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/INTER2.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/INTER3.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/PART1.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/PART2.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/PART3.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/examples/Unit.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/metamodel/Annotation.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/metamodel/Validation.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/metamodel/View.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/ApiDocumentType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/DataType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/Endpoint.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/FaultPropagationRule.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/Host.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/Interface.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/Message.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/MessageExchangePattern.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/Operation.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/OperationBinding.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/OperationType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/Parameter.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/ParameterAssignment.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/ParameterGroup.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/ParameterGroupingOperator.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/communication/Protocol.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/Artifact.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/Concept.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/ContentType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/DataApp.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/DigitalContent.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/Language.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/MediaType.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/Representation.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/Resource.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/adms-20130801.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/csvw-20170523.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/data-cube-20140116.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/dcat-20140116.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/dcelements-20120614.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/dcterms-20120614.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/dctype-20120614.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/ma-ont-20120209.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/content/references/void-20110303.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/context/SpatialEntity.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/context/TemporalEntity.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/Action.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/BinaryOperator.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/Contract.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/LeftOperand.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/Payment.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/PricingModel.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/Rule.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/contract/references/odrl-20170916.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/governance/Certification.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/governance/License.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/governance/Standard.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/infrastructure/AppStore.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/infrastructure/Broker.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/infrastructure/Catalog.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/infrastructure/ClearingHouse.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/infrastructure/Component.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/infrastructure/Connector.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/infrastructure/IdentityProvider.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/participant/IndustrialClassification.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/participant/Participant.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/participant/references/foaf-20140114.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/participant/references/org-20140412.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/participant/references/vcard-20140522.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/quality/references/dqv-20161215.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/security/AuthenticationToken.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/security/AuthInfo.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/security/AuthStandard.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/security/SecurityProfile.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/shared/Described.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/shared/Named.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/shared/Unit.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/traceability/Activity.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/traceability/ManagedEntity.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/model/traceability/references/prov-o-20130430.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/references/owl-20091115.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/references/rdf-19990222.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/references/rdf-schema-20140225.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/references/skos-20090818.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/taxonomies/Certification.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/taxonomies/DigitalContent.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/taxonomies/Message.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/taxonomies/Operation.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/taxonomies/Parameter.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/taxonomies/Representation.ttl> ;
+owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/taxonomies/Resource.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/comments-distinct.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/different-comments-between-languages.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/labels-comments.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/labels-distinct.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/namespace-prefix.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/namespace-uri.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/no-labels-like-comments.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/no-placeholders.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/skos-concept-definitions-inscheme.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/skos-concept-topconcept-broader.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/skos-schemes-definitions-labels.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/uris-correct-typed-defined.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/versioninfo.rdfunit.ttl> ;
+#owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/views/GlossaryView.ttl> ;
+.
