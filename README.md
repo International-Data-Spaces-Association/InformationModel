@@ -71,6 +71,8 @@ For automated validation of the Information Model POJOs (via the builder classes
 </dependency>
 ```
 
+At the moment these resources are accessible for IDSA members only. You can obtain the access credentials from this [Jive Page](https://industrialdataspace.jiveon.com/docs/DOC-1366).
+
 - UML-based visualization of the Information Model, its classes, properties and relations, including their cardinalities. It is available on the Maven Repository mentioned above, under the same base path (visualization component).
 
 - Working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), on the association's Jive platform, explaining
