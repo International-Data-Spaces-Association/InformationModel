@@ -28,8 +28,8 @@ ids:
     dct:contributor _:AnnaKasprzik ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date;
-    dct:modified "2018-10-29"^^xsd:date;
-    owl:versionInfo "1.0.1-SNAPSHOT";
+    dct:modified "2019-02-15"^^xsd:date;
+    owl:versionInfo "1.0.4";
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/";
     vann:preferredNamespacePrefix "ids" ;
     void:vocabulary
@@ -68,11 +68,84 @@ ids:IDSA
 
 _:AndreasMueller
     a dct:Agent, foaf:Person ;
-    foaf:name "Andreas Müller";
+    foaf:name "Andreas Müller"
 .
 
-_:AnnaKasprzik
-    a dct:Agent, foaf:Person ;
+_:AnnaKasprzik a dct:Agent, foaf:Person ;
     foaf:name "Anna Kasprzik";
 .
-
+# ----------------------------
+# Imports of class files
+ids:
+    owl:imports <model/communication/ApiDocumentType.ttl> ; 
+    owl:imports <model/communication/DataType.ttl> ; 
+    owl:imports <model/communication/Endpoint.ttl> ; 
+    owl:imports <model/communication/FaultPropagationRule.ttl> ; 
+    owl:imports <model/communication/Host.ttl> ; 
+    owl:imports <model/communication/Interface.ttl> ; 
+    owl:imports <model/communication/Message.ttl> ; 
+    owl:imports <model/communication/MessageExchangePattern.ttl> ; 
+    owl:imports <model/communication/Operation.ttl> ; 
+    owl:imports <model/communication/OperationBinding.ttl> ; 
+    owl:imports <model/communication/OperationType.ttl> ; 
+    owl:imports <model/communication/Parameter.ttl> ; 
+    owl:imports <model/communication/ParameterAssignment.ttl> ; 
+    owl:imports <model/communication/ParameterGroup.ttl> ; 
+    owl:imports <model/communication/ParameterGroupingOperator.ttl> ; 
+    owl:imports <model/communication/Protocol.ttl> ; 
+    owl:imports <model/content/Artifact.ttl> ; 
+    owl:imports <model/content/Concept.ttl> ; 
+    owl:imports <model/content/ContentType.ttl> ; 
+    owl:imports <model/content/DataApp.ttl> ; 
+    owl:imports <model/content/DigitalContent.ttl> ; 
+    owl:imports <model/content/Language.ttl> ; 
+    owl:imports <model/content/MediaType.ttl> ; 
+    owl:imports <model/content/references/adms-20130801.ttl> ; 
+    owl:imports <model/content/references/csvw-20170523.ttl> ; 
+    owl:imports <model/content/references/data-cube-20140116.ttl> ; 
+    owl:imports <model/content/references/dcat-20140116.ttl> ; 
+    owl:imports <model/content/references/dcelements-20120614.ttl> ; 
+    owl:imports <model/content/references/dcterms-20120614.ttl> ; 
+    owl:imports <model/content/references/dctype-20120614.ttl> ; 
+    owl:imports <model/content/references/ma-ont-20120209.ttl> ; 
+    owl:imports <model/content/references/void-20110303.ttl> ; 
+    owl:imports <model/content/Representation.ttl> ; 
+    owl:imports <model/content/Resource.ttl> ; 
+    owl:imports <model/context/SpatialEntity.ttl> ; 
+    owl:imports <model/context/TemporalEntity.ttl> ; 
+    owl:imports <model/contract/Action.ttl> ; 
+    owl:imports <model/contract/BinaryOperator.ttl> ; 
+    owl:imports <model/contract/Contract.ttl> ; 
+    owl:imports <model/contract/LeftOperand.ttl> ; 
+    owl:imports <model/contract/Payment.ttl> ; 
+    owl:imports <model/contract/PricingModel.ttl> ; 
+    owl:imports <model/contract/references/odrl-20170916.ttl> ; 
+    owl:imports <model/contract/Rule.ttl> ; 
+    owl:imports <model/governance/Certification.ttl> ; 
+    owl:imports <model/governance/License.ttl> ; 
+    owl:imports <model/governance/Standard.ttl> ; 
+    owl:imports <model/infrastructure/AppStore.ttl> ; 
+    owl:imports <model/infrastructure/Broker.ttl> ; 
+    owl:imports <model/infrastructure/Catalog.ttl> ; 
+    owl:imports <model/infrastructure/ClearingHouse.ttl> ; 
+    owl:imports <model/infrastructure/Component.ttl> ; 
+    owl:imports <model/infrastructure/Connector.ttl> ; 
+    owl:imports <model/infrastructure/IdentityProvider.ttl> ; 
+    owl:imports <model/infrastructure/PublicKey.ttl> ; 
+    owl:imports <model/participant/IndustrialClassification.ttl> ; 
+    owl:imports <model/participant/Participant.ttl> ; 
+    owl:imports <model/participant/references/foaf-20140114.ttl> ; 
+    owl:imports <model/participant/references/org-20140412.ttl> ; 
+    owl:imports <model/participant/references/vcard-20140522.ttl> ; 
+    owl:imports <model/quality/references/dqv-20161215.ttl> ; 
+    owl:imports <model/security/AuthInfo.ttl> ; 
+    owl:imports <model/security/AuthStandard.ttl> ; 
+    owl:imports <model/security/SecurityProfile.ttl> ; 
+    owl:imports <model/security/Token.ttl> ; 
+    owl:imports <model/shared/Described.ttl> ; 
+    owl:imports <model/shared/Named.ttl> ; 
+    owl:imports <model/shared/Unit.ttl> ; 
+    owl:imports <model/traceability/Activity.ttl> ; 
+    owl:imports <model/traceability/ManagedEntity.ttl> ; 
+    owl:imports <model/traceability/references/prov-o-20130430.ttl> ; 
+. 
