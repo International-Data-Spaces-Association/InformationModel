@@ -17,7 +17,7 @@ GRAPH_QUERY="
 " 
 # Select list of default graphs (FROM) linked in the (manually edited) Ontology.ttl file
 # Post-process removing the column name (tail) and quotations (sed)
-GRAPH_LIST=`roqet -q -e "$GRAPH_QUERY" -D Ontology.ttl -r tsv | tail -n +2| sed 's/"//g'`
+GRAPH_LIST=`roqet -q -e "$GRAPH_QUERY" -D StaticModel.ttl -r tsv | tail -n +2| sed 's/"//g'`
 
 STANDALONE_NODES_QUERY="
     SELECT distinct (?o as ?standalone_node) $GRAPH_LIST

@@ -18,6 +18,7 @@ Each of the sub-models represents an individual modeling facet:
 - `communication`: Interaction with data sources, data sinks and data processing applications
 - `content`: Layered modeling of various types of `Digital Content`
 - `context`: References to time, space (geometry) and world entities
+
 - `contract`: Digital contracts determining conditions of data retrieval, subscription and usage
 - `goverance`: Concepts of certification, governance, and data sovereignty
 - `infrastructure`: Building blocks of the Data Space (Connector, Broker, AppStore etc.)
