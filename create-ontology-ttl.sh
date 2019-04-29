@@ -48,6 +48,7 @@ write_to_file()
 	echo '    dct:created "2017-09-26"^^xsd:date;' >> "$file"
 	echo '    dct:modified "'$(date +%Y-%m-%d)'"^^xsd:date;' >> "$file"
 	echo '    owl:versionInfo "'$version'";' >> "$file"
+	echo '    owl:versionIRI "https://w3id.org/idsa/core/'$version'>";' >> "$file"
 	echo '    vann:preferredNamespaceUri "https://w3id.org/idsa/core/";' >> "$file"
 	echo '    vann:preferredNamespacePrefix "ids" ;' >> "$file"
 	echo '    void:vocabulary' >> "$file"
