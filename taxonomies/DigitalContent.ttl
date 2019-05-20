@@ -5,6 +5,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
 # Top-level content classes
@@ -209,3 +210,13 @@ ids:softwareInterface
     rdfs:domain ids:Software;
     rdfs:range ids:Interface;
     rdfs:comment "Interface exposed by the Software, e.g. for configuration, data processing etc."@en.
+
+
+ids:icon a owl:DatatypeProperty;
+    rdfs:domain ids:Software;
+    rdfs:range xsd:string;
+    rdfs:label "Software icon"@en;
+    rdfs:comment "Data-URL containing the software icon data according to RFC 2397."@en;
+    rdfs:seeAlso <https://tools.ietf.org/html/rfc2397> ;
+    idsm:issue "Designing icons as data-URLs makes them 'self-contained', as no referential and resolvable addresses is assumed. This may result in  a considerable amount of data enclosed in meta-data annotation."@en;
+    .

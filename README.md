@@ -40,7 +40,7 @@ Additional resources are provided for the members of the International Data Spac
 - Java representation of the Information Model, a mapping to a POJO domain model with no reference to graph or ontology constructs. 
 Instances of the Information Model might such conveniently by created, validated and (de)serialized in a strongly-typed way using 
 any common development environment without requiring in-depth knowledge of RDF and related Semantic Web standards. 
-The Java Information Model is provided as a single JAR library via the [Maven Repository](https://maven.iais.fraunhofer.de/artifactory/eis-ids-snapshot/)
+The Java Information Model is provided as a single JAR library via the [Maven Repository](https://maven.iais.fraunhofer.de/artifactory/eis-ids-public/)
 operated by Fraunhofer [IAIS](https://www.iais.fraunhofer.de/):
 
 ```xml
@@ -48,7 +48,7 @@ operated by Fraunhofer [IAIS](https://www.iais.fraunhofer.de/):
     <repository>
         <id>snapshots</id>
         <name>maven-snapshots</name>
-        <url>http://maven.iais.fraunhofer.de/artifactory/eis-ids-snapshot</url>
+        <url>http://maven.iais.fraunhofer.de/artifactory/eis-ids-public</url>
     </repository>
 </repositories>
 ```
@@ -70,6 +70,8 @@ For automated validation of the Information Model POJOs (via the builder classes
     <version>${infomodel.version}</version>
 </dependency>
 ```
+
+At the moment these resources are accessible for IDSA members only. You can obtain the access credentials from this [Jive Page](https://industrialdataspace.jiveon.com/docs/DOC-1366).
 
 - UML-based visualization of the Information Model, its classes, properties and relations, including their cardinalities. It is available on the Maven Repository mentioned above, under the same base path (visualization component).
 
