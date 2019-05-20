@@ -121,4 +121,4 @@ write_to_file()
  }
 
 # execute it
-write_to_file $1
+write_to_file $1	
