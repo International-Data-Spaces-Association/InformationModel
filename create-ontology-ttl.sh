@@ -106,6 +106,16 @@ write_to_file()
 			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
+	# search for files in selcted folders
+	echo '# ----------------------------' >> "$file"
+	echo '# Imports of class files' >> "$file"
+	echo 'ids:' >> "$file"
+	for class in $(find taxonomies/* -name "*.ttl")
+	do
+		if [[ -f $class ]]; then
+			echo "    owl:imports <$class> ; " >> "$file"
+		fi
+	done
 	
 	echo ". " >> "$file"
  }
