@@ -1,0 +1,143 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+# Security profile - value ranges
+@prefix idsc_sec: <https://w3id.org/idsa/code/security_guarantee/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Instances
+# ---------
+
+# TODO: Clarify the relationship between guarantee values (does value FOO implies value BAR?)
+
+# TODO: Clarify the benefits of a (type-specific) "none" value. Suggested convention: "none" when missing/by default
+# Depending on profile composition semantics extending profiles may not be allowed to reset a guarantee of parent profile to "none", therefore no need for such a "marker" value
+
+#idsc_sec:NONE a ids:SecurityGuarantee;
+#	rdfs:label "None Security Guarantee"@en ;
+#    rdfs:comment "Given Security Guarantee is not supported."@en .
+
+ids:IntegrityGuarantee
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "Integrity protection and verification"@en ;
+    rdfs:comment "Level of integrity protection and verification of the installed software stack. Trusted boot is an example of local integrity protection, remote integrity verification comprises, for example, remote attestation."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:LOCAL_INTEGRITY_PROTECTION
+		idsc_sec:REMOTE_INTEGRITY_VERIFICATION
+    ).
+
+ids:IntegrityVerificationGuarantee
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "Integrity verification scope"@en ;
+    rdfs:comment "Level/extent of verifying the software stack."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:KERNEL_CORE_CONTAINER_VERIFICATION
+		idsc_sec:KERNEL_CORE_CONTAINER_APPLICATION_VERIFICATION
+    ).
+
+ids:AuthenticationGuarantee
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "Authentication"@en ;
+    rdfs:comment "Authentication mechanism applied prior to opening a connection. Examples are the verification server's identity or doing mutual authentication."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:SERVER_SIDE_ONLY
+		idsc_sec:MUTUAL_AUTHENTICATION
+    ).
+
+ids:ServiceIsolationGuarantee
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "Service isolation"@en ;
+    rdfs:comment "Service isolation mechanism supported by the Connector. Examples are process group (Docker) or by least privilege with clear separation and support for additional security modules as done by trustme."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:PROCESS_GROUP_ISOLATION
+		idsc_sec:LEAST_PRIVILEGE_ISOLATION
+    ).
+
+
+# TODO: unclear / name and description does not match the values -> revise
+ids:AppExecutionResources
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "App execution resources"@en ;
+    rdfs:comment "Resource control for deployed services."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:LOCAL_ENFORCEMENT
+		idsc_sec:REMOTE_VERIFICATION
+    ).
+
+ids:UsageControlGuarantee
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "Usage control"@en ;
+    rdfs:comment "Extent of supporting usage control."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:USAGE_CONTROL_POLICY_ENFORCEMENT
+		idsc_sec:REMOTE_POLICY_COMPLIANCE_VERIFICATION
+    ).
+
+ids:AuditLoggingGuarantee
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "Usage control"@en ;
+    rdfs:comment "Local audit logging (including integrity protection) is the baseline for auditing and clearing. Remote audit log tracing provides means to do external audit verification."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:LOCAL_AUDIT_LOGGING
+		idsc_sec:REMOTE_AUDIT_TRACING
+    ).
+
+ids:LocalDataConfidentiality
+    rdfs:subClassOf ids:SecurityGuarantee ;
+    rdfs:label "Local data confidentiality"@en ;
+    rdfs:comment "Means by which local data is protected."@en ;
+    owl:oneOf (
+#		idsc_sec:NONE
+		idsc_sec:SECURE_DATA_ERASURE
+		idsc_sec:LOCAL_FULL_DATA_ENCRYPTION
+    ).
+
+# Individuals, i.e. default profiles
+# -----------
+
+# NOTE: Only explicitly supported guarantees are listed!
+idsc_sec:BASE_CONNECTOR_SECURITY_PROFILE
+    a ids:SecurityProfile;
+    rdfs:label "Base Connector security profile"@en;
+    rdfs:comment "Default security profile of a 'Base Connector'"@en;
+    ids:authenticationGuarantee idsc_sec:MUTUAL_AUTHENTICATION;
+    ids:serviceIsolationGuarantee idsc_sec:PROCESS_GROUP_ISOLATION;
+    ids:auditLoggingGuarantee idsc_sec:LOCAL_AUDIT_LOGGING ;
+    .
+
+# TODO: Example of a composed profile
+idsc_sec:TRUSTED_CONNECTOR_SECURITY_PROFILE
+    a ids:SecurityProfile;
+    rdfs:label "Trusted Connector security profile"@en;
+    rdfs:comment "Default security profile of a 'Trusted Connector'"@en;
+    ids:parentSecurityProfile idsc_sec:BASE_CONNECTOR_SECURITY_PROFILE;
+    ids:integrityGuarantee idsc_sec:REMOTE_INTEGRITY_VERIFICATION;
+    # Overwrites parent profile's setting here:
+    ids:serviceIsolationGuarantee idsc_sec:LEAST_PRIVILEGE_ISOLATION;
+    ids:auditLoggingGuarantee idsc_sec:LOCAL_AUDIT_LOGGING ;
+    ids:integrityVerificationGuarantee idsc_sec:KERNEL_CORE_CONTAINER_VERIFICATION;
+    ids:appExecutionResources idsc_sec:LOCAL_ENFORCEMENT;
+    ids:usageControlGuarantee idsc_sec:USAGE_CONTROL_POLICY_ENFORCEMENT;
+    ids:auditLoggingGuarantee idsc_sec:LOCAL_AUDIT_LOGGING;
+    ids:localDataConfidentiality idsc_sec:LOCAL_FULL_DATA_ENCRYPTION;
+    .
+
+idsc_sec:TRUSTED_CONNECTOR_PLUS_SECURITY_PROFILE
+    a ids:SecurityProfile;
+    rdfs:label "Trusted Connector Plus security profile"@en;
+    rdfs:comment "Default security profile of a 'Trusted Connector Plus' aus expected in future versions of IDS."@en;
+    ids:parentSecurityProfile idsc_sec:TRUSTED_CONNECTOR_SECURITY_PROFILE;
+    ids:integrityVerificationGuarantee idsc_sec:KERNEL_CORE_CONTAINER_APPLICATION_VERIFICATION;
+    ids:appExecutionResources idsc_sec:REMOTE_VERIFICATION;
+    ids:usageControlGuarantee idsc_sec:REMOTE_POLICY_COMPLIANCE_VERIFICATION;
+    ids:auditLoggingGuarantee idsc_sec:REMOTE_AUDIT_TRACING;
+    .
