@@ -89,9 +89,10 @@ ids:ConnectorRuntimeNotificationMessage a owl:Class;
     rdfs:comment "Superclass of all messages, indicating a change of a connector's runtime conditions."@en.
 
 ids:affectedConnector a owl:ObjectProperty;
+    idsm:referenceByUrl true;
     rdfs:label "affectedConnector"@en;
     rdfs:domain ids:ConnectorRuntimeNotificationMessage;
-    rdfs:range xsd:anyURI;
+    rdfs:range ids:Connector;
     rdfs:comment "References the connector that is affected by the runtime condition change."@en.
 
 ids:ConnectorAvailableMessage a owl:Class;
