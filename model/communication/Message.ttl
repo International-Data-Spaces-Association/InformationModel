@@ -55,7 +55,7 @@ ids:issued
 
 ids:correlationMessage
     a owl:ObjectProperty;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:label "consumer connector"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Message;
@@ -63,7 +63,7 @@ ids:correlationMessage
 
 ids:issuerConnector
     a owl:DatatypeProperty;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:label "issuer connector"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Connector;
@@ -71,7 +71,7 @@ ids:issuerConnector
 
 ids:recipientConnector
     a owl:ObjectProperty;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:label "recipient connector"@en;
     idsm:labelPluralForm "recipientConnectors"@en;
     rdfs:domain ids:Message;
@@ -80,7 +80,7 @@ ids:recipientConnector
 
 ids:senderAgent
     a owl:DatatypeProperty;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:label "sender agent"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Agent;
@@ -88,7 +88,7 @@ ids:senderAgent
 
 ids:recipientAgent
     a owl:DatatypeProperty;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:label "recipient agent"@en;
     idsm:labelPluralForm "recipientAgents"@en;
     rdfs:domain ids:Message;
@@ -111,7 +111,7 @@ ids:authorizationToken
 
 ids:transferContract
     a owl:ObjectProperty;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:label "transferContract"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Contract;
