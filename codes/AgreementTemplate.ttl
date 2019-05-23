@@ -17,7 +17,7 @@ idsc_pt:AgreementTemplate a ids:PolicyTemplate ;
 	skos:note """The <Provider Participant URI> agrees with the <Consumer Participant URI> that the later 
 		is allowed to [ids:use|ids:read|...] its <Artifact URI> .
 		Optional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].
-		Optional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."@en ;
+		Optional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractAgreement", 
@@ -33,11 +33,11 @@ idsc_pt:AgreementTemplate a ids:PolicyTemplate ;
 					 "ids:operator" : "[ids:eq|ids:lt|ids:gt]",
 					 "ids:rightOperand" : "[<Value URI>|<Value Literal>]"
 			 } [,]]*
-		} } }"""^^xsd:string ;
+		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-		@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		[<contract URI>| \[\] ] a ids:ContractAgreement ;

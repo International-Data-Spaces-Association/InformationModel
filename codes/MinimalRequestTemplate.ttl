@@ -11,28 +11,19 @@
 # Instances
 # ---------
 
-idsc_pt:RequestTemplate a ids:PolicyTemplate ;
+idsc_pt:MinimalRequestTemplate a ids:PolicyTemplate ;
     rdfs:label "Policy Request Template" ;
-    rdfs:comment "A generic template for policy requests with one permission and several constraints" ;
-	skos:note """The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] 
-		its [<Representation URI>|<Artifact URI>].
-		Optional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].
-		Optional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."""@en ;
+    rdfs:comment "A minimal template for policy requests where additional information already reveals sensitive content."@en ;
+	skos:note """The <Consumer Participant URI> asks <Provider Participant URI> about its [<Representation URI>|<Artifact URI>].
+		Any further information exchange is up to the participants."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractRequest", 
 		"uid": "<contract ID>", 
-		"refersTo": "idsc_pt:RequestTemplate" ,
+		"refersTo": "idsc_pt:MinimalRequestTemplate" ,
 		"target": "[<Representation URI>|<Artifact URI>]",
 		"ids:provider": "<Provider Participant URI>",
 		"ids:consumer": "<Consumer Participant URI>", 
-		"ids:permission": {
-			"ids:action": "[ids:use|ids:read|...]" ,
-			["ids:constraint" : {    
-					 "ids:leftOperand" : "<Attribute URI>",
-					 "ids:operator" : "[ids:eq|ids:lt|ids:gt]",
-					 "ids:rightOperand" : "[<Value URI>|<Value Literal>]"
-			 } [,]]*
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
@@ -42,18 +33,10 @@ idsc_pt:RequestTemplate a ids:PolicyTemplate ;
 
 		[<contract URI>| \[\] ] a ids:ContractRequest ;
 			ids:uid <contract ID> ;
-			ids:refersTo idsc_pt:RequestTemplate ;
+			ids:refersTo idsc_pt:MinimalRequestTemplate ;
 			ids:target [<Representation URI>|<Artifact URI>] ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
-			[ids:permission \[ 
-				ids:action ids:[use|read|...] ;
-				ids:constraint \[ 
-					ids:leftOperand <Attribute URI> ;
-					ids:operator [ids:eq|ids:lt|ids:gt] ;
-					ids:rightOperand [<Value URI>|<Value Literal>]
-				\] 
-			\] ;]*
 		."""^^xsd:string 
 	.
 
