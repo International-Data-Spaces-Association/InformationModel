@@ -52,7 +52,7 @@ ids:recurrenceRate a ids:LeftOperand;
 	
 ids:securityLevel a ids:LeftOperand;
     rdfs:label "securityLevel";
-    rdfs:comment "The lowest security level the consuming connector must have. The value decides which attribute dimension is regarded."@en ;
+    rdfs:comment "The security level the consuming connector must have. The value decides which attribute dimension is regarded."@en ;
 	rdfs:range [
 		owl:oneOf  ( 
 			idsc_sec:LOCAL_INTEGRITY_PROTECTION
@@ -76,5 +76,12 @@ ids:securityLevel a ids:LeftOperand;
 			idsc_sec:TRUSTED_CONNECTOR_PLUS_SECURITY_PROFILE
 			)
 	]
+	.
+	
+ids:absoluteSpatialPosition a ids:LeftOperand ;
+	rdfs:seeAlso odrl:absoluteSpatialPosition ;
+    rdfs:label "Absolute geo-spatial position";
+    rdfs:comment "The allowed region of the consuming connector or Data App."@en ;
+	# TODO rdfs:range <URI of geographical region>
 	.
 

@@ -11,27 +11,26 @@
 # Instances
 # ---------
 
-idsc_pt:AccessOfferToSecureConsumerTemplate a ids:PolicyTemplate ;
-    rdfs:label "Access Offer to secure Consumer Template" ;
-    rdfs:comment "A template for policy offers with one permission and several constraints about the security level of the consuming connector." ;
+idsc_pt:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
+    rdfs:label "Location-restricted Usage Offer Template" ;
+    rdfs:comment "A template for policy offers with a location-restricted permission." ;
 	skos:note """The <Provider Participant URI> allows to [ids:use|ids:read|...] its 
-		[<Resource URI>|<Representation URI>|<Artifact URI>] only if the (potentially still 
-		unknown) consuming connector has all the specified <instance of ids:SecurityGuarantee> 
-		levels."""@en ;
+		[<Resource URI>|<Representation URI>|<Artifact URI>] to the (potentially still 
+		unknown) consuming connector only in a certain <URI of geographical region>."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractOffer", 
 		"uid": "<contract ID>", 
-		"refersTo": "idsc_pt:AccessOfferToSecureConsumerTemplate" ,
+		"refersTo": "idsc_pt:SpatialRestrictedUsageOfferTemplate" ,
 		"target": "[<Resource URI>|<Representation URI>|<Artifact URI>]",
 		"ids:provider": "<Provider Participant URI>",
 		"ids:permission": {
 			"ids:action": "[ids:use|ids:read|...]" ,
-			["ids:constraint" : {    
-					 "ids:leftOperand" : "ids:securityLevel",
-					 "ids:operator" : "ids:eq",
-					 "ids:rightOperand" : "<instance of ids:SecurityGuarantee>"
-			}[,]]+
+			"ids:constraint" : {    
+					 "ids:leftOperand" : "ids:absoluteSpatialPosition",
+					 "ids:operator" : "ids:in",
+					 "ids:rightOperand" : "<URI of geographical region>"
+			}
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
@@ -41,16 +40,16 @@ idsc_pt:AccessOfferToSecureConsumerTemplate a ids:PolicyTemplate ;
 
 		[<contract URI>| \[\] ] a ids:ContractOffer ;
 			ids:uid <contract ID> ;
-			ids:refersTo idsc_pt:AccessOfferToSecureConsumerTemplate ;
+			ids:refersTo idsc_pt:SpatialRestrictedUsageOfferTemplate ;
 			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
 			ids:provider <Provider Participant URI> ;
 			ids:permission \[ 
 				ids:action [ids:use|ids:read|...] ;
-				[ids:constraint \[ 
-					ids:leftOperand ids:securityLevel ;
-					ids:operator ids:eq ;
-					ids:rightOperand <instance of ids:SecurityGuarantee>
-				\] ;]+
+				ids:constraint \[ 
+					ids:leftOperand ids:absoluteSpatialPosition ;
+					ids:operator ids:in ;
+					ids:rightOperand <URI of geographical region>
+				\] ;
 			\] 
 		."""^^xsd:string 
 	.
