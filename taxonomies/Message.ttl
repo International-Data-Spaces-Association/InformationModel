@@ -167,7 +167,7 @@ ids:ContractRequestMessage a owl:Class ;
 
 ids:baseContractOffer a owl:ObjectProperty;
     rdfs:label "Base Contract Offer"@en ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:ContractRequestMessage;
     rdfs:range ids:ContractOffer;
     rdfs:comment "The basic offered contract that the contract request message refers to."@en.
@@ -219,7 +219,7 @@ ids:ArtifactAvailableMessage a owl:Class ;
     ].
 
 ids:availableArtifact rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:ArtifactAvailableMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Available Artifact"@en ;
@@ -239,7 +239,7 @@ ids:InvokeOperationMessage a owl:Class ;
     ].
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:InvokeOperationMessage ;
     rdfs:range ids:Operation ;
     rdfs:label "Operation Reference"@en ;
@@ -284,7 +284,7 @@ ids:ArtifactRequestMessage a owl:Class ;
     ].
 
 ids:requestedArtifact rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Requested Artifact"@en ;
