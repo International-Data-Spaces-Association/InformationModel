@@ -49,40 +49,42 @@ ids:quantity a ids:LeftOperand;
 ids:recurrenceRate a ids:LeftOperand;
     rdfs:label "recurrenceRate";
     rdfs:comment "The limit how often exercising the action of the Rule may be possible.".
-	
+    
 ids:securityLevel a ids:LeftOperand;
     rdfs:label "securityLevel";
     rdfs:comment "The security level the consuming connector must have. The value decides which attribute dimension is regarded."@en ;
-	rdfs:range [
-		owl:oneOf  ( 
-			idsc_sec:LOCAL_INTEGRITY_PROTECTION
-			idsc_sec:REMOTE_INTEGRITY_VERIFICATION
-			idsc_sec:KERNEL_CORE_CONTAINER_VERIFICATION
-			idsc_sec:KERNEL_CORE_CONTAINER_APPLICATION_VERIFICATION
-			idsc_sec:SERVER_SIDE_ONLY
-			idsc_sec:MUTUAL_AUTHENTICATION
-			idsc_sec:PROCESS_GROUP_ISOLATION
-			idsc_sec:LEAST_PRIVILEGE_ISOLATION
-			idsc_sec:LOCAL_ENFORCEMENT
-			idsc_sec:REMOTE_VERIFICATION
-			idsc_sec:USAGE_CONTROL_POLICY_ENFORCEMENT
-			idsc_sec:REMOTE_POLICY_COMPLIANCE_VERIFICATION
-			idsc_sec:LOCAL_AUDIT_LOGGING
-			idsc_sec:REMOTE_AUDIT_TRACING
-			idsc_sec:SECURE_DATA_ERASURE
-			idsc_sec:LOCAL_FULL_DATA_ENCRYPTION
-			idsc_sec:BASE_CONNECTOR_SECURITY_PROFILE
-			idsc_sec:TRUSTED_CONNECTOR_SECURITY_PROFILE
-			idsc_sec:TRUSTED_CONNECTOR_PLUS_SECURITY_PROFILE
-			)
-	]
-	.
-	
+    rdfs:range [
+        owl:oneOf  ( 
+            idsc_sec:LOCAL_INTEGRITY_PROTECTION
+            idsc_sec:REMOTE_INTEGRITY_VERIFICATION
+            idsc_sec:KERNEL_CORE_CONTAINER_VERIFICATION
+            idsc_sec:KERNEL_CORE_CONTAINER_APPLICATION_VERIFICATION
+            idsc_sec:SERVER_SIDE_ONLY
+            idsc_sec:MUTUAL_AUTHENTICATION
+            idsc_sec:PROCESS_GROUP_ISOLATION
+            idsc_sec:LEAST_PRIVILEGE_ISOLATION
+            idsc_sec:LOCAL_ENFORCEMENT
+            idsc_sec:REMOTE_VERIFICATION
+            idsc_sec:USAGE_CONTROL_POLICY_ENFORCEMENT
+            idsc_sec:REMOTE_POLICY_COMPLIANCE_VERIFICATION
+            idsc_sec:LOCAL_AUDIT_LOGGING
+            idsc_sec:REMOTE_AUDIT_TRACING
+            idsc_sec:SECURE_DATA_ERASURE
+            idsc_sec:LOCAL_FULL_DATA_ENCRYPTION
+            idsc_sec:BASE_CONNECTOR_SECURITY_PROFILE
+            idsc_sec:TRUSTED_CONNECTOR_SECURITY_PROFILE
+            idsc_sec:TRUSTED_CONNECTOR_PLUS_SECURITY_PROFILE
+            )
+    ]
+    .
+    
 ids:absoluteSpatialPosition a ids:LeftOperand ;
-	rdfs:seeAlso odrl:absoluteSpatialPosition ;
+    rdfs:seeAlso odrl:absoluteSpatialPosition ;
     rdfs:label "Absolute geo-spatial position";
     rdfs:comment "The allowed region of the consuming connector or Data App."@en ;
-	rdfs:seeAlso odrl:spatial ;
-	# TODO rdfs:range <URI of geographical region>
-	.
+    rdfs:seeAlso odrl:spatial ;
+    # TODO rdfs:range <URI of geographical region>
+    .
+    
+
 

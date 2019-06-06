@@ -17,13 +17,13 @@ idsc_action:ATTRIBUTE
 
 idsc_action:COMPENSATE
     a ids:Action;
-    rdfs:label "compensate"@de ;
+    rdfs:label "compensate"@en ;
     rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-compensate> ;
     .
 
 idsc_action:DELETE
     a ids:Action;
-    rdfs:label "delete"@de ;
+    rdfs:label "delete"@en ;
     rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-delete> ;
     .
 
@@ -43,4 +43,34 @@ idsc_action:USE
     a ids:Action;
     rdfs:label "use"@en;
     rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-use> ;
+    .
+	
+ids:ANONYMIZE 
+    a ids:Action ;
+    rdfs:comment "To anonymize all or parts of the Asset."@en ; 
+    rdfs:label "anonymize"@en ;
+    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-anonymize> ;
+	.
+
+	
+ids:LOG  
+    a ids:Action ;
+    rdfs:comment "To log information. it needs a log server a recipient."@en ; 
+    rdfs:label "log"@en ;
+    .
+	
+
+ids:TRACKPROVENANCE
+    a ids:Action ;
+    odrl:implies ids:acceptTracking;
+    rdfs:comment "To accept that the use of the Asset may be tracked."@en ; 
+    rdfs:label "track provenance"@en ;
+	.
+
+ids:READ
+    a ids:Action ;
+    rdfs:comment    "To obtain data from the Asset."@en ;
+    rdfs:label    "read"@en ;
+    rdfs:seeAlso  <https://www.w3.org/TR/odrl-vocab/#term-read>;
+    skos:note  "This action is always operated on provider side."@en ;	
     .
