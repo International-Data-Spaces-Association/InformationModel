@@ -132,3 +132,10 @@ ids:obligation rdfs:subPropertyOf odrl:obligation;
     rdfs:range ids:Duty;
     rdfs:comment "A Duty imposed by the Contract."@en.
 
+
+# Reference to a policy template
+ids:refersTo a owl:ObjectProperty;
+    rdfs:domain ids:Contract;
+    rdfs:range idsc_pt:PolicyTemplate ;
+    rdfs:label "refers to policy template"@en ;
+    rdfs:comment "Links a policy to the policy template it is derived from."@en.
