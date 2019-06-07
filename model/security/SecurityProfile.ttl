@@ -21,10 +21,42 @@ ids:SecurityProfile a owl:Class;
 #    rdfs:label "PredefinedSecurityProfile"@en ;
 #    rdfs:comment "The class of predefined SecurityProfiles."@en.
 
-ids:SecurityGuarantee
-    a owl:Class;
+ids:SecurityGuarantee a owl:Class;
     rdfs:label "Security guarantee"@en ;
     rdfs:comment "Security guarantee claimed by a security profile."@en.
+
+ids:IntegrityGuarantee a owl:Class;
+    a owl:SecurityGuarantee;
+    rdfs:label "IntegrityGuarantee"@en ;
+    rdfs:comment "The class of support levels for integrity protection and verification.".
+
+ids:AuthenticationGuarantee a owl:Class;
+    a owl:SecurityGuarantee;
+    rdfs:label "AuthenticationGuarantee"@en ;
+    rdfs:comment "The class of support levels for authentication.".
+
+ids:ServiceIsolationGuarantee a owl:Class;
+    a owl:SecurityGuarantee;
+    rdfs:label "ServiceIsolationGuarantee"@en ;
+    rdfs:comment "The class of service isolation support.".
+
+ids:AppExecutionResources a owl:Class;
+    rdfs:label "AppExecutionResources"@en ;
+    rdfs:comment "The class of app execution resources.".
+
+ids:UsageControlGuarantee a owl:Class;
+    a owl:SecurityGuarantee;
+    rdfs:label "UsageControlGuarantee"@en ;
+    rdfs:comment "The class of support levels for data usage control.".
+
+ids:AuditLoggingGuarantee a owl:Class;
+    a owl:SecurityGuarantee;
+    rdfs:label "AuditLoggingGuarantee"@en ;
+    rdfs:comment "The class of audit logging strategies.".
+
+ids:LocalDataConfidentiality a owl:Class;
+    rdfs:label "idsLocalDataConfidentiality"@en ;
+    rdfs:comment "The class of support levels for local data confidentiality.".
 
 # Properties
 # ----------
@@ -50,13 +82,6 @@ ids:integrityGuarantee
     rdfs:range ids:IntegrityGuarantee;
     rdfs:label "integrity guarantee"@en;
     rdfs:comment "Reference to the supported integrity guarantee."@en.
-
-ids:integrityVerificationGuarantee
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:IntegrityVerificationGuarantee;
-    rdfs:label "integrity verification guarantee"@en;
-    rdfs:comment "Reference to the supported verification guarantee."@en.
 
 ids:authenticationGuarantee
     a owl:ObjectProperty;

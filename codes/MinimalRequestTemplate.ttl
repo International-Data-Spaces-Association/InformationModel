@@ -31,13 +31,13 @@ idsc_pt:MinimalRequestTemplate a ids:PolicyTemplate ;
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>| \[\] ] a ids:ContractRequest ;
+		[<contract URI>] a ids:ContractRequest ;
 			ids:uid <contract ID> ;
 			ids:refersTo idsc_pt:MinimalRequestTemplate ;
 			ids:target [<Representation URI>|<Artifact URI>] ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
-		."""^^xsd:string 
+		."""^^xsd:string
 	.
 
 

@@ -44,24 +44,24 @@ idsc_pt:TimeRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>| \[\] ] a ids:ContractOffer ;
+		[<contract URI>] a ids:ContractOffer ;
 			ids:uid <contract ID> ;
 			ids:refersTo idsc_pt:TimeRestrictedUsageOfferTemplate ;
 			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
 			ids:provider <Provider Participant URI> ;
-			ids:permission \[ 
+			ids:permission [
 				ids:action [ids:use|ids:read|...] ;
-				ids:constraint \[ 
+				ids:constraint [
 					ids:leftOperand ids:DATE_TIME ;
 					ids:operator ids:gt ;
 					ids:rightOperand "<yyyy-mm-ddThh:mm:ss.xxx+hh:mm>"^^xsd:dateTime
-				\] ;
-				ids:constraint \[ 
+				] ;
+				ids:constraint [
 					ids:leftOperand ids:DATE_TIME ;
 					ids:operator ids:lt ;
 					ids:rightOperand "<yyyy-mm-ddThh:mm:ss.xxx+hh:mm>"^^xsd:dateTime
-				\] ;
-			\] 
+				] ;
+			]
 		."""^^xsd:string 
 	.
 
