@@ -38,19 +38,19 @@ idsc_pt:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>| \[\] ] a ids:ContractOffer ;
+		[<contract URI>| [] ] a ids:ContractOffer ;
 			ids:uid <contract ID> ;
 			ids:refersTo idsc_pt:SpatialRestrictedUsageOfferTemplate ;
 			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
 			ids:provider <Provider Participant URI> ;
-			ids:permission \[ 
+			ids:permission [
 				ids:action [ids:use|ids:read|...] ;
-				ids:constraint \[ 
+				ids:constraint [
 					ids:leftOperand ids:absoluteSpatialPosition ;
 					ids:operator ids:in ;
 					ids:rightOperand <URI of geographical region>
-				\] ;
-			\] 
+				] ;
+			]
 		."""^^xsd:string 
 	.
 

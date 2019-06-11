@@ -40,20 +40,20 @@ idsc_pt:AgreementTemplate a ids:PolicyTemplate ;
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>| \[\] ] a ids:ContractAgreement ;
+		[<contract URI>| [ ] a ids:ContractAgreement ;
 			ids:uid <contract ID> ;
 			ids:refersTo idsc_pt:AgreementTemplate ;
 			ids:target <Artifact URI> ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
-			[ids:permission \[ 
+			[ids:permission [
 				ids:action [ids:use|ids:read|...] ;
-				ids:constraint \[ 
+				ids:constraint [
 					ids:leftOperand <Attribute URI> ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [<Value URI>|<Value Literal>]
-				\] 
-			\] ;]*
+				]
+			] ;]*
 		."""^^xsd:string 
 	.
 
