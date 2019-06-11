@@ -13,114 +13,17 @@ ids:SecurityProfile a owl:Class;
     rdfs:comment "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."@en .
     # .. specifies several security aspects expressing the minimum requirements a Data Consumer must meet to be granted access to the Data Endpoints exposed by a providing Connector.
 
-# TODO: Clarify: how/whether this class is used?
-# https://www.ids.isst.fraunhofer.de/confluence/display/ID/Security+Profiles
-#ids:PredefinedSecurityProfile
-#    a owl:Class;
-#    rdfs:subClassOf ids:SecurityProfile ;
-#    rdfs:label "PredefinedSecurityProfile"@en ;
-#    rdfs:comment "The class of predefined SecurityProfiles."@en.
-
-ids:SecurityGuarantee a owl:Class;
+ids:SecurityGuarantee
+    a owl:Class;
     rdfs:label "Security guarantee"@en ;
     rdfs:comment "Security guarantee claimed by a security profile."@en.
-
-ids:IntegrityGuarantee a owl:Class;
-    a owl:SecurityGuarantee;
-    rdfs:label "IntegrityGuarantee"@en ;
-    rdfs:comment "The class of support levels for integrity protection and verification.".
-
-ids:AuthenticationGuarantee a owl:Class;
-    a owl:SecurityGuarantee;
-    rdfs:label "AuthenticationGuarantee"@en ;
-    rdfs:comment "The class of support levels for authentication.".
-
-ids:ServiceIsolationGuarantee a owl:Class;
-    a owl:SecurityGuarantee;
-    rdfs:label "ServiceIsolationGuarantee"@en ;
-    rdfs:comment "The class of service isolation support.".
-
-ids:AppExecutionResources a owl:Class;
-    rdfs:label "AppExecutionResources"@en ;
-    rdfs:comment "The class of app execution resources.".
-
-ids:UsageControlGuarantee a owl:Class;
-    a owl:SecurityGuarantee;
-    rdfs:label "UsageControlGuarantee"@en ;
-    rdfs:comment "The class of support levels for data usage control.".
-
-ids:AuditLoggingGuarantee a owl:Class;
-    a owl:SecurityGuarantee;
-    rdfs:label "AuditLoggingGuarantee"@en ;
-    rdfs:comment "The class of audit logging strategies.".
-
-ids:LocalDataConfidentiality a owl:Class;
-    rdfs:label "idsLocalDataConfidentiality"@en ;
-    rdfs:comment "The class of support levels for local data confidentiality.".
 
 # Properties
 # ----------
 
-# TODO: Clarify what does it mean to "be based on" here / extension semantics: are the guarantees aggregated and overwritten?
-# TODO: Clarify cardinality - may there be more than one parent?
-#ids:basedOn
-# renamed to indicate the domain (Security Profile) and relationship
-ids:parentSecurityProfile
+ids:securityGuarantee
     a owl:ObjectProperty;
     rdfs:domain ids:SecurityProfile;
-    #rdfs:range ids:PredefinedSecurityProfile;
-    rdfs:range ids:SecurityProfile;
-    rdfs:label "parent security profile"@en;
-    rdfs:comment "Links to a parent security profile this one is based on."@en.
-
-# TODO: Discuss whether definition of individual predicates makes sense here - alternatively consider usage
-# of a generic predicated with a cardinality {0, n}, e.g. [] ids:securityGuarantee idsc_sec:LEAST_PRIVILEGE_ISOLATION .
-
-ids:integrityGuarantee
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:IntegrityGuarantee;
-    rdfs:label "integrity guarantee"@en;
-    rdfs:comment "Reference to the supported integrity guarantee."@en.
-
-ids:authenticationGuarantee
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:AuthenticationGuarantee;
-    rdfs:label "authentication guarantee"@en;
-    rdfs:comment "Reference to the supported authentication guarantee."@en.
-
-ids:serviceIsolationGuarantee
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:ServiceIsolationGuarantee;
-    rdfs:label "service isolation guarantee"@en;
-    rdfs:comment "Reference to the supported service isolation guarantee."@en.
-
-ids:appExecutionResources
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:AppExecutionResources;
-    rdfs:label "app execution resources"@en;
-    rdfs:comment "Reference to the 'AppExecutionResources' guarantee."@en.
-
-ids:usageControlGuarantee
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:UsageControlGuarantee;
-    rdfs:label "usage control guarantee"@en;
-    rdfs:comment "Reference to the supported usage control guarantee"@en.
-
-ids:auditLoggingGuarantee
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:AuditLoggingGuarantee;
-    rdfs:label "audit logging guarantee"@en;
-    rdfs:comment "Reference to the supported audit logging guarantee."@en.
-
-ids:localDataConfidentiality
-    a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
-    rdfs:range ids:LocalDataConfidentiality;
-    rdfs:label "local data confidentiality"@en;
-    rdfs:comment "Reference to the supported local data confidentiality guarantee."@en.
+    rdfs:range ids:SecurityGuarantee;
+    rdfs:label "Security guarantee"@en;
+rdfs:comment "Reference to a security guarantee supported by given profile."@en.
