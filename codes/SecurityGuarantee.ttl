@@ -23,6 +23,15 @@ ids:IntegrityGuarantee
 		idsc_sec:INTEGRITY_VERIFICATION_REMOTE
     ).
 
+idsc_sec:INTEGRITY_PROTECTION_NONE a ids:IntegrityGuarantee;
+    rdfs:label "Integrity Protection None".
+
+idsc_sec:INTEGRITY_PROTECTION_LOCAL a ids:IntegrityGuarantee;
+    rdfs:label "Integrity Protection Local".
+
+idsc_sec:INTEGRITY_VERIFICATION_REMOTE a ids:IntegrityGuarantee;
+    rdfs:label "Integrity Protection Remote".
+
 ids:IntegrityVerificationScopeGuarantee
     a owl:Class;
     rdfs:subClassOf ids:SecurityGuarantee ;
@@ -33,6 +42,15 @@ ids:IntegrityVerificationScopeGuarantee
 		idsc_sec:INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER
 		idsc_sec:INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION
     ).
+
+idsc_sec:INTEGRITY_VERIFICATION_SCOPE_NONE a ids:IntegrityVerificationScopeGuarantee;
+    rdfs:label "Integrity Verification Scope None".
+
+idsc_sec:INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER a ids:IntegrityVerificationScopeGuarantee;
+    rdfs:label "Integrity Verification Scope Kernel Core Container".
+
+idsc_sec:INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION a ids:IntegrityVerificationScopeGuarantee;
+    rdfs:label "Integrity Verification Scope Kernel Core Container Application".
 
 ids:AuthenticationGuarantee
     a owl:Class;
@@ -45,6 +63,15 @@ ids:AuthenticationGuarantee
 		idsc_sec:AUTHENTICATION_MUTUAL
     ).
 
+idsc_sec:AUTHENTICATION_NONE a ids:AuthenticationGuarantee;
+    rdfs:label "Authentication None".
+
+idsc_sec:AUTHENTICATION_SERVER_SIDE a ids:AuthenticationGuarantee;
+    rdfs:label "Authentication Serverside".
+
+idsc_sec:AUTHENTICATION_MUTUAL a ids:AuthenticationGuarantee;
+    rdfs:label "Authentication Mutual".
+
 ids:ServiceIsolationGuarantee
     a owl:Class;
     rdfs:subClassOf ids:SecurityGuarantee ;
@@ -56,6 +83,14 @@ ids:ServiceIsolationGuarantee
 		idsc_sec:SERVICE_ISOLATION_LEAST_PRIVILEGE
     ).
 
+idsc_sec:SERVICE_ISOLATION_NONE a ids:ServiceIsolationGuarantee;
+    rdfs:label "Service Isolation None".
+
+idsc_sec:SERVICE_ISOLATION_PROCESS_GROUP a ids:ServiceIsolationGuarantee;
+    rdfs:label "Service Isolation Process Group".
+
+idsc_sec:SERVICE_ISOLATION_LEAST_PRIVILEGE a ids:ServiceIsolationGuarantee;
+    rdfs:label "Service Isolation Least Privilege".
 
 # TODO: unclear / name and description does not match the values -> revise
 ids:AppExecutionResources
@@ -69,6 +104,15 @@ ids:AppExecutionResources
 		idsc_sec:APP_RESOURCES_REMOTE_VERIFICATION
     ).
 
+idsc_sec:APP_RESOURCES_NONE a ids:AppExecutionResources;
+    rdfs:label "App Resources None".
+
+idsc_sec:APP_RESOURCES_LOCAL_ENFORCEMENT a ids:AppExecutionResources;
+    rdfs:label "App Resources Local Enforcement".
+
+idsc_sec:APP_RESOURCES_REMOTE_VERIFICATION a ids:AppExecutionResources;
+    rdfs:label "App Resources Remote Verification".
+
 ids:UsageControlGuarantee
     a owl:Class;
     rdfs:subClassOf ids:SecurityGuarantee ;
@@ -79,6 +123,15 @@ ids:UsageControlGuarantee
 		idsc_sec:USAGE_CONTROL_POLICY_ENFORCEMENT
 		idsc_sec:USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION
     ).
+
+idsc_sec:USAGE_CONTROL_NONE a ids:UsageControlGuarantee;
+    rdfs:label "Usage Control None".
+
+idsc_sec:USAGE_CONTROL_POLICY_ENFORCEMENT a ids:UsageControlGuarantee;
+    rdfs:label "Usage Control Policy Enforcement".
+
+idsc_sec:USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION a ids:UsageControlGuarantee;
+    rdfs:label "Usage Control Remote Compliance Verification".
 
 ids:AuditGuarantee
     a owl:Class;
@@ -91,6 +144,15 @@ ids:AuditGuarantee
 		idsc_sec:AUDIT_REMOTE_TRACING
     ).
 
+idsc_sec:AUDIT_NONE a ids:AuditGuarantee;
+    rdfs:label "Audit None".
+
+idsc_sec:AUDIT_LOCAL_LOGGING a ids:AuditGuarantee;
+    rdfs:label "Audit Local Logging".
+
+idsc_sec:AUDIT_REMOTE_TRACING a ids:AuditGuarantee;
+    rdfs:label "Audit Remote Tracing".
+
 ids:LocalDataConfidentialityGuarantee
     a owl:Class;
     rdfs:subClassOf ids:SecurityGuarantee ;
@@ -102,8 +164,17 @@ ids:LocalDataConfidentialityGuarantee
 		idsc_sec:LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION
     ).
 
+idsc_sec:LOCAL_DATA_CONFIDENTIALITY_NONE a ids:LocalDataConfidentialityGuarantee;
+    rdfs:label "Local Data Confidentiality None".
+
+idsc_sec:LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE a ids:LocalDataConfidentialityGuarantee;
+    rdfs:label "Local Data Confidentiality Secure Erasure".
+
+idsc_sec:LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION a ids:LocalDataConfidentialityGuarantee;
+    rdfs:label "Local Data Confidentiality Full Encryption".
+
 # Individuals, i.e. default profiles
-# -----------
+# ----------------------------------
 
 # NOTE: Only explicitly supported guarantees are listed!
 idsc_sec:BASE_CONNECTOR_SECURITY_PROFILE
@@ -134,7 +205,6 @@ idsc_sec:TRUSTED_CONNECTOR_SECURITY_PROFILE
     ids:securityGuarantee idsc_sec:AUDIT_LOCAL_LOGGING;
     ids:securityGuarantee idsc_sec:LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION;
     .
-
 
 idsc_sec:TRUSTED_CONNECTOR_PLUS_SECURITY_PROFILE
     a ids:SecurityProfile;

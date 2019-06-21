@@ -9,9 +9,18 @@
 # -------
 
 ids:SecurityProfile a owl:Class;
+    rdfs:subClassOf ids:CustomSecurityProfile ;
     rdfs:label "SecurityProfile"@en ;
     rdfs:comment "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."@en .
     # .. specifies several security aspects expressing the minimum requirements a Data Consumer must meet to be granted access to the Data Endpoints exposed by a providing Connector.
+
+ids:CustomSecurityProfile a owl:Class;
+    rdfs:label "CustomSecurityProfile"@en;
+    rdfs:comment "Specialized security profile that is composed of user-defined security guarantees";
+    idsm:validation [
+        idsm:forProperty ids:securityGuarantee;
+        idsm:relationType idsm:OneToMany;
+    ].
 
 ids:SecurityGuarantee
     a owl:Class;
@@ -23,7 +32,8 @@ ids:SecurityGuarantee
 
 ids:securityGuarantee
     a owl:ObjectProperty;
-    rdfs:domain ids:SecurityProfile;
+    rdfs:domain ids:CustomSecurityProfile;
     rdfs:range ids:SecurityGuarantee;
     rdfs:label "Security guarantee"@en;
-rdfs:comment "Reference to a security guarantee supported by given profile."@en.
+    idsm:labelPluralForm "securityGuarantees"@en;
+    rdfs:comment "Reference to a security guarantee supported by given profile."@en.
