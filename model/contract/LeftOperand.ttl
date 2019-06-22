@@ -44,10 +44,12 @@ ids:count a ids:LeftOperand;
 
 ids:quantity a ids:LeftOperand;
     rdfs:label "quantity";
+	# rdfs:range xsd:int ;
     rdfs:comment "Quantity limitation for exercising the action of the Rule.".
 
 ids:recurrenceRate a ids:LeftOperand;
     rdfs:label "recurrenceRate";
+	# rdfs:range xsd:int ;
     rdfs:comment "The limit how often exercising the action of the Rule may be possible.".
     
 ids:securityLevel a ids:LeftOperand;
@@ -86,5 +88,10 @@ ids:absoluteSpatialPosition a ids:LeftOperand ;
     # TODO rdfs:range <URI of geographical region>
     .
     
-
+ids:systemDevice  a ids:LeftOperand ;
+    rdfs:label "System Device";
+    rdfs:comment "System, device, connector, or endpoint necessary to perform the action of the rule."@en ;
+    rdfs:seeAlso odrl:systemDevice ;
+    # TODO rdfs:range <URI of geographical region>
+    .
 

@@ -12,27 +12,30 @@
 # Instances
 # ---------
 
-idsc_pt:AccessRequestToSecureConsumerTemplate a ids:PolicyTemplate ;
-    rdfs:label "Access Request to secure Consumer Template" ;
-    rdfs:comment "A template for policy requests with one permission and several constraints about the security level of the consuming connector."@en ;
-	spin:labelTemplate """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Representation URI>|<Artifact URI>]} given that the consuming connector has all the specified 
-		{?SecurityGuarantee} levels."""@en ;
+idsc_pt:UsageRequestLogAccessTemplate a ids:PolicyTemplate ;
+    rdfs:label "Request for Usage Until Deletion Template" ;
+    rdfs:comment "A template for policy requests which allow usage until a certain deletion date."@en ;
+	spin:labelTemplate """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
+		 but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractRequest", 
 		"@id": "{contractID}", 
-		"refersTo": "https://w3id.org/idsa/code/policytemplate/AccessRequestToSecureConsumerTemplate" ,
-		"targetContent": "{?target}",
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageRequestLogAccessTemplate" ,
+		"targetContent": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"consumer": "{?ConsumerParticipantURI}", 
 		"permission": {
-			"action": "{?action}" ,
-			["constraint" : {    
-					 "leftOperand" : "securityLevel",
-					 "operator" : "eq",
-					 "rightOperand" : "{?SecurityGuarantee}"
-			 } [,]]+
+			"action": "{?action}"
+			} ,
+		"obligation": {
+			"action": "https://w3id.org/idsa/code/action/LOG",
+			"constraint" : {
+			"leftOperand" : "systemDevice",
+			"operator" : "eq",
+			"rightOperand" : "{?LoggingEndpoint}"
+			}
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
@@ -41,18 +44,20 @@ idsc_pt:AccessRequestToSecureConsumerTemplate a ids:PolicyTemplate ;
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractRequest ;
-			ids:refersTo idsc_pt:AccessRequestToSecureConsumerTemplate ;
-			ids:targetContent {?target} ;
+			ids:refersTo idsc_pt:UsageRequestLogAccessTemplate ;
+			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
-			ids:provider {?ProviderParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;			
 			ids:permission [
-				ids:action {?action} ;
-				[ids:constraint [
-					ids:leftOperand ids:securityLevel ;
+				ids:action {?action} 
+				] ;
+			ids:obligation [
+				ids:action idsc_action:LOG ;
+				ids:constraint [
+					ids:leftOperand ids:systemDevice ;
 					ids:operator ids:eq ;
-					ids:rightOperand {?SecurityGuarantee}
-				] ;]+
-			]
+					ids:rightOperand {?LoggingEndpoint}
+				] ]
 		."""^^xsd:string 
 	.
 
