@@ -39,19 +39,19 @@ idsc_pt:OfferTemplate a ids:PolicyTemplate ;
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>| \[\] ] a ids:ContractOffer ;
+		[<contract URI>| [] ] a ids:ContractOffer ;
 			ids:uid <contract ID> ;
 			ids:refersTo idsc_pt:OfferTemplate ;
 			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
 			ids:provider <Provider Participant URI> ;
-			[ids:permission \[ 
+			[ids:permission [
 				ids:action [ids:use|ids:read|...] ;
-				ids:constraint \[ 
+				ids:constraint [
 					ids:leftOperand <Attribute URI> ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [<Value URI>|<Value Literal>]
-				\] 
-			\] ;]*
+				]
+			] ;]*
 		."""^^xsd:string 
 	.
 

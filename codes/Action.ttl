@@ -5,6 +5,8 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc_action: <https://w3id.org/idsa/code/action/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 # Instances
 # ---------
@@ -45,7 +47,7 @@ idsc_action:USE
     rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-use> ;
     .
 	
-ids:ANONYMIZE 
+idsc_action:ANONYMIZE 
     a ids:Action ;
     rdfs:comment "To anonymize all or parts of the Asset."@en ; 
     rdfs:label "anonymize"@en ;
@@ -53,21 +55,21 @@ ids:ANONYMIZE
 	.
 
 	
-ids:LOG  
+idsc_action:LOG  
     a ids:Action ;
     rdfs:comment "To log information. it needs a log server a recipient."@en ; 
     rdfs:label "log"@en ;
     .
 	
 
-ids:TRACKPROVENANCE
+idsc_action:TRACKPROVENANCE
     a ids:Action ;
     odrl:implies ids:acceptTracking;
     rdfs:comment "To accept that the use of the Asset may be tracked."@en ; 
     rdfs:label "track provenance"@en ;
 	.
 
-ids:READ
+idsc_action:READ
     a ids:Action ;
     rdfs:comment    "To obtain data from the Asset."@en ;
     rdfs:label    "read"@en ;

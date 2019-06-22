@@ -12,26 +12,26 @@
 # Instances
 # ---------
 
-idsc_pt:AccessAgreementToSecureConsumerTemplate a ids:PolicyTemplate ;
+idsc_pt:UsageAgreementByRoleTemplate a ids:PolicyTemplate ;
     rdfs:label "Access Agreement to secure Consumer Template" ;
-    rdfs:comment "A template for policy agreements with one permission and several constraints about the security level of the consuming connector."@en ;
-	spin:labelTemplate """The {?ConsumerParticipantURI} agrees to the {?ProviderParticipantURI} to 
-		{?action element of [ids:use|ids:read|...]} its {?ArtifactURI} given that the consuming 
-		connector has all the specified {?SecurityGuarantee} levels."""@en ;
+    rdfs:comment "A template for policy agreements permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
+   	spin:labelTemplate """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?ArtifactURI} given that the {?ConsumerParticipantURI} has the {?RoleURI}, 
+		which must be requested at {?PipURI}."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractAgreement", 
 		"@id": "{?contractID}", 
-		"refersTo": "https://w3id.org/idsa/code/policytemplate/AccessAgreementToSecureConsumerTemplate" ,
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate" ,
 		"targetArtifact": "{?ArtifactURI}",
 		"provider": "{?ProviderParticipantURI}",
 		"consumer": "{?ConsumerParticipantURI}", 
 		"permission": {
 			"action": "{?action}" ,
 			["constraint" : {    
-					 "leftOperand" : "securityLevel",
+					 "leftOperand" : "{?RoleURI}",
 					 "operator" : "eq",
-					 "rightOperand" : "{?SecurityGuarantee}"
+					 "rightOperandReference" : "{?PipURI}"
 			 } [,]]+
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
@@ -41,16 +41,16 @@ idsc_pt:AccessAgreementToSecureConsumerTemplate a ids:PolicyTemplate ;
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractAgreement ;
-			ids:refersTo idsc_pt:AccessAgreementToSecureConsumerTemplate ;
+			ids:refersTo idsc_pt:UsageAgreementByRoleTemplate ;
 			ids:target {?ArtifactURI} ;
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;
 				[ids:constraint [
-					ids:leftOperand ids:securityLevel ;
+					ids:leftOperand {?RoleURI} ;
 					ids:operator ids:eq ;
-					ids:rightOperand {?SecurityGuarantee}
+					ids:rightOperandReference {?PipURI}
 				] ;]+
 			]
 		."""^^xsd:string 
