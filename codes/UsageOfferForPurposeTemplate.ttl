@@ -23,7 +23,7 @@ idsc_pt:UsageOfferForPurposeTemplate a ids:PolicyTemplate ;
 		"@type": "ContractOffer", 
 		"@id": "{?contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate" ,
-		"contentContent": "{?content}",
+		"targetContent": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"permission": {
 			"action": "{?action}" ,
@@ -41,7 +41,7 @@ idsc_pt:UsageOfferForPurposeTemplate a ids:PolicyTemplate ;
 
 		{?contractID} a ids:ContractOffer ;
 			ids:refersTo idsc_pt:UsageOfferForPurposeTemplate ;
-			ids:contentContent {?content} ;
+			ids:targetContent {?content} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;

@@ -13,17 +13,17 @@
 # ---------
 
 idsc_pt:UsageAgreementByRoleTemplate a ids:PolicyTemplate ;
-    rdfs:label "Access Agreement to secure Consumer Template" ;
+    rdfs:label "Usage Agreement by Role Template" ;
     rdfs:comment "A template for policy agreements permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
    	spin:labelTemplate """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?ArtifactURI} given that the {?ConsumerParticipantURI} has the {?RoleURI}, 
+		its {?content element of [<Artifact URI>]} given that the {?ConsumerParticipantURI} has the {?RoleURI}, 
 		which must be requested at {?PipURI}."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractAgreement", 
 		"@id": "{?contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate" ,
-		"targetArtifact": "{?ArtifactURI}",
+		"targetArtifact": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"consumer": "{?ConsumerParticipantURI}", 
 		"permission": {
@@ -33,7 +33,9 @@ idsc_pt:UsageAgreementByRoleTemplate a ids:PolicyTemplate ;
 					 "operator" : "eq",
 					 "rightOperandReference" : "{?PipURI}"
 			 } [,]]+
+
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -42,7 +44,7 @@ idsc_pt:UsageAgreementByRoleTemplate a ids:PolicyTemplate ;
 
 		{?contractID} a ids:ContractAgreement ;
 			ids:refersTo idsc_pt:UsageAgreementByRoleTemplate ;
-			ids:target {?ArtifactURI} ;
+			ids:target {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [

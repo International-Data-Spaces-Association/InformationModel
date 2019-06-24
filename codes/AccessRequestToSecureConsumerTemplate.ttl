@@ -23,7 +23,7 @@ idsc_pt:AccessRequestToSecureConsumerTemplate a ids:PolicyTemplate ;
 		"@type": "ContractRequest", 
 		"@id": "{contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/AccessRequestToSecureConsumerTemplate" ,
-		"targetContent": "{?target}",
+		"targetContent": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"consumer": "{?ConsumerParticipantURI}", 
 		"permission": {
@@ -34,6 +34,7 @@ idsc_pt:AccessRequestToSecureConsumerTemplate a ids:PolicyTemplate ;
 					 "rightOperand" : "{?SecurityGuarantee}"
 			 } [,]]+
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -42,7 +43,7 @@ idsc_pt:AccessRequestToSecureConsumerTemplate a ids:PolicyTemplate ;
 
 		{?contractID} a ids:ContractRequest ;
 			ids:refersTo idsc_pt:AccessRequestToSecureConsumerTemplate ;
-			ids:targetContent {?target} ;
+			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [

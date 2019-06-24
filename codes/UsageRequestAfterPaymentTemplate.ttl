@@ -17,7 +17,7 @@ idsc_pt:UsageRequestAfterPaymentTemplate a ids:PolicyTemplate ;
     rdfs:comment "A template for policy requests which allow usage only after a certain payment occurred."@en ;
 	spin:labelTemplate """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
 		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
-		only if {?price} has been payed and the {?PipURI} says so."""@en ;
+		only if a certain {?EventURI} has happened and the {?PipURI} says so."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractRequest", 
@@ -42,6 +42,7 @@ idsc_pt:UsageRequestAfterPaymentTemplate a ids:PolicyTemplate ;
 					 "rightOperand" : "{?price}"
 			}
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -65,7 +66,7 @@ idsc_pt:UsageRequestAfterPaymentTemplate a ids:PolicyTemplate ;
 				ids:constraint [
 					ids:leftOperand ids:payAmount ;
 					ids:operator ids:eq ;
-					ids:rightOperand {?price}
+					ids:rightOperandReference {?price}
 				]
 			]
 			]

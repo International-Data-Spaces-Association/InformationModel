@@ -23,7 +23,7 @@ idsc_pt:UsageOfferByRoleTemplate a ids:PolicyTemplate ;
 		"@type": "ContractOffer", 
 		"@id": "{?contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageOfferByRoleTemplate" ,
-		"contentContent": "{?content}",
+		"targetContent": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"permission": {
 			"action": "{?action}" ,
@@ -33,6 +33,7 @@ idsc_pt:UsageOfferByRoleTemplate a ids:PolicyTemplate ;
 					 "rightOperandReference" : "{?PipURI}"
 			}[,]]+
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -41,7 +42,7 @@ idsc_pt:UsageOfferByRoleTemplate a ids:PolicyTemplate ;
 
 		{?contractID} a ids:ContractOffer ;
 			ids:refersTo idsc_pt:UsageOfferByRoleTemplate ;
-			ids:contentContent {?content} ;
+			ids:targetContent {?content} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;
