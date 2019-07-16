@@ -115,6 +115,31 @@ ids:ConnectorConfigurationChangeMessage a owl:Class;
     rdfs:label "Connector Configuration Change Message"@en ;
     rdfs:comment "Event notifying the recipient(s) about a connector's configuration change. The payload of the message must contain the updated connector's self-description."@en.
 
+
+# Participant-related Messages
+# ----------------------------
+
+ids:ParticipantCertificateGrantedMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Participant Certificate Granted Message"@en ;
+    rdfs:comment "Whenever a Participant has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
+
+ids:ParticipantCertificateUnavailableMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Participant Certificate Unavailable Message"@en ;
+    rdfs:comment "Indicates that a (previously certified) Participant is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
+
+ids:ParticipantCertificateSuspendedMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Participant Certificate Suspended Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) that a Participant is temporarily no more certified."@en.
+
+ids:ParticipantInformationChangedMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Participant Information Changed Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) that information describing this Participant has changed. This event is mainly intended for information describing the Participant that is NOT a direct subject of the certification process."@en.
+
+
 # Broker Messages
 # ---------------
 
@@ -157,7 +182,7 @@ ids:ContractRequestMessage a owl:Class ;
 
 ids:baseContractOffer a owl:ObjectProperty;
     rdfs:label "Base Contract Offer"@en ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:ContractRequestMessage;
     rdfs:range ids:ContractOffer;
     rdfs:comment "The basic offered contract that the contract request message refers to."@en.
@@ -209,7 +234,7 @@ ids:ArtifactAvailableMessage a owl:Class ;
     ].
 
 ids:availableArtifact rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:ArtifactAvailableMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Available Artifact"@en ;
@@ -229,7 +254,7 @@ ids:InvokeOperationMessage a owl:Class ;
     ].
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:InvokeOperationMessage ;
     rdfs:range ids:Operation ;
     rdfs:label "Operation Reference"@en ;
@@ -274,7 +299,7 @@ ids:ArtifactRequestMessage a owl:Class ;
     ].
 
 ids:requestedArtifact rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Requested Artifact"@en ;

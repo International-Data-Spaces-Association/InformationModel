@@ -104,7 +104,7 @@ ids:language
 ids:theme # ... "topic" / "subject" ?
     a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:theme; # is a sub-property of dct:subject, comparable to qb:concept (?)
-    idsm:referenceByUrl true ;
+    idsm:referenceByUri true ;
     rdfs:label "theme"@en;
     idsm:labelPluralForm "themes"@en;
     rdfs:domain ids:DigitalContent;
@@ -149,7 +149,7 @@ ids:accrualPeriodicity # consider irregular updates as well
     .
 
 ids:contentStandard
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     a owl:ObjectProperty ;
     rdfs:subPropertyOf dct:conformsTo ;
     rdfs:domain ids:DigitalContent ;

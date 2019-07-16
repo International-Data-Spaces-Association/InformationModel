@@ -1,0 +1,69 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Instances
+# ---------
+
+idsc_pt:TimeRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
+    rdfs:label "Time-restricted Usage Offer Template" ;
+    rdfs:comment "A template for policy offers with a time-restricted permission." ;
+	skos:note """The <Provider Participant URI> allows to [ids:use|ids:read|...] its 
+		[<Resource URI>|<Representation URI>|<Artifact URI>] to the (potentially still 
+		unknown) consuming connector from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to 
+		yyyy-mm-ddThh:mm:ss.xxx+hh:mm."""@en ;
+    skos:note """{ 
+		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@type": "ContractOffer", 
+		"uid": "<contract ID>", 
+		"refersTo": "idsc_pt:TimeRestrictedUsageOfferTemplate" ,
+		"target": "[<Resource URI>|<Representation URI>|<Artifact URI>]",
+		"ids:provider": "<Provider Participant URI>",
+		"ids:permission": {
+			"ids:action": "[ids:use|ids:read|...]" ,
+			"ids:constraint" : {    
+					 "ids:leftOperand" : "ids:DATE_TIME",
+					 "ids:operator" : "ids:gt",
+					 "ids:rightOperand" : "\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime"
+			} ,
+			"ids:constraint" : {    
+					 "ids:leftOperand" : "ids:DATE_TIME",
+					 "ids:operator" : "ids:lt",
+					 "ids:rightOperand" : "\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime"
+			} 
+		} }"""^^xsd:string ;
+	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		[<contract URI>] a ids:ContractOffer ;
+			ids:uid <contract ID> ;
+			ids:refersTo idsc_pt:TimeRestrictedUsageOfferTemplate ;
+			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
+			ids:provider <Provider Participant URI> ;
+			ids:permission [
+				ids:action [ids:use|ids:read|...] ;
+				ids:constraint [
+					ids:leftOperand ids:DATE_TIME ;
+					ids:operator ids:gt ;
+					ids:rightOperand "<yyyy-mm-ddThh:mm:ss.xxx+hh:mm>"^^xsd:dateTime
+				] ;
+				ids:constraint [
+					ids:leftOperand ids:DATE_TIME ;
+					ids:operator ids:lt ;
+					ids:rightOperand "<yyyy-mm-ddThh:mm:ss.xxx+hh:mm>"^^xsd:dateTime
+				] ;
+			]
+		."""^^xsd:string 
+	.
+
+
+
