@@ -82,25 +82,39 @@ ids:SelfDescriptionResponse a owl:Class ;
 # Connector-related Messages
 # --------------------------
 
-ids:ConnectorAvailableMessage a owl:Class;
+ids:ConnectorRuntimeNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
+    idsm:abstract true ;
+    rdfs:label "Connector Runtime Notification Message"@en ;
+    rdfs:comment "Superclass of all messages, indicating a change of a connector's runtime conditions."@en.
+
+ids:affectedConnector a owl:ObjectProperty;
+    idsm:referenceByUrl true;
+    rdfs:label "affectedConnector"@en;
+    rdfs:domain ids:ConnectorRuntimeNotificationMessage;
+    rdfs:range ids:Connector;
+    rdfs:comment "References the connector that is affected by the runtime condition change."@en.
+
+ids:ConnectorAvailableMessage a owl:Class;
+    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
     rdfs:label "Connector Available Message"@en ;
     rdfs:comment "Event notifying the recipient(s) about the availability of a new connector. The payload of the message must contain the new connector's self-description."@en.
 
 ids:ConnectorUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
     rdfs:label "Connector Unavailable Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that a connector will be unavailable and never be available again."@en.
 
 ids:ConnectorTemporarilyUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
     rdfs:label "Connector Temporarlily Unavailable Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that a connector will be temporarily unavailable and most likely be available again in the future."@en.
 
 ids:ConnectorConfigurationChangeMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
     rdfs:label "Connector Configuration Change Message"@en ;
     rdfs:comment "Event notifying the recipient(s) about a connector's configuration change. The payload of the message must contain the updated connector's self-description."@en.
+
 
 # Participant-related Messages
 # ----------------------------
@@ -124,6 +138,7 @@ ids:ParticipantInformationChangedMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Participant Information Changed Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that information describing this Participant has changed. This event is mainly intended for information describing the Participant that is NOT a direct subject of the certification process."@en.
+
 
 # Broker Messages
 # ---------------
