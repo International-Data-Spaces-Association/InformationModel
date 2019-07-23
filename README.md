@@ -35,7 +35,7 @@ There are following top-level files and directories:
 
 ## Related resources
 
-Additional resources are provided for the members of the International Data Spaces Association:
+Additional resources are now provided for everyone (formerly restricted to International Data Spaces Association members):
 
 - Java representation of the Information Model, a mapping to a POJO domain model with no reference to graph or ontology constructs. 
 Instances of the Information Model might such conveniently by created, validated and (de)serialized in a strongly-typed way using 
@@ -48,7 +48,7 @@ operated by Fraunhofer [IAIS](https://www.iais.fraunhofer.de/):
     <repository>
         <id>snapshots</id>
         <name>maven-snapshots</name>
-        <url>http://maven.iais.fraunhofer.de/artifactory/eis-ids-public</url>
+        <url>https://maven.iais.fraunhofer.de/artifactory/eis-ids-public</url>
     </repository>
 </repositories>
 ```
@@ -71,9 +71,8 @@ For automated validation of the Information Model POJOs (via the builder classes
 </dependency>
 ```
 
-At the moment these resources are accessible for IDSA members only. You can obtain the access credentials from this [Jive Page](https://industrialdataspace.jiveon.com/docs/DOC-1366).
+- UML-based visualization of the Information Model, its classes, properties and relations, including their cardinalities. It is available in the Nightly and Release Packages on [GitHub](https://github.com/IndustrialDataSpace/InformationModel/releases).
 
-- UML-based visualization of the Information Model, its classes, properties and relations, including their cardinalities. It is available on the Maven Repository mentioned above, under the same base path (visualization component).
-
+For members of the International Data Spaces Association only:
 - Working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), on the association's Jive platform, explaining
 the usage of the Information Model for communication on the Industrial Data Space.
