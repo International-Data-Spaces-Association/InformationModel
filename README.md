@@ -75,4 +75,4 @@ For automated validation of the Information Model POJOs (via the builder classes
 
 For members of the International Data Spaces Association only:
 - Working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), explaining
-the usage of the Information Model for data exchanges in the IDS.```
+the usage of the Information Model for data exchanges in the IDS.
