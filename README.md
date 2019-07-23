@@ -35,7 +35,7 @@ There are following top-level files and directories:
 
 ## Related resources
 
-Additional resources are now provided for everyone (formerly restricted to International Data Spaces Association members):
+Additional resources are provided:
 
 - Java representation of the Information Model, a mapping to a POJO domain model with no reference to graph or ontology constructs. 
 Instances of the Information Model might such conveniently by created, validated and (de)serialized in a strongly-typed way using 
@@ -71,8 +71,8 @@ For automated validation of the Information Model POJOs (via the builder classes
 </dependency>
 ```
 
-- UML-based visualization of the Information Model, its classes, properties and relations, including their cardinalities. It is available in the Nightly and Release Packages on [GitHub](https://github.com/IndustrialDataSpace/InformationModel/releases).
+- UML-based visualization of the Information Model, its classes, properties and relations, including their cardinalities. It is available as part of the Nightly and Release Packages on [GitHub](https://github.com/IndustrialDataSpace/InformationModel/releases).
 
 For members of the International Data Spaces Association only:
-- Working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), on the association's Jive platform, explaining
-the usage of the Information Model for communication on the Industrial Data Space.
+- Working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), explaining
+the usage of the Information Model for data exchanges in the IDS.```
