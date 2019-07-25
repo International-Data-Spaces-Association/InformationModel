@@ -47,8 +47,8 @@ def update_config_information():
 
 
 # Execute the widoco documentation process.
-def run_widoco(widocopath):
-    subprocess.run(['java', '-jar', widocopath,
+def run_widoco(widoco_path):
+    subprocess.run(['java', '-jar', widoco_path,
                     '-ontFile', '../../Ontology.ttl',
                     '-outFolder', '../../docs',
                     '-confFile', './config.properties',
@@ -192,11 +192,11 @@ def replace_ontology_download_link():
 
 
 # Preparation
-widocopath, jive_credentials = parse_arguments()
+widoco_path, jive_credentials = parse_arguments()
 update_config_information()
 
 # Widoco documentation tool execution
-run_widoco(widocopath)
+run_widoco(widoco_path)
 
 # Modify and update generated files
 edit_readme()
