@@ -22,6 +22,7 @@ Likewise the authors would like to thank numerous colleagues at Fraunhofer, acti
 There are following top-level files and directories:
 
 - `codes`: Code lists of enumerated *literal values* and unique, *singleton concept instances*. Code lists are the preferred way to encode and reference re-usable instances of a homogeneous value range.
+- `docs`: Documentation of the latest release of the Information Model and its classes.
 - `examples`: Example instances providing a guidance on recommended model usage and best practices.
 - `images`: Figures supporting the understanding and documentation of the Information Model
 - `metamodel`: Utility models related to annotation and processing of `model` concepts.
