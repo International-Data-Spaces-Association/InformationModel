@@ -89,12 +89,12 @@ def replace_widoco_html_output(filename, text):
 def insert_jive_information(jive_credentials):
     intro, description = get_jive_information(jive_credentials)
 
-    download_images(intro, jive_credentials)
-    intro = replace_image_paths(intro)
+    image_names = download_images(intro, jive_credentials)
+    intro = replace_image_names(intro, image_names)
     replace_widoco_html_output('introduction-en.html', intro)
 
-    download_images(description, jive_credentials)
-    description = replace_image_paths(description)
+    image_names = download_images(description, jive_credentials)
+    description = replace_image_names(description, image_names)
     replace_widoco_html_output('description-en.html', description)
 
     return
@@ -108,7 +108,7 @@ def get_jive_information(jive_credentials):
     # https://industrialdataspace.jiveon.com/docs/DOC-1971 |
     # https://industrialdataspace.jiveon.com/docs/DOC-1972 |
     # https://industrialdataspace.jiveon.com/docs/DOC-1973 | -> current description
-    # suche <div class="jive-rendered-content>"
+    # search <div class="jive-rendered-content"> for the relevant info
 
     intorduction_text = ''
     description_text = ''
@@ -123,30 +123,53 @@ def get_jive_information(jive_credentials):
 
         if doc_id == '1953':
             useful_text = re.sub(r'3\.\d\.\d', '', useful_text)
-            intorduction_text = useful_text
+            intorduction_text = '<div class="jive-rendered-content">' + useful_text
         else:
             useful_text = re.sub(r'3\.\d\.\d', '3.%d.' % subsection_id, useful_text)
             subsection_id += 1
-            description_text += useful_text
+            description_text += '<div class="jive-rendered-content">' + useful_text
 
     return intorduction_text, description_text
 
 
 # Downloads the referenced images in the given text from jive.
 def download_images(text, jive_credentials):
+    session = requests.Session()
+    session.auth = (jive_credentials[0], jive_credentials[1])
+    auth = session.post('https://industrialdataspace.jiveon.com')
+
     images = re.findall('src="(.*?).png"', text)
+    image_names = {}
+
     for image in images:
-        image_name = image[image.rfind('/') + 1:]
-        resp = requests.get(image, data={}, auth=(jive_credentials[0], jive_credentials[1]))
-        with open('../img/' + image_name + '.png', 'wb') as f:
+        image_name = image[image.rfind('/') + 1:] + '.png'
+        res = re.search(r'(\d{3}-\d{4}-\d-\d{4})', image)
+        image_id = res.group(1)
+
+        if image_name in image_names:
+            new_image_name = image_name[:-4] + '_2.png'
+        else:
+            new_image_name = image_name
+
+        image_names[new_image_name] = (image_name, image_id)
+
+        resp = session.get(image)
+        with open('../img/' + new_image_name, 'wb') as f:
             f.write(resp.content)
-    return
+
+    session.close()
+
+    return image_names
 
 
 # Replaces the links to the images in the text to the new locations.
-def replace_image_paths(text):
-    text = re.sub('https://industrialdataspace.jiveon.com/servlet/JiveServlet/(.*?)Image/(.*?)/',
-                  'img/', text)
+def replace_image_names(text, image_names):
+    for image_name in image_names:
+        image_id = image_names[image_name][1]
+        image_old_name = image_names[image_name][0]
+        regex = r'https:\/\/industrialdataspace\.jiveon\.com\/servlet\/JiveServlet\/(\w*)Image\/' + image_id + \
+                r'\/(([0-9-]*)\/)?'
+        text = re.sub(regex + image_old_name, 'img/' + image_name, text)
     return text
 
 
