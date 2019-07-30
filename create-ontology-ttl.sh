@@ -6,16 +6,16 @@ write_to_file()
      # initialize a local var
      local file="Ontology.ttl"
 	 local version=$1
-	 if [ -z "$branch" ] ; then
-		echo "Warning! No branch parameter supplied. Assuming branch=master"
-		branch="master"
-	 fi
+	# if [ -z "$branch" ] ; then
+	#	echo "Warning! No branch parameter supplied. Assuming branch=master"
+	#	branch="master"
+	# fi
 
      local file="Ontology.ttl"
 	 local version=$2
 	 if [ -z "$version" ] ; then
-		echo "Warning! No version parameter supplied. Assuming version 1.0.2"
-		version="1.0.2"
+		echo "Warning! No version parameter supplied. Assuming version 1.0.3"
+		version="1.0.3"
 	 fi
 
 
@@ -110,7 +110,20 @@ write_to_file()
 	for class in $(find model/* -name "*.ttl")
 	do
 		if [[ -f $class ]]; then
-			echo "    owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/$branch/$class> ; " >> "$file"
+			echo "    owl:imports <$class> ; " >> "$file"
+		fi
+	done
+	
+	echo ". " >> "$file"
+
+	# search for files in selcted folders
+	echo '# ----------------------------' >> "$file"
+	echo '# Imports of class files' >> "$file"
+	echo 'ids:' >> "$file"
+	for class in $(find metamodel/* -name "*.ttl")
+	do
+		if [[ -f $class ]]; then
+			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
 	
@@ -121,10 +134,22 @@ write_to_file()
 	echo '# ----------------------------' >> "$file"
 	echo '# Imports of class files' >> "$file"
 	echo 'ids:' >> "$file"
+	for class in $(find codes/* -name "*.ttl")
+	do
+		if [[ -f $class ]]; then
+			echo "    owl:imports <$class> ; " >> "$file"
+		fi
+	done
+	
+	
+	# search for files in selcted folders
+	echo '# ----------------------------' >> "$file"
+	echo '# Imports of class files' >> "$file"
+	echo 'ids:' >> "$file"
 	for class in $(find taxonomies/* -name "*.ttl")
 	do
 		if [[ -f $class ]]; then
-			echo "    owl:imports <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/$branch/$class> ; " >> "$file"
+			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
 	
