@@ -55,7 +55,7 @@ def run_widoco(widoco_path):
                     '-webVowl',
                     '-oops',
                     '-rewriteAll',
-                    '-ignoreIndividuals'])
+                    '-ignoreIndividuals',])
     return
 
 
@@ -214,16 +214,182 @@ def replace_ontology_download_link():
         fp.close()
 
 
-# Preparation
-widoco_path, jive_credentials = parse_arguments()
-update_config_information()
+# Delete the local references from "ontology.json".
+def clean_up_json_ontology_owl_imports():
+    json_regex = r'"http:\/\/www\.w3\.org\/2002\/07\/owl#imports" : \[ (\{\s*"@id" : "file:.*\s*\},?\s)*\],'
+    with open('../serializations/ontology.json', 'r') as fp:
+        new_content = fp.read()
+        new_content = re.sub(json_regex, '', new_content)
 
-# Widoco documentation tool execution
-run_widoco(widoco_path)
+    with open('../serializations/ontology.json', 'w') as fp:
+        fp.write(new_content)
+        fp.close()
 
-# Modify and update generated files
-edit_readme()
-move_ontology_files()
-replace_ontology_download_link()
-insert_jive_information(jive_credentials)
-insert_references()
+
+# Delete the local references from "ontology.nt".
+def clean_up_nt_ontology_owl_imports():
+    nt_regex = r'<https:\/\/w3id\.org\/idsa\/core\/this> <http:\/\/www\.w3\.org\/2002\/07\/owl#imports>'
+    new_content = ''
+    with open('../serializations/ontology.nt', 'r') as fp:
+        for line in fp.readlines():
+            res = re.search(nt_regex, line)
+            if res:
+                continue
+            new_content += line
+
+    with open('../serializations/ontology.nt', 'w') as fp:
+        fp.write(new_content)
+        fp.close()
+
+
+# Delete the local references from "ontology.ttl".
+def clean_up_ttl_ontology_owl_imports():
+    ttl_regex = r'owl\:imports\s(<file:.*\.ttl>\s[,;]\n\s*)*'
+    with open('../serializations/ontology.ttl', 'r') as fp:
+        new_content = fp.read()
+        new_content = re.sub(ttl_regex, '', new_content)
+
+    with open('../serializations/ontology.ttl', 'w') as fp:
+        fp.write(new_content)
+        fp.close()
+
+
+# Delete the local references from "ontology.xml".
+def clean_up_xml_ontology_owl_imports():
+    xml_regex = r'<owl\:imports\srdf\:resource="file\:.*\.ttl"\/>'
+    new_content = ''
+    with open('../serializations/ontology.xml', 'r') as fp:
+        for line in fp.readlines():
+            res = re.search(xml_regex, line)
+            if res:
+                continue
+            new_content += line
+
+    with open('../serializations/ontology.xml', 'w') as fp:
+        fp.write(new_content)
+        fp.close()
+
+
+# Some local references are included to the generated serializations.
+# This starts the clean up for all formats.
+def clean_up_ontology_serialization_owl_imports():
+    clean_up_json_ontology_owl_imports()
+    clean_up_nt_ontology_owl_imports()
+    clean_up_ttl_ontology_owl_imports()
+    clean_up_xml_ontology_owl_imports()
+
+
+# Renames widoco output file "index-en.html" to "index.html".
+# Only "index.html" gets displayed correctly with github pages.
+def rename_index_file():
+    # Replace reference in index-en.html itself
+    with open('../index-en.html') as fp:
+        text = fp.read()
+
+    text = re.sub('index-en.html', 'index.html', text)
+
+    with open('../index-en.html', 'w') as fp:
+        fp.write(text)
+        fp.close()
+
+    # Replace reference in provenance-en.html
+    with open('../provenance/provenance-en.html') as fp:
+        text = fp.read()
+
+    text = re.sub('index-en.html', 'index.html', text)
+
+    with open('../provenance/provenance-en.html', 'w') as fp:
+        fp.write(text)
+        fp.close()
+
+    # Finally rename the index-en.html file
+    if os.path.exists('../index.html'):
+        os.remove('../index.html')
+    os.rename('../index-en.html', '../index.html')
+
+
+# Executes the renaming or deletion of incorrect namespaces.
+def rename_namespace(old_ns, uri, new_ns):
+    with open('../sections/introduction-en.html') as fp:
+        text = fp.read()
+
+    regex = r'<tr><td><b>%s</b></td><td>&lt;%s&gt;</td></tr>' % (old_ns, uri)
+    if new_ns == '-delete':
+        new_line = ''
+    else:
+        new_line = '<tr><td><b>%s</b></td><td>&lt;%s&gt;</td></tr>' % (new_ns, uri)
+
+    text = re.sub(regex, new_line, text)
+
+    with open('../sections/introduction-en.html', 'w') as fp:
+        fp.write(text)
+        fp.close()
+
+
+# Define all namespaces which are not wanted to be added to the namespaces.
+# Most of them come from "rdfs:seeAlso"-links or the additional references.
+# Additionally defines some incorrectly named namespaces and starts the
+# substitution process.
+def adjust_namespaces():
+    # Entry format for the list:
+    # ('<old_namespace>', '<namespace_uri>', '<new_namespace>|-delete')
+    namespaces_to_adjust = [
+        ('auth', 'https://w3id.org/idsa/code/auth', 'ids-auth'),
+        ('ns1', 'http://creativecommons.org/ns', 'cc'),
+        ('metamodel', 'https://w3id.org/idsa/metamodel', 'idsm'),
+        ('terms', 'http://purl.org/dc/terms', 'dcterms'),
+        ('dc', 'http://purl.org/dc/elements/1.1', 'dcelem'),
+        ('wgs84_pos', 'http://www.w3.org/2003/01/geo/wgs84_pos', 'wgs84'),
+        ('ontology', 'http://www.geonames.org/ontology', 'geonames'),
+        ('duv', 'http://www.w3.org/ns/duv', '-delete'),
+        ('lcco', 'http://lcweb.loc.gov/catdir/cpso/lcco', '-delete'),
+        ('ontology101-noy-mcguinness-html',
+         'https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html', '-delete'),
+        ('collections', 'https://docs.oracle.com/javase/8/docs/technotes/guides/collections', '-delete'),
+        ('html', 'https://tools.ietf.org/html', '-delete'),
+        ('iso639-2', 'http://lcweb.loc.gov/standards/iso639-2', '-delete'),
+        ('wot', 'http://xmlns.com/wot/0.1', '-delete'),
+        ('10-6084', 'http://dx.doi.org/10.6084', '-delete'),
+        ('util', 'https://docs.oracle.com/javase/8/docs/api/java/util', '-delete'),
+        ('ns', 'http://www.w3.org/2003/06/sw-vocab-status/ns', '-delete'),
+        ('github-com', 'https://github.com', '-delete'),
+        ('powder-s', 'http://www.w3.org/2007/05/powder-s', '-delete'),
+        ('error', 'http://org.semanticweb.owlapi/error', '-delete'),
+        ('www-ontodm-com', 'http://www.ontodm.com', '-delete'),
+        ('tgn', 'http://www.getty.edu/research/tools/vocabulary/tgn', '-delete'),
+        ('assettype', 'http://purl.org/adms/assettype', '-delete'),
+        ('rdfg-1', 'http://www.w3.org/2004/03/trix/rdfg-1', '-delete'),
+        ('rfc2046', 'https://tools.ietf.org/html/rfc2046', '-delete'),
+        ('licenses', 'http://www.apache.org/licenses', '-delete'),
+        ('02iso-3166-code-lists', 'http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists',
+         '-delete'),
+        ('tr', 'http://www.w3.org/TR', '-delete'),
+        ('default namespace', 'https://w3id.org/idsa/core/this', '-delete'),
+        ('wiki', 'https://en.wikipedia.org/wiki', '-delete'),
+        ('ddi-cv', 'http://www.ddialliance.org/Specification/DDI-CV', '-delete'),
+        ('wiki', 'https://github.com/mqtt/mqtt.github.io/wiki', '-delete')
+    ]
+
+    for ns in namespaces_to_adjust:
+        rename_namespace(ns[0], ns[1], ns[2])
+
+
+if __name__ == '__main__':
+    # Preparation
+    widoco_path, jive_credentials = parse_arguments()
+    update_config_information()
+
+    # Widoco documentation tool execution
+    run_widoco(widoco_path)
+
+    # Modify and update generated files
+    edit_readme()
+    move_ontology_files()
+    replace_ontology_download_link()
+    insert_jive_information(jive_credentials)
+    insert_references()
+
+    # Correction of unwanted behavior from widoco.jar
+    adjust_namespaces()
+    clean_up_ontology_serialization_owl_imports()
+    rename_index_file()
