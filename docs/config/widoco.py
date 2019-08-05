@@ -55,7 +55,7 @@ def run_widoco(widoco_path):
                     '-webVowl',
                     '-oops',
                     '-rewriteAll',
-                    '-ignoreIndividuals',])
+                    '-ignoreIndividuals'])
     return
 
 
