@@ -1,6 +1,5 @@
 ---
-title: The Industrial Data Space Information Model
-redirect_to: /docs/
+redirect_to: https://pnlinden.github.io/InformationModel/docs/index.html
 ---
 
 # The Industrial Data Space Information Model
