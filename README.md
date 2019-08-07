@@ -1,7 +1,7 @@
 ---
 title: The Industrial Data Space Information Model
 layout: post
-permalink: https://pnlinden.github.io/InformationModel/
+permalink: https://pnlinden.github.io/InformationModel/README
 redirect_to: 'https://pnlinden.github.io/InformationModel/docs/'
 ---
 
