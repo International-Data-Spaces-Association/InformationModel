@@ -216,7 +216,7 @@ def replace_ontology_download_link():
 
 # Delete the local references from "ontology.json".
 def clean_up_json_ontology_owl_imports():
-    regex_owl_import = r'"http:\/\/www\.w3\.org\/2002\/07\/owl#imports" : \[ (\{\s*"@id" : "file:.*\s*\},?\s)*\]'
+    regex_owl_import = r'"http:\/\/www\.w3\.org\/2002\/07\/owl#imports" : \[ (\{\s*"@id" : "file:.*\s*\},?\s)*\],'
     regex_ontology_refs = r'file\:[\w\/\.\:]*'
     new_ref = 'https://w3id.org/idsa/core'
 
@@ -290,6 +290,20 @@ def clean_up_xml_ontology_owl_imports():
         fp.close()
 
 
+def clean_up_webvowl_ontology():
+    regex_ontology_ref = r'file\:[\w\/\.\:#]*'
+    new_ref = 'https://w3id.org/idsa/core'
+
+    with open('../webvowl/data/ontology.json', 'r') as fp:
+        new_content = fp.read()
+
+    new_content = re.sub(regex_ontology_ref, new_ref, new_content)
+
+    with open('../webvowl/data/ontology.json', 'w') as fp:
+        fp.write(new_content)
+        fp.close()
+
+
 # Some local references are included to the generated serializations.
 # This starts the clean up for all formats.
 def clean_up_ontology_serialization_owl_imports():
@@ -297,6 +311,7 @@ def clean_up_ontology_serialization_owl_imports():
     clean_up_nt_ontology_owl_imports()
     clean_up_ttl_ontology_owl_imports()
     clean_up_xml_ontology_owl_imports()
+    clean_up_webvowl_ontology()
 
 
 # Renames widoco output file "index-en.html" to "index.html".
