@@ -1,3 +1,8 @@
+---
+permalink: /README.md
+redirect_to: 'https://pnlinden.github.io/InformationModel/docs/index.html'
+---
+
 # The Industrial Data Space Information Model
 
 The Information Model is an RDFS/OWL-ontology covering the fundamental concepts of the [Industrial Data Space](https://industrialdataspace.org), i.e. the types of *digital contents* that are exchanged by *participants* by means of the Industrial Data Space *infrastructure components*. The model development is led by Fraunhofer [FIT](https://www.fit.fraunhofer.de/en) and [IAIS](https://www.iais.fraunhofer.de/en) with support by members of the [International Data Spaces Association](https://www.internationaldataspaces.org/) in context of the *Information Model* sub-working group (SWG4). The group is chaired by [Jaroslav Pullmann](https://github.com/jpullmann) ([Fraunhofer FIT](https://www.fit.fraunhofer.de/)) and [Sebastian Tramp](https://sebastian.tramp.name) ([eccenca GmbH](https://www.eccenca.com)).
