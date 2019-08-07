@@ -1,24 +1,12 @@
-@prefix : <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/Payment.ttl#> .
+@prefix : <https://w3id.org/idsa/core> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/Payment.ttl> .
+@base <https://w3id.org/idsa/core> .
 
-<file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/Payment.ttl> rdf:type owl:Ontology ;
-                                                                                                     owl:imports <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/adms-20130801.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/csvw-20170523.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/data-cube-20140116.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/dcat-20140116.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/ma-ont-20120209.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/owl-time-20171019.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/void-20110303.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/references/odrl-20170916.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/participant/references/foaf-20140114.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/participant/references/org-20140412.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/participant/references/vcard-20140522.ttl> ,
-                                                                                                                 <file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/traceability/references/prov-o-20130430.ttl> ;
+<https://w3id.org/idsa/core> rdf:type owl:Ontology ;
                                                                                                      <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
                                                                                                      <http://purl.org/dc/terms/created> "2017-09-26"^^xsd:date ;
                                                                                                      <http://purl.org/dc/terms/modified> "2019-07-09"^^xsd:date ;
@@ -4006,7 +3994,7 @@ owl:Class rdf:type owl:Class .
                                        rdfs:subClassOf <https://w3id.org/idsa/core/Data> ;
                                        rdfs:comment "Custom or standardized structured data"@en ;
                                        rdfs:label "Structure"@en ;
-                                       rdfs:seeAlso <https://schema.org/StructuredValue> .
+                                       rdfs:seeAlso <http://schema.org/StructuredValue> .
 
 
 ###  https://w3id.org/idsa/core/SubscriptionPayment
@@ -4929,13 +4917,13 @@ _:genid25 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
                                       <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 _:genid26 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedBy> .
+
+_:genid27 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedAt> .
 
-_:genid27 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid28 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/activityDescription> .
-
-_:genid28 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedBy> .
 
 
 ###  https://w3id.org/idsa/core/ApiDocumentType
@@ -4990,10 +4978,10 @@ _:genid33 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
                                                                                   _:genid35 .
 
 _:genid34 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/request> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/offer> .
 
 _:genid35 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/offer> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/request> .
 
 
 ###  https://w3id.org/idsa/core/Certification
@@ -5072,10 +5060,10 @@ _:genid37 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
                                       <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 _:genid38 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/permission> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/prohibition> .
 
 _:genid39 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/prohibition> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/permission> .
 
 _:genid40 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/obligation> .
@@ -5143,28 +5131,28 @@ _:genid45 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
                                             <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 _:genid46 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> .
-
-_:genid47 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentPart> .
-
-_:genid48 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> .
-
-_:genid49 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> .
-
-_:genid50 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/language> .
 
-_:genid51 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid47 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/theme> .
 
-_:genid52 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid48 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/keyword> .
 
-_:genid53 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid49 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentRefinement> .
+
+_:genid50 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentPart> .
+
+_:genid51 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> .
+
+_:genid52 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> .
+
+_:genid53 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> .
 
 
 ###  https://w3id.org/idsa/core/Endpoint
@@ -5252,14 +5240,14 @@ _:genid59 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                                      <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 _:genid60 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/maintainer> .
+           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/inboundModelVersion> .
 
 _:genid61 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/curator> .
 
 _:genid62 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/inboundModelVersion> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/maintainer> .
 
 _:genid63 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/outboundModelVersion> .
@@ -5296,10 +5284,10 @@ _:genid66 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                                                                                  _:genid68 .
 
 _:genid67 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationParameterization> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationReference> .
 
 _:genid68 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationReference> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationParameterization> .
 
 
 ###  https://w3id.org/idsa/core/KeyType
@@ -5341,10 +5329,10 @@ _:genid69 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
                                                                                   _:genid74 .
 
 _:genid70 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issued> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/modelVersion> .
 
 _:genid71 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/modelVersion> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issued> .
 
 _:genid72 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issuerConnector> .
@@ -5377,13 +5365,13 @@ _:genid75 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                        <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 _:genid76 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/input> .
-
-_:genid77 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/output> .
 
-_:genid78 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid77 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/fault> .
+
+_:genid78 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/input> .
 
 
 ###  https://w3id.org/idsa/core/OperationBinding
@@ -5477,10 +5465,10 @@ _:genid89 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
                                                                                  _:genid91 .
 
 _:genid90 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/phoneNumber> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> .
 
 _:genid91 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/phoneNumber> .
 
 
 ###  https://w3id.org/idsa/core/PolicyTemplate
@@ -5572,10 +5560,10 @@ _:genid98 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                   <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 _:genid99 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/constraint> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> .
 
 _:genid100 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> .
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/constraint> .
 
 _:genid101 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assignee> .
@@ -6837,12 +6825,12 @@ _:genid104 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
 
 <https://w3id.org/idsa/core/DigitalContent> rdfs:comment "Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index." ;
                                             rdfs:label "Digital content"@en ;
-                                            rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html> ,
+                                            rdfs:seeAlso <http://schema.org/DataType> ,
+                                                         <http://schema.org/additionalType> ,
+                                                         <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html> ,
                                                          <http://www.ontodm.com/doku.php?id=ontodt> ,
                                                          <https://en.wikipedia.org/wiki/Digital_content> ,
-                                                         <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> ,
-                                                         <https://schema.org/DataType> ,
-                                                         <https://schema.org/additionalType> .
+                                                         <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> .
 
 
 <https://w3id.org/idsa/core/Endpoint> rdfs:comment "Access point of data exchange and service interaction."@en ;

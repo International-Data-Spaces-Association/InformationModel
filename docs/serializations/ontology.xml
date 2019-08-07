@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/Payment.ttl#"
-     xml:base="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/Payment.ttl"
+<rdf:RDF xmlns="https://w3id.org/idsa/core"
+     xml:base="https://w3id.org/idsa/core"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
      xmlns:ns1="http://creativecommons.org/ns#"
@@ -28,19 +28,7 @@
      xmlns:powder-s="http://www.w3.org/2007/05/powder-s#"
      xmlns:metamodel="https://w3id.org/idsa/metamodel/"
      xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
-    <owl:Ontology rdf:about="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/Payment.ttl">
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/adms-20130801.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/csvw-20170523.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/data-cube-20140116.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/dcat-20140116.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/ma-ont-20120209.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/owl-time-20171019.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/content/references/void-20110303.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/contract/references/odrl-20170916.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/participant/references/foaf-20140114.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/participant/references/org-20140412.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/participant/references/vcard-20140522.ttl"/>
-        <owl:imports rdf:resource="file:/D:/Fraunhofer/InformationModel/01_Widoco/MyGit/docs/config/../../model/traceability/references/prov-o-20130430.ttl"/>
+    <owl:Ontology rdf:about="https://w3id.org/idsa/core">
         <ns1:license rdf:resource="http://www.apache.org/licenses/LICENSE-2.0"/>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-09-26</terms:created>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-07-09</terms:modified>
@@ -6443,7 +6431,7 @@ do not affect the other.</metamodel:explanation>
         <rdfs:subClassOf rdf:resource="https://w3id.org/idsa/core/Data"/>
         <rdfs:comment xml:lang="en">Custom or standardized structured data</rdfs:comment>
         <rdfs:label xml:lang="en">Structure</rdfs:label>
-        <rdfs:seeAlso rdf:resource="https://schema.org/StructuredValue"/>
+        <rdfs:seeAlso rdf:resource="http://schema.org/StructuredValue"/>
     </owl:Class>
     
 
@@ -7936,19 +7924,19 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid26">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedAt"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedBy"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid27">
-                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/activityDescription"/>
+                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedAt"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid28">
-                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedBy"/>
+                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/activityDescription"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:abstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</metamodel:abstract>
@@ -8043,13 +8031,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid34">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/request"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/offer"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid35">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/offer"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/request"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -8183,13 +8171,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid38">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/permission"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/prohibition"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid39">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/prohibition"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/permission"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
@@ -8293,49 +8281,49 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid46">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/representation"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/language"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid47">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contentPart"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/theme"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid48">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/spatialCoverage"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/keyword"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid49">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/temporalCoverage"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contentRefinement"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid50">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/language"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contentPart"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid51">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/theme"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/spatialCoverage"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid52">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/keyword"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/temporalCoverage"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid53">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contentRefinement"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/representation"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:abstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</metamodel:abstract>
@@ -8474,7 +8462,8 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid60">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/maintainer"/>
+                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/inboundModelVersion"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
@@ -8486,8 +8475,7 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid62">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/inboundModelVersion"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/maintainer"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
@@ -8551,13 +8539,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid67">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/operationParameterization"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/operationReference"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid68">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/operationReference"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/operationParameterization"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -8623,13 +8611,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid70">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/issued"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/modelVersion"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid71">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/modelVersion"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/issued"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
@@ -8684,19 +8672,19 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid76">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/input"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/output"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid77">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/output"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/fault"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid78">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/fault"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/input"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:abstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</metamodel:abstract>
@@ -8854,13 +8842,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid90">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/phoneNumber"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/emailAddress"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid91">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/emailAddress"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/phoneNumber"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -9012,13 +9000,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid99">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/constraint"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/assigner"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid100">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/assigner"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/constraint"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
@@ -10665,12 +10653,12 @@ do not affect the other.</metamodel:explanation>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/DigitalContent">
         <rdfs:comment>Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index.</rdfs:comment>
         <rdfs:label xml:lang="en">Digital content</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://schema.org/DataType"/>
+        <rdfs:seeAlso rdf:resource="http://schema.org/additionalType"/>
         <rdfs:seeAlso rdf:resource="http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html"/>
         <rdfs:seeAlso rdf:resource="http://www.ontodm.com/doku.php?id=ontodt"/>
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Digital_content"/>
         <rdfs:seeAlso rdf:resource="https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl"/>
-        <rdfs:seeAlso rdf:resource="https://schema.org/DataType"/>
-        <rdfs:seeAlso rdf:resource="https://schema.org/additionalType"/>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/Endpoint">
         <rdfs:comment xml:lang="en">Access point of data exchange and service interaction.</rdfs:comment>
