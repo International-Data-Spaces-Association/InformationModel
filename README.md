@@ -1,3 +1,5 @@
+# This branch is an interim solution to bridge the time until the documentation ends up in the proper master branch. As soon as this is the case, this branch (gh-pages) must be deleted immediately.
+
 # The Industrial Data Space Information Model
 
 The Information Model is an RDFS/OWL-ontology covering the fundamental concepts of the [Industrial Data Space](https://industrialdataspace.org), i.e. the types of *digital contents* that are exchanged by *participants* by means of the Industrial Data Space *infrastructure components*. The model development is led by Fraunhofer [FIT](https://www.fit.fraunhofer.de/en) and [IAIS](https://www.iais.fraunhofer.de/en) with support by members of the [International Data Spaces Association](https://www.internationaldataspaces.org/) in context of the *Information Model* sub-working group (SWG4). The group is chaired by [Jaroslav Pullmann](https://github.com/jpullmann) ([Fraunhofer FIT](https://www.fit.fraunhofer.de/)) and [Sebastian Tramp](https://sebastian.tramp.name) ([eccenca GmbH](https://www.eccenca.com)).
@@ -22,6 +24,7 @@ Likewise the authors would like to thank numerous colleagues at Fraunhofer, acti
 There are following top-level files and directories:
 
 - `codes`: Code lists of enumerated *literal values* and unique, *singleton concept instances*. Code lists are the preferred way to encode and reference re-usable instances of a homogeneous value range.
+- `docs`: Documentation of the latest release of the Information Model and its classes.
 - `examples`: Example instances providing a guidance on recommended model usage and best practices.
 - `images`: Figures supporting the understanding and documentation of the Information Model
 - `metamodel`: Utility models related to annotation and processing of `model` concepts.

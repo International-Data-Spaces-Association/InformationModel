@@ -7,8 +7,8 @@ write_to_file()
      local file="Ontology.ttl"
 	 local version=$1
 	 if [ -z "$version" ] ; then
-		echo "Warning! No version parameter supplied. Assuming version 1.0.2"
-		version="1.0.2"
+		echo "Warning! No version parameter supplied. Assuming version 1.0.3"
+		version="1.0.3"
 	 fi
 
 
@@ -51,6 +51,7 @@ write_to_file()
 	echo '    owl:versionIRI "https://w3id.org/idsa/core/'$version'>";' >> "$file"
 	echo '    vann:preferredNamespaceUri "https://w3id.org/idsa/core/";' >> "$file"
 	echo '    vann:preferredNamespacePrefix "ids" ;' >> "$file"
+	echo '    rdfs:seeAlso <https://ids.semantic-interoperability.org> ;' >> "$file"
 	echo '    void:vocabulary' >> "$file"
 	echo '       <http://purl.org/vocab/vann/> ,' >> "$file"
 	echo '       <http://rdfs.org/ns/void#> ,' >> "$file"
@@ -106,10 +107,16 @@ write_to_file()
 			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
+	
 	# search for files in selcted folders
-	echo '# ----------------------------' >> "$file"
-	echo '# Imports of class files' >> "$file"
-	echo 'ids:' >> "$file"
+	for class in $(find metamodel/* -name "*.ttl")
+	do
+		if [[ -f $class ]]; then
+			echo "    owl:imports <$class> ; " >> "$file"
+		fi
+	done
+	
+	# search for files in selcted folders
 	for class in $(find taxonomies/* -name "*.ttl")
 	do
 		if [[ -f $class ]]; then
