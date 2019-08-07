@@ -1,5 +1,5 @@
 ---
-permalink: /README.md
+permalink: /README
 redirect_to: 'https://pnlinden.github.io/InformationModel/docs/index.html'
 ---
 
