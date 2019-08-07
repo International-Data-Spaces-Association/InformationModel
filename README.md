@@ -1,7 +1,5 @@
 ---
 title: The Industrial Data Space Information Model
-layout: post
-permalink: /README
 redirect_to: /docs/
 ---
 
