@@ -216,10 +216,15 @@ def replace_ontology_download_link():
 
 # Delete the local references from "ontology.json".
 def clean_up_json_ontology_owl_imports():
-    json_regex = r'"http:\/\/www\.w3\.org\/2002\/07\/owl#imports" : \[ (\{\s*"@id" : "file:.*\s*\},?\s)*\],'
+    regex_owl_import = r'"http:\/\/www\.w3\.org\/2002\/07\/owl#imports" : \[ (\{\s*"@id" : "file:.*\s*\},?\s)*\]'
+    regex_ontology_refs = r'file\:[\w\/\.\:]*'
+    new_ref = 'https://w3id.org/idsa/core'
+
     with open('../serializations/ontology.json', 'r') as fp:
         new_content = fp.read()
-        new_content = re.sub(json_regex, '', new_content)
+
+    new_content = re.sub(regex_owl_import, '', new_content)
+    new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
     with open('../serializations/ontology.json', 'w') as fp:
         fp.write(new_content)
@@ -228,14 +233,19 @@ def clean_up_json_ontology_owl_imports():
 
 # Delete the local references from "ontology.nt".
 def clean_up_nt_ontology_owl_imports():
-    nt_regex = r'<https:\/\/w3id\.org\/idsa\/core\/this> <http:\/\/www\.w3\.org\/2002\/07\/owl#imports>'
+    regex_owl_import = r'<file\:[\w\/\.\:]*> <http:\/\/www\.w3\.org\/2002\/07\/owl#imports>'
+    regex_ontology_refs = r'file\:[\w\/\.\:]*'
+    new_ref = 'https://w3id.org/idsa/core'
+
     new_content = ''
     with open('../serializations/ontology.nt', 'r') as fp:
         for line in fp.readlines():
-            res = re.search(nt_regex, line)
+            res = re.search(regex_owl_import, line)
             if res:
                 continue
             new_content += line
+
+    new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
     with open('../serializations/ontology.nt', 'w') as fp:
         fp.write(new_content)
@@ -244,10 +254,15 @@ def clean_up_nt_ontology_owl_imports():
 
 # Delete the local references from "ontology.ttl".
 def clean_up_ttl_ontology_owl_imports():
-    ttl_regex = r'owl\:imports\s(<file:.*\.ttl>\s[,;]\n\s*)*'
+    regex_owl_imports = r'owl\:imports\s(<file:.*\.ttl>\s[,;]\n\s*)*'
+    regex_ontology_refs = r'file\:[\w\/\.\:#]*'
+    new_ref = 'https://w3id.org/idsa/core'
+
     with open('../serializations/ontology.ttl', 'r') as fp:
         new_content = fp.read()
-        new_content = re.sub(ttl_regex, '', new_content)
+
+    new_content = re.sub(regex_owl_imports, '', new_content)
+    new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
     with open('../serializations/ontology.ttl', 'w') as fp:
         fp.write(new_content)
@@ -256,14 +271,19 @@ def clean_up_ttl_ontology_owl_imports():
 
 # Delete the local references from "ontology.xml".
 def clean_up_xml_ontology_owl_imports():
-    xml_regex = r'<owl\:imports\srdf\:resource="file\:.*\.ttl"\/>'
+    regex_owl_imports = r'<owl\:imports\srdf\:resource="file\:.*\.ttl"\/>'
+    regex_ontology_refs = r'file\:[\w\/\.\:#]*'
+    new_ref = 'https://w3id.org/idsa/core'
+
     new_content = ''
     with open('../serializations/ontology.xml', 'r') as fp:
         for line in fp.readlines():
-            res = re.search(xml_regex, line)
+            res = re.search(regex_owl_imports, line)
             if res:
                 continue
             new_content += line
+
+    new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
     with open('../serializations/ontology.xml', 'w') as fp:
         fp.write(new_content)
@@ -367,7 +387,8 @@ def adjust_namespaces():
         ('default namespace', 'https://w3id.org/idsa/core/this', '-delete'),
         ('wiki', 'https://en.wikipedia.org/wiki', '-delete'),
         ('ddi-cv', 'http://www.ddialliance.org/Specification/DDI-CV', '-delete'),
-        ('wiki', 'https://github.com/mqtt/mqtt.github.io/wiki', '-delete')
+        ('wiki', 'https://github.com/mqtt/mqtt.github.io/wiki', '-delete'),
+        ('default namespace', r'file\:[\w\/\.\:]*', '-delete')
     ]
 
     for ns in namespaces_to_adjust:
