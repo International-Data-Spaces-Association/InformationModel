@@ -7,40 +7,57 @@
 @prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
 
-# shaclvalidate.sh -v -datafile $f -shapesfile ids_shapes.ttl
+# shaclvalidate.sh -v -datafile complete_ontology.ttl -shapesfile tbox-shapes.ttl
 
 # Declaration of prefixes for reuse within the shapes
 shapes:
 	a owl:Ontology ;
 	sh:declare [
-		sh:prefix "owl" ;
-		sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
-	] ;	
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
 	sh:declare [
 		sh:prefix "rdfs" ;
 		sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
-	] 	
+	] ;
+	sh:declare [
+		sh:prefix "owl" ;
+		sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
+	] ;	
+	.
+	
+# SPARQL-based "custom" targets match definitions within IDS namespace
+shapes:IDSPropertyTarget
+	a sh:SPARQLTarget ;		
+	sh:prefixes shapes: ;
+	sh:select """
+		SELECT ?this			
+		WHERE {
+			{ ?this a owl:ObjectProperty } UNION { ?this a owl:DatatypeProperty }				
+			FILTER (strstarts(str(?this), "https://w3id.org/idsa/core/") )
+		}			
+		""" ;
+	.
+	
+shapes:IDSResourceTarget
+	a sh:SPARQLTarget ;		
+	sh:prefixes shapes: ;
+	sh:select """
+		SELECT ?this			
+		WHERE {
+					{ ?this a owl:Class	}
+			UNION 	{ ?this a rdfs:Class }
+			UNION 	{ ?this a owl:ObjectProperty }
+			UNION 	{ ?this a owl:DatatypeProperty }				
+			FILTER (strstarts(str(?this), "https://w3id.org/idsa/core/") )
+		}			
+		""" ;
 	.
 
 # T-box shapes
-shapes:DocumenationShape
+shapes:TermDocumenation
 	a sh:NodeShape ;
-	sh:target [
-		# SPARQL-based "custom target"
-		a sh:SPARQLTarget ;		
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this
-			# Matches definitions within IDS namespace
-			WHERE {
-						{ ?this a owl:Class	}
-				UNION 	{ ?this a rdfs:Class }
-				UNION 	{ ?this a owl:ObjectProperty }
-				UNION 	{ ?this a owl:DatatypeProperty }				
-				FILTER (strstarts(str(?this), "https://w3id.org/idsa/core/") )
-			}			
-			""" ;
-	] ;	
+	sh:target shapes:IDSResourceTarget ;
 	
 	# rdfs:label@en
 	sh:sparql [
@@ -48,10 +65,10 @@ shapes:DocumenationShape
 		sh:message "A label in English is missing." ;
 		sh:prefixes shapes: ;
 		sh:select """
-			SELECT $this ( rdfs:label AS ?path) ?value
+			SELECT $this ( rdfs:label AS ?path ) ?value
 			WHERE {
-				$this  rdfs:label ?value .
-				FILTER (!isLiteral(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))
+				OPTIONAL { $this  rdfs:label ?value }
+				FILTER (!bound(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))
 			}
 			""" ;
 	] ;
@@ -63,29 +80,19 @@ shapes:DocumenationShape
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT $this ( rdfs:label AS ?path) ?value
-			WHERE {
-				$this  rdfs:comment ?value .
-				FILTER (!isLiteral(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))
+			WHERE {				
+				OPTIONAL { $this rdfs:comment ?value }				
+				FILTER (!bound(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))
 			}
 			""" ;
 	] ;
 	.
 
-shapes:PropertyShape
+shapes:PropertyDomainRange
 	a sh:NodeShape ;
 	# Warning only, since it might have been omitted by purpose or defined by a super-property
 	sh:severity sh:Warning ;
-	sh:target [		
-		a sh:SPARQLTarget ;		
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this			
-			WHERE {
-				{ ?this a owl:ObjectProperty } UNION { ?this a owl:DatatypeProperty }				
-				FILTER (strstarts(str(?this), "https://w3id.org/idsa/core/") )
-			}			
-			""" ;
-	] ;	
+	sh:target shapes:IDSPropertyTarget;
 	
 	# rdfs:range
 	sh:sparql [
@@ -111,4 +118,33 @@ shapes:PropertyShape
 			}
 			""" ;
 	] ;	
+	.
+
+shapes:PropertyDomainRangeClasses
+	a sh:NodeShape ;	
+	sh:target [		
+		a sh:SPARQLTarget ;		
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this
+			WHERE {
+						{ _:p rdfs:domain ?this }
+				UNION 	{ _:p2 rdfs:range ?this }				
+				FILTER (strstarts(str(?this), "https://w3id.org/idsa/core/") )
+			}			
+			""" ;
+	] ;	
+	
+	# property target class
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "Property target class is undefined." ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this
+			WHERE {
+				NOT EXISTS { ?this rdf:type _:type }
+			}
+			""" ;
+	] ;
 	.
