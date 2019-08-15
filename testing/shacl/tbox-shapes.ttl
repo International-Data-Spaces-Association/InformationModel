@@ -79,7 +79,7 @@ shapes:TermDocumenation
 		sh:message "A comment in English is missing." ;
 		sh:prefixes shapes: ;
 		sh:select """
-			SELECT $this ( rdfs:label AS ?path) ?value
+			SELECT $this ( rdfs:comment AS ?path) ?value
 			WHERE {				
 				OPTIONAL { $this rdfs:comment ?value }				
 				FILTER (!bound(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))

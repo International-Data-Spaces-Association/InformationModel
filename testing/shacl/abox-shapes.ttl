@@ -26,6 +26,34 @@ shapes:
 	] ;	
 	.
 	
+shapes:ValueLabel
+	a sh:NodeShape ;
+	sh:target [		
+		a sh:SPARQLTarget ;		
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this
+			WHERE {
+				?this rdf:type ?type
+				FILTER (strstarts(str(?type), "https://w3id.org/idsa/core/") )
+			}			
+			""" ;
+	] ;		
+	# rdfs:label@en
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "A label in English is missing." ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT $this ( rdfs:label AS ?path ) ?value
+			WHERE {
+				OPTIONAL { $this  rdfs:label ?value }
+				FILTER (!bound(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))
+			}
+			""" ;
+	] ;
+	.
+	
 shapes:ObjectClass
 	a sh:NodeShape ;	
 	sh:target [		
