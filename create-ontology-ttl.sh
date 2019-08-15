@@ -101,7 +101,7 @@ write_to_file()
 	echo '# ----------------------------' >> "$file"
 	echo '# Imports of class files' >> "$file"
 	echo 'ids:' >> "$file"
-	for class in $(find model/* -name "*.ttl")
+	for class in $(find model/* -maxdepth 1 -name "*.ttl")
 	do
 		if [[ -f $class ]]; then
 			echo "    owl:imports <$class> ; " >> "$file"
@@ -109,15 +109,22 @@ write_to_file()
 	done
 	
 	# search for files in selcted folders
-	for class in $(find metamodel/* -name "*.ttl")
+	#for class in $(find metamodel/* -name "*.ttl")
+	#do
+	#	if [[ -f $class ]]; then
+	#		echo "    owl:imports <$class> ; " >> "$file"
+	#	fi
+	#done
+	
+	# search for files in selcted folders
+	for class in $(find taxonomies/* -maxdepth 1 -name "*.ttl")
 	do
 		if [[ -f $class ]]; then
 			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
 	
-	# search for files in selcted folders
-	for class in $(find taxonomies/* -name "*.ttl")
+	for class in $(find codes/* -maxdepth 1 -name "*.ttl")
 	do
 		if [[ -f $class ]]; then
 			echo "    owl:imports <$class> ; " >> "$file"
