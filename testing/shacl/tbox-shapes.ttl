@@ -1,0 +1,114 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+
+
+# shaclvalidate.sh -v -datafile $f -shapesfile ids_shapes.ttl
+
+# Declaration of prefixes for reuse within the shapes
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "owl" ;
+		sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
+	] ;	
+	sh:declare [
+		sh:prefix "rdfs" ;
+		sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+	] 	
+	.
+
+# T-box shapes
+shapes:DocumenationShape
+	a sh:NodeShape ;
+	sh:target [
+		# SPARQL-based "custom target"
+		a sh:SPARQLTarget ;		
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this
+			# Matches definitions within IDS namespace
+			WHERE {
+						{ ?this a owl:Class	}
+				UNION 	{ ?this a rdfs:Class }
+				UNION 	{ ?this a owl:ObjectProperty }
+				UNION 	{ ?this a owl:DatatypeProperty }				
+				FILTER (strstarts(str(?this), "https://w3id.org/idsa/core/") )
+			}			
+			""" ;
+	] ;	
+	
+	# rdfs:label@en
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "A label in English is missing." ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT $this ( rdfs:label AS ?path) ?value
+			WHERE {
+				$this  rdfs:label ?value .
+				FILTER (!isLiteral(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))
+			}
+			""" ;
+	] ;
+	
+	# rdfs:comment@en
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "A comment in English is missing." ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT $this ( rdfs:label AS ?path) ?value
+			WHERE {
+				$this  rdfs:comment ?value .
+				FILTER (!isLiteral(?value) || strlen(?value) = 0 ||  !langMatches(lang(?value), "en"))
+			}
+			""" ;
+	] ;
+	.
+
+shapes:PropertyShape
+	a sh:NodeShape ;
+	# Warning only, since it might have been omitted by purpose or defined by a super-property
+	sh:severity sh:Warning ;
+	sh:target [		
+		a sh:SPARQLTarget ;		
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this			
+			WHERE {
+				{ ?this a owl:ObjectProperty } UNION { ?this a owl:DatatypeProperty }				
+				FILTER (strstarts(str(?this), "https://w3id.org/idsa/core/") )
+			}			
+			""" ;
+	] ;	
+	
+	# rdfs:range
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "Property range is missing." ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT $this
+			WHERE {
+				NOT EXISTS { ?this rdfs:range _:range }
+			}
+			""" ;
+	] ;
+	# rdfs:domain
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "Property domain is missing." ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT $this
+			WHERE {
+				NOT EXISTS { ?this rdfs:domain _:domain }
+			}
+			""" ;
+	] ;	
+	.
