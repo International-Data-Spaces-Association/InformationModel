@@ -26,14 +26,15 @@ ids:
     dct:creator <http://sebastian.tramp.name> ;
     dct:contributor _:AndreasMueller ;
     dct:contributor _:AnnaKasprzik ;
+    dct:contributor <https://github.com/sebbader> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date;
-    dct:modified "2019-07-09"^^xsd:date;
+    dct:modified "2019-08-16"^^xsd:date;
     owl:versionInfo "1.0.3";
     owl:versionIRI "https://w3id.org/idsa/core/1.0.3>";
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/";
     vann:preferredNamespacePrefix "ids" ;
-    rdfs:seeAlso <https://ids.semantic-interoperability.org> ;
+    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
     void:vocabulary
        <http://purl.org/vocab/vann/> ,
        <http://rdfs.org/ns/void#> ,
@@ -76,6 +77,10 @@ _:AndreasMueller
 _:AnnaKasprzik a dct:Agent, foaf:Person ;
     foaf:name "Anna Kasprzik";
 .
+
+<https://github.com/sebbader> a dct:Agent, foaf:Person ;
+    foaf:name "Sebastian Bader";
+.
 # ----------------------------
 # Imports of class files
 ids:
@@ -102,16 +107,6 @@ ids:
     owl:imports <model/content/DigitalContent.ttl> ; 
     owl:imports <model/content/Language.ttl> ; 
     owl:imports <model/content/MediaType.ttl> ; 
-    owl:imports <model/content/references/adms-20130801.ttl> ; 
-    owl:imports <model/content/references/csvw-20170523.ttl> ; 
-    owl:imports <model/content/references/data-cube-20140116.ttl> ; 
-    owl:imports <model/content/references/dcat-20140116.ttl> ; 
-    owl:imports <model/content/references/dcelements-20120614.ttl> ; 
-    owl:imports <model/content/references/dcterms-20120614.ttl> ; 
-    owl:imports <model/content/references/dctype-20120614.ttl> ; 
-    owl:imports <model/content/references/ma-ont-20120209.ttl> ; 
-    owl:imports <model/content/references/owl-time-20171019.ttl> ; 
-    owl:imports <model/content/references/void-20110303.ttl> ; 
     owl:imports <model/content/Representation.ttl> ; 
     owl:imports <model/content/Resource.ttl> ; 
     owl:imports <model/context/SpatialEntity.ttl> ; 
@@ -123,7 +118,6 @@ ids:
     owl:imports <model/contract/Payment.ttl> ; 
     owl:imports <model/contract/PolicyTemplate.ttl> ; 
     owl:imports <model/contract/PricingModel.ttl> ; 
-    owl:imports <model/contract/references/odrl-20170916.ttl> ; 
     owl:imports <model/contract/Rule.ttl> ; 
     owl:imports <model/governance/Certification.ttl> ; 
     owl:imports <model/governance/License.ttl> ; 
@@ -138,10 +132,6 @@ ids:
     owl:imports <model/infrastructure/PublicKey.ttl> ; 
     owl:imports <model/participant/IndustrialClassification.ttl> ; 
     owl:imports <model/participant/Participant.ttl> ; 
-    owl:imports <model/participant/references/foaf-20140114.ttl> ; 
-    owl:imports <model/participant/references/org-20140412.ttl> ; 
-    owl:imports <model/participant/references/vcard-20140522.ttl> ; 
-    owl:imports <model/quality/references/dqv-20161215.ttl> ; 
     owl:imports <model/security/AuthInfo.ttl> ; 
     owl:imports <model/security/AuthStandard.ttl> ; 
     owl:imports <model/security/SecurityProfile.ttl> ; 
@@ -151,10 +141,6 @@ ids:
     owl:imports <model/shared/Unit.ttl> ; 
     owl:imports <model/traceability/Activity.ttl> ; 
     owl:imports <model/traceability/ManagedEntity.ttl> ; 
-    owl:imports <model/traceability/references/prov-o-20130430.ttl> ; 
-    owl:imports <metamodel/Annotation.ttl> ; 
-    owl:imports <metamodel/Validation.ttl> ; 
-    owl:imports <metamodel/View.ttl> ; 
     owl:imports <taxonomies/Certification.ttl> ; 
     owl:imports <taxonomies/DigitalContent.ttl> ; 
     owl:imports <taxonomies/Message.ttl> ; 
@@ -162,4 +148,37 @@ ids:
     owl:imports <taxonomies/Parameter.ttl> ; 
     owl:imports <taxonomies/Representation.ttl> ; 
     owl:imports <taxonomies/Resource.ttl> ; 
+    owl:imports <codes/AccessAgreementToSecureConsumerTemplate.ttl> ; 
+    owl:imports <codes/AccessOfferToSecureConsumerTemplate.ttl> ; 
+    owl:imports <codes/AccessRequestToSecureConsumerTemplate.ttl> ; 
+    owl:imports <codes/Action.ttl> ; 
+    owl:imports <codes/AgreementTemplate.ttl> ; 
+    owl:imports <codes/BrokerQueryScope.ttl> ; 
+    owl:imports <codes/CertificationLevel.ttl> ; 
+    owl:imports <codes/ContentType.ttl> ; 
+    owl:imports <codes/FaultPropagationRule.ttl> ; 
+    owl:imports <codes/IndustrialClassification.ttl> ; 
+    owl:imports <codes/KeyType.ttl> ; 
+    owl:imports <codes/Language.ttl> ; 
+    owl:imports <codes/License.ttl> ; 
+    owl:imports <codes/MediaType.ttl> ; 
+    owl:imports <codes/MessageExchangePattern.ttl> ; 
+    owl:imports <codes/MinimalOfferTemplate.ttl> ; 
+    owl:imports <codes/MinimalRequestTemplate.ttl> ; 
+    owl:imports <codes/OfferTemplate.ttl> ; 
+    owl:imports <codes/PageReference.ttl> ; 
+    owl:imports <codes/Protocol.ttl> ; 
+    owl:imports <codes/QueryLanguage.ttl> ; 
+    owl:imports <codes/RejectionReason.ttl> ; 
+    owl:imports <codes/RequestTemplate.ttl> ; 
+    owl:imports <codes/SecurityGuarantee.ttl> ; 
+    owl:imports <codes/SortOrder.ttl> ; 
+    owl:imports <codes/SpatialRestrictedUsageAgreementTemplate.ttl> ; 
+    owl:imports <codes/SpatialRestrictedUsageOfferTemplate.ttl> ; 
+    owl:imports <codes/SpatialRestrictedUsageRequestTemplate.ttl> ; 
+    owl:imports <codes/Standard.ttl> ; 
+    owl:imports <codes/TimelRestrictedUsageOfferTemplate.ttl> ; 
+    owl:imports <codes/TimeRestrictedUsageAgreementTemplate.ttl> ; 
+    owl:imports <codes/TimeRestrictedUsageRequestTemplate.ttl> ; 
+    owl:imports <codes/TokenFormat.ttl> ; 
 . 
