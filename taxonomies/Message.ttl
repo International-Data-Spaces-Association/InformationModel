@@ -82,7 +82,7 @@ ids:SelfDescriptionResponse a owl:Class ;
 # Connector-related Messages
 # --------------------------
 
-ids:ConnectorRuntimeNotificationMessage a owl:Class;
+ids:ConnectorNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     idsm:abstract true ;
     rdfs:label "Connector Runtime Notification Message"@en ;
@@ -91,53 +91,75 @@ ids:ConnectorRuntimeNotificationMessage a owl:Class;
 ids:affectedConnector a owl:ObjectProperty;
     idsm:referenceByUrl true;
     rdfs:label "affectedConnector"@en;
-    rdfs:domain ids:ConnectorRuntimeNotificationMessage;
+    rdfs:domain ids:ConnectorNotificationMessage;
     rdfs:range ids:Connector;
     rdfs:comment "References the connector that is affected by the runtime condition change."@en.
 
 ids:ConnectorAvailableMessage a owl:Class;
-    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
     rdfs:label "Connector Available Message"@en ;
     rdfs:comment "Event notifying the recipient(s) about the availability of a new connector. The payload of the message must contain the new connector's self-description."@en.
 
 ids:ConnectorUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
     rdfs:label "Connector Unavailable Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that a connector will be unavailable and never be available again."@en.
 
-ids:ConnectorTemporarilyUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
-    rdfs:label "Connector Temporarlily Unavailable Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a connector will be temporarily unavailable and most likely be available again in the future."@en.
+ids:ConnectorInactiveMessage a owl:Class;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
+    rdfs:label "Connector Inactive Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) that a connector will be inactive and most likely be available again in the future."@en.
 
-ids:ConnectorConfigurationChangeMessage a owl:Class;
-    rdfs:subClassOf ids:ConnectorRuntimeNotificationMessage ;
-    rdfs:label "Connector Configuration Change Message"@en ;
+ids:ConnectorUpdateMessage a owl:Class;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
+    rdfs:label "Connector Update Message"@en ;
     rdfs:comment "Event notifying the recipient(s) about a connector's configuration change. The payload of the message must contain the updated connector's self-description."@en.
+
+ids:ConnectorCertificateGrantedMessage a owl:Class;
+	rdfs:subClassOf ids:ConnectorNotificationMessage ;
+	idfs:label "Connector Certificate Granted Message"@en ;
+	rdfs:comment "Whenever a Connector has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
+
+ids:ConnectorCertificateRevokedMessage a owl:Class;
+	rdfs:subClassOf ids:ConnectorNotificationMessage ;
+	idfs:label "Connector Certificate Granted Message"@en ;
+	rdfs:comment "Indicates that a (previously certified) Connector is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
 
 # Participant-related Messages
 # ----------------------------
+
+ids:ParticipantAvailableMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Participant Available Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) about the availability of a new participant. The payload of the message must contain the new connector's self-description."@en.
+
+ids:ParticipantUnavailableMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Participant Unavailable Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) that a participant will be unavailable and never be available again."@en.
 
 ids:ParticipantCertificateGrantedMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Participant Certificate Granted Message"@en ;
     rdfs:comment "Whenever a Participant has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
 
-ids:ParticipantCertificateUnavailableMessage a owl:Class;
+ids:ParticipantCertificateRevokedMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Participant Certificate Unavailable Message"@en ;
     rdfs:comment "Indicates that a (previously certified) Participant is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
-ids:ParticipantCertificateSuspendedMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Participant Certificate Suspended Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a Participant is temporarily no more certified."@en.
-
-ids:ParticipantInformationChangedMessage a owl:Class;
+ids:ParticipantUpdateMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Participant Information Changed Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that information describing this Participant has changed. This event is mainly intended for information describing the Participant that is NOT a direct subject of the certification process."@en.
+
+ids:revokeReason
+    a owl:DatatypeProperty;
+    rdfs:label "revoke reason"@en;
+    rdfs:domain ids:ConnectorCertificateRevokedMessage, ids:ParticipantCertificateRevokedMessage ;
+    rdfs:range xsd:string;
+    rdfs:comment "Plain Text containing the reason for revoking an existing certificate of an infrastructure component, e.g. a connector or participant."@en.
 
 
 # Broker Messages
@@ -163,7 +185,7 @@ ids:QueryLanguage a owl:Class;
     rdfs:comment "Class of query languages in which query strings may be formalized."@en.
 
 ids:queryLanguage a owl:ObjectProperty;
-    rdfs:domain ids:BrokerQueryMessage;
+    rdfs:domain ids:QueryMessage, ids:QueryLanguage;
     rdfs:range ids:QueryLanguage;
     rdfs:label "queryLanguage"@en;
     rdfs:comment "If queryPayloadType refers to a query string, this property specifies the language of the query."@en.
@@ -188,7 +210,7 @@ ids:baseContractOffer a owl:ObjectProperty;
     rdfs:comment "The basic offered contract that the contract request message refers to."@en.
 
 ids:ContractOfferMessage a owl:Class ;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:NotificationMessage, ids:ResponseMessage ;
     rdfs:label "Contract Offer Message"@en;
     rdfs:comment "Message containing a offered content contract (as offered by the data provider to the data consumer) in the associated payload (which is an instance of ContractOffer)."@en.
 
@@ -224,21 +246,21 @@ ids:AccessTokenResponse a owl:Class ;
 # Resource Exchange
 # -----------------
 
-ids:ArtifactAvailableMessage a owl:Class ;
+ids:ResourceAvailableMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Artifact Available Message"@en;
-    rdfs:comment "Message indicating availability of a specific artifact."@en;
+    rdfs:label "Resource Available Message"@en;
+    rdfs:comment "Message indicating availability of a specific resource."@en;
     idsm:validation [
-        idsm:forProperty ids:availableArtifact;
+        idsm:forProperty ids:availableResource;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:availableArtifact rdf:type owl:DatatypeProperty ;
+ids:availableResource rdf:type owl:DatatypeProperty ;
     idsm:referenceByUri true;
-    rdfs:domain ids:ArtifactAvailableMessage;
-    rdfs:range ids:Artifact ;
-    rdfs:label "Available Artifact"@en ;
-    rdfs:comment "References a new artifact from an availability indication."@en.
+    rdfs:domain ids:ResourceAvailableMessage;
+    rdfs:range ids:Resource ;
+    rdfs:label "Available Resource"@en ;
+    rdfs:comment "References a new resource from an availability indication."@en.
 
 ids:InvokeOperationMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
@@ -285,7 +307,7 @@ ids:MessageProcessedNotification a owl:Class ;
     ].
 
 ids:OperationResultMessage  a owl:Class ;
-    rdfs:subClassOf ids:MessageProcessedNotification;
+    rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Operation Result Message"@en;
     rdfs:comment "Message indicating that the result of a former InvokeOperation message is available. May transfer the result data in its associated payload section."@en.
 
@@ -309,3 +331,13 @@ ids:ArtifactResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Artifact Response"@en;
     rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
+
+
+# Communication with Clearing House
+# ---------------------------------
+
+ids:LogNotification a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    idsm:abstract true ;
+    rdfs:label "Log Notification"@en ;
+    rdfs:comment "Log notification which is used to communicate with the clearing house."@en.
