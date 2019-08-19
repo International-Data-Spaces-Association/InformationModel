@@ -31,21 +31,21 @@ ids:Audio a owl:Class;
     # language is optional
     rdfs:subClassOf ids:DigitalContent, dctype:Sound ;
     rdfs:label "Audio"@en ;
-    rdfs:comment "Content intended for auditive perception, requires an audio output device (i.e. a loudspeaker) to present the contents.";
+    rdfs:comment "Content intended for auditive perception, requires an audio output device (i.e. a loudspeaker) to present the contents."@en;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.3> .
 
 ids:Image a owl:Class;
     rdfs:subClassOf ids:DigitalContent, dctype:StillImage ;
-    rdfs:label "Image";
-    rdfs:comment "Static content intended for visual perception/interpretation, requires a display device (i.e. a screen) to present the contents.";
+    rdfs:label "Image"@en;
+    rdfs:comment "Static content intended for visual perception/interpretation, requires a display device (i.e. a screen) to present the contents."@en;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.2> .
 
 ids:Video
     # language is optional
     a owl:Class;
     rdfs:subClassOf ids:DigitalContent, dctype:MovingImage ;
-    rdfs:label "Video";
-    rdfs:comment "Dynamic content intended for visual and auditive perception, combines requirements of image and audio Content Types, while imposing further requirements on video decoding etc.";
+    rdfs:label "Video"@en;
+    rdfs:comment "Dynamic content intended for visual and auditive perception, combines requirements of image and audio Content Types, while imposing further requirements on video decoding etc."@en;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.4> .
 
 ids:Software # .. or "Code" ?
@@ -59,14 +59,14 @@ ids:Software # .. or "Code" ?
 
 ids:Container a owl:Class;
    rdfs:subClassOf ids:DigitalContent, dctype:Collection ; # ISO-19115 "aggregate"; Multipart
-   rdfs:label "Container";
-   rdfs:comment "Container composed of multiple (individually defined) parts.";
+   rdfs:label "Container"@en;
+   rdfs:comment "Container composed of multiple (individually defined) parts."@en;
    rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-5.1> ;
    .
 
 ids:OpaqueContent a owl:Class;
    rdfs:subClassOf ids:DigitalContent ;
-   rdfs:label "Opaque content";
+   rdfs:label "Opaque content"@en;
    rdfs:comment "Opaque, not further specified type of custom, binary content."@en ;  
    .
 
