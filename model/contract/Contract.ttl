@@ -14,7 +14,7 @@ ids:Contract
     rdfs:subClassOf odrl:Policy;
     rdfs:label "Contract"@en ;
     idsm:abstract true;
-    rdfs:comment "Abstract set of rules governing the usage of a Resource.";
+    rdfs:comment "Abstract set of rules governing the usage of a Resource."@en;
     idsm:validation [
         idsm:forProperty ids:permission;
         idsm:relationType idsm:OneToMany;
@@ -33,7 +33,7 @@ ids:ContractAgreement
     a owl:Class;
     rdfs:subClassOf ids:Contract, odrl:Agreement;
     rdfs:label "Contract agreement"@en ;
-    rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties.";
+    rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties."@en;
     # End is optional
     idsm:validation [
         idsm:forProperty ids:contractStart;
@@ -45,7 +45,7 @@ ids:ContractRequest
     a owl:Class;
     rdfs:subClassOf ids:Contract, odrl:Request;
     rdfs:label "Contract request"@en ;
-    rdfs:comment "Contract issued by the Data Consumer requesting the usage of a Resource at particular conditions." ;
+    rdfs:comment "Contract issued by the Data Consumer requesting the usage of a Resource at particular conditions."@en;
     owl:disjointWith ids:ContractAgreement, ids:ContractOffer .
 
 ids:ContractOffer
