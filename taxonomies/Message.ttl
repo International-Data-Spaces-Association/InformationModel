@@ -165,20 +165,17 @@ ids:revokeReason
 # Broker Messages
 # ---------------
 
-ids:BrokerQueryScope a owl:Class;
-    rdfs:label "RejectionReason"@en ;
-    rdfs:comment "Class of scopes that may limit the space of broker query results."@en.
 
-ids:BrokerQueryMessage a owl:Class;
+ids:CatalogQueryMessage a owl:Class;
     rdfs:subClassOf ids:QueryMessage;
     rdfs:label "Broker Query Message"@en ;
     rdfs:comment "Query command intended to be consumed by a Broker."@en.
 
-ids:brokerQueryScope a owl:ObjectProperty;
-    rdfs:label "brokerQueryScope"@en;
-    rdfs:domain ids:BrokerQueryMessage;
-    rdfs:range ids:BrokerQueryScope;
-    rdfs:comment "The scope of a query defined in a BrokerQuery message."@en.
+ids:targetActive a owl:DatatypeProperty;
+    rdfs:domain ids:CatalogQueryMessage;
+    rdfs:range ids:Connector#active;
+    rdfs:label "target Active"@en;
+    rdfs:comment "Determines whether results from all / only active / only inactive connectors should be returned from a query. "@en.
 
 ids:QueryLanguage a owl:Class;
     rdfs:label "QueryLanguage"@en ;
