@@ -224,11 +224,24 @@ ids:ContractRejectionMessage a owl:Class ;
     rdfs:label "Contract Rejection Message"@en;
     rdfs:comment "Message indicating rejection of a contract."@en.
 
+ids:ContractSupplementMessage a owl:Class ;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Contract Supplement Message"@en;
+    rdfs:comment "Message containing supplemental information to access resources of a contract (e.g. resource access tokens)."@en.
+
 ids:contractRejectionReason a owl:DatatypeProperty;
     rdfs:label "Contract Rejection Reason"@en ;
     rdfs:domain ids:ContractRejectionMessage;
     rdfs:range rdf:PlainLiteral;
     rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
+
+ids:agreedContract a owl:ObjectProperty;
+    rdfs:label "approved Contract"@en;
+    rdfs:domain ids:ContractSupplementMessage;
+    rdfs:range ids:ContractAgreement;
+    rdfs:comment "References the Contract Agreement of two parties."@en.
+
+
 
 # Security-related Messages
 # -------------------------

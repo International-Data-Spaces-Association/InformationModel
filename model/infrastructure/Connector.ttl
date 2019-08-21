@@ -70,3 +70,8 @@ ids:catalog a owl:ObjectProperty;
     rdfs:label "catalog"@en;
     rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
 
+ids:active a owl:DataProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range xsd:boolean;
+    rdfs:label "activity status"@en;
+    rdfs:comment "Indicates whether the Connector is in an active state, i.e. capable of processing requests ."@en. 
