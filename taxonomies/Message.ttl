@@ -85,8 +85,8 @@ ids:SelfDescriptionResponse a owl:Class ;
 ids:ConnectorNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     idsm:abstract true ;
-    rdfs:label "Connector Runtime Notification Message"@en ;
-    rdfs:comment "Superclass of all messages, indicating a change of a connector's runtime conditions."@en.
+    rdfs:label "Connector Notification Message"@en ;
+    rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en.
 
 ids:affectedConnector a owl:ObjectProperty;
     idsm:referenceByUrl true;
@@ -128,29 +128,42 @@ ids:ConnectorCertificateRevokedMessage a owl:Class;
 
 # Participant-related Messages
 # ----------------------------
+ids:ParticipantNotificationMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    idsm:abstract true ;
+    rdfs:label "Participant Notification Message"@en ;
+    rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en.
+
+ids:affectedParticipant a owl:ObjectProperty;
+    idsm:referenceByUrl true;
+    rdfs:label "affected Participant"@en;
+    rdfs:domain ids:ParticipantNotificationMessage;
+    rdfs:range ids:Participant;
+    rdfs:comment "References the participant that is referenced in the participant-related notification messages."@en.
+
 
 ids:ParticipantAvailableMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Available Message"@en ;
     rdfs:comment "Event notifying the recipient(s) about the availability of a new participant. The payload of the message must contain the new connector's self-description."@en.
 
 ids:ParticipantUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Unavailable Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that a participant will be unavailable and never be available again."@en.
 
 ids:ParticipantCertificateGrantedMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Certificate Granted Message"@en ;
     rdfs:comment "Whenever a Participant has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
 
 ids:ParticipantCertificateRevokedMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Certificate Unavailable Message"@en ;
     rdfs:comment "Indicates that a (previously certified) Participant is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
 ids:ParticipantUpdateMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Information Changed Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that information describing this Participant has changed. This event is mainly intended for information describing the Participant that is NOT a direct subject of the certification process."@en.
 
@@ -350,4 +363,4 @@ ids:LogNotification a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     idsm:abstract true ;
     rdfs:label "Log Notification"@en ;
-    rdfs:comment "Log notification which is used to communicate with the clearing house."@en.
+    rdfs:comment "Log notification which can be used to transfer logs e.g. to the clearing house."@en.
