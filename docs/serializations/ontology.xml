@@ -7923,20 +7923,20 @@ do not affect the other.</metamodel:explanation>
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/core/Activity">
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid26">
-                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedBy"/>
+                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/activityDescription"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid27">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedAt"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedBy"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid28">
-                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/activityDescription"/>
+                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/startedAt"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:abstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</metamodel:abstract>
@@ -8397,13 +8397,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid58">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/accessUrl"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/protocol"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid59">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/protocol"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/accessUrl"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -8462,20 +8462,20 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid60">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/maintainer"/>
+                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/inboundModelVersion"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid61">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/curator"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/maintainer"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid62">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/inboundModelVersion"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/curator"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
@@ -8699,13 +8699,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid79">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/apiDocument"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/boundOperation"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid80">
                 <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/boundOperation"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/apiDocument"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -8756,15 +8756,15 @@ do not affect the other.</metamodel:explanation>
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/core/ParameterGroup">
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid83">
-                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/paramGroupingOperator"/>
+                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotEmpty"/>
+                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/paramGroupMember"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid84">
-                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotEmpty"/>
-                <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/paramGroupMember"/>
+                <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/paramGroupingOperator"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -8787,25 +8787,25 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid85">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/corporateEmailAddress"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberPerson"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid86">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberParticipant"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/corporateEmailAddress"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid87">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/industrialClassification"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberParticipant"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid88">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberPerson"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/industrialClassification"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -8842,13 +8842,13 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid90">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/phoneNumber"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/emailAddress"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid91">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/emailAddress"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/phoneNumber"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
@@ -8953,25 +8953,25 @@ do not affect the other.</metamodel:explanation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid94">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/sample"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/resourceEndpoint"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid95">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contractOffer"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/resourcePart"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid96">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/resourceEndpoint"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contractOffer"/>
             </rdf:Description>
         </metamodel:validation>
         <metamodel:validation>
             <rdf:Description rdf:nodeID="genid97">
                 <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/resourcePart"/>
+                <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/sample"/>
             </rdf:Description>
         </metamodel:validation>
     </owl:NamedIndividual>
