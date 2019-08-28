@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#ParameterAssignmentShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ParameterAssignment ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:parameter ;
+		sh:class ids:Parameter ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:ParameterAssignment must have at exactly one ids:Parameter linked through the ids:parameter property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:parameterValue ;
+		sh:class ids:Value ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:parameterValue property must point from an ids:ParameterAssignment to an ids:Value."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:parameterArtifact ;
+		sh:class ids:Artifact ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:parameterArtifact property must point from an ids:ParameterAssignment to an ids:Artifact."@en ; 
+	] .
+

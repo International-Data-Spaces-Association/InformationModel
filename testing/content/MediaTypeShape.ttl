@@ -1,0 +1,20 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#MediaTypeShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:MediaType ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:filenameExtension ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:filenameExtension property must point from an ids:MediaType to an xsd:string."@en ; 
+	] .
+

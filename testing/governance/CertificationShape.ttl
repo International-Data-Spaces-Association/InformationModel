@@ -1,0 +1,50 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#CertificationShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Certification ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:certificationLevel ;
+		sh:class ids:CertificationLevel ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:certificationLevel property must point from an ids:Certification to an ids:CertificationLevel."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:lastValidDate ;
+		sh:datatype xsd:date ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:lastValidDate property must point from an ids:Certification to an xsd:date."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:evaluationFacility ;
+		sh:class ids:EvaluationFacility ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:evaluationFacility property must point from an ids:Certification to an ids:EvaluationFacility."@en ; 
+	] .
+
+
+<#CertificationLevelShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:CertificationLevel ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:includedCertificationLevel ;
+		sh:class ids:CertificationLevel ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:includedCertificationLevel property must point from an ids:CertificationLevel to an ids:CertificationLevel."@en ; 
+	] .
+
