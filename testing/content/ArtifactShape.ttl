@@ -1,0 +1,62 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#ArtifactShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Artifact ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:byteSize ;
+		sh:datatype xsd:nonNegativeInteger ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:byteSize property must point from an ids:Artifact to an xsd:nonNegativeInteger."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:fileName ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:fileName property must point from an ids:Artifact to an xsd:string."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:creationDate ;
+		sh:datatype xsd:date ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:creationDate property must point from an ids:Artifact to an xsd:date."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:artifactParameterization ;
+		sh:class ids:ParameterAssignment ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:artifactParameterization property must point from an ids:Artifact to an ids:ParameterAssignment."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:checkSum ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:checkSum property must point from an ids:Artifact to an xsd:string."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:duration ;
+		sh:datatype xsd:decimal ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:duration property must point from an ids:Artifact to an xsd:decimal."@en ; 
+	] .
+

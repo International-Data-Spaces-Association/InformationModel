@@ -1,0 +1,71 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#ActivityShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Activity ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:startedBy ;
+		sh:class ids:Participant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Activity must have at exactly one ids:Participant linked through the ids:startedBy property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:startedAt ;
+		sh:datatype xsd:dateTime ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Activity must have at exactly one xsd:dateTime linked through the ids:startedAt property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:activityDescription ;
+		sh:datatype rdf:PlainLiteral ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:activityDescription property must point from an ids:Activity to an rdf:PlainLiteral."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endedBy ;
+		sh:class ids:Participant ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:endedBy property must point from an ids:Activity to an ids:Participant."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endedAt ;
+		sh:datatype xsd:dateTime ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:endedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
+	] .
+
+
+<#ModificationActivityShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ModificationActivity ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:invalidated ;
+		sh:datatype ids:ManagedEntity ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:invalidated property must point from an ids:ModificationActivity to an ids:ManagedEntity."@en ; 
+	] .
+

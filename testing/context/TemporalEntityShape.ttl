@@ -1,0 +1,52 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#InstantShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Instant ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:date ;
+		sh:datatype xsd:date ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:date property must point from an ids:Instant to an xsd:date."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:dateTime ;
+		sh:datatype xsd:dateTime ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:dateTime property must point from an ids:Instant to an xsd:dateTime."@en ; 
+	] .
+
+
+<#IntervalShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Interval ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:begin ;
+		sh:class ids:Instant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Interval must have at exactly one ids:Instant linked through the ids:begin property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:end ;
+		sh:class ids:Instant ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:end property must point from an ids:Interval to an ids:Instant."@en ; 
+	] .
+
