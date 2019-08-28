@@ -171,11 +171,11 @@
   } ]
 }, {
   "@id" : "_:genid26",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/startedBy"
+    "@id" : "https://w3id.org/idsa/core/activityDescription"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid27",
@@ -183,15 +183,15 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/startedAt"
+    "@id" : "https://w3id.org/idsa/core/startedBy"
   } ]
 }, {
   "@id" : "_:genid28",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/activityDescription"
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/startedAt"
   } ]
 }, {
   "@id" : "_:genid29",
@@ -461,7 +461,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/accessUrl"
+    "@id" : "https://w3id.org/idsa/core/protocol"
   } ]
 }, {
   "@id" : "_:genid59",
@@ -469,7 +469,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/protocol"
+    "@id" : "https://w3id.org/idsa/core/accessUrl"
   } ]
 }, {
   "@id" : "_:genid6",
@@ -486,7 +486,10 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/maintainer"
+    "@id" : "https://w3id.org/idsa/core/inboundModelVersion"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid61",
@@ -494,7 +497,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/curator"
+    "@id" : "https://w3id.org/idsa/core/maintainer"
   } ]
 }, {
   "@id" : "_:genid62",
@@ -502,10 +505,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/inboundModelVersion"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+    "@id" : "https://w3id.org/idsa/core/curator"
   } ]
 }, {
   "@id" : "_:genid63",
@@ -653,7 +653,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/apiDocument"
+    "@id" : "https://w3id.org/idsa/core/boundOperation"
   } ]
 }, {
   "@id" : "_:genid8",
@@ -670,7 +670,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/boundOperation"
+    "@id" : "https://w3id.org/idsa/core/apiDocument"
   } ]
 }, {
   "@id" : "_:genid81",
@@ -694,14 +694,6 @@
 }, {
   "@id" : "_:genid83",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/paramGroupingOperator"
-  } ]
-}, {
-  "@id" : "_:genid84",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
@@ -711,9 +703,17 @@
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
+  "@id" : "_:genid84",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/paramGroupingOperator"
+  } ]
+}, {
   "@id" : "_:genid85",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/corporateEmailAddress"
+    "@id" : "https://w3id.org/idsa/core/memberPerson"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -721,7 +721,7 @@
 }, {
   "@id" : "_:genid86",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/memberParticipant"
+    "@id" : "https://w3id.org/idsa/core/corporateEmailAddress"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -729,7 +729,7 @@
 }, {
   "@id" : "_:genid87",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/industrialClassification"
+    "@id" : "https://w3id.org/idsa/core/memberParticipant"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -737,7 +737,7 @@
 }, {
   "@id" : "_:genid88",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/memberPerson"
+    "@id" : "https://w3id.org/idsa/core/industrialClassification"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -762,7 +762,7 @@
 }, {
   "@id" : "_:genid90",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/phoneNumber"
+    "@id" : "https://w3id.org/idsa/core/emailAddress"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -770,7 +770,7 @@
 }, {
   "@id" : "_:genid91",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/emailAddress"
+    "@id" : "https://w3id.org/idsa/core/phoneNumber"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -794,7 +794,7 @@
 }, {
   "@id" : "_:genid94",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/sample"
+    "@id" : "https://w3id.org/idsa/core/resourceEndpoint"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -802,7 +802,7 @@
 }, {
   "@id" : "_:genid95",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/contractOffer"
+    "@id" : "https://w3id.org/idsa/core/resourcePart"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -810,7 +810,7 @@
 }, {
   "@id" : "_:genid96",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/resourceEndpoint"
+    "@id" : "https://w3id.org/idsa/core/contractOffer"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -818,7 +818,7 @@
 }, {
   "@id" : "_:genid97",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/resourcePart"
+    "@id" : "https://w3id.org/idsa/core/sample"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
