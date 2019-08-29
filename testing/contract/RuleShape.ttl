@@ -14,18 +14,11 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:constraint ;
-		sh:class ids:Constraint ;
+		sh:path ids:action ;
+		sh:class ids:Action ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:constraint property must point from an ids:Rule to an ids:Constraint."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:assigner ;
-		sh:class ids:Participant ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:assigner property must point from an ids:Rule to an ids:Participant."@en ; 
+		sh:message "An ids:Rule must have at least one ids:Action linked through the ids:action property"@en ; 
 	] ;
 
 	sh:property [
@@ -38,10 +31,10 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:action ;
-		sh:class ids:Action ;
+		sh:path ids:assigner ;
+		sh:class ids:Participant ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:action property must point from an ids:Rule to an ids:Action."@en ; 
+		sh:message "An ids:assigner property must point from an ids:Rule to an ids:Participant."@en ; 
 	] ;
 
 	sh:property [
@@ -56,8 +49,18 @@
 		a sh:PropertyShape ;
 		sh:path ids:targetContent ;
 		sh:class ids:DigitalContent ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:targetContent property must point from an ids:Rule to an ids:DigitalContent."@en ; 
+		sh:message "An ids:Rule must have at exactly one ids:DigitalContent linked through the ids:targetContent property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:constraint ;
+		sh:class ids:Constraint ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:constraint property must point from an ids:Rule to an ids:Constraint."@en ; 
 	] .
 
 
@@ -82,24 +85,27 @@
 		a sh:PropertyShape ;
 		sh:path ids:leftOperand ;
 		sh:class ids:LeftOperand ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:leftOperand property must point from an ids:Constraint to an ids:LeftOperand."@en ; 
+		sh:message "An ids:Constraint must have at least one ids:LeftOperand linked through the ids:leftOperand property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:operator ;
 		sh:class ids:BinaryOperator ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:operator property must point from an ids:Constraint to an ids:BinaryOperator."@en ; 
+		sh:message "An ids:Constraint must have at least one ids:BinaryOperator linked through the ids:operator property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:rightOperand ;
 		sh:datatype rdfs:Literal ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:rightOperand property must point from an ids:Constraint to an rdfs:Literal."@en ; 
+		sh:message "An ids:Constraint must have at least one rdfs:Literal linked through the ids:rightOperand property"@en ; 
 	] ;
 
 	sh:property [

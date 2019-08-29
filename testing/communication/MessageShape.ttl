@@ -33,6 +33,14 @@
 
 	sh:property [
 		a sh:PropertyShape ;
+		sh:path ids:correlationMessage ;
+		sh:class ids:Message ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:correlationMessage property must point from an ids:Message to an ids:Message."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
 		sh:path ids:issuerConnector ;
 		sh:datatype ids:Connector ;
 		sh:minCount 1 ;
@@ -51,26 +59,19 @@
 
 	sh:property [
 		a sh:PropertyShape ;
+		sh:path ids:senderAgent ;
+		sh:datatype ids:Agent ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Message must have at least one ids:Agent linked through the ids:senderAgent property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
 		sh:path ids:recipientAgent ;
 		sh:datatype ids:Agent ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:recipientAgent property must point from an ids:Message to an ids:Agent."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:correlationMessage ;
-		sh:class ids:Message ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:correlationMessage property must point from an ids:Message to an ids:Message."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:senderAgent ;
-		sh:datatype ids:Agent ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:senderAgent property must point from an ids:Message to an ids:Agent."@en ; 
 	] ;
 
 	sh:property [

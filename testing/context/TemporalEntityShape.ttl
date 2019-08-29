@@ -36,10 +36,8 @@
 		a sh:PropertyShape ;
 		sh:path ids:begin ;
 		sh:class ids:Instant ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Interval must have at exactly one ids:Instant linked through the ids:begin property"@en ; 
+		sh:message "An ids:begin property must point from an ids:Interval to an ids:Instant."@en ; 
 	] ;
 
 	sh:property [

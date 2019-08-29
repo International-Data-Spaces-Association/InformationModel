@@ -14,10 +14,8 @@
 		a sh:PropertyShape ;
 		sh:path ids:tokenValue ;
 		sh:datatype xsd:string ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Token must have at exactly one xsd:string linked through the ids:tokenValue property"@en ; 
+		sh:message "An ids:tokenValue property must point from an ids:Token to an xsd:string."@en ; 
 	] ;
 
 	sh:property [

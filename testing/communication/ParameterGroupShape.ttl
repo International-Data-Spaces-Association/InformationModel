@@ -13,20 +13,17 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:paramGroupingOperator ;
-		sh:class ids:ParameterGroupingOperator ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
+		sh:path ids:paramGroupMember ;
+		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:ParameterGroup must have at exactly one ids:ParameterGroupingOperator linked through the ids:paramGroupingOperator property"@en ; 
+		sh:message "An ids:paramGroupMember property must point from an ids:ParameterGroup to an ids:Parameter."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:paramGroupMember ;
-		sh:class ids:Parameter ;
-		sh:minCount 1 ;
+		sh:path ids:paramGroupingOperator ;
+		sh:class ids:ParameterGroupingOperator ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:ParameterGroup must have at least one ids:Parameter linked through the ids:paramGroupMember property"@en ; 
+		sh:message "An ids:paramGroupingOperator property must point from an ids:ParameterGroup to an ids:ParameterGroupingOperator."@en ; 
 	] .
 

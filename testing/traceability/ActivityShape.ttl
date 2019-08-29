@@ -14,30 +14,27 @@
 
 	sh:property [
 		a sh:PropertyShape ;
+		sh:path ids:activityDescription ;
+		sh:datatype rdf:PlainLiteral ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:activityDescription property must point from an ids:Activity to an rdf:PlainLiteral."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
 		sh:path ids:startedBy ;
 		sh:class ids:Participant ;
-		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Activity must have at exactly one ids:Participant linked through the ids:startedBy property"@en ; 
+		sh:message "An ids:Activity must not have more than one ids:Participant linked through the ids:startedBy property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:startedAt ;
 		sh:datatype xsd:dateTime ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Activity must have at exactly one xsd:dateTime linked through the ids:startedAt property"@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:activityDescription ;
-		sh:datatype rdf:PlainLiteral ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:activityDescription property must point from an ids:Activity to an rdf:PlainLiteral."@en ; 
+		sh:message "An ids:startedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
 	] ;
 
 	sh:property [

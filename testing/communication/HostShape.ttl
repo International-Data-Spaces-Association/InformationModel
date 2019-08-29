@@ -15,20 +15,16 @@
 		a sh:PropertyShape ;
 		sh:path ids:protocol ;
 		sh:class ids:Protocol ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Host must have at exactly one ids:Protocol linked through the ids:protocol property"@en ; 
+		sh:message "An ids:protocol property must point from an ids:Host to an ids:Protocol."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:accessUrl ;
 		sh:datatype xsd:anyURI ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Host must have at exactly one xsd:anyURI linked through the ids:accessUrl property"@en ; 
+		sh:message "An ids:accessUrl property must point from an ids:Host to an xsd:anyURI."@en ; 
 	] ;
 
 	sh:property [

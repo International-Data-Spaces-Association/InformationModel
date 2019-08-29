@@ -17,20 +17,16 @@
 		a sh:PropertyShape ;
 		sh:path ids:latitude ;
 		sh:datatype xsd:float ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:GeoPoint must have at exactly one xsd:float linked through the ids:latitude property"@en ; 
+		sh:message "An ids:latitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:longitude ;
 		sh:datatype xsd:float ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:GeoPoint must have at exactly one xsd:float linked through the ids:longitude property"@en ; 
+		sh:message "An ids:longitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
 	] .
 
 
@@ -42,8 +38,7 @@
 		a sh:PropertyShape ;
 		sh:path ids:geoPoint ;
 		sh:class ids:GeoPoint ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:BoundingPolygon must have at least one ids:GeoPoint linked through the ids:geoPoint property"@en ; 
+		sh:message "An ids:geoPoint property must point from an ids:BoundingPolygon to an ids:GeoPoint."@en ; 
 	] .
 

@@ -13,30 +13,6 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:input ;
-		sh:class ids:Parameter ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:input property must point from an ids:Operation to an ids:Parameter."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:output ;
-		sh:class ids:Parameter ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:output property must point from an ids:Operation to an ids:Parameter."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:fault ;
-		sh:class ids:Parameter ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:fault property must point from an ids:Operation to an ids:Parameter."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:operationType ;
 		sh:class ids:OperationType ;
 		sh:severity sh:Violation ;
@@ -49,6 +25,14 @@
 		sh:class ids:MessageExchangePattern ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:pattern property must point from an ids:Operation to an ids:MessageExchangePattern."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:input ;
+		sh:class ids:Parameter ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:input property must point from an ids:Operation to an ids:Parameter."@en ; 
 	] ;
 
 	sh:property [
@@ -77,9 +61,25 @@
 
 	sh:property [
 		a sh:PropertyShape ;
+		sh:path ids:output ;
+		sh:class ids:Parameter ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:output property must point from an ids:Operation to an ids:Parameter."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
 		sh:path ids:mandatoryOutput ;
 		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:mandatoryOutput property must point from an ids:Operation to an ids:Parameter."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:fault ;
+		sh:class ids:Parameter ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:fault property must point from an ids:Operation to an ids:Parameter."@en ; 
 	] .
 

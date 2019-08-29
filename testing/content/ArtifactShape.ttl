@@ -16,24 +16,27 @@
 		a sh:PropertyShape ;
 		sh:path ids:byteSize ;
 		sh:datatype xsd:nonNegativeInteger ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:byteSize property must point from an ids:Artifact to an xsd:nonNegativeInteger."@en ; 
+		sh:message "An ids:Artifact must not have more than one xsd:nonNegativeInteger linked through the ids:byteSize property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:fileName ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:fileName property must point from an ids:Artifact to an xsd:string."@en ; 
+		sh:message "An ids:Artifact must not have more than one xsd:string linked through the ids:fileName property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:creationDate ;
 		sh:datatype xsd:date ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:creationDate property must point from an ids:Artifact to an xsd:date."@en ; 
+		sh:message "An ids:Artifact must not have more than one xsd:date linked through the ids:creationDate property"@en ; 
 	] ;
 
 	sh:property [
@@ -48,8 +51,9 @@
 		a sh:PropertyShape ;
 		sh:path ids:checkSum ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:checkSum property must point from an ids:Artifact to an xsd:string."@en ; 
+		sh:message "An ids:Artifact must not have more than one xsd:string linked through the ids:checkSum property"@en ; 
 	] ;
 
 	sh:property [

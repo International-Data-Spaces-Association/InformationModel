@@ -15,20 +15,16 @@
 		a sh:PropertyShape ;
 		sh:path ids:endpointHost ;
 		sh:class ids:Host ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Endpoint must have at exactly one ids:Host linked through the ids:endpointHost property"@en ; 
+		sh:message "An ids:endpointHost property must point from an ids:Endpoint to an ids:Host."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:path ;
 		sh:datatype xsd:string ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Endpoint must have at exactly one xsd:string linked through the ids:path property"@en ; 
+		sh:message "An ids:path property must point from an ids:Endpoint to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -56,10 +52,8 @@
 		a sh:PropertyShape ;
 		sh:path ids:endpointArtifact ;
 		sh:class ids:Artifact ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:StaticEndpoint must have at exactly one ids:Artifact linked through the ids:endpointArtifact property"@en ; 
+		sh:message "An ids:endpointArtifact property must point from an ids:StaticEndpoint to an ids:Artifact."@en ; 
 	] .
 
 
@@ -71,9 +65,7 @@
 		a sh:PropertyShape ;
 		sh:path ids:endpointOperationBinding ;
 		sh:class ids:OperationBinding ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:InteractiveEndpoint must have at exactly one ids:OperationBinding linked through the ids:endpointOperationBinding property"@en ; 
+		sh:message "An ids:endpointOperationBinding property must point from an ids:InteractiveEndpoint to an ids:OperationBinding."@en ; 
 	] .
 

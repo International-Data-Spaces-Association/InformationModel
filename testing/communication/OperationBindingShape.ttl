@@ -15,19 +15,15 @@
 		a sh:PropertyShape ;
 		sh:path ids:apiDocument ;
 		sh:class ids:Resource ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:OperationBinding must have at exactly one ids:Resource linked through the ids:apiDocument property"@en ; 
+		sh:message "An ids:apiDocument property must point from an ids:OperationBinding to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:boundOperation ;
 		sh:class ids:Operation ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:OperationBinding must have at exactly one ids:Operation linked through the ids:boundOperation property"@en ; 
+		sh:message "An ids:boundOperation property must point from an ids:OperationBinding to an ids:Operation."@en ; 
 	] .
 

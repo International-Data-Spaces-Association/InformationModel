@@ -14,10 +14,8 @@
 		a sh:PropertyShape ;
 		sh:path ids:authService ;
 		sh:class xsd:anyURI ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:AuthInfo must have at exactly one xsd:anyURI linked through the ids:authService property"@en ; 
+		sh:message "An ids:authService property must point from an ids:AuthInfo to an xsd:anyURI."@en ; 
 	] ;
 
 	sh:property [

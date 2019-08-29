@@ -13,17 +13,17 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:request ;
-		sh:class ids:Resource ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:request property must point from an ids:Catalog to an ids:Resource."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:offer ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:offer property must point from an ids:Catalog to an ids:Resource."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:request ;
+		sh:class ids:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:request property must point from an ids:Catalog to an ids:Resource."@en ; 
 	] .
 

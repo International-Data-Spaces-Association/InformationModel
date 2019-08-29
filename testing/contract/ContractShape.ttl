@@ -13,30 +13,6 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:permission ;
-		sh:class ids:Permission ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:permission property must point from an ids:Contract to an ids:Permission."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:prohibition ;
-		sh:class ids:Prohibition ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:obligation ;
-		sh:class ids:Duty ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:obligation property must point from an ids:Contract to an ids:Duty."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:contractStart ;
 		sh:datatype xsd:dateTime ;
 		sh:severity sh:Violation ;
@@ -63,8 +39,9 @@
 		a sh:PropertyShape ;
 		sh:path ids:provider ;
 		sh:class ids:Participant ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:provider property must point from an ids:Contract to an ids:Participant."@en ; 
+		sh:message "An ids:Contract must not have more than one ids:Participant linked through the ids:provider property"@en ; 
 	] ;
 
 	sh:property [
@@ -79,8 +56,10 @@
 		a sh:PropertyShape ;
 		sh:path ids:contractDocument ;
 		sh:class ids:TextResource ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:contractDocument property must point from an ids:Contract to an ids:TextResource."@en ; 
+		sh:message "An ids:Contract must have at exactly one ids:TextResource linked through the ids:contractDocument property"@en ; 
 	] ;
 
 	sh:property [
@@ -93,9 +72,99 @@
 
 	sh:property [
 		a sh:PropertyShape ;
+		sh:path ids:permission ;
+		sh:class ids:Permission ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Contract must have at least one ids:Permission linked through the ids:permission property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:prohibition ;
+		sh:class ids:Prohibition ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:obligation ;
+		sh:class ids:Duty ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:obligation property must point from an ids:Contract to an ids:Duty."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
 		sh:path ids:refersTo ;
 		sh:class ids:PolicyTemplate ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ; 
+	] .
+
+
+<#ContractAgreementShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ContractAgreement ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:consumer ;
+		sh:class ids:Participant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:consumer property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:provider ;
+		sh:class ids:Participant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:provider property"@en ; 
+	] .
+
+
+<#ContractRequestShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ContractRequest ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:consumer ;
+		sh:class ids:Participant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:consumer property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:provider ;
+		sh:class ids:Participant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:provider property"@en ; 
+	] .
+
+
+<#ContractOfferShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ContractOffer ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:provider ;
+		sh:class ids:Participant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:provider property"@en ; 
 	] .
 

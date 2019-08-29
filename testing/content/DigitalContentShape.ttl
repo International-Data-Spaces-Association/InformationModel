@@ -21,18 +21,18 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:spatialCoverage ;
-		sh:class ids:SpatialEntity ;
+		sh:path ids:representation ;
+		sh:class ids:Representation ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:spatialCoverage property must point from an ids:DigitalContent to an ids:SpatialEntity."@en ; 
+		sh:message "An ids:representation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:temporalCoverage ;
-		sh:class ids:TemporalEntity ;
+		sh:path ids:defaultRepresentation ;
+		sh:class ids:Representation ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:temporalCoverage property must point from an ids:DigitalContent to an ids:TemporalEntity."@en ; 
+		sh:message "An ids:defaultRepresentation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
 	] ;
 
 	sh:property [
@@ -61,18 +61,18 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:representation ;
-		sh:class ids:Representation ;
+		sh:path ids:temporalCoverage ;
+		sh:class ids:TemporalEntity ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:representation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
+		sh:message "An ids:temporalCoverage property must point from an ids:DigitalContent to an ids:TemporalEntity."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:defaultRepresentation ;
-		sh:class ids:Representation ;
+		sh:path ids:spatialCoverage ;
+		sh:class ids:SpatialEntity ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:defaultRepresentation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
+		sh:message "An ids:spatialCoverage property must point from an ids:DigitalContent to an ids:SpatialEntity."@en ; 
 	] ;
 
 	sh:property [

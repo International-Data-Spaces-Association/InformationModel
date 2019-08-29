@@ -1,0 +1,182 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#ResponseMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ResponseMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:correlationMessage ;
+		sh:class ids:Message ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Message must have at exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+	] .
+
+
+<#RejectionMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:RejectionMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:rejectionReason ;
+		sh:class ids:RejectionReason ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:rejectionReason property must point from an ids:RejectionMessage to an ids:RejectionReason."@en ; 
+	] .
+
+
+<#ConnectorRuntimeNotificationMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ConnectorRuntimeNotificationMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:affectedConnector ;
+		sh:class ids:Connector ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:affectedConnector property must point from an ids:ConnectorRuntimeNotificationMessage to an ids:Connector."@en ; 
+	] .
+
+
+<#BrokerQueryMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:BrokerQueryMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:brokerQueryScope ;
+		sh:class ids:BrokerQueryScope ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:brokerQueryScope property must point from an ids:BrokerQueryMessage to an ids:BrokerQueryScope."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:queryLanguage ;
+		sh:class ids:QueryLanguage ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:queryLanguage property must point from an ids:BrokerQueryMessage to an ids:QueryLanguage."@en ; 
+	] .
+
+
+<#ContractRequestMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ContractRequestMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:baseContractOffer ;
+		sh:class ids:ContractOffer ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:ContractRequestMessage must have at exactly one ids:ContractOffer linked through the ids:baseContractOffer property"@en ; 
+	] .
+
+
+<#ContractRejectionMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ContractRejectionMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contractRejectionReason ;
+		sh:datatype rdf:PlainLiteral ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ; 
+	] .
+
+
+<#ArtifactAvailableMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ArtifactAvailableMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:availableArtifact ;
+		sh:datatype ids:Artifact ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:ArtifactAvailableMessage must have at exactly one ids:Artifact linked through the ids:availableArtifact property"@en ; 
+	] .
+
+
+<#InvokeOperationMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:InvokeOperationMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:operationReference ;
+		sh:datatype ids:Operation ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:InvokeOperationMessage must have at exactly one ids:Operation linked through the ids:operationReference property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:operationParameterization ;
+		sh:datatype ids:ParameterAssignment ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:InvokeOperationMessage must have at least one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ; 
+	] .
+
+
+<#RequestInProcessMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:RequestInProcessMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:correlationMessage ;
+		sh:class ids:Message ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Message must have at exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+	] .
+
+
+<#MessageProcessedNotificationShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:MessageProcessedNotification ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:correlationMessage ;
+		sh:class ids:Message ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Message must have at exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+	] .
+
+
+<#ArtifactRequestMessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:ArtifactRequestMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:requestedArtifact ;
+		sh:datatype ids:Artifact ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:ArtifactRequestMessage must have at exactly one ids:Artifact linked through the ids:requestedArtifact property"@en ; 
+	] .
+

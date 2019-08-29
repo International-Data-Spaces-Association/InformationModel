@@ -13,16 +13,6 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:catalog ;
-		sh:class ids:Catalog ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:Connector must have at exactly one ids:Catalog linked through the ids:catalog property"@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:host ;
 		sh:class ids:Host ;
 		sh:severity sh:Violation ;
@@ -41,8 +31,10 @@
 		a sh:PropertyShape ;
 		sh:path ids:securityProfile ;
 		sh:class ids:CustomSecurityProfile ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:securityProfile property must point from an ids:Connector to an ids:CustomSecurityProfile."@en ; 
+		sh:message "An ids:Connector must have at exactly one ids:CustomSecurityProfile linked through the ids:securityProfile property"@en ; 
 	] ;
 
 	sh:property [
@@ -51,5 +43,15 @@
 		sh:class ids:AuthInfo ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:authInfo property must point from an ids:Connector to an ids:AuthInfo."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:catalog ;
+		sh:class ids:Catalog ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Connector must have at exactly one ids:Catalog linked through the ids:catalog property"@en ; 
 	] .
 

@@ -14,14 +14,6 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:resourceEndpoint ;
-		sh:class ids:Endpoint ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:resourceEndpoint property must point from an ids:Resource to an ids:Endpoint."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:resourcePart ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
@@ -30,26 +22,18 @@
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:contractOffer ;
-		sh:class ids:ContractOffer ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:contractOffer property must point from an ids:Resource to an ids:ContractOffer."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:sample ;
-		sh:class ids:Resource ;
-		sh:severity sh:Violation ;
-		sh:message "An ids:sample property must point from an ids:Resource to an ids:Resource."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:resourceInterface ;
 		sh:class ids:Interface ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:resourceInterface property must point from an ids:Resource to an ids:Interface."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:resourceEndpoint ;
+		sh:class ids:Endpoint ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:resourceEndpoint property must point from an ids:Resource to an ids:Endpoint."@en ; 
 	] ;
 
 	sh:property [
@@ -70,6 +54,15 @@
 
 	sh:property [
 		a sh:PropertyShape ;
+		sh:path ids:contractOffer ;
+		sh:class ids:ContractOffer ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Resource must have at least one ids:ContractOffer linked through the ids:contractOffer property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
 		sh:path ids:publisher ;
 		sh:class ids:Agent ;
 		sh:severity sh:Violation ;
@@ -82,6 +75,14 @@
 		sh:class ids:Agent ;
 		sh:severity sh:Violation ;
 		sh:message "An ids:sovereign property must point from an ids:Resource to an ids:Agent."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:sample ;
+		sh:class ids:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:sample property must point from an ids:Resource to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
