@@ -7,8 +7,22 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#ResourceShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ResourceShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Resource ;
 
@@ -17,7 +31,7 @@
 		sh:path ids:resourcePart ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:resourcePart property must point from an ids:Resource to an ids:Resource."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:resourcePart property must point from an ids:Resource to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
@@ -25,7 +39,7 @@
 		sh:path ids:resourceInterface ;
 		sh:class ids:Interface ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:resourceInterface property must point from an ids:Resource to an ids:Interface."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:resourceInterface property must point from an ids:Resource to an ids:Interface."@en ; 
 	] ;
 
 	sh:property [
@@ -33,7 +47,7 @@
 		sh:path ids:resourceEndpoint ;
 		sh:class ids:Endpoint ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:resourceEndpoint property must point from an ids:Resource to an ids:Endpoint."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:resourceEndpoint property must point from an ids:Resource to an ids:Endpoint."@en ; 
 	] ;
 
 	sh:property [
@@ -41,7 +55,7 @@
 		sh:path ids:standardLicense ;
 		sh:class ids:License ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:standardLicense property must point from an ids:Resource to an ids:License."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:standardLicense property must point from an ids:Resource to an ids:License."@en ; 
 	] ;
 
 	sh:property [
@@ -49,7 +63,7 @@
 		sh:path ids:customLicense ;
 		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:customLicense property must point from an ids:Resource to an xsd:anyURI."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:customLicense property must point from an ids:Resource to an xsd:anyURI."@en ; 
 	] ;
 
 	sh:property [
@@ -58,7 +72,7 @@
 		sh:class ids:ContractOffer ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Resource must have at least one ids:ContractOffer linked through the ids:contractOffer property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:Resource must have at least one ids:ContractOffer linked through the ids:contractOffer property"@en ; 
 	] ;
 
 	sh:property [
@@ -66,7 +80,7 @@
 		sh:path ids:publisher ;
 		sh:class ids:Agent ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:publisher property must point from an ids:Resource to an ids:Agent."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:publisher property must point from an ids:Resource to an ids:Agent."@en ; 
 	] ;
 
 	sh:property [
@@ -74,7 +88,7 @@
 		sh:path ids:sovereign ;
 		sh:class ids:Agent ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:sovereign property must point from an ids:Resource to an ids:Agent."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:sovereign property must point from an ids:Resource to an ids:Agent."@en ; 
 	] ;
 
 	sh:property [
@@ -82,7 +96,7 @@
 		sh:path ids:sample ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:sample property must point from an ids:Resource to an ids:Resource."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:sample property must point from an ids:Resource to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
@@ -90,6 +104,6 @@
 		sh:path ids:variant ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:variant property must point from an ids:Resource to an ids:Resource."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ResourceShape.ttl> (ResourceShape): An ids:variant property must point from an ids:Resource to an ids:Resource."@en ; 
 	] .
 

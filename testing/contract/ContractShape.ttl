@@ -6,17 +6,44 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#ContractShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ContractShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Contract ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:Contract is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Contract)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contractStart ;
 		sh:datatype xsd:dateTime ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:contractStart property must point from an ids:Contract to an xsd:dateTime."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:contractStart property must point from an ids:Contract to an xsd:dateTime."@en ; 
 	] ;
 
 	sh:property [
@@ -24,7 +51,7 @@
 		sh:path ids:contractEnd ;
 		sh:datatype xsd:dateTime ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:contractEnd property must point from an ids:Contract to an xsd:dateTime."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:contractEnd property must point from an ids:Contract to an xsd:dateTime."@en ; 
 	] ;
 
 	sh:property [
@@ -32,7 +59,7 @@
 		sh:path ids:contractDate ;
 		sh:datatype xsd:date ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:contractDate property must point from an ids:Contract to an xsd:date."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:contractDate property must point from an ids:Contract to an xsd:date."@en ; 
 	] ;
 
 	sh:property [
@@ -41,7 +68,7 @@
 		sh:class ids:Participant ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must not have more than one ids:Participant linked through the ids:provider property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:Contract must not have more than one ids:Participant linked through the ids:provider property"@en ; 
 	] ;
 
 	sh:property [
@@ -49,7 +76,7 @@
 		sh:path ids:consumer ;
 		sh:class ids:Participant ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ; 
 	] ;
 
 	sh:property [
@@ -59,7 +86,7 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must have at exactly one ids:TextResource linked through the ids:contractDocument property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:Contract must have exactly one ids:TextResource linked through the ids:contractDocument property"@en ; 
 	] ;
 
 	sh:property [
@@ -67,16 +94,15 @@
 		sh:path ids:contractAnnex ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:contractAnnex property must point from an ids:Contract to an ids:Resource."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:contractAnnex property must point from an ids:Contract to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:permission ;
 		sh:class ids:Permission ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must have at least one ids:Permission linked through the ids:permission property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:permission property must point from an ids:Contract to an ids:Permission."@en ; 
 	] ;
 
 	sh:property [
@@ -84,7 +110,7 @@
 		sh:path ids:prohibition ;
 		sh:class ids:Prohibition ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ; 
 	] ;
 
 	sh:property [
@@ -92,7 +118,7 @@
 		sh:path ids:obligation ;
 		sh:class ids:Duty ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:obligation property must point from an ids:Contract to an ids:Duty."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:obligation property must point from an ids:Contract to an ids:Duty."@en ; 
 	] ;
 
 	sh:property [
@@ -100,11 +126,19 @@
 		sh:path ids:refersTo ;
 		sh:class ids:PolicyTemplate ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path (ids:permission ids:obligation ids:prohibition) ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ; 
 	] .
 
 
-<#ContractAgreementShape>
+shapes:ContractAgreementShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ContractAgreement ;
 
@@ -115,7 +149,7 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:consumer property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ; 
 	] ;
 
 	sh:property [
@@ -125,11 +159,11 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:provider property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ; 
 	] .
 
 
-<#ContractRequestShape>
+shapes:ContractRequestShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ContractRequest ;
 
@@ -140,7 +174,7 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:consumer property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ; 
 	] ;
 
 	sh:property [
@@ -150,11 +184,11 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:provider property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ; 
 	] .
 
 
-<#ContractOfferShape>
+shapes:ContractOfferShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ContractOffer ;
 
@@ -165,6 +199,6 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Contract must have at exactly one ids:Participant linked through the ids:provider property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ContractShape.ttl> (ContractOfferShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ; 
 	] .
 

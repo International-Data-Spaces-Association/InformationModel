@@ -6,8 +6,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#MessageExchangePatternShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:MessageExchangePatternShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:MessageExchangePattern ;
 
@@ -16,6 +30,6 @@
 		sh:path ids:faultPropagationRule ;
 		sh:class ids:FaultPropagationRule ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:faultPropagationRule property must point from an ids:MessageExchangePattern to an ids:FaultPropagationRule."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageExchangePatternShape.ttl> (MessageExchangePatternShape): An ids:faultPropagationRule property must point from an ids:MessageExchangePattern to an ids:FaultPropagationRule."@en ; 
 	] .
 

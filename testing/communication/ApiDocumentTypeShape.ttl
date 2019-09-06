@@ -1,6 +1,5 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
@@ -20,15 +19,20 @@ shapes:
 	] .
 
 
-shapes:CustomSecurityProfileShape
+shapes:ApiDocumentTypeShape
 	a sh:NodeShape ; 
-	sh:targetClass ids:CustomSecurityProfile ;
+	sh:targetClass ids:ApiDocumentType ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:securityGuarantee ;
-		sh:class ids:SecurityGuarantee ;
-		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/SecurityProfileShape.ttl> (CustomSecurityProfileShape): An ids:securityGuarantee property must point from an ids:CustomSecurityProfile to an ids:SecurityGuarantee."@en ; 
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ApiDocumentTypeShape.ttl> (ApiDocumentTypeShape): An ids:ApiDocumentType is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:ApiDocumentType)
+			}
+		""" ;
 	] .
 

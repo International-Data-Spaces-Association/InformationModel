@@ -6,16 +6,97 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#PricingModelShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:PricingModelShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:PricingModel ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/PricingModelShape.ttl> (PricingModelShape): An ids:PricingModel is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:PricingModel)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:pricingOption ;
 		sh:class ids:PricingOption ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:pricingOption property must point from an ids:PricingModel to an ids:PricingOption."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/PricingModelShape.ttl> (PricingModelShape): An ids:pricingOption property must point from an ids:PricingModel to an ids:PricingOption."@en ; 
+	] .
+
+
+shapes:PricingOptionShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:PricingOption ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/PricingModelShape.ttl> (PricingOptionShape): An ids:PricingOption is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:PricingOption)
+			}
+		""" ;
+	] .
+
+
+shapes:ChargeableUseShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:ChargeableUse ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/PricingModelShape.ttl> (ChargeableUseShape): An ids:ChargeableUse is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:ChargeableUse)
+			}
+		""" ;
+	] .
+
+
+shapes:ConsumptionBasedPricingShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:ConsumptionBasedPricing ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/PricingModelShape.ttl> (ConsumptionBasedPricingShape): An ids:ConsumptionBasedPricing is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:ConsumptionBasedPricing)
+			}
+		""" ;
 	] .
 

@@ -6,17 +6,44 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#OperationShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:OperationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Operation ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:Operation is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Operation)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:operationType ;
 		sh:class ids:OperationType ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:operationType property must point from an ids:Operation to an ids:OperationType."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:operationType property must point from an ids:Operation to an ids:OperationType."@en ; 
 	] ;
 
 	sh:property [
@@ -24,7 +51,7 @@
 		sh:path ids:pattern ;
 		sh:class ids:MessageExchangePattern ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:pattern property must point from an ids:Operation to an ids:MessageExchangePattern."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:pattern property must point from an ids:Operation to an ids:MessageExchangePattern."@en ; 
 	] ;
 
 	sh:property [
@@ -32,7 +59,7 @@
 		sh:path ids:input ;
 		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:input property must point from an ids:Operation to an ids:Parameter."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:input property must point from an ids:Operation to an ids:Parameter."@en ; 
 	] ;
 
 	sh:property [
@@ -40,7 +67,7 @@
 		sh:path ids:mandatoryInput ;
 		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:mandatoryInput property must point from an ids:Operation to an ids:Parameter."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:mandatoryInput property must point from an ids:Operation to an ids:Parameter."@en ; 
 	] ;
 
 	sh:property [
@@ -48,7 +75,7 @@
 		sh:path ids:inputGroup ;
 		sh:class ids:ParameterGroup ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:inputGroup property must point from an ids:Operation to an ids:ParameterGroup."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:inputGroup property must point from an ids:Operation to an ids:ParameterGroup."@en ; 
 	] ;
 
 	sh:property [
@@ -56,7 +83,7 @@
 		sh:path ids:mandatoryInputGroup ;
 		sh:class ids:ParameterGroup ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:mandatoryInputGroup property must point from an ids:Operation to an ids:ParameterGroup."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:mandatoryInputGroup property must point from an ids:Operation to an ids:ParameterGroup."@en ; 
 	] ;
 
 	sh:property [
@@ -64,7 +91,7 @@
 		sh:path ids:output ;
 		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:output property must point from an ids:Operation to an ids:Parameter."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:output property must point from an ids:Operation to an ids:Parameter."@en ; 
 	] ;
 
 	sh:property [
@@ -72,7 +99,7 @@
 		sh:path ids:mandatoryOutput ;
 		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:mandatoryOutput property must point from an ids:Operation to an ids:Parameter."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:mandatoryOutput property must point from an ids:Operation to an ids:Parameter."@en ; 
 	] ;
 
 	sh:property [
@@ -80,6 +107,6 @@
 		sh:path ids:fault ;
 		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:fault property must point from an ids:Operation to an ids:Parameter."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationShape.ttl> (OperationShape): An ids:fault property must point from an ids:Operation to an ids:Parameter."@en ; 
 	] .
 

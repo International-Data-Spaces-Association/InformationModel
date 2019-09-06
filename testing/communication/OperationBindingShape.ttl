@@ -6,8 +6,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#OperationBindingShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:OperationBindingShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:OperationBinding ;
 
@@ -16,7 +30,7 @@
 		sh:path ids:apiDocument ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:apiDocument property must point from an ids:OperationBinding to an ids:Resource."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationBindingShape.ttl> (OperationBindingShape): An ids:apiDocument property must point from an ids:OperationBinding to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
@@ -24,6 +38,6 @@
 		sh:path ids:boundOperation ;
 		sh:class ids:Operation ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:boundOperation property must point from an ids:OperationBinding to an ids:Operation."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationBindingShape.ttl> (OperationBindingShape): An ids:boundOperation property must point from an ids:OperationBinding to an ids:Operation."@en ; 
 	] .
 

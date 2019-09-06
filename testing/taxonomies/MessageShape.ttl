@@ -6,10 +6,55 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#ResponseMessageShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:RequestMessageShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:RequestMessage ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (RequestMessageShape): An ids:RequestMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:RequestMessage)
+			}
+		""" ;
+	] .
+
+
+shapes:ResponseMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ResponseMessage ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ResponseMessageShape): An ids:ResponseMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:ResponseMessage)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -18,11 +63,65 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Message must have at exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
 	] .
 
 
-<#RejectionMessageShape>
+shapes:NotificationMessageShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:NotificationMessage ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (NotificationMessageShape): An ids:NotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:NotificationMessage)
+			}
+		""" ;
+	] .
+
+
+shapes:CommandMessageShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:CommandMessage ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (CommandMessageShape): An ids:CommandMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:CommandMessage)
+			}
+		""" ;
+	] .
+
+
+shapes:QueryMessageShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:QueryMessage ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (QueryMessageShape): An ids:QueryMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:QueryMessage)
+			}
+		""" ;
+	] .
+
+
+shapes:RejectionMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:RejectionMessage ;
 
@@ -31,24 +130,37 @@
 		sh:path ids:rejectionReason ;
 		sh:class ids:RejectionReason ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:rejectionReason property must point from an ids:RejectionMessage to an ids:RejectionReason."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (RejectionMessageShape): An ids:rejectionReason property must point from an ids:RejectionMessage to an ids:RejectionReason."@en ; 
 	] .
 
 
-<#ConnectorRuntimeNotificationMessageShape>
+shapes:ConnectorRuntimeNotificationMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ConnectorRuntimeNotificationMessage ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:ConnectorRuntimeNotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:ConnectorRuntimeNotificationMessage)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedConnector ;
 		sh:class ids:Connector ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:affectedConnector property must point from an ids:ConnectorRuntimeNotificationMessage to an ids:Connector."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:affectedConnector property must point from an ids:ConnectorRuntimeNotificationMessage to an ids:Connector."@en ; 
 	] .
 
 
-<#BrokerQueryMessageShape>
+shapes:BrokerQueryMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:BrokerQueryMessage ;
 
@@ -57,7 +169,7 @@
 		sh:path ids:brokerQueryScope ;
 		sh:class ids:BrokerQueryScope ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:brokerQueryScope property must point from an ids:BrokerQueryMessage to an ids:BrokerQueryScope."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (BrokerQueryMessageShape): An ids:brokerQueryScope property must point from an ids:BrokerQueryMessage to an ids:BrokerQueryScope."@en ; 
 	] ;
 
 	sh:property [
@@ -65,11 +177,11 @@
 		sh:path ids:queryLanguage ;
 		sh:class ids:QueryLanguage ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:queryLanguage property must point from an ids:BrokerQueryMessage to an ids:QueryLanguage."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (BrokerQueryMessageShape): An ids:queryLanguage property must point from an ids:BrokerQueryMessage to an ids:QueryLanguage."@en ; 
 	] .
 
 
-<#ContractRequestMessageShape>
+shapes:ContractRequestMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ContractRequestMessage ;
 
@@ -80,11 +192,11 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:ContractRequestMessage must have at exactly one ids:ContractOffer linked through the ids:baseContractOffer property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ContractRequestMessageShape): An ids:ContractRequestMessage must have exactly one ids:ContractOffer linked through the ids:baseContractOffer property"@en ; 
 	] .
 
 
-<#ContractRejectionMessageShape>
+shapes:ContractRejectionMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ContractRejectionMessage ;
 
@@ -93,11 +205,11 @@
 		sh:path ids:contractRejectionReason ;
 		sh:datatype rdf:PlainLiteral ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ; 
 	] .
 
 
-<#ArtifactAvailableMessageShape>
+shapes:ArtifactAvailableMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ArtifactAvailableMessage ;
 
@@ -108,11 +220,11 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:ArtifactAvailableMessage must have at exactly one ids:Artifact linked through the ids:availableArtifact property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ArtifactAvailableMessageShape): An ids:ArtifactAvailableMessage must have exactly one ids:Artifact linked through the ids:availableArtifact property"@en ; 
 	] .
 
 
-<#InvokeOperationMessageShape>
+shapes:InvokeOperationMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:InvokeOperationMessage ;
 
@@ -123,7 +235,7 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:InvokeOperationMessage must have at exactly one ids:Operation linked through the ids:operationReference property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one ids:Operation linked through the ids:operationReference property"@en ; 
 	] ;
 
 	sh:property [
@@ -132,11 +244,11 @@
 		sh:datatype ids:ParameterAssignment ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:InvokeOperationMessage must have at least one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have at least one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ; 
 	] .
 
 
-<#RequestInProcessMessageShape>
+shapes:RequestInProcessMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:RequestInProcessMessage ;
 
@@ -147,11 +259,11 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Message must have at exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (RequestInProcessMessageShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
 	] .
 
 
-<#MessageProcessedNotificationShape>
+shapes:MessageProcessedNotificationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:MessageProcessedNotification ;
 
@@ -162,11 +274,11 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Message must have at exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (MessageProcessedNotificationShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
 	] .
 
 
-<#ArtifactRequestMessageShape>
+shapes:ArtifactRequestMessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ArtifactRequestMessage ;
 
@@ -177,6 +289,6 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:ArtifactRequestMessage must have at exactly one ids:Artifact linked through the ids:requestedArtifact property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one ids:Artifact linked through the ids:requestedArtifact property"@en ; 
 	] .
 

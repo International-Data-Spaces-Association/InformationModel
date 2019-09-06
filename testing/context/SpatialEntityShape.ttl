@@ -8,8 +8,58 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#GeoPointShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:SpatialEntityShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:SpatialEntity ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/SpatialEntityShape.ttl> (SpatialEntityShape): An ids:SpatialEntity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:SpatialEntity)
+			}
+		""" ;
+	] .
+
+
+shapes:LocationShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:Location ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/SpatialEntityShape.ttl> (LocationShape): An ids:Location is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Location)
+			}
+		""" ;
+	] .
+
+
+shapes:GeoPointShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:GeoPoint ;
 
@@ -18,7 +68,7 @@
 		sh:path ids:latitude ;
 		sh:datatype xsd:float ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:latitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/SpatialEntityShape.ttl> (GeoPointShape): An ids:latitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
 	] ;
 
 	sh:property [
@@ -26,11 +76,29 @@
 		sh:path ids:longitude ;
 		sh:datatype xsd:float ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:longitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/SpatialEntityShape.ttl> (GeoPointShape): An ids:longitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
 	] .
 
 
-<#BoundingPolygonShape>
+shapes:GeometryShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:Geometry ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/SpatialEntityShape.ttl> (GeometryShape): An ids:Geometry is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Geometry)
+			}
+		""" ;
+	] .
+
+
+shapes:BoundingPolygonShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:BoundingPolygon ;
 
@@ -39,6 +107,6 @@
 		sh:path ids:geoPoint ;
 		sh:class ids:GeoPoint ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:geoPoint property must point from an ids:BoundingPolygon to an ids:GeoPoint."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/SpatialEntityShape.ttl> (BoundingPolygonShape): An ids:geoPoint property must point from an ids:BoundingPolygon to an ids:GeoPoint."@en ; 
 	] .
 

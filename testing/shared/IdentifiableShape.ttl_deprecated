@@ -9,8 +9,22 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#IdentifiableShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:IdentifiableShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Identifiable ;
 
@@ -19,6 +33,24 @@
 		sh:path ids:identifier ;
 		sh:class ids:Identifier ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:identifier property must point from an ids:Identifiable to an ids:Identifier."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/IdentifiableShape.ttl_deprecated> (IdentifiableShape): An ids:identifier property must point from an ids:Identifiable to an ids:Identifier."@en ; 
+	] .
+
+
+shapes:IdentifierShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:Identifier ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/IdentifiableShape.ttl_deprecated> (IdentifierShape): An ids:Identifier is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Identifier)
+			}
+		""" ;
 	] .
 

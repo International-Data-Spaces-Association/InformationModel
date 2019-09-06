@@ -6,8 +6,22 @@
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#DataRepresentationShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:DataRepresentationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:DataRepresentation ;
 
@@ -16,7 +30,7 @@
 		sh:path ids:dataType ;
 		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:dataType property must point from an ids:DataRepresentation to an xsd:anyURI."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/RepresentationShape.ttl> (DataRepresentationShape): An ids:dataType property must point from an ids:DataRepresentation to an xsd:anyURI."@en ; 
 	] ;
 
 	sh:property [
@@ -24,11 +38,11 @@
 		sh:path ids:dataTypeSchema ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:dataTypeSchema property must point from an ids:DataRepresentation to an ids:Resource."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/RepresentationShape.ttl> (DataRepresentationShape): An ids:dataTypeSchema property must point from an ids:DataRepresentation to an ids:Resource."@en ; 
 	] .
 
 
-<#AudioRepresentationShape>
+shapes:AudioRepresentationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:AudioRepresentation ;
 
@@ -37,11 +51,11 @@
 		sh:path ids:samplingRate ;
 		sh:datatype xsd:decimal ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:samplingRate property must point from an ids:AudioRepresentation to an xsd:decimal."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/RepresentationShape.ttl> (AudioRepresentationShape): An ids:samplingRate property must point from an ids:AudioRepresentation to an xsd:decimal."@en ; 
 	] .
 
 
-<#ImageRepresentationShape>
+shapes:ImageRepresentationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ImageRepresentation ;
 
@@ -50,7 +64,7 @@
 		sh:path ids:width ;
 		sh:datatype xsd:decimal ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:width property must point from an ids:ImageRepresentation to an xsd:decimal."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/RepresentationShape.ttl> (ImageRepresentationShape): An ids:width property must point from an ids:ImageRepresentation to an xsd:decimal."@en ; 
 	] ;
 
 	sh:property [
@@ -58,11 +72,11 @@
 		sh:path ids:height ;
 		sh:datatype xsd:decimal ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:height property must point from an ids:ImageRepresentation to an xsd:decimal."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/RepresentationShape.ttl> (ImageRepresentationShape): An ids:height property must point from an ids:ImageRepresentation to an xsd:decimal."@en ; 
 	] .
 
 
-<#VideoRepresentationShape>
+shapes:VideoRepresentationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:VideoRepresentation ;
 
@@ -71,6 +85,6 @@
 		sh:path ids:frameRate ;
 		sh:datatype xsd:decimal ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:frameRate property must point from an ids:VideoRepresentation to an xsd:decimal."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/RepresentationShape.ttl> (VideoRepresentationShape): An ids:frameRate property must point from an ids:VideoRepresentation to an xsd:decimal."@en ; 
 	] .
 

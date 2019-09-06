@@ -6,8 +6,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#InstantShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:InstantShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Instant ;
 
@@ -16,7 +30,7 @@
 		sh:path ids:date ;
 		sh:datatype xsd:date ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:date property must point from an ids:Instant to an xsd:date."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/TemporalEntityShape.ttl> (InstantShape): An ids:date property must point from an ids:Instant to an xsd:date."@en ; 
 	] ;
 
 	sh:property [
@@ -24,11 +38,11 @@
 		sh:path ids:dateTime ;
 		sh:datatype xsd:dateTime ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:dateTime property must point from an ids:Instant to an xsd:dateTime."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/TemporalEntityShape.ttl> (InstantShape): An ids:dateTime property must point from an ids:Instant to an xsd:dateTime."@en ; 
 	] .
 
 
-<#IntervalShape>
+shapes:IntervalShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Interval ;
 
@@ -37,7 +51,7 @@
 		sh:path ids:begin ;
 		sh:class ids:Instant ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:begin property must point from an ids:Interval to an ids:Instant."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to an ids:Instant."@en ; 
 	] ;
 
 	sh:property [
@@ -45,6 +59,6 @@
 		sh:path ids:end ;
 		sh:class ids:Instant ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:end property must point from an ids:Interval to an ids:Instant."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must point from an ids:Interval to an ids:Instant."@en ; 
 	] .
 

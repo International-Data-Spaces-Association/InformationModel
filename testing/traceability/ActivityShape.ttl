@@ -7,17 +7,44 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#ActivityShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ActivityShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Activity ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActivityShape.ttl> (ActivityShape): An ids:Activity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Activity)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:activityDescription ;
 		sh:datatype rdf:PlainLiteral ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:activityDescription property must point from an ids:Activity to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActivityShape.ttl> (ActivityShape): An ids:activityDescription property must point from an ids:Activity to an rdf:PlainLiteral."@en ; 
 	] ;
 
 	sh:property [
@@ -26,7 +53,7 @@
 		sh:class ids:Participant ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Activity must not have more than one ids:Participant linked through the ids:startedBy property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActivityShape.ttl> (ActivityShape): An ids:Activity must not have more than one ids:Participant linked through the ids:startedBy property"@en ; 
 	] ;
 
 	sh:property [
@@ -34,7 +61,7 @@
 		sh:path ids:startedAt ;
 		sh:datatype xsd:dateTime ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:startedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActivityShape.ttl> (ActivityShape): An ids:startedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
 	] ;
 
 	sh:property [
@@ -42,7 +69,7 @@
 		sh:path ids:endedBy ;
 		sh:class ids:Participant ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:endedBy property must point from an ids:Activity to an ids:Participant."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActivityShape.ttl> (ActivityShape): An ids:endedBy property must point from an ids:Activity to an ids:Participant."@en ; 
 	] ;
 
 	sh:property [
@@ -50,11 +77,11 @@
 		sh:path ids:endedAt ;
 		sh:datatype xsd:dateTime ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:endedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActivityShape.ttl> (ActivityShape): An ids:endedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
 	] .
 
 
-<#ModificationActivityShape>
+shapes:ModificationActivityShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ModificationActivity ;
 
@@ -63,6 +90,6 @@
 		sh:path ids:invalidated ;
 		sh:datatype ids:ManagedEntity ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:invalidated property must point from an ids:ModificationActivity to an ids:ManagedEntity."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActivityShape.ttl> (ModificationActivityShape): An ids:invalidated property must point from an ids:ModificationActivity to an ids:ManagedEntity."@en ; 
 	] .
 

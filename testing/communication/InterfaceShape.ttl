@@ -6,8 +6,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#InterfaceShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:InterfaceShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Interface ;
 
@@ -16,6 +30,6 @@
 		sh:path ids:operation ;
 		sh:class ids:Operation ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:operation property must point from an ids:Interface to an ids:Operation."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/InterfaceShape.ttl> (InterfaceShape): An ids:operation property must point from an ids:Interface to an ids:Operation."@en ; 
 	] .
 

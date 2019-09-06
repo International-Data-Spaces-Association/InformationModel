@@ -7,8 +7,22 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#SoftwareShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:SoftwareShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Software ;
 
@@ -17,7 +31,7 @@
 		sh:path ids:softwareInterface ;
 		sh:class ids:Interface ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:softwareInterface property must point from an ids:Software to an ids:Interface."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (SoftwareShape): An ids:softwareInterface property must point from an ids:Software to an ids:Interface."@en ; 
 	] ;
 
 	sh:property [
@@ -25,11 +39,11 @@
 		sh:path ids:icon ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:icon property must point from an ids:Software to an xsd:string."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (SoftwareShape): An ids:icon property must point from an ids:Software to an xsd:string."@en ; 
 	] .
 
 
-<#ListShape>
+shapes:ListShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:List ;
 
@@ -38,6 +52,6 @@
 		sh:path ids:sortOrder ;
 		sh:class ids:SortOrder ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:sortOrder property must point from an ids:List to an ids:SortOrder."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (ListShape): An ids:sortOrder property must point from an ids:List to an ids:SortOrder."@en ; 
 	] .
 

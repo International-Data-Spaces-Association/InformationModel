@@ -1,4 +1,3 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
@@ -24,23 +23,20 @@ shapes:
 	] .
 
 
-shapes:ResourceReferenceShape
+shapes:ServiceShape
 	a sh:NodeShape ; 
-	sh:targetClass ids:ResourceReference ;
+	sh:targetClass ids:Service ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:resourceLiteral ;
-		sh:datatype xsd:string ;
-		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ReferenceShape.ttl_deprecated> (ResourceReferenceShape): An ids:resourceLiteral property must point from an ids:ResourceReference to an xsd:string."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:resourceBase64 ;
-		sh:datatype xsd:string ;
-		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ReferenceShape.ttl_deprecated> (ResourceReferenceShape): An ids:resourceBase64 property must point from an ids:ResourceReference to an xsd:string."@en ; 
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ServiceShape.ttl_deprecated> (ServiceShape): An ids:Service is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Service)
+			}
+		""" ;
 	] .
 

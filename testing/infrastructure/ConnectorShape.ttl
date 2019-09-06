@@ -6,17 +6,44 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#ConnectorShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ConnectorShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Connector ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ConnectorShape.ttl> (ConnectorShape): An ids:Connector is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Connector)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:host ;
 		sh:class ids:Host ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:host property must point from an ids:Connector to an ids:Host."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ConnectorShape.ttl> (ConnectorShape): An ids:host property must point from an ids:Connector to an ids:Host."@en ; 
 	] ;
 
 	sh:property [
@@ -24,7 +51,7 @@
 		sh:path ids:defaultHost ;
 		sh:class ids:Host ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:defaultHost property must point from an ids:Connector to an ids:Host."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ConnectorShape.ttl> (ConnectorShape): An ids:defaultHost property must point from an ids:Connector to an ids:Host."@en ; 
 	] ;
 
 	sh:property [
@@ -34,7 +61,7 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Connector must have at exactly one ids:CustomSecurityProfile linked through the ids:securityProfile property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:CustomSecurityProfile linked through the ids:securityProfile property"@en ; 
 	] ;
 
 	sh:property [
@@ -42,7 +69,7 @@
 		sh:path ids:authInfo ;
 		sh:class ids:AuthInfo ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:authInfo property must point from an ids:Connector to an ids:AuthInfo."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ConnectorShape.ttl> (ConnectorShape): An ids:authInfo property must point from an ids:Connector to an ids:AuthInfo."@en ; 
 	] ;
 
 	sh:property [
@@ -52,6 +79,6 @@
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Connector must have at exactly one ids:Catalog linked through the ids:catalog property"@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:Catalog linked through the ids:catalog property"@en ; 
 	] .
 

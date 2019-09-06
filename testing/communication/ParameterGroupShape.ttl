@@ -6,8 +6,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
 
-<#ParameterGroupShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ParameterGroupShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:ParameterGroup ;
 
@@ -16,7 +30,7 @@
 		sh:path ids:paramGroupMember ;
 		sh:class ids:Parameter ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:paramGroupMember property must point from an ids:ParameterGroup to an ids:Parameter."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParameterGroupShape.ttl> (ParameterGroupShape): An ids:paramGroupMember property must point from an ids:ParameterGroup to an ids:Parameter."@en ; 
 	] ;
 
 	sh:property [
@@ -24,6 +38,6 @@
 		sh:path ids:paramGroupingOperator ;
 		sh:class ids:ParameterGroupingOperator ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:paramGroupingOperator property must point from an ids:ParameterGroup to an ids:ParameterGroupingOperator."@en ; 
+		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParameterGroupShape.ttl> (ParameterGroupShape): An ids:paramGroupingOperator property must point from an ids:ParameterGroup to an ids:ParameterGroupingOperator."@en ; 
 	] .
 
