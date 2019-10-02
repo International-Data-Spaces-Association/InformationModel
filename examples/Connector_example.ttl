@@ -24,47 +24,47 @@ conn1:
     ids:maintainer "<some IDS participant>";
     ids:curator "<some IDS participant>";
     ids:physicalLocation <http://sws.geonames.org/3247450/> ;
-	ids:outboundModelVersion "1.0.3" ;
-	
-	# Information Model version that the Connector is capable of reading/processing
-	ids:inboundModelVersion "1.0.3" ;
-	
+    ids:outboundModelVersion "1.0.3" ;
+    
+    # Information Model version that the Connector is capable of reading/processing
+    ids:inboundModelVersion "1.0.3" ;
+    
     # Network host(s) maintained by the Connector. Describes the protocol and access URL of the host.
     ids:host [
-		a ids:Host ;
-		ids:protocol idsc_prot:HTTP2;
-		ids:accessUrl "https://connector.aastat.gov.de"^^xsd:anyURI ;
-		];
-	
-	# Default host of the Connector. May be used for basic infrastructure interactions, e.g., providing the self description
-	ids:defaultHost [
-		a ids:Host ;
-		ids:protocol idsc_prot:HTTP2;
-		ids:accessUrl "https://connector.aastat.gov.de"^^xsd:anyURI ;
-		];
+        a ids:Host ;
+        ids:protocol idsc_prot:HTTP2;
+        ids:accessUrl "https://connector.aastat.gov.de"^^xsd:anyURI ;
+        ];
+    
+    # Default host of the Connector. May be used for basic infrastructure interactions, e.g., providing the self description
+    ids:defaultHost [
+        a ids:Host ;
+        ids:protocol idsc_prot:HTTP2;
+        ids:accessUrl "https://connector.aastat.gov.de"^^xsd:anyURI ;
+        ];
 
     # Security and trust features
-	# Holds information regarding the authentication so that connections to the Connector's data offerings can be establised.
-	# Properties contain the authentication service URI and authentication protocol (OAUTH2_JWT)
+    # Holds information regarding the authentication so that connections to the Connector's data offerings can be establised.
+    # Properties contain the authentication service URI and authentication protocol (OAUTH2_JWT)
     ids:authInfo [
-		a ids:AuthInfo ;
-		ids:authService "https://keycloak.aastat.gov.de"^^xsd:anyURI ;
-		ids:authStandard idsc_auth:OAUTH2_JWT ;
-		];
-	
+        a ids:AuthInfo ;
+        ids:authService "https://keycloak.aastat.gov.de"^^xsd:anyURI ;
+        ids:authStandard idsc_auth:OAUTH2_JWT ;
+        ];
+    
     # Information on the security profile of the connector
     ids:securityProfile idsc_sec:TRUSTED_CONNECTOR_SECURITY_PROFILE;
     
-	# Information regarding the certification of the Connector including the certification level and validity date.
-	ids:componentCertification [
-		a ids:ComponentCertification ;
-	    ids:certificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
-		ids:lastValidDate "2020-12-31"^^xsd:date ;
-	];
+    # Information regarding the certification of the Connector including the certification level and validity date.
+    ids:componentCertification [
+        a ids:ComponentCertification ;
+        ids:certificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
+        ids:lastValidDate "2020-12-31"^^xsd:date ;
+    ];
 
     # Catalog of offered and requested resources
     ids:catalog [
         a ids:Catalog;
         ids:offer "reference to resources offered by the the connector" ;
-		ids:request "reference to the resources requested by the connector";
+        ids:request "reference to the resources requested by the connector";
     ].
