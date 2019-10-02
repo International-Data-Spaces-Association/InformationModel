@@ -24,17 +24,31 @@ sample_Data:
     ids:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
     ids:keyword "report", "highway", "statistics", "Europe" ;
     
+    # Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ. 
+    ids:publisher "<URI of the publisher ids participant)>";
+    ids:sovereign "<URI of the sovereign ids participant)>";
+    
+    # Reference to a existing Resource included, definition of "part-whole" hierarchies.
+    ids:resourcePart "<another ids:Resource>"
+    
+    # Variant of a resource, e.g. translated version
+    ids:variant "<another ids:Resource>"
+    
     # Temporal period covered by the content of the resource:     2000-01-01 to 2017-12-31
     ids:temporalCoverage [
         a ids:Interval ;
         ids:begin [ ids:date "2000-01-01"^^xsd:date ];
         ids:end   [ ids:date "2017-12-31"^^xsd:date ]
     ] ;
+        
+    # license of the resource:     "Other Commercial License" (as a placeholder for a commercial license)
+    ids:standardLicense idsc_lic:OTHERCOMMERCIALLICENSE;
     
     # Language of resource:         Englisch
     ids:language idsc_lang:ENGLISH ;    
-    # license of the resource:     "Other Commercial License" (as a placeholder for a commercial license)
-    ids:standardLicense idsc_lic:OTHERCOMMERCIALLICENSE;
+    
+    # sample of the resource, e.g. web-retrievable or inline content
+    ids:sample "<another ids:Resource>"
     
     # Representation of resource:
     # - in Textual form     (TextRepresentation) 
@@ -45,9 +59,9 @@ sample_Data:
         ids:mediaType idsc_media:APPLICATION_PDF;
         ids:instance sample_Data:report_pdf ;
     ] ;
-
+    
     # PDF artifact of the resource is available at following static path
-    ids:endpoint [
+    ids:resourceEndpoint [
         a ids:StaticEndpoint ;
         # reference to the (http) Host of the IDS connector "conn1". See "Connector_example.ttl" file for an example of a connector.
         ids:endpointHost conn1:http_host ; 
