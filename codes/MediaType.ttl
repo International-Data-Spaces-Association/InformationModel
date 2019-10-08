@@ -3,14 +3,14 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
-@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 
 # Instances
 # ---------
 
 # Media Type "text/*"
 
-idsc_media:TEXT_PLAIN
+idsc:TEXT_PLAIN
     a ids:IANAMediaType ;
     rdfs:label "text/plain" ;
     rdfs:comment "Plain text file" ;
@@ -18,7 +18,7 @@ idsc_media:TEXT_PLAIN
     ids:filenameExtension "txt" ;
     .
 
-idsc_media:TEXT_CSV
+idsc:TEXT_CSV
     a ids:IANAMediaType ;
     rdfs:label "text/csv" ;
     rdfs:comment "Comma-separated text file (CSV)" ;
@@ -26,7 +26,7 @@ idsc_media:TEXT_CSV
     ids:filenameExtension "json" ;
     .
 
-idsc_media:TEXT_XML
+idsc:TEXT_XML
     a ids:IANAMediaType ;
     rdfs:label "text/xml" ;
     rdfs:comment "Alias for the application/xml Media Type."@en ;
@@ -36,7 +36,7 @@ idsc_media:TEXT_XML
 
 # Image
 
-idsc_media:IMAGE_JPEG
+idsc:IMAGE_JPEG
     a ids:IANAMediaType ;
     rdfs:label "image/jpeg" ;
     rdfs:comment "JPG file"@en ;
@@ -44,7 +44,7 @@ idsc_media:IMAGE_JPEG
     ids:filenameExtension "jpg" ;
     .
 
-idsc_media:IMAGE_PNG
+idsc:IMAGE_PNG
     a ids:IANAMediaType ;
     rdfs:label "image/png" ;
     rdfs:comment "PNG file"@en ;
@@ -52,7 +52,7 @@ idsc_media:IMAGE_PNG
     ids:filenameExtension "png" ;
     .
 
-idsc_media:IMAGE_TIFF
+idsc:IMAGE_TIFF
     a ids:IANAMediaType ;
     rdfs:label "image/tiff" ;
     rdfs:comment "TIFF file"@en ;
@@ -62,7 +62,7 @@ idsc_media:IMAGE_TIFF
 
 # Data types
 
-idsc_media:APPLICATION_JSON
+idsc:APPLICATION_JSON
     a ids:IANAMediaType ;
     rdfs:label "application/json" ;
     rdfs:comment "JavaScript Object Notation file"@en ;
@@ -70,21 +70,21 @@ idsc_media:APPLICATION_JSON
     ids:filenameExtension "json" ;
     .
 
-idsc_media:APPLICATION_OPENAPI_JSON
+idsc:APPLICATION_OPENAPI_JSON
     a ids:CustomMediaType ;
     rdfs:label "application/openapi+json";
     rdfs:comment "JSON serialization of the OpenAPI-Specification, an endpoint-oriented, standardized description of REST APIs"@en ;
     rdfs:isDefinedBy <https://github.com/OAI/OpenAPI-Specification> ;
     .
 
-idsc_media:APPLICATION_OPENAPI_YAML
+idsc:APPLICATION_OPENAPI_YAML
     a ids:CustomMediaType ;
     rdfs:label "application/openapi+yaml";
     rdfs:comment "YAML serialization of the OpenAPI-Specification, an endpoint-oriented, standardized description of REST APIs"@en ;
     rdfs:isDefinedBy <https://github.com/OAI/OpenAPI-Specification> ;
     .
 
-idsc_media:APPLICATION_GRAPHQL_JSON
+idsc:APPLICATION_GRAPHQL_JSON
     a ids:CustomMediaType ;
     rdfs:label "application/graphql+json";
     rdfs:comment "JSON serialization of GraphQL, a type-oriented description and query language for data APIs."@en ;
@@ -92,7 +92,7 @@ idsc_media:APPLICATION_GRAPHQL_JSON
     rdfs:seeAlso <http://facebook.github.io/graphql/draft/#sec-JSON-Serialization> ;
     .
 
-idsc_media:TEXT_VND_APIBLUEPRINT
+idsc:TEXT_VND_APIBLUEPRINT
     a ids:CustomMediaType ;
     rdfs:label "text/vnd.apiblueprint";
     rdfs:comment "High-level, textual API description language for web APIs."@en ;
@@ -100,14 +100,14 @@ idsc_media:TEXT_VND_APIBLUEPRINT
     ids:filenameExtension "apib" ;
     .
 
-idsc_media:APPLICATION_PDF
+idsc:APPLICATION_PDF
     a ids:IANAMediaType;
 	rdfs:label "application/pdf" ;
     owl:sameAs <http://www.sparontologies.net/mediatype/application/pdf> ;
     ids:filenameExtension "pdf" ;
     .
 
-idsc_media:APPLICATION_MSWORD
+idsc:APPLICATION_MSWORD
     a ids:IANAMediaType;
 	rdfs:label "application/msword";
 	rdfs:comment "Microsoft Word document format" ;
@@ -117,7 +117,7 @@ idsc_media:APPLICATION_MSWORD
 	
 # Schema definition languages
 
-idsc_media:APPLICATION_SCHEMA_XML
+idsc:APPLICATION_SCHEMA_XML
     a ids:CustomMediaType;
     rdfs:label "application/schema+xml" ;
     rdfs:comment "XML Schema Definition Language, version 1.1";
@@ -125,7 +125,7 @@ idsc_media:APPLICATION_SCHEMA_XML
     rdfs:isDefinedBy <https://www.w3.org/TR/xmlschema11-2/> ; # Datatype
     .
 
-idsc_media:APPLICATION_SCHEMATRON_XML
+idsc:APPLICATION_SCHEMATRON_XML
     a ids:CustomMediaType;
     rdfs:label "application/schematron+xml";
     rdfs:comment "Schematron schema language for XML";
@@ -133,14 +133,14 @@ idsc_media:APPLICATION_SCHEMATRON_XML
     rdfs:seeAlso <http://schematron.com/> ;
     .
 
-idsc_media:APPLICATION_RELAXNG_XML
+idsc:APPLICATION_RELAXNG_XML
     a ids:CustomMediaType;
     rdfs:label "application/relaxng+xml";
     rdfs:comment "RELAX NG schema language for XML";
     rdfs:isDefinedBy <https://www.iso.org/standard/52348.html> ; # ISO/IEC 19757-2:2008
     .
 
-idsc_media:APPLICATION_SCHEMA_JSON
+idsc:APPLICATION_SCHEMA_JSON
     a ids:CustomMediaType;
     rdfs:label "application/schema+json";
     rdfs:comment "JSON Schema, JSON-based schema language for describing the structure of JSON data.";
@@ -150,7 +150,7 @@ idsc_media:APPLICATION_SCHEMA_JSON
 
 # Container, archive and package formats
 
-idsc_media:APPLICATION_ZIP
+idsc:APPLICATION_ZIP
     a ids:IANAMediaType ;
     owl:sameAs <http://www.sparontologies.net/mediatype/application/zip> ;
     rdfs:label "application/zip" ;
@@ -158,7 +158,7 @@ idsc_media:APPLICATION_ZIP
     ids:filenameExtension "zip" ;
     .
     
-idsc_media:APPLICATION_TAR_GZIP
+idsc:APPLICATION_TAR_GZIP
     a ids:CustomMediaType;
 	rdfs:label "application/tar+gzip" ;
 	rdfs:comment "Tape archive (tar) package compressed using GNU Gzip" ;
@@ -167,14 +167,14 @@ idsc_media:APPLICATION_TAR_GZIP
 
 # Software & code
 
-idsc_media:APPLICATION_FLATPAK
+idsc:APPLICATION_FLATPAK
     a ids:CustomMediaType;
     rdfs:label "application/flatpak";
     rdfs:comment "Flatpak, a portable application format";
     rdfs:seeAlso <https://flatpak.org/> ;
     .
 
-idsc_media:APPLICATION_DATAAPP
+idsc:APPLICATION_DATAAPP
     a ids:CustomMediaType;
     rdfs:label "application/dataapp";
     rdfs:comment "Data App sofware package";

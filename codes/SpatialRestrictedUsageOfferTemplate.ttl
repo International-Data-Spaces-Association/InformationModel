@@ -5,13 +5,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc_pt:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
+idsc:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
     rdfs:label "Location-restricted Usage Offer Template" ;
     rdfs:comment "A template for policy offers with a location-restricted permission." ;
 	skos:note """The <Provider Participant URI> allows to [ids:use|ids:read|...] its 
@@ -21,7 +21,7 @@ idsc_pt:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractOffer", 
 		"uid": "<contract ID>", 
-		"refersTo": "idsc_pt:SpatialRestrictedUsageOfferTemplate" ,
+		"refersTo": "idsc:SpatialRestrictedUsageOfferTemplate" ,
 		"target": "[<Resource URI>|<Representation URI>|<Artifact URI>]",
 		"ids:provider": "<Provider Participant URI>",
 		"ids:permission": {
@@ -33,14 +33,14 @@ idsc_pt:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
 			}
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
-		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		[<contract URI>| [] ] a ids:ContractOffer ;
 			ids:uid <contract ID> ;
-			ids:refersTo idsc_pt:SpatialRestrictedUsageOfferTemplate ;
+			ids:refersTo idsc:SpatialRestrictedUsageOfferTemplate ;
 			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
 			ids:provider <Provider Participant URI> ;
 			ids:permission [

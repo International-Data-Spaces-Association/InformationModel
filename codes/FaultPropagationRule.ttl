@@ -4,25 +4,25 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_fpr: <https://w3id.org/idsa/code/fpr/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc_fpr:FAULT_REPLACES_MESSAGE
+idsc:FAULT_REPLACES_MESSAGE
     a ids:FaultPropagationRule ;
     rdfs:label "Fault replaces message" ;
     rdfs:comment "Fault may replace any message, except the first one. It is delivered to the same target as the intended message." ;
     rdfs:seeAlso <https://www.w3.org/TR/wsdl20-adjuncts/#fault-replacement> .
 
-idsc_fpr:MESSAGE_TRIGGERS_FAULT
+idsc:MESSAGE_TRIGGERS_FAULT
     a ids:FaultPropagationRule ;
     rdfs:label "Message triggers fault" ;
     rdfs:comment "Any message, including the first may trigger a fault exactly once. It is delivered to the message originator (i.e. opposite direction as message)." ;
     rdfs:seeAlso <https://www.w3.org/TR/wsdl20-adjuncts/#fault-trigger> .
 
-idsc_fpr:NO_FAULT
+idsc:NO_FAULT
     a ids:FaultPropagationRule ;
     rdfs:label "No faults" ;
     rdfs:comment "Fault messages are not propagated." ;
