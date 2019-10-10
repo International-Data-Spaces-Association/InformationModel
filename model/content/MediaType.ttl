@@ -4,6 +4,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 
 # Classes
 # -------
@@ -34,7 +35,7 @@ ids:IANAMediaType
     idsm:usage "Definition of an ids:IANAMediaType should define individual equivalence to corresponding SPAR-Media Type."@en ;
     idsm:example
 """
-    idsc_media:TEXT_CSV
+    idsc:TEXT_CSV
         a ids:IANAMediaType;
         # the retrieved representation (HTML, turtle, RDF/XML) depends on content negotiation
         owl:sameAs <https://w3id.org/spar/mediatype/text/csv> .
