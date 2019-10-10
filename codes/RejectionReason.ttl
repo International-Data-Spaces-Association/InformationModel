@@ -36,7 +36,19 @@ idsc:METHOD_NOT_SUPPORTED a ids:RejectionReason;
     rdfs:label "METHOD_NOT_SUPPORTED";
     rdfs:comment "The sender of the rejection does not implement a certain functionality stated in the message (e.g., query language).".
 
+idsc:MESSAGE_TYPE_NOT_SUPPORTED a ids:RejectionReason;
+    rdfs:label "MESSAGE_TYPE_NOT_SUPPORTED";
+    rdfs:comment "The sender of the rejection does not support the incoming message type (e.g., ids:QueryMessage).".
+
 idsc:VERSION_NOT_SUPPORTED a ids:RejectionReason;
     rdfs:label "VERSION_NOT_SUPPORTED";
     rdfs:comment "The version of the information model against which the referenced message should be interpreted, is not supported by the recipient.".
+
+idsc:BAD_PARAMETERS a ids:RejectionReason;
+    rdfs:label "BAD_PARAMETERS";
+    rdfs:comment "At least one query or operation parameter is not acceptable for the sender of this rejection message.".
+
+idsc:TEMPORARILY_NOT_AVAILABLE a ids:RejectionReason;
+    rdfs:label "TEMPORARILY_NOT_AVAILABLE";
+    rdfs:comment "The requested resource, representation or artifact is temporarily not available but might be back later.".
 
