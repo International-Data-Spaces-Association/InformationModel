@@ -25,8 +25,8 @@ sample_Data:
     ids:keyword "report", "highway", "statistics", "Europe" ;
     
     # Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ. 
-    ids:publisher "<URI of the publisher ids participant)>";
-    ids:sovereign "<URI of the sovereign ids participant)>";
+    ids:publisher "<URI of the publisher IDS participant>";
+    ids:sovereign "<URI of the sovereign IDS participant>";
     
     # Reference to a existing Resource included, definition of "part-whole" hierarchies.
     ids:resourcePart "<another ids:Resource>"
@@ -73,7 +73,7 @@ sample_Data:
     # Commodization of the data resource in the form of a contract offer
     ids:sampleContractOffer [
         a ids:ContractOffer ;
-        ids:provider "<URI of the provider ids participant)>";
+        ids:provider "<URI of the provider ids participant>";
         ids:contractDocument "<Reference to human-readable resource of this Contract>";
         
         # permission and usage constraints of the resource
@@ -84,7 +84,7 @@ sample_Data:
             
             # Specify permission
             ids:action idsc_action:USE ;
-            ids:assigner "<URI of the provider ids participant)>";
+            ids:assigner "<URI of the provider IDS participant>";
             
             # Individual target artifact(s)
             ids:targetArtifact sample_Data:report_pdf ;
