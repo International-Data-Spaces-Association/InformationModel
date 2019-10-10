@@ -120,3 +120,10 @@ ids:transferContract
     rdfs:domain ids:Message;
     rdfs:range ids:Contract;
     rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
+
+ids:contentVersion
+    a owl:DatatypeProperty;
+    rdfs:label "contentVersion"@en;
+    rdfs:domain ids:Message;
+    rdfs:range xsd:string;
+    rdfs:comment "Version of the content in the payload. Use digits and semantic versioning pattern like MAJOR.MINOR.PATCH."@en.
