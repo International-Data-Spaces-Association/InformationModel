@@ -18,6 +18,12 @@ ids:Token
         idsm:constraint idsm:NotNull;
     ].
 
+ids:DynamicAttributeToken
+    a owl:Class;
+    rdfs:subClassOf ids:Token;
+    rdfs:label "Dynamic Attribute Token (DAT)."@en;
+    rdfs:comment "A token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'."@en .
+
 ids:TokenFormat a owl:Class;
     idsm:abstract true;
     rdfs:label "Token format"@en;
