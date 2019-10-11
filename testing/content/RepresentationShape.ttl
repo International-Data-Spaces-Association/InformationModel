@@ -31,7 +31,7 @@ shapes:RepresentationShape
 		sh:path ids:instance ;
 		sh:class ids:RepresentationInstance ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/RepresentationShape.ttl> (RepresentationShape): An ids:instance property must point from an ids:Representation to an ids:RepresentationInstance."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:instance property must point from an ids:Representation to an ids:RepresentationInstance."@en ; 
 	] ;
 
 	sh:property [
@@ -40,7 +40,7 @@ shapes:RepresentationShape
 		sh:class ids:MediaType ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must not have more than one ids:MediaType linked through the ids:mediaType property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must not have more than one ids:MediaType linked through the ids:mediaType property"@en ; 
 	] ;
 
 	sh:property [
@@ -48,7 +48,7 @@ shapes:RepresentationShape
 		sh:path ids:representationStandard ;
 		sh:class ids:Standard ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must point from an ids:Representation to an ids:Standard."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must point from an ids:Representation to an ids:Standard."@en ; 
 	] .
 
 
@@ -58,7 +58,7 @@ shapes:RepresentationInstanceShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/RepresentationShape.ttl> (RepresentationInstanceShape): An ids:RepresentationInstance is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/RepresentationShape.ttl> (RepresentationInstanceShape): An ids:RepresentationInstance is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type

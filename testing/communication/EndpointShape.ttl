@@ -27,7 +27,7 @@ shapes:EndpointShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/EndpointShape.ttl> (EndpointShape): An ids:Endpoint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:Endpoint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -43,7 +43,7 @@ shapes:EndpointShape
 		sh:path ids:endpointHost ;
 		sh:class ids:Host ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/EndpointShape.ttl> (EndpointShape): An ids:endpointHost property must point from an ids:Endpoint to an ids:Host."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:endpointHost property must point from an ids:Endpoint to an ids:Host."@en ; 
 	] ;
 
 	sh:property [
@@ -51,7 +51,7 @@ shapes:EndpointShape
 		sh:path ids:path ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/EndpointShape.ttl> (EndpointShape): An ids:path property must point from an ids:Endpoint to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:path property must point from an ids:Endpoint to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -59,7 +59,7 @@ shapes:EndpointShape
 		sh:path ids:inboundPath ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/EndpointShape.ttl> (EndpointShape): An ids:inboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:inboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -67,7 +67,7 @@ shapes:EndpointShape
 		sh:path ids:outboundPath ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/EndpointShape.ttl> (EndpointShape): An ids:outboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:outboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
 	] .
 
 
@@ -80,7 +80,7 @@ shapes:StaticEndpointShape
 		sh:path ids:endpointArtifact ;
 		sh:class ids:Artifact ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/EndpointShape.ttl> (StaticEndpointShape): An ids:endpointArtifact property must point from an ids:StaticEndpoint to an ids:Artifact."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/EndpointShape.ttl> (StaticEndpointShape): An ids:endpointArtifact property must point from an ids:StaticEndpoint to an ids:Artifact."@en ; 
 	] .
 
 
@@ -93,6 +93,6 @@ shapes:InteractiveEndpointShape
 		sh:path ids:endpointOperationBinding ;
 		sh:class ids:OperationBinding ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/EndpointShape.ttl> (InteractiveEndpointShape): An ids:endpointOperationBinding property must point from an ids:InteractiveEndpoint to an ids:OperationBinding."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/EndpointShape.ttl> (InteractiveEndpointShape): An ids:endpointOperationBinding property must point from an ids:InteractiveEndpoint to an ids:OperationBinding."@en ; 
 	] .
 

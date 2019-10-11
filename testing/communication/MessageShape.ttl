@@ -32,7 +32,7 @@ shapes:MessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:string linked through the ids:modelVersion property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:string linked through the ids:modelVersion property"@en ; 
 	] ;
 
 	sh:property [
@@ -42,7 +42,7 @@ shapes:MessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:dateTime linked through the ids:issued property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:dateTime linked through the ids:issued property"@en ; 
 	] ;
 
 	sh:property [
@@ -50,7 +50,7 @@ shapes:MessageShape
 		sh:path ids:correlationMessage ;
 		sh:class ids:Message ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:correlationMessage property must point from an ids:Message to an ids:Message."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:correlationMessage property must point from an ids:Message to an ids:Message."@en ; 
 	] ;
 
 	sh:property [
@@ -60,7 +60,7 @@ shapes:MessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one ids:Connector linked through the ids:issuerConnector property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one ids:Connector linked through the ids:issuerConnector property"@en ; 
 	] ;
 
 	sh:property [
@@ -68,7 +68,7 @@ shapes:MessageShape
 		sh:path ids:recipientConnector ;
 		sh:class ids:Connector ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:recipientConnector property must point from an ids:Message to an ids:Connector."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientConnector property must point from an ids:Message to an ids:Connector."@en ; 
 	] ;
 
 	sh:property [
@@ -77,7 +77,7 @@ shapes:MessageShape
 		sh:datatype ids:Agent ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:Message must have at least one ids:Agent linked through the ids:senderAgent property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have at least one ids:Agent linked through the ids:senderAgent property"@en ; 
 	] ;
 
 	sh:property [
@@ -85,7 +85,7 @@ shapes:MessageShape
 		sh:path ids:recipientAgent ;
 		sh:datatype ids:Agent ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:recipientAgent property must point from an ids:Message to an ids:Agent."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientAgent property must point from an ids:Message to an ids:Agent."@en ; 
 	] ;
 
 	sh:property [
@@ -95,7 +95,7 @@ shapes:MessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one security token, which points to an ids:DynamicAttributeToken."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one security token, which points to an ids:DynamicAttributeToken."@en ; 
 	] ;
 
 	sh:property [
@@ -103,7 +103,7 @@ shapes:MessageShape
 		sh:path ids:authorizationToken ;
 		sh:class ids:Token ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:authorizationToken property must point from an ids:Message to an ids:Token."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:authorizationToken property must point from an ids:Message to an ids:Token."@en ; 
 	] ;
 
 	sh:property [
@@ -111,7 +111,7 @@ shapes:MessageShape
 		sh:path ids:transferContract ;
 		sh:class ids:Contract ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ; 
 	] ;
 
 	sh:property [
@@ -119,6 +119,6 @@ shapes:MessageShape
 		sh:path ids:contentVersion ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:contentVersion property must point from an ids:Message to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/MessageShape.ttl> (MessageShape): An ids:contentVersion property must point from an ids:Message to an xsd:string."@en ; 
 	] .
 
