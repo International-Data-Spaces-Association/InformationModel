@@ -7,7 +7,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -28,7 +28,7 @@ shapes:ManagedEntityShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:ManagedEntity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:ManagedEntity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -44,7 +44,7 @@ shapes:ManagedEntityShape
 		sh:path ids:lifecycleActivity ;
 		sh:class ids:Activity ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:lifecycleActivity property must point from an ids:ManagedEntity to an ids:Activity."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:lifecycleActivity property must point from an ids:ManagedEntity to an ids:Activity."@en ; 
 	] ;
 
 	sh:property [
@@ -52,6 +52,6 @@ shapes:ManagedEntityShape
 		sh:path ids:version ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:version property must point from an ids:ManagedEntity to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:version property must point from an ids:ManagedEntity to an xsd:string."@en ; 
 	] .
 

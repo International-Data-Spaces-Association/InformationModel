@@ -6,7 +6,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -27,7 +27,7 @@ shapes:ActionShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActionShape.ttl> (ActionShape): An ids:Action is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ActionShape.ttl> (ActionShape): An ids:Action is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -43,6 +43,6 @@ shapes:ActionShape
 		sh:path ids:actionRefinement ;
 		sh:class ids:Constraint ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ActionShape.ttl> (ActionShape): An ids:actionRefinement property must point from an ids:Action to an ids:Constraint."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ActionShape.ttl> (ActionShape): An ids:actionRefinement property must point from an ids:Action to an ids:Constraint."@en ; 
 	] .
 

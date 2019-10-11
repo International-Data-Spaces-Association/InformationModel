@@ -6,7 +6,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -30,7 +30,7 @@ shapes:OperationBindingShape
 		sh:path ids:apiDocument ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationBindingShape.ttl> (OperationBindingShape): An ids:apiDocument property must point from an ids:OperationBinding to an ids:Resource."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/OperationBindingShape.ttl> (OperationBindingShape): An ids:apiDocument property must point from an ids:OperationBinding to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
@@ -38,6 +38,6 @@ shapes:OperationBindingShape
 		sh:path ids:boundOperation ;
 		sh:class ids:Operation ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/OperationBindingShape.ttl> (OperationBindingShape): An ids:boundOperation property must point from an ids:OperationBinding to an ids:Operation."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/OperationBindingShape.ttl> (OperationBindingShape): An ids:boundOperation property must point from an ids:OperationBinding to an ids:Operation."@en ; 
 	] .
 

@@ -8,7 +8,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -33,7 +33,7 @@ shapes:ParticipantShape
 		sh:class ids:Site ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (ParticipantShape): An ids:Participant must not have more than one ids:Site linked through the ids:primarySite property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (ParticipantShape): An ids:Participant must not have more than one ids:Site linked through the ids:primarySite property"@en ; 
 	] ;
 
 	sh:property [
@@ -42,7 +42,7 @@ shapes:ParticipantShape
 		sh:datatype xsd:string ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (ParticipantShape): An ids:Participant must have at least one xsd:string linked through the ids:corporateEmailAddress property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (ParticipantShape): An ids:Participant must have at least one xsd:string linked through the ids:corporateEmailAddress property"@en ; 
 	] ;
 
 	sh:property [
@@ -50,7 +50,7 @@ shapes:ParticipantShape
 		sh:path ids:corporateHomepage ;
 		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (ParticipantShape): An ids:corporateHomepage property must point from an ids:Participant to an xsd:anyURI."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (ParticipantShape): An ids:corporateHomepage property must point from an ids:Participant to an xsd:anyURI."@en ; 
 	] ;
 
 	sh:property [
@@ -58,7 +58,7 @@ shapes:ParticipantShape
 		sh:path ids:memberParticipant ;
 		sh:class ids:Participant ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (ParticipantShape): An ids:memberParticipant property must point from an ids:Participant to an ids:Participant."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (ParticipantShape): An ids:memberParticipant property must point from an ids:Participant to an ids:Participant."@en ; 
 	] ;
 
 	sh:property [
@@ -66,7 +66,7 @@ shapes:ParticipantShape
 		sh:path ids:industrialClassification ;
 		sh:class ids:IndustrialClassification ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (ParticipantShape): An ids:industrialClassification property must point from an ids:Participant to an ids:IndustrialClassification."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (ParticipantShape): An ids:industrialClassification property must point from an ids:Participant to an ids:IndustrialClassification."@en ; 
 	] ;
 
 	sh:property [
@@ -74,7 +74,7 @@ shapes:ParticipantShape
 		sh:path ids:participantCertification ;
 		sh:class ids:ParticipantCertification ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must point from an ids:Participant to an ids:ParticipantCertification."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must point from an ids:Participant to an ids:ParticipantCertification."@en ; 
 	] ;
 
 	sh:property [
@@ -82,7 +82,7 @@ shapes:ParticipantShape
 		sh:path ids:memberPerson ;
 		sh:class ids:Person ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (ParticipantShape): An ids:memberPerson property must point from an ids:Participant to an ids:Person."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (ParticipantShape): An ids:memberPerson property must point from an ids:Participant to an ids:Person."@en ; 
 	] .
 
 
@@ -95,7 +95,7 @@ shapes:PersonShape
 		sh:path ids:familyName ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (PersonShape): An ids:familyName property must point from an ids:Person to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (PersonShape): An ids:familyName property must point from an ids:Person to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -103,7 +103,7 @@ shapes:PersonShape
 		sh:path ids:givenName ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (PersonShape): An ids:givenName property must point from an ids:Person to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (PersonShape): An ids:givenName property must point from an ids:Person to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -111,7 +111,7 @@ shapes:PersonShape
 		sh:path ids:phoneNumber ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (PersonShape): An ids:phoneNumber property must point from an ids:Person to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (PersonShape): An ids:phoneNumber property must point from an ids:Person to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -119,7 +119,7 @@ shapes:PersonShape
 		sh:path ids:emailAddress ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (PersonShape): An ids:emailAddress property must point from an ids:Person to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (PersonShape): An ids:emailAddress property must point from an ids:Person to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -127,7 +127,7 @@ shapes:PersonShape
 		sh:path ids:homepage ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (PersonShape): An ids:homepage property must point from an ids:Person to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (PersonShape): An ids:homepage property must point from an ids:Person to an xsd:string."@en ; 
 	] .
 
 
@@ -140,6 +140,6 @@ shapes:SiteShape
 		sh:path ids:siteAddress ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must point from an ids:Site to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must point from an ids:Site to an xsd:string."@en ; 
 	] .
 
