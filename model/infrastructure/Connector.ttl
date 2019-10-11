@@ -15,12 +15,17 @@ ids:Connector
     idsm:abstract true;
     rdfs:label "Connector"@en ;
     rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
-    idsm:validation [
-        idsm:forProperty ids:catalog;
-        idsm:constraint idsm:NotNull;
-    ];
+# TODO: a connector might not want to present a catalog
+#    idsm:validation [
+#        idsm:forProperty ids:catalog;
+#        idsm:constraint idsm:NotNull;
+#    ]; 
     idsm:validation [
         idsm:forProperty ids:host;
+        idsm:relationType idsm:OneToMany;
+    ]; 
+    idsm:validation [
+        idsm:forProperty ids:transportCertsSha256;
         idsm:relationType idsm:OneToMany;
     ].
 
@@ -58,12 +63,17 @@ ids:securityProfile a owl:ObjectProperty;
     rdfs:label "securityProfile"@en;
     rdfs:comment "The SecurityProfile supported by the Connector."@en.
     
-ids:extendedGuarantee
-    a owl:ObjectProperty;
+ids:extendedGuarantee a owl:ObjectProperty;
     rdfs:domain ids:Connector;
     rdfs:range ids:SecurityGuarantee;
     rdfs:label "extended guarantee"@en;
     rdfs:comment "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."@en.
+
+ids:transportCertsSha256 a owl:DatatypeProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range xsd:string;
+    rdfs:label "transportCertsSha256"@en;
+    rdfs:comment "Separate certificates for IDS identification and transport encryption opens an attack vector for relay attacks. In order to prevent these attacks, a binding of this transport certificates to the connector is required. The inclusion of SHA256 fingerprints of currently valid transport certificates, mainly into the DAT, enables the client to relate the transport layer security with the IDS interactions."@en.
 
 ids:authInfo a owl:ObjectProperty;
     rdfs:domain ids:Connector;
