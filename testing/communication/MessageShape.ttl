@@ -91,9 +91,11 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:securityToken ;
-		sh:class ids:Token ;
+		sh:class ids:DynamicAttributeToken ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:securityToken property must point from an ids:Message to an ids:Token."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one security token, which points to an ids:DynamicAttributeToken."@en ; 
 	] ;
 
 	sh:property [
@@ -110,5 +112,13 @@ shapes:MessageShape
 		sh:class ids:Contract ;
 		sh:severity sh:Violation ;
 		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contentVersion ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/MessageShape.ttl> (MessageShape): An ids:contentVersion property must point from an ids:Message to an xsd:string."@en ; 
 	] .
 
