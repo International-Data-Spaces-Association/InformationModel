@@ -15,10 +15,11 @@ ids:Connector
     idsm:abstract true;
     rdfs:label "Connector"@en ;
     rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
-    idsm:validation [
-        idsm:forProperty ids:catalog;
-        idsm:constraint idsm:NotNull;
-    ];
+# TODO: a connector might not want to present a catalog
+#    idsm:validation [
+#        idsm:forProperty ids:catalog;
+#        idsm:constraint idsm:NotNull;
+#    ]; 
     idsm:validation [
         idsm:forProperty ids:host;
         idsm:relationType idsm:OneToMany;
