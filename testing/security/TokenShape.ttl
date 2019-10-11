@@ -29,7 +29,7 @@ shapes:TokenShape
 		sh:path ids:tokenValue ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/TokenShape.ttl> (TokenShape): An ids:tokenValue property must point from an ids:Token to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/TokenShape.ttl> (TokenShape): An ids:tokenValue property must point from an ids:Token to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -37,7 +37,7 @@ shapes:TokenShape
 		sh:path ids:tokenFormat ;
 		sh:class ids:TokenFormat ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/TokenShape.ttl> (TokenShape): An ids:tokenFormat property must point from an ids:Token to an ids:TokenFormat."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/TokenShape.ttl> (TokenShape): An ids:tokenFormat property must point from an ids:Token to an ids:TokenFormat."@en ; 
 	] .
 
 
@@ -47,7 +47,7 @@ shapes:TokenFormatShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/TokenShape.ttl> (TokenFormatShape): An ids:TokenFormat is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/TokenShape.ttl> (TokenFormatShape): An ids:TokenFormat is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
