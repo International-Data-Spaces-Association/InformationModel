@@ -1,26 +1,26 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dc: <http://purl.org/dc/terms/> .
-@prefix ns0: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 foaf:
   a owl:Ontology ;
-  dc11:description "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language."^^xsd:string ;
-  dc11:title "Friend of a Friend (FOAF) vocabulary"^^xsd:string .
+  dce:description "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language."^^xsd:string ;
+  dce:title "Friend of a Friend (FOAF) vocabulary"^^xsd:string .
 
 foaf:Agent
   rdfs:isDefinedBy foaf: ;
   a owl:Class, rdfs:Class ;
   rdfs:comment "An agent (eg. person, group, software or physical artifact)."^^xsd:string ;
   rdfs:label "Agent"^^xsd:string ;
-  owl:equivalentClass dc:Agent ;
-  ns0:term_status "stable"^^xsd:string .
+  owl:equivalentClass dct:Agent ;
+  vs:term_status "stable"^^xsd:string .
 
 foaf:Document
   rdfs:isDefinedBy foaf: ;
@@ -28,7 +28,7 @@ foaf:Document
   rdfs:comment "A document."^^xsd:string ;
   rdfs:label "Document"^^xsd:string ;
   owl:disjointWith foaf:Organization, foaf:Project ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:Organization
   rdfs:isDefinedBy foaf: ;
@@ -37,7 +37,7 @@ foaf:Organization
   rdfs:label "Organization"^^xsd:string ;
   rdfs:subClassOf foaf:Agent ;
   owl:disjointWith foaf:Person, foaf:Document ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:Project
   rdfs:isDefinedBy foaf: ;
@@ -45,7 +45,7 @@ foaf:Project
   rdfs:comment "A project (a collective endeavour of some kind)."^^xsd:string ;
   rdfs:label "Project"^^xsd:string ;
   owl:disjointWith foaf:Person, foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:Group
   rdfs:isDefinedBy foaf: ;
@@ -53,7 +53,7 @@ foaf:Group
   rdfs:comment "A class of Agents."^^xsd:string ;
   rdfs:label "Group"^^xsd:string ;
   rdfs:subClassOf foaf:Agent ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:Image
   rdfs:isDefinedBy foaf: ;
@@ -61,14 +61,14 @@ foaf:Image
   rdfs:comment "An image."^^xsd:string ;
   rdfs:label "Image"^^xsd:string ;
   rdfs:subClassOf foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:LabelProperty
   rdfs:isDefinedBy foaf: ;
   a rdfs:Class, owl:Class ;
   rdfs:comment "A foaf:LabelProperty is any RDF property with texual values that serve as labels."^^xsd:string ;
   rdfs:label "Label Property"^^xsd:string ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:OnlineAccount
   rdfs:isDefinedBy foaf: ;
@@ -76,7 +76,7 @@ foaf:OnlineAccount
   rdfs:comment "An online account."^^xsd:string ;
   rdfs:label "Online Account"^^xsd:string ;
   rdfs:subClassOf owl:Thing ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:OnlineChatAccount
   rdfs:isDefinedBy foaf: ;
@@ -84,7 +84,7 @@ foaf:OnlineChatAccount
   rdfs:comment "An online chat account."^^xsd:string ;
   rdfs:label "Online Chat Account"^^xsd:string ;
   rdfs:subClassOf foaf:OnlineAccount ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:OnlineEcommerceAccount
   rdfs:isDefinedBy foaf: ;
@@ -92,7 +92,7 @@ foaf:OnlineEcommerceAccount
   rdfs:comment "An online e-commerce account."^^xsd:string ;
   rdfs:label "Online E-commerce Account"^^xsd:string ;
   rdfs:subClassOf foaf:OnlineAccount ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:OnlineGamingAccount
   rdfs:isDefinedBy foaf: ;
@@ -100,7 +100,7 @@ foaf:OnlineGamingAccount
   rdfs:comment "An online gaming account."^^xsd:string ;
   rdfs:label "Online Gaming Account"^^xsd:string ;
   rdfs:subClassOf foaf:OnlineAccount ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:Person
   rdfs:isDefinedBy foaf: ;
@@ -109,7 +109,7 @@ foaf:Person
   rdfs:label "Person"^^xsd:string ;
   rdfs:subClassOf foaf:Agent, <http://www.w3.org/2000/10/swap/pim/contact#Person>, geo:SpatialThing ;
   owl:disjointWith foaf:Organization, foaf:Project ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:PersonalProfileDocument
   rdfs:isDefinedBy foaf: ;
@@ -117,7 +117,7 @@ foaf:PersonalProfileDocument
   rdfs:comment "A personal profile RDF document."^^xsd:string ;
   rdfs:label "PersonalProfileDocument"^^xsd:string ;
   rdfs:subClassOf foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:account
   rdfs:isDefinedBy foaf: ;
@@ -126,7 +126,7 @@ foaf:account
   rdfs:domain foaf:Agent ;
   rdfs:label "account"^^xsd:string ;
   rdfs:range foaf:OnlineAccount ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:accountName
   rdfs:isDefinedBy foaf: ;
@@ -135,7 +135,7 @@ foaf:accountName
   rdfs:domain foaf:OnlineAccount ;
   rdfs:label "account name"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:accountServiceHomepage
   rdfs:isDefinedBy foaf: ;
@@ -144,7 +144,7 @@ foaf:accountServiceHomepage
   rdfs:domain foaf:OnlineAccount ;
   rdfs:label "account service homepage"^^xsd:string ;
   rdfs:range foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:age
   rdfs:isDefinedBy foaf: ;
@@ -153,7 +153,7 @@ foaf:age
   rdfs:domain foaf:Agent ;
   rdfs:label "age"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:aimChatID
   rdfs:isDefinedBy foaf: ;
@@ -163,14 +163,14 @@ foaf:aimChatID
   rdfs:label "AIM chat ID"^^xsd:string ;
   rdfs:range rdfs:Literal ;
   rdfs:subPropertyOf foaf:nick ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:nick
   rdfs:isDefinedBy foaf: ;
   a rdf:Property, owl:DatatypeProperty ;
   rdfs:comment "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames)."^^xsd:string ;
   rdfs:label "nickname"^^xsd:string ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:based_near
   rdfs:isDefinedBy foaf: ;
@@ -179,7 +179,7 @@ foaf:based_near
   rdfs:domain geo:SpatialThing ;
   rdfs:label "based near"^^xsd:string ;
   rdfs:range geo:SpatialThing ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:birthday
   rdfs:isDefinedBy foaf: ;
@@ -188,7 +188,7 @@ foaf:birthday
   rdfs:domain foaf:Agent ;
   rdfs:label "birthday"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:currentProject
   rdfs:isDefinedBy foaf: ;
@@ -197,7 +197,7 @@ foaf:currentProject
   rdfs:domain foaf:Person ;
   rdfs:label "current project"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:depiction
   rdfs:isDefinedBy foaf: ;
@@ -207,7 +207,7 @@ foaf:depiction
   rdfs:label "depiction"^^xsd:string ;
   rdfs:range foaf:Image ;
   owl:inverseOf foaf:depicts ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:depicts
   rdfs:isDefinedBy foaf: ;
@@ -217,7 +217,7 @@ foaf:depicts
   rdfs:label "depicts"^^xsd:string ;
   rdfs:range owl:Thing ;
   owl:inverseOf foaf:depiction ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:dnaChecksum
   rdfs:isDefinedBy foaf: ;
@@ -225,7 +225,7 @@ foaf:dnaChecksum
   rdfs:comment "A checksum for the DNA of some thing. Joke."^^xsd:string ;
   rdfs:label "DNA checksum"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:familyName
   rdfs:isDefinedBy foaf: ;
@@ -234,7 +234,7 @@ foaf:familyName
   rdfs:domain foaf:Person ;
   rdfs:label "familyName"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:family_name
   rdfs:isDefinedBy foaf: ;
@@ -243,7 +243,7 @@ foaf:family_name
   rdfs:domain foaf:Person ;
   rdfs:label "family_name"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:firstName
   rdfs:isDefinedBy foaf: ;
@@ -252,7 +252,7 @@ foaf:firstName
   rdfs:domain foaf:Person ;
   rdfs:label "firstName"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:focus
   rdfs:isDefinedBy foaf: ;
@@ -261,7 +261,7 @@ foaf:focus
   rdfs:domain skos:Concept ;
   rdfs:label "focus"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:fundedBy
   rdfs:isDefinedBy foaf: ;
@@ -270,7 +270,7 @@ foaf:fundedBy
   rdfs:domain owl:Thing ;
   rdfs:label "funded by"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:geekcode
   rdfs:isDefinedBy foaf: ;
@@ -279,7 +279,7 @@ foaf:geekcode
   rdfs:domain foaf:Person ;
   rdfs:label "geekcode"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:gender
   rdfs:isDefinedBy foaf: ;
@@ -288,21 +288,21 @@ foaf:gender
   rdfs:domain foaf:Agent ;
   rdfs:label "gender"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:givenName
   rdfs:isDefinedBy foaf: ;
   a rdf:Property, owl:DatatypeProperty ;
   rdfs:comment "The given name of some person."^^xsd:string ;
   rdfs:label "Given name"^^xsd:string ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:givenname
   rdfs:isDefinedBy foaf: ;
   a rdf:Property, owl:DatatypeProperty ;
   rdfs:comment "The given name of some person."^^xsd:string ;
   rdfs:label "Given name"^^xsd:string ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:holdsAccount
   rdfs:isDefinedBy foaf: ;
@@ -311,7 +311,7 @@ foaf:holdsAccount
   rdfs:domain foaf:Agent ;
   rdfs:label "account"^^xsd:string ;
   rdfs:range foaf:OnlineAccount ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:homepage
   rdfs:isDefinedBy foaf: ;
@@ -321,7 +321,7 @@ foaf:homepage
   rdfs:label "homepage"^^xsd:string ;
   rdfs:range foaf:Document ;
   rdfs:subPropertyOf foaf:page, foaf:isPrimaryTopicOf ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:page
   rdfs:isDefinedBy foaf: ;
@@ -331,7 +331,7 @@ foaf:page
   rdfs:label "page"^^xsd:string ;
   rdfs:range foaf:Document ;
   owl:inverseOf foaf:topic ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:isPrimaryTopicOf
   rdfs:isDefinedBy foaf: ;
@@ -342,7 +342,7 @@ foaf:isPrimaryTopicOf
   rdfs:range foaf:Document ;
   rdfs:subPropertyOf foaf:page ;
   owl:inverseOf foaf:primaryTopic ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:icqChatID
   rdfs:isDefinedBy foaf: ;
@@ -352,7 +352,7 @@ foaf:icqChatID
   rdfs:label "ICQ chat ID"^^xsd:string ;
   rdfs:range rdfs:Literal ;
   rdfs:subPropertyOf foaf:nick ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:img
   rdfs:isDefinedBy foaf: ;
@@ -362,7 +362,7 @@ foaf:img
   rdfs:label "image"^^xsd:string ;
   rdfs:range foaf:Image ;
   rdfs:subPropertyOf foaf:depiction ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:interest
   rdfs:isDefinedBy foaf: ;
@@ -371,7 +371,7 @@ foaf:interest
   rdfs:domain foaf:Agent ;
   rdfs:label "interest"^^xsd:string ;
   rdfs:range foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:primaryTopic
   rdfs:isDefinedBy foaf: ;
@@ -381,7 +381,7 @@ foaf:primaryTopic
   rdfs:label "primary topic"^^xsd:string ;
   rdfs:range owl:Thing ;
   owl:inverseOf foaf:isPrimaryTopicOf ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:jabberID
   rdfs:isDefinedBy foaf: ;
@@ -390,7 +390,7 @@ foaf:jabberID
   rdfs:domain foaf:Agent ;
   rdfs:label "jabber ID"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:knows
   rdfs:isDefinedBy foaf: ;
@@ -399,7 +399,7 @@ foaf:knows
   rdfs:domain foaf:Person ;
   rdfs:label "knows"^^xsd:string ;
   rdfs:range foaf:Person ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:lastName
   rdfs:isDefinedBy foaf: ;
@@ -408,7 +408,7 @@ foaf:lastName
   rdfs:domain foaf:Person ;
   rdfs:label "lastName"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:logo
   rdfs:isDefinedBy foaf: ;
@@ -417,7 +417,7 @@ foaf:logo
   rdfs:domain owl:Thing ;
   rdfs:label "logo"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:made
   rdfs:isDefinedBy foaf: ;
@@ -427,7 +427,7 @@ foaf:made
   rdfs:label "made"^^xsd:string ;
   rdfs:range owl:Thing ;
   owl:inverseOf foaf:maker ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:maker
   rdfs:isDefinedBy foaf: ;
@@ -436,9 +436,9 @@ foaf:maker
   rdfs:domain owl:Thing ;
   rdfs:label "maker"^^xsd:string ;
   rdfs:range foaf:Agent ;
-  owl:equivalentProperty dc:creator ;
+  owl:equivalentProperty dct:creator ;
   owl:inverseOf foaf:made ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:mbox
   rdfs:isDefinedBy foaf: ;
@@ -447,7 +447,7 @@ foaf:mbox
   rdfs:domain foaf:Agent ;
   rdfs:label "personal mailbox"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:mbox_sha1sum
   rdfs:isDefinedBy foaf: ;
@@ -456,7 +456,7 @@ foaf:mbox_sha1sum
   rdfs:domain foaf:Agent ;
   rdfs:label "sha1sum of a personal mailbox URI name"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:member
   rdfs:isDefinedBy foaf: ;
@@ -465,14 +465,14 @@ foaf:member
   rdfs:domain foaf:Group ;
   rdfs:label "member"^^xsd:string ;
   rdfs:range foaf:Agent ;
-  ns0:term_status "stable"^^xsd:string .
+  vs:term_status "stable"^^xsd:string .
 
 foaf:membershipClass
   rdfs:isDefinedBy foaf: ;
   a rdf:Property, owl:AnnotationProperty ;
   rdfs:comment "Indicates the class of individuals that are a member of a Group"^^xsd:string ;
   rdfs:label "membershipClass"^^xsd:string ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:msnChatID
   rdfs:isDefinedBy foaf: ;
@@ -482,7 +482,7 @@ foaf:msnChatID
   rdfs:label "MSN chat ID"^^xsd:string ;
   rdfs:range rdfs:Literal ;
   rdfs:subPropertyOf foaf:nick ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:myersBriggs
   rdfs:isDefinedBy foaf: ;
@@ -491,7 +491,7 @@ foaf:myersBriggs
   rdfs:domain foaf:Person ;
   rdfs:label "myersBriggs"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:name
   rdfs:isDefinedBy foaf: ;
@@ -501,7 +501,7 @@ foaf:name
   rdfs:label "name"^^xsd:string ;
   rdfs:range rdfs:Literal ;
   rdfs:subPropertyOf rdfs:label ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:openid
   rdfs:isDefinedBy foaf: ;
@@ -511,7 +511,7 @@ foaf:openid
   rdfs:label "openid"^^xsd:string ;
   rdfs:range foaf:Document ;
   rdfs:subPropertyOf foaf:isPrimaryTopicOf ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:topic
   rdfs:isDefinedBy foaf: ;
@@ -521,7 +521,7 @@ foaf:topic
   rdfs:label "topic"^^xsd:string ;
   rdfs:range owl:Thing ;
   owl:inverseOf foaf:page ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:pastProject
   rdfs:isDefinedBy foaf: ;
@@ -530,14 +530,14 @@ foaf:pastProject
   rdfs:domain foaf:Person ;
   rdfs:label "past project"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:phone
   rdfs:isDefinedBy foaf: ;
   a rdf:Property, owl:ObjectProperty ;
   rdfs:comment "A phone, specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)."^^xsd:string ;
   rdfs:label "phone"^^xsd:string ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:plan
   rdfs:isDefinedBy foaf: ;
@@ -546,7 +546,7 @@ foaf:plan
   rdfs:domain foaf:Person ;
   rdfs:label "plan"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:publications
   rdfs:isDefinedBy foaf: ;
@@ -555,7 +555,7 @@ foaf:publications
   rdfs:domain foaf:Person ;
   rdfs:label "publications"^^xsd:string ;
   rdfs:range foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:schoolHomepage
   rdfs:isDefinedBy foaf: ;
@@ -564,7 +564,7 @@ foaf:schoolHomepage
   rdfs:domain foaf:Person ;
   rdfs:label "schoolHomepage"^^xsd:string ;
   rdfs:range foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:sha1
   rdfs:isDefinedBy foaf: ;
@@ -572,7 +572,7 @@ foaf:sha1
   rdfs:comment "A sha1sum hash, in hex."^^xsd:string ;
   rdfs:domain foaf:Document ;
   rdfs:label "sha1sum (hex)"^^xsd:string ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:skypeID
   rdfs:isDefinedBy foaf: ;
@@ -582,7 +582,7 @@ foaf:skypeID
   rdfs:label "Skype ID"^^xsd:string ;
   rdfs:range rdfs:Literal ;
   rdfs:subPropertyOf foaf:nick ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:status
   rdfs:isDefinedBy foaf: ;
@@ -591,7 +591,7 @@ foaf:status
   rdfs:domain foaf:Agent ;
   rdfs:label "status"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "unstable"^^xsd:string .
+  vs:term_status "unstable"^^xsd:string .
 
 foaf:surname
   rdfs:isDefinedBy foaf: ;
@@ -600,7 +600,7 @@ foaf:surname
   rdfs:domain foaf:Person ;
   rdfs:label "Surname"^^xsd:string ;
   rdfs:range rdfs:Literal ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:theme
   rdfs:isDefinedBy foaf: ;
@@ -609,7 +609,7 @@ foaf:theme
   rdfs:domain owl:Thing ;
   rdfs:label "theme"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "archaic"^^xsd:string .
+  vs:term_status "archaic"^^xsd:string .
 
 foaf:thumbnail
   rdfs:isDefinedBy foaf: ;
@@ -618,7 +618,7 @@ foaf:thumbnail
   rdfs:domain foaf:Image ;
   rdfs:label "thumbnail"^^xsd:string ;
   rdfs:range foaf:Image ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:tipjar
   rdfs:isDefinedBy foaf: ;
@@ -628,14 +628,14 @@ foaf:tipjar
   rdfs:label "tipjar"^^xsd:string ;
   rdfs:range foaf:Document ;
   rdfs:subPropertyOf foaf:page ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:title
   rdfs:isDefinedBy foaf: ;
   a rdf:Property, owl:DatatypeProperty ;
   rdfs:comment "Title (Mr, Mrs, Ms, Dr. etc)"^^xsd:string ;
   rdfs:label "title"^^xsd:string ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:topic_interest
   rdfs:isDefinedBy foaf: ;
@@ -644,7 +644,7 @@ foaf:topic_interest
   rdfs:domain foaf:Agent ;
   rdfs:label "topic_interest"^^xsd:string ;
   rdfs:range owl:Thing ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:weblog
   rdfs:isDefinedBy foaf: ;
@@ -654,7 +654,7 @@ foaf:weblog
   rdfs:label "weblog"^^xsd:string ;
   rdfs:range foaf:Document ;
   rdfs:subPropertyOf foaf:page ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:workInfoHomepage
   rdfs:isDefinedBy foaf: ;
@@ -663,7 +663,7 @@ foaf:workInfoHomepage
   rdfs:domain foaf:Person ;
   rdfs:label "work info homepage"^^xsd:string ;
   rdfs:range foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:workplaceHomepage
   rdfs:isDefinedBy foaf: ;
@@ -672,7 +672,7 @@ foaf:workplaceHomepage
   rdfs:domain foaf:Person ;
   rdfs:label "workplace homepage"^^xsd:string ;
   rdfs:range foaf:Document ;
-  ns0:term_status "testing"^^xsd:string .
+  vs:term_status "testing"^^xsd:string .
 
 foaf:yahooChatID
   rdfs:isDefinedBy foaf: ;
@@ -682,5 +682,4 @@ foaf:yahooChatID
   rdfs:label "Yahoo chat ID"^^xsd:string ;
   rdfs:range rdfs:Literal ;
   rdfs:subPropertyOf foaf:nick ;
-  ns0:term_status "testing"^^xsd:string .
-
+  vs:term_status "testing"^^xsd:string .
