@@ -5,13 +5,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc_pt:RequestTemplate a ids:PolicyTemplate ;
+idsc:RequestTemplate a ids:PolicyTemplate ;
     rdfs:label "Policy Request Template" ;
     rdfs:comment "A generic template for policy requests with one permission and several constraints" ;
 	skos:note """The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] 
@@ -22,7 +22,7 @@ idsc_pt:RequestTemplate a ids:PolicyTemplate ;
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractRequest", 
 		"uid": "<contract ID>", 
-		"refersTo": "idsc_pt:RequestTemplate" ,
+		"refersTo": "idsc:RequestTemplate" ,
 		"target": "[<Representation URI>|<Artifact URI>]",
 		"ids:provider": "<Provider Participant URI>",
 		"ids:consumer": "<Consumer Participant URI>", 
@@ -35,14 +35,14 @@ idsc_pt:RequestTemplate a ids:PolicyTemplate ;
 			 } [,]]*
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
-		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		[<contract URI>| [] ] a ids:ContractRequest ;
 			ids:uid <contract ID> ;
-			ids:refersTo idsc_pt:RequestTemplate ;
+			ids:refersTo idsc:RequestTemplate ;
 			ids:target [<Representation URI>|<Artifact URI>] ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
