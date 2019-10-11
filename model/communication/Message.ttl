@@ -29,6 +29,10 @@ ids:Message a owl:Class;
         idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
+        idsm:forProperty ids:securityToken;
+        idsm:relationType idsm:NotNull;
+    ];
+    idsm:validation [
         idsm:forProperty ids:recipientAgent;
         idsm:relationType idsm:OneToMany;
     ].
@@ -99,7 +103,7 @@ ids:securityToken
     a owl:ObjectProperty;
     rdfs:label "Security token"@en;
     rdfs:domain ids:Message;
-    rdfs:range ids:Token;
+    rdfs:range ids:DynamicAttributeToken;
     rdfs:comment "A token representing a claim that the message sender supports a certain security profile."@en.
 
 ids:authorizationToken
@@ -116,3 +120,10 @@ ids:transferContract
     rdfs:domain ids:Message;
     rdfs:range ids:Contract;
     rdfs:comment "The contract which is (or will be) the legal basis of the data transfer."@en.
+
+ids:contentVersion
+    a owl:DatatypeProperty;
+    rdfs:label "contentVersion"@en;
+    rdfs:domain ids:Message;
+    rdfs:range xsd:string;
+    rdfs:comment "Version of the content in the payload. Use digits and semantic versioning pattern like MAJOR.MINOR.PATCH."@en.
