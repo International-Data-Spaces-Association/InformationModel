@@ -31,7 +31,7 @@ shapes:DescribedShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:title ;
-		sh:datatype rdf:PlainLiteral ;
+		sh:datatype ids:PlainLiteral ;
 		sh:severity sh:Violation ;
 		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/DescribedShape.ttl> (DescribedShape): An ids:title property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
 	] ;
@@ -39,8 +39,16 @@ shapes:DescribedShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:description ;
+		sh:class ids:Concept ;
+		sh:severity sh:Violation ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to an ids:Concept."@en ; 
+	] ;
+	
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:comment ;
 		sh:datatype rdf:PlainLiteral ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/DescribedShape.ttl> (DescribedShape): An ids:comment property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
 	] .
 

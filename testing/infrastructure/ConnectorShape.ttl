@@ -57,11 +57,19 @@ shapes:ConnectorShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:securityProfile ;
-		sh:class ids:CustomSecurityProfile ;
+		sh:class ids:SecurityProfile ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:CustomSecurityProfile linked through the ids:securityProfile property"@en ; 
+	] ;
+	
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:extendedGuarantee ;
+		sh:class ids:SecurityGuarantee ;
+		sh:severity sh:Violation ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/ConnectorShape.ttl> (ConnectorShape): The ids:extendedGuarantee property must point from an ids:Connector to an ids:SecurityGuarantee"@en ; 
 	] ;
 
 	sh:property [
