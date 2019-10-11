@@ -54,9 +54,16 @@ ids:defaultHost
 
 ids:securityProfile a owl:ObjectProperty;
     rdfs:domain ids:Connector;
-    rdfs:range ids:CustomSecurityProfile;
+    rdfs:range ids:securityProfile;
     rdfs:label "securityProfile"@en;
     rdfs:comment "The SecurityProfile supported by the Connector."@en.
+    
+ids:extendedGuarantee
+    a owl:ObjectProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:SecurityGuarantee;
+    rdfs:label "extended guarantee"@en;
+    rdfs:comment "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."@en.
 
 ids:authInfo a owl:ObjectProperty;
     rdfs:domain ids:Connector;
