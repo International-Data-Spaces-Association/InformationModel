@@ -1,0 +1,21 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#ActionShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Action ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:actionRefinement ;
+		sh:class ids:Constraint ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:actionRefinement property must point from an ids:Action to an ids:Constraint."@en ; 
+	] .
+

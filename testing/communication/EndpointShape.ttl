@@ -1,0 +1,79 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#EndpointShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Endpoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointHost ;
+		sh:class ids:Host ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Endpoint must have at exactly one ids:Host linked through the ids:endpointHost property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:path ;
+		sh:datatype xsd:string ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Endpoint must have at exactly one xsd:string linked through the ids:path property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:inboundPath ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:inboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:outboundPath ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:outboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
+	] .
+
+
+<#StaticEndpointShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:StaticEndpoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointArtifact ;
+		sh:class ids:Artifact ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:StaticEndpoint must have at exactly one ids:Artifact linked through the ids:endpointArtifact property"@en ; 
+	] .
+
+
+<#InteractiveEndpointShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:InteractiveEndpoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointOperationBinding ;
+		sh:class ids:OperationBinding ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:InteractiveEndpoint must have at exactly one ids:OperationBinding linked through the ids:endpointOperationBinding property"@en ; 
+	] .
+
