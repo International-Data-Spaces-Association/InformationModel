@@ -1,0 +1,49 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#GeoPointShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:GeoPoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:latitude ;
+		sh:datatype xsd:float ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:GeoPoint must have at exactly one xsd:float linked through the ids:latitude property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:longitude ;
+		sh:datatype xsd:float ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:GeoPoint must have at exactly one xsd:float linked through the ids:longitude property"@en ; 
+	] .
+
+
+<#BoundingPolygonShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:BoundingPolygon ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:geoPoint ;
+		sh:class ids:GeoPoint ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:BoundingPolygon must have at least one ids:GeoPoint linked through the ids:geoPoint property"@en ; 
+	] .
+

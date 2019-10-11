@@ -1,0 +1,99 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#MessageShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Message ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:modelVersion ;
+		sh:datatype xsd:string ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Message must have at exactly one xsd:string linked through the ids:modelVersion property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:issued ;
+		sh:datatype xsd:dateTime ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Message must have at exactly one xsd:dateTime linked through the ids:issued property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:issuerConnector ;
+		sh:datatype ids:Connector ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Message must have at exactly one ids:Connector linked through the ids:issuerConnector property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:recipientConnector ;
+		sh:class ids:Connector ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:recipientConnector property must point from an ids:Message to an ids:Connector."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:recipientAgent ;
+		sh:datatype ids:Agent ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:recipientAgent property must point from an ids:Message to an ids:Agent."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:correlationMessage ;
+		sh:class ids:Message ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:correlationMessage property must point from an ids:Message to an ids:Message."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:senderAgent ;
+		sh:datatype ids:Agent ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:senderAgent property must point from an ids:Message to an ids:Agent."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:securityToken ;
+		sh:class ids:Token ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:securityToken property must point from an ids:Message to an ids:Token."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:authorizationToken ;
+		sh:class ids:Token ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:authorizationToken property must point from an ids:Message to an ids:Token."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:transferContract ;
+		sh:class ids:Contract ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ; 
+	] .
+

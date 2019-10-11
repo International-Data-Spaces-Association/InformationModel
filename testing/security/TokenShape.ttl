@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#TokenShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:Token ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:tokenValue ;
+		sh:datatype xsd:string ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:Token must have at exactly one xsd:string linked through the ids:tokenValue property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:tokenFormat ;
+		sh:class ids:TokenFormat ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:tokenFormat property must point from an ids:Token to an ids:TokenFormat."@en ; 
+	] .
+

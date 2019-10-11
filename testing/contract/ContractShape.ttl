@@ -1,61 +1,101 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ids: <https://w3id.org/ids/core/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/constraint> .
-
-
-# author: Sebastian Bader (sebastian.bader@iais.fraunhofer.de)
-# Resources: 
-#	IDS InformationModel: https://github.com/IndustrialDataSpace/InformationModel/
-# 	W3C recommendation: https://www.w3.org/TR/shacl/
-#	SHACL syntax checking: http://shacl.org/playground/
-#	SHACL Advanced Features: https://w3c.github.io/data-shapes/shacl-af/
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <#ContractShape>
-    a sh:NodeShape ;
-    sh:targetClass ids:Contract ;
-    sh:property [
-	  a sh:PropertyShape ;
-      sh:path rdf:type ;
-      sh:minCount 1 ; # this statement is redundant as each instance of type ids:Contract has at least one class relation (type ids:Contract).
-	  sh:message "All instances must contain at least one class assignment."@en ;
-    ] ;
-    sh:property [
-	  a sh:PropertyShape ;
-      sh:path ids:action ;
-      sh:maxCount 1 ;
-      sh:severity sh:Violation ;
-      sh:message "A contract must not have any ids:action property. Only ids:Rules have actions."@en ;
-    ] ;
-    sh:property [
-	  a sh:PropertyShape ;
-      sh:path (ids:permission ids:obligation ids:prohibition) ;
-      sh:minCount 1 ;
-      sh:severity sh:Violation ;
-      sh:message "A contract must have at least one ids:permission, ids:obligation or ids:prohibition property."@en ;
-    ] ;
-    sh:property [
-	  a sh:PropertyShape ;
-      sh:path ids:permission ;
-      sh:class ids:Permission ;
-      sh:severity sh:Violation ;
-      sh:message "An ids:permission relation must link to an ids:Permission class instance."@en ;
-    ] ;
-    sh:property [
-	  a sh:PropertyShape ;
-      sh:path ids:obligation ;
-      sh:class ids:Duty ;
-      sh:severity sh:Violation ;
-      sh:message "An ids:obligation relation must link to an ids:Duty class instance."@en ;
-    ] ;
-    sh:property [
-	  a sh:PropertyShape ;
-      sh:path ids:prohibition ;
-      sh:class ids:Prohibition ;
-      sh:severity sh:Violation ;
-      sh:message "An ids:prohibition relation must link to an ids:Prohibition class instance."@en ;
-    ] .
+	a sh:NodeShape ; 
+	sh:targetClass ids:Contract ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:permission ;
+		sh:class ids:Permission ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:permission property must point from an ids:Contract to an ids:Permission."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:prohibition ;
+		sh:class ids:Prohibition ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:obligation ;
+		sh:class ids:Duty ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:obligation property must point from an ids:Contract to an ids:Duty."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contractStart ;
+		sh:datatype xsd:dateTime ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:contractStart property must point from an ids:Contract to an xsd:dateTime."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contractEnd ;
+		sh:datatype xsd:dateTime ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:contractEnd property must point from an ids:Contract to an xsd:dateTime."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contractDate ;
+		sh:datatype xsd:date ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:contractDate property must point from an ids:Contract to an xsd:date."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:provider ;
+		sh:class ids:Participant ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:provider property must point from an ids:Contract to an ids:Participant."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:consumer ;
+		sh:class ids:Participant ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contractDocument ;
+		sh:class ids:TextResource ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:contractDocument property must point from an ids:Contract to an ids:TextResource."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contractAnnex ;
+		sh:class ids:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:contractAnnex property must point from an ids:Contract to an ids:Resource."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:refersTo ;
+		sh:class ids:PolicyTemplate ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ; 
+	] .
+

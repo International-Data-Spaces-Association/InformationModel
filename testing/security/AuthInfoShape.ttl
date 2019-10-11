@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<#AuthInfoShape>
+	a sh:NodeShape ; 
+	sh:targetClass ids:AuthInfo ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:authService ;
+		sh:class xsd:anyURI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:AuthInfo must have at exactly one xsd:anyURI linked through the ids:authService property"@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:authStandard ;
+		sh:class ids:AuthStandard ;
+		sh:severity sh:Violation ;
+		sh:message "An ids:authStandard property must point from an ids:AuthInfo to an ids:AuthStandard."@en ; 
+	] .
+
