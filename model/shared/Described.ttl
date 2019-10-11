@@ -12,6 +12,16 @@
 # Classes
 # -------
 
+
+#creating this helper class to prevent errors in codegen tool.
+#TODO: This class should be removed and ids:description should have skos:Concept as range
+ids:Concept
+	a owl:Class ;
+	rdfs:subClassOf skos:Concept ;
+	rdfs:label "Concept"@en .
+
+
+
 ids:Described
     a owl:Class ;
     rdfs:label "described"@en ;
@@ -23,23 +33,35 @@ ids:Described
     idsm:validation [
         idsm:forProperty ids:description;
         idsm:relationType idsm:OneToMany;
+    ];
+	idsm:validation [
+        idsm:forProperty ids:comment; #TODO: Change from ids:comment to rdfs:comment (as soon as tools support this)
+        idsm:relationType idsm:OneToMany;
     ].
 
 ids:title #.. how does it relate to "name", is "title" a functional property?
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:title ;
     rdfs:label "title"@en ;
-    idsm:labelPluralForm "titles"@en;
+    #idsm:labelPluralForm "titles"@en;
     rdfs:domain ids:Described ;
     rdfs:range rdf:PlainLiteral;
     rdfs:comment "(Localized) name of the entity."@en .
 
+#TODO: change range to skos:Concept
 ids:description
-    a owl:DatatypeProperty ;
+    a owl:ObjectProperty ;
     rdfs:subPropertyOf dct:description ;
     rdfs:label "description"@en ;
-    idsm:labelPluralForm "descriptions"@en;
+    #idsm:labelPluralForm "descriptions"@en;
     rdfs:domain ids:Described ;
-    rdfs:range rdf:PlainLiteral ;
-    rdfs:comment "(Localized) textual description of the entity."@en .
+    rdfs:range ids:Concept ; #allows using skos:broader
+    rdfs:comment "Reference to another resource which may describe this resource further"@en .
 
+#TODO: This is only a helper property and should be removed in the future
+ids:comment
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf rdfs:comment ;
+	rdfs:label "comment"@en ;
+	rdfs:range rdf:PlainLiteral ;
+	rdfs:comment "(Localized) textual description of the entity."@en .
