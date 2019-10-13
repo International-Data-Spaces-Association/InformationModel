@@ -14,54 +14,6 @@ ids:LeftOperand rdfs:subClassOf odrl:LeftOperand;
     rdfs:label "LeftOperand"@en;
     rdfs:comment "Instances of the LeftOperand class are used as the leftOperand of a Constraint."@en.
 
-# Instances
-# ---------
 
-ids:payAmount a ids:LeftOperand;
-    rdfs:seeAlso odrl:payAmount;
-    rdfs:label "payAmount";
-    rdfs:comment "Monetary amount to pay.".
-
-ids:DATE_TIME a ids:LeftOperand;
-    rdfs:seeAlso odrl:dateTime;
-    rdfs:label "dateTime";
-    rdfs:comment "The date (and optional time and timezone) of exercising the action of the Rule.".
-
-ids:timeInterval a ids:LeftOperand;
-    rdfs:seeAlso odrl:timeInterval;
-    rdfs:label "timeInterval";
-    rdfs:comment "Recurring Time Interval.".
-
-ids:purpose a ids:LeftOperand;
-    rdfs:seeAlso odrl:purpose;
-    rdfs:label "purpose";
-    rdfs:comment "A defined purpose for exercising the action of the Rule.".
-
-ids:count a ids:LeftOperand;
-    rdfs:seeAlso odrl:count;
-    rdfs:label "count";
-    rdfs:comment "Numeric count of executions of the action of the Rule.".
-
-ids:quantity a ids:LeftOperand;
-    rdfs:label "quantity";
-    rdfs:comment "Quantity limitation for exercising the action of the Rule.".
-
-ids:recurrenceRate a ids:LeftOperand;
-    rdfs:label "recurrenceRate";
-    rdfs:comment "The limit how often exercising the action of the Rule may be possible.".
-    
-ids:securityLevel a ids:LeftOperand;
-    rdfs:label "securityLevel";
-    rdfs:comment "The security level the consuming connector must have. The value decides which attribute dimension is regarded."@en ;
-    .
-    
-ids:absoluteSpatialPosition a ids:LeftOperand ;
-    rdfs:seeAlso odrl:absoluteSpatialPosition ;
-    rdfs:label "Absolute geo-spatial position";
-    rdfs:comment "The allowed region of the consuming connector or Data App."@en ;
-    rdfs:seeAlso odrl:spatial ;
-    # TODO rdfs:range <URI of geographical region>
-    .
-    
 
 

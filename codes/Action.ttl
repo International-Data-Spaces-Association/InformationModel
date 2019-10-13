@@ -54,14 +54,11 @@ ids:ANONYMIZE
     rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-anonymize> ;
 	.
 
-	
-ids:LOG  
-    a ids:Action ;
-    rdfs:comment "To log information. it needs a log server a recipient."@en ; 
+ids:NOTIFY a ids:Action ;
+    rdfs:comment "To log information or notify an instance about incidents. Can be used to define Clearing House interactions."@en ; 
     rdfs:label "log"@en ;
     .
 	
-
 ids:TRACKPROVENANCE
     a ids:Action ;
     odrl:implies ids:acceptTracking;
@@ -71,8 +68,8 @@ ids:TRACKPROVENANCE
 
 ids:READ
     a ids:Action ;
-    rdfs:comment    "To obtain data from the Asset."@en ;
-    rdfs:label    "read"@en ;
-    rdfs:seeAlso  <https://www.w3.org/TR/odrl-vocab/#term-read>;
-    skos:note  "This action is always operated on provider side."@en ;	
+    rdfs:comment "To obtain data from the Asset."@en ;
+    rdfs:label "read"@en ;
+    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-read>;
+    skos:note "This action is always operated on provider side."@en ;	
     .

@@ -1,0 +1,79 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix time: <https://www.w3.org/TR/owl-time/#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+
+# Instances
+# ---------
+
+# Generic operators
+idsc:EQ a ids:BinaryOperator;
+    rdfs:seeAlso odrl:eq;
+    rdfs:label "equals";
+    rdfs:comment "Equals operator. Actual semantic depends on the related LeftOperand. For instance, idsc:NOW (time:TimeInstance) requires a comparison of temporal instances while idsc:count demands a numeric comparison."@en ;
+    .
+    
+idsc:GTEQ a ids:BinaryOperator;
+    rdfs:seeAlso odrl:gteq;
+    rdfs:label "greater than or equals";
+    rdfs:comment "Greater-or-equals-than operator. Can be used for numeric (5 idsc:GTEQ 2) or qualitative comparisons (idsc:INTEGRITY_VERIFICATION_REMOTE idsc:gteq idsc:INTEGRITY_PROTECTION_NONE)."@en .
+    
+idsc:GT a ids:BinaryOperator;
+    rdfs:seeAlso odrl:gt;
+    rdfs:label "greater than";
+    rdfs:comment "Greater-than operator. Can be used for numeric (5 idsc:GT 2) or qualitative comparisons (idsc:INTEGRITY_VERIFICATION_REMOTE idsc:GT idsc:INTEGRITY_PROTECTION_NONE)."@en ;
+    .
+    
+idsc:LTEQ a ids:BinaryOperator;
+    rdfs:seeAlso odrl:lteq;
+    rdfs:label "less than ot equals";
+    rdfs:comment "Less-than-or-equals operator. Can be used for numeric (2 idsc:LTEQ 5) or qualitative comparisons (idsc:INTEGRITY_PROTECTION_NONE idsc:LTEQ idsc:INTEGRITY_VERIFICATION_REMOTE)."@en ;
+    .
+    
+idsc:LT a ids:BinaryOperator;
+    rdfs:seeAlso odrl:lt;
+    rdfs:label "less";
+    rdfs:comment "Less-than operator. Can be used for numeric (2 idsc:LT 5) or qualitative comparisons (idsc:INTEGRITY_PROTECTION_NONE idsc:LT idsc:INTEGRITY_VERIFICATION_REMOTE)."@en ;
+    .
+    
+idsc:IN a ids:BinaryOperator;
+    rdfs:seeAlso odrl:isAnyOf, <https://postgis.net/docs/ST_Within.html> ;
+    rdfs:label "in"@en ;
+    rdfs:comment "Element-of operator, also stating that a instance is in the boundaries of a certain range or area. Allowed RightOperands are RDF collections('(A B C)'), defined areas (http://dbpedia.org/resource/Europe), or ids:SpatialEntity."@en ;
+    .
+    
+# Temporal operators
+idsc:AFTER a ids:BinaryOperator;
+    rdfs:seeAlso time:after;
+    rdfs:label "after";
+    rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2. Temporal entities can either be a xsd:dateTime (time:TimeInstance) or a ids:TemporalEntity ([ ids:begin {xsd:dateTime}; ids:end {xsd:dateTime} ])."@en ;
+    .
+    
+idsc:BEFORE a ids:BinaryOperator;
+    rdfs:seeAlso time:before ;
+    rdfs:label "before" ;
+    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2. Temporal entities can either be a xsd:dateTime (time:TimeInstance) or a ids:TemporalEntity ([ ids:begin {xsd:dateTime}; ids:end {xsd:dateTime} ])."@en ;
+    .
+    
+idsc:IN_TIME_INTERVAL a ids:BinaryOperator;
+    owl:inverseOf time:inside ;
+    rdfs:label "in time interval";
+    rdfs:comment "Specifies that a given time point is inside a given ids:TemporalEntity. Recommended pattern for temporal intervals is [ ids:begin {xsd:dateTime}; ids:end {xsd:dateTime} ].".
+    
+
+# role-based
+idsc:HAS_ROLE a ids:BinaryOperator;
+    rdfs:seeAlso odrl:isAnyOf ;
+    rdfs:label "has Role" ;
+    rdfs:comment "If a user has a specific role required for accessing a resource. Must be used together with a RightOperand of type xsd:anyUri which should point to an accessible endpoint providing this information."@en ;
+    .
+    
+
+    
