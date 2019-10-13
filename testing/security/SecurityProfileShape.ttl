@@ -5,16 +5,41 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
-<#CustomSecurityProfileShape>
-	a sh:NodeShape ; 
-	sh:targetClass ids:CustomSecurityProfile ;
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
 
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+shapes:SecurityProfileShape
+	a sh:NodeShape ;
+	sh:targetClass ids:SecurityProfile ;
+	
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:securityGuarantee ;
 		sh:class ids:SecurityGuarantee ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:securityGuarantee property must point from an ids:CustomSecurityProfile to an ids:SecurityGuarantee."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/SecurityProfileShape.ttl> (SecurityProfileShape): An ids:securityGuarantee property must point from an ids:SecurityProfile to an ids:SecurityGuarantee."@en ; 
 	] .
+
+#shapes:CustomSecurityProfileShape
+#	a sh:NodeShape ; 
+#	sh:targetClass ids:CustomSecurityProfile ;
+#
+#	sh:property [
+#		a sh:PropertyShape ;
+#		sh:path ids:securityGuarantee ;
+#		sh:class ids:SecurityGuarantee ;
+#		sh:severity sh:Violation ;
+#		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/SecurityProfileShape.ttl> (CustomSecurityProfileShape): An ids:securityGuarantee property must point from an ids:CustomSecurityProfile to an ids:SecurityGuarantee."@en ; 
+#	] .
 

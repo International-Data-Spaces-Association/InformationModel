@@ -7,8 +7,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
-<#ArtifactShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ArtifactShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Artifact ;
 
@@ -16,24 +30,27 @@
 		a sh:PropertyShape ;
 		sh:path ids:byteSize ;
 		sh:datatype xsd:nonNegativeInteger ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:byteSize property must point from an ids:Artifact to an xsd:nonNegativeInteger."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:nonNegativeInteger linked through the ids:byteSize property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:fileName ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:fileName property must point from an ids:Artifact to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:string linked through the ids:fileName property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:creationDate ;
 		sh:datatype xsd:date ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:creationDate property must point from an ids:Artifact to an xsd:date."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:date linked through the ids:creationDate property"@en ; 
 	] ;
 
 	sh:property [
@@ -41,15 +58,16 @@
 		sh:path ids:artifactParameterization ;
 		sh:class ids:ParameterAssignment ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:artifactParameterization property must point from an ids:Artifact to an ids:ParameterAssignment."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:artifactParameterization property must point from an ids:Artifact to an ids:ParameterAssignment."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:checkSum ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:checkSum property must point from an ids:Artifact to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:string linked through the ids:checkSum property"@en ; 
 	] ;
 
 	sh:property [
@@ -57,6 +75,6 @@
 		sh:path ids:duration ;
 		sh:datatype xsd:decimal ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:duration property must point from an ids:Artifact to an xsd:decimal."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:duration property must point from an ids:Artifact to an xsd:decimal."@en ; 
 	] .
 

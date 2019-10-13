@@ -6,8 +6,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
-<#InterfaceShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:InterfaceShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Interface ;
 
@@ -15,8 +29,7 @@
 		a sh:PropertyShape ;
 		sh:path ids:operation ;
 		sh:class ids:Operation ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:Interface must have at least one ids:Operation linked through the ids:operation property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/InterfaceShape.ttl> (InterfaceShape): An ids:operation property must point from an ids:Interface to an ids:Operation."@en ; 
 	] .
 

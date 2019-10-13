@@ -5,8 +5,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
-<#AuthInfoShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:AuthInfoShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:AuthInfo ;
 
@@ -14,10 +28,8 @@
 		a sh:PropertyShape ;
 		sh:path ids:authService ;
 		sh:class xsd:anyURI ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:AuthInfo must have at exactly one xsd:anyURI linked through the ids:authService property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authService property must point from an ids:AuthInfo to an xsd:anyURI."@en ; 
 	] ;
 
 	sh:property [
@@ -25,6 +37,6 @@
 		sh:path ids:authStandard ;
 		sh:class ids:AuthStandard ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:authStandard property must point from an ids:AuthInfo to an ids:AuthStandard."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authStandard property must point from an ids:AuthInfo to an ids:AuthStandard."@en ; 
 	] .
 

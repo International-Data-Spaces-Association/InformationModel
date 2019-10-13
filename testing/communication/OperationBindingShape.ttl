@@ -6,8 +6,22 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
-<#OperationBindingShape>
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:OperationBindingShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:OperationBinding ;
 
@@ -15,19 +29,15 @@
 		a sh:PropertyShape ;
 		sh:path ids:apiDocument ;
 		sh:class ids:Resource ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:OperationBinding must have at exactly one ids:Resource linked through the ids:apiDocument property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/OperationBindingShape.ttl> (OperationBindingShape): An ids:apiDocument property must point from an ids:OperationBinding to an ids:Resource."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:boundOperation ;
 		sh:class ids:Operation ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "An ids:OperationBinding must have at exactly one ids:Operation linked through the ids:boundOperation property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/communication/OperationBindingShape.ttl> (OperationBindingShape): An ids:boundOperation property must point from an ids:OperationBinding to an ids:Operation."@en ; 
 	] .
 
