@@ -22,7 +22,7 @@ ids:DynamicAttributeToken
     a owl:Class;
     rdfs:subClassOf ids:Token;
     rdfs:label "Dynamic Attribute Token (DAT)."@en;
-    rdfs:comment "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'."@en .
+    rdfs:comment "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'."@en ;
     idsm:validation [
         idsm:forProperty ids:referingConnector;
         idsm:constraint idsm:NotNull;
@@ -46,7 +46,8 @@ ids:DynamicAttributeToken
     idsm:validation [
         idsm:forProperty ids:exp;
         idsm:constraint idsm:NotNull;
-    ].
+    ];
+    .
 
 
 ids:TokenFormat a owl:Class;
