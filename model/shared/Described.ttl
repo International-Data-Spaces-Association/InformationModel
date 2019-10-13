@@ -24,6 +24,7 @@ ids:Concept
 
 ids:Described
     a owl:Class ;
+    idsm:abstract true;
     rdfs:label "described"@en ;
     rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en;
     idsm:validation [
@@ -43,25 +44,16 @@ ids:title #.. how does it relate to "name", is "title" a functional property?
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:title ;
     rdfs:label "title"@en ;
-    #idsm:labelPluralForm "titles"@en;
     rdfs:domain ids:Described ;
     rdfs:range rdf:PlainLiteral;
     rdfs:comment "(Localized) name of the entity."@en .
 
 #TODO: change range to skos:Concept
 ids:description
-    a owl:ObjectProperty ;
+    a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:description ;
     rdfs:label "description"@en ;
-    #idsm:labelPluralForm "descriptions"@en;
     rdfs:domain ids:Described ;
-    rdfs:range ids:Concept ; #allows using skos:broader
-    rdfs:comment "Reference to another resource which may describe this resource further"@en .
-
-#TODO: This is only a helper property and should be removed in the future
-ids:comment
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf rdfs:comment ;
-	rdfs:label "comment"@en ;
-	rdfs:range rdf:PlainLiteral ;
-	rdfs:comment "(Localized) textual description of the entity."@en .
+    rdfs:range rdf:PlainLiteral ; #allows using skos:broader
+    rdfs:comment "Explanation of the resource in a natural language text."@en ;
+    .

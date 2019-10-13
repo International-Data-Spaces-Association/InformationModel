@@ -72,7 +72,6 @@ ids:contentPart
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:hasPart;
     rdfs:label "content part"@en;
-    idsm:labelPluralForm "contentParts"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:DigitalContent;
     rdfs:comment "Reference to a Digital Content (physically or logically) included, definition of part-whole hierarchies."@en .
@@ -81,7 +80,6 @@ ids:representation
     a owl:ObjectProperty;
     #rdfs:subPropertyOf dcat:distribution ; # Links to non-materialized part of Distribution
     rdfs:label "representation"@en;
-    idsm:labelPluralForm "representations"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:Representation;
     rdfs:comment "Representation of the content."@en.
@@ -100,7 +98,6 @@ ids:language
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:Language; # does not fit the defined range of dct:language - dct:LinguisticSystem !
     rdfs:label "language"@en;
-    idsm:labelPluralForm "languages"@en;
     rdfs:comment "Natural language(s) used within the content."@en.
 
 ids:theme # ... "topic" / "subject" ?
@@ -108,7 +105,6 @@ ids:theme # ... "topic" / "subject" ?
     rdfs:subPropertyOf dcat:theme; # is a sub-property of dct:subject, comparable to qb:concept (?)
     idsm:referenceByUri true ;
     rdfs:label "theme"@en;
-    idsm:labelPluralForm "themes"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:Concept; # former "ContentCategory", skos:Concepts organized in a skos:ConceptScheme
     rdfs:comment "Abstract or concrete concept related to or referred by the content."@en.
@@ -118,7 +114,6 @@ ids:keyword
     a owl:DatatypeProperty;
     rdfs:subPropertyOf dcat:keyword;
     rdfs:label "keyword"@en;
-    idsm:labelPluralForm "keywords"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range rdfs:Literal;
     rdfs:comment "Controlled keywords that describe the nature, purpose, or use of the content."@en.
@@ -127,7 +122,6 @@ ids:temporalCoverage
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:temporal;
     rdfs:label "temporal coverage"@en;
-    idsm:labelPluralForm "temporalCoverages"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:TemporalEntity;
     rdfs:comment "Temporal period or instance covered by the content."@en.
@@ -136,7 +130,6 @@ ids:spatialCoverage
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:spatial;
     rdfs:label "spatial coverage"@en;
-    idsm:labelPluralForm "spatialCoverages"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:SpatialEntity;
     rdfs:comment "Named spatial entity covered by the Resource."@en.
