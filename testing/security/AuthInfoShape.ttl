@@ -5,7 +5,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -29,7 +29,7 @@ shapes:AuthInfoShape
 		sh:path ids:authService ;
 		sh:class xsd:anyURI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/AuthInfoShape.ttl> (AuthInfoShape): An ids:authService property must point from an ids:AuthInfo to an xsd:anyURI."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authService property must point from an ids:AuthInfo to an xsd:anyURI."@en ; 
 	] ;
 
 	sh:property [
@@ -37,6 +37,6 @@ shapes:AuthInfoShape
 		sh:path ids:authStandard ;
 		sh:class ids:AuthStandard ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/AuthInfoShape.ttl> (AuthInfoShape): An ids:authStandard property must point from an ids:AuthInfo to an ids:AuthStandard."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authStandard property must point from an ids:AuthInfo to an ids:AuthStandard."@en ; 
 	] .
 

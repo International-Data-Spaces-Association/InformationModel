@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -26,7 +26,7 @@ shapes:MediaTypeShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/MediaTypeShape.ttl> (MediaTypeShape): An ids:MediaType is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/MediaTypeShape.ttl> (MediaTypeShape): An ids:MediaType is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -42,6 +42,6 @@ shapes:MediaTypeShape
 		sh:path ids:filenameExtension ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/MediaTypeShape.ttl> (MediaTypeShape): An ids:filenameExtension property must point from an ids:MediaType to an xsd:string."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/MediaTypeShape.ttl> (MediaTypeShape): An ids:filenameExtension property must point from an ids:MediaType to an xsd:string."@en ; 
 	] .
 

@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -27,7 +27,7 @@ shapes:DigitalContentShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:DigitalContent is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:DigitalContent is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -43,7 +43,7 @@ shapes:DigitalContentShape
 		sh:path ids:contentType ;
 		sh:class ids:ContentType ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentType property must point from an ids:DigitalContent to an ids:ContentType."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentType property must point from an ids:DigitalContent to an ids:ContentType."@en ; 
 	] ;
 
 	sh:property [
@@ -51,7 +51,7 @@ shapes:DigitalContentShape
 		sh:path ids:contentPart ;
 		sh:class ids:DigitalContent ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentPart property must point from an ids:DigitalContent to an ids:DigitalContent."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentPart property must point from an ids:DigitalContent to an ids:DigitalContent."@en ; 
 	] ;
 
 	sh:property [
@@ -59,7 +59,7 @@ shapes:DigitalContentShape
 		sh:path ids:representation ;
 		sh:class ids:Representation ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:representation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:representation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
 	] ;
 
 	sh:property [
@@ -67,7 +67,7 @@ shapes:DigitalContentShape
 		sh:path ids:defaultRepresentation ;
 		sh:class ids:Representation ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:defaultRepresentation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:defaultRepresentation property must point from an ids:DigitalContent to an ids:Representation."@en ; 
 	] ;
 
 	sh:property [
@@ -75,7 +75,7 @@ shapes:DigitalContentShape
 		sh:path ids:language ;
 		sh:class ids:Language ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:language property must point from an ids:DigitalContent to an ids:Language."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:language property must point from an ids:DigitalContent to an ids:Language."@en ; 
 	] ;
 
 	sh:property [
@@ -83,7 +83,7 @@ shapes:DigitalContentShape
 		sh:path ids:theme ;
 		sh:class ids:Concept ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:theme property must point from an ids:DigitalContent to an ids:Concept."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:theme property must point from an ids:DigitalContent to an ids:Concept."@en ; 
 	] ;
 
 	sh:property [
@@ -91,7 +91,7 @@ shapes:DigitalContentShape
 		sh:path ids:keyword ;
 		sh:datatype rdfs:Literal ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:keyword property must point from an ids:DigitalContent to an rdfs:Literal."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:keyword property must point from an ids:DigitalContent to an rdfs:Literal."@en ; 
 	] ;
 
 	sh:property [
@@ -99,7 +99,7 @@ shapes:DigitalContentShape
 		sh:path ids:temporalCoverage ;
 		sh:class ids:TemporalEntity ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:temporalCoverage property must point from an ids:DigitalContent to an ids:TemporalEntity."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:temporalCoverage property must point from an ids:DigitalContent to an ids:TemporalEntity."@en ; 
 	] ;
 
 	sh:property [
@@ -107,7 +107,7 @@ shapes:DigitalContentShape
 		sh:path ids:spatialCoverage ;
 		sh:class ids:SpatialEntity ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:spatialCoverage property must point from an ids:DigitalContent to an ids:SpatialEntity."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:spatialCoverage property must point from an ids:DigitalContent to an ids:SpatialEntity."@en ; 
 	] ;
 
 	sh:property [
@@ -115,7 +115,7 @@ shapes:DigitalContentShape
 		sh:path ids:accrualPeriodicity ;
 		sh:datatype xsd:duration ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:accrualPeriodicity property must point from an ids:DigitalContent to an xsd:duration."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:accrualPeriodicity property must point from an ids:DigitalContent to an xsd:duration."@en ; 
 	] ;
 
 	sh:property [
@@ -123,6 +123,6 @@ shapes:DigitalContentShape
 		sh:path ids:contentStandard ;
 		sh:class ids:Standard ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentStandard property must point from an ids:DigitalContent to an ids:Standard."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentStandard property must point from an ids:DigitalContent to an ids:Standard."@en ; 
 	] .
 

@@ -9,7 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -33,14 +33,22 @@ shapes:DescribedShape
 		sh:path ids:title ;
 		sh:datatype rdf:PlainLiteral ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DescribedShape.ttl> (DescribedShape): An ids:title property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:title property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:description ;
+		sh:class ids:Concept ;
+		sh:severity sh:Violation ;
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to an ids:Concept."@en ; 
+	] ;
+	
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:comment ;
 		sh:datatype rdf:PlainLiteral ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:comment property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
 	] .
 

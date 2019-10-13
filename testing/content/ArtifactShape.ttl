@@ -7,7 +7,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://w3id.org/idsa/metamodel/shapes/> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -32,7 +32,7 @@ shapes:ArtifactShape
 		sh:datatype xsd:nonNegativeInteger ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:nonNegativeInteger linked through the ids:byteSize property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:nonNegativeInteger linked through the ids:byteSize property"@en ; 
 	] ;
 
 	sh:property [
@@ -41,7 +41,7 @@ shapes:ArtifactShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:string linked through the ids:fileName property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:string linked through the ids:fileName property"@en ; 
 	] ;
 
 	sh:property [
@@ -50,7 +50,7 @@ shapes:ArtifactShape
 		sh:datatype xsd:date ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:date linked through the ids:creationDate property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:date linked through the ids:creationDate property"@en ; 
 	] ;
 
 	sh:property [
@@ -58,7 +58,7 @@ shapes:ArtifactShape
 		sh:path ids:artifactParameterization ;
 		sh:class ids:ParameterAssignment ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ArtifactShape.ttl> (ArtifactShape): An ids:artifactParameterization property must point from an ids:Artifact to an ids:ParameterAssignment."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:artifactParameterization property must point from an ids:Artifact to an ids:ParameterAssignment."@en ; 
 	] ;
 
 	sh:property [
@@ -67,7 +67,7 @@ shapes:ArtifactShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:string linked through the ids:checkSum property"@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:Artifact must not have more than one xsd:string linked through the ids:checkSum property"@en ; 
 	] ;
 
 	sh:property [
@@ -75,6 +75,6 @@ shapes:ArtifactShape
 		sh:path ids:duration ;
 		sh:datatype xsd:decimal ;
 		sh:severity sh:Violation ;
-		sh:message "<https://w3id.org/idsa/metamodel/shapes/ArtifactShape.ttl> (ArtifactShape): An ids:duration property must point from an ids:Artifact to an xsd:decimal."@en ; 
+		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/content/ArtifactShape.ttl> (ArtifactShape): An ids:duration property must point from an ids:Artifact to an xsd:decimal."@en ; 
 	] .
 
