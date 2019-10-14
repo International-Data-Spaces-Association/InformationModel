@@ -27,7 +27,7 @@ shapes:RequestMessageShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (RequestMessageShape): An ids:RequestMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RequestMessageShape): An ids:RequestMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -45,7 +45,7 @@ shapes:ResponseMessageShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:ResponseMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:ResponseMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -63,7 +63,7 @@ shapes:ResponseMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
 	] .
 
 
@@ -73,7 +73,7 @@ shapes:NotificationMessageShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (NotificationMessageShape): An ids:NotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (NotificationMessageShape): An ids:NotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -91,7 +91,7 @@ shapes:CommandMessageShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (CommandMessageShape): An ids:CommandMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (CommandMessageShape): An ids:CommandMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -109,7 +109,7 @@ shapes:QueryMessageShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:QueryMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:QueryMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -130,7 +130,7 @@ shapes:RejectionMessageShape
 		sh:path ids:rejectionReason ;
 		sh:class ids:RejectionReason ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (RejectionMessageShape): An ids:rejectionReason property must point from an ids:RejectionMessage to an ids:RejectionReason."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RejectionMessageShape): An ids:rejectionReason property must point from an ids:RejectionMessage to an ids:RejectionReason."@en ; 
 	] .
 
 
@@ -140,7 +140,7 @@ shapes:ConnectorRuntimeNotificationMessageShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:ConnectorRuntimeNotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:ConnectorRuntimeNotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -156,7 +156,7 @@ shapes:ConnectorRuntimeNotificationMessageShape
 		sh:path ids:affectedConnector ;
 		sh:class ids:Connector ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:affectedConnector property must point from an ids:ConnectorRuntimeNotificationMessage to an ids:Connector."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:affectedConnector property must point from an ids:ConnectorRuntimeNotificationMessage to an ids:Connector."@en ; 
 	] .
 
 
@@ -169,7 +169,7 @@ shapes:BrokerQueryMessageShape
 		sh:path ids:brokerQueryScope ;
 		sh:class ids:BrokerQueryScope ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (BrokerQueryMessageShape): An ids:brokerQueryScope property must point from an ids:BrokerQueryMessage to an ids:BrokerQueryScope."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (BrokerQueryMessageShape): An ids:brokerQueryScope property must point from an ids:BrokerQueryMessage to an ids:BrokerQueryScope."@en ; 
 	] ;
 
 	sh:property [
@@ -177,7 +177,7 @@ shapes:BrokerQueryMessageShape
 		sh:path ids:queryLanguage ;
 		sh:class ids:QueryLanguage ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (BrokerQueryMessageShape): An ids:queryLanguage property must point from an ids:BrokerQueryMessage to an ids:QueryLanguage."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (BrokerQueryMessageShape): An ids:queryLanguage property must point from an ids:BrokerQueryMessage to an ids:QueryLanguage."@en ; 
 	] .
 
 
@@ -192,7 +192,7 @@ shapes:ContractRequestMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ContractRequestMessageShape): An ids:ContractRequestMessage must have exactly one ids:ContractOffer linked through the ids:baseContractOffer property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRequestMessageShape): An ids:ContractRequestMessage must have exactly one ids:ContractOffer linked through the ids:baseContractOffer property"@en ; 
 	] .
 
 
@@ -205,7 +205,7 @@ shapes:ContractRejectionMessageShape
 		sh:path ids:contractRejectionReason ;
 		sh:datatype rdf:PlainLiteral ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ; 
 	] .
 
 
@@ -220,7 +220,7 @@ shapes:ArtifactAvailableMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ArtifactAvailableMessageShape): An ids:ArtifactAvailableMessage must have exactly one ids:Artifact linked through the ids:availableArtifact property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactAvailableMessageShape): An ids:ArtifactAvailableMessage must have exactly one ids:Artifact linked through the ids:availableArtifact property"@en ; 
 	] .
 
 
@@ -235,7 +235,7 @@ shapes:InvokeOperationMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one ids:Operation linked through the ids:operationReference property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one ids:Operation linked through the ids:operationReference property"@en ; 
 	] ;
 
 	sh:property [
@@ -244,7 +244,7 @@ shapes:InvokeOperationMessageShape
 		sh:datatype ids:ParameterAssignment ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have at least one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have at least one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ; 
 	] .
 
 
@@ -259,7 +259,7 @@ shapes:RequestInProcessMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (RequestInProcessMessageShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RequestInProcessMessageShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
 	] .
 
 
@@ -274,7 +274,7 @@ shapes:MessageProcessedNotificationShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (MessageProcessedNotificationShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (MessageProcessedNotificationShape): An ids:Message must have exactly one ids:Message linked through the ids:correlationMessage property"@en ; 
 	] .
 
 
@@ -289,6 +289,6 @@ shapes:ArtifactRequestMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://github.com/IndustrialDataSpace/InformationModel/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one ids:Artifact linked through the ids:requestedArtifact property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one ids:Artifact linked through the ids:requestedArtifact property"@en ; 
 	] .
 
