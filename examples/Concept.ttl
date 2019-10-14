@@ -10,42 +10,41 @@
 # Instances
 # ---------
 
-idsc_concept:concept
+idsc_concept:trafficConceptScheme
     a skos:ConceptScheme ;
     dct:title "Collection of concepts referenced by content" ;
     skos:prefLabel "IDS concept scheme"@en;
     skos:definition "Main concept scheme of the IDS."@en.
 
-
 idsc_concept:place
     a skos:Concept ;
-    skos:inScheme idsc_concept:concept;
-    skos:topConceptOf idsc_concept:concept;
+    skos:inScheme idsc_concept:trafficConceptScheme;
+    skos:topConceptOf idsc_concept:trafficConceptScheme;
     skos:prefLabel "place"@en;
     skos:definition "top concept describing all places"@en.
 
 idsc_concept:time
     a skos:Concept ;
-    skos:inScheme idsc_concept:concept;
-    skos:topConceptOf idsc_concept:concept;
+    skos:inScheme idsc_concept:trafficConceptScheme;
+    skos:topConceptOf idsc_concept:trafficConceptScheme;
     skos:prefLabel "time"@en;
     skos:definition "top concept describing terms of time"@en.
 
 idsc_concept:HIGHWAY
     a ids:Concept ;
-    skos:inScheme idsc_concept:concept;
+    skos:inScheme idsc_concept:trafficConceptScheme;
     skos:broader idsc_concept:place;
     skos:prefLabel "highway"@en;
     skos:definition "Any public or private road or other public way on land."@en.
 
 idsc_concept:YEAR
     a ids:Concept ;
-    skos:inScheme idsc_concept:concept;
+    skos:inScheme idsc_concept:trafficConceptScheme;
     skos:broader idsc_concept:time;
     skos:prefLabel "Orbital period of the Earth moving in its orbit around the Sun."@en .
 
 idsc_concept:MONTH
     a ids:Concept ;
-    skos:inScheme idsc_concept:concept;
+    skos:inScheme idsc_concept:trafficConceptScheme;
     skos:broader idsc_concept:time;
     skos:prefLabel "A unit of time, used with calendars, which is approximately as long as a natural period related to the motion of the Moon."@en .

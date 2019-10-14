@@ -2,33 +2,53 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_rr: <https://w3id.org/idsa/code/rr/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc_rr:NOT_AUTHORIZED a ids:RejectionReason;
+idsc:NOT_FOUND a ids:RejectionReason;
+    rdfs:label "NOT_FOUND";
+    rdfs:comment "Requested Resource was not found.".
+
+idsc:NOT_AUTHENTICATED a ids:RejectionReason;
+    rdfs:label "NOT_AUTHENTICATED";
+    rdfs:comment "Authenticity of a message sender has failed or is not verifiable.".
+
+idsc:NOT_AUTHORIZED a ids:RejectionReason;
     rdfs:label "NOT_AUTHORIZED";
     rdfs:comment "Sender is not authorized to initiate the command.".
 
-idsc_rr:TOO_MANY_RESULTS a ids:RejectionReason;
+idsc:TOO_MANY_RESULTS a ids:RejectionReason;
     rdfs:label "TOO_MANY_RESULTS";
     rdfs:comment "Processing of the command would lead to too many results (computational or bandwidth limitations)".
 
-idsc_rr:MALFORMED_MESSAGE a ids:RejectionReason;
+idsc:MALFORMED_MESSAGE a ids:RejectionReason;
     rdfs:label "MALFORMED_MESSAGE";
     rdfs:comment "The originating message is malformed or missing information.".
 
-idsc_rr:INTERNAL_RECIPIENT_ERROR a ids:RejectionReason;
+idsc:INTERNAL_RECIPIENT_ERROR a ids:RejectionReason;
     rdfs:label "INTERNAL_RECIPIENT_ERROR";
     rdfs:comment "The message recipient encountered an internal error while processing the message (e.g., storage capacity exceeded).".
 
-idsc_rr:METHOD_NOT_SUPPORTED a ids:RejectionReason;
+idsc:METHOD_NOT_SUPPORTED a ids:RejectionReason;
     rdfs:label "METHOD_NOT_SUPPORTED";
     rdfs:comment "The sender of the rejection does not implement a certain functionality stated in the message (e.g., query language).".
 
-idsc_rr:VERSION_NOT_SUPPORTED a ids:RejectionReason;
+idsc:MESSAGE_TYPE_NOT_SUPPORTED a ids:RejectionReason;
+    rdfs:label "MESSAGE_TYPE_NOT_SUPPORTED";
+    rdfs:comment "The sender of the rejection does not support the incoming message type (e.g., ids:QueryMessage).".
+
+idsc:VERSION_NOT_SUPPORTED a ids:RejectionReason;
     rdfs:label "VERSION_NOT_SUPPORTED";
     rdfs:comment "The version of the information model against which the referenced message should be interpreted, is not supported by the recipient.".
+
+idsc:BAD_PARAMETERS a ids:RejectionReason;
+    rdfs:label "BAD_PARAMETERS";
+    rdfs:comment "At least one query or operation parameter is not acceptable for the sender of this rejection message.".
+
+idsc:TEMPORARILY_NOT_AVAILABLE a ids:RejectionReason;
+    rdfs:label "TEMPORARILY_NOT_AVAILABLE";
+    rdfs:comment "The requested resource, representation or artifact is temporarily not available but might be back later.".
 

@@ -69,7 +69,6 @@ ids:primarySite rdfs:subPropertyOf org:hasPrimarySite;
 
 ids:corporateEmailAddress rdfs:subPropertyOf foaf:mbox;
     a owl:DatatypeProperty;
-    idsm:labelPluralForm "corporateEmailAddresses"@en;
     rdfs:label "corporateEmailAddress"@en;
     rdfs:domain ids:Participant;
     rdfs:range xsd:string;
@@ -86,13 +85,11 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
     a owl:ObjectProperty;
     rdfs:domain ids:Participant;
     rdfs:range ids:Participant;
-    idsm:labelPluralForm "memberParticipants"@en;
     rdfs:label "member participant"@en;
     rdfs:comment "Indicates that a participant has a member which is again a participant. This is useful for defining hierarchical relations in a participant's organization as well as identifying groups of participants to capture, e.g., members of a collaboration."@en.
 
 ids:industrialClassification a owl:ObjectProperty;
     rdfs:label "industrial classification"@en;
-    idsm:labelPluralForm "industrialClassifications"@en;
     rdfs:domain ids:Participant;
     rdfs:range ids:IndustrialClassification;
     rdfs:comment "Industry branch covered by the Participant."@en.
@@ -112,7 +109,6 @@ ids:memberPerson rdfs:subPropertyOf org:hasMember;
     a owl:ObjectProperty;
     rdfs:domain ids:Participant;
     rdfs:range ids:Person;
-    idsm:labelPluralForm "memberPersons"@en;
     rdfs:label "memberPerson"@en;
     rdfs:comment "Indicates membership of a person to an organization."@en.
 
@@ -134,7 +130,6 @@ ids:phoneNumber rdfs:subPropertyOf foaf:phone;
     a owl:DatatypeProperty;
     rdfs:domain ids:Person;
     rdfs:range xsd:string;
-    idsm:labelPluralForm "phoneNumbers"@en;
     rdfs:label "phoneNumber"@en;
     rdfs:comment "Phone number of a person."@en.
 
@@ -142,7 +137,6 @@ ids:emailAddress rdfs:subPropertyOf foaf:mbox;
     a owl:DatatypeProperty;
     rdfs:domain ids:Person;
     rdfs:range xsd:string;
-    idsm:labelPluralForm "emailAddresses"@en;
     rdfs:label "emailAddress"@en;
     rdfs:comment "Email contact of a person."@en.
 
