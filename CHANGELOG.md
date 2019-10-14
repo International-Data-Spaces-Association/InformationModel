@@ -9,7 +9,7 @@ Version 2.0 of the IDS Information model
 ### Added
 - ids:DynamicAttributeToken, subclass of ids:Token
 - ids:ParIS
-- Additional SHACL Shapes for testing
+- Additional SHACL Shapes for schema validation
 - ids:contentVersion property. Version identifier for ids:Messsage payload, indicates the version of the description of the information in the payload.
 
 
@@ -27,6 +27,7 @@ Version 2.0 of the IDS Information model
  * Policies: LeftOperand, Operator more restrictive.  Additional operands and operators for different constraint types. 
 
  * Reduced namespace: ids_for core model classes / properties, idsc_ for codes and idsm_ for metamodel classes / properties
+ 
 ### Removed
 
 - Removing plural forms for properties: A catalog can have can have several “ids:offer” triples but must not have any with “ids:offer*s*”
