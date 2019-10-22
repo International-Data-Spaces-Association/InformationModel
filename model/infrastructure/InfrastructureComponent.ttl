@@ -14,7 +14,7 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
     a owl:Class;
     idsm:abstract true;
     rdfs:label "InfrastructureComponent"@en ;
-    rdfs:comment "The class of all infrastructure components of the IDS.";
+    rdfs:comment "The class of all infrastructure components of the IDS."@en;
     idsm:validation [
         idsm:forProperty ids:maintainer;
         idsm:constraint idsm:NotNull;
@@ -59,7 +59,6 @@ ids:physicalLocation a owl:ObjectProperty;
 
 ids:inboundModelVersion a owl:DatatypeProperty;
     rdfs:label "inboundModelVersion"@en;
-    idsm:labelPluralForm "inboundModelVersions"@en;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range xsd:string;
     rdfs:comment "Information Model version that the InfrastructureComponent is capable of reading/processing."@en.

@@ -31,21 +31,21 @@ ids:Audio a owl:Class;
     # language is optional
     rdfs:subClassOf ids:DigitalContent, dctype:Sound ;
     rdfs:label "Audio"@en ;
-    rdfs:comment "Content intended for auditive perception, requires an audio output device (i.e. a loudspeaker) to present the contents.";
+    rdfs:comment "Content intended for auditive perception, requires an audio output device (i.e. a loudspeaker) to present the contents."@en;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.3> .
 
 ids:Image a owl:Class;
     rdfs:subClassOf ids:DigitalContent, dctype:StillImage ;
-    rdfs:label "Image";
-    rdfs:comment "Static content intended for visual perception/interpretation, requires a display device (i.e. a screen) to present the contents.";
+    rdfs:label "Image"@en;
+    rdfs:comment "Static content intended for visual perception/interpretation, requires a display device (i.e. a screen) to present the contents."@en;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.2> .
 
 ids:Video
     # language is optional
     a owl:Class;
     rdfs:subClassOf ids:DigitalContent, dctype:MovingImage ;
-    rdfs:label "Video";
-    rdfs:comment "Dynamic content intended for visual and auditive perception, combines requirements of image and audio Content Types, while imposing further requirements on video decoding etc.";
+    rdfs:label "Video"@en;
+    rdfs:comment "Dynamic content intended for visual and auditive perception, combines requirements of image and audio Content Types, while imposing further requirements on video decoding etc."@en;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-4.4> .
 
 ids:Software # .. or "Code" ?
@@ -59,14 +59,14 @@ ids:Software # .. or "Code" ?
 
 ids:Container a owl:Class;
    rdfs:subClassOf ids:DigitalContent, dctype:Collection ; # ISO-19115 "aggregate"; Multipart
-   rdfs:label "Container";
-   rdfs:comment "Container composed of multiple (individually defined) parts.";
+   rdfs:label "Container"@en;
+   rdfs:comment "Container composed of multiple (individually defined) parts."@en;
    rdfs:seeAlso <https://tools.ietf.org/html/rfc2046#section-5.1> ;
    .
 
 ids:OpaqueContent a owl:Class;
    rdfs:subClassOf ids:DigitalContent ;
-   rdfs:label "Opaque content";
+   rdfs:label "Opaque content"@en;
    rdfs:comment "Opaque, not further specified type of custom, binary content."@en ;  
    .
 
@@ -124,86 +124,9 @@ ids:sortOrder a owl:ObjectProperty;
     rdfs:range ids:SortOrder;
     rdfs:comment "Indicates the sort order of a List."@en.
 
-# obsolate - concept reused for inline representation instance
-#ids:Value a owl:Class;
-#    rdfs:subClassOf ids:Data ;
-#    owl:disjointWith ids:Structure ;
-#    rdfs:label "Value"@en ;
-#    rdfs:comment "Terminal data node, i.e. an atomic, possibly typed scalar."@en .
-
-# common scalar types
-#ids:NumericValue a owl:Class;
-#    rdfs:subClassOf ids:Value ;
-#    rdfs:label "Numeric value"@en ;
-#    rdfs:comment "Numeric value."@en .
-
-#ids:BooleanValue a owl:Class;
-#    rdfs:subClassOf ids:Value ;
-#    rdfs:label "Boolean value"@en ;
-#    rdfs:comment "Boolean value."@en .
-
-#ids:StringValue a owl:Class;
-#    rdfs:subClassOf ids:Value ;
-#    rdfs:label "String value"@en ;
-#    rdfs:comment "String value."@en .
-
-#ids:Record
-#    a owl:Class;
-#    rdfs:subClassOf ids:Structure ;
-#    rdfs:label  "Record"@en ;
-#    rdfs:comment "Named arrangement of fields (possibly named, ordered, strongly typed etc.)."@en .
-
-#ids:TabularData
-#    a owl:Class;
-#    rdfs:subClassOf ids:Structure ;
-#    rdfs:label "Table"@en ;
-#    rdfs:comment "Tabular / relational data structure."@en .
-
-#ids:DataCube
-#    a owl:Class;
-#    rdfs:subClassOf ids:Structure ;
-#    rdfs:label "Data cube"@en;
-#    rdfs:comment "n-dimensional data structure"@en .
 
 # Software
 # --------
-
-#ids:Schema a owl:Class; -> moved to ContentType
-#    rdfs:subClassOf ids:Software ;
-#    rdfs:label "Schema"@en ;
-#    rdfs:comment "Machine-processable instructions defining a set of conformant, valid Serializations of a Content."@en .
-
-#ids:XMLSchema a owl:Class;
-#    rdfs:subClassOf ids:Schema ;
-#    rdfs:label "XML Schema (v1.1)";
-#    rdfs:comment "XML Schema Definition Language, version 1.1";
-#    rdfs:isDefinedBy <https://www.w3.org/TR/xmlschema11-1/> ; # Structure
-#    rdfs:isDefinedBy <https://www.w3.org/TR/xmlschema11-2/> . # Datatype
-#    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
-
-#ids:SchematronSchema a owl:Class;
-#    rdfs:subClassOf ids:Schema ;
-#    rdfs:label "Schematron";
-#    rdfs:comment "Schematron schema language for XML";
-#    rdfs:isDefinedBy <https://www.iso.org/standard/74515.html> ; # ISO/IEC 19757-3:2016
-#    rdfs:seeAlso <http://schematron.com/> .
-#    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
-
-#ids:RelaxNGSchema a owl:Class;
-#    rdfs:subClassOf ids:Schema ;
-#    rdfs:label "Relax NG";
-#    rdfs:comment "Relax NG schema language for XML";
-#    rdfs:isDefinedBy <https://www.iso.org/standard/52348.html> ; # ISO/IEC 19757-2:2008
-#    rdfs:seeAlso <http://www.relaxng.org/> .
-#    # ids:targetMediaType idsc_media:text_xml, idsc_media:application_xml . # Applies to XML-based media types
-
-#ids:JSONSchema a owl:Class;
-#    rdfs:subClassOf ids:Schema ;
-#    rdfs:label "JSON Schema";
-#    rdfs:comment "JSON-based schema language for describing the structure of JSON data.";
-#    rdfs:isDefinedBy <https://tools.ietf.org/id/draft-handrews-json-schema> ;
-#    rdfs:seeAlso <http://json-schema.org/specification> .
-#    # ids:targetMediaType idsc_media:application_json . # Applies to JSON-based media types
 
 ids:softwareInterface
     a owl:ObjectProperty;

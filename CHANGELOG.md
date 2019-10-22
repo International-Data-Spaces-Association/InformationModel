@@ -3,19 +3,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - 2019-05-24
-- Changes applied according to issue [#55](https://github.com/IndustrialDataSpace/InformationModel/issues/55),  authorized by the WG.
+## [2.0.0] 2019-10-14
+Version 2.0 of the IDS Information model
+
 
 ### Added
-- Class `ids:SecurityGuarantee` added in `model/SecurityProfile.ttl` representing a formalized "guarantee" given by a Connector. Specific subclasses (service isolation guarantee) define a closed, enumerated set of reference values within `codes/SecurityGuarantee.ttl`.
-- To deal with OWA the *absence of a guarantee is explicitly indicated* by a type-specific "none" value (`idsc_sec:SERVICE_ISOLATION_NONE`). Validation should ensure no other contradicting value is set for a given guarantee type when assigned to "none".
-- The generic object property `ids:securityGuarantee` was added in `model/SecurityProfile.ttl` to link a profile to instances of `ids:SecurityGuarantee` subclasses.    
+- ids:DynamicAttributeToken, subclass of ids:Token
+- ids:ParIS
+- Additional SHACL Shapes for schema validation
+- ids:contentVersion property. Version identifier for ids:Message payload, indicates the version of the description of the information in the payload.
+
 
 ### Changed
-
-### Removed
-- Class `ids:PredefinedSecurityProfile` removed in `model/SecurityProfile.ttl`, since only  a marker with no added benefit - standard, "predefined" profiles have to be identified by a well-known, permanent URI.
-- Object property `ids:parentSecurityProfile` removed in `model/SecurityProfile.ttl` to prevent profile composition. Inherited/composed profiles would require a custom interpretation involving issues of evaluation (aggregation vs. overriding), cardinality (single or multiple inheritance) etc. making it overly complex and incompatible with standard RDF/OWL reasoning. Profiles are considered self-contained, no custom logic nor context should be required for their interpretation. 
-- Number of object properties derived from the generic  `ids:securityGuarantee`, such as `ids:integrityGuarantee`, was removed since the semantics of the respective guarantee is completely defined by the object value (instance of a `ids:SecurityGuarantee`subclass), e.g.,  `idsc_sec:INTEGRITY_PROTECTION_LOCAL`.
-
+ * Connector is now subClass of InfrastructureComponent (Broker, ParIS, DAPS, IP, AppStore)
  
+ * ids:SecurityProfile is now used for pre-defined security profiles. Removed ids:CustomSecurityProfile. 
+
+ * Messages: Additional classes / properties for the ids:Message taxonomy to further specify and distinguish different message types
+     * Update of notification messages related to (un-)availability and changes of a component or its certification
+     * ids:QueryMessage now uses codes for message targets (e.g., BROKER, APPSTORE, ANY) and scopes (ALL, ACTIVE_ONLY, INACTIVE_ONLY)
+     * New class ids:ContractSupplementMessage to exchange information to access a resource of a contract
+     * New class ids:LogNotification, which is intended for logging messages
+
+ * Policies: LeftOperand, Operator more restrictive.  Additional operands and operators for different constraint types. 
+
+ * Reduced namespace: ids_ for core model classes / properties, idsc_ for codes and idsm_ for metamodel classes / properties
+ 
+### Removed
+
+- Removing plural forms for properties: A catalog can have can have several “ids:offer” triples but must not have any with “ids:offer*s*”

@@ -67,7 +67,6 @@ ids:action
     rdfs:subPropertyOf odrl:action;
     a owl:ObjectProperty;
     rdfs:label "action"@en;
-    idsm:labelPluralForm "actions"@en;
     rdfs:domain ids:Rule;
     rdfs:range ids:Action;
     rdfs:comment "The operation relating to the asset for which permission is being granted."@en.
@@ -77,7 +76,6 @@ ids:assignee rdfs:subPropertyOf odrl:assignee;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
     rdfs:label "assignee"@en;
-    idsm:labelPluralForm "assignees"@en;
     rdfs:comment "The recipient of the policy statement."@en.
 
 # "all X but ..."
@@ -92,7 +90,6 @@ ids:assigner rdfs:subPropertyOf odrl:assigner;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
     rdfs:label "assigner"@en;
-    idsm:labelPluralForm "assigners"@en;
     rdfs:comment "The issuer of the policy statement."@en.
 
 ids:targetArtifact
@@ -113,7 +110,6 @@ ids:targetContent
 ids:duty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;
     rdfs:label "duty"@en;
-    idsm:labelPluralForm "duties"@en;
     rdfs:domain ids:Permission;
     rdfs:range ids:Duty;
     rdfs:comment "The Duties imposed by a Permission."@en.
@@ -121,7 +117,6 @@ ids:duty rdfs:subPropertyOf odrl:duty;
 ids:constraint rdfs:subPropertyOf odrl:constraint;
     a owl:ObjectProperty;
     rdfs:label "constraint"@en;
-    idsm:labelPluralForm "constraints"@en;
     rdfs:domain ids:Rule;
     rdfs:range ids:Constraint;
     rdfs:comment "The constraint to be used for a specific rule."@en.
@@ -130,7 +125,6 @@ ids:contentRefinement
     a owl:ObjectProperty;
     # rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "content refinement"@en;
-    idsm:labelPluralForm "contentRefinements"@en;
     rdfs:domain ids:DigitalContent;
     rdfs:range ids:Constraint;
     rdfs:comment "Constraint that refines a (composite) Digital Content."@en.

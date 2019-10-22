@@ -4,6 +4,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 
 # Classes
 # -------
@@ -12,7 +13,7 @@ ids:MediaType
     a owl:Class;
     rdfs:subClassOf dct:MediaType ; # *not* restricted to IANA media types
     rdfs:label "Media Type"@en ;
-    rdfs:comment "General class of media types (formerly known as MIME types)." ;
+    rdfs:comment "General class of media types (formerly known as MIME types)."@en ;
     idsm:usage "ids:CustomMediaType is used only when no ids:IANAMediaType available."@en ;
     idsm:abstract true;
     .
@@ -21,20 +22,20 @@ ids:CustomMediaType
     a owl:Class ;
     rdfs:subClassOf ids:MediaType;
     rdfs:label "Custom Media Type"@en ;
-    rdfs:comment "A selection of custom media types to be used for data published on the IDS when no IANA type is available.".
+    rdfs:comment "A selection of custom media types to be used for data published on the IDS when no IANA type is available."@en.
 
 ids:IANAMediaType
     a owl:Class ;
     rdfs:subClassOf ids:MediaType;
     rdfs:label "IANA Media Type"@en ;
-    rdfs:comment "The class of media types registered with IANA.";
+    rdfs:comment "The class of media types registered with IANA."@en;
     rdfs:seeAlso <https://www.iana.org/assignments/media-types/> ; # authoritative IANA list
     rdfs:seeAlso <http://www.sparontologies.net/mediatype/> ; # RDF description of IANA-registered media types
     rdfs:seeAlso <http://dx.doi.org/10.6084/m9.figshare.1608294> ; # downloadable archive of SPAR Media Type ontology
     idsm:usage "Definition of an ids:IANAMediaType should define individual equivalence to corresponding SPAR-Media Type."@en ;
     idsm:example
 """
-    idsc_media:TEXT_CSV
+    idsc:TEXT_CSV
         a ids:IANAMediaType;
         # the retrieved representation (HTML, turtle, RDF/XML) depends on content negotiation
         owl:sameAs <https://w3id.org/spar/mediatype/text/csv> .
