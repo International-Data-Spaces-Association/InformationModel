@@ -1,15 +1,15 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
-@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
-@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
-@prefix idsc_lic: <https://w3id.org/idsa/code/license/> .
-@prefix idsc_unit: <https://w3id.org/idsa/code/unit/> .
-@prefix idsc_prot: <https://w3id.org/idsa/code/Protocol/> .
-@prefix idsc_auth: <https://w3id.org/idsa/code/Auth/> .
-@prefix idsc_sec: <https://w3id.org/idsa/code/security_guarantee/> .
-@prefix idsc_cert: <https://w3id.org/idsa/code/certification/> .
+@prefix idsc: <https://w3id.org/idsa/code/language/> .
+@prefix idsc: <https://w3id.org/idsa/code/mediatype/> .
+@prefix idsc: <https://w3id.org/idsa/code/action/> .
+@prefix idsc: <https://w3id.org/idsa/code/license/> .
+@prefix idsc: <https://w3id.org/idsa/code/unit/> .
+@prefix idsc: <https://w3id.org/idsa/code/Protocol/> .
+@prefix idsc: <https://w3id.org/idsa/code/Auth/> .
+@prefix idsc: <https://w3id.org/idsa/code/security_guarantee/> .
+@prefix idsc: <https://w3id.org/idsa/code/certification/> .
 
 @prefix conn1: <https://aastat.gov.de/connector/conn1/> .
 @prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
@@ -29,34 +29,34 @@ sample_Data:
     ids:sovereign "<URI of the sovereign IDS participant>";
     
     # Reference to a existing Resource included, definition of "part-whole" hierarchies.
-    ids:resourcePart "<another ids:Resource>"
+    ids:resourcePart "<another ids:Resource>";
     
     # Variant of a resource, e.g. translated version
-    ids:variant "<another ids:Resource>"
+    ids:variant "<another ids:Resource>";
     
     # Temporal period covered by the content of the resource:     2000-01-01 to 2017-12-31
     ids:temporalCoverage [
         a ids:Interval ;
         ids:begin [ ids:date "2000-01-01"^^xsd:date ];
-        ids:end   [ ids:date "2017-12-31"^^xsd:date ]
+        ids:end   [ ids:date "2017-12-31"^^xsd:date ];
     ] ;
         
     # license of the resource:     "Other Commercial License" (as a placeholder for a commercial license)
-    ids:standardLicense idsc_lic:OTHERCOMMERCIALLICENSE;
+    ids:standardLicense idsc:OTHERCOMMERCIALLICENSE;
     
     # Language of resource:         Englisch
-    ids:language idsc_lang:ENGLISH ;    
+    ids:language idsc:ENGLISH ;    
     
     # sample of the resource, e.g. web-retrievable or inline content
-    ids:sample "<another ids:Resource>"
+    ids:sample "<another ids:Resource>";
     
     # Representation of resource:
     # - in Textual form     (TextRepresentation) 
-    # - as a pdf             (APPLICATION_PDF) 
+    # - as a pdf            (APPLICATION_PDF) 
     # - reference to an "instance" of the representation (report_pdf)
     ids:representation [
         a ids:TextRepresentation ;
-        ids:mediaType idsc_media:APPLICATION_PDF;
+        ids:mediaType idsc:APPLICATION_PDF;
         ids:instance sample_Data:report_pdf ;
     ] ;
     
@@ -83,7 +83,7 @@ sample_Data:
             a ids:Permission ;
             
             # Specify permission
-            ids:action idsc_action:USE ;
+            ids:action idsc:USE ;
             ids:assigner "<URI of the provider IDS participant>";
             
             # Individual target artifact(s)
@@ -92,25 +92,19 @@ sample_Data:
             # time interval restricted usage constraict
             ids:constraint [
                 a ids:Constraint ;
-                ids:leftOperand ids:DATE_TIME ;
-                ids:operator ids:gt ;
-                ids:rightOperand "2019-09-01T00:00:00Z"^^xsd:dateTime
+                ids:leftOperand idsc:now;
+                ids:operator idsc:IN_TIME_INTERVAL ;
+                ids:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
                 ] ;
-            ids:constraint [
-                a ids:Constraint ;
-                ids:leftOperand ids:DATE_TIME ;
-                ids:operator ids:lt ;
-                ids:rightOperand "2019-10-01T00:00:00Z"^^xsd:dateTime
-                ] ;
-            
+
             # Obligation / Duty
             ids:duty [
-                ids:action idsc_action:COMPENSATE ;
+                ids:action idsc:COMPENSATE ;
                 ids:constraint [
-                    ids:leftOperand ids:payAmount ;
-                      ids:operator ids:eq ;
+                    ids:leftOperand idsc:payAmount ;
+                      ids:operator ids:EQ ;
                       ids:rightOperand 100 ;
-                      ids:unit idsc_unit:EURO
+                      ids:unit idsc:EURO;
                 ]
             ]
         ]
