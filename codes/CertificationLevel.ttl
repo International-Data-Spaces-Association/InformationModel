@@ -3,7 +3,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_cert: <https://w3id.org/idsa/code/certification/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
@@ -15,63 +15,63 @@
 #
 # ParticipantCertification
 
-idsc_cert:PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT
+idsc:PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Entry Level Self-Assessment Certification of Participants"@en .
 
-idsc_cert:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM
+idsc:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Entry Level Management System Certification of Participants"@en ;
-    ids:includedCertificationLevel idsc_cert:PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT .
+    ids:includedCertificationLevel idsc:PARTICIPANT_ENTRY_LEVEL_SELF_ASSESSMENT .
 
-idsc_cert:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM
+idsc:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Member Level Management System Certification of Participants"@en ;
-    ids:includedCertificationLevel idsc_cert:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM .
+    ids:includedCertificationLevel idsc:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM .
 
-idsc_cert:PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK
+idsc:PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Member Level ControlFramework Certification of Participants"@en ;
-    ids:includedCertificationLevel idsc_cert:PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK .
+    ids:includedCertificationLevel idsc:PARTICIPANT_MEMBER_LEVEL_CONTROL_FRAMEWORK .
 
-idsc_cert:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM
+idsc:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Central Level Management System Certification of Participants"@en ;
-    ids:includedCertificationLevel idsc_cert:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM . #  Reference according to same methodology
+    ids:includedCertificationLevel idsc:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM . #  Reference according to same methodology
 
-idsc_cert:PARTICIPANT_CENTRAL_LEVEL_CONTROL_FRAMEWORK
+idsc:PARTICIPANT_CENTRAL_LEVEL_CONTROL_FRAMEWORK
     a ids:ParticipantCertificationLevel ;
     rdfs:label "Central Level Control Framework Certification of Participants"@en ;
-    ids:includedCertificationLevel idsc_cert:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM .
+    ids:includedCertificationLevel idsc:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM .
 
 # ComponentCertification
 
-idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH
+idsc:COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH
     a ids:ComponentCertificationLevel ;
     rdfs:label "Base Security Profile Certification of Components based on Checklist Approach"@en .
 
-idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW
+idsc:COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW
     a ids:ComponentCertificationLevel ;
     rdfs:label "Base Security Profile Certification of Components based on Concept Review"@en ;
-    ids:includedCertificationLevel idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH .
+    ids:includedCertificationLevel idsc:COMPONENT_BASE_SECURITY_PROFILE_CHECKLIST_APPROACH .
 
-idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW
+idsc:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust Security Profile Certification of Components based on Concept Review"@en ;
-    ids:includedCertificationLevel idsc_cert:COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW .
+    ids:includedCertificationLevel idsc:COMPONENT_BASE_SECURITY_PROFILE_CONCEPT_REVIEW .
 
-idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION
+idsc:COMPONENT_TRUST_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust Security Profile Certification of Components based on High Assurance Evaluation"@en ;
-    ids:includedCertificationLevel idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW .
+    ids:includedCertificationLevel idsc:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW .
 
-idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW
+idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust-Plus Security Profile Certification of Components based on Concept Review"@en ;
-    ids:includedCertificationLevel idsc_cert:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW . #  Reference according to same methodology
+    ids:includedCertificationLevel idsc:COMPONENT_TRUST_SECURITY_PROFILE_CONCEPT_REVIEW . #  Reference according to same methodology
 
-idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION
+idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION
     a ids:ComponentCertificationLevel ;
     rdfs:label "Trust-Plus Security Profile Certification of Components based on High AssuranceEvaluation"@en ;
-    ids:includedCertificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW .
+    ids:includedCertificationLevel idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW .
 

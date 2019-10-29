@@ -5,13 +5,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc_pt:SpatialRestrictedUsageAgreementTemplate a ids:PolicyTemplate ;
+idsc:SpatialRestrictedUsageAgreementTemplate a ids:PolicyTemplate ;
     rdfs:label "Location-restricted Usage Agreement Template" ;
     rdfs:comment "A template for policy agreements with with a location-restricted permission."@en ;
 	skos:note """The <Consumer Participant URI> agrees to the <Provider Participant URI> to [ids:use|ids:read|...] 
@@ -20,7 +20,7 @@ idsc_pt:SpatialRestrictedUsageAgreementTemplate a ids:PolicyTemplate ;
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractAgreement", 
 		"uid": "<contract ID>", 
-		"refersTo": "idsc_pt:SpatialRestrictedUsageAgreementTemplate" ,
+		"refersTo": "idsc:SpatialRestrictedUsageAgreementTemplate" ,
 		"target": "<Artifact URI>",
 		"ids:provider": "<Provider Participant URI>",
 		"ids:consumer": "<Consumer Participant URI>", 
@@ -33,14 +33,14 @@ idsc_pt:SpatialRestrictedUsageAgreementTemplate a ids:PolicyTemplate ;
 			} 
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
-		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		[<contract URI>| [] ] a ids:ContractAgreement ;
 			ids:uid <contract ID> ;
-			ids:refersTo idsc_pt:SpatialRestrictedUsageAgreementTemplate ;
+			ids:refersTo idsc:SpatialRestrictedUsageAgreementTemplate ;
 			ids:target <Artifact URI> ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
