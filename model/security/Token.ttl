@@ -60,10 +60,10 @@ ids:TokenFormat a owl:Class;
 
 
 
-ids:referingConnector a owl:ObjectProperty;
+ids:referingConnector a owl:DatatypeProperty;
     rdfs:label "referingConnector"@en;
     rdfs:domain ids:Token;
-    rdfs:range xsd:string ; # xsd:base64Binary;
+    rdfs:range xsd:anyURI ; # xsd:base64Binary;
     rdfs:comment "The RDF connector entity as referred to by the DAT. The value MUST be its accessible URI. Must contain at least one SecurityProfile claim."@en.
 
 ids:aud a owl:DatatypeProperty;
