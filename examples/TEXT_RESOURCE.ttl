@@ -10,7 +10,6 @@
 @prefix idsc: <https://w3id.org/idsa/code/Auth/> .
 @prefix idsc: <https://w3id.org/idsa/code/security_guarantee/> .
 @prefix idsc: <https://w3id.org/idsa/code/certification/> .
-
 @prefix conn1: <https://aastat.gov.de/connector/conn1/> .
 @prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
 
@@ -71,7 +70,7 @@ sample_Data:
     ] ;
 
     # Commodization of the data resource in the form of a contract offer
-    ids:sampleContractOffer [
+    ids:contractOffer [
         a ids:ContractOffer ;
         ids:provider "<URI of the provider ids participant>";
         ids:contractDocument "<Reference to human-readable resource of this Contract>";
@@ -114,7 +113,7 @@ sample_Data:
 # A sample file in pdf format, which contains statistics about Highway accidents
 sample_Data:report_pdf
     a ids:Artifact ;
-    ids:byteSize "1923497"^^xsd:nonNegativeInteger ;
+    ids:byteSize "1923497" ;
     ids:fileName "Highway_accident_statistics.pdf";
-    ids:creationDate "2018-06-01"^^xsd:date ;
+    ids:creationDate "2018-06-01" ;
 .
