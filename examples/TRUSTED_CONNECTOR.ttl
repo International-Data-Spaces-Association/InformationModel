@@ -3,6 +3,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix conn1: <https://aastat.gov.de/connector/conn1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix conn1: <https://aastat.gov.de/connector/conn1/> .
+@prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
 
 # Example of a Trusted Connector in the Information Model.
 conn1:
@@ -24,6 +28,13 @@ conn1:
         a ids:Host ;
         ids:protocol idsc:HTTP2;
         ids:accessUrl "https://connector.fit.fraunhofer.de/trafichub/httphost" ;
+        ];
+    
+    # Default host of the Connector. May be used for basic infrastructure interactions, e.g., providing the self description
+    ids:defaultHost [
+        a ids:Host ;
+        ids:protocol idsc:HTTP2;
+        ids:accessUrl "https://connector.aastat.gov.de" ;
         ];
 
     # Security and trust features
