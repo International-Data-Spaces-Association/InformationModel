@@ -11,37 +11,30 @@
 @prefix idsc: <https://w3id.org/idsa/code/security_guarantee/> .
 @prefix idsc: <https://w3id.org/idsa/code/certification/> .
 @prefix conn1: <https://aastat.gov.de/connector/conn1/> .
-@prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
+@prefix sample_offered_DataResource: <https://www.fit.fraunhofer.de/conn1/sample_offered_DataResource/> .
+@prefix sample_requested_DataResource: <https://www.fit.fraunhofer.de/conn1/sample_requested_DataResource/> .
 
 
 # Example of a Trusted Connector in the Information Model.
 conn1:
     a ids:TrustedConnector ;
     # General properties
-    ids:title "EU Traffic statistics hub" ;
-    ids:description "Example Trusted Connector maintained by <IDS Participant>" ;
-    ids:maintainer "<an IDS participant>";
-    ids:curator "<an IDS participant>";
-    ids:physicalLocation <http://sws.geonames.org/3247450/> ;
-    
+    ids:title "Fraunhofer FIT - Traffic statistics hub" ;
+    ids:description "Example Trusted Connector maintained by the Fraunhofer FIT" ;
+    ids:maintainer "https://www.fit.fraunhofer.de";
+    ids:curator "https://www.fit.fraunhofer.de";
+
     # Information Model of the Connector
-    ids:outboundModelVersion "2.0.0" ;
+    ids:outboundModelVersion "2.0.0-SNAPSHOT" ;
     
     # Information Model version that the Connector is capable of reading/processing
-    ids:inboundModelVersion "2.0.0" ;
+    ids:inboundModelVersion "2.0.0-SNAPSHOT" ;
     
     # Network host(s) maintained by the Connector. Describes the protocol and access URL of the host.
     ids:host [
         a ids:Host ;
         ids:protocol idsc:HTTP2;
-        ids:accessUrl "https://connector.aastat.gov.de" ;
-        ];
-    
-    # Default host of the Connector. May be used for basic infrastructure interactions, e.g., providing the self description
-    ids:defaultHost [
-        a ids:Host ;
-        ids:protocol idsc:HTTP2;
-        ids:accessUrl "https://connector.aastat.gov.de" ;
+        ids:accessUrl "https://connector.fit.fraunhofer.de/trafichub/httphost" ;
         ];
 
     # Security and trust features
@@ -68,6 +61,6 @@ conn1:
     # Catalog of offered and requested resources
     ids:catalog [
         a ids:Catalog;
-        ids:offer "<reference to resources offered by the the connector>" ;
-        ids:request "<reference to the resources requested by the connector>";
+        ids:offer sample_offered_DataResource;
+        ids:request sample_requested_DataResource;
     ].
