@@ -8,8 +8,8 @@ write_to_file()
 	 local version=$1
 
 	 if [ -z "$version" ] ; then
-		echo "Warning! No version parameter supplied. Assuming version 1.0.3"
-		version="1.0.3"
+		echo "Warning! No version parameter supplied. Assuming version 2.0.1"
+		version="2.0.1"
 	 fi
 
 
@@ -46,6 +46,8 @@ write_to_file()
 	echo '    dct:contributor _:AndreasMueller ;' >> "$file"
 	echo '    dct:contributor _:AnnaKasprzik ;' >> "$file"
 	echo '    dct:contributor <https://github.com/sebbader> ;' >> "$file"
+	echo '    dct:contributor <https://github.com/Madmatti/> ;' >> "$file"
+	echo '    dct:contributor <https://github.com/HaydarAk> ;' >> "$file"
 	echo '    dct:publisher ids:IDSA ;' >> "$file"
 	echo '    dct:created "2017-09-26"^^xsd:date;' >> "$file"
 	echo '    dct:modified "'$(date +%Y-%m-%d)'"^^xsd:date;' >> "$file"
@@ -99,6 +101,12 @@ write_to_file()
 	echo '' >> "$file"
 	echo '<https://github.com/sebbader> a dct:Agent, foaf:Person ;' >> "$file"
 	echo '    foaf:name "Sebastian Bader";' >> "$file"
+	echo '.' >> "$file"
+	echo '<https://github.com/HaydarAk> a dct:Agent, foaf:Person ;' >> "$file"
+	echo '    foaf:name "Haydar Akyürek";' >> "$file"
+	echo '.' >> "$file"
+	echo '<https://github.com/Madmatti> a dct:Agent, foaf:Person ;' >> "$file"
+	echo '    foaf:name "Matthias Böckmann";' >> "$file"
 	echo '.' >> "$file"
 	
 	# "open the file to edit" ... not required. echo will do
