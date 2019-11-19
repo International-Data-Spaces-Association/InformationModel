@@ -7,12 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 Version 2.0.1 of the IDS Information model
 
 ### Changed
-* Removed property *ids:baseContractOffer* from class *ids:ContractRequestMessage* due to redundancy. Per definition *ids:ContractRequestMessage* already requires a contract in it's payload. The property is therefore not needed.
+* Removed property *ids:baseContractOffer* from class *ids:ContractRequestMessage* due to redundancy. By definition *ids:ContractRequestMessage* already requires a contract in its payload. The property is therefore not needed.
 
 ### Fixed
-* Changed *ids:referingConnector* (class *ids:Token*) from *owl:ObjectProperty* to owl:DatatypeProperty with *rdfs:range xsd:anyURI*. Allows to reference the connector via an URI.
+* Changed *ids:referingConnector* (class *ids:Token*) from *owl:ObjectProperty* to *owl:DatatypeProperty* with *rdfs:range* *xsd:anyURI*. Allows to reference the connector via an URI.
 
-* Removed *idsm:abstract true* proeprty from *ids:variant* (class *ids:Resource*). Property is invalid, since it is intended to be used by classes only. 
+* Removed *idsm:abstract true* property from *ids:variant* (class *ids:Resource*). Property is invalid, since it is intended to be used by classes only. 
 
 * Minor typo fixes.
 
