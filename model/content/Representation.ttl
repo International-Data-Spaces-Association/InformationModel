@@ -14,7 +14,7 @@
 
 ids:Representation
     a owl:Class ;
-    rdfs:subClassOf dcat:Distribution;# covers the generalizable parts of a Distribution
+    rdfs:subClassOf ids:DescribedSemantically, dcat:Distribution;# covers the generalizable parts of a Distribution
     rdfs:label "Representation"@en;
     rdfs:comment "Syntactic template of a Resource."@en;
     idsm:validation [
@@ -65,19 +65,3 @@ ids:representationStandard
     rdfs:range ids:Standard;
     rdfs:label "representation standard"@en;
     rdfs:comment "Standards document defining the given Representation (in contrast to general Resource content). The Representation is assumed to conform to that Standard."@en.
-
-ids:representationShapesGraph a owl:DatatypeProperty;
-    rdfs:subPropertyOf sh:shapesGraph;
-    rdfs:label "resourceShapeGraph"@en;
-    rdfs:domain "ids:Representation";
-    rdfs:range xsd:anyURI;
-    rdfs:comment "Reference to SHACL shape graph, which describes domain-specific knowledge for a ids:Representation"@en;
-    .
-
-ids:representationVocabulary a owl:ObjectProperty;
-    rdfs:seeAlso void:vocabulary;
-    rdfs:label "representationVocabulary"@en;
-    rdfs:domain "ids:Representation";
-    rdfs:range ids:VocabularyData;
-    rdfs:comment "Reference to domain-specific vocabulary used for the representation."@en;
-    .
