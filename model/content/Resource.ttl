@@ -6,6 +6,8 @@
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 
 # Classes
 # -------
@@ -124,3 +126,18 @@ ids:variant a owl:ObjectProperty;
     rdfs:range ids:Resource;
     rdfs:comment "(Equivalent) variant of given Resource, e.g. a translation."@en.
 
+ids:resourceShapesGraph a owl:DatatypeProperty;
+    rdfs:subPropertyOf sh:shapesGraph;
+    rdfs:label "resourceShapeGraph"@en;
+    rdfs:domain "ids:Representation";
+    rdfs:range xsd:anyURI;
+    rdfs:comment "Reference to SHACL shape graph, which describes domain-specific knowledge for a ids:Representation"@en;
+    .
+
+ids:resourceVocabulary a owl:ObjectProperty;
+    rdfs:seeAlso void:vocabulary;
+    rdfs:label "domainDescription"@en;
+    rdfs:domain "ids:Resource";
+    rdfs:range ids:VocabularyData;
+    rdfs:comment "Reference to domain-specific vocabulary used for the resource."@en;
+    .
