@@ -8,8 +8,8 @@ write_to_file()
 	 local version=$1
 
 	 if [ -z "$version" ] ; then
-		echo "Warning! No version parameter supplied. Assuming version 2.0.1"
-		version="2.0.1"
+		echo "Warning! No version parameter supplied. Assuming version 2.1.0-SNAPSHOT"
+		version="2.1.0-SNAPSHOT"
 	 fi
 
 
@@ -29,7 +29,7 @@ write_to_file()
 	echo "" >> "$file"
 
 	#add meta-data
-	
+
 	echo '# Description of this ontology' >> "$file"
 	echo '# ----------------------------' >> "$file"
 	echo '' >> "$file"
@@ -108,7 +108,7 @@ write_to_file()
 	echo '<https://github.com/Madmatti> a dct:Agent, foaf:Person ;' >> "$file"
 	echo '    foaf:name "Matthias Böckmann";' >> "$file"
 	echo '.' >> "$file"
-	
+
 	# "open the file to edit" ... not required. echo will do
 
 	# search for files in selcted folders
@@ -122,7 +122,7 @@ write_to_file()
 			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
-	
+
 
 	# search for files in selcted folders
 	#for class in $(find metamodel/* -name "*.ttl")
@@ -131,7 +131,7 @@ write_to_file()
 	#		echo "    owl:imports <$class> ; " >> "$file"
 	#	fi
 	#done
-	
+
 	# search for files in selcted folders
 	for class in $(find taxonomies/* -maxdepth 1 -name "*.ttl")
 	do
@@ -147,7 +147,7 @@ write_to_file()
 			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
-	
+
 	echo ". " >> "$file"
  }
 
