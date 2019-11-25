@@ -30,7 +30,7 @@ ids:vocabulary a owl:DatatypeProperty;
     rdfs:domain ids:VocabularyData ;
     rdfs:range xsd:anyURI ;
     rdfs:label "vocabulary"@en;
-    rdfs:comment "Refrence to an URI with the domain vocabulary."@en.
+    rdfs:comment "Reference to an URI which contains the domain vocabulary."@en.
 
 ids:propertyPartition a owl:ObjectProperty;
     rdfs:subPropertyOf void:propertyPartition;
@@ -42,6 +42,6 @@ ids:propertyPartition a owl:ObjectProperty;
 ids:property a owl:DatatypeProperty;
     rdfs:subPropertyOf void:property;
     rdfs:domain ids:VocabularyData ;
-    rdfs:range xsd:string ;         # pointing to rdf:Property (how void does) may lead to problems during transformation to code library.
+    rdfs:range xsd:string ;         # pointing to rdf:Property (like void vocabulary does) may lead to problems during code transformation.
     rdfs:label "property"@en;
     rdfs:comment "The rdf:Property that is the predicate of all triples in a property-based partition.."@en.
