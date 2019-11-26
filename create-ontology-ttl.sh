@@ -118,37 +118,17 @@ EOF
     # search for files in selected folders
     echo '# ----------------------------' >> "$file"
     echo '# Imports of class files' >> "$file"
-    echo 'ids:' >> "$file"
+    echo 'ids: owl:imports' >> "$file"
 
-    for class in $(find model/* -maxdepth 1 -name "*.ttl")
+    # search for files in selected folders (omitting metamodel/)
+    for class in $(find \
+                       model/* \
+                       taxonomies/ \
+                       codes/ \
+                       -maxdepth 1 -name "*.ttl")
     do
         if [[ -f $class ]]; then
-            echo "    owl:imports <$class> ; " >> "$file"
-        fi
-    done
-    
-
-    # search for files in selected folders
-    #for class in $(find metamodel/* -name "*.ttl")
-    #do
-    #    if [[ -f $class ]]; then
-    #        echo "    owl:imports <$class> ; " >> "$file"
-    #    fi
-    #done
-    
-    # search for files in selected folders
-    for class in $(find taxonomies/* -maxdepth 1 -name "*.ttl")
-    do
-        if [[ -f $class ]]; then
-            echo "    owl:imports <$class> ; " >> "$file"
-        fi
-    done
-
-
-    for class in $(find codes/* -maxdepth 1 -name "*.ttl")
-    do
-        if [[ -f $class ]]; then
-            echo "    owl:imports <$class> ; " >> "$file"
+            echo "    <$class> ," >> "$file"
         fi
     done
     
