@@ -7,9 +7,9 @@ write_to_file()
      local file="Ontology.ttl"
      local version=$1
      
-     if [ -z "$version" ] ; then
-     version="2.0.1"
-     echo "Warning! No version parameter supplied. Assuming version ${version}"
+     if [[ -z "$version" ]] ; then
+         version="2.0.1"
+         echo "Warning! No version parameter supplied. Assuming version ${version}"
      fi
      
      
