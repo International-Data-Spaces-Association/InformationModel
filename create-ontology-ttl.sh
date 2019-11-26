@@ -137,14 +137,3 @@ EOF
 
 # execute it
 write_to_file $1
-
-#  LocalWords:  ttl fi EOF dct rdfs rdf vann voaf foaf xsd EOF voaf
-#  LocalWords:  rdfs isDefinedBy rdfs dct Dataspace rdfs Dataspace
-#  LocalWords:  dct dct dct dct AndreasMueller dct AnnaKasprzik dct
-#  LocalWords:  dct dct dct IDSA dct xsd dct xsd versionInfo vann dct
-#  LocalWords:  versionIRI preferredNamespaceUri vann rdfs seeAlso
-#  LocalWords:  preferredNamespacePrefix rdfs IDSA foaf foaf rdfs dct
-#  LocalWords:  foaf foaf dct foaf foaf Mader dct foaf foaf Jaroslav
-#  LocalWords:  Pullmann AndreasMueller dct foaf foaf Andreas Müller
-#  LocalWords:  AnnaKasprzik dct foaf foaf Kasprzik dct foaf foaf dct
-#  LocalWords:  Bader foaf
