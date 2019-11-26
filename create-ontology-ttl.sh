@@ -63,12 +63,11 @@ ids:
     vann:preferredNamespacePrefix "ids" ;
     rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
     void:vocabulary
-       <http://purl.org/vocab/vann/> ,
-       <http://rdfs.org/ns/void#> ,
-       <http://purl.org/vocommons/voaf#> ,
-       <http://purl.org/dc/terms/> ,
-       <http://purl.org/vocab/vann/> ,
-       <http://xmlns.com/foaf/0.1/> ;
+       vann: ,
+       void: ,
+       voaf: ,
+       dct: ,
+       foaf: ;
 .
 
 <http://www.apache.org/licenses/LICENSE-2.0>
