@@ -9,7 +9,7 @@ write_to_file()
      
      if [[ -z "$version" ]] ; then
          version="2.0.1"
-         echo "Warning! No version parameter supplied. Assuming version ${version}"
+         echo "Warning! No version parameter supplied. Assuming version ${version}" >&2
      fi
      
      
