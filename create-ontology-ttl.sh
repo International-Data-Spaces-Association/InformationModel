@@ -118,7 +118,7 @@ EOF
     # search for files in selected folders
     echo '# ----------------------------' >> "$file"
     echo '# Imports of class files' >> "$file"
-    echo 'ids: owl:imports' >> "$file"
+    echo 'ids:' >> "$file"
 
     # search for files in selected folders (omitting metamodel/)
     for class in $(find \
@@ -128,7 +128,7 @@ EOF
                        -maxdepth 1 -name "*.ttl")
     do
         if [[ -f $class ]]; then
-            echo "    <$class> ," >> "$file"
+            echo "    owl:imports <$class> ;" >> "$file"
         fi
     done
     
