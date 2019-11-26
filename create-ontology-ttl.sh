@@ -13,20 +13,22 @@ write_to_file()
 	 fi
 
 
-	#delete old content and add prefixes
-	echo "@prefix owl: <http://www.w3.org/2002/07/owl#> ." > "$file"
-	echo "@prefix dct: <http://purl.org/dc/terms/> ." >> "$file"
-	echo "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ." >> "$file"
-	echo "@prefix prov: <http://www.w3.org/ns/prov#> ." >> "$file"
-	echo "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ." >> "$file"
-	echo "@prefix ids: <https://w3id.org/idsa/core/> ." >> "$file"
-	echo "@prefix vann: <http://purl.org/vocab/vann/> ." >> "$file"
-	echo "@prefix void: <http://rdfs.org/ns/void#>." >> "$file"
-	echo "@prefix voaf: <http://purl.org/vocommons/voaf#>." >> "$file"
-	echo "@prefix foaf: <http://xmlns.com/foaf/0.1/>." >> "$file"
-	echo "@prefix cc: <http://creativecommons.org/ns#>. " >> "$file"
-	echo "@prefix xsd: <http://www.w3.org/2001/XMLSchema#>." >> "$file"
-	echo "" >> "$file"
+	 #delete old content and add prefixes
+         cat > "$file" <<EOF
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ids:  <https://w3id.org/idsa/core/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix cc:   <http://creativecommons.org/ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
+
+EOF
 
 	#add meta-data
 	
