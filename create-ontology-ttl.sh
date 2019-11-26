@@ -3,18 +3,18 @@
 write_to_file()
 {
 
-     # initialize a local var
-     local file="Ontology.ttl"
-     local version=$1
-     
-     if [[ -z "$version" ]] ; then
-         version="2.0.1"
-         echo "Warning! No version parameter supplied. Assuming version ${version}" >&2
-     fi
-     
-     
-     # delete old content and add prefixes
-     cat > "$file" <<'EOF'
+    # initialize a local var
+    local file="Ontology.ttl"
+    local version=$1
+    
+    if [[ -z "$version" ]] ; then
+        version="2.0.1"
+        echo "Warning! No version parameter supplied. Assuming version ${version}" >&2
+    fi
+    
+    
+    # delete old content and add prefixes
+    cat > "$file" <<'EOF'
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix dct:  <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
