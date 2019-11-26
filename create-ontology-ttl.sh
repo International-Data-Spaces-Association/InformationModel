@@ -44,14 +44,16 @@ ids:
 
     rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
     cc:license <http://www.apache.org/licenses/LICENSE-2.0> ;
-    dct:creator <https://github.com/cmader> ;
-    dct:creator <https://github.com/jpullmann> ;
-    dct:creator <http://sebastian.tramp.name> ;
-    dct:contributor _:AndreasMueller ;
-    dct:contributor _:AnnaKasprzik ;
-    dct:contributor <https://github.com/sebbader> ;
-    dct:contributor <https://github.com/Madmatti/> ;
-    dct:contributor <https://github.com/HaydarAk> ;
+    dct:creator
+       <https://github.com/cmader> ,
+       <https://github.com/jpullmann> ,
+       <http://sebastian.tramp.name> ;
+    dct:contributor
+       _:AndreasMueller ,
+       _:AnnaKasprzik ,
+       <https://github.com/sebbader> ,
+       <https://github.com/Madmatti/> ,
+       <https://github.com/HaydarAk> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
