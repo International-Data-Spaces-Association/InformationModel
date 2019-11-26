@@ -13,7 +13,7 @@ write_to_file()
      fi
      
      
-     #delete old content and add prefixes
+     # delete old content and add prefixes
      cat > "$file" <<'EOF'
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix dct:  <http://purl.org/dc/terms/> .
@@ -30,7 +30,7 @@ write_to_file()
 
 EOF
 
-    #add meta-data
+    # add meta-data
     
     echo '# Description of this ontology' >> "$file"
     echo '# ----------------------------' >> "$file"
@@ -113,7 +113,7 @@ EOF
     
     # "open the file to edit" ... not required. echo will do
 
-    # search for files in selcted folders
+    # search for files in selected folders
     echo '# ----------------------------' >> "$file"
     echo '# Imports of class files' >> "$file"
     echo 'ids:' >> "$file"
@@ -126,7 +126,7 @@ EOF
     done
     
 
-    # search for files in selcted folders
+    # search for files in selected folders
     #for class in $(find metamodel/* -name "*.ttl")
     #do
     #    if [[ -f $class ]]; then
@@ -134,7 +134,7 @@ EOF
     #    fi
     #done
     
-    # search for files in selcted folders
+    # search for files in selected folders
     for class in $(find taxonomies/* -maxdepth 1 -name "*.ttl")
     do
         if [[ -f $class ]]; then
@@ -155,3 +155,14 @@ EOF
 
 # execute it
 write_to_file $1
+
+#  LocalWords:  ttl fi EOF dct rdfs rdf vann voaf foaf xsd EOF voaf
+#  LocalWords:  rdfs isDefinedBy rdfs dct Dataspace rdfs Dataspace
+#  LocalWords:  dct dct dct dct AndreasMueller dct AnnaKasprzik dct
+#  LocalWords:  dct dct dct IDSA dct xsd dct xsd versionInfo vann dct
+#  LocalWords:  versionIRI preferredNamespaceUri vann rdfs seeAlso
+#  LocalWords:  preferredNamespacePrefix rdfs IDSA foaf foaf rdfs dct
+#  LocalWords:  foaf foaf dct foaf foaf Mader dct foaf foaf Jaroslav
+#  LocalWords:  Pullmann AndreasMueller dct foaf foaf Andreas Müller
+#  LocalWords:  AnnaKasprzik dct foaf foaf Kasprzik dct foaf foaf dct
+#  LocalWords:  Bader foaf
