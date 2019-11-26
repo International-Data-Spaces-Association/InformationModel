@@ -6,7 +6,7 @@ The reference examples show how the IDS Information Model can be used to describ
 ## SHACL Shapes for Content Description and Data Validation
 
 The [Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/) is a W3C recommended language to describe and validate RDF graphs against a set of conditions.
-The IDS Information Model already provides SHACL shapes to validate RDF instances against the model. The SHACL shapes for validation can be found in the folder ['testing'](/../../testing).
+The IDS Information Model already provides SHACL shapes to validate RDF instances against the model. The SHACL shapes for validation can be found in the folder _testing_. 
 
 #### Describe Domain-specific Semantics of Contents
 
