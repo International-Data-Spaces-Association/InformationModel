@@ -14,7 +14,7 @@ write_to_file()
     
     
     # delete old content and add prefixes
-    cat > "$file" <<'EOF'
+    cat >> "$file" <<'EOF'
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix dct:  <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -32,7 +32,7 @@ EOF
 
     # add meta-data
     
-    cat > "$file" <<EOF
+    cat >> "$file" <<EOF
 # Description of this ontology
 # ----------------------------
 
