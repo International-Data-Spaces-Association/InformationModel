@@ -41,7 +41,6 @@ ids:
     rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
     rdfs:label "IDS Information Model"@en ;
     dct:title "The International Data Spaces Information Model"@en ;
-
     rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
     cc:license <http://www.apache.org/licenses/LICENSE-2.0> ;
     dct:creator
