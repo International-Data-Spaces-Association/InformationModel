@@ -52,7 +52,7 @@ ids:
        _:AndreasMueller ,
        _:AnnaKasprzik ,
        <https://github.com/sebbader> ,
-       <https://github.com/Madmatti/> ,
+       <https://github.com/Madmatti> ,
        <https://github.com/HaydarAk> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
