@@ -53,6 +53,7 @@ ids:
        _:AnnaKasprzik ,
        <https://github.com/sebbader> ,
        <https://github.com/Madmatti> ,
+       <https://github.com/clange> ,
        <https://github.com/HaydarAk> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
@@ -104,6 +105,9 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 .
 <https://github.com/HaydarAk> a dct:Agent, foaf:Person ;
     foaf:name "Haydar Akyürek" ;
+.
+<https://github.com/clange> a dct:Agent, foaf:Person ;
+    foaf:name "Christoph Lange" ;
 .
 <https://github.com/Madmatti> a dct:Agent, foaf:Person ;
     foaf:name "Matthias Böckmann" ;
