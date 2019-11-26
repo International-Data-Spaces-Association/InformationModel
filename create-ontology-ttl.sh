@@ -32,84 +32,82 @@ EOF
 
     # add meta-data
     
-    echo '# Description of this ontology' >> "$file"
-    echo '# ----------------------------' >> "$file"
-    echo '' >> "$file"
-    echo 'ids:' >> "$file"
-    echo '    a voaf:Vocabulary, owl:Ontology ;' >> "$file"
-    echo '    rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;' >> "$file"
-    echo '    rdfs:label "IDS Information Model"@en;' >> "$file"
-    echo '    dct:title "The International Data Spaces Information Model"@en;' >> "$file"
-    echo '    rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space).";' >> "$file"
-    echo '    cc:license <http://www.apache.org/licenses/LICENSE-2.0> ;' >> "$file"
-    echo '    dct:creator <https://github.com/cmader> ;' >> "$file"
-    echo '    dct:creator <https://github.com/jpullmann> ;' >> "$file"
-    echo '    dct:creator <http://sebastian.tramp.name> ;' >> "$file"
-    echo '    dct:contributor _:AndreasMueller ;' >> "$file"
-    echo '    dct:contributor _:AnnaKasprzik ;' >> "$file"
-    echo '    dct:contributor <https://github.com/sebbader> ;' >> "$file"
-    echo '    dct:contributor <https://github.com/Madmatti/> ;' >> "$file"
-    echo '    dct:contributor <https://github.com/HaydarAk> ;' >> "$file"
-    echo '    dct:publisher ids:IDSA ;' >> "$file"
-    echo '    dct:created "2017-09-26"^^xsd:date;' >> "$file"
-    echo '    dct:modified "'$(date +%Y-%m-%d)'"^^xsd:date;' >> "$file"
-    echo '    owl:versionInfo "'$version'";' >> "$file"
-    echo '    owl:versionIRI "https://w3id.org/idsa/core/'$version'>";' >> "$file"
-    echo '    vann:preferredNamespaceUri "https://w3id.org/idsa/core/";' >> "$file"
-    echo '    vann:preferredNamespacePrefix "ids" ;' >> "$file"
-    echo '    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;' >> "$file"
-    echo '    void:vocabulary' >> "$file"
-    echo '       <http://purl.org/vocab/vann/> ,' >> "$file"
-    echo '       <http://rdfs.org/ns/void#> ,' >> "$file"
-    echo '       <http://purl.org/vocommons/voaf#> ,' >> "$file"
-    echo '       <http://purl.org/dc/terms/> ,' >> "$file"
-    echo '       <http://purl.org/vocab/vann/> ,' >> "$file"
-    echo '       <http://xmlns.com/foaf/0.1/> ;' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo '<http://www.apache.org/licenses/LICENSE-2.0>' >> "$file"
-    echo '    rdfs:label "Apache License Version 2.0, January 2004" ;' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo 'ids:IDSA' >> "$file"
-    echo '    a dct:Agent, foaf:Organization;' >> "$file"
-    echo '    foaf:homepage <https://www.internationaldataspaces.org> ;' >> "$file"
-    echo '    rdfs:label "International Data Spaces Association" ;' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo '<http://sebastian.tramp.name>' >> "$file"
-    echo '    a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Sebastian Tramp";' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo '<https://github.com/cmader>' >> "$file"
-    echo '    a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Christian Mader";' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo '<https://github.com/jpullmann>' >> "$file"
-    echo '    a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Jaroslav Pullmann";' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo '_:AndreasMueller' >> "$file"
-    echo '    a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Andreas Müller"' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo '_:AnnaKasprzik a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Anna Kasprzik";' >> "$file"
-    echo '.' >> "$file"
-    echo '' >> "$file"
-    echo '<https://github.com/sebbader> a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Sebastian Bader";' >> "$file"
-    echo '.' >> "$file"
-    echo '<https://github.com/HaydarAk> a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Haydar Akyürek";' >> "$file"
-    echo '.' >> "$file"
-    echo '<https://github.com/Madmatti> a dct:Agent, foaf:Person ;' >> "$file"
-    echo '    foaf:name "Matthias Böckmann";' >> "$file"
-    echo '.' >> "$file"
+    cat > "$file" <<EOF
+# Description of this ontology
+# ----------------------------
+
+ids:
+    a voaf:Vocabulary, owl:Ontology ;
+    rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
+    rdfs:label "IDS Information Model"@en ;
+    dct:title "The International Data Spaces Information Model"@en ;
+
+    rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
+    cc:license <http://www.apache.org/licenses/LICENSE-2.0> ;
+    dct:creator <https://github.com/cmader> ;
+    dct:creator <https://github.com/jpullmann> ;
+    dct:creator <http://sebastian.tramp.name> ;
+    dct:contributor _:AndreasMueller ;
+    dct:contributor _:AnnaKasprzik ;
+    dct:contributor <https://github.com/sebbader> ;
+    dct:contributor <https://github.com/Madmatti/> ;
+    dct:contributor <https://github.com/HaydarAk> ;
+    dct:publisher ids:IDSA ;
+    dct:created "2017-09-26"^^xsd:date ;
+    dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
+    owl:versionInfo "${version}" ;
+    owl:versionIRI "https://w3id.org/idsa/core/${version}>" ;
+    vann:preferredNamespaceUri "https://w3id.org/idsa/core/" ;
+    vann:preferredNamespacePrefix "ids" ;
+    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+    void:vocabulary
+       <http://purl.org/vocab/vann/> ,
+       <http://rdfs.org/ns/void#> ,
+       <http://purl.org/vocommons/voaf#> ,
+       <http://purl.org/dc/terms/> ,
+       <http://purl.org/vocab/vann/> ,
+       <http://xmlns.com/foaf/0.1/> ;
+.
+
+<http://www.apache.org/licenses/LICENSE-2.0>
+    rdfs:label "Apache License Version 2.0, January 2004" ;
+.
+
+ids:IDSA
+    a dct:Agent, foaf:Organization ;
+    foaf:homepage <https://www.internationaldataspaces.org> ;
+    rdfs:label "International Data Spaces Association" ;
+.
+
+<http://sebastian.tramp.name>
+    a dct:Agent, foaf:Person ;
+    foaf:name "Sebastian Tramp" ;
+.
+<https://github.com/cmader>
+    a dct:Agent, foaf:Person ;
+    foaf:name "Christian Mader" ;
+.
+<https://github.com/jpullmann>
+    a dct:Agent, foaf:Person ;
+    foaf:name "Jaroslav Pullmann" ;
+.
+_:AndreasMueller
+    a dct:Agent, foaf:Person ;
+    foaf:name "Andreas Müller"
+.
+_:AnnaKasprzik a dct:Agent, foaf:Person ;
+    foaf:name "Anna Kasprzik" ;
+.
+<https://github.com/sebbader> a dct:Agent, foaf:Person ;
+    foaf:name "Sebastian Bader" ;
+.
+<https://github.com/HaydarAk> a dct:Agent, foaf:Person ;
+    foaf:name "Haydar Akyürek" ;
+.
+<https://github.com/Madmatti> a dct:Agent, foaf:Person ;
+    foaf:name "Matthias Böckmann" ;
+.
+EOF
     
     # "open the file to edit" ... not required. echo will do
 
