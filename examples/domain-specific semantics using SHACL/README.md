@@ -23,7 +23,7 @@ ids:shapesGraph "<URI of an RDF graph containing SHACL shapes>";
 ##### Validate data using SHACL
 With a SHACL validator, such as the Open Source [TopBraid SHACL API](https://github.com/TopQuadrant/shacl) tool or the [SHACL Playground](https://shacl.org/playground/) website, one can validate RDF / JSON-LD data using SHACL shapes.
 
-Following examples show a temperature dataset in RDF/TTL and JSON-LD, which comply with the [TEMP_SHACL.ttl](TEMP_SHACL.ttl) SHACL shape, as well as the corresponding JSON schema. The corresponding files can be found here, in [RDF / Turtle](TEMP_SAMPLE_DATA.ttl) and [JSON](TEMP_SAMPLE_DATA.json) 
+The following examples show a temperature dataset in RDF/TTL and JSON-LD, which comply with the [TEMP_SHACL.ttl](TEMP_SHACL.ttl) SHACL shape, as well as the corresponding JSON Schema. The corresponding files can be found here, in [RDF / Turtle](TEMP_SAMPLE_DATA.ttl) and [JSON](TEMP_SAMPLE_DATA.json) 
 
 ```
 @prefix data: <http://example.org/data#> .
