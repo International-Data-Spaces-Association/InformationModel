@@ -10,7 +10,7 @@ The IDS Information Model already provides SHACL shapes to validate RDF instance
 
 #### Describe Domain-specific Semantics of Contents
 
-The Information Model contains generic properties for _ids:Resource_ and _ids:Representation_. SHACL shapes can be used to add domain-specific semantics to _ids:Resource_ and _ids:Representation_, without explicit modelling in the Information Model.
+The Information Model is domain-independent; it contains generic properties for _ids:Resource_ and _ids:Representation_. SHACL shapes can be used to add domain-specific semantics to _ids:Resource_ and _ids:Representation_, without the need for extending the Information Model itself; in other words, this document does not present extended functionality of the Information Model, but it presents best practices for using the Information Model together with related standards, each for its purpose.
 
 The [TEMP_SHACL.ttl](TEMP_SHACL.ttl) contains a SHACL shape, which describes the schema of a JSON temperature dataset. The [TEMP_DATA_SCHEMA.json](TEMP_DATA_SCHEMA.json) file contains the corresponding JSON schema, from which the SHACL shape is derived.
 
