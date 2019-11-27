@@ -17,7 +17,7 @@ The [TEMP_SHACL.ttl](TEMP_SHACL.ttl) contains a SHACL shape, which describes the
 [TEMP_RESOURCE.ttl](TEMP_RESOURCE.ttl) and [TEMP_RESOURCE.json](TEMP_RESOURCE.json), show an exemplary modelling of a temperature dataset as an _ids:Resource_ using the [RDF/Turtle](https://www.w3.org/TR/turtle/) or [JSON-LD](https://www.w3.org/TR/2014/REC-json-ld-20140116/) RDF serialization. The aforementioned [TEMP_SHACL.ttl](TEMP_SHACL.ttl) SHACL shape can be referenced by its URI in the _ids:Resource_ (or _ids:Representation_) using the _ids:shapesGraph_ property, an import of _sh:shapesGraph_ into the IDS namespace. In this way, domain-specific semantics can be supplemented to a _ids:Resource / ids:Representation_.  
 
 ```
-ids:shapesGraph "<URI to a SHACL shape>";
+ids:shapesGraph "<URI of an RDF graph containing SHACL shapes>";
 ```
 
 ##### Validate data using SHACL
