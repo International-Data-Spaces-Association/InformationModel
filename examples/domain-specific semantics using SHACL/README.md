@@ -1,7 +1,7 @@
 # Reference examples to describe domain-specific semantics of content
 
 ## Scenario
-The reference examples show how the IDS Information Model can be used to describe digital content, in the IDS, with domain-specific semantics. The examples provided here use a pre-defined JSON schema for temperature data.
+The reference examples show how the IDS Information Model can be used to describe digital content, in the IDS, with domain-specific semantics. The examples provided here use a pre-defined [JSON Schema](https://json-schema.org) for temperature data.
 
 ## SHACL Shapes for Content Description and Data Validation
 
