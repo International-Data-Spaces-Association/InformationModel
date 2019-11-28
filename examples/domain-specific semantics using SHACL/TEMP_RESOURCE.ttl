@@ -43,7 +43,7 @@ sample_Data:
     ];
 
     # Reference to SHACL shape graph which describes the domain-specific semantics of the ids:Resource
-    ids:shapesGraph "<URI to a SHACL shape>";
+    ids:shapesGraph "<URI to a graph (e.g., an RDF file) containing one or more SHACL shape>";
 
     ids:representation [
         a ids:DataRepresentation ;
@@ -51,14 +51,14 @@ sample_Data:
         ids:instance sample_Data:tempdata_file ;
     ] ;
 
-    # PDF artifact of the resource is available at following static path
+    # JSON artifact of the resource is available at following static path
     ids:resourceEndpoint [
         a ids:StaticEndpoint ;
         # reference to the (http) Host of the IDS connector "conn1". See "Connector_example.ttl" file for an example of a connector.
         ids:endpointHost conn1:http_host ;
-        # reference to the artifact, see "sample_Data:report_pdf" below
-        ids:endpointArtifact sample_Data:report_pdf ;
-        ids:path "/reports/Highway_accident_statistics.pdf"
+        # reference to the artifact, see "sample_Data:tempdata_file" below
+        ids:endpointArtifact sample_Data:tempdata_file ;
+        ids:path "/reports/tempdata_file.json"
     ] ;
 
     # Commodization of the data resource in the form of a contract offer
@@ -68,7 +68,7 @@ sample_Data:
         ids:contractDocument "<Reference to human-readable resource of this Contract>";
 
         # permission and usage constraints of the resource
-        # Users have permission to "use" the pdf artifact in the time range between 2019-09-01T00:00:00 and 2019-10-01T00:00:00
+        # Users have permission to "use" the json artifact in the time range between 2019-09-01T00:00:00 and 2019-10-01T00:00:00
         # with the duty / obligation to pay 100 Euros.
         ids:permission [
             a ids:Permission ;
@@ -78,7 +78,7 @@ sample_Data:
             ids:assigner "<URI of the provider IDS participant>";
 
             # Individual target artifact(s)
-            ids:targetArtifact sample_Data:report_pdf ;
+            ids:targetArtifact sample_Data:tempdata_file ;
 
             # time interval restricted usage constraict
             ids:constraint [
