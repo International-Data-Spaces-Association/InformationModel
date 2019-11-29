@@ -1,0 +1,10 @@
+language: bash
+
+addons:
+  apt:
+    packages:
+    - raptor2-utils
+script:
+- echo "Starting build!"
+- find -type f  -name "*.ttl" | xargs -n1 rapper -q -i turtle > /dev/null
+- echo "Finished build."
