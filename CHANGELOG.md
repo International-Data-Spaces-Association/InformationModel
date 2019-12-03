@@ -8,17 +8,17 @@ Version 2.1.0 of the IDS Information model
 
 ### Added
 
-* New class *ids:VocabularyData*. Partial mapping of the [VoID Ontology](https://www.w3.org/TR/void/) in the IDS Information Model. It can be used to reference domain-specific vocabularies and terminologies.
+* New class *ids:VocabularyData*. Partial mapping of the [Vocabulary of Interlinked Datasets (VoID)](https://www.w3.org/TR/void/) in the IDS Information Model. It can be used to reference domain-specific vocabularies and terminologies.
 
-* New class *ids:DescribedSemantically*. Superclass of *ids:Resource* and *ids:Representation*. *ids:DescribedSemantically* is introduces two new properties:
+* New class *ids:DescribedSemantically*. Superclass of *ids:Resource* and *ids:Representation*. *ids:DescribedSemantically* introduces two new properties:
     - *ids:domainVocabulary* with range *ids:VocabularyData*. Allows using instances of class *ids:VocabularyData* to reference domain-specific terminologies used in *ids:Resource* /  *ids:Representation* .
-    - *ids:shapesGraph*  with range *xsd:anyURI*. URI should refer to a SHACL shape, which describes the domain-specific semantics of a Resource / Representation.
+    - *ids:shapesGraph* (an import of *[sh:shapesGraph](https://www.w3.org/TR/shacl/#sh-shapes-graph)*) with range *xsd:anyURI*. URI should refer to an RDF graph containing SHACL shapes, which describes the domain-specific semantics of a Resource / Representation.
 
 * Travis CI script for validating correctness of Turtle files in Pull Requests.
 
 * SHACL Shapes for the new RDF classes and properties.
 
-* Example of ids:Resource (in JSON-LD and RDF/TTL) and corresponding SHACL shapes to describe (temperature) sensor data with domain-specific semantics. Example and README can be found in /*examples/domain-specific semantics using SHACL* directory.
+* Example of *ids:Resource* (in JSON-LD and RDF/TTL) and corresponding SHACL shapes to describe (temperature) sensor data with domain-specific semantics. Example and README can be found in the /*examples/domain-specific semantics using SHACL* directory.
 
 
 ## [2.0.1] 2019-11-19
