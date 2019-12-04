@@ -162,7 +162,7 @@ ids:ParticipantUpdateMessage a owl:Class;
 ids:revokeReason
     a owl:DatatypeProperty;
     rdfs:label "revoke reason"@en;
-    rdfs:domain ids:ConnectorCertificateRevokedMessage, ids:ParticipantCertificateRevokedMessage ;
+    rdfs:domain ids:ConnectorCertificateRevokedMessage; # TODO: , ids:ParticipantCertificateRevokedMessage ;
     rdfs:range xsd:string;
     rdfs:comment "Plain Text containing the reason for revoking an existing certificate of an infrastructure component, e.g. a connector or participant."@en.
 
@@ -180,14 +180,14 @@ ids:QueryLanguage a owl:Class;
 
 ids:QueryScope a owl:Class;
     rdfs:label "Query Scope"@en ;
-    rdfs:comment "Class of scopes that may limit the space of query results, e.g. ALL, ACTIVE_ONLY. "@en.
+    rdfs:comment "Class of scopes that may limit the space of query results, e.g. ALL, ACTIVE_ONLY."@en.
 
 ids:QueryTarget a owl:Class;
     rdfs:label "Query Target"@en ;
-    rdfs:comment "Class of recipients of a query message, e.g. BROKER, APPSTORE, ANY. "@en.
+    rdfs:comment "Class of recipients of a query message, e.g. BROKER, APPSTORE, ANY."@en.
 
 ids:queryLanguage a owl:ObjectProperty;
-    rdfs:domain ids:QueryMessage, ids:QueryLanguage;
+    rdfs:domain ids:QueryMessage;
     rdfs:range ids:QueryLanguage;
     rdfs:label "queryLanguage"@en;
     rdfs:comment "This property specifies the language of the query."@en.
