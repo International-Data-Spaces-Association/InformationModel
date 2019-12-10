@@ -12,7 +12,7 @@
 
 ids:Resource
     a owl:Class;
-    rdfs:subClassOf ids:DigitalContent, # e.g. Collection Resource contains sub-resources but also has an own Representation
+    rdfs:subClassOf ids:DescribedSemantically, ids:DigitalContent, # e.g. Collection Resource contains sub-resources but also has an own Representation
         ids:ManagedEntity;
     rdfs:label "Resource"@en ;
     rdfs:comment "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."@en;
@@ -111,17 +111,15 @@ ids:sovereign
     rdfs:comment "The 'owner', i.e. sovereign of the data."@en.
 
 ids:sample a owl:ObjectProperty;
-    # dicuss: rdfs:subPropertyOf and range
+    # discuss: rdfs:subPropertyOf and range
     rdfs:label "sample"@en;
     rdfs:domain ids:Resource;
     rdfs:range ids:Resource;# Web-retrievable or inline content
     rdfs:comment "Sample Resource instance."@en.
 
 ids:variant a owl:ObjectProperty;
-    # dicuss: rdfs:subPropertyOf adms:translation or ..?
-    idsm:abstract true ;
+    # discuss: rdfs:subPropertyOf adms:translation or ..?
     rdfs:label "variant"@en;
     rdfs:domain ids:Resource;
     rdfs:range ids:Resource;
     rdfs:comment "(Equivalent) variant of given Resource, e.g. a translation."@en.
-

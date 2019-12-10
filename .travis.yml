@@ -1,0 +1,26 @@
+language: bash
+
+addons:
+  apt:
+    packages:
+    - raptor2-utils
+script:
+- echo "Starting build!"
+- find -type f -name "*.ttl" -not -path "./.git/*" | sed 's/.*/"&"/' | xargs -n1 rapper -q -i turtle > /dev/null
+- echo "Finished build."
+
+# What's going on?
+
+# find -type f -name "*.ttl" -not -path "./.git/*":
+# Give me all Turtle files except the ones in the .git folder
+
+# sed 's/.*/"&"/'
+# Surround the file names with quotation marks (we have spaces in some paths...)
+
+# xargs -n1 rapper -q -i turtle
+# Let rapper parse each file in silent mode 
+
+# > /dev/null
+# I am not interested in stdout, only stderr
+
+# contact: Sebastian Bader (2019)

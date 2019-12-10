@@ -8,8 +8,8 @@ write_to_file()
 	 local version=$1
 
 	 if [ -z "$version" ] ; then
-		echo "Warning! No version parameter supplied. Assuming version 1.0.3"
-		version="1.0.3"
+		echo "Warning! No version parameter supplied. Assuming version 2.1.0"
+		version="2.1.0"
 	 fi
 
 
@@ -29,7 +29,7 @@ write_to_file()
 	echo "" >> "$file"
 
 	#add meta-data
-	
+
 	echo '# Description of this ontology' >> "$file"
 	echo '# ----------------------------' >> "$file"
 	echo '' >> "$file"
@@ -46,6 +46,8 @@ write_to_file()
 	echo '    dct:contributor _:AndreasMueller ;' >> "$file"
 	echo '    dct:contributor _:AnnaKasprzik ;' >> "$file"
 	echo '    dct:contributor <https://github.com/sebbader> ;' >> "$file"
+	echo '    dct:contributor <https://github.com/Madmatti/> ;' >> "$file"
+	echo '    dct:contributor <https://github.com/HaydarAk> ;' >> "$file"
 	echo '    dct:publisher ids:IDSA ;' >> "$file"
 	echo '    dct:created "2017-09-26"^^xsd:date;' >> "$file"
 	echo '    dct:modified "'$(date +%Y-%m-%d)'"^^xsd:date;' >> "$file"
@@ -100,7 +102,13 @@ write_to_file()
 	echo '<https://github.com/sebbader> a dct:Agent, foaf:Person ;' >> "$file"
 	echo '    foaf:name "Sebastian Bader";' >> "$file"
 	echo '.' >> "$file"
-	
+	echo '<https://github.com/HaydarAk> a dct:Agent, foaf:Person ;' >> "$file"
+	echo '    foaf:name "Haydar Akyürek";' >> "$file"
+	echo '.' >> "$file"
+	echo '<https://github.com/Madmatti> a dct:Agent, foaf:Person ;' >> "$file"
+	echo '    foaf:name "Matthias Böckmann";' >> "$file"
+	echo '.' >> "$file"
+
 	# "open the file to edit" ... not required. echo will do
 
 	# search for files in selcted folders
@@ -114,7 +122,7 @@ write_to_file()
 			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
-	
+
 
 	# search for files in selcted folders
 	#for class in $(find metamodel/* -name "*.ttl")
@@ -123,7 +131,7 @@ write_to_file()
 	#		echo "    owl:imports <$class> ; " >> "$file"
 	#	fi
 	#done
-	
+
 	# search for files in selcted folders
 	for class in $(find taxonomies/* -maxdepth 1 -name "*.ttl")
 	do
@@ -139,7 +147,7 @@ write_to_file()
 			echo "    owl:imports <$class> ; " >> "$file"
 		fi
 	done
-	
+
 	echo ". " >> "$file"
  }
 
