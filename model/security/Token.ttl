@@ -41,7 +41,7 @@ ids:TokenFormat a owl:Class;
 ids:DatPayload
     a owl:Class ;
     rdfs:label "DAT Payload"@en ;
-    rdfs:comment "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are iether defined by RFC 7519 or by the IDS Information Model. As a direct consequence of the regardance of the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly on \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."@en ;
+    rdfs:comment "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are iether defined by RFC 7519 or by the IDS Information Model. As a direct consequence of the regardance of the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ;
     idsm:validation [
         idsm:forProperty ids:referringConnector;
