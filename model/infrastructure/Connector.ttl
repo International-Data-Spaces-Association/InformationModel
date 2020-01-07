@@ -29,11 +29,7 @@ ids:Connector
         idsm:relationType idsm:OneToMany;
     ]; 
     idsm:validation [
-        idsm:forProperty ids:senderAgent;
-        idsm:relationType idsm:OneToMany;
-    ]; 
-    idsm:validation [
-        idsm:forProperty ids:recipientAgent;
+        idsm:forProperty ids:hasAgents;
         idsm:relationType idsm:OneToMany;
     ].
 
@@ -95,18 +91,10 @@ ids:catalog a owl:ObjectProperty;
     rdfs:label "catalog"@en;
     rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
 
-ids:senderAgent
+ids:hasAgents
     a owl:DatatypeProperty;
     idsm:referenceByUri true;
     rdfs:label "sender agent"@en;
     rdfs:domain ids:Connector;
     rdfs:range ids:Agent;
-    rdfs:comment "The Agent for which this Connector may initiate a Message."@en.
-
-ids:recipientAgent
-    a owl:DatatypeProperty;
-    idsm:referenceByUri true;
-    rdfs:label "recipient agent"@en;
-    rdfs:domain ids:Connector;
-    rdfs:range ids:Agent;
-    rdfs:comment "The Agent for which this Connecotr is able to receive a Mesaage."@en.
+    rdfs:comment "The Agents for which this Connector may initiate and receive Messages."@en.
