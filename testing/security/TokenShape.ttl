@@ -28,8 +28,10 @@ shapes:TokenShape
 		a sh:PropertyShape ;
 		sh:path ids:tokenValue ;
 		sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): An ids:tokenValue property must point from an ids:Token to an xsd:string."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:tokenValue property must point from an ids:Token to an xsd:string."@en ; 
 	] ;
 
 	sh:property [
@@ -58,3 +60,79 @@ shapes:TokenFormatShape
 		""" ;
 	] .
 
+
+
+shapes:DatPayloadShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:DatPayload ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:aud  ;
+		sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:aud property must point from an ids:DatPayload to an xsd:string."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:exp  ;
+		sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:exp property must point from an ids:DatPayload to an xsd:integer."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:iat  ;
+		sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:iat property must point from an ids:DatPayload to an xsd:integer."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:iss  ;
+		sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:iss property must point from an ids:DatPayload to an xsd:string."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:nbf  ;
+		sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly ids:nbf property must point from an ids:DatPayload to an xsd:integer."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:referringConnector ;
+		sh:datatype xsd:anyURI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:referringConnector property must point from an ids:DatPayload to an xsd:anyURI."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:sub ;
+		sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:sub property must point from an ids:Token to an xsd:string."@en ; 
+	] ;
+.
