@@ -109,10 +109,11 @@ ids:nbf a owl:DatatypeProperty;
     rdfs:comment "The 'aud' (audience) claim identifies the recipients that the JWT is intended for."@en.
 
 ids:referringConnector a owl:DatatypeProperty;
-    rdfs:label "referingConnector"@en;
+    rdfs:label "referringConnector"@en;
+    idsm:referenceByUri true;
     rdfs:domain ids:DatPayload;
-    rdfs:range xsd:string ; # xsd:anyURI or xsd:base64Binary;
-    rdfs:comment "The RDF connector entity as referred to by the DAT, with its URI included as the value string. The value MUST be its accessible URI."@en.
+    rdfs:range ids:Connector; 
+    rdfs:comment "The RDF connector entity as referred to by the DAT, with its URI included as the value. The value MUST be its accessible URI."@en.
 
 ids:sub a owl:DatatypeProperty;
     rdfs:label "sub"@en;
