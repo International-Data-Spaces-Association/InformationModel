@@ -379,6 +379,36 @@ def clean_up_ontology_serialization_owl_imports():
     clean_up_webvowl_ontology()
 
 
+# function to add OOPS evaluation results to documentation. 
+def insert_ref_oops_results():
+    oops_html_ref = ["""
+    <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/OOPSeval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluation_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluation_with-OOPS! (OntOlogy Pitfall Scanner!)" /></a></dd>
+    """]
+    
+    html_result_lines = []
+    
+    # check if OOPS evaluation file exists
+    if os.path.isfile('../OOPSevaluation/oopsEval.html'):
+        
+        # open and read index-en.html lines
+        with open('../index-en.html') as html_file:
+            html_lines = html_file.readlines()
+        
+        # Iterate over lines
+        for index,line in enumerate(html_lines):
+        
+            # Search for line to insert OOPS reference  (after Visualization with WebVOWL reference)
+            if line.startswith("</dd><dt>Visualization:</dt><dd>"):
+                
+                # add HTML ref to OOPSeval.html file 
+                html_result_lines = html_lines[:index+1]
+                html_result_lines += oops_html_ref + html_lines[index+1:]
+                
+                # write back to file
+                with open('../index-en.html',"w") as outfile:
+                    outfile.write("".join(html_result_lines))
+
+
 # Renames widoco output file "index-en.html" to "index.html".
 # Only "index.html" gets displayed correctly with github pages.
 def rename_index_file():
@@ -489,6 +519,7 @@ if __name__ == '__main__':
     replace_ontology_download_link()
     insert_jive_information(jive_credentials)
     insert_references()
+    insert_ref_oops_results()
 
     # Correction of unwanted behavior from widoco.jar
     adjust_namespaces()

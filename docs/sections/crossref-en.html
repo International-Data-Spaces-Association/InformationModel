@@ -233,6 +233,9 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/CustomMediaType" title="https://w3id.org/idsa/core/CustomMediaType">Custom Media Type</a>
       </li>
       <li>
+         <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
+      </li>
+      <li>
          <a href="#/Data" title="https://w3id.org/idsa/core/Data">Data</a>
       </li>
       <li>
@@ -1876,6 +1879,7 @@ This section provides details for each class and property defined by Industrial 
             <a href="#/AppStore" title="https://w3id.org/idsa/core/AppStore">App Store</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/BaseConnector" title="https://w3id.org/idsa/core/BaseConnector">Base Connector</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/Broker" title="https://w3id.org/idsa/core/Broker">Broker</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/ParIS" title="https://w3id.org/idsa/core/ParIS">Participant Information Service</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/TrustedConnector" title="https://w3id.org/idsa/core/TrustedConnector">Trusted Connector</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
@@ -1896,6 +1900,7 @@ This section provides details for each class and property defined by Industrial 
             <sup class="type-op" title="object property">op</sup>, <a href="#/connector" title="https://w3id.org/idsa/core/connector">connector</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/issuerConnector" title="https://w3id.org/idsa/core/issuerConnector">issuer connector</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/recipientConnector" title="https://w3id.org/idsa/core/recipientConnector">recipient connector</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/referringConnector" title="https://w3id.org/idsa/core/referringConnector">referringConnector</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -2496,6 +2501,30 @@ This section provides details for each class and property defined by Industrial 
          </dd>
       </dl>
    </div>
+   <div class="entity" id="/DatPayload">
+      <h3>DAT Payload<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/DatPayload</p>
+      <div class="comment">
+         <span class="markdown">The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are iether defined by RFC 7519 or by the IDS Information Model. As a direct consequence of the regardance of the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one "@context" attribute with the IDS context URI as its value and a "@type" with ids:DatPayload as its value.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/aud" title="https://w3id.org/idsa/core/aud">aud</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/exp" title="https://w3id.org/idsa/core/exp">exp</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/iat" title="https://w3id.org/idsa/core/iat">iat</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/iss" title="https://w3id.org/idsa/core/iss">iss</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/nbf" title="https://w3id.org/idsa/core/nbf">nbf</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/referringConnector" title="https://w3id.org/idsa/core/referringConnector">referringConnector</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/sub" title="https://w3id.org/idsa/core/sub">sub</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="/Data">
       <h3>Data<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -2814,7 +2843,7 @@ This section provides details for each class and property defined by Industrial 
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/DynamicAttributeToken</p>
       <div class="comment">
-         <span class="markdown">A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'.</span>
+         <span class="markdown">A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'. The complete JWT *including* header, payload and signiture is referenced by this class and *not* only the JSON element in the payload. See ids:DatPayload for the payload definition.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -3354,7 +3383,6 @@ This section provides details for each class and property defined by Industrial 
             <sup class="type-c" title="class">c</sup>, <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/DAPS" title="https://w3id.org/idsa/core/DAPS">Dynamic Attribute Provisioning Service</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/IdentityProvider" title="https://w3id.org/idsa/core/IdentityProvider">Identity provider</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/ParIS" title="https://w3id.org/idsa/core/ParIS">Participant Information Service</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -6013,8 +6041,7 @@ This section provides details for each class and property defined by Industrial 
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#/InfrastructureComponent"
-               title="https://w3id.org/idsa/core/InfrastructureComponent">InfrastructureComponent</a>
+            <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -7739,13 +7766,7 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#/aud" title="https://w3id.org/idsa/core/aud">aud</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/exp" title="https://w3id.org/idsa/core/exp">exp</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/iss" title="https://w3id.org/idsa/core/iss">iss</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/nbf" title="https://w3id.org/idsa/core/nbf">nbf</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/referingConnector" title="https://w3id.org/idsa/core/referingConnector">referingConnector</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/sub" title="https://w3id.org/idsa/core/sub">sub</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/tokenFormat" title="https://w3id.org/idsa/core/tokenFormat">tokenFormat</a>
+            <a href="#/tokenFormat" title="https://w3id.org/idsa/core/tokenFormat">tokenFormat</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/tokenValue" title="https://w3id.org/idsa/core/tokenValue">tokenValue</a>
             <sup class="type-dp" title="data property">dp</sup>
          </dd>
@@ -8303,6 +8324,11 @@ This section provides details for each class and property defined by Industrial 
       </li>
       <li>
          <a href="#/recipientScope" title="https://w3id.org/idsa/core/recipientScope">recipient scope</a>
+      </li>
+      <li>
+         <a href="#/referringConnector" title="https://w3id.org/idsa/core/referringConnector">
+            <span>referringConnector</span>
+         </a>
       </li>
       <li>
          <a href="#/refersTo" title="https://w3id.org/idsa/core/refersTo">refers to policy template</a>
@@ -10937,6 +10963,30 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
+   <div class="entity" id="/referringConnector">
+      <h3>referringConnector<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/referringConnector</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is also defined as</dt>
+            <dd>data property</dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="/refersTo">
       <h3>refers to policy template<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -11794,6 +11844,9 @@ This section provides details for each class and property defined by Industrial 
          </a>
       </li>
       <li>
+         <a href="#/iat" title="https://w3id.org/idsa/core/iat">iat</a>
+      </li>
+      <li>
          <a href="#/inboundPath" title="https://w3id.org/idsa/core/inboundPath">inbound topic</a>
       </li>
       <li>
@@ -11857,9 +11910,6 @@ This section provides details for each class and property defined by Industrial 
       </li>
       <li>
          <a href="#/property" title="https://w3id.org/idsa/core/property">property</a>
-      </li>
-      <li>
-         <a href="#/referingConnector" title="https://w3id.org/idsa/core/referingConnector">referingConnector</a>
       </li>
       <li>
          <a href="#/revokeReason" title="https://w3id.org/idsa/core/revokeReason">revoke reason</a>
@@ -11996,7 +12046,7 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -12500,12 +12550,12 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
             </dd>
          </dl>
       </div>
@@ -12681,6 +12731,30 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
+   <div class="entity" id="/iat">
+      <h3>iat<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/iat</p>
+      <div class="comment">
+         <span class="markdown">The 'iat' (issued at) claim contains the point in time when the JWT was created.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="/inboundPath">
       <h3>inbound topic<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -12744,7 +12818,7 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -12995,12 +13069,12 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
             </dd>
          </dl>
       </div>
@@ -13152,30 +13226,6 @@ This section provides details for each class and property defined by Industrial 
             <dt>has range</dt>
             <dd>
                <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="/referingConnector">
-      <h3>referingConnector<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/referingConnector</p>
-      <div class="comment">
-         <span class="markdown">The RDF connector entity as referred to by the DAT. The value MUST be its accessible URI. Must contain at least one SecurityProfile claim.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#anyURI">any u r i</span>
             </dd>
          </dl>
       </div>
@@ -13371,7 +13421,7 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>

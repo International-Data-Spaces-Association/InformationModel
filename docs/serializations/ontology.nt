@@ -8,7 +8,7 @@
 <https://w3id.org/idsa/core> <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> .
 <https://w3id.org/idsa/core> <http://purl.org/dc/terms/creator> <https://github.com/cmader> .
 <https://w3id.org/idsa/core> <http://purl.org/dc/terms/creator> <https://github.com/jpullmann> .
-<https://w3id.org/idsa/core> <http://purl.org/dc/terms/modified> "2019-12-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/idsa/core> <http://purl.org/dc/terms/modified> "2020-01-10"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/idsa/core> <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" .
 <https://w3id.org/idsa/core> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" .
 <https://w3id.org/idsa/core> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace." .
@@ -107,8 +107,14 @@
 # http://www.w3.org/ns/org#hasPrimarySite
 <http://www.w3.org/ns/org#hasPrimarySite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://www.w3.org/ns/prov#endedAtTime
+<http://www.w3.org/ns/prov#endedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
 # http://www.w3.org/ns/prov#invalidated
 <http://www.w3.org/ns/prov#invalidated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/prov#startedAtTime
+<http://www.w3.org/ns/prov#startedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # http://www.w3.org/ns/prov#wasEndedBy
 <http://www.w3.org/ns/prov#wasEndedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
@@ -173,7 +179,7 @@
 # 
 # https://w3id.org/idsa/core/endedAt
 <https://w3id.org/idsa/core/endedAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/idsa/core/endedAt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasEndedBy> .
+<https://w3id.org/idsa/core/endedAt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#endedAtTime> .
 # 
 # https://w3id.org/idsa/core/endedBy
 <https://w3id.org/idsa/core/endedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
@@ -245,7 +251,7 @@
 # 
 # https://w3id.org/idsa/core/startedAt
 <https://w3id.org/idsa/core/startedAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/idsa/core/startedAt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasStartedBy> .
+<https://w3id.org/idsa/core/startedAt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#startedAtTime> .
 # 
 # https://w3id.org/idsa/core/startedBy
 <https://w3id.org/idsa/core/startedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
@@ -1027,6 +1033,11 @@
 <https://w3id.org/idsa/core/recipientScope> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to the target property of a query message, see ids:QueryTarget."@en .
 <https://w3id.org/idsa/core/recipientScope> <http://www.w3.org/2000/01/rdf-schema#label> "recipient scope"@en .
 # 
+# https://w3id.org/idsa/core/referringConnector
+<https://w3id.org/idsa/core/referringConnector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/idsa/core/referringConnector> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DatPayload> .
+<https://w3id.org/idsa/core/referringConnector> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/idsa/core/Connector> .
+# 
 # https://w3id.org/idsa/core/refersTo
 <https://w3id.org/idsa/core/refersTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/idsa/core/refersTo> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Contract> .
@@ -1282,7 +1293,7 @@
 # 
 # https://w3id.org/idsa/core/aud
 <https://w3id.org/idsa/core/aud> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/idsa/core/aud> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Token> .
+<https://w3id.org/idsa/core/aud> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DatPayload> .
 <https://w3id.org/idsa/core/aud> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/idsa/core/aud> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'aud' (audience) claim identifies the recipients that the JWT is intended for."@en .
 <https://w3id.org/idsa/core/aud> <http://www.w3.org/2000/01/rdf-schema#label> "aud"@en .
@@ -1419,8 +1430,8 @@
 # 
 # https://w3id.org/idsa/core/exp
 <https://w3id.org/idsa/core/exp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/idsa/core/exp> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Token> .
-<https://w3id.org/idsa/core/exp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/idsa/core/exp> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DatPayload> .
+<https://w3id.org/idsa/core/exp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
 <https://w3id.org/idsa/core/exp> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'exp' (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing."@en .
 <https://w3id.org/idsa/core/exp> <http://www.w3.org/2000/01/rdf-schema#label> "exp"@en .
 <https://w3id.org/idsa/core/exp> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://tools.ietf.org/html/rfc7519#section-4.1.4> .
@@ -1469,6 +1480,13 @@
 <https://w3id.org/idsa/core/homepage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Person> .
 <https://w3id.org/idsa/core/homepage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 # 
+# https://w3id.org/idsa/core/iat
+<https://w3id.org/idsa/core/iat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/idsa/core/iat> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DatPayload> .
+<https://w3id.org/idsa/core/iat> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/idsa/core/iat> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'iat' (issued at) claim contains the point in time when the JWT was created."@en .
+<https://w3id.org/idsa/core/iat> <http://www.w3.org/2000/01/rdf-schema#label> "iat"@en .
+# 
 # https://w3id.org/idsa/core/icon
 <https://w3id.org/idsa/core/icon> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/idsa/core/icon> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Software> .
@@ -1497,7 +1515,7 @@
 # 
 # https://w3id.org/idsa/core/iss
 <https://w3id.org/idsa/core/iss> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/idsa/core/iss> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Token> .
+<https://w3id.org/idsa/core/iss> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DatPayload> .
 <https://w3id.org/idsa/core/iss> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/idsa/core/iss> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'iss' (issuer) claim identifies the principal that issued the JWT."@en .
 <https://w3id.org/idsa/core/iss> <http://www.w3.org/2000/01/rdf-schema#label> "iss"@en .
@@ -1567,8 +1585,8 @@
 # 
 # https://w3id.org/idsa/core/nbf
 <https://w3id.org/idsa/core/nbf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/idsa/core/nbf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Token> .
-<https://w3id.org/idsa/core/nbf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/idsa/core/nbf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DatPayload> .
+<https://w3id.org/idsa/core/nbf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
 <https://w3id.org/idsa/core/nbf> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'aud' (audience) claim identifies the recipients that the JWT is intended for."@en .
 <https://w3id.org/idsa/core/nbf> <http://www.w3.org/2000/01/rdf-schema#label> "nbf"@en .
 <https://w3id.org/idsa/core/nbf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://tools.ietf.org/html/rfc7519#section-4.1.5> .
@@ -1623,12 +1641,8 @@
 # https://w3id.org/idsa/core/recipientAgent
 <https://w3id.org/idsa/core/recipientAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
-# https://w3id.org/idsa/core/referingConnector
-<https://w3id.org/idsa/core/referingConnector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/idsa/core/referingConnector> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Token> .
-<https://w3id.org/idsa/core/referingConnector> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/idsa/core/referingConnector> <http://www.w3.org/2000/01/rdf-schema#comment> "The RDF connector entity as referred to by the DAT. The value MUST be its accessible URI. Must contain at least one SecurityProfile claim."@en .
-<https://w3id.org/idsa/core/referingConnector> <http://www.w3.org/2000/01/rdf-schema#label> "referingConnector"@en .
+# https://w3id.org/idsa/core/referringConnector
+<https://w3id.org/idsa/core/referringConnector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
 # https://w3id.org/idsa/core/requestedArtifact
 <https://w3id.org/idsa/core/requestedArtifact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -1677,7 +1691,7 @@
 # 
 # https://w3id.org/idsa/core/sub
 <https://w3id.org/idsa/core/sub> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/idsa/core/sub> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Token> .
+<https://w3id.org/idsa/core/sub> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DatPayload> .
 <https://w3id.org/idsa/core/sub> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/idsa/core/sub> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'sub' (subject) claim identifies the principal that is the subject of the JWT."@en .
 <https://w3id.org/idsa/core/sub> <http://www.w3.org/2000/01/rdf-schema#label> "sub"@en .
@@ -1908,10 +1922,10 @@ _:genid1 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/m
 <https://w3id.org/idsa/core/Activity> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <https://w3id.org/idsa/core/Activity> <https://w3id.org/idsa/metamodel/validation> _:genid2 .
 _:genid2 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid2 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedAt> .
+_:genid2 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedBy> .
 <https://w3id.org/idsa/core/Activity> <https://w3id.org/idsa/metamodel/validation> _:genid3 .
 _:genid3 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid3 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedBy> .
+_:genid3 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedAt> .
 <https://w3id.org/idsa/core/Activity> <https://w3id.org/idsa/metamodel/validation> _:genid4 .
 _:genid4 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/activityDescription> .
 _:genid4 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
@@ -2108,10 +2122,10 @@ _:genid21 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Catalog> <http://www.w3.org/2000/01/rdf-schema#comment> "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en .
 <https://w3id.org/idsa/core/Catalog> <http://www.w3.org/2000/01/rdf-schema#label> "Catalog"@en .
 <https://w3id.org/idsa/core/Catalog> <https://w3id.org/idsa/metamodel/validation> _:genid22 .
-_:genid22 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/offer> .
+_:genid22 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/request> .
 _:genid22 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Catalog> <https://w3id.org/idsa/metamodel/validation> _:genid23 .
-_:genid23 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/request> .
+_:genid23 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/offer> .
 _:genid23 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/Certification
@@ -2335,10 +2349,10 @@ _:genid26 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 _:genid27 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/permission> .
 _:genid27 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Contract> <https://w3id.org/idsa/metamodel/validation> _:genid28 .
-_:genid28 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/obligation> .
+_:genid28 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/prohibition> .
 _:genid28 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Contract> <https://w3id.org/idsa/metamodel/validation> _:genid29 .
-_:genid29 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/prohibition> .
+_:genid29 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/obligation> .
 _:genid29 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/ContractAgreement
@@ -2417,6 +2431,30 @@ _:genid30 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 <https://w3id.org/idsa/core/DAPS> <http://www.w3.org/2000/01/rdf-schema#comment> "The Dynamic Attribute Provisioning Service (DAPS) is a component of the Identity Provider and manages and issues the Dynamic Attribute Tokens (DAT), acting as digtial proofs for dynamic attributes of both connectors and participants."@en .
 <https://w3id.org/idsa/core/DAPS> <http://www.w3.org/2000/01/rdf-schema#label> "Dynamic Attribute Provisioning Service"@en .
 # 
+# https://w3id.org/idsa/core/DatPayload
+<https://w3id.org/idsa/core/DatPayload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/idsa/core/DatPayload> <http://www.w3.org/2000/01/rdf-schema#comment> "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are iether defined by RFC 7519 or by the IDS Information Model. As a direct consequence of the regardance of the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."@en .
+<https://w3id.org/idsa/core/DatPayload> <http://www.w3.org/2000/01/rdf-schema#label> "DAT Payload"@en .
+<https://w3id.org/idsa/core/DatPayload> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://tools.ietf.org/html/rfc7519> .
+<https://w3id.org/idsa/core/DatPayload> <https://w3id.org/idsa/metamodel/validation> _:genid31 .
+_:genid31 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid31 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/referringConnector> .
+<https://w3id.org/idsa/core/DatPayload> <https://w3id.org/idsa/metamodel/validation> _:genid32 .
+_:genid32 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid32 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/aud> .
+<https://w3id.org/idsa/core/DatPayload> <https://w3id.org/idsa/metamodel/validation> _:genid33 .
+_:genid33 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid33 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/iss> .
+<https://w3id.org/idsa/core/DatPayload> <https://w3id.org/idsa/metamodel/validation> _:genid34 .
+_:genid34 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid34 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sub> .
+<https://w3id.org/idsa/core/DatPayload> <https://w3id.org/idsa/metamodel/validation> _:genid35 .
+_:genid35 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid35 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/nbf> .
+<https://w3id.org/idsa/core/DatPayload> <https://w3id.org/idsa/metamodel/validation> _:genid36 .
+_:genid36 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid36 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/exp> .
+# 
 # https://w3id.org/idsa/core/Data
 <https://w3id.org/idsa/core/Data> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/Data> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/dc/dcmitype/Dataset> .
@@ -2458,10 +2496,10 @@ _:genid30 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 # https://w3id.org/idsa/core/DataResource
 <https://w3id.org/idsa/core/DataResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/DataResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Resource> .
-<https://w3id.org/idsa/core/DataResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid31 .
-_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid31 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
-_:genid31 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Data> .
+<https://w3id.org/idsa/core/DataResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid37 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
+_:genid37 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Data> .
 <https://w3id.org/idsa/core/DataResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Resource (at least partially) comprising data content."@en .
 <https://w3id.org/idsa/core/DataResource> <http://www.w3.org/2000/01/rdf-schema#label> "Data Resource"@en .
 # 
@@ -2475,15 +2513,15 @@ _:genid31 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Described> <http://www.w3.org/2000/01/rdf-schema#comment> "Entity described by a minimal textual annotation, i.e. a title and description."@en .
 <https://w3id.org/idsa/core/Described> <http://www.w3.org/2000/01/rdf-schema#label> "described"@en .
 <https://w3id.org/idsa/core/Described> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/Described> <https://w3id.org/idsa/metamodel/validation> _:genid32 .
-_:genid32 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/comment> .
-_:genid32 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-<https://w3id.org/idsa/core/Described> <https://w3id.org/idsa/metamodel/validation> _:genid33 .
-_:genid33 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/description> .
-_:genid33 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-<https://w3id.org/idsa/core/Described> <https://w3id.org/idsa/metamodel/validation> _:genid34 .
-_:genid34 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/title> .
-_:genid34 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Described> <https://w3id.org/idsa/metamodel/validation> _:genid38 .
+_:genid38 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/description> .
+_:genid38 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Described> <https://w3id.org/idsa/metamodel/validation> _:genid39 .
+_:genid39 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/comment> .
+_:genid39 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Described> <https://w3id.org/idsa/metamodel/validation> _:genid40 .
+_:genid40 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/title> .
+_:genid40 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/DescribedSemantically
 <https://w3id.org/idsa/core/DescribedSemantically> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2504,30 +2542,30 @@ _:genid34 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/DigitalContent> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://en.wikipedia.org/wiki/Digital_content> .
 <https://w3id.org/idsa/core/DigitalContent> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> .
 <https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid35 .
-_:genid35 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentPart> .
-_:genid35 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid36 .
-_:genid36 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> .
-_:genid36 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid37 .
-_:genid37 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> .
-_:genid37 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid38 .
-_:genid38 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/language> .
-_:genid38 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid39 .
-_:genid39 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/theme> .
-_:genid39 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid40 .
-_:genid40 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/keyword> .
-_:genid40 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid41 .
-_:genid41 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentRefinement> .
+_:genid41 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> .
 _:genid41 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid42 .
-_:genid42 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> .
+_:genid42 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentPart> .
 _:genid42 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid43 .
+_:genid43 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> .
+_:genid43 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid44 .
+_:genid44 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> .
+_:genid44 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid45 .
+_:genid45 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/language> .
+_:genid45 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid46 .
+_:genid46 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/theme> .
+_:genid46 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid47 .
+_:genid47 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/keyword> .
+_:genid47 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/DigitalContent> <https://w3id.org/idsa/metamodel/validation> _:genid48 .
+_:genid48 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentRefinement> .
+_:genid48 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/Duty
 <https://w3id.org/idsa/core/Duty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2539,38 +2577,25 @@ _:genid42 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 # https://w3id.org/idsa/core/DynamicAttributeToken
 <https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Token> .
-<https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/2000/01/rdf-schema#comment> "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'."@en .
+<https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/2000/01/rdf-schema#comment> "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'. The complete JWT *including* header, payload and signiture is referenced by this class and *not* only the JSON element in the payload. See ids:DatPayload for the payload definition."@en .
 <https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/2000/01/rdf-schema#label> "Dynamic Attribute Token (DAT)."@en .
-<https://w3id.org/idsa/core/DynamicAttributeToken> <https://w3id.org/idsa/metamodel/validation> _:genid43 .
-_:genid43 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid43 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/referingConnector> .
-<https://w3id.org/idsa/core/DynamicAttributeToken> <https://w3id.org/idsa/metamodel/validation> _:genid44 .
-_:genid44 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid44 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/nbf> .
-<https://w3id.org/idsa/core/DynamicAttributeToken> <https://w3id.org/idsa/metamodel/validation> _:genid45 .
-_:genid45 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid45 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sub> .
-<https://w3id.org/idsa/core/DynamicAttributeToken> <https://w3id.org/idsa/metamodel/validation> _:genid46 .
-_:genid46 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid46 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/iss> .
-<https://w3id.org/idsa/core/DynamicAttributeToken> <https://w3id.org/idsa/metamodel/validation> _:genid47 .
-_:genid47 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid47 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/aud> .
-<https://w3id.org/idsa/core/DynamicAttributeToken> <https://w3id.org/idsa/metamodel/validation> _:genid48 .
-_:genid48 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid48 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/exp> .
+<https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://tools.ietf.org/html/rfc7519> .
+<https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://w3id.org/idsa/core/DatPayload> .
+<https://w3id.org/idsa/core/DynamicAttributeToken> <https://w3id.org/idsa/metamodel/validation> _:genid49 .
+_:genid49 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid49 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/tokenFormat> .
 # 
 # https://w3id.org/idsa/core/Endpoint
 <https://w3id.org/idsa/core/Endpoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/Endpoint> <http://www.w3.org/2000/01/rdf-schema#comment> "Access point of data exchange and service interaction."@en .
 <https://w3id.org/idsa/core/Endpoint> <http://www.w3.org/2000/01/rdf-schema#label> "Endpoint"@en .
 <https://w3id.org/idsa/core/Endpoint> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/Endpoint> <https://w3id.org/idsa/metamodel/validation> _:genid49 .
-_:genid49 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid49 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/path> .
 <https://w3id.org/idsa/core/Endpoint> <https://w3id.org/idsa/metamodel/validation> _:genid50 .
 _:genid50 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
 _:genid50 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointHost> .
+<https://w3id.org/idsa/core/Endpoint> <https://w3id.org/idsa/metamodel/validation> _:genid51 .
+_:genid51 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid51 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/path> .
 # 
 # https://w3id.org/idsa/core/EvaluationFacility
 <https://w3id.org/idsa/core/EvaluationFacility> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2617,14 +2642,14 @@ _:genid50 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 # https://w3id.org/idsa/core/FreemiumModel
 <https://w3id.org/idsa/core/FreemiumModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/FreemiumModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/PricingModel> .
-<https://w3id.org/idsa/core/FreemiumModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid51 .
-_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid51 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/pricingOption> .
-_:genid51 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/ChargeableUse> .
 <https://w3id.org/idsa/core/FreemiumModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid52 .
 _:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid52 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/pricingOption> .
-_:genid52 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/FreeUse> .
+_:genid52 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/ChargeableUse> .
+<https://w3id.org/idsa/core/FreemiumModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid53 .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid53 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/pricingOption> .
+_:genid53 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/FreeUse> .
 <https://w3id.org/idsa/core/FreemiumModel> <http://www.w3.org/2000/01/rdf-schema#comment> "Model that exposes limited parts of the product at no cost, while additional parts are charged."@en .
 <https://w3id.org/idsa/core/FreemiumModel> <http://www.w3.org/2000/01/rdf-schema#label> "Freemium model"@en .
 # 
@@ -2640,12 +2665,12 @@ _:genid52 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/GeoPoint> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Location> .
 <https://w3id.org/idsa/core/GeoPoint> <http://www.w3.org/2000/01/rdf-schema#comment> "A location identified by geo coordinates."@en .
 <https://w3id.org/idsa/core/GeoPoint> <http://www.w3.org/2000/01/rdf-schema#label> "GeoPoint"@en .
-<https://w3id.org/idsa/core/GeoPoint> <https://w3id.org/idsa/metamodel/validation> _:genid53 .
-_:genid53 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid53 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/longitude> .
 <https://w3id.org/idsa/core/GeoPoint> <https://w3id.org/idsa/metamodel/validation> _:genid54 .
 _:genid54 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
 _:genid54 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/latitude> .
+<https://w3id.org/idsa/core/GeoPoint> <https://w3id.org/idsa/metamodel/validation> _:genid55 .
+_:genid55 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid55 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/longitude> .
 # 
 # https://w3id.org/idsa/core/Geometry
 <https://w3id.org/idsa/core/Geometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2659,12 +2684,12 @@ _:genid54 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 <https://w3id.org/idsa/core/Host> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/Host> <http://www.w3.org/2000/01/rdf-schema#comment> "Network host capable of serving and consuming digital content and services."@en .
 <https://w3id.org/idsa/core/Host> <http://www.w3.org/2000/01/rdf-schema#label> "Host"@en .
-<https://w3id.org/idsa/core/Host> <https://w3id.org/idsa/metamodel/validation> _:genid55 .
-_:genid55 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid55 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/accessUrl> .
 <https://w3id.org/idsa/core/Host> <https://w3id.org/idsa/metamodel/validation> _:genid56 .
 _:genid56 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
 _:genid56 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/protocol> .
+<https://w3id.org/idsa/core/Host> <https://w3id.org/idsa/metamodel/validation> _:genid57 .
+_:genid57 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid57 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/accessUrl> .
 # 
 # https://w3id.org/idsa/core/IANAMediaType
 <https://w3id.org/idsa/core/IANAMediaType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2706,10 +2731,10 @@ _:genid56 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 # https://w3id.org/idsa/core/ImageResource
 <https://w3id.org/idsa/core/ImageResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/ImageResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Resource> .
-<https://w3id.org/idsa/core/ImageResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid57 .
-_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid57 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
-_:genid57 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Image> .
+<https://w3id.org/idsa/core/ImageResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid58 .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid58 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
+_:genid58 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Image> .
 <https://w3id.org/idsa/core/ImageResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Resource (at least partially) comprising image content."@en .
 <https://w3id.org/idsa/core/ImageResource> <http://www.w3.org/2000/01/rdf-schema#label> "Image Resource"@en .
 # 
@@ -2745,10 +2770,6 @@ _:genid57 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/InfrastructureComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of all infrastructure components of the IDS."@en .
 <https://w3id.org/idsa/core/InfrastructureComponent> <http://www.w3.org/2000/01/rdf-schema#label> "InfrastructureComponent"@en .
 <https://w3id.org/idsa/core/InfrastructureComponent> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/InfrastructureComponent> <https://w3id.org/idsa/metamodel/validation> _:genid58 .
-_:genid58 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid58 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/inboundModelVersion> .
-_:genid58 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/InfrastructureComponent> <https://w3id.org/idsa/metamodel/validation> _:genid59 .
 _:genid59 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
 _:genid59 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/curator> .
@@ -2757,7 +2778,11 @@ _:genid60 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 _:genid60 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/maintainer> .
 <https://w3id.org/idsa/core/InfrastructureComponent> <https://w3id.org/idsa/metamodel/validation> _:genid61 .
 _:genid61 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid61 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/outboundModelVersion> .
+_:genid61 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/inboundModelVersion> .
+_:genid61 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/InfrastructureComponent> <https://w3id.org/idsa/metamodel/validation> _:genid62 .
+_:genid62 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid62 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/outboundModelVersion> .
 # 
 # https://w3id.org/idsa/core/Instant
 <https://w3id.org/idsa/core/Instant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2768,42 +2793,42 @@ _:genid61 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 # 
 # https://w3id.org/idsa/core/IntegrityGuarantee
 <https://w3id.org/idsa/core/IntegrityGuarantee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/idsa/core/IntegrityGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid62 .
-_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid62 <http://www.w3.org/2002/07/owl#oneOf> _:genid65 .
-_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_PROTECTION_LOCAL> .
+<https://w3id.org/idsa/core/IntegrityGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid63 .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid63 <http://www.w3.org/2002/07/owl#oneOf> _:genid66 .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_PROTECTION_LOCAL> .
 <https://w3id.org/idsa/code/INTEGRITY_PROTECTION_LOCAL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid65 .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_PROTECTION_NONE> .
+<https://w3id.org/idsa/code/INTEGRITY_PROTECTION_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 _:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid64 .
 _:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_PROTECTION_NONE> .
-<https://w3id.org/idsa/code/INTEGRITY_PROTECTION_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid63 .
-_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_REMOTE> .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_REMOTE> .
 <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_REMOTE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <https://w3id.org/idsa/core/IntegrityGuarantee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SecurityGuarantee> .
 <https://w3id.org/idsa/core/IntegrityGuarantee> <http://www.w3.org/2000/01/rdf-schema#comment> "Level of integrity protection and verification of the installed software stack. Trusted boot is an example of local integrity protection, remote integrity verification comprises, for example, remote attestation."@en .
 <https://w3id.org/idsa/core/IntegrityGuarantee> <http://www.w3.org/2000/01/rdf-schema#label> "Integrity protection and verification"@en .
 # 
 # https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee
 <https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid66 .
-_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid66 <http://www.w3.org/2002/07/owl#oneOf> _:genid69 .
-_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER> .
+<https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid67 .
+_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid67 <http://www.w3.org/2002/07/owl#oneOf> _:genid70 .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER> .
 <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid69 .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION> .
+<https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 _:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid68 .
 _:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION> .
-<https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid67 .
-_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_NONE> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_NONE> .
 <https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SecurityGuarantee> .
 <https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee> <http://www.w3.org/2000/01/rdf-schema#comment> "Level/extent of verifying the software stack."@en .
 <https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee> <http://www.w3.org/2000/01/rdf-schema#label> "Integrity verification scope"@en .
@@ -2814,19 +2839,19 @@ _:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/core/InteractiveEndpoint> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/idsa/core/StaticEndpoint> .
 <https://w3id.org/idsa/core/InteractiveEndpoint> <http://www.w3.org/2000/01/rdf-schema#comment> "Endpoint exposing a digital content in a interacitve way."@en .
 <https://w3id.org/idsa/core/InteractiveEndpoint> <http://www.w3.org/2000/01/rdf-schema#label> "Interactive Endpoint"@en .
-<https://w3id.org/idsa/core/InteractiveEndpoint> <https://w3id.org/idsa/metamodel/validation> _:genid70 .
-_:genid70 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid70 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointOperationBinding> .
+<https://w3id.org/idsa/core/InteractiveEndpoint> <https://w3id.org/idsa/metamodel/validation> _:genid71 .
+_:genid71 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid71 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointOperationBinding> .
 # 
 # https://w3id.org/idsa/core/Interface
 <https://w3id.org/idsa/core/Interface> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/Interface> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Described> .
 <https://w3id.org/idsa/core/Interface> <http://www.w3.org/2000/01/rdf-schema#comment> "Conceptualization of the interchange of digital artifacts as a set of uniform operations (interactions primitives)."@en .
 <https://w3id.org/idsa/core/Interface> <http://www.w3.org/2000/01/rdf-schema#label> "Interface"@en .
-<https://w3id.org/idsa/core/Interface> <https://w3id.org/idsa/metamodel/validation> _:genid71 .
-_:genid71 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid71 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operation> .
-_:genid71 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Interface> <https://w3id.org/idsa/metamodel/validation> _:genid72 .
+_:genid72 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid72 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operation> .
+_:genid72 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/Interval
 <https://w3id.org/idsa/core/Interval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2834,21 +2859,21 @@ _:genid71 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Interval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/TemporalEntity> .
 <https://w3id.org/idsa/core/Interval> <http://www.w3.org/2000/01/rdf-schema#comment> "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en .
 <https://w3id.org/idsa/core/Interval> <http://www.w3.org/2000/01/rdf-schema#label> "Interval"@en .
-<https://w3id.org/idsa/core/Interval> <https://w3id.org/idsa/metamodel/validation> _:genid72 .
-_:genid72 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid72 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/begin> .
+<https://w3id.org/idsa/core/Interval> <https://w3id.org/idsa/metamodel/validation> _:genid73 .
+_:genid73 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid73 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/begin> .
 # 
 # https://w3id.org/idsa/core/InvokeOperationMessage
 <https://w3id.org/idsa/core/InvokeOperationMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/InvokeOperationMessage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/RequestMessage> .
 <https://w3id.org/idsa/core/InvokeOperationMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Message requesting the recipient to invoke a specific operation."@en .
 <https://w3id.org/idsa/core/InvokeOperationMessage> <http://www.w3.org/2000/01/rdf-schema#label> "Invoke Operation Message"@en .
-<https://w3id.org/idsa/core/InvokeOperationMessage> <https://w3id.org/idsa/metamodel/validation> _:genid73 .
-_:genid73 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid73 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationReference> .
 <https://w3id.org/idsa/core/InvokeOperationMessage> <https://w3id.org/idsa/metamodel/validation> _:genid74 .
 _:genid74 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid74 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationParameterization> .
+_:genid74 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationReference> .
+<https://w3id.org/idsa/core/InvokeOperationMessage> <https://w3id.org/idsa/metamodel/validation> _:genid75 .
+_:genid75 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid75 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationParameterization> .
 # 
 # https://w3id.org/idsa/core/KeyType
 <https://w3id.org/idsa/core/KeyType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2913,21 +2938,21 @@ _:genid74 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 # 
 # https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee
 <https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid75 .
-_:genid75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid75 <http://www.w3.org/2002/07/owl#oneOf> _:genid78 .
-_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION> .
+<https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid76 .
+_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid76 <http://www.w3.org/2002/07/owl#oneOf> _:genid79 .
+_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION> .
 <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:genid79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid78 .
+_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_NONE> .
+<https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 _:genid78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid77 .
 _:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_NONE> .
-<https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid76 .
-_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE> .
+_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE> .
 <https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SecurityGuarantee> .
 <https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee> <http://www.w3.org/2000/01/rdf-schema#comment> "Means by which local data is protected."@en .
 <https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee> <http://www.w3.org/2000/01/rdf-schema#label> "Local data confidentiality"@en .
@@ -2952,9 +2977,9 @@ _:genid76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/core/ManagedEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of mutable individuals that are a potential subject to lifecycle management which may need to be tracked."@en .
 <https://w3id.org/idsa/core/ManagedEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Managed entity"@en .
 <https://w3id.org/idsa/core/ManagedEntity> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/ManagedEntity> <https://w3id.org/idsa/metamodel/validation> _:genid79 .
-_:genid79 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/lifecycleActivity> .
-_:genid79 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/ManagedEntity> <https://w3id.org/idsa/metamodel/validation> _:genid80 .
+_:genid80 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/lifecycleActivity> .
+_:genid80 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/Map
 <https://w3id.org/idsa/core/Map> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -2975,24 +3000,25 @@ _:genid79 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Message> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/Message> <http://www.w3.org/2000/01/rdf-schema#comment> "Metadata describing payload exchanged by interacting Connectors."@en .
 <https://w3id.org/idsa/core/Message> <http://www.w3.org/2000/01/rdf-schema#label> "Message"@en .
-<https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/validation> _:genid80 .
-_:genid80 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid80 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/modelVersion> .
+<https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/validation> _:genid81 .
 _:genid81 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid81 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issued> .
+_:genid81 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/modelVersion> .
 <https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/validation> _:genid82 .
 _:genid82 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid82 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issuerConnector> .
+_:genid82 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issued> .
 <https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/validation> _:genid83 .
-_:genid83 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientConnector> .
-_:genid83 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid83 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid83 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issuerConnector> .
 <https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/validation> _:genid84 .
-_:genid84 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityToken> .
-_:genid84 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid84 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientConnector> .
+_:genid84 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/validation> _:genid85 .
-_:genid85 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientAgent> .
-_:genid85 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid85 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityToken> .
+_:genid85 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/NotNull> .
+<https://w3id.org/idsa/core/Message> <https://w3id.org/idsa/metamodel/validation> _:genid86 .
+_:genid86 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientAgent> .
+_:genid86 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/MessageExchangePattern
 <https://w3id.org/idsa/core/MessageExchangePattern> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3006,9 +3032,9 @@ _:genid85 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/MessageProcessedNotification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/NotificationMessage> .
 <https://w3id.org/idsa/core/MessageProcessedNotification> <http://www.w3.org/2000/01/rdf-schema#comment> "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en .
 <https://w3id.org/idsa/core/MessageProcessedNotification> <http://www.w3.org/2000/01/rdf-schema#label> "Message Processed Notification"@en .
-<https://w3id.org/idsa/core/MessageProcessedNotification> <https://w3id.org/idsa/metamodel/validation> _:genid86 .
-_:genid86 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid86 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
+<https://w3id.org/idsa/core/MessageProcessedNotification> <https://w3id.org/idsa/metamodel/validation> _:genid87 .
+_:genid87 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid87 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 # 
 # https://w3id.org/idsa/core/ModificationActivity
 <https://w3id.org/idsa/core/ModificationActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3018,10 +3044,10 @@ _:genid86 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 # 
 # https://w3id.org/idsa/core/Named
 <https://w3id.org/idsa/core/Named> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/idsa/core/Named> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid87 .
-_:genid87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid87 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/name> .
-_:genid87 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/idsa/core/Named> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid88 .
+_:genid88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid88 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/name> .
+_:genid88 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 <https://w3id.org/idsa/core/Named> <http://www.w3.org/2000/01/rdf-schema#comment> "Entity that is identifiable within a context by means of a name."@en .
 <https://w3id.org/idsa/core/Named> <http://www.w3.org/2000/01/rdf-schema#label> "Named"@en .
 # 
@@ -3030,7 +3056,6 @@ _:genid87 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/20
 <https://w3id.org/idsa/core/NotificationMessage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Message> .
 <https://w3id.org/idsa/core/NotificationMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Event messages are informative and no response is expected by the sender."@en .
 <https://w3id.org/idsa/core/NotificationMessage> <http://www.w3.org/2000/01/rdf-schema#label> "Notification Message"@en .
-<https://w3id.org/idsa/core/NotificationMessage> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 # 
 # https://w3id.org/idsa/core/OffsetParameter
 <https://w3id.org/idsa/core/OffsetParameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3050,26 +3075,26 @@ _:genid87 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/20
 <https://w3id.org/idsa/core/Operation> <http://www.w3.org/2000/01/rdf-schema#comment> "Building block of an Interface; describes the interaction by defining input, output and error parameters."@en .
 <https://w3id.org/idsa/core/Operation> <http://www.w3.org/2000/01/rdf-schema#label> "Operation"@en .
 <https://w3id.org/idsa/core/Operation> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/Operation> <https://w3id.org/idsa/metamodel/validation> _:genid88 .
-_:genid88 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/input> .
-_:genid88 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Operation> <https://w3id.org/idsa/metamodel/validation> _:genid89 .
-_:genid89 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/output> .
+_:genid89 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/input> .
 _:genid89 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Operation> <https://w3id.org/idsa/metamodel/validation> _:genid90 .
-_:genid90 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/fault> .
+_:genid90 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/output> .
 _:genid90 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Operation> <https://w3id.org/idsa/metamodel/validation> _:genid91 .
+_:genid91 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/fault> .
+_:genid91 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/OperationBinding
 <https://w3id.org/idsa/core/OperationBinding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/OperationBinding> <http://www.w3.org/2000/01/rdf-schema#comment> "Mapping of abstract operation signatures onto the concrete structures (e.g., HTTP headers or query parameters)."@en .
 <https://w3id.org/idsa/core/OperationBinding> <http://www.w3.org/2000/01/rdf-schema#label> "operation binding"@en .
-<https://w3id.org/idsa/core/OperationBinding> <https://w3id.org/idsa/metamodel/validation> _:genid91 .
-_:genid91 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid91 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/apiDocument> .
 <https://w3id.org/idsa/core/OperationBinding> <https://w3id.org/idsa/metamodel/validation> _:genid92 .
 _:genid92 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid92 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/boundOperation> .
+_:genid92 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/apiDocument> .
+<https://w3id.org/idsa/core/OperationBinding> <https://w3id.org/idsa/metamodel/validation> _:genid93 .
+_:genid93 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid93 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/boundOperation> .
 # 
 # https://w3id.org/idsa/core/OperationResultMessage
 <https://w3id.org/idsa/core/OperationResultMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3097,7 +3122,7 @@ _:genid92 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 # 
 # https://w3id.org/idsa/core/ParIS
 <https://w3id.org/idsa/core/ParIS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/idsa/core/ParIS> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/InfrastructureComponent> .
+<https://w3id.org/idsa/core/ParIS> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Connector> .
 <https://w3id.org/idsa/core/ParIS> <http://www.w3.org/2000/01/rdf-schema#comment> "The Participant Information Service (ParIS) provides metadata and relevant information about participants (humans and organizations) in the International Data Spaces."@en .
 <https://w3id.org/idsa/core/ParIS> <http://www.w3.org/2000/01/rdf-schema#label> "Participant Information Service"@en .
 # 
@@ -3106,30 +3131,30 @@ _:genid92 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
 <https://w3id.org/idsa/core/Parameter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Named> .
 <https://w3id.org/idsa/core/Parameter> <http://www.w3.org/2000/01/rdf-schema#comment> "Named slot of an interface operation i.e., an input, output or fault (exception)."@en .
 <https://w3id.org/idsa/core/Parameter> <http://www.w3.org/2000/01/rdf-schema#label> "Parameter"@en .
-<https://w3id.org/idsa/core/Parameter> <https://w3id.org/idsa/metamodel/validation> _:genid93 .
-_:genid93 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid93 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameterContent> .
-_:genid93 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Parameter> <https://w3id.org/idsa/metamodel/validation> _:genid94 .
+_:genid94 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid94 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameterContent> .
+_:genid94 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/ParameterAssignment
 <https://w3id.org/idsa/core/ParameterAssignment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/ParameterAssignment> <http://www.w3.org/2000/01/rdf-schema#comment> "Expression of assigning a value to a parameter without creating an immediate reference."@en .
 <https://w3id.org/idsa/core/ParameterAssignment> <http://www.w3.org/2000/01/rdf-schema#label> "Parameter assignment"@en .
-<https://w3id.org/idsa/core/ParameterAssignment> <https://w3id.org/idsa/metamodel/validation> _:genid94 .
-_:genid94 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid94 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameter> .
+<https://w3id.org/idsa/core/ParameterAssignment> <https://w3id.org/idsa/metamodel/validation> _:genid95 .
+_:genid95 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid95 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameter> .
 # 
 # https://w3id.org/idsa/core/ParameterGroup
 <https://w3id.org/idsa/core/ParameterGroup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/ParameterGroup> <http://www.w3.org/2000/01/rdf-schema#comment> "Class of Parameters grouped according to an operator."@en .
 <https://w3id.org/idsa/core/ParameterGroup> <http://www.w3.org/2000/01/rdf-schema#label> "Parameter group"@en .
-<https://w3id.org/idsa/core/ParameterGroup> <https://w3id.org/idsa/metamodel/validation> _:genid95 .
-_:genid95 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid95 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/paramGroupingOperator> .
 <https://w3id.org/idsa/core/ParameterGroup> <https://w3id.org/idsa/metamodel/validation> _:genid96 .
-_:genid96 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> .
-_:genid96 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/paramGroupMember> .
-_:genid96 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid96 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid96 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/paramGroupingOperator> .
+<https://w3id.org/idsa/core/ParameterGroup> <https://w3id.org/idsa/metamodel/validation> _:genid97 .
+_:genid97 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> .
+_:genid97 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/paramGroupMember> .
+_:genid97 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/ParameterGroupingOperator
 <https://w3id.org/idsa/core/ParameterGroupingOperator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3144,18 +3169,18 @@ _:genid96 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Participant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/ManagedEntity> .
 <https://w3id.org/idsa/core/Participant> <http://www.w3.org/2000/01/rdf-schema#comment> "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en .
 <https://w3id.org/idsa/core/Participant> <http://www.w3.org/2000/01/rdf-schema#label> "Participant"@en .
-<https://w3id.org/idsa/core/Participant> <https://w3id.org/idsa/metamodel/validation> _:genid97 .
-_:genid97 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/corporateEmailAddress> .
-_:genid97 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Participant> <https://w3id.org/idsa/metamodel/validation> _:genid98 .
-_:genid98 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberParticipant> .
+_:genid98 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberPerson> .
 _:genid98 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Participant> <https://w3id.org/idsa/metamodel/validation> _:genid99 .
-_:genid99 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberPerson> .
+_:genid99 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberParticipant> .
 _:genid99 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Participant> <https://w3id.org/idsa/metamodel/validation> _:genid100 .
-_:genid100 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/industrialClassification> .
+_:genid100 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/corporateEmailAddress> .
 _:genid100 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Participant> <https://w3id.org/idsa/metamodel/validation> _:genid101 .
+_:genid101 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/industrialClassification> .
+_:genid101 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/ParticipantAvailableMessage
 <https://w3id.org/idsa/core/ParticipantAvailableMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3178,10 +3203,10 @@ _:genid100 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 # https://w3id.org/idsa/core/ParticipantCertification
 <https://w3id.org/idsa/core/ParticipantCertification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/ParticipantCertification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Certification> .
-<https://w3id.org/idsa/core/ParticipantCertification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid101 .
-_:genid101 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid101 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/certificationLevel> .
-_:genid101 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/idsa/core/ParticipantCertificationLevel> .
+<https://w3id.org/idsa/core/ParticipantCertification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid102 .
+_:genid102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid102 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/certificationLevel> .
+_:genid102 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/idsa/core/ParticipantCertificationLevel> .
 <https://w3id.org/idsa/core/ParticipantCertification> <http://www.w3.org/2000/01/rdf-schema#comment> "Process and result of certifying an interested party in order to become a certified member of the International Data Space."@en .
 <https://w3id.org/idsa/core/ParticipantCertification> <http://www.w3.org/2000/01/rdf-schema#label> "Participant Certification"@en .
 # 
@@ -3222,21 +3247,21 @@ _:genid101 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Permission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Rule> .
 <https://w3id.org/idsa/core/Permission> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of Permissions as defined in the ODRL ontology."@en .
 <https://w3id.org/idsa/core/Permission> <http://www.w3.org/2000/01/rdf-schema#label> "Permission"@en .
-<https://w3id.org/idsa/core/Permission> <https://w3id.org/idsa/metamodel/validation> _:genid102 .
-_:genid102 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/duty> .
-_:genid102 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Permission> <https://w3id.org/idsa/metamodel/validation> _:genid103 .
+_:genid103 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/duty> .
+_:genid103 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/Person
 <https://w3id.org/idsa/core/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Person> .
 <https://w3id.org/idsa/core/Person> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of persons (people)"@en .
 <https://w3id.org/idsa/core/Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person"@en .
-<https://w3id.org/idsa/core/Person> <https://w3id.org/idsa/metamodel/validation> _:genid103 .
-_:genid103 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> .
-_:genid103 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Person> <https://w3id.org/idsa/metamodel/validation> _:genid104 .
 _:genid104 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/phoneNumber> .
 _:genid104 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Person> <https://w3id.org/idsa/metamodel/validation> _:genid105 .
+_:genid105 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> .
+_:genid105 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/PolicyTemplate
 <https://w3id.org/idsa/core/PolicyTemplate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3366,9 +3391,9 @@ _:genid104 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/Representation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/DescribedSemantically> .
 <https://w3id.org/idsa/core/Representation> <http://www.w3.org/2000/01/rdf-schema#comment> "Syntactic template of a Resource."@en .
 <https://w3id.org/idsa/core/Representation> <http://www.w3.org/2000/01/rdf-schema#label> "Representation"@en .
-<https://w3id.org/idsa/core/Representation> <https://w3id.org/idsa/metamodel/validation> _:genid105 .
-_:genid105 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/instance> .
-_:genid105 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Representation> <https://w3id.org/idsa/metamodel/validation> _:genid106 .
+_:genid106 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/instance> .
+_:genid106 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/RepresentationInstance
 <https://w3id.org/idsa/core/RepresentationInstance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3381,16 +3406,15 @@ _:genid105 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/RequestInProcessMessage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/NotificationMessage> .
 <https://w3id.org/idsa/core/RequestInProcessMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Notification that a request has been accepted and is being processed."@en .
 <https://w3id.org/idsa/core/RequestInProcessMessage> <http://www.w3.org/2000/01/rdf-schema#label> "Request In Process Message"@en .
-<https://w3id.org/idsa/core/RequestInProcessMessage> <https://w3id.org/idsa/metamodel/validation> _:genid106 .
-_:genid106 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid106 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
+<https://w3id.org/idsa/core/RequestInProcessMessage> <https://w3id.org/idsa/metamodel/validation> _:genid107 .
+_:genid107 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid107 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 # 
 # https://w3id.org/idsa/core/RequestMessage
 <https://w3id.org/idsa/core/RequestMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/RequestMessage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Message> .
 <https://w3id.org/idsa/core/RequestMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Client-generated message initiating a communication, motivated by a certain reason and with an answer expected."@en .
 <https://w3id.org/idsa/core/RequestMessage> <http://www.w3.org/2000/01/rdf-schema#label> "Request Message"@en .
-<https://w3id.org/idsa/core/RequestMessage> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 # 
 # https://w3id.org/idsa/core/Resource
 <https://w3id.org/idsa/core/Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3400,18 +3424,18 @@ _:genid106 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Resource> <http://www.w3.org/2000/01/rdf-schema#comment> "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."@en .
 <https://w3id.org/idsa/core/Resource> <http://www.w3.org/2000/01/rdf-schema#label> "Resource"@en .
 <https://w3id.org/idsa/core/Resource> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/vocab-dcat/#class-dataset> .
-<https://w3id.org/idsa/core/Resource> <https://w3id.org/idsa/metamodel/validation> _:genid107 .
-_:genid107 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourceEndpoint> .
-_:genid107 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Resource> <https://w3id.org/idsa/metamodel/validation> _:genid108 .
-_:genid108 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourcePart> .
+_:genid108 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourceEndpoint> .
 _:genid108 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Resource> <https://w3id.org/idsa/metamodel/validation> _:genid109 .
-_:genid109 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contractOffer> .
+_:genid109 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourcePart> .
 _:genid109 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Resource> <https://w3id.org/idsa/metamodel/validation> _:genid110 .
-_:genid110 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sample> .
+_:genid110 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contractOffer> .
 _:genid110 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Resource> <https://w3id.org/idsa/metamodel/validation> _:genid111 .
+_:genid111 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sample> .
+_:genid111 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/ResourceAvailableMessage
 <https://w3id.org/idsa/core/ResourceAvailableMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3425,9 +3449,9 @@ _:genid110 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/ResourceNotificationMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Superclass of all messages, indicating a change of a resource."@en .
 <https://w3id.org/idsa/core/ResourceNotificationMessage> <http://www.w3.org/2000/01/rdf-schema#label> "Resource Notification Message"@en .
 <https://w3id.org/idsa/core/ResourceNotificationMessage> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/ResourceNotificationMessage> <https://w3id.org/idsa/metamodel/validation> _:genid111 .
-_:genid111 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid111 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedResource> .
+<https://w3id.org/idsa/core/ResourceNotificationMessage> <https://w3id.org/idsa/metamodel/validation> _:genid112 .
+_:genid112 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid112 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedResource> .
 # 
 # https://w3id.org/idsa/core/ResourceParameter
 <https://w3id.org/idsa/core/ResourceParameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3452,10 +3476,9 @@ _:genid111 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/ResponseMessage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Message> .
 <https://w3id.org/idsa/core/ResponseMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en .
 <https://w3id.org/idsa/core/ResponseMessage> <http://www.w3.org/2000/01/rdf-schema#label> "Response Message"@en .
-<https://w3id.org/idsa/core/ResponseMessage> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/ResponseMessage> <https://w3id.org/idsa/metamodel/validation> _:genid112 .
-_:genid112 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid112 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
+<https://w3id.org/idsa/core/ResponseMessage> <https://w3id.org/idsa/metamodel/validation> _:genid113 .
+_:genid113 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid113 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 # 
 # https://w3id.org/idsa/core/ResultMessage
 <https://w3id.org/idsa/core/ResultMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3476,11 +3499,8 @@ _:genid112 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/Rule> <http://www.w3.org/2000/01/rdf-schema#comment> "Superclass of Permissions, Prohibitions and Duties."@en .
 <https://w3id.org/idsa/core/Rule> <http://www.w3.org/2000/01/rdf-schema#label> "Rule"@en .
 <https://w3id.org/idsa/core/Rule> <https://w3id.org/idsa/metamodel/abstract> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
-<https://w3id.org/idsa/core/Rule> <https://w3id.org/idsa/metamodel/validation> _:genid113 .
-_:genid113 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> .
-_:genid113 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Rule> <https://w3id.org/idsa/metamodel/validation> _:genid114 .
-_:genid114 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/constraint> .
+_:genid114 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> .
 _:genid114 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/Rule> <https://w3id.org/idsa/metamodel/validation> _:genid115 .
 _:genid115 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assignee> .
@@ -3488,6 +3508,9 @@ _:genid115 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/Rule> <https://w3id.org/idsa/metamodel/validation> _:genid116 .
 _:genid116 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/action> .
 _:genid116 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/Rule> <https://w3id.org/idsa/metamodel/validation> _:genid117 .
+_:genid117 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/constraint> .
+_:genid117 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/SchemaResource
 <https://w3id.org/idsa/core/SchemaResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3503,9 +3526,9 @@ _:genid116 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/SecurityProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/SecurityProfile> <http://www.w3.org/2000/01/rdf-schema#comment> "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."@en .
 <https://w3id.org/idsa/core/SecurityProfile> <http://www.w3.org/2000/01/rdf-schema#label> "SecurityProfile"@en .
-<https://w3id.org/idsa/core/SecurityProfile> <https://w3id.org/idsa/metamodel/validation> _:genid117 .
-_:genid117 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityGuarantee> .
-_:genid117 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/SecurityProfile> <https://w3id.org/idsa/metamodel/validation> _:genid118 .
+_:genid118 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityGuarantee> .
+_:genid118 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/SelectContentOperation
 <https://w3id.org/idsa/core/SelectContentOperation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3548,21 +3571,21 @@ _:genid117 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 # 
 # https://w3id.org/idsa/core/ServiceIsolationGuarantee
 <https://w3id.org/idsa/core/ServiceIsolationGuarantee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/idsa/core/ServiceIsolationGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid118 .
-_:genid118 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid118 <http://www.w3.org/2002/07/owl#oneOf> _:genid121 .
-_:genid121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/SERVICE_ISOLATION_LEAST_PRIVILEGE> .
+<https://w3id.org/idsa/core/ServiceIsolationGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid119 .
+_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid119 <http://www.w3.org/2002/07/owl#oneOf> _:genid122 .
+_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/SERVICE_ISOLATION_LEAST_PRIVILEGE> .
 <https://w3id.org/idsa/code/SERVICE_ISOLATION_LEAST_PRIVILEGE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid121 .
+_:genid121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/SERVICE_ISOLATION_NONE> .
+<https://w3id.org/idsa/code/SERVICE_ISOLATION_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 _:genid121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid120 .
 _:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/SERVICE_ISOLATION_NONE> .
-<https://w3id.org/idsa/code/SERVICE_ISOLATION_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid119 .
-_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/SERVICE_ISOLATION_PROCESS_GROUP> .
+_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/SERVICE_ISOLATION_PROCESS_GROUP> .
 <https://w3id.org/idsa/code/SERVICE_ISOLATION_PROCESS_GROUP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <https://w3id.org/idsa/core/ServiceIsolationGuarantee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SecurityGuarantee> .
 <https://w3id.org/idsa/core/ServiceIsolationGuarantee> <http://www.w3.org/2000/01/rdf-schema#comment> "Service isolation mechanism supported by the Connector. Examples are process group (Docker) or by least privilege with clear separation and support for additional security modules as done by trustme."@en .
 <https://w3id.org/idsa/core/ServiceIsolationGuarantee> <http://www.w3.org/2000/01/rdf-schema#label> "Service isolation"@en .
@@ -3604,10 +3627,10 @@ _:genid119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/
 # https://w3id.org/idsa/core/SoftwareResource
 <https://w3id.org/idsa/core/SoftwareResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/SoftwareResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Resource> .
-<https://w3id.org/idsa/core/SoftwareResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid122 .
-_:genid122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid122 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
-_:genid122 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Software> .
+<https://w3id.org/idsa/core/SoftwareResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid123 .
+_:genid123 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid123 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
+_:genid123 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Software> .
 <https://w3id.org/idsa/core/SoftwareResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Resource (at least partially) comprising Software."@en .
 <https://w3id.org/idsa/core/SoftwareResource> <http://www.w3.org/2000/01/rdf-schema#label> "Software Resource"@en .
 # 
@@ -3654,9 +3677,9 @@ _:genid122 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/StaticEndpoint> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Endpoint> .
 <https://w3id.org/idsa/core/StaticEndpoint> <http://www.w3.org/2000/01/rdf-schema#comment> "Endpoint exposing  an Artifact."@en .
 <https://w3id.org/idsa/core/StaticEndpoint> <http://www.w3.org/2000/01/rdf-schema#label> "Static Endpoint"@en .
-<https://w3id.org/idsa/core/StaticEndpoint> <https://w3id.org/idsa/metamodel/validation> _:genid123 .
-_:genid123 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid123 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointArtifact> .
+<https://w3id.org/idsa/core/StaticEndpoint> <https://w3id.org/idsa/metamodel/validation> _:genid124 .
+_:genid124 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid124 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointArtifact> .
 # 
 # https://w3id.org/idsa/core/Structure
 <https://w3id.org/idsa/core/Structure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3707,10 +3730,10 @@ _:genid123 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 # https://w3id.org/idsa/core/TextResource
 <https://w3id.org/idsa/core/TextResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/TextResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Resource> .
-<https://w3id.org/idsa/core/TextResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid124 .
-_:genid124 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid124 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
-_:genid124 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Text> .
+<https://w3id.org/idsa/core/TextResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid125 .
+_:genid125 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid125 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
+_:genid125 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Text> .
 <https://w3id.org/idsa/core/TextResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Resource (at least partially) comprising textual content."@en .
 <https://w3id.org/idsa/core/TextResource> <http://www.w3.org/2000/01/rdf-schema#label> "Text Resource"@en .
 # 
@@ -3718,9 +3741,9 @@ _:genid124 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/Token> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/Token> <http://www.w3.org/2000/01/rdf-schema#comment> "A token (e.g., for authorization) mediated as part of the message."@en .
 <https://w3id.org/idsa/core/Token> <http://www.w3.org/2000/01/rdf-schema#label> "Token."@en .
-<https://w3id.org/idsa/core/Token> <https://w3id.org/idsa/metamodel/validation> _:genid125 .
-_:genid125 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
-_:genid125 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/tokenValue> .
+<https://w3id.org/idsa/core/Token> <https://w3id.org/idsa/metamodel/validation> _:genid126 .
+_:genid126 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> .
+_:genid126 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/tokenValue> .
 # 
 # https://w3id.org/idsa/core/TokenFormat
 <https://w3id.org/idsa/core/TokenFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -3741,21 +3764,21 @@ _:genid125 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 # 
 # https://w3id.org/idsa/core/UsageControlGuarantee
 <https://w3id.org/idsa/core/UsageControlGuarantee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/idsa/core/UsageControlGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid126 .
-_:genid126 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:genid126 <http://www.w3.org/2002/07/owl#oneOf> _:genid129 .
-_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/USAGE_CONTROL_NONE> .
+<https://w3id.org/idsa/core/UsageControlGuarantee> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid127 .
+_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid127 <http://www.w3.org/2002/07/owl#oneOf> _:genid130 .
+_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/USAGE_CONTROL_NONE> .
 <https://w3id.org/idsa/code/USAGE_CONTROL_NONE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid129 .
+_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/USAGE_CONTROL_POLICY_ENFORCEMENT> .
+<https://w3id.org/idsa/code/USAGE_CONTROL_POLICY_ENFORCEMENT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 _:genid129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid128 .
 _:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/USAGE_CONTROL_POLICY_ENFORCEMENT> .
-<https://w3id.org/idsa/code/USAGE_CONTROL_POLICY_ENFORCEMENT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid127 .
-_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION> .
+_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/idsa/code/USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION> .
 <https://w3id.org/idsa/code/USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <https://w3id.org/idsa/core/UsageControlGuarantee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SecurityGuarantee> .
 <https://w3id.org/idsa/core/UsageControlGuarantee> <http://www.w3.org/2000/01/rdf-schema#comment> "Extent of supporting usage control."@en .
 <https://w3id.org/idsa/core/UsageControlGuarantee> <http://www.w3.org/2000/01/rdf-schema#label> "Usage control"@en .
@@ -3783,10 +3806,10 @@ _:genid127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/
 # https://w3id.org/idsa/core/VideoResource
 <https://w3id.org/idsa/core/VideoResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/VideoResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Resource> .
-<https://w3id.org/idsa/core/VideoResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid130 .
-_:genid130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:genid130 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
-_:genid130 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Video> .
+<https://w3id.org/idsa/core/VideoResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid131 .
+_:genid131 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid131 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/idsa/core/contentPart> .
+_:genid131 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa/core/Video> .
 <https://w3id.org/idsa/core/VideoResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Resource (at least partially) comprising video content."@en .
 <https://w3id.org/idsa/core/VideoResource> <http://www.w3.org/2000/01/rdf-schema#label> "Video Resource"@en .
 # 
@@ -3796,12 +3819,12 @@ _:genid130 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/VocabularyData> <http://www.w3.org/2000/01/rdf-schema#comment> "Class for Vocabularies used to describe domain-specific ids:Resources and ids:Representations."@en .
 <https://w3id.org/idsa/core/VocabularyData> <http://www.w3.org/2000/01/rdf-schema#label> "VocabularyData."@en .
 <https://w3id.org/idsa/core/VocabularyData> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/vocab-dcat/#class-dataset> .
-<https://w3id.org/idsa/core/VocabularyData> <https://w3id.org/idsa/metamodel/validation> _:genid131 .
-_:genid131 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/propertyPartition> .
-_:genid131 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 <https://w3id.org/idsa/core/VocabularyData> <https://w3id.org/idsa/metamodel/validation> _:genid132 .
-_:genid132 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/property> .
+_:genid132 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/propertyPartition> .
 _:genid132 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+<https://w3id.org/idsa/core/VocabularyData> <https://w3id.org/idsa/metamodel/validation> _:genid133 .
+_:genid133 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/property> .
+_:genid133 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 # 
 # https://w3id.org/idsa/core/WithdrawActivity
 <https://w3id.org/idsa/core/WithdrawActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -8632,14 +8655,14 @@ _:genid132 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 <https://w3id.org/idsa/core/xor> <http://www.w3.org/2000/01/rdf-schema#comment> "xor operator" .
 <https://w3id.org/idsa/core/xor> <http://www.w3.org/2000/01/rdf-schema#label> "xor" .
 # 
-_:genid133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Agent> .
-_:genid133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-_:genid133 <http://xmlns.com/foaf/0.1/name> "Andreas Müller" .
 _:genid134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Agent> .
 _:genid134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-_:genid134 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
-_:genid135 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-_:genid136 <http://www.w3.org/2002/07/owl#minCardinality> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid134 <http://xmlns.com/foaf/0.1/name> "Andreas Müller" .
+_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Agent> .
+_:genid135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+_:genid135 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
+_:genid136 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid137 <http://www.w3.org/2002/07/owl#minCardinality> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
 # 
 # 
 # #################################################################
@@ -8753,6 +8776,10 @@ _:genid136 <http://www.w3.org/2002/07/owl#minCardinality> "2"^^<http://www.w3.or
 <https://w3id.org/idsa/core/recipientAgent> <http://www.w3.org/2000/01/rdf-schema#comment> "The Agent for which the Mesaage is intended."@en .
 <https://w3id.org/idsa/core/recipientAgent> <http://www.w3.org/2000/01/rdf-schema#label> "recipient agent"@en .
 <https://w3id.org/idsa/core/recipientAgent> <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+# 
+<https://w3id.org/idsa/core/referringConnector> <http://www.w3.org/2000/01/rdf-schema#comment> "The RDF connector entity as referred to by the DAT, with its URI included as the value. The value MUST be its accessible URI."@en .
+<https://w3id.org/idsa/core/referringConnector> <http://www.w3.org/2000/01/rdf-schema#label> "referringConnector"@en .
+<https://w3id.org/idsa/core/referringConnector> <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 # 
 <https://w3id.org/idsa/core/requestedArtifact> <http://www.w3.org/2000/01/rdf-schema#comment> "References an artifact in the context of a request."@en .
 <https://w3id.org/idsa/core/requestedArtifact> <http://www.w3.org/2000/01/rdf-schema#label> "Requested Artifact"@en .
