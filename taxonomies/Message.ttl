@@ -14,13 +14,11 @@
 
 ids:RequestMessage a owl:Class;
     rdfs:subClassOf ids:Message ;
-    idsm:abstract true;
     rdfs:label "Request Message"@en ;
     rdfs:comment "Client-generated message initiating a communication, motivated by a certain reason and with an answer expected."@en.
 
 ids:ResponseMessage a owl:Class;
     rdfs:subClassOf ids:Message ;
-    idsm:abstract true;
     rdfs:label "Response Message"@en ;
     rdfs:comment "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en;
     idsm:validation [
@@ -30,7 +28,6 @@ ids:ResponseMessage a owl:Class;
 
 ids:NotificationMessage a owl:Class ;
     rdfs:subClassOf ids:Message ;
-    idsm:abstract true;
     rdfs:label "Notification Message"@en ;
     rdfs:comment "Event messages are informative and no response is expected by the sender."@en.
 
