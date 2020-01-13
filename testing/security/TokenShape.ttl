@@ -43,25 +43,6 @@ shapes:TokenShape
 	] .
 
 
-shapes:TokenFormatShape
-	a sh:NodeShape ; 
-	sh:targetClass ids:TokenFormat ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenFormatShape): An ids:TokenFormat is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:TokenFormat)
-			}
-		""" ;
-	] .
-
-
-
 shapes:DatPayloadShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:DatPayload ;
