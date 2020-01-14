@@ -39,3 +39,21 @@ shapes:PublicKeyShape
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/PublicKeyShape.ttl> (PublicKeyShape): An ids:keyValue property must point from an ids:PublicKey to an xsd:base64Binary."@en ; 
 	] .
 
+
+shapes:KeyTypeShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:KeyType ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/PublicKeyShape.ttl> (KeyTypeShape): An ids:KeyType is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:KeyType)
+			}
+		""" ;
+	] .
+

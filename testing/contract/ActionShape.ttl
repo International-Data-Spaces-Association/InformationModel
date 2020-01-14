@@ -25,6 +25,19 @@ shapes:ActionShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Action ;
 
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:Action is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Action)
+			}
+		""" ;
+	] ;
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:actionRefinement ;
