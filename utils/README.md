@@ -10,6 +10,7 @@
 - Generate list of model files for import purposes within a static ontology file, considering the code lists (`codes`), concept definitions (`model, metamodel`) and concept taxonomies (`taxonomies`) except related 3rd party `references` (to be executed in $INFO_MODEL_ROOT). 
     - `find . ! -path "*/references/*" -and \( -path "*/codes/**.ttl" -or -path "*/model/**.ttl" -or -path "*/metamodel/**.ttl" -or -path "*/taxonomies/**.ttl" \) | sort | sed -r 's/^\.\/(.*)/<\1>,/'`
 
-
-
+## Scripts
+- `rdf_void_annotation.pl` 
+    - Perl script to annotate RDF dataset using VoID vocabulary. Check file for additional information.
 
