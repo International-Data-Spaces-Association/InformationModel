@@ -9,7 +9,7 @@
 # perl rdf_void_annotation.pl <input file> <output file>   
 # where 
 #       <input file> = the RDF / TTL file which should be annotated using VoID
-#       <output file> = the RDF / TTL file where the RDF VoID dataset should be saved
+#       <output file> = file where the RDF VoID dataset should be saved. Script output is in RDF/TTL syntax.
 # e.g.
 # perl rdf_void_annotation.pl data.ttl data_void.ttl
 
