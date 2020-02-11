@@ -1,6 +1,6 @@
 #!usr/bin/perl
 
-# Perl script to annotate a RDF/TTL dataset using the VoID vocabulary.
+# Perl script to annotate a RDF/TTL dataset using VoID, the W3C Vocabulary of Interlinked Datasets (https://www.w3.org/TR/void/)
 # Requires following libraries:
 #       RDF::Generator::Void    https://metacpan.org/pod/RDF::Generator::Void
 #       RDF::Trine              https://metacpan.org/pod/RDF::Trine
@@ -8,8 +8,8 @@
 # Run script in shell / command line as follows:
 # perl rdf_void_annotation.pl <input file> <output file>   
 # where 
-#       <input file> = the RDF / TTL file which should be annotated using VoID
-#       <output file> = file where the RDF VoID dataset should be saved. Script output is in RDF/TTL syntax.
+#       <input file> = the RDF file that should be annotated using VoID
+#       <output file> = file where the RDF VoID dataset should be saved. Script output is in RDF/Turtle syntax.
 # e.g.
 # perl rdf_void_annotation.pl data.ttl data_void.ttl
 
