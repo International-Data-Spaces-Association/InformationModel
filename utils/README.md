@@ -12,5 +12,5 @@
 
 ## Scripts
 - `rdf_void_annotation.pl`
-    - Perl script to annotate RDF dataset using VoID vocabulary.
-    Uses use `RDF::Generator::Void` and `RDF::Trine` Perl libraries to import TTL RDF model and generate VoID representation. Top section of the script's file contains information on how to run the script.
+    - Perl script to annotate RDF dataset using the [W3C Vocabulary of Interlinked Datasets](https://www.w3.org/TR/void/) (VoID).
+    Uses the [RDF::Generator::Void](https://metacpan.org/pod/RDF::Generator::Void) and [RDF::Trine](https://metacpan.org/pod/RDF::Trine) Perl libraries to import an RDF model and generate VoID representation. Top section of the script's file contains information on how to run the script.
