@@ -1,10 +1,12 @@
 # Connector Self-descriptions validation using SHACL
 
 ## Scenario
-The reference examples show how a Connector self-description can be validated using the IDS Information Model and SHACL.
+The reference examples show how an Information Model RDF instance can be validated against the IDS Information Model using SHACL.
 
 ## Description
-A IDS Connector provides it's self-description as a JSON-LD document. The self-description can be validated using the corresponding SHACL shape of the Connector class, which can be found in the corresponding testing subdirectory of the repository ([ConnectorShape.ttl](../../testing/infrastructure/ConnectorShape.ttl)).
+This reference example demonstrates the SHACL validation of a Connector self-description. A IDS Connector provides it's self-description as a JSON-LD document. The self-description can be validated using the corresponding SHACL shapes , which can be found in the [/testing/](../../testing/) directory.
+
+This example demonstrates the validation of a single RDF instance without considering it's relations to other classes and their corresponding SHACL validity. Please check the [README.md](../README.tt) for more information regarding this.  
 
 
 ## Files
@@ -50,7 +52,7 @@ wget -N https://github.com/IndustrialDataSpace/InformationModel/raw/master/testi
 ```
 ids:BaseConnector rdfs:subClassOf ids:Connector .
 ```
-This is required for classes such as the Connector, where the superclass is not intended to be used as an instance, but for property inheritance. The *ConnectorShape.ttl* SHACL shape validates ids:Connector instances. Usually Connectors are insntaces of a Connector subclass, e.g., *ids:BaseConnector* or *ids:TrustedConnector*. Adding the above stated triple to the self-description allows validating ids:Connector subclass with the ConnectorShape.
+This is required for classes such as the Connector, where the superclass (ids:Connector) is not intended to be used as an instance, but for property inheritance. The *ConnectorShape.ttl* SHACL shape validates ids:Connector instances. Usually Connectors are insntaces of a Connector subclass, e.g., *ids:BaseConnector* or *ids:TrustedConnector*. Adding the above stated triple to the self-description allows validating ids:Connector subclass with the ConnectorShape.
 
 6. Validate `conn_self_description.ttl` file with [TopBraid SHACL API](https://github.com/TopQuadrant/shacl) and the corresponding SHACL shape using following command
 ```
