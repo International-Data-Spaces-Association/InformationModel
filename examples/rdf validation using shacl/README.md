@@ -49,7 +49,7 @@ sh:property [
 
 Before a RDF instance (also called data graph) can be validated against SHACL shapes, two main conditions must be fullfilled.
 
-#### 1. Preparation of SHACL Shapes
+#### 1. Preparing the SHACL Shapes
 To fully validate a data graph against SHACL, one needs to get all relevant SHACL shapes for that particular instance. The provided SHACL shape files are class-specific, therefore each class in the IDS Information Model has a corresponding file with SHACL shapes. Class-specific SHACL files leads to a better overall structure and enables easy expansion in the future.
 
 To validate a, e.g., Connector self-description, one needs the corresponding SHACL shapes for that RDF instance. In this example, one would have to retrieve the SHACL shapes for the ids:Connector class, it's superclasses as well as all classes which are in relation to the Connector class via RDF properties.
