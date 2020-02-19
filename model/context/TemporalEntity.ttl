@@ -4,6 +4,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix greg: <http://www.w3.org/ns/time/gregorian#> .
 
@@ -72,40 +73,40 @@ ids:MonthOfYear
 	rdfs:label "Month of year"@en;
 	rdfs:comment "The month of the year, e.g. January."@en.
 
-ids:January a ids:MonthOfYear;
+idsc:JANUARY a ids:MonthOfYear;
 	rdfs:label "January"@en.
 
-ids:February a ids:MonthOfYear;
+idsc:FEBRUARY a ids:MonthOfYear;
 	rdfs:label "February"@en.
 
-ids:March a ids:MonthOfYear;
+idsc:MARCH a ids:MonthOfYear;
 	rdfs:label "March"@en.
 
-ids:April a ids:MonthOfYear;
+idsc:APRIL a ids:MonthOfYear;
 	rdfs:label "April"@en.
 
-ids:May a ids:MonthOfYear;
+idsc:MAY a ids:MonthOfYear;
 	rdfs:label "May"@en.
 
-ids:June a ids:MonthOfYear;
+idsc:JUNE a ids:MonthOfYear;
 	rdfs:label "June"@en.
 
-ids:July a ids:MonthOfYear;
+idsc:JULY a ids:MonthOfYear;
 	rdfs:label "July"@en.
 
-ids:August a ids:MonthOfYear;
+idsc:AUGUST a ids:MonthOfYear;
 	rdfs:label "August"@en.
 
-ids:September a ids:MonthOfYear;
+idsc:SEPTEMBER a ids:MonthOfYear;
 	rdfs:label "September"@en.
 
-ids:October a ids:MonthOfYear;
+idsc:OCTOBER a ids:MonthOfYear;
 	rdfs:label "October"@en.
 
-ids:November a ids:MonthOfYear;
+idsc:NOVEMBER a ids:MonthOfYear;
 	rdfs:label "November"@en.
 
-ids:December a ids:MonthOfYear;
+idsc:DECEMBER a ids:MonthOfYear;
 	rdfs:label "December"@en.
 
 ids:Duration
@@ -162,7 +163,7 @@ ids:TemporalUnit
 	rdfs:label "Temporal unit"@en;
 	rdfs:comment "A standard duration, which provides the scale factor for a time extent, or the granularity or precision for a time position.".
 
-ids:unitYear a ids:TemporalUnit;
+idsc:UNIT_YEAR a ids:TemporalUnit;
 	ids:days "0"^^xsd:decimal ;
 	ids:hours "0"^^xsd:decimal ;
 	ids:minutes "0"^^xsd:decimal ;
@@ -172,7 +173,7 @@ ids:unitYear a ids:TemporalUnit;
 	ids:years "1"^^xsd:decimal ;
 	rdfs:label "Year"@en.
 
-ids:unitMonth a ids:TemporalUnit;
+idsc:UNIT_MONTH a ids:TemporalUnit;
 	ids:days "0"^^xsd:decimal ;
 	ids:hours "0"^^xsd:decimal ;
 	ids:minutes "0"^^xsd:decimal ;
@@ -182,7 +183,7 @@ ids:unitMonth a ids:TemporalUnit;
 	ids:years "0"^^xsd:decimal ;
 	rdfs:label "Month"@en.
 
-ids:unitWeek a ids:TemporalUnit;
+idsc:UNIT_WEEK a ids:TemporalUnit;
 	ids:days "0"^^xsd:decimal ;
 	ids:hours "0"^^xsd:decimal ;
 	ids:minutes "0"^^xsd:decimal ;
@@ -192,7 +193,7 @@ ids:unitWeek a ids:TemporalUnit;
 	ids:years "0"^^xsd:decimal ;
 	rdfs:label "Week"@en.
 
-ids:unitDay a ids:TemporalUnit;
+idsc:UNIT_DAY a ids:TemporalUnit;
 	ids:days "1"^^xsd:decimal ;
 	ids:hours "0"^^xsd:decimal ;
 	ids:minutes "0"^^xsd:decimal ;
@@ -202,7 +203,7 @@ ids:unitDay a ids:TemporalUnit;
 	ids:years "0"^^xsd:decimal ;
 	rdfs:label "Day"@en.
 
-ids:unitHour a ids:TemporalUnit;
+idsc:UNIT_HOUR a ids:TemporalUnit;
 	ids:days "0"^^xsd:decimal ;
 	ids:hours "1"^^xsd:decimal ;
 	ids:minutes "0"^^xsd:decimal ;
@@ -212,7 +213,7 @@ ids:unitHour a ids:TemporalUnit;
 	ids:years "0"^^xsd:decimal ;
 	rdfs:label "Hour"@en.
 
-ids:unitMinute a ids:TemporalUnit;
+idsc:UNIT_MINUTE a ids:TemporalUnit;
 	ids:days "0"^^xsd:decimal ;
 	ids:hours "0"^^xsd:decimal ;
 	ids:minutes "1"^^xsd:decimal ;
@@ -222,7 +223,7 @@ ids:unitMinute a ids:TemporalUnit;
 	ids:years "0"^^xsd:decimal ;
 	rdfs:label "Minute"@en.
 
-ids:unitSecond a ids:TemporalUnit;
+idsc:UNIT_SECOND a ids:TemporalUnit;
 	ids:days "0"^^xsd:decimal ;
 	ids:hours "0"^^xsd:decimal ;
 	ids:minutes "0"^^xsd:decimal ;
@@ -254,19 +255,25 @@ ids:DurationDescription
 # -------------------------------------------
 
 
-ids:after
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:after;
-	rdfs:domain ids:TemporalEntity;
-	rdfs:range ids:TemporalEntity;
+#ids:after
+#	a owl:ObjectProperty;
+#	rdfs:subPropertyOf time:after;
+#	rdfs:domain ids:TemporalEntity;
+#	rdfs:range ids:TemporalEntity;
+idsc:AFTER
+    a ids:BinaryOperator ;
+    rdfs:seeAlso time:after ;
 	rdfs:label "after"@en;
 	rdfs:comment "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en.
 
-ids:before
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:before;
-	rdfs:domain ids:TemporalEntity;
-	rdfs:range ids:TemporalEntity;
+#ids:before
+#	a owl:ObjectProperty;
+#	rdfs:subPropertyOf time:before;
+#	rdfs:domain ids:TemporalEntity;
+#	rdfs:range ids:TemporalEntity;
+idsc:BEFORE
+    a ids:BinaryOperator ;
+    rdfs:seeAlso time:before ;
 	rdfs:label "before"@en;
 	rdfs:comment "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals."@en.
 
@@ -276,172 +283,182 @@ ids:before
 #	rdfs:subPropertyOf time:hasDuration, ids:hasTemporalDuration;
 #	rdfs:domain 
 
-ids:hasTemporalDuration
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:hasTemporalDuration;
-	rdfs:domain ids:TemporalEntity;
-	rdfs:range ids:TemporalDuration;
+#ids:hasTemporalDuration
+#	a owl:ObjectProperty;
+#	rdfs:subPropertyOf time:hasTemporalDuration;
+#	rdfs:domain ids:TemporalEntity;
+#	rdfs:range ids:TemporalDuration;
+idsc:HAS_TEMPORAL_DURATION
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:hasTemporalDuration;
 	rdfs:label "has temporal duration"@en;
 	rdfs:comment "Duration of a temporal entity"@en.
 
-ids:inside
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:inside;
-	rdfs:domain ids:Interval;
-	rdfs:range ids:Instant;
+#ids:inside
+#	a owl:ObjectProperty;
+#	rdfs:subPropertyOf time:inside;
+#	rdfs:domain ids:Interval;
+#	rdfs:range ids:Instant;
+idsc:INSIDE_TEMPORAL_INTERVAL
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:inside;
 	rdfs:label "inside"@en;
 	rdfs:comment "An instant that falls inside the interval. It is not intended to include beginnings and ends of intervals."@en.
 
 
-ids:intervalAfter
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalAfter, ids:after;
-	owl:inverseOf ids:intervalBefore;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+#ids:intervalAfter
+#	a owl:ObjectProperty;
+#	rdfs:subPropertyOf time:intervalAfter, ids:after;
+#	owl:inverseOf ids:intervalBefore;
+#	rdfs:domain ids:ProperInterval;
+#	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_AFTER
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalAfter, idsc:AFTER;
+	owl:inverseOf ids:INTERVAL_BEFORE;
 	rdfs:label "interval after"@en;
 	rdfs:comment "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en.
 	
-ids:intervalBefore
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalBefore, ids:before, ids:intervalDisjoint;
-	owl:inverseOf ids:intervalAfter;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_BEFORE
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalBefore, idsc:BEFORE, idsc:INTERVAL_DISJOINT ;
+	owl:inverseOf ids:INTERVAL_AFTER;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval before"@en;
 	rdfs:comment "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en.
 	
-ids:intervalContains
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalContains;
-	owl:inverseOf ids:intervalDuring;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_CONTAINS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalContains;
+	owl:inverseOf ids:INTERVAL_DURING;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval contains"@en;
 	rdfs:comment "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en.
 
-ids:intervalDisjoint
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalDisjoint;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_DISJOINT
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalDisjoint;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval disjoint"@en;
 	rdfs:comment "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en.
 
-ids:intervalDuring
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalDuring;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_DURING
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalDuring;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval during"@en;
-	owl:inverseOf ids:intervalContains;
+	owl:inverseOf ids:INTERVAL_CONTAINS;
 	rdfs:comment "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en.
 
 
-ids:intervalEquals
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalEquals;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_EQUALS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalEquals;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval equals"@en;
 	rdfs:comment "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en.
 
-ids:intervalFinishedBy
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalFinishedBy;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_FINISHED_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalFinishedBy;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval finished by"@en;
-	owl:inverseOf ids:intervalFinishes;
+	owl:inverseOf ids:INTERVAL_FINISHES;
 	rdfs:comment "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en.
 
-ids:intervalFinishes
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalFinishes, ids:intervalIn;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_FINISHES
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalFinishes, ids:intervalIn;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval finishes"@en;
-	owl:inverseOf ids:intervalFinishedBy;
+	owl:inverseOf ids:INTERVAL_FINISHED_BY;
 	rdfs:comment "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en.
 
-ids:intervalIn
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalIn;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_IN
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalIn;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval in"@en;
 	rdfs:comment "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2 or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en.
 
 
 
-ids:intervalMeets
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalMeets;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_MEETS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalMeets;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval meets"@en;
 	owl:inverseOf ids:intervalMetBy;
 	rdfs:comment "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en.
 
-ids:intervalMetBy
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalMetBy;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_MET_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalMetBy;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval met by"@en;
 	owl:inverseOf ids:intervalMeets;
 	rdfs:comment "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en.
 
-ids:intervalOverlaps
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalOverlaps;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_OVERLAPS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalOverlaps;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval overlaps"@en;
 	owl:inverseOf ids:intervalOverlappedBy;
 	rdfs:comment "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en.
 
-ids:IntervalOverlappedBy
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalOverlappedBy;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_OVERLAPPED_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalOverlappedBy;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval overlapped by"@en;
 	owl:inverseOf ids:intervalOverlaps;
 	rdfs:comment "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en.
 
-ids:intervalStarts
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalStarts;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_STARTS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalStarts;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval starts"@en;
 	owl:inverseOf ids:intervalStartedBy;
 	rdfs:comment "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en.
 
-ids:intervalStartedBy
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:intervalStartedBy;
-	rdfs:domain ids:ProperInterval;
-	rdfs:range ids:ProperInterval;
+idsc:INTERVAL_STARTED_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalStartedBy;
+	#rdfs:domain ids:ProperInterval;
+	#rdfs:range ids:ProperInterval;
 	rdfs:label "interval started by"@en;
 	owl:inverseOf ids:intervalStarts;
 	rdfs:comment "If a proper interval T1 is intervalStartedBy another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en.
 
 
-ids:inTimePosition
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:inTimePosition, ids:inTemporalPosition;
-	rdfs:domain ids:Instant;
-	rdfs:range ids:TimePosition;
+idsc:IN_TIME_POSITION
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:inTimePosition, ids:IN_TEMPORAL_POSITION;
+	#rdfs:domain ids:Instant;
+	#rdfs:range ids:TimePosition;
 	rdfs:label "in time position"@en;
 	rdfs:comment "Position of an instant, expressed as a temporal coordinate or nominal value"@en.
 
-ids:inTemporalPosition
-	a owl:ObjectProperty;
-	rdfs:subPropertyOf time:inTemporalPosition;
-	rdfs:domain ids:Instant;
-	rdfs:range ids:TemporalPosition;
+idsc:IN_TEMPORAL_POSITION
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:inTemporalPosition;
+	#rdfs:domain ids:Instant;
+	#rdfs:range ids:TemporalPosition;
 	rdfs:label "in temporal position"@en;
 	rdfs:comment "Position of a time instant"@en.
 
@@ -541,7 +558,7 @@ ids:dateTime
     .
 
 ids:begin
-    a owl:ObjectProperty;
+    a owl:ObjectProperty ;
     rdfs:subPropertyOf time:hasBeginning;
     rdfs:domain ids:Interval;
     rdfs:range ids:Instant;
@@ -549,7 +566,7 @@ ids:begin
     rdfs:comment "Beginning of an Interval."@en.
 
 ids:end
-    a owl:ObjectProperty;
+    a owl:ObjectProperty ;
     rdfs:subPropertyOf time:hasEnd;
     rdfs:domain ids:Interval;
     rdfs:range ids:Instant;
