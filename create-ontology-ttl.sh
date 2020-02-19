@@ -46,7 +46,7 @@ write_to_file()
 	echo '    dct:contributor _:AndreasMueller ;' >> "$file"
 	echo '    dct:contributor _:AnnaKasprzik ;' >> "$file"
 	echo '    dct:contributor <https://github.com/sebbader> ;' >> "$file"
-	echo '    dct:contributor <https://github.com/Madmatti/> ;' >> "$file"
+	echo '    dct:contributor <https://github.com/Maboeckmann/> ;' >> "$file"
 	echo '    dct:contributor <https://github.com/HaydarAk> ;' >> "$file"
 	echo '    dct:publisher ids:IDSA ;' >> "$file"
 	echo '    dct:created "2017-09-26"^^xsd:date;' >> "$file"
@@ -105,7 +105,7 @@ write_to_file()
 	echo '<https://github.com/HaydarAk> a dct:Agent, foaf:Person ;' >> "$file"
 	echo '    foaf:name "Haydar Akyürek";' >> "$file"
 	echo '.' >> "$file"
-	echo '<https://github.com/Madmatti> a dct:Agent, foaf:Person ;' >> "$file"
+	echo '<https://github.com/Maboeckmann> a dct:Agent, foaf:Person ;' >> "$file"
 	echo '    foaf:name "Matthias Böckmann";' >> "$file"
 	echo '.' >> "$file"
 

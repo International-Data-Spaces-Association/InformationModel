@@ -125,7 +125,7 @@ ids:ParticipantNotificationMessage a owl:Class;
     rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en.
 
 ids:affectedParticipant a owl:ObjectProperty;
-    idsm:referenceByUrl true;
+    idsm:referenceByUri true;
     rdfs:label "affected Participant"@en;
     rdfs:domain ids:ParticipantNotificationMessage;
     rdfs:range ids:Participant;
@@ -351,7 +351,7 @@ ids:ArtifactRequestMessage a owl:Class ;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:requestedArtifact rdf:type owl:DatatypeProperty ;
+ids:requestedArtifact rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
@@ -362,6 +362,32 @@ ids:ArtifactResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Artifact Response Message"@en;
     rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
+
+
+# ParIS Messages
+# --------------
+
+ids:ParticipantRequestMessage a owl:Class ;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "Participant Request Message"@en;
+    rdfs:comment "Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message."@en;
+    idsm:validation [
+        idsm:forProperty ids:requestedParticipant;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:requestedParticipant rdf:type owl:DatatypeProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:ParticipantRequestMessage;
+    rdfs:range ids:Participant ;
+    rdfs:label "Requested Participant"@en ;
+    rdfs:comment "References a Participant in the context of a request."@en.
+
+ids:ParticipantResponseMessage a owl:Class ;
+    rdfs:subClassOf ids:ResponseMessage;
+    rdfs:label "Participant Response Message"@en;
+    rdfs:comment "Message that follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en.
+
 
 
 # Log messaging

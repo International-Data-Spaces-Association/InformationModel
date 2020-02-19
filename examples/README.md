@@ -7,9 +7,15 @@ for purposes of traffic control, predictive road maintenance, toll fee optimizat
 # Resource
 A Resource is a single digital content or a coherent set of digital contents exposed at particular conditions via a defined interface. Types of digital content range from structured data, documents, media, software etc. Examples below illustrate the various types and different aspects of resources.
 
+
 ## Example DATA1: Commercial report
 
 Example [DATA1](DATA1.ttl) showcases a download of a simple content, an accident report, elaborated on the basis of a large scale European highway statistics data ([DATA2](DATA2.ttl)) collected within the period 2000 - 2017. The report is provided in two equivalent representations (PDF and MS Word) at the cost of 25 Euro.
+
+
+## Example TEXT_RESOURCE: 
+
+Example [TEXT_RESOURCE](TEXT_RESOURCE.ttl) is based on the [DATA1](DATA1.ttl) example with minor differencences, contains more comments and explanations and is modelled using InformationModel v1.0.3 architecture
 
 
 ## Example DATA2: Free download of raw, historical data
@@ -39,6 +45,12 @@ Connectors are the central building blocks, the edge nodes of the IDS network. T
 ## Example CONN2: Trusted connector
 
 The Trusted Connector [CONN2](CONN2.ttl) represents a hardened version of the Connector runtime, a certified platform for data integration, processing and publishing maintained by the participant [PART1](PART1.ttl) as part of its data provisioning infrastructure.  
+
+
+## Example TRUSTED_CONNECTOR: Trusted connector
+
+The TRUSTED_CONNECTOR [TRUSTED_CONNECTOR](TRUSTED_CONNECTOR.ttl) is based on the [CONN2](CONN2.ttl) example with additional comments.
+
 
 ## Example BROKER1: Logistics broker
 

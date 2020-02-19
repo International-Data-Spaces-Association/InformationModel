@@ -1,9 +1,11 @@
 # The Industrial Data Space Information Model
 
-The Information Model is an RDFS/OWL-ontology covering the fundamental concepts of the [Industrial Data Space](https://industrialdataspace.org), i.e. the types of *digital contents* that are exchanged by *participants* by means of the Industrial Data Space *infrastructure components*. The model development is led by Fraunhofer [FIT](https://www.fit.fraunhofer.de/en) and [IAIS](https://www.iais.fraunhofer.de/en) with support by members of the [International Data Spaces Association](https://www.internationaldataspaces.org/) in context of the *Information Model* sub-working group (SWG4). The group is chaired by [Christoph Lange](https://github.com/clange/) ([Fraunhofer FIT](https://www.fit.fraunhofer.de/)) and [Sebastian Tramp](https://sebastian.tramp.name) ([eccenca GmbH](https://www.eccenca.com)). 
+The Information Model is an RDFS/OWL-ontology covering the fundamental concepts of the [Industrial Data Space](https://industrialdataspace.org), i.e. the types of *digital contents* that are exchanged by *participants* by means of the Industrial Data Space *infrastructure components*.
+The ontology and its documentation are published at [https://w3id.org/idsa/core](https://w3id.org/idsa/core).
+The model development is led by Fraunhofer [FIT](https://www.fit.fraunhofer.de/en) and [IAIS](https://www.iais.fraunhofer.de/en) with support by members of the [International Data Spaces Association](https://www.internationaldataspaces.org/) in context of the *Information Model* sub-working group (SWG4). The group is chaired by [Christoph Lange](https://github.com/clange/) ([Fraunhofer FIT](https://www.fit.fraunhofer.de/)) and [Sebastian Tramp](https://sebastian.tramp.name) ([eccenca GmbH](https://www.eccenca.com)). 
 
 The model development is based on [GitHub](https://github.com/IndustrialDataSpace/InformationModel), following a [defined branching model](CONTRIBUTING.md). Contributions and community feedback are maintained via the GitHub [ticketing system](images/Issue_Lifecycle.jpg). The [release process](images/Release_process.jpg) is aligned with the International Data Spaces Association architecture
-working group meetings, i.e. there are roughly 2 releases scheduled per year with intermediary updates to the development branch. The currently stable version is *2.0.0*. The Information Model and associated resources published on Github are available under the [Apache License 2.0](https://github.com/IndustrialDataSpace/InformationModel/blob/master/LICENSE).
+working group meetings, i.e. there are roughly 2 releases scheduled per year with intermediary updates to the development branch. The currently stable version is *2.0.0*. The Information Model and associated resources published on GitHub are available under the [Apache License 2.0](https://github.com/IndustrialDataSpace/InformationModel/blob/master/LICENSE).
 
 ## Authors and contributors
 
@@ -77,5 +79,5 @@ For automated validation of the Information Model POJOs (via the builder classes
 - UML-based visualization of the Information Model, its classes, properties and relations, including their cardinalities. It is available as part of the Nightly and Release Packages on [GitHub](https://github.com/IndustrialDataSpace/InformationModel/releases).
 
 For members of the International Data Spaces Association only:
-- Working [document](https://industrialdataspace.jiveon.com/docs/DOC-1817), explaining
+- [Working document](https://industrialdataspace.jiveon.com/docs/DOC-1817), explaining
 the usage of the Information Model for data exchanges in the IDS.
