@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix greg: <http://www.w3.org/ns/time/gregorian#> .
 
 # Classes
 # -------
@@ -21,15 +22,93 @@ ids:Instant
     rdfs:label "Instant"@en ;
     rdfs:comment "A temporal entity with zero extent or duration."@en.
 
+ids:ProperInterval
+    a owl:Class;
+    rdfs:subClassOf time:ProperInterval, ids:Interval; #time:Interval may have zero extent. time:ProperInterval may not.
+    rdfs:label "Proper Interval"@en ;
+    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en;
+    .
+
 ids:Interval
     a owl:Class;
-    rdfs:subClassOf time:Interval, ids:TemporalEntity;
+    rdfs:subClassOf time:Interval, ids:TemporalEntity; #time:Interval may have zero extent. time:ProperInterval may not.
     rdfs:label "Interval"@en ;
-    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en;
+    rdfs:comment "A temporal entity with extent or duration."@en;
     idsm:validation [
         idsm:forProperty ids:begin;
         idsm:constraint idsm:NotNull;
     ].
+#DateTimeInterval? Provides Intervals for entire days, i.e. midnight -> midnight. Cannot express 24 hour intervals for other times of the day
+
+ids:DayOfWeek
+	a owl:Class;
+	rdfs:subClassOf time:DayOfWeek;
+	rdfs:label "Day of week"@en;
+	rdfs:comment "Day of the week, e.g. Monday, Tuesday, ..."@en .
+
+ids:Monday a ids:DayOfWeek;
+	rdfs:label "Monday"@en.
+
+ids:Tuesday a ids:DayOfWeek;
+	rdfs:label "Tuesday"@en.
+
+ids:Wednesday a ids:DayOfWeek;
+	rdfs:label "Wednesday"@en.
+	
+ids:Thursday a ids:DayOfWeek;
+	rdfs:label "Thursday"@en.
+
+ids:Friday a ids:DayOfWeek;
+	rdfs:label "Friday"@en.
+
+ids:Saturday a ids:DayOfWeek;
+	rdfs:label "Saturday"@en.
+
+ids:Sunday a ids:DayOfWeek;
+	rdfs:label "Sunday"@en.
+	
+ids:MonthOfYear
+	a owl:Class;
+	rdfs:subClassOf time:MonthOfYear;
+	rdfs:label "Month of year"@en;
+	rdfs:comment "The month of the year, e.g. January."@en.
+
+ids:January a ids:MonthOfYear;
+	rdfs:label "January"@en.
+
+ids:February a ids:MonthOfYear;
+	rdfs:label "February"@en.
+
+ids:March a ids:MonthOfYear;
+	rdfs:label "March"@en.
+
+ids:April a ids:MonthOfYear;
+	rdfs:label "April"@en.
+
+ids:May a ids:MonthOfYear;
+	rdfs:label "May"@en.
+
+ids:June a ids:MonthOfYear;
+	rdfs:label "June"@en.
+
+ids:July a ids:MonthOfYear;
+	rdfs:label "July"@en.
+
+ids:August a ids:MonthOfYear;
+	rdfs:label "August"@en.
+
+ids:September a ids:MonthOfYear;
+	rdfs:label "September"@en.
+
+ids:October a ids:MonthOfYear;
+	rdfs:label "October"@en.
+
+ids:November a ids:MonthOfYear;
+	rdfs:label "November"@en.
+
+ids:December a ids:MonthOfYear;
+	rdfs:label "December"@en.
+
 
 # Properties for describing temporal entities
 # -------------------------------------------
