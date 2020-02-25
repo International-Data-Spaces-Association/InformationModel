@@ -1,4 +1,4 @@
-# SHACL validation
+# SHACL Validation
 
 ### Scenario
 These reference examples show how RDF instances can be validated with SHACL either via CLI or using existing programming libraries.
