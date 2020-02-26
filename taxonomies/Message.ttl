@@ -60,14 +60,14 @@ ids:rejectionReason a owl:ObjectProperty;
 # Self-description Access
 # -----------------------
 
-ids:SelfDescriptionRequest a owl:Class;
+ids:SelfDescriptionRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "Self Description Request"@en ;
+    rdfs:label "Self Description Request Message"@en ;
     rdfs:comment "Message requesting the self-description of an Infrastructure Component."@en.
 
-ids:SelfDescriptionResponse a owl:Class ;
+ids:SelfDescriptionResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage ;
-    rdfs:label "Self Description Response"@en ;
+    rdfs:label "Self Description Response Message"@en ;
     rdfs:comment "Message containing the self-description of an Infrastructure Component."@en.
 
 # Connector-related Messages
@@ -124,13 +124,6 @@ ids:ParticipantNotificationMessage a owl:Class;
     rdfs:label "Participant Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en.
 
-ids:affectedParticipant a owl:ObjectProperty;
-    idsm:referenceByUri true;
-    rdfs:label "affected Participant"@en;
-    rdfs:domain ids:ParticipantNotificationMessage;
-    rdfs:range ids:Participant;
-    rdfs:comment "References the participant that is referenced in the participant-related notification messages."@en.
-
 ids:ParticipantAvailableMessage a owl:Class;
     rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Available Message"@en ;
@@ -156,10 +149,17 @@ ids:ParticipantUpdateMessage a owl:Class;
     rdfs:label "Participant Information Changed Message"@en ;
     rdfs:comment "Event notifying the recipient(s) that information describing this Participant has changed. This event is mainly intended for information describing the Participant that is NOT a direct subject of the certification process."@en.
 
+ids:affectedParticipant a owl:ObjectProperty;
+    idsm:referenceByUri true;
+    rdfs:label "affected Participant"@en;
+    rdfs:domain ids:ParticipantNotificationMessage;
+    rdfs:range ids:Participant;
+    rdfs:comment "References the participant that is referenced in the participant-related notification messages."@en.
+
 ids:revokeReason
     a owl:DatatypeProperty;
     rdfs:label "revoke reason"@en;
-    rdfs:domain ids:ConnectorCertificateRevokedMessage; # TODO: , ids:ParticipantCertificateRevokedMessage ;
+    rdfs:domain ids:ConnectorCertificateRevokedMessage, ids:ParticipantCertificateRevokedMessage ;
     rdfs:range xsd:string;
     rdfs:comment "Plain Text containing the reason for revoking an existing certificate of an infrastructure component, e.g. a connector or participant."@en.
 
@@ -247,9 +247,9 @@ ids:agreedContract a owl:ObjectProperty;
 # Security-related Messages
 # -------------------------
 
-ids:AccessTokenRequest a owl:Class ;
+ids:AccessTokenRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "Access Token Request"@en;
+    rdfs:label "AccessToken Request Message"@en;
     rdfs:comment "Message requesting an access token. This is intended for point-to-point communication with, e.g., Brokers."@en.
 
 ids:AccessTokenResponse a owl:Class ;
@@ -328,9 +328,9 @@ ids:RequestInProcessMessage a owl:Class ;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:MessageProcessedNotification a owl:Class ;
+ids:MessageProcessedNotificationMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage;
-    rdfs:label "Message Processed Notification"@en;
+    rdfs:label "Message Processed Notification Message"@en;
     rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en;
     idsm:validation [
         idsm:forProperty ids:correlationMessage;
@@ -393,8 +393,8 @@ ids:ParticipantResponseMessage a owl:Class ;
 # Log messaging
 # -------------
 
-ids:LogNotification a owl:Class;
+ids:LogMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Log Notification"@en ;
-    rdfs:comment "Log notification which can be used to transfer logs e.g. to the clearing house."@en.
+    rdfs:label "Log Message"@en ;
+    rdfs:comment "Log Message which can be used to transfer logs e.g. to the clearing house."@en.
 
