@@ -150,6 +150,13 @@ ids:rightOperand rdfs:subPropertyOf odrl:rightOperand;
     rdfs:domain ids:Constraint;
     rdfs:range rdfs:Literal;
     rdfs:comment "The value of the right operand in a constraint expression."@en.
+	
+ids:rightOperandReference rdfs:subPropertyOf odrl:rightOperandReference;
+    a owl:ObjectProperty;
+    rdfs:label "rightOperandReference"@en ;
+    rdfs:domain ids:Constraint;
+    #rdfs:range rdfs:Resource;
+    rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value."@en.
 
 ids:unit rdfs:subPropertyOf odrl:unit;
     a owl:ObjectProperty;

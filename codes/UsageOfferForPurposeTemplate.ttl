@@ -6,49 +6,49 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin:    <http://spinrdf.org/spin#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc:AccessOfferToSecureConsumerTemplate a ids:PolicyTemplate ;
-    rdfs:label "Access Offer to secure Consumer Template" ;
-    rdfs:comment "A template for policy offers with one permission and several constraints about the security level of the consuming connector." ;
-	spin:labelTemplate """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its 
-		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) consuming connector has all the specified {?SecurityGuarantee} 
-		levels."""@en ;
+idsc_pt:UsageOfferForPurposeTemplate a ids:PolicyTemplate ;
+    rdfs:label "Offer for a Specific Purpose Template" ;
+    rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
+	spin:labelTemplate """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+		consumer uses it with systems which can be used for {?PurposeURI}."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractOffer", 
 		"@id": "{?contractID}", 
-		"refersTo": "https://w3id.org/idsa/code/policytemplate/AccessOfferToSecureConsumerTemplate" ,
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate" ,
 		"targetContent": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"permission": {
 			"action": "{?action}" ,
 			["constraint" : {    
-					 "leftOperand" : "securityLevel",
+					 "leftOperand" : "purpose",
 					 "operator" : "eq",
-					 "rightOperand" : "{?SecurityGuarantee}"
+					 "rightOperandReference" : "{?PurposeURI}"
 			}[,]]+
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
-		@prefix idsc: <https://w3id.org/idsa/code/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractOffer ;
-			ids:refersTo idsc_pt:AccessOfferToSecureConsumerTemplate ;
+			ids:refersTo idsc_pt:UsageOfferForPurposeTemplate ;
 			ids:targetContent {?content} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;
 				[ids:constraint [
-					ids:leftOperand ids:securityLevel ;
+					ids:leftOperand ids:purpose ;
 					ids:operator ids:eq ;
-					ids:rightOperand {?SecurityGuarantee}
+					ids:rightOperandReference {?PurposeURI}
 				] ;]+
 			]
 		."""^^xsd:string 
