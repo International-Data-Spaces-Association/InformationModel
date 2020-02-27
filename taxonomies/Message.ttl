@@ -9,8 +9,9 @@
 # Classes
 # -------
 
-# Basic Message Types
-# -------------------
+# Basic Message Types: Request, Response, Notification
+# May be used direcoty for non-core IDS scenarios. 
+# -----------------------------------------------------
 
 ids:RequestMessage a owl:Class;
     rdfs:subClassOf ids:Message ;
@@ -30,6 +31,11 @@ ids:NotificationMessage a owl:Class ;
     rdfs:subClassOf ids:Message ;
     rdfs:label "Notification Message"@en ;
     rdfs:comment "Event messages are informative and no response is expected by the sender."@en.
+
+
+# Core IDS Messages
+# -----------------
+
 
 ids:CommandMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
@@ -57,8 +63,8 @@ ids:rejectionReason a owl:ObjectProperty;
     rdfs:label "rejectionReason"@en;
     rdfs:comment "Specifies the reason of the rejection."@en.
 
-# Self-description Access
-# -----------------------
+# Self-Description
+# -----------------
 
 ids:SelfDescriptionRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
@@ -77,13 +83,11 @@ ids:ConnectorNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     idsm:abstract true ;
     rdfs:label "Connector Notification Message"@en ;
-    rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en.
-
-ids:affectedConnector a owl:ObjectProperty;
-    rdfs:label "affectedConnector"@en;
-    rdfs:domain ids:ConnectorNotificationMessage;
-    rdfs:range ids:Connector;
-    rdfs:comment "References the connector that is affected by the runtime condition change."@en.
+    rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en;
+    idsm:validation [
+        idsm:forProperty ids:affectedConnector;
+        idsm:constraint idsm:NotNull;
+    ].
 
 ids:ConnectorAvailableMessage a owl:Class;
     rdfs:subClassOf ids:ConnectorNotificationMessage ;
@@ -115,6 +119,12 @@ ids:ConnectorCertificateRevokedMessage a owl:Class;
 	rdfs:label "Connector Certificate Revoked Message"@en ;
 	rdfs:comment "Indicates that a (previously certified) Connector is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
+ids:affectedConnector a owl:ObjectProperty;
+    idsm:referenceByUri true;
+    rdfs:label "affectedConnector"@en;
+    rdfs:domain ids:ConnectorNotificationMessage;
+    rdfs:range ids:Connector;
+    rdfs:comment "References the connector that is affected by the runtime condition change."@en.
 
 # Participant-related Messages
 # ----------------------------
@@ -122,7 +132,12 @@ ids:ParticipantNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     idsm:abstract true ;
     rdfs:label "Participant Notification Message"@en ;
-    rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en.
+    rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en;
+    idsm:validation [
+        idsm:forProperty ids:affectedParticipant;
+        idsm:constraint idsm:NotNull;
+    ].
+    
 
 ids:ParticipantAvailableMessage a owl:Class;
     rdfs:subClassOf ids:ParticipantNotificationMessage ;
@@ -159,7 +174,11 @@ ids:affectedParticipant a owl:ObjectProperty;
 ids:revokeReason
     a owl:DatatypeProperty;
     rdfs:label "revoke reason"@en;
-    rdfs:domain ids:ConnectorCertificateRevokedMessage, ids:ParticipantCertificateRevokedMessage ;
+    rdfs:domain [ owl:unionOf (
+            ids:ConnectorCertificateRevokedMessage
+            ids:ParticipantCertificateRevokedMessage
+            )
+        ];
     rdfs:range xsd:string;
     rdfs:comment "Plain Text containing the reason for revoking an existing certificate of an infrastructure component, e.g. a connector or participant."@en.
 
@@ -219,7 +238,8 @@ ids:ContractOfferMessage a owl:Class ;
 ids:ContractAgreementMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Contract Agreement Message"@en;
-    rdfs:comment "Message containing a contract with resource access modalities on which two parties have agreed."@en.
+    rdfs:comment "Message containing a contract with resource access modalities on which two parties have agreed."@en;
+    .
 
 ids:ContractRejectionMessage a owl:Class ;
     rdfs:subClassOf ids:RejectionMessage;
@@ -239,7 +259,7 @@ ids:contractRejectionReason a owl:DatatypeProperty;
 
 ids:agreedContract a owl:ObjectProperty;
     rdfs:label "approved Contract"@en;
-    rdfs:domain ids:ContractSupplementMessage;
+    rdfs:domain ids:ContractAgreementMessage;
     rdfs:range ids:ContractAgreement;
     rdfs:comment "References the Contract Agreement of two parties."@en.
 
@@ -342,6 +362,10 @@ ids:OperationResultMessage  a owl:Class ;
     rdfs:label "Operation Result Message"@en;
     rdfs:comment "Message indicating that the result of a former InvokeOperation message is available. May transfer the result data in its associated payload section."@en.
 
+
+# Artifact-related Messages
+# -------------------------
+
 ids:ArtifactRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Artifact Request Message"@en;
@@ -351,17 +375,17 @@ ids:ArtifactRequestMessage a owl:Class ;
         idsm:constraint idsm:NotNull;
     ].
 
+ids:ArtifactResponseMessage a owl:Class ;
+    rdfs:subClassOf ids:ResponseMessage;
+    rdfs:label "Artifact Response Message"@en;
+    rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
+
 ids:requestedArtifact rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Requested Artifact"@en ;
     rdfs:comment "References an artifact in the context of a request."@en.
-
-ids:ArtifactResponseMessage a owl:Class ;
-    rdfs:subClassOf ids:ResponseMessage;
-    rdfs:label "Artifact Response Message"@en;
-    rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
 
 
 # ParIS Messages
@@ -376,18 +400,17 @@ ids:ParticipantRequestMessage a owl:Class ;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:requestedParticipant rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUri true;
-    rdfs:domain ids:ParticipantRequestMessage;
-    rdfs:range ids:Participant ;
-    rdfs:label "Requested Participant"@en ;
-    rdfs:comment "References a Participant in the context of a request."@en.
-
 ids:ParticipantResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Participant Response Message"@en;
     rdfs:comment "Message that follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en.
 
+ids:requestedParticipant rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:ParticipantRequestMessage;
+    rdfs:range ids:Participant ;
+    rdfs:label "Requested Participant"@en ;
+    rdfs:comment "References a Participant in the context of a request."@en.
 
 
 # Log messaging

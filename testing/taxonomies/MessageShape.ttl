@@ -21,40 +21,9 @@ shapes:
 	] .
 
 
-shapes:RequestMessageShape
-	a sh:NodeShape ;
-	sh:targetClass ids:RequestMessage ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RequestMessageShape): An ids:RequestMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:RequestMessage)
-			}
-		""" ;
-	] .
-
-
 shapes:ResponseMessageShape
 	a sh:NodeShape ;
 	sh:targetClass ids:ResponseMessage ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:ResponseMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:ResponseMessage)
-			}
-		""" ;
-	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -66,25 +35,6 @@ shapes:ResponseMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
-
-
-shapes:NotificationMessageShape
-	a sh:NodeShape ;
-	sh:targetClass ids:NotificationMessage ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (NotificationMessageShape): An ids:NotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:NotificationMessage)
-			}
-		""" ;
-	] .
-
 
 shapes:CommandMessageShape
 	a sh:NodeShape ;
@@ -108,17 +58,28 @@ shapes:QueryMessageShape
 	a sh:NodeShape ;
 	sh:targetClass ids:QueryMessage ;
 
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:QueryMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:QueryMessage)
-			}
-		""" ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:queryLanguage ;
+		sh:class ids:QueryLanguage ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:queryLanguage property must point from an ids:QueryMessage to an ids:QueryLanguage."@en ;
+	] ;
+    
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:querySceope ;
+		sh:class ids:QueryScope ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:querySceope property must point from an ids:QueryMessage to an ids:QueryScope."@en ;
+	] ;
+    
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:recipientScope ;
+		sh:class ids:QueryTarget ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:recipientScope property must point from an ids:QueryMessage to an ids:QueryTarget."@en ;
 	] .
 
 
@@ -135,67 +96,77 @@ shapes:RejectionMessageShape
 	] .
 
 
-shapes:ConnectorRuntimeNotificationMessageShape
+shapes:ConnectorNotificationMessageShape
 	a sh:NodeShape ;
-	sh:targetClass ids:ConnectorRuntimeNotificationMessage ;
+	sh:targetClass ids:ConnectorNotificationMessage ;
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:ConnectorRuntimeNotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:ConnectorNotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
 			WHERE {
 				?this rdf:type ?type .
-				FILTER (?type = ids:ConnectorRuntimeNotificationMessage)
+				FILTER (?type = ids:ConnectorNotificationMessage)
 			}
 		""" ;
+	] ;
+    
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:revokeReason ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:revokeReason property must point from a subclass of ids:ConnectorNotificationMessage to xsd:string."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedConnector ;
-		sh:class ids:Connector ;
+		sh:datatype xsd:anyURI ;
+		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorRuntimeNotificationMessageShape): An ids:affectedConnector property must point from an ids:ConnectorRuntimeNotificationMessage to an ids:Connector."@en ;
+        sh:minCount 1;
+        sh:maxCount 1;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:ConnectorNotificationMessage must have exactly one URI reference to a ids:Connector linked through the ids:affectedConnector property."@en ;
 	] .
 
-
-shapes:BrokerQueryMessageShape
+shapes:ParticipantNotificationMessageShape
 	a sh:NodeShape ;
-	sh:targetClass ids:BrokerQueryMessage ;
+	sh:targetClass ids:ParticipantNotificationMessage ;
 
-	sh:property [
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:ParticipantNotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:ParticipantNotificationMessage)
+			}
+		""" ;
+	] ;
+
+    sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:brokerQueryScope ;
-		sh:class ids:BrokerQueryScope ;
+		sh:path ids:revokeReason ;
+		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (BrokerQueryMessageShape): An ids:brokerQueryScope property must point from an ids:BrokerQueryMessage to an ids:BrokerQueryScope."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:revokeReason property must point from a subclass of ids:ParticipantNotificationMessage to xsd:string."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:queryLanguage ;
-		sh:class ids:QueryLanguage ;
+		sh:path ids:affectedParticipant ;
+		sh:datatype xsd:anyURI ;
+		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;;
+        sh:minCount 1;
+        sh:maxCount 1;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (BrokerQueryMessageShape): An ids:queryLanguage property must point from an ids:BrokerQueryMessage to an ids:QueryLanguage."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:ParticipantNotificationMessage must have exactly one URI reference to a ids:Participant linked through the ids:affectedParticipant property."@en ;
 	] .
-
-
-shapes:ContractRequestMessageShape
-	a sh:NodeShape ;
-	sh:targetClass ids:ContractRequestMessage ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:baseContractOffer ;
-		sh:class ids:ContractOffer ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRequestMessageShape): An ids:ContractRequestMessage must have exactly one ids:ContractOffer linked through the ids:baseContractOffer property"@en ;
-	] .
-
 
 shapes:ContractRejectionMessageShape
 	a sh:NodeShape ;
@@ -209,19 +180,32 @@ shapes:ContractRejectionMessageShape
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ;
 	] .
 
-
-shapes:ArtifactAvailableMessageShape
+shapes:ContractSupplementMessageShape
 	a sh:NodeShape ;
-	sh:targetClass ids:ArtifactAvailableMessage ;
+	sh:targetClass ids:ContractAgreementMessage ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:availableArtifact ;
-		sh:datatype ids:Artifact ;
+		sh:path ids:agreedContract ;
+		sh:class ids:ContractAgreement ;
+        sh:minCount 1;
+        sh:maxCount 1;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractSupplementMessage): An ids:agreedContract property must point from an ids:ContractSupplementMessage to a URI refrence of a ids:ContractAgreement."@en ;
+	] .
+    
+shapes:ResourceNotificationMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ResourceNotificationMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:affectedResource ;
+		sh:datatype ids:Resource ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactAvailableMessageShape): An ids:ArtifactAvailableMessage must have exactly one ids:Artifact linked through the ids:availableArtifact property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactAvailableMessageShape): A ids:ResourceNotificationMessage must have exactly one ids:Resource linked through the ids:affectedResource property"@en ;
 	] .
 
 
@@ -245,6 +229,7 @@ shapes:InvokeOperationMessageShape
 		sh:path ids:operationParameterization ;
 		sh:datatype ids:ParameterAssignment ;
 		sh:minCount 1 ;
+        sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have at least one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ;
 	] .
@@ -268,7 +253,7 @@ shapes:RequestInProcessMessageShape
 
 shapes:MessageProcessedNotificationShape
 	a sh:NodeShape ;
-	sh:targetClass ids:MessageProcessedNotification ;
+	sh:targetClass ids:MessageProcessedNotificationMessage ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -278,9 +263,8 @@ shapes:MessageProcessedNotificationShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (MessageProcessedNotificationShape): An ids:MessageProcessedNotification must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (MessageProcessedNotificationMessage): An ids:MessageProcessedNotificationMessage must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
-
 
 shapes:ArtifactRequestMessageShape
 	a sh:NodeShape ;
@@ -295,4 +279,21 @@ shapes:ArtifactRequestMessageShape
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one ids:Artifact linked through the ids:requestedArtifact property"@en ;
+	] .
+    
+    
+
+shapes:ParticipantRequestMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ParticipantRequestMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:requestedParticipant ;
+		sh:datatype xsd:anyURI ;
+        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ParticipantRequestMessageShape must have exactly one ids:Participant linked through the ids:requestedParticipant property"@en ;
 	] .
