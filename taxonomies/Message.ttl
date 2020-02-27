@@ -121,7 +121,7 @@ ids:ConnectorCertificateRevokedMessage a owl:Class;
 
 ids:affectedConnector a owl:ObjectProperty;
     idsm:referenceByUri true;
-    rdfs:label "affectedConnector"@en;
+    rdfs:label "affected Connector"@en;
     rdfs:domain ids:ConnectorNotificationMessage;
     rdfs:range ids:Connector;
     rdfs:comment "References the connector that is affected by the runtime condition change."@en.
@@ -171,7 +171,7 @@ ids:affectedParticipant a owl:ObjectProperty;
     rdfs:range ids:Participant;
     rdfs:comment "References the participant that is referenced in the participant-related notification messages."@en.
 
-ids:revokeReason
+ids:revocationReason 
     a owl:DatatypeProperty;
     rdfs:label "revoke reason"@en;
     rdfs:domain [ owl:unionOf (
@@ -180,7 +180,7 @@ ids:revokeReason
             )
         ];
     rdfs:range xsd:string;
-    rdfs:comment "Plain Text containing the reason for revoking an existing certificate of an infrastructure component, e.g. a connector or participant."@en.
+    rdfs:comment "Plain Text containing the reason for revoking an existing certificate of either a connector or participant."@en.
 
 # Query related Messages
 # -----------------------
