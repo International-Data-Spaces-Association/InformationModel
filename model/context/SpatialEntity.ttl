@@ -63,7 +63,7 @@ ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
         idsm:constraint idsm:NotEmpty;
     ].
 
-# Properties for describing spatial entitites
+# Properties for describing spatial entities
 # -------------------------------------------
 
 ids:latitude rdfs:subPropertyOf wgs84:lat;
@@ -85,55 +85,4 @@ ids:geoPoint a owl:ObjectProperty;
      rdfs:range ids:GeoPoint;
      rdfs:label "geoPoint"@en;
      rdfs:comment "Refers to a GeoPoint that is member of a BoundingPolygon."@en.
-     
 
-# Binary Operators comparing spatial entities
-# -------------------------------------------
-
-idsc:COVERED_BY
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehCoveredBy ;
-    rdfs:comment "Spatial operator 'covered by' as defined by the Egenhofer Topological Relations family: An object A is covered_by another object B if both objects share common bounding and interior faces; if A has interior faces which are bounding faces of B; and if none of B's interior faces are part of A's boundary. (https://doi.org/10.1007/3-540-51295-0_148 Definition 7)"@en ;
-    rdfs:label  "covered by"@en .
-
-idsc:COVERS
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehCovers ;
-    rdfs:comment "Spatial operator 'covers' as defined by the Egenhofer Topological Relations family: An object A covers another object B if both objects share common bounding and interior faces; if B has interior faces which are bounding faces of A; and if none of A's interior faces are part of B's boundary. (https://doi.org/10.1007/3-540-51295-0_148 Definition 6)"@en ;
-    rdfs:label  "covers"@en .
-
-idsc:INSIDE
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehInside ;
-    rdfs:comment "Spatial operator 'inside' as defined by the Egenhofer Topological Relations family: An object A is inside of another object B if (1) A and B share interior, but not bounding faces, (2) if A has bounding faces which are interior faces of B, and (3) none of B's bounding faces coincides with any of A's interior faces. (https://doi.org/10.1007/3-540-51295-0_148 Definition 4)"@en ;
-    rdfs:label  "inside"@en .
-
-idsc:CONTAINS 
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehContains ;
-    rdfs:comment "Spatial operator 'contains' as defined by the Egenhofer Topological Relations family: An object A contains another object B if A and B share interior but no bounding faces; if B has bounding faces which are interior faces of , and none of A's bounding faces coincides with any of B's interior faces. (https://doi.org/10.1007/3-540-51295-0_148 Definition 5)"@en ;
-    rdfs:label  "contains"@en .
-
-idsc:EQUALS
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehEquals ;
-    rdfs:comment "Spatial operator 'equals' as defined by the Egenhofer Topological Relations family: Two objects are equal if both intersections of bounding and interior faces are not empty while the two boundary-interior intersections are empty. (https://doi.org/10.1007/3-540-51295-0_148 Definition 3)"@en ;
-    rdfs:label  "equals"@en .
-
-idsc:OVERLAP 
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehOverlap ;
-    rdfs:comment "Spatial operator 'overlap' as defined by the Egenhofer Topological Relations family: Two objects overlap if they have common interior faces and the bounding faces have common parts with the opposite interior faces. (https://doi.org/10.1007/3-540-51295-0_148 Definition 8)"@en ;
-    rdfs:label  "overlap"@en .
-
-idsc:MEET
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehMeet ;
-    rdfs:comment "Spatial operator 'meet' as defined by the Egenhofer Topological Relations family: If the intersection among the bounding faces is not empty, whereas all other 3 intersections are empty, then the two objects meet. (https://doi.org/10.1007/3-540-51295-0_148 Definition 2)"@en ;
-    rdfs:label  "meet"@en .
-
-idsc:DISJOINT
-    a ids:BinaryOperator ;
-    rdfs:seeAlso geo:ehDisjoint ;
-    rdfs:comment "Spatial operator 'disjoint' as defined by the Egenhofer Topological Relations family: If all four intersections among all object parts are empty, then the two objects are disjoint. (https://doi.org/10.1007/3-540-51295-0_148 Definition 1)"@en ;
-    rdfs:label  "disjoint"@en .
