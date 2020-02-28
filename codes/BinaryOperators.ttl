@@ -21,6 +21,13 @@ idsc:EQUALS a ids:BinaryOperator;
     rdfs:label "equals"@en ;
     rdfs:comment "Logical equals operator (true = true)."@en ;
     .
+    
+idsc:SAME_AS a ids:BinaryOperator;
+    rdfs:seeAlso owl:sameAs ;
+    rdfs:label "is same as"@en ;
+    rdfs:comment "Logical equals operator comapring two RDF URIs. Is true if at least one owl:sameAs relation exists."@en ;
+    skos:note "A owl:sameAs A is always true."@en ;
+    .
 
 # Arithmetic operators
 idsc:GTEQ a ids:BinaryOperator;
@@ -177,7 +184,7 @@ idsc:OVERLAPPED_BY
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:intervalOverlappedBy;
 	rdfs:label "overlapped by"@en;
-	rdfs:comment "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
+	rdfs:comment "If a interval T1 is overlapped another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
     skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
     .
 
@@ -193,7 +200,7 @@ idsc:STARTED_BY
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:intervalStartedBy;
 	rdfs:label "started by"@en;
-	rdfs:comment "If a proper interval T1 is started by another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en 
+	rdfs:comment "If a TemporalEntity T1 is started by another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en 
     skos:note "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of ids:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."@en ;
     .
 
@@ -202,9 +209,39 @@ idsc:DURATION_EQ
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:hasTemporalDuration;
 	rdfs:label "has same duration"@en;
-	rdfs:comment "If the duration of a temporal entity T1 is equals to the duration of another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+	rdfs:comment "If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
     skos:note "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."@en ;
     .
+
+idsc:LONGER
+	a ids:BinaryOperator ;
+    rdfs:label "longer"@en ;
+	rdfs:comment "If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
+idsc:LONGER_EQ
+	a ids:BinaryOperator ;
+    rdfs:label "longer or equals"@en ;
+	rdfs:comment "If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
+idsc:SHORTER_EQ
+	a ids:BinaryOperator ;
+    rdfs:label "shorter or equals"@en ;
+	rdfs:comment "If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
+
+idsc:SHORTER
+	a ids:BinaryOperator ;
+    rdfs:label "shorter"@en ;
+	rdfs:comment "If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
 
 
 # Binary Operators comparing spatial entities
