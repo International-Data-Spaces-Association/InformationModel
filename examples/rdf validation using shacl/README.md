@@ -11,7 +11,7 @@ The __[cli](./cli/)__ subdirectory demonstrates the SHACL validation using CLI t
 The __[java](./java/)__ subdirectory contains a code example of a small SHACL validator implementation, based on Java and Apache Jena. The example program provides programmatic functionalities to do most of the steps described in [Validating RDF instances using SHACL](#validation) automatically.
 
 
-Below, the basic functionality of SHACL and how it's intended usage is described.
+Below, the basic functionality of SHACL as well as its intended usage is described.
 
 
 ********
@@ -20,7 +20,7 @@ Below, the basic functionality of SHACL and how it's intended usage is described
 The IDS Information Model is a domain-agnostic RDF/OWL ontology and an essential agreement shared by the participants and components of the International Data Space (IDS). Participants of the IDS use the RDF vocabulary provided by the Information Model as their common language within the IDS.
 To ensure the correct usage and understanding of the vocabulary, validation structures are provided in the Shapes Constraint Language (SHACL). These so-called SHACL shape graphs can be used to validate self-generated RDF statements against the Information Model and check if, e.g,:
 - a Connector's self-description is valid
-- a ids:Resource is described using the right IDS terms
+- an `ids:Resource` is described using the right IDS terms
 - a HTTP multipart message provides the necessary information
 
 The SHACL shapes can be found in the [testing](../testing) subdirectory of the IDS Information Model.
@@ -54,13 +54,13 @@ To fully validate a data graph against SHACL, one needs to get all relevant SHAC
 
 To validate, e.g., a Connector self-description, one creates the corresponding SHACL shapes for that RDF instance. In this example, one would have to retrieve the SHACL shapes for the ids:Connector class, it's superclasses as well as all classes which are in relation to the Connector class via RDF properties.
 
-To solve this issue, we _recommend_ to concatenate all SHACL shapes in the _testing_ subdirectory of the respository into a single shapes graph or file respectively.
+To solve this issue, we _recommend_ to concatenate all SHACL shapes in the _testing_ subdirectory of the respository into a single shapes graph or file, respectively.
 
 #### <a name="prepaire_2"></a>2. Preparing the RDF instance
-In addition to the preparations of the the SHACL shapes graph, the RDF instance may need some additional semantic informationen such as `rdfs:subClassOf` class inheritance informations. For example, the `Connector` class is a subclass of the `ManagedEntity` class. To enable SHACL to validate the properties, which the `Connector` RDF instance inherits from the superclass `ManagedEntity`, the correct axioms must be added to the data graph, this is due to the fact that SHACL shapes do not cover these kind of semantics.
+In addition to the preparation of the the SHACL shapes graph, the RDF instance may need some additional semantic informationen such as `rdfs:subClassOf` class inheritance informations. For example, the `Connector` class is a subclass of the `ManagedEntity` class. To enable SHACL to validate the properties, which the `Connector` RDF instance inherits from the superclass `ManagedEntity`, the correct axioms must be added to the data graph, this is due to the fact that SHACL shapes do not cover these kind of semantics.
 
 A simple solution is to append the whole IDS ontology to the RDF instance. This ensures that the data graph contains all necessary relational information.
 
 #### 3. Run validation
 
-After performing the, above mentioned, steps, the RDF instance can be validated against the SHACL shape using a SHACL processor.
+After performing the above-mentioned steps, the RDF instance can be validated against the SHACL shape using a SHACL processor.
