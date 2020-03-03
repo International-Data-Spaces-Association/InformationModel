@@ -69,12 +69,12 @@ ids:rejectionReason a owl:ObjectProperty;
 ids:DescriptionRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Description Request Message"@en ;
-    rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return it's self-description via a ids:DescriptionResponseMessage. If a URI is supplied, the metadata of the element which is referenced via the URI is returned using the DescriptionResponseMessage." @en.
+    rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g. because the element was not found." @en.
 
 ids:DescriptionResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage ;
     rdfs:label "Description Response Message"@en ;
-    rdfs:comment "Message containing the metadata, which a Connector previously requested via the DescriptionRequestMessage, in it's payload. "@en.
+    rdfs:comment "Message containing the metadata, which a Connector previously requested via the ids:DescriptionRequestMessage, in its payload."@en.
 
 ids:requestedElement a owl:DatatypeProperty;
     rdfs:label "requested Element"@en;
