@@ -6,7 +6,7 @@ The application expects following inputs as program arguments:
 - path to the root directory of the SHACL shapes folder
 - path to the file containing the JSON-LD RDF instance, which has to be validated
 
-The arguments may look like this:
+The arguments may look like this (please note that spaces in the paths might be a problem):
 ````
 "C:\Users\myAccount\Documents\Code\SHACL_Test\resources\ontology.ttl"
 "C:\Users\myAccount\Documents\Code\SHACL_Test\resources\shapes"
