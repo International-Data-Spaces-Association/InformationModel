@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix greg: <http://www.w3.org/ns/time/gregorian#> .
 
 # Classes
 # -------
@@ -21,18 +22,506 @@ ids:Instant
     rdfs:label "Instant"@en ;
     rdfs:comment "A temporal entity with zero extent or duration."@en.
 
+ids:ProperInterval
+    a owl:Class;
+    rdfs:subClassOf time:ProperInterval, ids:Interval; #time:Interval may have zero extent. time:ProperInterval may not.
+    rdfs:label "Proper Interval"@en ;
+    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en;
+    .
+
 ids:Interval
     a owl:Class;
-    rdfs:subClassOf time:Interval, ids:TemporalEntity;
+    rdfs:subClassOf time:Interval, ids:TemporalEntity; #time:Interval may have zero extent. time:ProperInterval may not.
     rdfs:label "Interval"@en ;
-    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en;
+    rdfs:comment "A temporal entity with extent or duration."@en;
     idsm:validation [
         idsm:forProperty ids:begin;
         idsm:constraint idsm:NotNull;
     ].
 
+ids:DayOfWeek
+	a owl:Class;
+	rdfs:subClassOf time:DayOfWeek;
+	rdfs:label "Day of week"@en;
+	rdfs:comment "Day of the week, e.g. Monday, Tuesday, ..."@en .
+
+ids:Monday a ids:DayOfWeek;
+	rdfs:label "Monday"@en.
+
+ids:Tuesday a ids:DayOfWeek;
+	rdfs:label "Tuesday"@en.
+
+ids:Wednesday a ids:DayOfWeek;
+	rdfs:label "Wednesday"@en.
+	
+ids:Thursday a ids:DayOfWeek;
+	rdfs:label "Thursday"@en.
+
+ids:Friday a ids:DayOfWeek;
+	rdfs:label "Friday"@en.
+
+ids:Saturday a ids:DayOfWeek;
+	rdfs:label "Saturday"@en.
+
+ids:Sunday a ids:DayOfWeek;
+	rdfs:label "Sunday"@en.
+	
+ids:MonthOfYear
+	a owl:Class;
+	rdfs:subClassOf time:MonthOfYear, ids:DateTimeDescription;
+	rdfs:label "Month of year"@en;
+	rdfs:comment "The month of the year, e.g. January."@en.
+
+ids:January a ids:MonthOfYear;
+	rdfs:label "January"@en.
+
+ids:February a ids:MonthOfYear;
+	rdfs:label "February"@en.
+
+ids:March a ids:MonthOfYear;
+	rdfs:label "March"@en.
+
+ids:April a ids:MonthOfYear;
+	rdfs:label "April"@en.
+
+ids:May a ids:MonthOfYear;
+	rdfs:label "May"@en.
+
+ids:June a ids:MonthOfYear;
+	rdfs:label "June"@en.
+
+ids:July a ids:MonthOfYear;
+	rdfs:label "July"@en.
+
+ids:August a ids:MonthOfYear;
+	rdfs:label "August"@en.
+
+ids:September a ids:MonthOfYear;
+	rdfs:label "September"@en.
+
+ids:October a ids:MonthOfYear;
+	rdfs:label "October"@en.
+
+ids:November a ids:MonthOfYear;
+	rdfs:label "November"@en.
+
+ids:December a ids:MonthOfYear;
+	rdfs:label "December"@en.
+
+ids:Duration
+	a owl:Class;
+	rdfs:subClassOf time:Duration;
+	rdfs:label "Duration"@en;
+	rdfs:comment "Duration of a temporal extent expressed as a decimal number scaled by a temporal unit"@en;
+	idsm:validation [ #Must have exactly one numeric duration and exactly one unit type
+        idsm:forProperty ids:numericDuration;
+        idsm:constraint idsm:NotNull;
+    ],
+	[
+        idsm:forProperty ids:unitType;
+        idsm:constraint idsm:NotNull;
+    ].
+
+
+ids:TemporalDuration
+	a owl:Class;
+	rdfs:subClassOf time:TemporalDuration;
+	rdfs:label "Temporal duration"@en;
+	rdfs:comment "Temporal duration"@en.
+	#abstract?
+	
+ids:DateTimeDescription
+	a owl:Class;
+	rdfs:subClassOf time:DateTimeDescription, ids:GeneralDateTimeDescription;
+	rdfs:label "DateTime description"@en;
+	rdfs:comment "DateTime description"@en.
+	#abstract?
+
+#Restriction of range of properties to gYear etc. not possible with idsm:validation?!
+ids:GeneralDateTimeDescription
+	a owl:Class;
+	rdfs:subClassOf time:GeneralDateTimeDescription, ids:TemporalPosition;
+	rdfs:comment "A position on a time-line"@en;
+	rdfs:label "General DateTime Description"@en.
+
+#If we include a temporal reference system (TRS), then we need to add a NotNull validation here
+ids:TemporalPosition
+	a owl:Class;
+	rdfs:subClassOf time:TemporalPosition;
+	rdfs:label "Temporal Position"@en;
+	rdfs:comment "Temporal Position"@en.
+
+ids:TimePosition
+	a owl:Class;
+	rdfs:subClassOf ids:TemporalPosition, time:TimePosition;
+	rdfs:label "Time Position"@en;
+	rdfs:comment "A temporal position described using either a (nominal) value from an ordinal reference system, or a (numeric) value in a temporal coordinate system."@en.
+
+
+
+ids:TemporalUnit
+	a owl:Class;
+	rdfs:subClassOf time:TemporalUnit, ids:TemporalDuration;
+	rdfs:label "Temporal unit"@en;
+	rdfs:comment "A standard duration, which provides the scale factor for a time extent, or the granularity or precision for a time position.".
+
+ids:unitYear a ids:TemporalUnit;
+	ids:days "0"^^xsd:decimal ;
+	ids:hours "0"^^xsd:decimal ;
+	ids:minutes "0"^^xsd:decimal ;
+	ids:months "0"^^xsd:decimal ;
+	ids:seconds "0"^^xsd:decimal ;
+	ids:weeks "0"^^xsd:decimal ;
+	ids:years "1"^^xsd:decimal ;
+	rdfs:label "Year"@en.
+
+ids:unitMonth a ids:TemporalUnit;
+	ids:days "0"^^xsd:decimal ;
+	ids:hours "0"^^xsd:decimal ;
+	ids:minutes "0"^^xsd:decimal ;
+	ids:months "1"^^xsd:decimal ;
+	ids:seconds "0"^^xsd:decimal ;
+	ids:weeks "0"^^xsd:decimal ;
+	ids:years "0"^^xsd:decimal ;
+	rdfs:label "Month"@en.
+
+ids:unitWeek a ids:TemporalUnit;
+	ids:days "0"^^xsd:decimal ;
+	ids:hours "0"^^xsd:decimal ;
+	ids:minutes "0"^^xsd:decimal ;
+	ids:months "0"^^xsd:decimal ;
+	ids:seconds "0"^^xsd:decimal ;
+	ids:weeks "1"^^xsd:decimal ;
+	ids:years "0"^^xsd:decimal ;
+	rdfs:label "Week"@en.
+
+ids:unitDay a ids:TemporalUnit;
+	ids:days "1"^^xsd:decimal ;
+	ids:hours "0"^^xsd:decimal ;
+	ids:minutes "0"^^xsd:decimal ;
+	ids:months "0"^^xsd:decimal ;
+	ids:seconds "0"^^xsd:decimal ;
+	ids:weeks "0"^^xsd:decimal ;
+	ids:years "0"^^xsd:decimal ;
+	rdfs:label "Day"@en.
+
+ids:unitHour a ids:TemporalUnit;
+	ids:days "0"^^xsd:decimal ;
+	ids:hours "1"^^xsd:decimal ;
+	ids:minutes "0"^^xsd:decimal ;
+	ids:months "0"^^xsd:decimal ;
+	ids:seconds "0"^^xsd:decimal ;
+	ids:weeks "0"^^xsd:decimal ;
+	ids:years "0"^^xsd:decimal ;
+	rdfs:label "Hour"@en.
+
+ids:unitMinute a ids:TemporalUnit;
+	ids:days "0"^^xsd:decimal ;
+	ids:hours "0"^^xsd:decimal ;
+	ids:minutes "1"^^xsd:decimal ;
+	ids:months "0"^^xsd:decimal ;
+	ids:seconds "0"^^xsd:decimal ;
+	ids:weeks "0"^^xsd:decimal ;
+	ids:years "0"^^xsd:decimal ;
+	rdfs:label "Minute"@en.
+
+ids:unitSecond a ids:TemporalUnit;
+	ids:days "0"^^xsd:decimal ;
+	ids:hours "0"^^xsd:decimal ;
+	ids:minutes "0"^^xsd:decimal ;
+	ids:months "0"^^xsd:decimal ;
+	ids:seconds "1"^^xsd:decimal ;
+	ids:weeks "0"^^xsd:decimal ;
+	ids:years "0"^^xsd:decimal ;
+	rdfs:label "Second"@en.
+
+ids:GeneralDurationDescription
+	a owl:Class;
+	rdfs:subClassOf time:GeneralDurationDescription;
+	rdfs:label "General Duration Description"@en;
+	rdfs:comment "General Duration Description"@en.
+	#abstract?
+
+ids:DurationDescription
+	a owl:Class;
+	rdfs:subClassOf time:DurationDescription, ids:GeneralDurationDescription;
+	rdfs:label "Duration Description"@en;
+	rdfs:comment "Duration Description"@en.
+
+#Skipped classes:
+#DateTimeInterval: Provides Intervals for entire days, i.e. midnight -> midnight. Cannot express 24 hour intervals for other times of the day
+#TimeZone: They only provide a stub class with no real content
+#TRS (Temporal Reference System): Class has no real content
+
+
+
 # Properties for describing temporal entities
 # -------------------------------------------
+
+
+ids:after
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:after;
+	rdfs:domain ids:TemporalEntity;
+	rdfs:range ids:TemporalEntity;
+	rdfs:label "after"@en;
+	rdfs:comment "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en.
+
+ids:before
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:before;
+	rdfs:domain ids:TemporalEntity;
+	rdfs:range ids:TemporalEntity;
+	rdfs:label "before"@en;
+	rdfs:comment "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals."@en.
+
+#skipping, as this property has no domain -> codegen will have trouble
+#ids:hasDuration
+#	a owl:ObjectProperty;
+#	rdfs:subPropertyOf time:hasDuration, ids:hasTemporalDuration;
+#	rdfs:domain 
+
+ids:hasTemporalDuration
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:hasTemporalDuration;
+	rdfs:domain ids:TemporalEntity;
+	rdfs:range ids:TemporalDuration;
+	rdfs:label "has temporal duration"@en;
+	rdfs:comment "Duration of a temporal entity"@en.
+
+ids:inside
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:inside;
+	rdfs:domain ids:Interval;
+	rdfs:range ids:Instant;
+	rdfs:label "inside"@en;
+	rdfs:comment "An instant that falls inside the interval. It is not intended to include beginnings and ends of intervals."@en.
+
+
+ids:intervalAfter
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalAfter, ids:after;
+	owl:inverseOf ids:intervalBefore;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval after"@en;
+	rdfs:comment "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en.
+	
+ids:intervalBefore
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalBefore, ids:before, ids:intervalDisjoint;
+	owl:inverseOf ids:intervalAfter;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval before"@en;
+	rdfs:comment "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en.
+	
+ids:intervalContains
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalContains;
+	owl:inverseOf ids:intervalDuring;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval contains"@en;
+	rdfs:comment "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en.
+
+ids:intervalDisjoint
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalDisjoint;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval disjoint"@en;
+	rdfs:comment "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en.
+
+ids:intervalDuring
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalDuring;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval during"@en;
+	owl:inverseOf ids:intervalContains;
+	rdfs:comment "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en.
+
+
+ids:intervalEquals
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalEquals;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval equals"@en;
+	rdfs:comment "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en.
+
+ids:intervalFinishedBy
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalFinishedBy;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval finished by"@en;
+	owl:inverseOf ids:intervalFinishes;
+	rdfs:comment "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en.
+
+ids:intervalFinishes
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalFinishes, ids:intervalIn;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval finishes"@en;
+	owl:inverseOf ids:intervalFinishedBy;
+	rdfs:comment "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en.
+
+ids:intervalIn
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalIn;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval in"@en;
+	rdfs:comment "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2 or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en.
+
+
+
+ids:intervalMeets
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalMeets;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval meets"@en;
+	owl:inverseOf ids:intervalMetBy;
+	rdfs:comment "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en.
+
+ids:intervalMetBy
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalMetBy;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval met by"@en;
+	owl:inverseOf ids:intervalMeets;
+	rdfs:comment "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en.
+
+ids:intervalOverlaps
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalOverlaps;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval overlaps"@en;
+	owl:inverseOf ids:intervalOverlappedBy;
+	rdfs:comment "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en.
+
+ids:IntervalOverlappedBy
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalOverlappedBy;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval overlapped by"@en;
+	owl:inverseOf ids:intervalOverlaps;
+	rdfs:comment "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en.
+
+ids:intervalStarts
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalStarts;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval starts"@en;
+	owl:inverseOf ids:intervalStartedBy;
+	rdfs:comment "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en.
+
+ids:intervalStartedBy
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:intervalStartedBy;
+	rdfs:domain ids:ProperInterval;
+	rdfs:range ids:ProperInterval;
+	rdfs:label "interval started by"@en;
+	owl:inverseOf ids:intervalStarts;
+	rdfs:comment "If a proper interval T1 is intervalStartedBy another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en.
+
+
+ids:inTimePosition
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:inTimePosition, ids:inTemporalPosition;
+	rdfs:domain ids:Instant;
+	rdfs:range ids:TimePosition;
+	rdfs:label "in time position"@en;
+	rdfs:comment "Position of an instant, expressed as a temporal coordinate or nominal value"@en.
+
+ids:inTemporalPosition
+	a owl:ObjectProperty;
+	rdfs:subPropertyOf time:inTemporalPosition;
+	rdfs:domain ids:Instant;
+	rdfs:range ids:TemporalPosition;
+	rdfs:label "in temporal position"@en;
+	rdfs:comment "Position of a time instant"@en.
+
+
+#skip? TODO
+#"day" is a pointer to a certain day in a calendar system. "days" is a duration. Same for hour/hours etc.
+#ids:year
+#ids:month
+#ids:day
+#ids:hour
+#ids:minute
+#ids:second
+#ids:dayOfWeek
+#ids:dayOfYear
+#ids:hasDateTimeDescription
+#ids:hasDurationDescription
+
+
+ids:years 
+	a owl:DatatypeProperty;
+	rdfs:comment "length of, or element of the length of, a temporal extent expressed in years"@en ;
+	rdfs:domain ids:GeneralDurationDescription ;
+	rdfs:label "years duration"@en ;
+	rdfs:range xsd:decimal .
+ids:months
+	a owl:DatatypeProperty;
+	rdfs:comment "length of, or element of the length of, a temporal extent expressed in months"@en ;
+	rdfs:domain ids:GeneralDurationDescription ;
+	rdfs:label "months duration"@en ;
+	rdfs:range xsd:decimal .
+ids:weeks
+	a owl:DatatypeProperty;
+	rdfs:comment "length of, or element of the length of, a temporal extent expressed in weeks"@en ;
+	rdfs:domain ids:GeneralDurationDescription ;
+	rdfs:label "weeks duration"@en ;
+	rdfs:range xsd:decimal .
+ids:days
+	a owl:DatatypeProperty;
+	rdfs:comment "length of, or element of the length of, a temporal extent expressed in days"@en ;
+	rdfs:domain ids:GeneralDurationDescription ;
+	rdfs:label "days duration"@en ;
+	rdfs:range xsd:decimal .
+ids:hours
+	a owl:DatatypeProperty;
+	rdfs:comment "length of, or element of the length of, a temporal extent expressed in hours"@en ;
+	rdfs:domain ids:GeneralDurationDescription ;
+	rdfs:label "hours duration"@en ;
+	rdfs:range xsd:decimal .
+ids:minutes
+	a owl:DatatypeProperty;
+	rdfs:comment "length of, or element of the length of, a temporal extent expressed in minutes"@en ;
+	rdfs:domain ids:GeneralDurationDescription ;
+	rdfs:label "minutes duration"@en ;
+	rdfs:range xsd:decimal .
+ids:seconds
+	a owl:DatatypeProperty;
+	rdfs:comment "length of, or element of the length of, a temporal extent expressed in seconds"@en ;
+	rdfs:domain ids:GeneralDurationDescription ;
+	rdfs:label "seconds duration"@en ;
+	rdfs:range xsd:decimal .
+
+ids:numericDuration a owl:DatatypeProperty;
+	rdfs:subPropertyOf time:numericDuration;
+	rdfs:domain ids:Duration;
+	rdfs:range xsd:decimal;
+	rdfs:label "numeric duration"@en;
+	rdfs:comment "Value of a temporal extent expressed as a number scaled by a temporal unit"@en.
+	
+ids:unitType a owl:ObjectProperty;
+	rdfs:subPropertyOf time:unitType;
+	rdfs:domain ids:Duration;
+	rdfs:range ids:TemporalUnit;
+	rdfs:label "unit type"@en;
+	rdfs:comment "The temporal unit which provides the precision of a date-time value or scale of a temporal extent"@en.
+	
 
 ids:date
     a owl:DatatypeProperty;
@@ -72,6 +561,9 @@ ids:end
     rdfs:label "end"@en;
     rdfs:comment "End of an Interval."@en.
 
+
+
+###Old ToDo's below this line
 # TODO: review:
 
 #ids:NamedInstant rdfs:subClassOf ids:Instant;
