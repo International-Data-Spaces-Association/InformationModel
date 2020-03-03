@@ -26,3 +26,32 @@ SEVERE: [Node=<https://w3id.org/idsa/autogen/artifactRequestMessage/a5afaed2-a69
   <https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:dateTime linked through the ids:issued property, Node=<https://w3id.org/idsa/autogen/artifactRequestMessage/a5afaed2-a69b-41ed-bb6f-363b8f63478f>
   Path=<https://w3id.org/idsa/core/issuerConnector>
 ````
+
+### Dependencies
+
+Following Maven dependencies are required to get the code running:
+
+```
+<dependency>
+    <groupId>org.topbraid</groupId>
+    <artifactId>shacl</artifactId>
+    <version>1.3.1</version>
+</dependency>
+```
+
+```
+<dependency>
+    <groupId>org.apache.jena</groupId>
+    <artifactId>apache-jena-libs</artifactId>
+    <version>3.14.0</version>
+    <type>pom</type>
+</dependency>
+```
+
+```
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-jdk14</artifactId>
+    <version>1.7.25</version>
+</dependency>
+```
