@@ -27,7 +27,7 @@ Version 3.0.0 of the IDS Information model
 
 * Redesign of the DynamicAttributeToken (DAT) based on the new Dynamic Attribute Provisioning Service version. Check the corresponding [Token](model/security/Token.ttl) class as well as the [DAT payload example](examples/DATPayload.jsonlod) for more information.
 
-* `ids:RequestMessage`, `ids:ResponseMessage`, `ids:NotificationMessage` not _abtract_ anymore. These messages can now be used directly for non-core IDS communication.
+* `ids:RequestMessage`, `ids:ResponseMessage`, `ids:NotificationMessage` not _abstract_ anymore. These messages can now be used directly for non-core IDS communication.
 
 * `ids:DescriptionRequestMessage`(previously called `ids:SelfDescriptionRequest`) now accepts an optional URI. Can be used to either retrieve a component's self-description (by providing it's URI or nothing) or retrieve metadata about a specific element by providing the element's URI.
 
