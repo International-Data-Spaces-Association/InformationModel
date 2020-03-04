@@ -11,65 +11,103 @@
 # Instances
 # ---------
 
+idsc:ANONYMIZE 
+    a ids:Action ;
+    rdfs:comment "To anonymize all, parts or certain attributes of the resource."@en ; 
+    rdfs:label "anonymize"@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/term-anonymize> ;
+    skos:note "This action is always evaluated at the provider side."@en ;
+	.
+
 idsc:ATTRIBUTE
     a ids:Action;
     rdfs:label "attribute"@en;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-attribute> ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/term-attribute> ;
     .
 
 idsc:COMPENSATE
     a ids:Action;
     rdfs:label "compensate"@en ;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-compensate> ;
+    rdfs:comment "To pay a certain amount of money in order to use a resource."@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/term-compensate> ;
+    skos:note "This action must be evaluated both at the consumer and provider side. A compensation might be required before access is granted (provider-side), or each time the usage action is performed (consumer-side)."@en ;
     .
 
 idsc:DELETE
     a ids:Action;
     rdfs:label "delete"@en ;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-delete> ;
+    rdfs:comment "To remove a resource or inhibit any further access with reasonable measures."@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/term-delete> ;
+    skos:note "This action is evaluated at the consumer side if used in a duty clause. A provider cannot be forced to delete its data resources. If used in a permission clause, it is effecting the data provider as it allows the consumer to delete the provider's resource remotely."@en ;
     .
 
 idsc:DISTRIBUTE
     a ids:Action;
     rdfs:label "distribute"@en;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-distribute> ;
+    rdfs:comment "To forward or supply a resource to a third-party."@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/term-distribute> ;
+    skos:note "This action is always evaluated at the consumer side and allows it to become a data provider of this resource."@en ;
     .
 
 idsc:GRANT_USE
     a ids:Action;
     rdfs:label "grant use"@en;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-grantUse> ;
+    rdfs:comment "To grant use of a resource to another party. Does *not* imply any other usage rights."@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/term-grantUse> ;
+    skos:note "This action is always evaluated at the consumer side, at the moment a third party intends to access the resource as received by the original consumer."@en ;
     .
 
-idsc:USE
-    a ids:Action;
-    rdfs:label "use"@en;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-use> ;
-    .
-	
-idsc:ANONYMIZE 
+idsc:MODIFY
     a ids:Action ;
-    rdfs:comment "To anonymize all or parts of the Asset."@en ; 
-    rdfs:label "anonymize"@en ;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-anonymize> ;
-	.
+    rdfs:comment "To change a resource locally."@en ;
+    rdfs:label "modify"@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/modify>;
+    skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;	
+    .
 
-idsc:NOTIFY a ids:Action ;
+idsc:NEXT_POLICY
+    a ids:Action ;
+    rdfs:comment "To forward the resource under the same policy. Implies a permission to distribute."@en ; 
+    rdfs:label "next policy"@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/nextPolicy> ;
+    skos:note "This action is always evaluated at the consumer side."@en ;
+    .
+
+idsc:NOTIFY
+    a ids:Action ;
     rdfs:comment "To log information or notify an instance about incidents. Can be used to define Clearing House interactions."@en ; 
     rdfs:label "log"@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/inform> ;
+    skos:note "This action can target the consumer and the data provider of the resource."@en ;
+    .
+
+idsc:READ
+    a ids:Action ;
+    rdfs:comment "To obtain data from the resource."@en ;
+    rdfs:label "read"@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/read>;
+    skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;	
     .
 	
 idsc:TRACKPROVENANCE
     a ids:Action ;
-    odrl:implies ids:acceptTracking;
+    #odrl:implies ids:acceptTracking;
     rdfs:comment "To accept that the use of the Asset may be tracked."@en ; 
     rdfs:label "track provenance"@en ;
+    skos:note "This action is always evaluated at the consumer side."@en ;
 	.
 
-idsc:READ
+idsc:USE
+    a ids:Action;
+    rdfs:label "use"@en;
+    rdfs:comment "To use a resource in any possible way. Includes all other actions."@en ;
+    rdfs:seeAlso <http://www.w3.org/ns/odrl/2/term-use> ;
+    skos:note "This action is always evaluated at the consumer side."@en ;
+    .
+
+idsc:WRITE
     a ids:Action ;
-    rdfs:comment "To obtain data from the Asset."@en ;
-    rdfs:label "read"@en ;
-    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-read>;
-    skos:note "This action is always operated on provider side."@en ;	
+    rdfs:comment "To change a remote resource."@en ;
+    rdfs:label "write"@en ;
+    skos:note "This action is always evaluated at the provider side. It corresponds to 'allow changes of a resource' but *not* including its deletion."@en ;	
     .
