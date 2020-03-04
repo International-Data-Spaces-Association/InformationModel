@@ -36,7 +36,7 @@ idsc:GTEQ a ids:BinaryOperator;
     rdfs:label "greater than or equals"@en ;
     rdfs:comment "Greater-than-or-equals operator. Can be used for numeric (5 idsc:GTEQ 2) comparisons."@en .
     
-idsc:GT a ids:BinaryOperator;
+idsc:GREATERTHAN a ids:BinaryOperator;
     rdfs:seeAlso odrl:gt;
     rdfs:label "greater than"@en ;
     rdfs:comment "Greater-than operator. Can be used for numeric (5 idsc:GT 2) comparisons."@en ;
@@ -54,10 +54,11 @@ idsc:LTEQ a ids:BinaryOperator;
     rdfs:comment "Less-than-or-equals operator. Can be used for numeric (2 idsc:LTEQ 5) comparisons."@en ;
     .
     
-idsc:LT a ids:BinaryOperator;
+idsc:LESSTHAN a ids:BinaryOperator;
     rdfs:seeAlso odrl:lt;
     rdfs:label "less than"@en ;
     rdfs:comment "Less-than operator. Can be used for numeric (2 idsc:LT 5) comparisons."@en ;
+    skos:note "Do not confuse with idsc:LT (which is a language)."@en ;
     .
     
 # Set operator
