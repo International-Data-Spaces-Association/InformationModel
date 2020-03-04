@@ -59,6 +59,12 @@ idsc:NOTIFY a ids:Action ;
     rdfs:label "log"@en ;
     .
 	
+idsc_action:LOG  
+    a ids:Action ;
+    rdfs:comment "To log information. it needs a log server a recipient."@en ; 
+    rdfs:label "log"@en ;
+    .
+	
 idsc:TRACKPROVENANCE
     a ids:Action ;
     odrl:implies ids:acceptTracking;
@@ -73,3 +79,4 @@ idsc:READ
     rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-read>;
     skos:note "This action is always operated on provider side."@en ;	
     .
+

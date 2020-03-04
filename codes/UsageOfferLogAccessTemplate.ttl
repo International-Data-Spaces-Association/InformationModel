@@ -1,0 +1,64 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin:    <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Instances 
+# ---------
+
+idsc_pt:UsageOfferLogAccessTemplate a ids:PolicyTemplate ;
+    rdfs:label "Offer for Usage Until Deletion Template" ;
+    rdfs:comment "A template for policy offers which allow usage until a certain deletion date."@en ;
+	spin:labelTemplate """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+		consumer but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
+    skos:note """{ 
+		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@type": "ContractOffer", 
+		"@id": "{?contractID}", 
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageOfferLogAccessTemplate" ,
+		"targetContent": "{?content}",
+		"provider": "{?ProviderParticipantURI}",
+		"permission": {
+			"action": "{?action}"
+			} ,
+		"obligation": {
+			"action": "https://w3id.org/idsa/code/action/LOG",
+			"constraint" : {
+			"leftOperand" : "systemDevice",
+			"operator" : "eq",
+			"rightOperand" : "{?LoggingEndpoint}"
+			}
+		} }"""^^xsd:string ;
+	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferLogAccessTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} 
+				] ;
+			ids:obligation [
+				ids:action idsc_action:LOG ;
+				ids:constraint [
+					ids:leftOperand ids:systemDevice ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?LoggingEndpoint}
+				] ]
+		."""^^xsd:string 
+	.
+
+
+
