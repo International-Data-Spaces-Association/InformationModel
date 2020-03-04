@@ -10,6 +10,7 @@
 # -------
 
 ids:Message a owl:Class;
+    idsm:abstract true;
     rdfs:label "Message"@en ;
     rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
     idsm:validation [
@@ -30,7 +31,7 @@ ids:Message a owl:Class;
     ];
     idsm:validation [
         idsm:forProperty ids:securityToken;
-        idsm:relationType idsm:NotNull;
+        idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
         idsm:forProperty ids:recipientAgent;
