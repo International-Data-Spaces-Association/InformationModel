@@ -16,8 +16,8 @@ idsc_pt:UsageRequestForPurposeTemplate a ids:PolicyTemplate ;
     rdfs:label "Request for a Specific Purpose Template" ;
     rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
   	spin:labelTemplate """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<RepresentationURI>|<ArtifactURI>]} given that the {?ConsumerParticipantURI} has the {?RoleURI}, 
-		uses it with systems which can be used for {?PurposeURI}."""@en ;
+		its {?content element of [<RepresentationURI>|<ArtifactURI>]} only if the (potentially still unknown) 
+		consumer uses it with systems which can be used for {?PurposeURI}."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractRequest", 

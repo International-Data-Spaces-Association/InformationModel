@@ -16,14 +16,14 @@ idsc_pt:UsageAgreementForPurposeTemplate a ids:PolicyTemplate ;
     rdfs:label "Agreement for a Specific Purpose Template" ;
      rdfs:comment "A template for policy agreements which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
   	spin:labelTemplate """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?ArtifactURI} given that the {?ConsumerParticipantURI} uses it with systems which can be used 
+		its {?content element of [<Artifact URI>]}  given that the {?ConsumerParticipantURI} uses it with systems which can be used 
 		for {?PurposeURI}."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractAgreement", 
 		"@id": "{?contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageAgreementForPurposeTemplate" ,
-		"targetArtifact": "{?ArtifactURI}",
+		"targetArtifact": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"consumer": "{?ConsumerParticipantURI}", 
 		"permission": {
@@ -34,6 +34,7 @@ idsc_pt:UsageAgreementForPurposeTemplate a ids:PolicyTemplate ;
 					 "rightOperandReference" : "{?PurposeURI}"
 			 } [,]]+
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -42,7 +43,7 @@ idsc_pt:UsageAgreementForPurposeTemplate a ids:PolicyTemplate ;
 
 		{?contractID} a ids:ContractAgreement ;
 			ids:refersTo idsc_pt:UsageAgreementForPurposeTemplate ;
-			ids:target {?ArtifactURI} ;
+			ids:targetArtifact {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
