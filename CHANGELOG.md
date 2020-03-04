@@ -15,12 +15,14 @@ Version 3.0.0 of the IDS Information model
 * [RDF validation with SHACL](examples/rdf%20validation%20using%20shacl) documentaion with examples using CLI tools and the Apache Jena Framework for Java.
 
 * Example [Perl script](utils/rdf_void_annotation.pl) to the to demonstrate how RDF datasets can be semantically annotated using the VoID ontology.
-(examples)
 
+* Class `ids:DurationEntity` and property `ids:duration`: A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval.
+
+* Templates for Usage Control using the [SPARQL Inferencing Notation (SPIN)](https://www.w3.org/Submission/spin-overview/)
 
 ### Changed
 
-* SHACL shapes of properties, which expect URIs, now check for the correct datatype (xsd:anyURI) and apply regular expression to validate the URI syntax. This applies to properties, which are annotated with the `idsm:referenceByUri true;`. 
+* SHACL shapes of properties, which expect URIs, now check for the correct datatype (xsd:anyURI) and apply regular expression to validate the URI syntax. This applies to properties, which are annotated with the `idsm:referenceByUri true;`.
 
 * Redesign of the DynamicAttributeToken (DAT) based on the new Dynamic Attribute Provisioning Service version. Check the corresponding [Token class](model/security/Token.ttl) as well as the [DAT payload example](examples/DATPayload.jsonlod).
 
@@ -28,7 +30,11 @@ Version 3.0.0 of the IDS Information model
 * Renamed existing `ids:Messages`  
 
 
-### Fixed
+### Deprecated
+
+* ids:Instant (subClass of ids:TemporalEntity): Use either a Literal with xsd:dateTimeStamp or, in case the absolute point in time is not known, model it through an ids:Event
+
+
 
 ###### Messages
 * ids:Message now correctly labelled as _abstract_ since it is not intended to be used directly.
