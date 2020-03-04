@@ -37,10 +37,6 @@ Version 3.0.0 of the IDS Information model
 
 * ids:Message now correctly labelled as _abstract_ since it is not intended to be used directly.
 
-### Deprecated
-
-* ids:Instant (subClass of ids:TemporalEntity): Use either a Literal with xsd:dateTimeStamp or, in case the absolute point in time is not known, model it through an ids:Event
-
 
 ## [2.1.0] 2019-12-02
 Version 2.1.0 of the IDS Information model
