@@ -44,19 +44,6 @@ ids:DurationEntity
         idsm:constraint idsm:NotNull;
     ].
 
-
-ids:date
-    a owl:DatatypeProperty;
-    rdfs:subPropertyOf time:inXSDDate;
-    rdfs:domain ids:Instant;
-    rdfs:range xsd:date;
-    rdfs:label "date"@en;
-    idsm:depricated true ;
-    rdfs:comment "Date coordinate of the instant. Use ids:dateTime instead."@en;
-    idsm:example "2018-12-31";
-    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#date> ;
-    .
-
 ids:dateTime
     a owl:DatatypeProperty;
     rdfs:subPropertyOf time:inXSDDateTimeStamp;#  time-zone is mandatory
