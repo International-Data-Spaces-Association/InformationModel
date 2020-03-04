@@ -321,7 +321,9 @@ idsc:HAS_SITE a ids:BinaryOperator;
     .
 
 # Assignement
-idsc:IS a ids:BinaryOperator ;
-    rdfs:label "is"@en ;
+idsc:DEFINES_AS a ids:BinaryOperator ;
+    rdfs:label "defines as"@en ;
     rdfs:comment "Allows assignments similar to 'var x := {RightOperand}'."@en ;
+    skos:note "Different to the other ids:BinaryOperator, idsc:DEFINES_AS does *not* compare a feature but tells the interpreter where to *find* one. Therefore, the constraint is not evaluated in the same way as with other operators."@en ;
     .
+ 

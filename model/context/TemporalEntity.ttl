@@ -22,9 +22,7 @@ ids:Instant
     a owl:Class;
     rdfs:subClassOf time:Instant, ids:TemporalEntity ;
     rdfs:label "Instant"@en ;
-    idsm:depricated true ;
-    skos:note "Use either a Literal with xsd:dateTimeStamp or, in case the absolute point in time is not known, model it through an ids:Event."@en ;
-    rdfs:comment "A temporal entity with zero extent or duration."@en.
+    rdfs:comment "A defined point in time with zero duration."@en.
 
 ids:Interval
     a owl:Class;
@@ -39,25 +37,12 @@ ids:Interval
 ids:DurationEntity
     a owl:Class;
     rdfs:subClassOf  ids:TemporalEntity; #time:Interval may have zero extent. time:ProperInterval may not.
-    rdfs:label "Interval"@en ;
+    rdfs:label "Duration"@en ;
     rdfs:comment "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en;
     idsm:validation [
         idsm:forProperty ids:hasDuration ;
         idsm:constraint idsm:NotNull;
     ].
-
-
-ids:date
-    a owl:DatatypeProperty;
-    rdfs:subPropertyOf time:inXSDDate;
-    rdfs:domain ids:Instant;
-    rdfs:range xsd:date;
-    rdfs:label "date"@en;
-    idsm:depricated true ;
-    rdfs:comment "Date coordinate of the instant. Use ids:dateTime instead."@en;
-    idsm:example "2018-12-31";
-    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#date> ;
-    .
 
 ids:dateTime
     a owl:DatatypeProperty;
