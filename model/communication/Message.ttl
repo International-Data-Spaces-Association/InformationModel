@@ -34,6 +34,10 @@ ids:Message a owl:Class;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
+        idsm:forProperty ids:senderAgent;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
         idsm:forProperty ids:recipientAgent;
         idsm:relationType idsm:OneToMany;
     ].
