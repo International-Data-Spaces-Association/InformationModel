@@ -14,29 +14,26 @@ Version 3.0.0 of the IDS Information model
 
 * Templates for Usage Control using the [SPARQL Inferencing Notation (SPIN)](https://www.w3.org/Submission/spin-overview/)
 
-* New Connector porperty `ids:hasAgents`. A Connector can now publish it's agents as part of the self-description.
+* New Connector property `ids:hasAgents`. A Connector can now publish its agents as part of the self-description.
 
-* [RDF validation with SHACL](examples/rdf-validation-using-shacl) documentaion with examples using CLI tools and the Apache Jena Framework for Java.
+* [RDF validation with SHACL](examples/rdf-validation-using-shacl) documentation with examples using CLI tools and the Apache Jena Framework for Java.
 
-* [Perl script](utils/rdf_void_annotation.pl) as an example for annotation of RDF data using the [Vocabulary of Interlinked Datasets (VoID)](https://www.w3.org/TR/void/) ontology.
+* [Perl script](utils/rdf_void_annotation.pl) as an example for extracting metadata from RDF data resources using the [Vocabulary of Interlinked Datasets (VoID)](https://www.w3.org/TR/void/) ontology.
 
 
 ### Changed
 
-* SHACL shapes of properties, which expect URIs, now check for the correct datatype (xsd:anyURI) and also contain a regular expression to validate the URI syntax. This applies to properties, which are annotated with the `idsm:referenceByUri true;`.
+* Redesign of the DynamicAttributeToken (DAT) based on the new Dynamic Attribute Provisioning Service (DAPS) version. Check the corresponding [Token](model/security/Token.ttl) class as well as the [DAT payload example](examples/DATPayload.jsonlod) for more information.
 
-* Redesign of the DynamicAttributeToken (DAT) based on the new Dynamic Attribute Provisioning Service version. Check the corresponding [Token](model/security/Token.ttl) class as well as the [DAT payload example](examples/DATPayload.jsonlod) for more information.
+* `ids:RequestMessage`, `ids:ResponseMessage`, `ids:NotificationMessage` not _abstract_ any more. These messages can now be used directly for non-core IDS communication.
 
-* `ids:RequestMessage`, `ids:ResponseMessage`, `ids:NotificationMessage` not _abstract_ anymore. These messages can now be used directly for non-core IDS communication.
+* `ids:DescriptionRequestMessage`(previously called `ids:SelfDescriptionRequest`) now accepts an optional URI. This can be used to either retrieve a component's self-description (by providing its own URI or nothing) or to retrieve metadata about a specific element by providing the element's URI.
 
-* `ids:DescriptionRequestMessage`(previously called `ids:SelfDescriptionRequest`) now accepts an optional URI. Can be used to either retrieve a component's self-description (by providing it's URI or nothing) or retrieve metadata about a specific element by providing the element's URI.
-
-* Renamed some existing `ids:Messages`. Check the [Documentation Table of the ids:Message taxonomy](http://htmlpreview.github.io/?https://github.com/IndustrialDataSpace/InformationModel/blob/feature/message_taxonomy_description/model/communication/Message_Description.htm) for the current naming.
+* Renamed some existing `ids:Message`s. Check the [Documentation Table of the ids:Message taxonomy](http://htmlpreview.github.io/?https://github.com/IndustrialDataSpace/InformationModel/blob/feature/message_taxonomy_description/model/communication/Message_Description.htm) for the current naming.
 
 ### Fixed
 
-* ids:Message now correctly labelled as _abstract_ since it is not intended to be used directly.
-
+* `ids:Message` now correctly labelled as _abstract_ since it is not intended to be used directly.
 
 ## [2.1.0] 2019-12-02
 Version 2.1.0 of the IDS Information model
