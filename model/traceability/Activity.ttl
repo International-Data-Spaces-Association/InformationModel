@@ -91,7 +91,7 @@ ids:startedBy rdfs:subPropertyOf prov:wasStartedBy;
     rdfs:label "startedBy"@en;
     rdfs:comment "The participant who started the Activity."@en.
 
-ids:startedAt rdfs:subPropertyOf prov:wasStartedBy;
+ids:startedAt rdfs:subPropertyOf prov:startedAtTime;
     a owl:DatatypeProperty;
     rdfs:domain ids:Activity;
     rdfs:range xsd:dateTime;
@@ -105,7 +105,7 @@ ids:endedBy rdfs:subPropertyOf prov:wasEndedBy;
     rdfs:label "endedBy"@en;
     rdfs:comment "The participant who ended the Activity."@en.
 
-ids:endedAt rdfs:subPropertyOf prov:wasEndedBy;
+ids:endedAt rdfs:subPropertyOf prov:endedAtTime;
     a owl:DatatypeProperty;
     rdfs:domain ids:Activity;
     rdfs:range xsd:dateTime;

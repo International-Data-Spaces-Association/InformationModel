@@ -1,0 +1,75 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin:    <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Instances
+# ---------
+
+idsc_pt:UsageAgreementAfterPaymentTemplate a ids:PolicyTemplate ;
+    rdfs:label "Agreement for Usage After a Certain Event Template" ;
+    rdfs:comment "A template for policy agreements which allow usage only after a certain payment occurred."@en ;
+	spin:labelTemplate """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Artifact URI>]} to the {?ConsumerParticipantURI} only if a certain {?EventURI} has happened and 
+		the {?PipURI} says so."""@en ;
+    skos:note """{ 
+		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@type": "ContractAgreement", 
+		"@id": "{?contractID}", 
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate" ,
+		"targetArtifact": "{?content}",
+		"provider": "{?ProviderParticipantURI}",
+		"consumer": "{?ConsumerParticipantURI}", 
+	        "action": "{?action}"  ,
+                "constraint" : {    
+					 "leftOperand" : "payAmount",
+					 "operator" : "eq",
+					 "rightOperandReference" : "{?PipURI}"
+			        }
+		,
+		"obligation": {
+			"action": "https://w3id.org/idsa/code/action/COMPENSATE" ,
+			"constraint" : {    
+					 "leftOperand" : "payAmount",
+					 "operator" : "eq",
+					 "rightOperand" : "{?price}"
+			}
+		} }"""^^xsd:string ;
+
+	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementAfterPaymentTemplate ;
+			ids:targetArtifact {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;]+
+			ids:obligation [
+				ids:action idsc:COMPENSATE ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?price}
+				]
+			]
+		."""^^xsd:string 
+	.
+
+
+

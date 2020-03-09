@@ -4,6 +4,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin:    <http://spinrdf.org/spin#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
@@ -14,43 +15,43 @@
 idsc:AccessRequestToSecureConsumerTemplate a ids:PolicyTemplate ;
     rdfs:label "Access Request to secure Consumer Template" ;
     rdfs:comment "A template for policy requests with one permission and several constraints about the security level of the consuming connector."@en ;
-	skos:note """The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] 
-		its [<Representation URI>|<Artifact URI>] given that the consuming connector has all the specified 
-		<instance of ids:SecurityGuarantee> levels."""@en ;
+	spin:labelTemplate """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} given that the consuming connector has all the specified 
+		{?SecurityGuarantee} levels."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractRequest", 
-		"uid": "<contract ID>", 
-		"refersTo": "idsc:AccessRequestToSecureConsumerTemplate" ,
-		"target": "[<Representation URI>|<Artifact URI>]",
-		"ids:provider": "<Provider Participant URI>",
-		"ids:consumer": "<Consumer Participant URI>", 
-		"ids:permission": {
-			"ids:action": "[ids:use|ids:read|...]" ,
-			["ids:constraint" : {    
-					 "ids:leftOperand" : "ids:securityLevel",
-					 "ids:operator" : "ids:eq",
-					 "ids:rightOperand" : "<instance of ids:SecurityGuarantee>"
+		"@id": "{contractID}", 
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/AccessRequestToSecureConsumerTemplate" ,
+		"targetContent": "{?content}",
+		"provider": "{?ProviderParticipantURI}",
+		"consumer": "{?ConsumerParticipantURI}", 
+		"permission": {
+			"action": "{?action}" ,
+			["constraint" : {    
+					 "leftOperand" : "securityLevel",
+					 "operator" : "eq",
+					 "rightOperand" : "{?SecurityGuarantee}"
 			 } [,]]+
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>| [] ] a ids:ContractRequest ;
-			ids:uid <contract ID> ;
-			ids:refersTo idsc:AccessRequestToSecureConsumerTemplate ;
-			ids:target [<Representation URI>|<Artifact URI>] ;
-			ids:consumer <Consumer Participant URI> ;
-			ids:provider <Provider Participant URI>
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:AccessRequestToSecureConsumerTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
-				ids:action ids:[use|read|...] ;
+				ids:action {?action} ;
 				[ids:constraint [
 					ids:leftOperand ids:securityLevel ;
 					ids:operator ids:eq ;
-					ids:rightOperand <instance of ids:SecurityGuarantee>
+					ids:rightOperand {?SecurityGuarantee}
 				] ;]+
 			]
 		."""^^xsd:string 

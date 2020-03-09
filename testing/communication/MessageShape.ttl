@@ -25,6 +25,19 @@ shapes:MessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Message ;
 
+    sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (MessageShape): A ids:Message is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Message)
+			}
+		""" ;
+	] ;
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:modelVersion ;
@@ -56,7 +69,8 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:issuerConnector ;
-		sh:datatype ids:Connector ;
+		sh:datatype xsd:anyURI ;
+                sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -66,7 +80,8 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:recipientConnector ;
-		sh:class ids:Connector ;
+		sh:datatype xsd:anyURI ;
+        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientConnector property must point from an ids:Message to an ids:Connector."@en ; 
 	] ;
@@ -74,16 +89,19 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:senderAgent ;
-		sh:datatype ids:Agent ;
+		sh:datatype xsd:anyURI ;
+        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
 		sh:minCount 1 ;
+        sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have at least one ids:Agent linked through the ids:senderAgent property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one ids:Agent linked through the ids:senderAgent property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:recipientAgent ;
-		sh:datatype ids:Agent ;
+		sh:datatype xsd:anyURI ;
+        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientAgent property must point from an ids:Message to an ids:Agent."@en ; 
 	] ;
@@ -109,7 +127,8 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:transferContract ;
-		sh:class ids:Contract ;
+		sh:datatype xsd:anyURI ;
+        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ; 
 	] ;
