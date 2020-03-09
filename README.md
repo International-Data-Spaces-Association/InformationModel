@@ -49,7 +49,7 @@ Additional resources are provided:
 
 - Latest information about IDS and all related resources: The [IDS-G](https://github.com/International-Data-Spaces-Association/IDS-G)
 
-- Releases are provided in the Industrial Data Space (Github Repository)[https://github.com/IndustrialDataSpace/InformationModel/releases/]
+- Releases are provided in the Industrial Data Space [Github Repository](https://github.com/IndustrialDataSpace/InformationModel/releases/)
 
 - Overview on IDS Messages, descriptions and attribute explanations: [Message Overview](http://htmlpreview.github.io/?https://github.com/IndustrialDataSpace/InformationModel/blob/feature/message_taxonomy_description/model/communication/Message_Description.htm)
 
