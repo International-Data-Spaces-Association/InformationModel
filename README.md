@@ -3,7 +3,7 @@
 The Information Model is an RDFS/OWL-ontology covering the fundamental concepts of the [Industrial Data Space](https://www.internationaldataspaces.org), i.e. the types of *digital contents* that are exchanged by *participants* by means of the Industrial Data Space *infrastructure components*. The ontology and its documentation are published at [https://w3id.org/idsa/core](https://w3id.org/idsa/core). The model development is led by the [Fraunhofer Institutes for Applied Information Technology FIT](https://www.fit.fraunhofer.de/en) and [Intelligent Analysis and Information Systems IAIS](https://www.iais.fraunhofer.de/en) with support by members of the [International Data Spaces Association](https://www.internationaldataspaces.org/) in context of the *Information Model* sub-working group (SWG4). The group is chaired by [Christoph Lange](https://github.com/clange/) ([Fraunhofer FIT](https://www.fit.fraunhofer.de/)) and [Sebastian Tramp](https://sebastian.tramp.name) ([eccenca GmbH](https://www.eccenca.com)). 
 
 The model development is based on [GitHub](https://github.com/IndustrialDataSpace/InformationModel), following a [defined branching model](CONTRIBUTING.md). Contributions and community feedback are maintained via the GitHub [ticketing system](images/Issue_Lifecycle.jpg). The [release process](images/Release_process.jpg) is aligned with the International Data Spaces Association architecture
-working group meetings, i.e. there are roughly 2 releases scheduled per year with intermediary updates to the development branch. The currently stable version is *2.0.0*. The Information Model and associated resources published on GitHub are available under the [Apache License 2.0](https://github.com/IndustrialDataSpace/InformationModel/blob/master/LICENSE).
+working group meetings, i.e. there are roughly 2 releases scheduled per year with intermediary updates to the development branch. The currently stable version is *3.0.0*. The Information Model and associated resources published on GitHub are available under the [Apache License 2.0](https://github.com/IndustrialDataSpace/InformationModel/blob/master/LICENSE).
 
 ## Authors and contributors
 
@@ -46,6 +46,12 @@ There are following top-level files and directories:
 ## Related resources
 
 Additional resources are provided:
+
+- Latest information about IDS and all related resources: The [IDS-G](https://github.com/International-Data-Spaces-Association/IDS-G)
+
+- Releases are provided in the Industrial Data Space (Github Repository)[https://github.com/IndustrialDataSpace/InformationModel/releases/]
+
+- Overview on IDS Messages, descriptions and attribute explanations: [Message Overview](http://htmlpreview.github.io/?https://github.com/IndustrialDataSpace/InformationModel/blob/feature/message_taxonomy_description/model/communication/Message_Description.htm)
 
 - Java representation of the Information Model, a mapping to a POJO domain model with no reference to graph or ontology constructs. 
 Instances of the Information Model might such conveniently by created, validated and (de)serialized in a strongly-typed way using 
