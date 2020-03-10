@@ -32,17 +32,16 @@ The tools and methods provided here demonstrate the validation of JSON-LD RDF st
 SHACL shapes can formulate constraints on IDS Information Model classes and properties. For example, the following Connector SHACL shape states that a Connector must have exactly one property called `ids:securityProfile`, which additionally refers to an instance of the class `ids:SecurityProfile`. If this constraint is not satisfied, it is treated as a violation. Using the tools and frameworks described below, one can validate an RDF instance of the `ids:Connector` class – in other words: a Connector's self-description – against this shape. The [W3C documentation of SHACL](https://www.w3.org/TR/shacl/) provides additional information on the functionality of SHACL.
 ```
 shapes:ConnectorShape
-	a sh:NodeShape ;
-	sh:targetClass ids:Connector ;
-
-sh:property [
-  a sh:PropertyShape ;
-  sh:path ids:securityProfile ;
-  sh:class ids:SecurityProfile ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:severity sh:Violation ;
-] ;
+  a sh:NodeShape ;
+  sh:targetClass ids:Connector ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:securityProfile ;
+    sh:class ids:SecurityProfile ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+  ] .
 ```
 
 ## <a name="validation"></a>Validating RDF instances using SHACL
