@@ -1,12 +1,12 @@
-# Validation on CLI using SHACL
+# SHACL Validation using CLI
 
 ## Scenario
 The reference examples show how an Information Model RDF instance can be validated on the CLI against the IDS Information Model using SHACL.
 
 ## Description
-This reference example demonstrates the SHACL validation of a Connector self-description. A IDS Connector provides it's self-description as a JSON-LD document. The self-description can be validated using the corresponding SHACL shapes, which can be found in the _/testing/_ directory.
+This reference example demonstrates the SHACL validation of a Connector self-description. A IDS Connector provides its self-description as a JSON-LD document. The self-description can be validated using the corresponding SHACL shapes, which can be found in the _/testing/_ directory.
 
-This example demonstrates the validation of a single RDF instance without considering it's relations to other classes and their corresponding SHACL validity. Please check the [README.md in the parent directory](../README.md) for more information regarding this.  
+This example demonstrates the validation of a single RDF instance without considering its relations to other classes and their corresponding SHACL validity. Please check the [README.md in the parent directory](../README.md) for more information regarding this.
 
 
 ## Files
