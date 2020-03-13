@@ -23,7 +23,7 @@ Version 3.0.0 of the IDS Information model
 
 ### Changed
 
-* Redesign of the DynamicAttributeToken (DAT) based on the new Dynamic Attribute Provisioning Service (DAPS) version. Check the corresponding [Token](model/security/Token.ttl) class as well as the [DAT payload example](examples/DATPayload.jsonlod) for more information.
+* Redesign of the DynamicAttributeToken (DAT) based on the new Dynamic Attribute Provisioning Service (DAPS) version. Check the corresponding [Token](model/security/Token.ttl) class as well as the [DAT payload example](examples/DAT_PAYLOAD.jsonld) for more information.
 
 * `ids:RequestMessage`, `ids:ResponseMessage`, `ids:NotificationMessage` not _abstract_ any more. These messages can now be used directly for non-core IDS communication.
 
