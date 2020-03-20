@@ -26,8 +26,8 @@ shapes:DescriptionRequestMessage
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:requestedElement ;
-		sh:datatype xsd:anyURI ;
-        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RejectionMessageShape): An ids:requestedElement property must point from an ids:DescriptionRequestMessage to a URI."@en ;
 	] .
@@ -42,8 +42,8 @@ shapes:ResponseMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -138,8 +138,8 @@ shapes:ConnectorNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedConnector ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
         sh:minCount 1;
         sh:maxCount 1;
@@ -174,8 +174,8 @@ shapes:ParticipantNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedParticipant ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";;
         sh:minCount 1;
         sh:maxCount 1;
 		sh:severity sh:Violation ;
@@ -230,8 +230,8 @@ shapes:InvokeOperationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:operationReference ;
-		sh:datatype xsd:anyURI ;
-        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -256,8 +256,8 @@ shapes:RequestInProcessMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -272,8 +272,8 @@ shapes:MessageProcessedNotificationShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -287,8 +287,8 @@ shapes:ArtifactRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:requestedArtifact ;
-		sh:datatype xsd:anyURI ;
-        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -304,8 +304,8 @@ shapes:ParticipantRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:requestedParticipant ;
-		sh:datatype xsd:anyURI ;
-        sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
