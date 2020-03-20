@@ -29,7 +29,7 @@ shapes:DescriptionRequestMessage
 		sh:nodeKind sh:IRI ;
         sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RejectionMessageShape): An ids:requestedElement property must point from an ids:DescriptionRequestMessage to a URI."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RejectionMessageShape): An ids:requestedElement property must point from an ids:DescriptionRequestMessage to a IRI."@en ;
 	] .
 
 
@@ -179,7 +179,7 @@ shapes:ParticipantNotificationMessageShape
         sh:minCount 1;
         sh:maxCount 1;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:ParticipantNotificationMessage must have exactly one URI reference to a ids:Participant linked through the ids:affectedParticipant property."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:ParticipantNotificationMessage must have exactly one IRI reference to a ids:Participant linked through the ids:affectedParticipant property."@en ;
 	] .
 
 shapes:ContractRejectionMessageShape
@@ -235,7 +235,7 @@ shapes:InvokeOperationMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one ids:Operation linked through the ids:operationReference property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one IRI reference to a ids:Operation linked through the ids:operationReference property"@en ;
 	] ;
 
 	sh:property [
@@ -261,7 +261,7 @@ shapes:RequestInProcessMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RequestInProcessMessageShape): An ids:RequestInProcessMessage must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RequestInProcessMessageShape): An ids:RequestInProcessMessage must have exactly one IRI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
 
 
@@ -277,7 +277,7 @@ shapes:MessageProcessedNotificationShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (MessageProcessedNotificationMessage): An ids:MessageProcessedNotificationMessage must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (MessageProcessedNotificationMessage): An ids:MessageProcessedNotificationMessage must have exactly one IRI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
 
 shapes:ArtifactRequestMessageShape
@@ -292,7 +292,7 @@ shapes:ArtifactRequestMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one ids:Artifact linked through the ids:requestedArtifact property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one IRI reference to an ids:Artifact linked through the ids:requestedArtifact property"@en ;
 	] .
     
     
@@ -309,5 +309,5 @@ shapes:ParticipantRequestMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ParticipantRequestMessageShape must have exactly one ids:Participant linked through the ids:requestedParticipant property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ParticipantRequestMessageShape must have exactly one IRI reference to an ids:Participant linked through the ids:requestedParticipant property"@en ;
 	] .
