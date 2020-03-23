@@ -60,22 +60,22 @@ ids:ContractOffer
 
 ids:contractStart a owl:DatatypeProperty;
     rdfs:domain ids:Contract;
-    rdfs:range xsd:dateTime;
+    rdfs:range xsd:dateTimeStamp;
     rdfs:label "Contract start"@en ;
-    rdfs:comment "Date and time the Contract is requested, offered or expected to start, depending on the type of Contract."@en.
+    rdfs:comment "Absolute datetime the Contract is requested, offered or expected to start, depending on the type of Contract."@en.
 
 # Optional
 ids:contractEnd a owl:DatatypeProperty;
     rdfs:domain ids:Contract;
-    rdfs:range xsd:dateTime;
+    rdfs:range xsd:dateTimeStamp;
     rdfs:label "Contract end"@en ;
-    rdfs:comment "Date and time the Contract is requested, offered or expected to end. If omitted, the contract has to be explicitly terminated by any of the parties."@en.
+    rdfs:comment "Absolute datetime the Contract is requested, offered or expected to end. If omitted, the contract has to be explicitly terminated by any of the parties."@en.
 
 ids:contractDate a owl:DatatypeProperty;
     rdfs:domain ids:Contract;
-    rdfs:range xsd:date;
+    rdfs:range xsd:dateTimeStamp;
     rdfs:label "Contract date"@en ;
-    rdfs:comment "Date of singing the Contract."@en.
+    rdfs:comment "Absolute datetime of singing the Contract."@en.
 
 # "Datengeber"
 ids:provider a owl:ObjectProperty;
