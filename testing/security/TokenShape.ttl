@@ -100,11 +100,11 @@ shapes:DatPayloadShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:referringConnector ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:referringConnector property must point from an ids:DatPayload to an xsd:anyURI."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:referringConnector property must point from an ids:DatPayload to a Connector via an IRI."@en ; 
 	] ;
 
 	sh:property [
