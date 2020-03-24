@@ -1,8 +1,11 @@
 # Collection of command-line utilities and scripts
 
 ## Prerequisites
-- Perl https://www.perl.org/get.html, e.g. the open source Strawberry Perl binaries http://strawberryperl.com/
+- Get Perl https://www.perl.org/get.html, e.g. the open source Strawberry Perl binaries http://strawberryperl.com/
 - Check the installation by typing `perl -v` in the console
+- Note that Strawberry Perl already includes CPAN to make installing Perl libraries easier
+- Also add CPANM via `cpan App::cpanminus`
+
 
 ## Snippets
 - List declared namespace-prefixes (including empty ones)
@@ -17,4 +20,4 @@
 ## Scripts
 - `rdf_void_annotation.pl`
     - Perl script to annotate RDF dataset using the [W3C Vocabulary of Interlinked Datasets](https://www.w3.org/TR/void/) (VoID).
-    Uses the [RDF::Generator::Void](https://metacpan.org/pod/RDF::Generator::Void) and [RDF::Trine](https://metacpan.org/pod/RDF::Trine) Perl libraries to import an RDF model and generate VoID representation. Top section of the script's file contains information on how to run the script.
+    Uses the [RDF::Generator::Void](https://metacpan.org/pod/RDF::Generator::Void) and [RDF::Trine](https://metacpan.org/pod/RDF::Trine) Perl libraries to import an RDF model and generate VoID representation. Top section of the script's file contains information on how to run the script. Install missing libraries via `cpanm RDF::Generator::Void` and so on.
