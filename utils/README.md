@@ -1,5 +1,9 @@
 # Collection of command-line utilities and scripts
 
+## Prerequisites
+- Perl https://www.perl.org/get.html, e.g. the open source Strawberry Perl binaries http://strawberryperl.com/
+- Check the installation by typing `perl -v` in the console
+
 ## Snippets
 - List declared namespace-prefixes (including empty ones)
     - `grep -rh --include "*.ttl" "@prefix"  | sed -E 's/@prefix\s+(\w*):.*/\1/' | sort | uniq`
