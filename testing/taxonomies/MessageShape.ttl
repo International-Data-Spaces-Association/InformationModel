@@ -43,6 +43,7 @@ shapes:ResponseMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -139,6 +140,7 @@ shapes:ConnectorNotificationMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:affectedConnector ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Connector ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
         sh:minCount 1;
@@ -175,7 +177,8 @@ shapes:ParticipantNotificationMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:affectedParticipant ;
 		sh:nodeKind sh:IRI ;
-		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+        #sh:class ids:Participant ;
         sh:minCount 1;
         sh:maxCount 1;
 		sh:severity sh:Violation ;
@@ -215,7 +218,7 @@ shapes:ResourceNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedResource ;
-		sh:datatype ids:Resource ;
+        sh:class ids:Resource ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -257,6 +260,7 @@ shapes:RequestInProcessMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -273,6 +277,7 @@ shapes:MessageProcessedNotificationShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -288,6 +293,7 @@ shapes:ArtifactRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:requestedArtifact ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Artifact ;
         sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -305,6 +311,7 @@ shapes:ParticipantRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:requestedParticipant ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Participant ;
         sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
