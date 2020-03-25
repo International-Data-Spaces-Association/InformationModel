@@ -218,7 +218,9 @@ shapes:ResourceNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedResource ;
-        sh:class ids:Resource ;
+        #sh:class ids:Resource ;
+        sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
