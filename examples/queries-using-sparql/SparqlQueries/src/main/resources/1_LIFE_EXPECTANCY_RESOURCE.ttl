@@ -1,0 +1,292 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix life_expectancy: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/> .
+
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+
+@prefix sdmx-concept:    <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension:  <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-attribute:  <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure:    <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx-metadata:   <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix sdmx-code:       <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix sdmx-subject:    <http://purl.org/linked-data/sdmx/2009/subject#> .
+
+
+# This document contains an example of a resource and how it is represented in the information model.
+
+# A (Data) Resource in the IDS Information Model
+life_expectancy:Resource
+  a ids:DataResource , qb:DataSet;
+  ids:title "Life Expectancy For 2004-2008"@en ;
+  ids:description "The life expectancy for men and women for different areas on a yearly base for 2004-2008."@en;
+
+# Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ.
+  ids:publisher "www.ids.org/participants/4711"^^xsd:anyURI;
+  ids:sovereign "www.ids.org/participants/42"^^xsd:anyURI;
+
+# Temporal period covered by the content of the resource
+  ids:temporalCoverage [
+                         a ids:Interval ;
+                         ids:begin [ a ids:Instant ;
+                                    ids:dateTime "2004-01-01T12:00:00+02:00"^^xsd:dateTimeStamp ];
+                         ids:end   [ a ids:Instant ;
+                                    ids:dateTime "2008-12-31T12:00:00+02:00"^^xsd:dateTimeStamp ];
+                       ] ;
+
+# Open Government License
+  ids:customLicense "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"^^xsd:anyURI ;
+
+# Language of resource
+  ids:language idsc:EN ;
+
+# Representation of resource: Reference to an "instance" (CsvFile below)
+  ids:representation [
+                       a ids:DataRepresentation ;
+                       ids:mediaType idsc:TEXT_CSV;
+                       ids:instance life_expectancy:CsvFile ;
+                     ] ;
+
+# Data cube details
+  qb:structure life_expectancy:Structure ;
+  sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+.
+
+# A sample file in CSV format, which contains life expectancy data
+life_expectancy:CsvFile
+  a ids:Artifact ;
+  ids:byteSize "9759" ;
+  ids:fileName "LIFE_EXPECTANCY_DATA.xlsx";
+  ids:creationDate "2020-03-19" ;
+.
+
+# Data Cube structure
+life_expectancy:Structure
+  a qb:DataStructureDefinition;
+  qb:component
+# The dimensions
+    [ qb:dimension life_expectancy:refArea; qb:order 1 ],
+    [ qb:dimension life_expectancy:refPeriod; qb:order 2; qb:componentAttachment qb:Slice ],
+    [ qb:dimension sdmx-dimension:sex; qb:order 3; qb:componentAttachment qb:Slice ];
+
+# The measure(s)
+  qb:component [ qb:measure life_expectancy:lifeExpectancy];
+
+# The attributes
+  qb:component [ qb:attribute sdmx-attribute:unitMeasure;
+                 qb:componentRequired "true"^^xsd:boolean;
+                 qb:componentAttachment qb:DataSet; ] ;
+.
+
+# Data Cube dimensions (only 2, because "sex" can be taken from sdmx directly)
+life_expectancy:refArea a rdf:Property , qb:DimensionProperty;
+                        rdfs:label "reference area"@en;
+                        rdfs:subPropertyOf sdmx-dimension:refArea;
+                        rdfs:range admingeo:UnitaryAuthority;
+                        qb:concept sdmx-concept:refArea ;
+.
+
+life_expectancy:refPeriod a rdf:Property, qb:DimensionProperty;
+                          rdfs:label "reference period"@en;
+                          rdfs:subPropertyOf sdmx-dimension:refPeriod;
+                          rdfs:range interval:Interval;
+                          qb:concept sdmx-concept:refPeriod ;
+.
+
+# Data Cube measure
+life_expectancy:lifeExpectancy  a rdf:Property, qb:MeasureProperty;
+                                rdfs:label "life expectancy"@en;
+                                rdfs:subPropertyOf sdmx-measure:obsValue;
+                                rdfs:range xsd:decimal ;
+.
+
+
+##### Extracted VoID metadata #####
+
+_:r1585045377r10 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/publisher> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r11 <http://rdfs.org/ns/void#distinctObjects> 2 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 2 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/dateTime> ;
+    <http://rdfs.org/ns/void#triples> 2 .
+_:r1585045377r12 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#measure> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r13 <http://rdfs.org/ns/void#distinctObjects> 24 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 6 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#observation> ;
+    <http://rdfs.org/ns/void#triples> 24 .
+_:r1585045377r14 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/sovereign> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r15 <http://rdfs.org/ns/void#distinctObjects> 2 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 3 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#componentAttachment> ;
+    <http://rdfs.org/ns/void#triples> 3 .
+_:r1585045377r16 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/creationDate> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r17 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/end> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r18 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 6 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#sliceStructure> ;
+    <http://rdfs.org/ns/void#triples> 6 .
+_:r1585045377r19 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 24 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#dataSet> ;
+    <http://rdfs.org/ns/void#triples> 24 .
+_:r1585045377r20 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/byteSize> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r21 <http://rdfs.org/ns/void#distinctObjects> 3 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 3 ;
+    <http://rdfs.org/ns/void#property> <http://www.w3.org/2000/01/rdf-schema#label> ;
+    <http://rdfs.org/ns/void#triples> 3 .
+_:r1585045377r22 <http://rdfs.org/ns/void#distinctObjects> 12 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 40 ;
+    <http://rdfs.org/ns/void#property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+    <http://rdfs.org/ns/void#triples> 44 .
+_:r1585045377r23 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#attribute> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r24 <http://rdfs.org/ns/void#distinctObjects> 20 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 24 ;
+    <http://rdfs.org/ns/void#property> <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/lifeExpectancy> ;
+    <http://rdfs.org/ns/void#triples> 24 .
+_:r1585045377r25 <http://rdfs.org/ns/void#distinctObjects> 2 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 6 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/sdmx/2009/dimension#sex> ;
+    <http://rdfs.org/ns/void#triples> 6 .
+_:r1585045377r26 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/language> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r27 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/description> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r28 <http://rdfs.org/ns/void#distinctObjects> 3 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 6 ;
+    <http://rdfs.org/ns/void#property> <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/refPeriod> ;
+    <http://rdfs.org/ns/void#triples> 6 .
+_:r1585045377r29 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/instance> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r30 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#componentRequired> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r31 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/begin> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r32 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/mediaType> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r33 <http://rdfs.org/ns/void#distinctObjects> 3 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 3 ;
+    <http://rdfs.org/ns/void#property> <http://www.w3.org/2000/01/rdf-schema#range> ;
+    <http://rdfs.org/ns/void#triples> 3 .
+_:r1585045377r34 <http://rdfs.org/ns/void#distinctObjects> 2 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 2 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#concept> ;
+    <http://rdfs.org/ns/void#triples> 2 .
+_:r1585045377r35 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/fileName> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r36 <http://rdfs.org/ns/void#distinctObjects> 3 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 3 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#order> ;
+    <http://rdfs.org/ns/void#triples> 3 .
+_:r1585045377r37 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/temporalCoverage> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r38 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/customLicense> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r39 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/title> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r40 <http://rdfs.org/ns/void#distinctObjects> 3 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 3 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#dimension> ;
+    <http://rdfs.org/ns/void#triples> 3 .
+_:r1585045377r41 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#structure> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r42 <http://rdfs.org/ns/void#distinctObjects> 4 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 24 ;
+    <http://rdfs.org/ns/void#property> <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/refArea> ;
+    <http://rdfs.org/ns/void#triples> 24 .
+_:r1585045377r43 <http://rdfs.org/ns/void#distinctObjects> 5 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/cube#component> ;
+    <http://rdfs.org/ns/void#triples> 5 .
+_:r1585045377r44 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r45 <http://rdfs.org/ns/void#distinctObjects> 1 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 1 ;
+    <http://rdfs.org/ns/void#property> <https://w3id.org/idsa/core/representation> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r46 <http://rdfs.org/ns/void#class> <https://w3id.org/idsa/core/Instant> ;
+    <http://rdfs.org/ns/void#triples> 2 .
+_:r1585045377r47 <http://rdfs.org/ns/void#class> <https://w3id.org/idsa/core/DataRepresentation> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r48 <http://rdfs.org/ns/void#class> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+    <http://rdfs.org/ns/void#triples> 3 .
+_:r1585045377r49 <http://rdfs.org/ns/void#class> <http://purl.org/linked-data/cube#DataStructureDefinition> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r50 <http://rdfs.org/ns/void#class> <https://w3id.org/idsa/core/DataResource> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r51 <http://rdfs.org/ns/void#class> <http://purl.org/linked-data/cube#MeasureProperty> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r52 <http://rdfs.org/ns/void#class> <https://w3id.org/idsa/core/Interval> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r53 <http://rdfs.org/ns/void#class> <https://w3id.org/idsa/core/Artifact> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r54 <http://rdfs.org/ns/void#class> <http://purl.org/linked-data/cube#Slice> ;
+    <http://rdfs.org/ns/void#triples> 6 .
+_:r1585045377r55 <http://rdfs.org/ns/void#class> <http://purl.org/linked-data/cube#DimensionProperty> ;
+    <http://rdfs.org/ns/void#triples> 2 .
+_:r1585045377r56 <http://rdfs.org/ns/void#class> <http://purl.org/linked-data/cube#Observation> ;
+    <http://rdfs.org/ns/void#triples> 24 .
+_:r1585045377r57 <http://rdfs.org/ns/void#class> <http://purl.org/linked-data/cube#DataSet> ;
+    <http://rdfs.org/ns/void#triples> 1 .
+_:r1585045377r9 <http://rdfs.org/ns/void#distinctObjects> 3 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 3 ;
+    <http://rdfs.org/ns/void#property> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> ;
+    <http://rdfs.org/ns/void#triples> 3 .
+life_expectancy:Resource <http://rdfs.org/ns/void#classPartition> _:r1585045377r46, _:r1585045377r47, _:r1585045377r48, _:r1585045377r49, _:r1585045377r50, _:r1585045377r51, _:r1585045377r52, _:r1585045377r53, _:r1585045377r54, _:r1585045377r55, _:r1585045377r56, _:r1585045377r57 ;
+    <http://rdfs.org/ns/void#distinctObjects> 111 ;
+    <http://rdfs.org/ns/void#distinctSubjects> 45 ;
+    <http://rdfs.org/ns/void#entities> 0 ;
+    <http://rdfs.org/ns/void#properties> 37 ;
+    <http://rdfs.org/ns/void#propertyPartition> _:r1585045377r10, _:r1585045377r11, _:r1585045377r12, _:r1585045377r13, _:r1585045377r14, _:r1585045377r15, _:r1585045377r16, _:r1585045377r17, _:r1585045377r18, _:r1585045377r19, _:r1585045377r20, _:r1585045377r21, _:r1585045377r22, _:r1585045377r23, _:r1585045377r24, _:r1585045377r25, _:r1585045377r26, _:r1585045377r27, _:r1585045377r28, _:r1585045377r29, _:r1585045377r30, _:r1585045377r31, _:r1585045377r32, _:r1585045377r33, _:r1585045377r34, _:r1585045377r35, _:r1585045377r36, _:r1585045377r37, _:r1585045377r38, _:r1585045377r39, _:r1585045377r40, _:r1585045377r41, _:r1585045377r42, _:r1585045377r43, _:r1585045377r44, _:r1585045377r45, _:r1585045377r9 ;
+    <http://rdfs.org/ns/void#triples> 205 ;
+    <http://rdfs.org/ns/void#uriSpace> "https://w3id.org/idsa/core/" ;
+    <http://rdfs.org/ns/void#vocabulary> <http://purl.org/linked-data/cube#>, <http://purl.org/linked-data/sdmx/2009/dimension#>, <http://www.w3.org/1999/02/22-rdf-syntax-ns#>, <http://www.w3.org/2000/01/rdf-schema#>, <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/>, <https://w3id.org/idsa/core/> ;
+    a <http://rdfs.org/ns/void#Dataset> .

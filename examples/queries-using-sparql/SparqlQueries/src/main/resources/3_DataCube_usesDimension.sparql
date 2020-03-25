@@ -1,0 +1,11 @@
+PREFIX qb:    <http://purl.org/linked-data/cube#>
+
+SELECT DISTINCT ?resource WHERE {
+    ?resource a qb:DataSet ;
+        qb:structure ?structure .
+    ?structure qb:component ?component .
+    ?component qb:dimension ?dimension .
+	
+	?dimension a qb:DimensionProperty;
+	    qb:concept <http://purl.org/linked-data/sdmx/2009/concept#refPeriod> .
+}

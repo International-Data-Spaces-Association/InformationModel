@@ -1,0 +1,9 @@
+PREFIX ids:    <https://w3id.org/idsa/core/>
+PREFIX void:   <http://rdfs.org/ns/void#>
+
+SELECT DISTINCT ?resource WHERE {
+    ?resource a ids:DataResource ;
+        void:classPartition ?classPartition .
+
+    ?classPartition void:class <http://purl.org/linked-data/cube#Observation> .
+}
