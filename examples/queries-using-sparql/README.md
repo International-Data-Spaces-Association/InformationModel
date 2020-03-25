@@ -1,5 +1,6 @@
 # SPARQL Queries
-This module illustrates the annotation of IDS resources via  
+This module illustrates the annotation of IDS resources via Data Cube or VoID, and presents a filtering mechanism based on SPARQL queries.
+That is, __given multiple IDS resources along with SPARQL queries, return all matching resources.__ 
 
 ## Motivation and Scenario
 Having one or multiple resources, one would like to filter these based on certain criteria such as
@@ -25,5 +26,7 @@ We therefore extend the IDS information model with additional fields in the Data
 ## Process Overview
 Given a [dataset](/SparqlQueries/src/main/resources/0a_LIFE_EXPECTANCY_DATA.xlsx), we create an [information model instance](/SparqlQueries/src/main/resources/1_LIFE_EXPECTANCY_RESOURCE.ttl) containing metadata from the IDS as well as Data Cube and VoID.
 In this demonstration, we use a Java program based on Apache Jena for executing a [set of SPARQL queries](SparqlQueries\src\main\resources) that answer the questions mentioned above.
+For configuration and further details, please refer to the Java program as well as the SPARQL queries provided.
 
+Given multiple IDS resources along with SPARQL queries, this solution exactly returns all matching resources.
 Note that these queries are flexible and therefore could dynamically be used by other tools or programms. 
