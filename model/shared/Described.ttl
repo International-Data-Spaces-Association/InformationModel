@@ -33,26 +33,24 @@ ids:Described
     idsm:validation [
         idsm:forProperty ids:description;
         idsm:relationType idsm:OneToMany;
-    ];
-	idsm:validation [
-        idsm:forProperty ids:comment; #TODO: Change from ids:comment to rdfs:comment (as soon as tools support this)
-        idsm:relationType idsm:OneToMany;
-    ].
+    ] ;
+    .
 
 ids:title #.. how does it relate to "name", is "title" a functional property?
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:title ;
     rdfs:label "title"@en ;
     rdfs:domain ids:Described ;
-    rdfs:range rdf:PlainLiteral;
+    rdfs:range xsd:string;
     rdfs:comment "(Localized) name of the entity."@en .
 
-#TODO: change range to skos:Concept
+# description is used for explanation in natural language. 
+# ids:theme (class ids:DigitalContent) is used for SKOS representation
 ids:description
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:description ;
     rdfs:label "description"@en ;
     rdfs:domain ids:Described ;
-    rdfs:range rdf:PlainLiteral ; #allows using skos:broader
+    rdfs:range xsd:string ; 
     rdfs:comment "Explanation of the resource in a natural language text."@en ;
     .
