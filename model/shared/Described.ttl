@@ -44,12 +44,13 @@ ids:title #.. how does it relate to "name", is "title" a functional property?
     rdfs:range xsd:string;
     rdfs:comment "(Localized) name of the entity."@en .
 
-
+# description is used for explanation in natural language. 
+# ids:theme (class ids:DigitalContent) is used for SKOS representation
 ids:description
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:description ;
     rdfs:label "description"@en ;
     rdfs:domain ids:Described ;
-    rdfs:range xsd:string ;
+    rdfs:range xsd:string ; 
     rdfs:comment "Explanation of the resource in a natural language text."@en ;
     .
