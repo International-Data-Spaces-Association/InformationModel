@@ -89,9 +89,16 @@ shapes:DigitalContentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:keyword ;
-		sh:datatype rdfs:Literal ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:keyword property must point from an ids:DigitalContent to an rdfs:Literal."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:keyword property must point from an ids:DigitalContent to a xsd:string or rdf:langString (which additionally contains a language tag)."@en ; 
 	] ;
 
 	sh:property [
