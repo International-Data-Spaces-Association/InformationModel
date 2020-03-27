@@ -41,6 +41,42 @@ ids:JwtPayload a owl:Class ;
     rdfs:label "JWT Payload"@en ;
     rdfs:comment "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g. DatPayload and DatRequestPayload."@en ;
     idsm:abstract true ;
+    idsm:validation [
+        idsm:forProperty ids:aud;
+        idsm:constraint idsm:NotNull;
+    ] ;
+    idsm:validation [
+        idsm:forProperty ids:sub;
+        idsm:constraint idsm:NotNull;
+    ] ;
+    idsm:validation [
+        idsm:forProperty ids:nbf;
+        idsm:constraint idsm:NotNull;
+    ] ;
+    idsm:validation [
+        idsm:forProperty ids:exp;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:iat;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:scope;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:securityProfile;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:extendedGuarantee;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:transportCertsSha256;
+        idsm:relationType idsm:OneToMany;
+    ]; 
     .
 
 
@@ -56,41 +92,9 @@ ids:DatPayload
         idsm:constraint idsm:NotNull;
     ] ;
     idsm:validation [
-        idsm:forProperty ids:aud;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
         idsm:forProperty ids:iss;
         idsm:constraint idsm:NotNull;
     ] ;
-    idsm:validation [
-        idsm:forProperty ids:sub;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:nbf;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:exp;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:iat;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:scope;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:securityProfile;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:extendedGuarantee;
-        idsm:relationType idsm:OneToMany;
-    ];
 .
 
 
@@ -100,42 +104,6 @@ ids:DatRequestPayload
     rdfs:label "DAT Request Payload"@en ;
     rdfs:comment "The Dynamic Attribute Token (DAT) *Request* Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are either defined by RFC 7519 or by the IDS Information Model. As a direct consequence of regarding the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value. Note that, different to the DatPayload, the DatRequestPayload contains the *self-claims* of a connector and is not yet signed by any DAPS. Consequently, no other connector must accept a DatRequest object as a DAT. A DatRequest and its contained DatRequestPayload is *only* intended for interactions with a DAPS and *nothing else*!"@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ;
-    idsm:validation [
-        idsm:forProperty ids:aud;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:iss;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:sub;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:nbf;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:exp;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:iat;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:scope;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:securityProfile;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:extendedGuarantee;
-        idsm:relationType idsm:OneToMany;
-    ];
     .
 
 
@@ -209,4 +177,3 @@ ids:tokenFormat a owl:ObjectProperty;
     rdfs:domain ids:Token;
     rdfs:range ids:TokenFormat;
     rdfs:comment "Describes the format of the authentication token."@en.
-

@@ -85,7 +85,9 @@ ids:extendedGuarantee a owl:ObjectProperty;
     rdfs:comment "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."@en.
 
 ids:transportCertsSha256 a owl:DatatypeProperty;
-    rdfs:domain ids:Connector;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Connector ids:JwtPayload)
+              ] ;
     rdfs:range xsd:string;
     rdfs:label "transportCertsSha256"@en;
     rdfs:comment "Separate certificates for IDS identification and transport encryption opens an attack vector for relay attacks. In order to prevent these attacks, a binding of this transport certificates to the connector is required. The inclusion of SHA256 fingerprints of currently valid transport certificates, mainly into the DAT, enables the client to relate the transport layer security with the IDS interactions."@en.
