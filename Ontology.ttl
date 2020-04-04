@@ -18,8 +18,8 @@ ids:
     a voaf:Vocabulary, owl:Ontology ;
     rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
     rdfs:label "IDS Information Model"@en;
-    dct:title "The Industrial Dataspace Information Model"@en;
-    rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace.";
+    dct:title "The International Data Spaces Information Model"@en;
+    rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces.";
     cc:license <http://www.apache.org/licenses/LICENSE-2.0> ;
     dct:creator <https://github.com/cmader> ;
     dct:creator <https://github.com/jpullmann> ;
@@ -31,12 +31,13 @@ ids:
     dct:contributor <https://github.com/HaydarAk> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date;
-    dct:modified "2019-12-10"^^xsd:date;
-    owl:versionInfo "2.1.0";
-    owl:versionIRI "https://w3id.org/idsa/core/2.1.0>";
+    owl:versionInfo "3.0.0";
+    owl:versionIRI "https://w3id.org/idsa/core/3.0.0/>";
+    dct:modified "2020-03-04"^^xsd:date;
+    owl:versionInfo "3.0.0";
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/";
     vann:preferredNamespacePrefix "ids" ;
-    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+    rdfs:seeAlso <https://international-data-spaces-association.github.io/InformationModel/> ;
     void:vocabulary
        <http://purl.org/vocab/vann/> ,
        <http://rdfs.org/ns/void#> ,
@@ -135,6 +136,7 @@ ids:
     owl:imports <model/infrastructure/Broker.ttl> ; 
     owl:imports <model/infrastructure/Catalog.ttl> ; 
     owl:imports <model/infrastructure/ClearingHouse.ttl> ; 
+    owl:imports <model/infrastructure/Component.ttl> ; 
     owl:imports <model/infrastructure/Connector.ttl> ; 
     owl:imports <model/infrastructure/DAPS.ttl> ; 
     owl:imports <model/infrastructure/IdentityProvider.ttl> ; 
@@ -153,6 +155,10 @@ ids:
     owl:imports <model/shared/Unit.ttl> ; 
     owl:imports <model/traceability/Activity.ttl> ; 
     owl:imports <model/traceability/ManagedEntity.ttl> ; 
+    owl:imports <model/traceability/references/prov-o-20130430.ttl> ; 
+    owl:imports <metamodel/Annotation.ttl> ; 
+    owl:imports <metamodel/Validation.ttl> ; 
+    owl:imports <metamodel/View.ttl> ; 
     owl:imports <taxonomies/Certification.ttl> ; 
     owl:imports <taxonomies/DigitalContent.ttl> ; 
     owl:imports <taxonomies/Message.ttl> ; 
