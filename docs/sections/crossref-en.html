@@ -4,10 +4,12 @@ This section provides details for each class and property defined by Industrial 
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
       <li>
-         <a href="#/AccessTokenRequest" title="https://w3id.org/idsa/core/AccessTokenRequest">Access Token Request</a>
+         <a href="#/AccessTokenResponseMessage"
+            title="https://w3id.org/idsa/core/AccessTokenResponseMessage">Access Token Response</a>
       </li>
       <li>
-         <a href="#/AccessTokenResponse" title="https://w3id.org/idsa/core/AccessTokenResponse">Access Token Response</a>
+         <a href="#/AccessTokenRequestMessage"
+            title="https://w3id.org/idsa/core/AccessTokenRequestMessage">AccessToken Request Message</a>
       </li>
       <li>
          <a href="#/Action" title="https://w3id.org/idsa/core/Action">Action</a>
@@ -223,6 +225,10 @@ This section provides details for each class and property defined by Industrial 
             title="https://w3id.org/idsa/core/ContractRequestMessage">Contract Request Message</a>
       </li>
       <li>
+         <a href="#/ContractResponseMessage"
+            title="https://w3id.org/idsa/core/ContractResponseMessage">Contract Response Message</a>
+      </li>
+      <li>
          <a href="#/ContractSupplementMessage"
             title="https://w3id.org/idsa/core/ContractSupplementMessage">Contract Supplement Message</a>
       </li>
@@ -231,6 +237,9 @@ This section provides details for each class and property defined by Industrial 
       </li>
       <li>
          <a href="#/CustomMediaType" title="https://w3id.org/idsa/core/CustomMediaType">Custom Media Type</a>
+      </li>
+      <li>
+         <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
       </li>
       <li>
          <a href="#/Data" title="https://w3id.org/idsa/core/Data">Data</a>
@@ -264,7 +273,18 @@ This section provides details for each class and property defined by Industrial 
             title="https://w3id.org/idsa/core/DescribedSemantically">DescribedSemantically</a>
       </li>
       <li>
+         <a href="#/DescriptionRequestMessage"
+            title="https://w3id.org/idsa/core/DescriptionRequestMessage">Description Request Message</a>
+      </li>
+      <li>
+         <a href="#/DescriptionResponseMessage"
+            title="https://w3id.org/idsa/core/DescriptionResponseMessage">Description Response Message</a>
+      </li>
+      <li>
          <a href="#/DigitalContent" title="https://w3id.org/idsa/core/DigitalContent">Digital content</a>
+      </li>
+      <li>
+         <a href="#/DurationEntity" title="https://w3id.org/idsa/core/DurationEntity">Duration</a>
       </li>
       <li>
          <a href="#/Duty" title="https://w3id.org/idsa/core/Duty">Duty</a>
@@ -415,7 +435,7 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/Location" title="https://w3id.org/idsa/core/Location">Location</a>
       </li>
       <li>
-         <a href="#/LogNotification" title="https://w3id.org/idsa/core/LogNotification">Log Notification</a>
+         <a href="#/LogMessage" title="https://w3id.org/idsa/core/LogMessage">Log Message</a>
       </li>
       <li>
          <a href="#/ManagedEntity" title="https://w3id.org/idsa/core/ManagedEntity">Managed entity</a>
@@ -434,8 +454,8 @@ This section provides details for each class and property defined by Industrial 
             title="https://w3id.org/idsa/core/MessageExchangePattern">Message exchange pattern</a>
       </li>
       <li>
-         <a href="#/MessageProcessedNotification"
-            title="https://w3id.org/idsa/core/MessageProcessedNotification">Message Processed Notification</a>
+         <a href="#/MessageProcessedNotificationMessage"
+            title="https://w3id.org/idsa/core/MessageProcessedNotificationMessage">Message Processed Notification Message</a>
       </li>
       <li>
          <a href="#/ModificationActivity" title="https://w3id.org/idsa/core/ModificationActivity">ModificationActivity</a>
@@ -518,6 +538,14 @@ This section provides details for each class and property defined by Industrial 
       <li>
          <a href="#/ParticipantNotificationMessage"
             title="https://w3id.org/idsa/core/ParticipantNotificationMessage">Participant Notification Message</a>
+      </li>
+      <li>
+         <a href="#/ParticipantRequestMessage"
+            title="https://w3id.org/idsa/core/ParticipantRequestMessage">Participant Request Message</a>
+      </li>
+      <li>
+         <a href="#/ParticipantResponseMessage"
+            title="https://w3id.org/idsa/core/ParticipantResponseMessage">Participant Response Message</a>
       </li>
       <li>
          <a href="#/ParticipantUnavailableMessage"
@@ -653,14 +681,6 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/SelectorParameter" title="https://w3id.org/idsa/core/SelectorParameter">Selector parameter</a>
       </li>
       <li>
-         <a href="#/SelfDescriptionRequest"
-            title="https://w3id.org/idsa/core/SelfDescriptionRequest">Self Description Request</a>
-      </li>
-      <li>
-         <a href="#/SelfDescriptionResponse"
-            title="https://w3id.org/idsa/core/SelfDescriptionResponse">Self Description Response</a>
-      </li>
-      <li>
          <a href="#/ServerAbsolutePaginatingOperation"
             title="https://w3id.org/idsa/core/ServerAbsolutePaginatingOperation">Server-side absolute paginating operation </a>
       </li>
@@ -771,31 +791,13 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/WithdrawActivity" title="https://w3id.org/idsa/core/WithdrawActivity">WithdrawActivity</a>
       </li>
    </ul>
-   <div class="entity" id="/AccessTokenRequest">
-      <h3>Access Token Request<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/AccessTokenRequest</p>
-      <div class="comment">
-         <span class="markdown">Message requesting an access token. This is intended for point-to-point communication with, e.g., Brokers.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#/RequestMessage" title="https://w3id.org/idsa/core/RequestMessage">Request Message</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="/AccessTokenResponse">
+   <div class="entity" id="/AccessTokenResponseMessage">
       <h3>Access Token Response<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/AccessTokenResponse</p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/AccessTokenResponseMessage</p>
       <div class="comment">
          <span class="markdown">Response to an access token request, intended for point-to-point communication.</span>
       </div>
@@ -803,6 +805,24 @@ This section provides details for each class and property defined by Industrial 
          <dt>has super-classes</dt>
          <dd>
             <a href="#/ResponseMessage" title="https://w3id.org/idsa/core/ResponseMessage">Response Message</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AccessTokenRequestMessage">
+      <h3>AccessToken Request Message<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/AccessTokenRequestMessage</p>
+      <div class="comment">
+         <span class="markdown">Message requesting an access token. This is intended for point-to-point communication with, e.g., Brokers.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/RequestMessage" title="https://w3id.org/idsa/core/RequestMessage">Request Message</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -835,16 +855,19 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>has members</dt>
          <dd>
-            <a href="#/ANONYMIZE" title="https://w3id.org/idsa/core/ANONYMIZE">anonymize</a>
+            <a href="#https://w3id.org/idsa/code/ANONYMIZE" title="https://w3id.org/idsa/code/ANONYMIZE">anonymize</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ATTRIBUTE" title="https://w3id.org/idsa/code/ATTRIBUTE">attribute</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/COMPENSATE" title="https://w3id.org/idsa/code/COMPENSATE">compensate</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DELETE" title="https://w3id.org/idsa/code/DELETE">delete</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DISTRIBUTE" title="https://w3id.org/idsa/code/DISTRIBUTE">distribute</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GRANT_USE" title="https://w3id.org/idsa/code/GRANT_USE">grant use</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/NOTIFY" title="https://w3id.org/idsa/core/NOTIFY">log</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/READ" title="https://w3id.org/idsa/core/READ">read</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/TRACKPROVENANCE" title="https://w3id.org/idsa/core/TRACKPROVENANCE">track provenance</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NOTIFY" title="https://w3id.org/idsa/code/NOTIFY">log</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MODIFY" title="https://w3id.org/idsa/code/MODIFY">modify</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NEXT_POLICY" title="https://w3id.org/idsa/code/NEXT_POLICY">next policy</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/READ" title="https://w3id.org/idsa/code/READ">read</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TRACKPROVENANCE" title="https://w3id.org/idsa/code/TRACKPROVENANCE">track provenance</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/USE" title="https://w3id.org/idsa/code/USE">use</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/WRITE" title="https://w3id.org/idsa/code/WRITE">write</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
@@ -919,7 +942,8 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#/publisher" title="https://w3id.org/idsa/core/publisher">publisher</a>
+            <a href="#/hasAgent" title="https://w3id.org/idsa/core/hasAgent">has Agent</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/publisher" title="https://w3id.org/idsa/core/publisher">publisher</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/recipientAgent" title="https://w3id.org/idsa/core/recipientAgent">recipient agent</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/senderAgent" title="https://w3id.org/idsa/core/senderAgent">sender agent</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/sovereign" title="https://w3id.org/idsa/core/sovereign">sovereign</a>
@@ -1166,7 +1190,8 @@ This section provides details for each class and property defined by Industrial 
       </div>
       <dl class="description">
          <dt>is equivalent to</dt>
-         <dd>{ <a href="#https://w3id.org/idsa/code/AUDIT_LOCAL_LOGGING" title="https://w3id.org/idsa/code/AUDIT_LOCAL_LOGGING">Audit Local Logging</a> , <a href="#https://w3id.org/idsa/code/AUDIT_NONE" title="https://w3id.org/idsa/code/AUDIT_NONE">Audit None</a> , <a href="#https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING" title="https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING">Audit Remote Tracing</a> }</dd>
+         <dd>{ <a href="#https://w3id.org/idsa/code/AUDIT_LOCAL_LOGGING" title="https://w3id.org/idsa/code/AUDIT_LOCAL_LOGGING">Audit Local Logging</a> , <a href="#https://w3id.org/idsa/code/AUDIT_NONE" title="https://w3id.org/idsa/code/AUDIT_NONE">Audit None</a> , <a href="#https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING"
+               title="https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING">Audit Remote Tracing</a> }</dd>
          <dt>has super-classes</dt>
          <dd>
             <a href="#/SecurityGuarantee" title="https://w3id.org/idsa/core/SecurityGuarantee">Security guarantee</a>
@@ -1176,7 +1201,8 @@ This section provides details for each class and property defined by Industrial 
          <dd>
             <a href="#https://w3id.org/idsa/code/AUDIT_LOCAL_LOGGING" title="https://w3id.org/idsa/code/AUDIT_LOCAL_LOGGING">Audit Local Logging</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AUDIT_NONE" title="https://w3id.org/idsa/code/AUDIT_NONE">Audit None</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING" title="https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING">Audit Remote Tracing</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING"
+               title="https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING">Audit Remote Tracing</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
@@ -1302,15 +1328,50 @@ This section provides details for each class and property defined by Industrial 
          <dd>
             <a href="#https://w3id.org/idsa/code/AFTER" title="https://w3id.org/idsa/code/AFTER">after</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BEFORE" title="https://w3id.org/idsa/code/BEFORE">before</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CONTAINS" title="https://w3id.org/idsa/code/CONTAINS">contains</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SPATIAL_CONTAINS" title="https://w3id.org/idsa/code/SPATIAL_CONTAINS">contains</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/COVERED_BY" title="https://w3id.org/idsa/code/COVERED_BY">covered by</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/COVERS" title="https://w3id.org/idsa/code/COVERS">covers</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DEFINES_AS" title="https://w3id.org/idsa/code/DEFINES_AS">defines as</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DISJOINT" title="https://w3id.org/idsa/code/DISJOINT">disjoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TEMPORAL_DISJOINT" title="https://w3id.org/idsa/code/TEMPORAL_DISJOINT">disjoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DURING" title="https://w3id.org/idsa/code/DURING">during</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ENDPOINT" title="https://w3id.org/idsa/code/ENDPOINT">endpoint</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EQ" title="https://w3id.org/idsa/code/EQ">equals</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GT" title="https://w3id.org/idsa/code/GT">greater than</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EQUALS" title="https://w3id.org/idsa/code/EQUALS">equals</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SPATIAL_EQUALS" title="https://w3id.org/idsa/code/SPATIAL_EQUALS">equals</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FINISHED_BY" title="https://w3id.org/idsa/code/FINISHED_BY">finished by</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FINISHES" title="https://w3id.org/idsa/code/FINISHES">finishes</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GREATERTHAN" title="https://w3id.org/idsa/code/GREATERTHAN">greater than</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GTEQ" title="https://w3id.org/idsa/code/GTEQ">greater than or equals</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HAS_ROLE" title="https://w3id.org/idsa/code/HAS_ROLE">has Role</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HAS_MEMBERSHIP" title="https://w3id.org/idsa/code/HAS_MEMBERSHIP">has Member</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DURATION_EQ" title="https://w3id.org/idsa/code/DURATION_EQ">has same duration</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HAS_SITE" title="https://w3id.org/idsa/code/HAS_SITE">has site</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IN" title="https://w3id.org/idsa/code/IN">in</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IN_TIME_INTERVAL" title="https://w3id.org/idsa/code/IN_TIME_INTERVAL">in time interval</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LT" title="https://w3id.org/idsa/code/LT">less than</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/INSIDE" title="https://w3id.org/idsa/code/INSIDE">inside</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TEMPORAL_EQUALS" title="https://w3id.org/idsa/code/TEMPORAL_EQUALS">interval equals</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SAME_AS" title="https://w3id.org/idsa/code/SAME_AS">is same as</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LESSTHAN" title="https://w3id.org/idsa/code/LESSTHAN">less than</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LTEQ" title="https://w3id.org/idsa/code/LTEQ">less than or equals</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/REMOTE" title="https://w3id.org/idsa/code/REMOTE">remote</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LONGER" title="https://w3id.org/idsa/code/LONGER">longer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LONGER_EQ" title="https://w3id.org/idsa/code/LONGER_EQ">longer or equals</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MATCHES" title="https://w3id.org/idsa/code/MATCHES">matches</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SPATIAL_MEET" title="https://w3id.org/idsa/code/SPATIAL_MEET">meet</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MEETS" title="https://w3id.org/idsa/code/MEETS">meets</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MEMBER_OF" title="https://w3id.org/idsa/code/MEMBER_OF">memberOf</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MET_BY" title="https://w3id.org/idsa/code/MET_BY">met by</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SPATIAL_OVERLAP" title="https://w3id.org/idsa/code/SPATIAL_OVERLAP">overlap</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OVERLAPPED_BY" title="https://w3id.org/idsa/code/OVERLAPPED_BY">overlapped by</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OVERLAPS" title="https://w3id.org/idsa/code/OVERLAPS">overlaps</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PATH" title="https://w3id.org/idsa/code/PATH">path to attribute</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SHORTER" title="https://w3id.org/idsa/code/SHORTER">shorter</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SHORTER_EQ" title="https://w3id.org/idsa/code/SHORTER_EQ">shorter or equals</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/STARTED_BY" title="https://w3id.org/idsa/code/STARTED_BY">started by</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/STARTS" title="https://w3id.org/idsa/code/STARTS">starts</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/STRING_CONTAINS" title="https://w3id.org/idsa/code/STRING_CONTAINS">string contains</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/STIRNG_EQ" title="https://w3id.org/idsa/code/STIRNG_EQ">string equals</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/STRING_IS_CONTAINED" title="https://w3id.org/idsa/code/STRING_IS_CONTAINED">string is contained in</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SYSTEM" title="https://w3id.org/idsa/code/SYSTEM">system</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
@@ -1876,6 +1937,7 @@ This section provides details for each class and property defined by Industrial 
             <a href="#/AppStore" title="https://w3id.org/idsa/core/AppStore">App Store</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/BaseConnector" title="https://w3id.org/idsa/core/BaseConnector">Base Connector</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/Broker" title="https://w3id.org/idsa/core/Broker">Broker</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/ParIS" title="https://w3id.org/idsa/core/ParIS">Participant Information Service</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/TrustedConnector" title="https://w3id.org/idsa/core/TrustedConnector">Trusted Connector</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
@@ -1885,6 +1947,7 @@ This section provides details for each class and property defined by Industrial 
             <sup class="type-op" title="object property">op</sup>, <a href="#/authInfo" title="https://w3id.org/idsa/core/authInfo">authInfo</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/catalog" title="https://w3id.org/idsa/core/catalog">catalog</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/extendedGuarantee" title="https://w3id.org/idsa/core/extendedGuarantee">extended guarantee</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/hasAgent" title="https://w3id.org/idsa/core/hasAgent">has Agent</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/host" title="https://w3id.org/idsa/core/host">host</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/securityProfile" title="https://w3id.org/idsa/core/securityProfile">securityProfile</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/transportCertsSha256" title="https://w3id.org/idsa/core/transportCertsSha256">transportCertsSha256</a>
@@ -1892,10 +1955,11 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#/affectedConnector" title="https://w3id.org/idsa/core/affectedConnector">affectedConnector</a>
+            <a href="#/affectedConnector" title="https://w3id.org/idsa/core/affectedConnector">affected Connector</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/connector" title="https://w3id.org/idsa/core/connector">connector</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/issuerConnector" title="https://w3id.org/idsa/core/issuerConnector">issuer connector</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/recipientConnector" title="https://w3id.org/idsa/core/recipientConnector">recipient connector</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/referringConnector" title="https://w3id.org/idsa/core/referringConnector">referringConnector</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -1955,11 +2019,6 @@ This section provides details for each class and property defined by Industrial 
                title="https://w3id.org/idsa/core/ConnectorNotificationMessage">Connector Notification Message</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#/revokeReason" title="https://w3id.org/idsa/core/revokeReason">revoke reason</a>
-            <sup class="type-dp" title="data property">dp</sup>
-         </dd>
       </dl>
    </div>
    <div class="entity" id="/ConnectorInactiveMessage">
@@ -2015,7 +2074,7 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#/affectedConnector" title="https://w3id.org/idsa/core/affectedConnector">affectedConnector</a>
+            <a href="#/affectedConnector" title="https://w3id.org/idsa/core/affectedConnector">affected Connector</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -2079,7 +2138,9 @@ This section provides details for each class and property defined by Industrial 
             <a href="#/leftOperand" title="https://w3id.org/idsa/core/leftOperand">leftOperand</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/operator" title="https://w3id.org/idsa/core/operator">operator</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/rightOperand" title="https://w3id.org/idsa/core/rightOperand">rightOperand</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/unit" title="https://w3id.org/idsa/core/unit">unit</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/rightOperandReference"
+               title="https://w3id.org/idsa/core/rightOperandReference">rightOperandReference</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/unit" title="https://w3id.org/idsa/core/unit">unit</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
@@ -2296,6 +2357,11 @@ This section provides details for each class and property defined by Industrial 
             <a href="#/ResponseMessage" title="https://w3id.org/idsa/core/ResponseMessage">Response Message</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/agreedContract" title="https://w3id.org/idsa/core/agreedContract">approved Contract</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
       </dl>
    </div>
    <div class="entity" id="/ContractOffer">
@@ -2336,13 +2402,12 @@ This section provides details for each class and property defined by Industrial 
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/ContractOfferMessage</p>
       <div class="comment">
-         <span class="markdown">Message containing a offered content contract (as offered by the data provider to the data consumer) in the associated payload (which is an instance of ContractOffer).</span>
+         <span class="markdown">Message containing a offered content contract (as offered by a data provider to the data consumer) in the associated payload (which is an instance of ContractOffer). In contrast to the ids:ContractResponseMessage, the ids:ContractOfferMessage is not related to a previous contract </span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <a href="#/NotificationMessage" title="https://w3id.org/idsa/core/NotificationMessage">Notification Message</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/ResponseMessage" title="https://w3id.org/idsa/core/ResponseMessage">Response Message</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -2414,6 +2479,24 @@ This section provides details for each class and property defined by Industrial 
          </dd>
       </dl>
    </div>
+   <div class="entity" id="/ContractResponseMessage">
+      <h3>Contract Response Message<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/ContractResponseMessage</p>
+      <div class="comment">
+         <span class="markdown">Message containing a response to a contract request (of a data consumer) in form of a counter-proposal of a contract in the associated payload (which is an instance of ContractOffcer). </span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/ResponseMessage" title="https://w3id.org/idsa/core/ResponseMessage">Response Message</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="/ContractSupplementMessage">
       <h3>Contract Supplement Message<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -2429,11 +2512,6 @@ This section provides details for each class and property defined by Industrial 
          <dd>
             <a href="#/NotificationMessage" title="https://w3id.org/idsa/core/NotificationMessage">Notification Message</a>
             <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#/agreedContract" title="https://w3id.org/idsa/core/agreedContract">approved Contract</a>
-            <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
@@ -2489,10 +2567,35 @@ This section provides details for each class and property defined by Industrial 
                title="https://w3id.org/idsa/code/APPLICATION_SCHEMA_XML">application/schema+xml</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/APPLICATION_SCHEMATRON_XML"
                title="https://w3id.org/idsa/code/APPLICATION_SCHEMATRON_XML">application/schematron+xml</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/APPLICATION_TAR_GZIP" title="https://w3id.org/idsa/code/APPLICATION_TAR_GZIP">application/tar+gzip</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/APPLICATION_TAR_GZIP"
+               title="https://w3id.org/idsa/code/APPLICATION_TAR_GZIP">application/tar+gzip</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TEXT_VND_APIBLUEPRINT"
                title="https://w3id.org/idsa/code/TEXT_VND_APIBLUEPRINT">text/vnd.apiblueprint</a>
             <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/DatPayload">
+      <h3>DAT Payload<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/DatPayload</p>
+      <div class="comment">
+         <span class="markdown">The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are iether defined by RFC 7519 or by the IDS Information Model. As a direct consequence of the regardance of the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one "@context" attribute with the IDS context URI as its value and a "@type" with ids:DatPayload as its value.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/aud" title="https://w3id.org/idsa/core/aud">aud</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/exp" title="https://w3id.org/idsa/core/exp">exp</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/iat" title="https://w3id.org/idsa/core/iat">iat</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/iss" title="https://w3id.org/idsa/core/iss">iss</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/nbf" title="https://w3id.org/idsa/core/nbf">nbf</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/referringConnector" title="https://w3id.org/idsa/core/referringConnector">referringConnector</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/sub" title="https://w3id.org/idsa/core/sub">sub</a>
+            <sup class="type-dp" title="data property">dp</sup>
          </dd>
       </dl>
    </div>
@@ -2706,6 +2809,47 @@ This section provides details for each class and property defined by Industrial 
          </dd>
       </dl>
    </div>
+   <div class="entity" id="/DescriptionRequestMessage">
+      <h3>Description Request Message<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/DescriptionRequestMessage</p>
+      <div class="comment">
+         <span class="markdown">Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g. because the element was not found.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/RequestMessage" title="https://w3id.org/idsa/core/RequestMessage">Request Message</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/requestedElement" title="https://w3id.org/idsa/core/requestedElement">requested Element</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/DescriptionResponseMessage">
+      <h3>Description Response Message<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/DescriptionResponseMessage</p>
+      <div class="comment">
+         <span class="markdown">Message containing the metadata, which a Connector previously requested via the ids:DescriptionRequestMessage, in its payload.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/ResponseMessage" title="https://w3id.org/idsa/core/ResponseMessage">Response Message</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="/DigitalContent">
       <h3>Digital content<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -2762,6 +2906,24 @@ This section provides details for each class and property defined by Industrial 
          </dd>
       </dl>
    </div>
+   <div class="entity" id="/DurationEntity">
+      <h3>Duration<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/DurationEntity</p>
+      <div class="comment">
+         <span class="markdown">A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/TemporalEntity" title="https://w3id.org/idsa/core/TemporalEntity">TemporalEntity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="/Duty">
       <h3>Duty<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -2814,7 +2976,7 @@ This section provides details for each class and property defined by Industrial 
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/DynamicAttributeToken</p>
       <div class="comment">
-         <span class="markdown">A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'.</span>
+         <span class="markdown">A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'. The complete JWT *including* header, payload and signiture is referenced by this class and *not* only the JSON element in the payload. See ids:DatPayload for the payload definition.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -3354,7 +3516,6 @@ This section provides details for each class and property defined by Industrial 
             <sup class="type-c" title="class">c</sup>, <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/DAPS" title="https://w3id.org/idsa/core/DAPS">Dynamic Attribute Provisioning Service</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/IdentityProvider" title="https://w3id.org/idsa/core/IdentityProvider">Identity provider</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/ParIS" title="https://w3id.org/idsa/core/ParIS">Participant Information Service</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -3379,7 +3540,7 @@ This section provides details for each class and property defined by Industrial 
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/Instant</p>
       <div class="comment">
-         <span class="markdown">A temporal entity with zero extent or duration.</span>
+         <span class="markdown">A defined point in time with zero duration.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -3390,8 +3551,7 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#/date" title="https://w3id.org/idsa/core/date">date</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/dateTime" title="https://w3id.org/idsa/core/dateTime">date time</a>
+            <a href="#/dateTime" title="https://w3id.org/idsa/core/dateTime">date time</a>
             <sup class="type-dp" title="data property">dp</sup>
          </dd>
          <dt>is in range of</dt>
@@ -3534,7 +3694,7 @@ This section provides details for each class and property defined by Industrial 
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/Interval</p>
       <div class="comment">
-         <span class="markdown">A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different.</span>
+         <span class="markdown">A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity).</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -4762,111 +4922,190 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>has members</dt>
          <dd>
-            <a href="#https://w3id.org/idsa/code/AKAN" title="https://w3id.org/idsa/code/AKAN">Akan</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AMHARIC" title="https://w3id.org/idsa/code/AMHARIC">Amharic</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ARABIC" title="https://w3id.org/idsa/code/ARABIC">Arabic</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ASSAMESE" title="https://w3id.org/idsa/code/ASSAMESE">Assamese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AWADHI" title="https://w3id.org/idsa/code/AWADHI">Awadhi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AZERBAIJANI" title="https://w3id.org/idsa/code/AZERBAIJANI">Azerbaijani</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BALOCHI" title="https://w3id.org/idsa/code/BALOCHI">Balochi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BELARUSIAN" title="https://w3id.org/idsa/code/BELARUSIAN">Belarusian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BENGALI_BANGLA" title="https://w3id.org/idsa/code/BENGALI_BANGLA">Bengali Bangla</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BHOJPURI" title="https://w3id.org/idsa/code/BHOJPURI">Bhojpuri</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BURMESE" title="https://w3id.org/idsa/code/BURMESE">Burmese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CEBUANO_VISAYAN" title="https://w3id.org/idsa/code/CEBUANO_VISAYAN">Cebuano Visayan</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CHEWA" title="https://w3id.org/idsa/code/CHEWA">Chewa</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CHHATTISGARHI" title="https://w3id.org/idsa/code/CHHATTISGARHI">Chhattisgarhi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CHITTAGONIAN" title="https://w3id.org/idsa/code/CHITTAGONIAN">Chittagonian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CZECH" title="https://w3id.org/idsa/code/CZECH">Czech</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DECCAN" title="https://w3id.org/idsa/code/DECCAN">Deccan</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DHUNDHARI" title="https://w3id.org/idsa/code/DHUNDHARI">Dhundhari</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DUTCH" title="https://w3id.org/idsa/code/DUTCH">Dutch</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EASTERN_MIN_INC_FUZHOUNESE"
-               title="https://w3id.org/idsa/code/EASTERN_MIN_INC_FUZHOUNESE">Eastern Min inc Fuzhounese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ENGLISH" title="https://w3id.org/idsa/code/ENGLISH">English</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FRENCH" title="https://w3id.org/idsa/code/FRENCH">French</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FULA" title="https://w3id.org/idsa/code/FULA">Fula</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GAN_CHINESE" title="https://w3id.org/idsa/code/GAN_CHINESE">Gan Chinese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GERMAN" title="https://w3id.org/idsa/code/GERMAN">German</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GREEK" title="https://w3id.org/idsa/code/GREEK">Greek</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GUJARATI" title="https://w3id.org/idsa/code/GUJARATI">Gujarati</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HAITIAN_CREOLE" title="https://w3id.org/idsa/code/HAITIAN_CREOLE">Haitian Creole</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HAKKA" title="https://w3id.org/idsa/code/HAKKA">Hakka</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HARYANVI" title="https://w3id.org/idsa/code/HARYANVI">Haryanvi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HAUSA" title="https://w3id.org/idsa/code/HAUSA">Hausa</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HILIGAYNONILONGGO_VISAYAN"
-               title="https://w3id.org/idsa/code/HILIGAYNONILONGGO_VISAYAN">HiligaynonIlonggo Visayan</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HINDINOTE" title="https://w3id.org/idsa/code/HINDINOTE">HindiNote</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HMONG" title="https://w3id.org/idsa/code/HMONG">Hmong</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HUNGARIAN" title="https://w3id.org/idsa/code/HUNGARIAN">Hungarian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IGBO" title="https://w3id.org/idsa/code/IGBO">Igbo</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ILOCANO" title="https://w3id.org/idsa/code/ILOCANO">Ilocano</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ITALIAN" title="https://w3id.org/idsa/code/ITALIAN">Italian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/JAPANESE" title="https://w3id.org/idsa/code/JAPANESE">Japanese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/JAVANESE" title="https://w3id.org/idsa/code/JAVANESE">Javanese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/JIN" title="https://w3id.org/idsa/code/JIN">Jin</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KANNADA" title="https://w3id.org/idsa/code/KANNADA">Kannada</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KAZAKH" title="https://w3id.org/idsa/code/KAZAKH">Kazakh</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KHMER" title="https://w3id.org/idsa/code/KHMER">Khmer</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KINYARWANDA" title="https://w3id.org/idsa/code/KINYARWANDA">Kinyarwanda</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KIRUNDI" title="https://w3id.org/idsa/code/KIRUNDI">Kirundi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KONKANI" title="https://w3id.org/idsa/code/KONKANI">Konkani</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KOREAN" title="https://w3id.org/idsa/code/KOREAN">Korean</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KURDISH" title="https://w3id.org/idsa/code/KURDISH">Kurdish</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MADURESE" title="https://w3id.org/idsa/code/MADURESE">Madurese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MAGAHI" title="https://w3id.org/idsa/code/MAGAHI">Magahi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MAITHILI" title="https://w3id.org/idsa/code/MAITHILI">Maithili</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MALAGASY" title="https://w3id.org/idsa/code/MALAGASY">Malagasy</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MALAY_INC_MALAYSIAN_AND_INDONESIAN"
-               title="https://w3id.org/idsa/code/MALAY_INC_MALAYSIAN_AND_INDONESIAN">Malay inc Malaysian and Indonesian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MALAYALAM" title="https://w3id.org/idsa/code/MALAYALAM">Malayalam</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MANDARIN_ENTIRE_BRANCH"
-               title="https://w3id.org/idsa/code/MANDARIN_ENTIRE_BRANCH">Mandarin entire branch</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MARATHI" title="https://w3id.org/idsa/code/MARATHI">Marathi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MARWARI" title="https://w3id.org/idsa/code/MARWARI">Marwari</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MOSSI" title="https://w3id.org/idsa/code/MOSSI">Mossi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NEPALI" title="https://w3id.org/idsa/code/NEPALI">Nepali</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NORTHERN_MIN" title="https://w3id.org/idsa/code/NORTHERN_MIN">Northern Min</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ODIA_ORIYA" title="https://w3id.org/idsa/code/ODIA_ORIYA">Odia Oriya</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OROMO" title="https://w3id.org/idsa/code/OROMO">Oromo</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PASHTO" title="https://w3id.org/idsa/code/PASHTO">Pashto</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PERSIAN" title="https://w3id.org/idsa/code/PERSIAN">Persian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/POLISH" title="https://w3id.org/idsa/code/POLISH">Polish</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PORTUGUESE" title="https://w3id.org/idsa/code/PORTUGUESE">Portuguese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PUNJABI" title="https://w3id.org/idsa/code/PUNJABI">Punjabi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/QUECHUA" title="https://w3id.org/idsa/code/QUECHUA">Quechua</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ROMANIAN" title="https://w3id.org/idsa/code/ROMANIAN">Romanian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/RUSSIAN" title="https://w3id.org/idsa/code/RUSSIAN">Russian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SARAIKI" title="https://w3id.org/idsa/code/SARAIKI">Saraiki</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SERBO_CROATIAN" title="https://w3id.org/idsa/code/SERBO_CROATIAN">Serbo-Croatian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SHONA" title="https://w3id.org/idsa/code/SHONA">Shona</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SINDHI" title="https://w3id.org/idsa/code/SINDHI">Sindhi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SINHALESE" title="https://w3id.org/idsa/code/SINHALESE">Sinhalese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SOMALI" title="https://w3id.org/idsa/code/SOMALI">Somali</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SOUTHERN_MIN_INCL_HOKKIEN_AND_TEOCHEW"
-               title="https://w3id.org/idsa/code/SOUTHERN_MIN_INCL_HOKKIEN_AND_TEOCHEW">Southern Min incl Hokkien and Teochew</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SPANISH" title="https://w3id.org/idsa/code/SPANISH">Spanish</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SUNDANESE" title="https://w3id.org/idsa/code/SUNDANESE">Sundanese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SWEDISH" title="https://w3id.org/idsa/code/SWEDISH">Swedish</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SYLHETI" title="https://w3id.org/idsa/code/SYLHETI">Sylheti</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TAGALOG" title="https://w3id.org/idsa/code/TAGALOG">Tagalog</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TAMIL" title="https://w3id.org/idsa/code/TAMIL">Tamil</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TELUGU" title="https://w3id.org/idsa/code/TELUGU">Telugu</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/THAI" title="https://w3id.org/idsa/code/THAI">Thai</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TURKISH" title="https://w3id.org/idsa/code/TURKISH">Turkish</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TURKMEN" title="https://w3id.org/idsa/code/TURKMEN">Turkmen</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/UKRAINIAN" title="https://w3id.org/idsa/code/UKRAINIAN">Ukrainian</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/URDU" title="https://w3id.org/idsa/code/URDU">Urdu</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/UYGHUR" title="https://w3id.org/idsa/code/UYGHUR">Uyghur</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/UZBEK" title="https://w3id.org/idsa/code/UZBEK">Uzbek</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/VIETNAMESE" title="https://w3id.org/idsa/code/VIETNAMESE">Vietnamese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/WU_INC_SHANGHAINESE" title="https://w3id.org/idsa/code/WU_INC_SHANGHAINESE">Wu inc Shanghainese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/XHOSA" title="https://w3id.org/idsa/code/XHOSA">Xhosa</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/XIANG_HUNNANESE" title="https://w3id.org/idsa/code/XIANG_HUNNANESE">Xiang Hunnanese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/YORUBA" title="https://w3id.org/idsa/code/YORUBA">Yoruba</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/YUE_INCL_CANTONESE" title="https://w3id.org/idsa/code/YUE_INCL_CANTONESE">Yue incl Cantonese</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ZHUANG" title="https://w3id.org/idsa/code/ZHUANG">Zhuang</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ZULU" title="https://w3id.org/idsa/code/ZULU">Zulu</a>
+            <a href="#https://w3id.org/idsa/code/PA" title="https://w3id.org/idsa/code/PA">(Eastern) Punjabi</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AB" title="https://w3id.org/idsa/code/AB">Abkhaz</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AA" title="https://w3id.org/idsa/code/AA">Afar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AF" title="https://w3id.org/idsa/code/AF">Afrikaans</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AK" title="https://w3id.org/idsa/code/AK">Akan</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SQ" title="https://w3id.org/idsa/code/SQ">Albanian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AM" title="https://w3id.org/idsa/code/AM">Amharic</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AR" title="https://w3id.org/idsa/code/AR">Arabic</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AN" title="https://w3id.org/idsa/code/AN">Aragonese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HY" title="https://w3id.org/idsa/code/HY">Armenian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AS" title="https://w3id.org/idsa/code/AS">Assamese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AV" title="https://w3id.org/idsa/code/AV">Avaric</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AE" title="https://w3id.org/idsa/code/AE">Avestan</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AY" title="https://w3id.org/idsa/code/AY">Aymara</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/AZ" title="https://w3id.org/idsa/code/AZ">Azerbaijani</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BM" title="https://w3id.org/idsa/code/BM">Bambara</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BA" title="https://w3id.org/idsa/code/BA">Bashkir</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EU" title="https://w3id.org/idsa/code/EU">Basque</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BE" title="https://w3id.org/idsa/code/BE">Belarusian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BN" title="https://w3id.org/idsa/code/BN">Bengali, Bangla</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BH" title="https://w3id.org/idsa/code/BH">Bihari</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BI" title="https://w3id.org/idsa/code/BI">Bislama</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BS" title="https://w3id.org/idsa/code/BS">Bosnian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BR" title="https://w3id.org/idsa/code/BR">Breton</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BG" title="https://w3id.org/idsa/code/BG">Bulgarian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MY" title="https://w3id.org/idsa/code/MY">Burmese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CA" title="https://w3id.org/idsa/code/CA">Catalan</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CH" title="https://w3id.org/idsa/code/CH">Chamorro</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CE" title="https://w3id.org/idsa/code/CE">Chechen</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NY" title="https://w3id.org/idsa/code/NY">Chichewa, Chewa, Nyanja</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ZH" title="https://w3id.org/idsa/code/ZH">Chinese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CV" title="https://w3id.org/idsa/code/CV">Chuvash</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KW" title="https://w3id.org/idsa/code/KW">Cornish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CO" title="https://w3id.org/idsa/code/CO">Corsican</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CR" title="https://w3id.org/idsa/code/CR">Cree</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HR" title="https://w3id.org/idsa/code/HR">Croatian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CS" title="https://w3id.org/idsa/code/CS">Czech</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DA" title="https://w3id.org/idsa/code/DA">Danish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DV" title="https://w3id.org/idsa/code/DV">Divehi, Dhivehi, Maldivian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NL" title="https://w3id.org/idsa/code/NL">Dutch</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DZ" title="https://w3id.org/idsa/code/DZ">Dzongkha</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EN" title="https://w3id.org/idsa/code/EN">English</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EO" title="https://w3id.org/idsa/code/EO">Esperanto</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ET" title="https://w3id.org/idsa/code/ET">Estonian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EE" title="https://w3id.org/idsa/code/EE">Ewe</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FO" title="https://w3id.org/idsa/code/FO">Faroese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FJ" title="https://w3id.org/idsa/code/FJ">Fijian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FI" title="https://w3id.org/idsa/code/FI">Finnish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FR" title="https://w3id.org/idsa/code/FR">French</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FF" title="https://w3id.org/idsa/code/FF">Fula, Fulah, Pulaar, Pular</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GL" title="https://w3id.org/idsa/code/GL">Galician</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LG" title="https://w3id.org/idsa/code/LG">Ganda</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KA" title="https://w3id.org/idsa/code/KA">Georgian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DE" title="https://w3id.org/idsa/code/DE">German</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/EL" title="https://w3id.org/idsa/code/EL">Greek (modern)</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GN" title="https://w3id.org/idsa/code/GN">Guaraní</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GU" title="https://w3id.org/idsa/code/GU">Gujarati</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HT" title="https://w3id.org/idsa/code/HT">Haitian, Haitian Creole</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HA" title="https://w3id.org/idsa/code/HA">Hausa</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HE" title="https://w3id.org/idsa/code/HE">Hebrew (modern)</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HZ" title="https://w3id.org/idsa/code/HZ">Herero</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HI" title="https://w3id.org/idsa/code/HI">Hindi</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HO" title="https://w3id.org/idsa/code/HO">Hiri Motu</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/HU" title="https://w3id.org/idsa/code/HU">Hungarian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IS" title="https://w3id.org/idsa/code/IS">Icelandic</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IO" title="https://w3id.org/idsa/code/IO">Ido</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IG" title="https://w3id.org/idsa/code/IG">Igbo</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ID" title="https://w3id.org/idsa/code/ID">Indonesian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IA" title="https://w3id.org/idsa/code/IA">Interlingua</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IE" title="https://w3id.org/idsa/code/IE">Interlingue</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IU" title="https://w3id.org/idsa/code/IU">Inuktitut</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IK" title="https://w3id.org/idsa/code/IK">Inupiaq</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GA" title="https://w3id.org/idsa/code/GA">Irish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/IT" title="https://w3id.org/idsa/code/IT">Italian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/JA" title="https://w3id.org/idsa/code/JA">Japanese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/JV" title="https://w3id.org/idsa/code/JV">Javanese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KL" title="https://w3id.org/idsa/code/KL">Kalaallisut, Greenlandic</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KN" title="https://w3id.org/idsa/code/KN">Kannada</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KR" title="https://w3id.org/idsa/code/KR">Kanuri</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KS" title="https://w3id.org/idsa/code/KS">Kashmiri</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KK" title="https://w3id.org/idsa/code/KK">Kazakh</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KM" title="https://w3id.org/idsa/code/KM">Khmer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KI" title="https://w3id.org/idsa/code/KI">Kikuyu, Gikuyu</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/RW" title="https://w3id.org/idsa/code/RW">Kinyarwanda</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/RN" title="https://w3id.org/idsa/code/RN">Kirundi</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KV" title="https://w3id.org/idsa/code/KV">Komi</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KG" title="https://w3id.org/idsa/code/KG">Kongo</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KO" title="https://w3id.org/idsa/code/KO">Korean</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KU" title="https://w3id.org/idsa/code/KU">Kurdish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KJ" title="https://w3id.org/idsa/code/KJ">Kwanyama, Kuanyama</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/KY" title="https://w3id.org/idsa/code/KY">Kyrgyz</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LO" title="https://w3id.org/idsa/code/LO">Lao</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LA" title="https://w3id.org/idsa/code/LA">Latin</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LV" title="https://w3id.org/idsa/code/LV">Latvian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LI" title="https://w3id.org/idsa/code/LI">Limburgish, Limburgan, Limburger</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LN" title="https://w3id.org/idsa/code/LN">Lingala</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LT" title="https://w3id.org/idsa/code/LT">Lithuanian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LU" title="https://w3id.org/idsa/code/LU">Luba-Katanga</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/LB" title="https://w3id.org/idsa/code/LB">Luxembourgish, Letzeburgesch</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MK" title="https://w3id.org/idsa/code/MK">Macedonian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MG" title="https://w3id.org/idsa/code/MG">Malagasy</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MS" title="https://w3id.org/idsa/code/MS">Malay</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ML" title="https://w3id.org/idsa/code/ML">Malayalam</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MT" title="https://w3id.org/idsa/code/MT">Maltese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GV" title="https://w3id.org/idsa/code/GV">Manx</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MR" title="https://w3id.org/idsa/code/MR">Marathi (Marāṭhī)</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MH" title="https://w3id.org/idsa/code/MH">Marshallese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MN" title="https://w3id.org/idsa/code/MN">Mongolian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/MI" title="https://w3id.org/idsa/code/MI">Māori</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NA" title="https://w3id.org/idsa/code/NA">Nauruan</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NV" title="https://w3id.org/idsa/code/NV">Navajo, Navaho</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NG" title="https://w3id.org/idsa/code/NG">Ndonga</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NE" title="https://w3id.org/idsa/code/NE">Nepali</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ND" title="https://w3id.org/idsa/code/ND">Northern Ndebele</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SE" title="https://w3id.org/idsa/code/SE">Northern Sami</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NO" title="https://w3id.org/idsa/code/NO">Norwegian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NB" title="https://w3id.org/idsa/code/NB">Norwegian Bokmål</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NN" title="https://w3id.org/idsa/code/NN">Norwegian Nynorsk</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/II" title="https://w3id.org/idsa/code/II">Nuosu</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OC" title="https://w3id.org/idsa/code/OC">Occitan</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OJ" title="https://w3id.org/idsa/code/OJ">Ojibwe, Ojibwa</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CU" title="https://w3id.org/idsa/code/CU">Old Church Slavonic, Church Slavonic, Old Bulgarian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OR" title="https://w3id.org/idsa/code/OR">Oriya</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OM" title="https://w3id.org/idsa/code/OM">Oromo</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/OS" title="https://w3id.org/idsa/code/OS">Ossetian, Ossetic</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PS" title="https://w3id.org/idsa/code/PS">Pashto, Pushto</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FA" title="https://w3id.org/idsa/code/FA">Persian (Farsi)</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PL" title="https://w3id.org/idsa/code/PL">Polish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PT" title="https://w3id.org/idsa/code/PT">Portuguese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PI" title="https://w3id.org/idsa/code/PI">Pāli</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/QU" title="https://w3id.org/idsa/code/QU">Quechua</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/RO" title="https://w3id.org/idsa/code/RO">Romanian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/RM" title="https://w3id.org/idsa/code/RM">Romansh</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/RU" title="https://w3id.org/idsa/code/RU">Russian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SM" title="https://w3id.org/idsa/code/SM">Samoan</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SG" title="https://w3id.org/idsa/code/SG">Sango</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SA" title="https://w3id.org/idsa/code/SA">Sanskrit (Saṁskṛta)</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SC" title="https://w3id.org/idsa/code/SC">Sardinian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/GD" title="https://w3id.org/idsa/code/GD">Scottish Gaelic, Gaelic</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SR" title="https://w3id.org/idsa/code/SR">Serbian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SN" title="https://w3id.org/idsa/code/SN">Shona</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SD" title="https://w3id.org/idsa/code/SD">Sindhi</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SI" title="https://w3id.org/idsa/code/SI">Sinhalese, Sinhala</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SK" title="https://w3id.org/idsa/code/SK">Slovak</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SL" title="https://w3id.org/idsa/code/SL">Slovene</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SO" title="https://w3id.org/idsa/code/SO">Somali</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/NR" title="https://w3id.org/idsa/code/NR">Southern Ndebele</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ST" title="https://w3id.org/idsa/code/ST">Southern Sotho</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ES" title="https://w3id.org/idsa/code/ES">Spanish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SU" title="https://w3id.org/idsa/code/SU">Sundanese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SW" title="https://w3id.org/idsa/code/SW">Swahili</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SS" title="https://w3id.org/idsa/code/SS">Swati</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/SV" title="https://w3id.org/idsa/code/SV">Swedish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TL" title="https://w3id.org/idsa/code/TL">Tagalog</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TY" title="https://w3id.org/idsa/code/TY">Tahitian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TG" title="https://w3id.org/idsa/code/TG">Tajik</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TA" title="https://w3id.org/idsa/code/TA">Tamil</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TT" title="https://w3id.org/idsa/code/TT">Tatar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TE" title="https://w3id.org/idsa/code/TE">Telugu</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TH" title="https://w3id.org/idsa/code/TH">Thai</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/BO" title="https://w3id.org/idsa/code/BO">Tibetan Standard, Tibetan, Central</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TI" title="https://w3id.org/idsa/code/TI">Tigrinya</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TO" title="https://w3id.org/idsa/code/TO">Tonga (Tonga Islands)</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TS" title="https://w3id.org/idsa/code/TS">Tsonga</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TN" title="https://w3id.org/idsa/code/TN">Tswana</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TR" title="https://w3id.org/idsa/code/TR">Turkish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TK" title="https://w3id.org/idsa/code/TK">Turkmen</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/TW" title="https://w3id.org/idsa/code/TW">Twi</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/UK" title="https://w3id.org/idsa/code/UK">Ukrainian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/UR" title="https://w3id.org/idsa/code/UR">Urdu</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/UG" title="https://w3id.org/idsa/code/UG">Uyghur</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/UZ" title="https://w3id.org/idsa/code/UZ">Uzbek</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/VE" title="https://w3id.org/idsa/code/VE">Venda</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/VI" title="https://w3id.org/idsa/code/VI">Vietnamese</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/VO" title="https://w3id.org/idsa/code/VO">Volapük</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/WA" title="https://w3id.org/idsa/code/WA">Walloon</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/CY" title="https://w3id.org/idsa/code/CY">Welsh</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/FY" title="https://w3id.org/idsa/code/FY">Western Frisian</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/WO" title="https://w3id.org/idsa/code/WO">Wolof</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/XH" title="https://w3id.org/idsa/code/XH">Xhosa</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/YI" title="https://w3id.org/idsa/code/YI">Yiddish</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/YO" title="https://w3id.org/idsa/code/YO">Yoruba</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ZA" title="https://w3id.org/idsa/code/ZA">Zhuang, Chuang</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/ZU" title="https://w3id.org/idsa/code/ZU">Zulu</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
@@ -4894,17 +5133,19 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>has members</dt>
          <dd>
-            <a href="#/absoluteSpatialPosition"
-               title="https://w3id.org/idsa/core/absoluteSpatialPosition">Absolute geo-spatial position</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/count" title="https://w3id.org/idsa/code/count">count</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/now" title="https://w3id.org/idsa/code/now">now</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/payAmount" title="https://w3id.org/idsa/code/payAmount">payAmount</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/purpose" title="https://w3id.org/idsa/core/purpose">purpose</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/quantity" title="https://w3id.org/idsa/core/quantity">quantity</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/recurrenceRate" title="https://w3id.org/idsa/core/recurrenceRate">recurrenceRate</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/securityLevel" title="https://w3id.org/idsa/core/securityLevel">securityLevel</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/state" title="https://w3id.org/idsa/code/state">state</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/user" title="https://w3id.org/idsa/code/user">user</a>
+            <a href="#/ABSOLUTE_SPATIAL_POSITION"
+               title="https://w3id.org/idsa/core/ABSOLUTE_SPATIAL_POSITION">Absolute geo-spatial position</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/COUNT" title="https://w3id.org/idsa/code/COUNT">count</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/DELAY" title="https://w3id.org/idsa/code/DELAY">delay</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/PAY_AMOUNT" title="https://w3id.org/idsa/code/PAY_AMOUNT">payAmount</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/POLICY_EVALUATION_TIME"
+               title="https://w3id.org/idsa/code/POLICY_EVALUATION_TIME">policy evaluation time</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/PURPOSE" title="https://w3id.org/idsa/core/PURPOSE">purpose</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/QUANTITY" title="https://w3id.org/idsa/core/QUANTITY">quantity</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/RECURRENCE_RATE" title="https://w3id.org/idsa/core/RECURRENCE_RATE">recurrence rate</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#/SECURITY_LEVEL" title="https://w3id.org/idsa/core/SECURITY_LEVEL">security level</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/STATE" title="https://w3id.org/idsa/code/STATE">state</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/idsa/code/USER" title="https://w3id.org/idsa/code/USER">user</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
@@ -5197,15 +5438,15 @@ This section provides details for each class and property defined by Industrial 
          </dd>
       </dl>
    </div>
-   <div class="entity" id="/LogNotification">
-      <h3>Log Notification<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="/LogMessage">
+      <h3>Log Message<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/LogNotification</p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/LogMessage</p>
       <div class="comment">
-         <span class="markdown">Log notification which can be used to transfer logs e.g. to the clearing house.</span>
+         <span class="markdown">Log Message which can be used to transfer logs e.g. to the clearing house.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -5380,13 +5621,13 @@ This section provides details for each class and property defined by Industrial 
          </dd>
       </dl>
    </div>
-   <div class="entity" id="/MessageProcessedNotification">
-      <h3>Message Processed Notification<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="/MessageProcessedNotificationMessage">
+      <h3>Message Processed Notification Message<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/MessageProcessedNotification</p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/MessageProcessedNotificationMessage</p>
       <div class="comment">
          <span class="markdown">Notification that a message has been successfully processed (i.e. not ignored or rejected).</span>
       </div>
@@ -5472,9 +5713,9 @@ This section provides details for each class and property defined by Industrial 
             <sup class="type-c" title="class">c</sup>, <a href="#/ContractOfferMessage" title="https://w3id.org/idsa/core/ContractOfferMessage">Contract Offer Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/ContractSupplementMessage"
                title="https://w3id.org/idsa/core/ContractSupplementMessage">Contract Supplement Message</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/LogNotification" title="https://w3id.org/idsa/core/LogNotification">Log Notification</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/MessageProcessedNotification"
-               title="https://w3id.org/idsa/core/MessageProcessedNotification">Message Processed Notification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/LogMessage" title="https://w3id.org/idsa/core/LogMessage">Log Message</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/MessageProcessedNotificationMessage"
+               title="https://w3id.org/idsa/core/MessageProcessedNotificationMessage">Message Processed Notification Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/ParticipantNotificationMessage"
                title="https://w3id.org/idsa/core/ParticipantNotificationMessage">Participant Notification Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/RequestInProcessMessage"
@@ -5837,6 +6078,7 @@ This section provides details for each class and property defined by Industrial 
          <dd>
             <a href="#/consumer" title="https://w3id.org/idsa/core/consumer">Consumer</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/provider" title="https://w3id.org/idsa/core/provider">Provider</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/requestedParticipant" title="https://w3id.org/idsa/core/requestedParticipant">Requested Participant</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/affectedParticipant" title="https://w3id.org/idsa/core/affectedParticipant">affected Participant</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/assignee" title="https://w3id.org/idsa/core/assignee">assignee</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/assigner" title="https://w3id.org/idsa/core/assigner">assigner</a>
@@ -6013,8 +6255,7 @@ This section provides details for each class and property defined by Industrial 
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#/InfrastructureComponent"
-               title="https://w3id.org/idsa/core/InfrastructureComponent">InfrastructureComponent</a>
+            <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -6053,6 +6294,47 @@ This section provides details for each class and property defined by Industrial 
          <dd>
             <a href="#/affectedParticipant" title="https://w3id.org/idsa/core/affectedParticipant">affected Participant</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/ParticipantRequestMessage">
+      <h3>Participant Request Message<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/ParticipantRequestMessage</p>
+      <div class="comment">
+         <span class="markdown">Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/RequestMessage" title="https://w3id.org/idsa/core/RequestMessage">Request Message</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/requestedParticipant" title="https://w3id.org/idsa/core/requestedParticipant">Requested Participant</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/ParticipantResponseMessage">
+      <h3>Participant Response Message<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/ParticipantResponseMessage</p>
+      <div class="comment">
+         <span class="markdown">Message that follows up a ParticipantRequestMessage and contains the Participant's information in the payload section.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/ResponseMessage" title="https://w3id.org/idsa/core/ResponseMessage">Response Message</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -6701,17 +6983,20 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#/AccessTokenRequest" title="https://w3id.org/idsa/core/AccessTokenRequest">Access Token Request</a>
+            <a href="#/AccessTokenRequestMessage"
+               title="https://w3id.org/idsa/core/AccessTokenRequestMessage">AccessToken Request Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/ArtifactRequestMessage"
                title="https://w3id.org/idsa/core/ArtifactRequestMessage">Artifact Request Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/CommandMessage" title="https://w3id.org/idsa/core/CommandMessage">Command Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/ContractRequestMessage"
                title="https://w3id.org/idsa/core/ContractRequestMessage">Contract Request Message</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/DescriptionRequestMessage"
+               title="https://w3id.org/idsa/core/DescriptionRequestMessage">Description Request Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/InvokeOperationMessage"
                title="https://w3id.org/idsa/core/InvokeOperationMessage">Invoke Operation Message</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/ParticipantRequestMessage"
+               title="https://w3id.org/idsa/core/ParticipantRequestMessage">Participant Request Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/QueryMessage" title="https://w3id.org/idsa/core/QueryMessage">Query Message</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/SelfDescriptionRequest"
-               title="https://w3id.org/idsa/core/SelfDescriptionRequest">Self Description Request</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -6903,18 +7188,22 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#/AccessTokenResponse" title="https://w3id.org/idsa/core/AccessTokenResponse">Access Token Response</a>
+            <a href="#/AccessTokenResponseMessage"
+               title="https://w3id.org/idsa/core/AccessTokenResponseMessage">Access Token Response</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/ArtifactResponseMessage"
                title="https://w3id.org/idsa/core/ArtifactResponseMessage">Artifact Response Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/ContractAgreementMessage"
                title="https://w3id.org/idsa/core/ContractAgreementMessage">Contract Agreement Message</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/ContractOfferMessage" title="https://w3id.org/idsa/core/ContractOfferMessage">Contract Offer Message</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/ContractResponseMessage"
+               title="https://w3id.org/idsa/core/ContractResponseMessage">Contract Response Message</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/DescriptionResponseMessage"
+               title="https://w3id.org/idsa/core/DescriptionResponseMessage">Description Response Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/OperationResultMessage"
                title="https://w3id.org/idsa/core/OperationResultMessage">Operation Result Message</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/ParticipantResponseMessage"
+               title="https://w3id.org/idsa/core/ParticipantResponseMessage">Participant Response Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/RejectionMessage" title="https://w3id.org/idsa/core/RejectionMessage">Rejection Message</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/ResultMessage" title="https://w3id.org/idsa/core/ResultMessage">Result Message</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#/SelfDescriptionResponse"
-               title="https://w3id.org/idsa/core/SelfDescriptionResponse">Self Description Response</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -7104,42 +7393,6 @@ This section provides details for each class and property defined by Industrial 
          <dt>has super-classes</dt>
          <dd>
             <a href="#/Parameter" title="https://w3id.org/idsa/core/Parameter">Parameter</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="/SelfDescriptionRequest">
-      <h3>Self Description Request<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/SelfDescriptionRequest</p>
-      <div class="comment">
-         <span class="markdown">Message requesting the self-description of an Infrastructure Component.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#/RequestMessage" title="https://w3id.org/idsa/core/RequestMessage">Request Message</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="/SelfDescriptionResponse">
-      <h3>Self Description Response<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/SelfDescriptionResponse</p>
-      <div class="comment">
-         <span class="markdown">Message containing the self-description of an Infrastructure Component.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#/ResponseMessage" title="https://w3id.org/idsa/core/ResponseMessage">Response Message</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -7438,6 +7691,8 @@ This section provides details for each class and property defined by Industrial 
          <dt>has super-classes</dt>
          <dd>
             <span class="dotted"
+                  title="http://www.opengis.net/def/function/geosparql/SpatialObject">spatial object</span>
+            <sup class="type-c" title="class">c</sup>, <span class="dotted"
                   title="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing">spatial thing</span>
             <sup class="type-c" title="class">c</sup>
          </dd>
@@ -7611,7 +7866,7 @@ This section provides details for each class and property defined by Industrial 
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/TemporalEntity</p>
       <div class="comment">
-         <span class="markdown">A temporal interval or instant.</span>
+         <span class="markdown">A temporal interval, instant or a relative duration.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -7621,9 +7876,15 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#/Instant" title="https://w3id.org/idsa/core/Instant">Instant</a>
+            <a href="#/DurationEntity" title="https://w3id.org/idsa/core/DurationEntity">Duration</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/Instant" title="https://w3id.org/idsa/core/Instant">Instant</a>
             <sup class="type-c" title="class">c</sup>, <a href="#/Interval" title="https://w3id.org/idsa/core/Interval">Interval</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/hasDuration" title="https://w3id.org/idsa/core/hasDuration">has duration</a>
+            <sup class="type-dp" title="data property">dp</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
@@ -7739,13 +8000,7 @@ This section provides details for each class and property defined by Industrial 
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#/aud" title="https://w3id.org/idsa/core/aud">aud</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/exp" title="https://w3id.org/idsa/core/exp">exp</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/iss" title="https://w3id.org/idsa/core/iss">iss</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/nbf" title="https://w3id.org/idsa/core/nbf">nbf</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/referingConnector" title="https://w3id.org/idsa/core/referingConnector">referingConnector</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/sub" title="https://w3id.org/idsa/core/sub">sub</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#/tokenFormat" title="https://w3id.org/idsa/core/tokenFormat">tokenFormat</a>
+            <a href="#/tokenFormat" title="https://w3id.org/idsa/core/tokenFormat">tokenFormat</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/tokenValue" title="https://w3id.org/idsa/core/tokenValue">tokenValue</a>
             <sup class="type-dp" title="data property">dp</sup>
          </dd>
@@ -7973,13 +8228,13 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/actionRefinement" title="https://w3id.org/idsa/core/actionRefinement">action refinement</a>
       </li>
       <li>
+         <a href="#/affectedConnector" title="https://w3id.org/idsa/core/affectedConnector">affected Connector</a>
+      </li>
+      <li>
          <a href="#/affectedParticipant" title="https://w3id.org/idsa/core/affectedParticipant">affected Participant</a>
       </li>
       <li>
          <a href="#/affectedResource" title="https://w3id.org/idsa/core/affectedResource">affected Resource</a>
-      </li>
-      <li>
-         <a href="#/affectedConnector" title="https://w3id.org/idsa/core/affectedConnector">affectedConnector</a>
       </li>
       <li>
          <a href="#/contractAnnex" title="https://w3id.org/idsa/core/contractAnnex">Annex to contract</a>
@@ -8127,6 +8382,9 @@ This section provides details for each class and property defined by Industrial 
       </li>
       <li>
          <a href="#/geoPoint" title="https://w3id.org/idsa/core/geoPoint">geoPoint</a>
+      </li>
+      <li>
+         <a href="#/hasAgent" title="https://w3id.org/idsa/core/hasAgent">has Agent</a>
       </li>
       <li>
          <a href="#/host" title="https://w3id.org/idsa/core/host">host</a>
@@ -8305,6 +8563,11 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/recipientScope" title="https://w3id.org/idsa/core/recipientScope">recipient scope</a>
       </li>
       <li>
+         <a href="#/referringConnector" title="https://w3id.org/idsa/core/referringConnector">
+            <span>referringConnector</span>
+         </a>
+      </li>
+      <li>
          <a href="#/refersTo" title="https://w3id.org/idsa/core/refersTo">refers to policy template</a>
       </li>
       <li>
@@ -8321,9 +8584,10 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/request" title="https://w3id.org/idsa/core/request">request</a>
       </li>
       <li>
-         <a href="#/requestedArtifact" title="https://w3id.org/idsa/core/requestedArtifact">
-            <span>Requested Artifact</span>
-         </a>
+         <a href="#/requestedArtifact" title="https://w3id.org/idsa/core/requestedArtifact">Requested Artifact</a>
+      </li>
+      <li>
+         <a href="#/requestedParticipant" title="https://w3id.org/idsa/core/requestedParticipant">Requested Participant</a>
       </li>
       <li>
          <a href="#/resourceEndpoint" title="https://w3id.org/idsa/core/resourceEndpoint">resource endpoint</a>
@@ -8333,6 +8597,12 @@ This section provides details for each class and property defined by Industrial 
       </li>
       <li>
          <a href="#/resourcePart" title="https://w3id.org/idsa/core/resourcePart">resource part</a>
+      </li>
+      <li>
+         <a href="#/rightOperandReference"
+            title="https://w3id.org/idsa/core/rightOperandReference">
+            <span>rightOperandReference</span>
+         </a>
       </li>
       <li>
          <a href="#/sample" title="https://w3id.org/idsa/core/sample">sample</a>
@@ -8449,6 +8719,32 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
+   <div class="entity" id="/affectedConnector">
+      <h3>affected Connector<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/affectedConnector</p>
+      <div class="comment">
+         <span class="markdown">References the connector that is affected by the runtime condition change.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/ConnectorNotificationMessage"
+                  title="https://w3id.org/idsa/core/ConnectorNotificationMessage">Connector Notification Message</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="/affectedParticipant">
       <h3>affected Participant<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -8496,32 +8792,6 @@ This section provides details for each class and property defined by Industrial 
             <dt>has range</dt>
             <dd>
                <a href="#/Resource" title="https://w3id.org/idsa/core/Resource">Resource</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="/affectedConnector">
-      <h3>affectedConnector<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/affectedConnector</p>
-      <div class="comment">
-         <span class="markdown">References the connector that is affected by the runtime condition change.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#/ConnectorNotificationMessage"
-                  title="https://w3id.org/idsa/core/ConnectorNotificationMessage">Connector Notification Message</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -8591,8 +8861,8 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/ContractSupplementMessage"
-                  title="https://w3id.org/idsa/core/ContractSupplementMessage">Contract Supplement Message</a>
+               <a href="#/ContractAgreementMessage"
+                  title="https://w3id.org/idsa/core/ContractAgreementMessage">Contract Agreement Message</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -9644,6 +9914,31 @@ This section provides details for each class and property defined by Industrial 
             <dt>has range</dt>
             <dd>
                <a href="#/GeoPoint" title="https://w3id.org/idsa/core/GeoPoint">GeoPoint</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasAgent">
+      <h3>has Agent<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/hasAgent</p>
+      <div class="comment">
+         <span class="markdown">The Agents for which this Connector may initiate and receive Messages.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/Agent" title="https://w3id.org/idsa/core/Agent">Agent</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -10937,6 +11232,30 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
+   <div class="entity" id="/referringConnector">
+      <h3>referringConnector<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/referringConnector</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/Connector" title="https://w3id.org/idsa/core/Connector">Connector</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is also defined as</dt>
+            <dd>data property</dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="/refersTo">
       <h3>refers to policy template<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -11080,6 +11399,9 @@ This section provides details for each class and property defined by Industrial 
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/requestedArtifact</p>
+      <div class="comment">
+         <span class="markdown">References an artifact in the context of a request.</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -11093,8 +11415,32 @@ This section provides details for each class and property defined by Industrial 
                <a href="#/Artifact" title="https://w3id.org/idsa/core/Artifact">Artifact</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
-            <dt>is also defined as</dt>
-            <dd>data property</dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/requestedParticipant">
+      <h3>Requested Participant<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/requestedParticipant</p>
+      <div class="comment">
+         <span class="markdown">References a Participant in the context of a request.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/ParticipantRequestMessage"
+                  title="https://w3id.org/idsa/core/ParticipantRequestMessage">Participant Request Message</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/Participant" title="https://w3id.org/idsa/core/Participant">Participant</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
          </dl>
       </div>
    </div>
@@ -11174,6 +11520,32 @@ This section provides details for each class and property defined by Industrial 
             <dd>
                <a href="#/Resource" title="https://w3id.org/idsa/core/Resource">Resource</a>
                <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/rightOperandReference">
+      <h3>rightOperandReference<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/rightOperandReference</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/Constraint" title="https://w3id.org/idsa/core/Constraint">Constraint</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Resource">resource</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is also defined as</dt>
+            <dd>
+               <a href="#/rightOperandReference">annotation property</a>
             </dd>
          </dl>
       </div>
@@ -11742,9 +12114,6 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/dataType" title="https://w3id.org/idsa/core/dataType">Data type</a>
       </li>
       <li>
-         <a href="#/date" title="https://w3id.org/idsa/core/date">date</a>
-      </li>
-      <li>
          <a href="#/dateTime" title="https://w3id.org/idsa/core/dateTime">date time</a>
       </li>
       <li>
@@ -11786,12 +12155,18 @@ This section provides details for each class and property defined by Industrial 
          </a>
       </li>
       <li>
+         <a href="#/hasDuration" title="https://w3id.org/idsa/core/hasDuration">has duration</a>
+      </li>
+      <li>
          <a href="#/height" title="https://w3id.org/idsa/core/height">height</a>
       </li>
       <li>
          <a href="#/homepage" title="https://w3id.org/idsa/core/homepage">
             <span>homepage</span>
          </a>
+      </li>
+      <li>
+         <a href="#/iat" title="https://w3id.org/idsa/core/iat">iat</a>
       </li>
       <li>
          <a href="#/inboundPath" title="https://w3id.org/idsa/core/inboundPath">inbound topic</a>
@@ -11859,10 +12234,10 @@ This section provides details for each class and property defined by Industrial 
          <a href="#/property" title="https://w3id.org/idsa/core/property">property</a>
       </li>
       <li>
-         <a href="#/referingConnector" title="https://w3id.org/idsa/core/referingConnector">referingConnector</a>
+         <a href="#/requestedElement" title="https://w3id.org/idsa/core/requestedElement">requested Element</a>
       </li>
       <li>
-         <a href="#/revokeReason" title="https://w3id.org/idsa/core/revokeReason">revoke reason</a>
+         <a href="#/revocationReason" title="https://w3id.org/idsa/core/revocationReason">Revocation Reason</a>
       </li>
       <li>
          <a href="#/rightOperand" title="https://w3id.org/idsa/core/rightOperand">
@@ -11996,7 +12371,7 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -12325,35 +12700,6 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
-   <div class="entity" id="/date">
-      <h3>date<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/date</p>
-      <div class="comment">
-         <span class="markdown">Date coordinate of the instant.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#inXSDDate">in x s d date</span>
-               <sup class="type-dp" title="data property">dp</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#/Instant" title="https://w3id.org/idsa/core/Instant">Instant</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#date">date</span>
-            </dd>
-         </dl>
-      </div>
-   </div>
    <div class="entity" id="/dateTime">
       <h3>date time<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -12362,7 +12708,7 @@ This section provides details for each class and property defined by Industrial 
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/dateTime</p>
       <div class="comment">
-         <span class="markdown">Date time with a defined time zone.</span>
+         <span class="markdown">Absolute date time with a defined time zone.</span>
       </div>
       <div class="description">
          <dl>
@@ -12378,7 +12724,7 @@ This section provides details for each class and property defined by Industrial 
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#dateTime">date time</span>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#dateTimeStamp">date time stamp</span>
             </dd>
          </dl>
       </div>
@@ -12500,12 +12846,12 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
             </dd>
          </dl>
       </div>
@@ -12632,6 +12978,30 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
+   <div class="entity" id="/hasDuration">
+      <h3>has duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/hasDuration</p>
+      <div class="comment">
+         <span class="markdown">Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/TemporalEntity" title="https://w3id.org/idsa/core/TemporalEntity">TemporalEntity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#duration">duration</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="/height">
       <h3>height<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -12677,6 +13047,30 @@ This section provides details for each class and property defined by Industrial 
             <dt>is also defined as</dt>
             <dd>
                <a href="#/homepage">annotation property</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/iat">
+      <h3>iat<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/iat</p>
+      <div class="comment">
+         <span class="markdown">The 'iat' (issued at) claim contains the point in time when the JWT was created.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
             </dd>
          </dl>
       </div>
@@ -12744,7 +13138,7 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -12995,12 +13389,12 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#integer">integer</span>
             </dd>
          </dl>
       </div>
@@ -13156,21 +13550,22 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
-   <div class="entity" id="/referingConnector">
-      <h3>referingConnector<sup class="type-dp" title="data property">dp</sup>
+   <div class="entity" id="/requestedElement">
+      <h3>requested Element<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/referingConnector</p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/requestedElement</p>
       <div class="comment">
-         <span class="markdown">The RDF connector entity as referred to by the DAT. The value MUST be its accessible URI. Must contain at least one SecurityProfile claim.</span>
+         <span class="markdown">The element whose metadata is requested. </span>
       </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DescriptionRequestMessage"
+                  title="https://w3id.org/idsa/core/DescriptionRequestMessage">Description Request Message</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -13180,22 +13575,21 @@ This section provides details for each class and property defined by Industrial 
          </dl>
       </div>
    </div>
-   <div class="entity" id="/revokeReason">
-      <h3>revoke reason<sup class="type-dp" title="data property">dp</sup>
+   <div class="entity" id="/revocationReason">
+      <h3>Revocation Reason<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/idsa/core/revokeReason</p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/revocationReason</p>
       <div class="comment">
-         <span class="markdown">Plain Text containing the reason for revoking an existing certificate of an infrastructure component, e.g. a connector or participant.</span>
+         <span class="markdown">Plain Text containing the reason for revoking an existing certificate of either a connector or participant.</span>
       </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/ConnectorCertificateRevokedMessage"
-                  title="https://w3id.org/idsa/core/ConnectorCertificateRevokedMessage">Connector Certificate Revoked Message</a>
+               <span class="dotted" title="_:genid2147483751">_:genid2147483751</span>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -13371,7 +13765,7 @@ This section provides details for each class and property defined by Industrial 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#/Token" title="https://w3id.org/idsa/core/Token">Token.</a>
+               <a href="#/DatPayload" title="https://w3id.org/idsa/core/DatPayload">DAT Payload</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>

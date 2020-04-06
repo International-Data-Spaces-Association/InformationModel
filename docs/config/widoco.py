@@ -285,13 +285,13 @@ def clean_up_json_ontology_owl_imports():
     regex_ontology_refs = r'file\:[\w\/\.\:]*'
     new_ref = 'https://w3id.org/idsa/core'
 
-    with open('../serializations/ontology.json', 'r') as fp:
+    with open('../serializations/ontology.json', 'r', encoding="latin-1") as fp:
         new_content = fp.read()
 
     new_content = re.sub(regex_owl_import, '', new_content)
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.json', 'w') as fp:
+    with open('../serializations/ontology.json', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
@@ -303,7 +303,7 @@ def clean_up_nt_ontology_owl_imports():
     new_ref = 'https://w3id.org/idsa/core'
 
     new_content = ''
-    with open('../serializations/ontology.nt', 'r') as fp:
+    with open('../serializations/ontology.nt', 'r', encoding="latin-1") as fp:
         for line in fp.readlines():
             res = re.search(regex_owl_import, line)
             if res:
@@ -312,7 +312,7 @@ def clean_up_nt_ontology_owl_imports():
 
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.nt', 'w') as fp:
+    with open('../serializations/ontology.nt', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
@@ -323,13 +323,13 @@ def clean_up_ttl_ontology_owl_imports():
     regex_ontology_refs = r'file\:[\w\/\.\:#]*'
     new_ref = 'https://w3id.org/idsa/core'
 
-    with open('../serializations/ontology.ttl', 'r') as fp:
+    with open('../serializations/ontology.ttl', 'r', encoding="latin-1") as fp:
         new_content = fp.read()
 
     new_content = re.sub(regex_owl_imports, '', new_content)
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.ttl', 'w') as fp:
+    with open('../serializations/ontology.ttl', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
@@ -341,7 +341,7 @@ def clean_up_xml_ontology_owl_imports():
     new_ref = 'https://w3id.org/idsa/core'
 
     new_content = ''
-    with open('../serializations/ontology.xml', 'r') as fp:
+    with open('../serializations/ontology.xml', 'r', encoding="latin-1") as fp:
         for line in fp.readlines():
             res = re.search(regex_owl_imports, line)
             if res:
@@ -350,7 +350,7 @@ def clean_up_xml_ontology_owl_imports():
 
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.xml', 'w') as fp:
+    with open('../serializations/ontology.xml', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
