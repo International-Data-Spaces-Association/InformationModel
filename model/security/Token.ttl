@@ -105,16 +105,24 @@ ids:DatRequestPayload
     rdfs:comment "The Dynamic Attribute Token (DAT) *Request* Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are either defined by RFC 7519 or by the IDS Information Model. As a direct consequence of regarding the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value. Note that, different to the DatPayload, the DatRequestPayload contains the *self-claims* of a connector and is not yet signed by any DAPS. Consequently, no other connector must accept a DatRequest object as a DAT. A DatRequest and its contained DatRequestPayload is *only* intended for interactions with a DAPS and *nothing else*!"@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ;
     .
+    
+    
+ids:Audience
+    a owl:Class ;
+    rdfs:label "Audience"@en ;
+    rdfs:comment "The class of audiences (recipients) used in the JWT. "@en ;
+    rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ;
+    .
 
 
 # Properties
 # ----------
 
 
-ids:aud a owl:DatatypeProperty;
+ids:aud a owl:ObjectProperty;
     rdfs:label "aud"@en;
     rdfs:domain ids:JwtPayload;
-    rdfs:range xsd:string ;
+    rdfs:range ids:Audience ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7519#section-4.1.3> ;
     rdfs:comment "The 'aud' (audience) claim identifies the recipients that the JWT is intended for."@en.
 
