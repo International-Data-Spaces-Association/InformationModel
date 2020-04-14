@@ -95,6 +95,22 @@ ids:contractOffer
     rdfs:label "contract offer"@en;
     rdfs:comment "Reference to a Contract Offer defining the authorized use of the Resource."@en.
 
+ids:created
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:Resource ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:label "created"@en;
+    rdfs:seeAlso <http://purl.org/dc/terms/created> ;
+    rdfs:comment "The date of the creation of the original resource. In contrast to the creation date of the description, a digital representation or any other form of meta-data, this property describes the creation date of referenced entity."@en.
+
+ids:modified
+    a owl:DatatypeProperty;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:dateTimeStamp;
+    rdfs:label "modified"@en;
+    rdfs:seeAlso <http://purl.org/dc/terms/modified> ;
+    rdfs:comment "The date/time this resource has been changed the last time. Only one 'modified' attribute is usually needed."@en.
+
 ids:publisher
     a owl:ObjectProperty ;
     idsm:referenceByUri true;
