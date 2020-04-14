@@ -65,16 +65,7 @@ ids:Constraint rdfs:subClassOf odrl:Constraint;
     ] ;
     idsm:validation [
         idsm:forProperty ids:operator;
-        idsm:relationType idsm:OneToMany;
-        idsm:constraint idsm:NotEmpty;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:rightOperand;
-        idsm:relationType idsm:OneToMany;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:rightOperandReference;
-        idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotNull;
     ] ;
 .
 
