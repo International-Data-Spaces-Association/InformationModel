@@ -61,13 +61,23 @@ ids:Constraint rdfs:subClassOf odrl:Constraint;
     rdfs:comment "The class of Constraints that restrict a Rule."@en;
     idsm:validation [
         idsm:forProperty ids:leftOperand;
-        idsm:constraint idsm:NotNull;
+        idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotEmpty;
     ] ;
     idsm:validation [
         idsm:forProperty ids:operator;
-        idsm:constraint idsm:NotNull;
+        idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotEmpty;
     ] ;
-    .
+    idsm:validation [
+        idsm:forProperty ids:rightOperand;
+        idsm:relationType idsm:OneToMany;
+    ] ;
+    idsm:validation [
+        idsm:forProperty ids:rightOperandReference;
+        idsm:relationType idsm:OneToMany;
+    ] ;
+.
 
 # Properties
 # ----------
