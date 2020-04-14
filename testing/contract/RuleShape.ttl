@@ -130,14 +130,22 @@ shapes:ConstraintShape
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have at least one ids:BinaryOperator linked through the ids:operator property"@en ; 
 	] ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:rightOperand ;
-		sh:datatype rdfs:Literal ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have at least one rdfs:Literal linked through the ids:rightOperand property"@en ; 
-	] ;
+	sh:xone (
+    [
+	    sh:path ids:rightOperand ;
+	    sh:datatype rdfs:Literal ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have at least one rdfs:Literal linked through the ids:rightOperand or least one rdfs:Resource linked through the ids:rightOperandReference property."@en ; 
+    ]
+    [
+        sh:path ids:rightOperandReference ;
+        sh:datatype rdfs:Resource ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have at least one rdfs:Literal linked through the ids:rightOperand property or least one rdfs:Resource linked through the ids:rightOperandReference property."@en ; 
+    ]
+	) ;
 
 	sh:property [
 		a sh:PropertyShape ;
