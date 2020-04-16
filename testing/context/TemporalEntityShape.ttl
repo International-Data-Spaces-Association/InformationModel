@@ -27,18 +27,10 @@ shapes:InstantShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:date ;
-		sh:datatype xsd:date ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/TemporalEntityShape.ttl> (InstantShape): An ids:date property must point from an ids:Instant to an xsd:date."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:dateTime ;
-		sh:datatype xsd:dateTime ;
+		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/TemporalEntityShape.ttl> (InstantShape): An ids:dateTime property must point from an ids:Instant to an xsd:dateTime."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/TemporalEntityShape.ttl> (InstantShape): An ids:dateTime property must point from an ids:Instant to an xsd:dateTimeStamp."@en ; 
 	] .
 
 

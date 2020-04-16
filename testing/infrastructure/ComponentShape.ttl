@@ -42,8 +42,9 @@ shapes:InfrastructureComponentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:maintainer ;
-		sh:class ids:Participant ;
-		sh:minCount 1 ;
+		#sh:class ids:Participant ;
+		ids:nodeKind sh:IRI ;
+        sh:minCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:InfrastructureComponent must have at least one ids:Participant linked through the ids:maintainer property"@en ; 
 	] ;
@@ -51,8 +52,9 @@ shapes:InfrastructureComponentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:curator ;
-		sh:class ids:Participant ;
-		sh:minCount 1 ;
+		#sh:class ids:Participant ;
+		ids:nodeKind sh:IRI ;
+        sh:minCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:InfrastructureComponent must have at least one ids:Participant linked through the ids:curator property"@en ; 
 	] ;

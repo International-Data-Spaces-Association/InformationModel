@@ -41,32 +41,33 @@ shapes:ContractShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contractStart ;
-		sh:datatype xsd:dateTime ;
+		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractStart property must point from an ids:Contract to an xsd:sh:message."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractStart property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contractEnd ;
-		sh:datatype xsd:dateTime ;
+		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractEnd property must point from an ids:Contract to an xsd:sh:message."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractEnd property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contractDate ;
-		sh:datatype xsd:date ;
+		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractDate property must point from an ids:Contract to an xsd:date."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractDate property must point from an ids:Contract to an xsd:dateTimeStamp. "@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:provider ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+        #sh:class ids:Participant ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must not have more than one ids:Participant linked through the ids:provider property"@en ;
@@ -75,8 +76,9 @@ shapes:ContractShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:consumer ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+        #sh:class ids:Participant ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ;
 	] ;
@@ -147,8 +149,8 @@ shapes:ContractAgreementShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:consumer ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -158,8 +160,8 @@ shapes:ContractAgreementShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:provider ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -174,8 +176,8 @@ shapes:ContractRequestShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:consumer ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
         sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -185,8 +187,8 @@ shapes:ContractRequestShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:provider ;
-		sh:datatype xsd:anyURI ;
-	   	sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+	   	sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -201,8 +203,8 @@ shapes:ContractOfferShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:provider ;
-		sh:datatype xsd:anyURI ;
-		sh:pattern "^(?:(?:http(s)?|(s)?ftp|idscp):\\/\\/)?[\\w.-]+(?:\\.[\\w\\w.-]+)+[\\w\\-\\._~:/?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$" ;
+		sh:nodeKind sh:IRI ;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
