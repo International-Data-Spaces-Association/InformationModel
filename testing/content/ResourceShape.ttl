@@ -76,23 +76,6 @@ shapes:ResourceShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:created ;
-		sh:datatype xsd:dateTimeStamp ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:Resource must have at maximum one ids:created attribute pointing to a valid xsd:dateTimeStamp."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:modified ;
-		sh:datatype xsd:dateTimeStamp ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:modified of an ids:Resource must have a valid xsd:dateTimeStamp as its object."@en ; 
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:publisher ;
 		#sh:class ids:Agent ;
 		sh:nodeKind sh:IRI ;
