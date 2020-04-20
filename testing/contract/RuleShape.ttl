@@ -135,19 +135,18 @@ shapes:ConstraintShape
 	sh:xone (
     [
 	    sh:path ids:rightOperand ;
-	    sh:datatype rdfs:Literal ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have exactly one rdfs:Literal linked through the ids:rightOperand or least one rdfs:Resource linked through the ids:rightOperandReference property."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperand property must point from an ids::Constraint to Literals or rdfs:Resources. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ; 
     ]
     [
         sh:path ids:rightOperandReference ;
-        sh:class rdfs:Resource ;
+        sh:nodeKind sh:IRI ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have exactly one rdfs:Literal linked through the ids:rightOperand property or least one rdfs:Resource linked through the ids:rightOperandReference property."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperandReference property must point from an ids::Constraint to an IRI. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ; 
     ]
 	) ;
 
