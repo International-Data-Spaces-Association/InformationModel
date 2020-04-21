@@ -49,7 +49,26 @@ shapes:RepresentationShape
 		sh:class ids:Standard ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must point from an ids:Representation to an ids:Standard."@en ; 
-	] .
+	] ;
+    
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:created ;
+		sh:datatype xsd:dateTimeStamp ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:DigitalContent must have at most one ids:created attribute pointing to a valid xsd:dateTimeStamp."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:modified ;
+        sh:maxCount 1 ;
+		sh:datatype xsd:dateTimeStamp ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape):An ids:Representation must have at most one ids:modified attribute pointing to a valid xsd:dateTimeStamp."@en ; 
+	] ;
+.
 
 
 shapes:RepresentationInstanceShape
