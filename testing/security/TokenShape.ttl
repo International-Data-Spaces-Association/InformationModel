@@ -136,14 +136,6 @@ shapes:JwtPayloadShape
 	] ;
     
     sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:extendedGuarantee ;
-		sh:class ids:SecurityGuarantee ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): The ids:extendedGuarantee property must point from an ids:JwtPayload to an ids:SecurityGuarantee"@en ; 
-	] ;
-    
-    sh:property [
         a sh:PropertyShape ;
         sh:path ids:transportCertsSha256 ;
         sh:datatype xsd:string ;
@@ -175,5 +167,13 @@ shapes:DatPayloadShape
         sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (DatPayloadShape): Exactly one ids:iss property must point from an ids:DatPayload to an xsd:string."@en ; 
+	] ;
+    
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:extendedGuarantee ;
+		sh:class ids:SecurityGuarantee ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/security/TokenShape.ttl> (DatPayloadShape): The ids:extendedGuarantee property must point from an ids:DatPayload to an ids:SecurityGuarantee"@en ; 
 	] ;
 .
