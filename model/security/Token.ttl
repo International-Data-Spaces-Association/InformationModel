@@ -70,10 +70,6 @@ ids:JwtPayload a owl:Class ;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
-        idsm:forProperty ids:extendedGuarantee;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
         idsm:forProperty ids:transportCertsSha256;
         idsm:relationType idsm:OneToMany;
     ]; 
@@ -95,6 +91,10 @@ ids:DatPayload
         idsm:forProperty ids:iss;
         idsm:constraint idsm:NotNull;
     ] ;
+    idsm:validation [
+        idsm:forProperty ids:extendedGuarantee;
+        idsm:relationType idsm:OneToMany;
+    ]
 .
 
 
