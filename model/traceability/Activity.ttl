@@ -80,7 +80,7 @@ ids:ModificationActivity rdfs:subClassOf ids:Activity;
 ids:activityDescription rdfs:subPropertyOf dct:description;
     a owl:DatatypeProperty;
     rdfs:domain ids:Activity;
-    rdfs:range rdf:PlainLiteral;
+    rdfs:range xsd:string;
     rdfs:label "activityDescription"@en;
     rdfs:comment "Freetext description of what has been performed by the Activity."@en.
 
@@ -94,9 +94,9 @@ ids:startedBy rdfs:subPropertyOf prov:wasStartedBy;
 ids:startedAt rdfs:subPropertyOf prov:startedAtTime;
     a owl:DatatypeProperty;
     rdfs:domain ids:Activity;
-    rdfs:range xsd:dateTime;
+    rdfs:range xsd:dateTimeStamp;
     rdfs:label "startedAt"@en;
-    rdfs:comment "The point in time when the Activity was started."@en.
+    rdfs:comment "The point in time (as xsd:dateTimeStamp) when the Activity was started."@en.
 
 ids:endedBy rdfs:subPropertyOf prov:wasEndedBy;
     a owl:ObjectProperty;
@@ -108,9 +108,9 @@ ids:endedBy rdfs:subPropertyOf prov:wasEndedBy;
 ids:endedAt rdfs:subPropertyOf prov:endedAtTime;
     a owl:DatatypeProperty;
     rdfs:domain ids:Activity;
-    rdfs:range xsd:dateTime;
+    rdfs:range xsd:dateTimeStamp;
     rdfs:label "endedAt"@en;
-    rdfs:comment "The point in time when the Activity was ended."@en.
+    rdfs:comment "The point in time (as xsd:dateTimeStamp) when the Activity was ended."@en.
 
 ids:invalidated rdfs:subPropertyOf prov:invalidated;
     a owl:DatatypeProperty;

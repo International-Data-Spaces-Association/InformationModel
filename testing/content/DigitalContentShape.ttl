@@ -7,6 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 shapes:
 	a owl:Ontology ;
@@ -89,9 +90,16 @@ shapes:DigitalContentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:keyword ;
-		sh:datatype rdfs:Literal ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:keyword property must point from an ids:DigitalContent to an rdfs:Literal."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:keyword property must point from an ids:DigitalContent to a xsd:string or rdf:langString (which additionally contains a language tag)."@en ; 
 	] ;
 
 	sh:property [
@@ -117,7 +125,25 @@ shapes:DigitalContentShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:accrualPeriodicity property must point from an ids:DigitalContent to an xsd:duration."@en ; 
 	] ;
+    
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:created ;
+		sh:datatype xsd:dateTimeStamp ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:DigitalContentShape must have at most one ids:created attribute pointing to a valid xsd:dateTimeStamp."@en ; 
+	] ;
 
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:modified ;
+        sh:maxCount 1 ;
+		sh:datatype xsd:dateTimeStamp ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:DigitalContentShape must have at most one ids:modified attribute pointing to a valid xsd:dateTimeStamp."@en ; 
+	] ;
+    
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contentStandard ;

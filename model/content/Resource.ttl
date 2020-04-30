@@ -97,6 +97,7 @@ ids:contractOffer
 
 ids:publisher
     a owl:ObjectProperty ;
+    idsm:referenceByUri true;
     rdfs:subPropertyOf dct:publisher ;
     rdfs:domain ids:Resource ;
     rdfs:range ids:Agent ;
@@ -106,6 +107,7 @@ ids:publisher
 ids:sovereign
     a owl:ObjectProperty ;
     rdfs:domain ids:Resource ;
+    idsm:referenceByUri true;
     rdfs:range ids:Agent ;
     rdfs:label "sovereign"@en;
     rdfs:comment "The 'owner', i.e. sovereign of the data."@en.

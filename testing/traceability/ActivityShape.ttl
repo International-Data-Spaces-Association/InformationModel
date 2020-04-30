@@ -42,9 +42,16 @@ shapes:ActivityShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:activityDescription ;
-		sh:datatype rdf:PlainLiteral ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:activityDescription property must point from an ids:Activity to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:activityDescription property must point from an ids:Activity to either a xsd:string or a rdf:langString which contains a language code.."@en ; 
 	] ;
 
 	sh:property [
@@ -59,9 +66,9 @@ shapes:ActivityShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:startedAt ;
-		sh:datatype xsd:dateTime ;
+		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:startedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:startedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ; 
 	] ;
 
 	sh:property [
@@ -75,9 +82,9 @@ shapes:ActivityShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:endedAt ;
-		sh:datatype xsd:dateTime ;
+		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedAt property must point from an ids:Activity to an xsd:dateTime."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ; 
 	] .
 
 
