@@ -19,7 +19,7 @@ Version 3.1.0 of the IDS Information model
 
 * An ids:Constraint is only valid, if either `ids:rightOperandReference` _or_ `ids:rightOperand` is used. Using both properties is not permitted by the corresponding SHACL shape. This behaviour is suggested by the underlying [ODRL ontology]([https://www.w3.org/ns/odrl/2/ODRL20.html](https://www.w3.org/ns/odrl/2/ODRL20.html)). 
 
-* Dynamic Attribute Token (DAT) aligned to current specification in the IDS Communication Guide. DAT is now represented by the `ids:DatRequestPayload` and `ids:DatPayload` classes. While `ids:DatRequestPayload` represents the token a clients sends to the DAPS, the `ids:DATPayload` represents the token a DAPS issues after validation.
+* Dynamic Attribute Token (DAT) aligned to current specification in the IDS Communication Guide. DAT is now represented by the `ids:DatRequestPayload` and `ids:DatPayload` classes. While `ids:DatRequestPayload` represents the token a clients sends to the DAPS, the `ids:DatPayload` represents the token a DAPS issues after validation.
 
 * SHACL shapes for properties with IRI ranges. Property values written as defined by the RDF serialisations should now be correctly validated. 
 
