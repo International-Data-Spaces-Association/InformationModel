@@ -1,7 +1,27 @@
+
 # Change Log
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [3.1.0] 2020-04-30
+Version 3.1.0 of the IDS Information model
+
+
+### Added
+
+* `ids:created` and `ids:modified` properties with range `xsd:dateTimeStamp` for ids:Resource and ids:Representation
+
+
+### Fixed
+
+* `ids:rightOperand` and `ids:rightOperandReference` (class ids:Constraint) changed range to rdfs:Resource. Even though both properties allow similar values, their inteded usage differs. `ids:rightOperand` values should be interpreted directly, while `ids:rightOperandReference` values _must_ be dereferenced beforehand. 
+
+* An ids:Constraint is only valid, if either `ids:rightOperandReference` _or_ `ids:rightOperand` is used. Using both properties is not permitted by the corresponding SHACL shape. This behaviour is suggested by the underlying [ODRL ontology]([https://www.w3.org/ns/odrl/2/ODRL20.html](https://www.w3.org/ns/odrl/2/ODRL20.html)). 
+
+* Dynamic Attribute Token (DAT) aligned to current specification in the IDS Communication Guide. DAT is now represented by the `ids:DatRequestPayload` and `ids:DatPayload` classes. While `ids:DatRequestPayload` represents the content of the token (aka. claims) a clients sends to the DAPS, the `ids:DatPayload` represents the content of the token a DAPS issues after validation.
+
+* SHACL shapes for properties with IRI ranges. Property values written as defined by the RDF serialisations should now be correctly validated. 
 
 ## [3.0.0] 2020-03-04
 Version 3.0.0 of the IDS Information model
