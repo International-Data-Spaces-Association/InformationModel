@@ -3,6 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
@@ -14,42 +15,42 @@
 idsc:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
     rdfs:label "Location-restricted Usage Offer Template" ;
     rdfs:comment "A template for policy offers with a location-restricted permission." ;
-	skos:note """The <Provider Participant URI> allows to [ids:use|ids:read|...] its 
-		[<Resource URI>|<Representation URI>|<Artifact URI>] to the (potentially still 
-		unknown) consuming connector only in a certain <URI of geographical region>."""@en ;
+	spin:labelTemplate """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its 
+		{?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still 
+		unknown) consuming connector only in a certain {?URIofgeographicalregion}."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractOffer", 
-		"uid": "<contract ID>", 
-		"refersTo": "idsc:SpatialRestrictedUsageOfferTemplate" ,
-		"target": "[<Resource URI>|<Representation URI>|<Artifact URI>]",
-		"ids:provider": "<Provider Participant URI>",
-		"ids:permission": {
-			"ids:action": "[ids:use|ids:read|...]" ,
-			"ids:constraint" : {    
-					 "ids:leftOperand" : "ids:absoluteSpatialPosition",
-					 "ids:operator" : "ids:in",
-					 "ids:rightOperand" : "<URI of geographical region>"
-			}
+		"@id": "{?contractID}", 
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/SpatialRestrictedUsageOfferTemplate" ,
+		"targetContent": "{?content}",
+		"provider": "{?ProviderParticipantURI}",
+		"permission": {
+			"action": "{?action}" ,
+			["constraint" : {    
+					 "leftOperand" : "absoluteSpatialPosition",
+					 "operator" : "in",
+					 "rightOperand" : "{?URIofgeographicalregion}"
+			} [,]]+
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>| [] ] a ids:ContractOffer ;
-			ids:uid <contract ID> ;
-			ids:refersTo idsc:SpatialRestrictedUsageOfferTemplate ;
-			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
-			ids:provider <Provider Participant URI> ;
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:SpatialRestrictedUsageOfferTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
-				ids:action [ids:use|ids:read|...] ;
-				ids:constraint [
+				ids:action {?action} ;
+				[ids:constraint [
 					ids:leftOperand ids:absoluteSpatialPosition ;
 					ids:operator ids:in ;
-					ids:rightOperand <URI of geographical region>
-				] ;
+					ids:rightOperand {?URIofgeographicalregion}
+				] ;]+
 			]
 		."""^^xsd:string 
 	.

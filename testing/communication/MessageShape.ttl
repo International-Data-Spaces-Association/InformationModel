@@ -25,6 +25,19 @@ shapes:MessageShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Message ;
 
+    sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (MessageShape): A ids:Message is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Message)
+			}
+		""" ;
+	] ;
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:modelVersion ;
@@ -38,54 +51,64 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:issued ;
-		sh:datatype xsd:dateTime ;
+		sh:datatype xsd:dateTimeStamp ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:dateTime linked through the ids:issued property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:dateTimeStamp linked through the ids:issued property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-		sh:class ids:Message ;
+        sh:nodeKind sh:IRI ;
+		#sh:class ids:Message ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:correlationMessage property must point from an ids:Message to an ids:Message."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:correlationMessage property must point from an ids:Message to an ids:Message via an IRI."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:issuerConnector ;
-		sh:datatype ids:Connector ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+        #sh:class ids:Connector ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one ids:Connector linked through the ids:issuerConnector property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one ids:Connector linked as an IRI through the ids:issuerConnector property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:recipientConnector ;
-		sh:class ids:Connector ;
+		sh:nodeKind sh:IRI ;
+        #sh:class ids:Connector ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientConnector property must point from an ids:Message to an ids:Connector."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientConnector property must point from an ids:Message to an ids:Connector via an IRI."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:senderAgent ;
-		sh:datatype ids:Agent ;
+		sh:nodeKind sh:IRI ;
+		#sh:class ids:Agent ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
+        sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have at least one ids:Agent linked through the ids:senderAgent property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one ids:Agent linked as an IRI through the ids:senderAgent property"@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:recipientAgent ;
-		sh:datatype ids:Agent ;
+		sh:nodeKind sh:IRI ;
+		#sh:class ids:Agent ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientAgent property must point from an ids:Message to an ids:Agent."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientAgent property must point from an ids:Message to an ids:Agent via an IRI."@en ; 
 	] ;
 
 	sh:property [
@@ -109,7 +132,8 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:transferContract ;
-		sh:class ids:Contract ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ; 
 	] ;

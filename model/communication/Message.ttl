@@ -10,6 +10,7 @@
 # -------
 
 ids:Message a owl:Class;
+    idsm:abstract true;
     rdfs:label "Message"@en ;
     rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
     idsm:validation [
@@ -30,7 +31,11 @@ ids:Message a owl:Class;
     ];
     idsm:validation [
         idsm:forProperty ids:securityToken;
-        idsm:relationType idsm:NotNull;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:senderAgent;
+        idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
         idsm:forProperty ids:recipientAgent;
@@ -54,8 +59,8 @@ ids:issued
     a owl:DatatypeProperty;
     rdfs:label "issued"@en;
     rdfs:domain ids:Message;
-    rdfs:range xsd:dateTime;
-    rdfs:comment "Date of issuing the Message."@en.
+    rdfs:range xsd:dateTimeStamp;
+    rdfs:comment "Date (as xsd:dateTimeStamp) of issuing the Message."@en.
 
 ids:correlationMessage
     a owl:ObjectProperty;

@@ -1,9 +1,10 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Classes
@@ -115,7 +116,7 @@ ids:keyword
     rdfs:subPropertyOf dcat:keyword;
     rdfs:label "keyword"@en;
     rdfs:domain ids:DigitalContent;
-    rdfs:range rdfs:Literal;
+    rdfs:range xsd:string;
     rdfs:comment "Controlled keywords that describe the nature, purpose, or use of the content."@en.
 
 ids:temporalCoverage
@@ -151,3 +152,25 @@ ids:contentStandard
     rdfs:range ids:Standard;
     rdfs:label "content standard"@en;
     rdfs:comment "Standards document defining the given Digital Content. The content is assumed to conform to that Standard."@en.
+
+ids:created
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:issued;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:DigitalContent ids:Representation)
+              ] ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:label "created"@en;
+    rdfs:seeAlso <http://purl.org/dc/terms/created> ;
+    rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
+
+ids:modified
+    a owl:DatatypeProperty;
+    rdfs:subPropertyOf dct:modified;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:DigitalContent ids:Representation)
+              ] ;
+    rdfs:range xsd:dateTimeStamp;
+    rdfs:label "modified"@en;
+    rdfs:seeAlso <http://purl.org/dc/terms/modified> ;
+    rdfs:comment "The date/time this Digital Content has been changed the last time. Only one 'modified' attribute is usually needed."@en.

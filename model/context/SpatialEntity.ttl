@@ -5,7 +5,9 @@
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geo: <http://www.opengis.net/def/function/geosparql/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Classes
@@ -13,6 +15,7 @@
 
 ids:SpatialEntity rdfs:subClassOf wgs84:SpatialThing;
     a owl:Class;
+    rdfs:subClassOf geo:SpatialObject ;
     idsm:abstract true;
     rdfs:label "SpatialEntity"@en ;
     rdfs:comment "Anything with spatial extent, i.e. size, shape, or position, e.g., places and unique positions."@en.
@@ -60,7 +63,7 @@ ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
         idsm:constraint idsm:NotEmpty;
     ].
 
-# Properties for describing spatial entitites
+# Properties for describing spatial entities
 # -------------------------------------------
 
 ids:latitude rdfs:subPropertyOf wgs84:lat;

@@ -1,10 +1,13 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix greg: <http://www.w3.org/ns/time/gregorian#> .
 
 # Classes
 # -------
@@ -13,51 +16,48 @@ ids:TemporalEntity
     a owl:Class;
     rdfs:subClassOf time:TemporalEntity;
     rdfs:label "TemporalEntity"@en ;
-    rdfs:comment "A temporal interval or instant."@en.
+    rdfs:comment "A temporal interval, instant or a relative duration."@en.
 
 ids:Instant
     a owl:Class;
     rdfs:subClassOf time:Instant, ids:TemporalEntity ;
     rdfs:label "Instant"@en ;
-    rdfs:comment "A temporal entity with zero extent or duration."@en.
+    rdfs:comment "A defined point in time with zero duration."@en.
 
 ids:Interval
     a owl:Class;
-    rdfs:subClassOf time:Interval, ids:TemporalEntity;
+    rdfs:subClassOf time:Interval, ids:TemporalEntity; #time:Interval may have zero extent. time:ProperInterval may not.
     rdfs:label "Interval"@en ;
-    rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different."@en;
+    rdfs:comment "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."@en;
     idsm:validation [
         idsm:forProperty ids:begin;
         idsm:constraint idsm:NotNull;
     ].
 
-# Properties for describing temporal entities
-# -------------------------------------------
-
-ids:date
-    a owl:DatatypeProperty;
-    rdfs:subPropertyOf time:inXSDDate;
-    rdfs:domain ids:Instant;
-    rdfs:range xsd:date;
-    rdfs:label "date"@en;
-    rdfs:comment "Date coordinate of the instant."@en;
-    idsm:example "2018-12-31";
-    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#date> ;
-    .
+ids:DurationEntity
+    a owl:Class;
+    rdfs:subClassOf  ids:TemporalEntity; #time:Interval may have zero extent. time:ProperInterval may not.
+    rdfs:label "Duration"@en ;
+    rdfs:comment "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en;
+    idsm:validation [
+        idsm:forProperty ids:hasDuration ;
+        idsm:constraint idsm:NotNull;
+    ].
 
 ids:dateTime
     a owl:DatatypeProperty;
     rdfs:subPropertyOf time:inXSDDateTimeStamp;#  time-zone is mandatory
     rdfs:domain ids:Instant;
-    rdfs:range xsd:dateTime;
+    #rdfs:range xsd:dateTime;
+    rdfs:range xsd:dateTimeStamp;
     rdfs:label "date time"@en;
-    rdfs:comment "Date time with a defined time zone."@en;
-    idsm:example "2018-12-31T13:20:00+02:00";
+    rdfs:comment "Absolute date time with a defined time zone."@en;
+    idsm:example "2018-12-31T13:20:00+02:00"^^xsd:dateTimeStamp ;
     rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp> ;
     .
 
 ids:begin
-    a owl:ObjectProperty;
+    a owl:ObjectProperty ;
     rdfs:subPropertyOf time:hasBeginning;
     rdfs:domain ids:Interval;
     rdfs:range ids:Instant;
@@ -65,41 +65,21 @@ ids:begin
     rdfs:comment "Beginning of an Interval."@en.
 
 ids:end
-    a owl:ObjectProperty;
+    a owl:ObjectProperty ;
     rdfs:subPropertyOf time:hasEnd;
     rdfs:domain ids:Interval;
     rdfs:range ids:Instant;
     rdfs:label "end"@en;
     rdfs:comment "End of an Interval."@en.
 
-# TODO: review:
+ids:hasDuration
+    a owl:DatatypeProperty ;
+    rdfs:seeAlso time:hasDuration;
+    rdfs:domain ids:TemporalEntity;
+    rdfs:range xsd:duration;
+    rdfs:label "has duration"@en;
+    idsm:example "P2Y6M5DT12H35M30S"^^xsd:duration ;
+    rdfs:comment "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en.
 
-#ids:NamedInstant rdfs:subClassOf ids:Instant;
-#    a owl:Class;
-#    idsm:abstract true;
-#    rdfs:label "NamedInstant"@en ;
-#    rdfs:comment "A temporal entity with a name that has no fixed value, e.g., 'today'."@en.
 
-#ids:Today a ids:NamedInstant;
-#    rdfs:comment "Today";
-#    idsm:constantIdentifier "TODAY".
 
-#ids:NDaysAgo a ids:NamedInstant;
-#    rdfs:comment "NDaysAgo";
-#    idsm:constantIdentifier "N_DAYS_AGO".
-
-#ids:Momentary a ids:NamedInstant;
-#    rdfs:comment "Momentary";
-#    idsm:constantIdentifier "MOMENTARY".
-
-#ids:named a owl:ObjectProperty;
-#    rdfs:domain ids:Instant;
-#    rdfs:range ids:NamedInstant;
-#    rdfs:label "named"@en;
-#    rdfs:comment "Defines a temporal instant using a NamedInstant."@en.
-
-#ids:namedValue a owl:DatatypeProperty;
-#    rdfs:domain ids:Instant;
-#    rdfs:range xsd:int;
-#    rdfs:label "namedValue"@en;
-#    rdfs:comment "Parameterizes a NamedInstant."@en.

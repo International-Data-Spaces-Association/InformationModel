@@ -12,66 +12,87 @@
 # Instances
 # ---------
 
-idsc:payAmount a ids:LeftOperand;
+idsc:PAY_AMOUNT a ids:LeftOperand;
     rdfs:seeAlso odrl:payAmount;
     rdfs:label "payAmount"@en;
-    rdfs:comment "Monetary amount to pay."@en ;
+    rdfs:comment "Monetary amount to pay, usually used with idsc:EQ. Datatype is double. Currency required."@en ;
     .
 
 # time
-idsc:now a ids:LeftOperand;
+idsc:POLICY_EVALUATION_TIME a ids:LeftOperand;
     rdfs:seeAlso odrl:dateTime;
-    rdfs:label "now"@en ;
-    rdfs:comment "The current system time (as xsd:dateTimeStamp) for evaluating a time-related contraint. Allowed operators are idsc:after, idsc:before, idsc:inside, idsc:eq with RightOperand datatype xsd:dateTimeStamp for comparisons with time:TimeInstance or time:TimeInterval in the following pattern [ ids:hasBeginning {xsd:dateTimeStamp}; ids:hasEnding {xsd:dateTimeStamp} ]"@en ;
+    rdfs:label "policy evaluation time"@en ;
+    rdfs:comment "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity."@en ;
     .
-    
-idsc:state a ids:LeftOperand;
+
+idsc:DELAY a ids:LeftOperand ;
+    rdfs:label "delay"@en ;
+    rdfs:comment "Delay the action. Use idsc:DURATION_EQ, idsc:LONGER, idsc:LONGER_EQ, idsc:SHORTER_EQ, or idsc:SHORTER with datatypes xsd:duration."@en ;
+    .
+
+
+#
+idsc:STATE a ids:LeftOperand;
     rdfs:label "state"@en ;
-    rdfs:comment "Specifies whether an (external) resource is true/false, active/inactive, has happened/not happened, etc. Operator must be idsc:eq with RightOperands of datatype xsd:anyUri. The referenced URI should point to a (remote) resource which returns a xsd:boolean value."@en ;
+    rdfs:comment "Specifies whether an (external) resource is true/false, active/inactive, has happened/not happened, etc. Operator must be idsc:EQUALS with RightOperands of datatype xsd:anyUri. The referenced URI should point to a (remote) resource which returns a xsd:boolean value."@en ;
     .
     
 # space
-ids:absoluteSpatialPosition a ids:LeftOperand ;
+idsc:ABSOLUTE_SPATIAL_POSITION a ids:LeftOperand ;
     rdfs:seeAlso odrl:absoluteSpatialPosition ;
     rdfs:label "Absolute geo-spatial position"@en ;
     rdfs:comment "The current geospatial position of the *consuming connector*. In case the connector only appears as a virtual entity, the physical location of the hosting server is referenced. Allowed operators are idsc:in. No other spatial operators (close to, north of, etc.) are currently allowed."@en ;
     .
     
 # role-based 
-idsc:user a ids:LeftOperand ;
+idsc:USER a ids:LeftOperand ;
     rdfs:label "user"@en ; 
-    rdfs:comment "The user of a system requesting access to a resource. Recommended usage for checking whether the user's role is sufficient for his/her desired action. Allowed operators are idsc:hasRole with a RightOperand of xsd:anyUri referencing a (set of) acceptable roles. Preferred behaviour is that the RightOperand dereferences to an endpoint hosting the required role information."@en ;
+    rdfs:comment "The user of a system at the *consuming connector* requesting access to a resource. Recommended usage for checking whether the user's role is sufficient for his/her desired action. Allowed operators are idsc:MEMBER_OF, idsc:HAS_MEMBERSHIP, idsc:HAS_SITE with a RightOperand referencing a (set of) acceptable organisations (ids:Participant),memberships, sites. Preferred behaviour is that the RightOperand dereferences to an endpoint hosting the required role information."@en ;
     .
 
-ids:purpose a ids:LeftOperand;
+#
+idsc:PURPOSE a ids:LeftOperand;
     rdfs:seeAlso odrl:purpose;
     rdfs:label "purpose"@en ;
-    rdfs:comment "A defined purpose for exercising the action of the Rule."@en ;
+    rdfs:comment "A defined purpose for exercising the action of the Rule. Use with idsc:IN or idsc:SAME_AS and RDF Resources."@en ;
     .
 
 # numeric
-idsc:count a ids:LeftOperand;
+idsc:COUNT a ids:LeftOperand;
     rdfs:seeAlso odrl:count;
     rdfs:label "count"@en ;
-    rdfs:comment "Numeric count of executions of the Rule. Operators can be idsc:lt, idsc:lteq, idsc:eq, idsc:gt, idsc:gteq"@en ; 
+    rdfs:comment "Numeric count of executions of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double."@en ; 
     .
 
-ids:quantity a ids:LeftOperand;
+idsc:QUANTITY a ids:LeftOperand;
     rdfs:label "quantity";
-    rdfs:comment "Quantity limitation for exercising the action of the Rule.".
+    rdfs:comment "Quantity limitation for exercising the action of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double.".
 
-ids:recurrenceRate a ids:LeftOperand;
-    rdfs:label "recurrenceRate";
-    rdfs:comment "The limit how often exercising the action of the Rule may be possible.".
+idsc:RECURRENCE_RATE a ids:LeftOperand;
+    rdfs:label "recurrence rate";
+    rdfs:comment "The limit how often exercising the action of the Rule may be possible. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double.".
     
 # certification level
-ids:securityLevel a ids:LeftOperand;
-    rdfs:label "securityLevel";
-    rdfs:comment "The security level the consuming connector must have. The value decides which attribute dimension is regarded."@en ;
+idsc:SECURITY_LEVEL a ids:LeftOperand;
+    rdfs:label "security level";
+    rdfs:comment "The security level the consuming connector must have. Use together with idsc:SAME_AS or idsc:IN. The value decides which attribute dimension is regarded."@en ;
     .
     
 # interaction
-idsc:REMOTE a ids:BinaryOperator;
-    rdfs:label "remote" ;
-    rdfs:comment "Remote target for an action or information provider (PIP). Must be used together with idsc:eq or idsc:in operators. RightOperand must be a xsd:anyUri which should point to an actually deployed endpoint. An example is a refinment of idsc:NOTIFY where idsc:REMOTE points to a Clearing House."@en ;
+idsc:ENDPOINT a ids:BinaryOperator;
+    rdfs:label "endpoint" ;
+    rdfs:comment "Remote target for an action or information provider (PIP). Must be used together with idsc:IS or idsc:IN operators. RightOperand must be a xsd:anyUri or an URL which should point to an actually deployed endpoint. An example is a refinment of idsc:NOTIFY where idsc:REMOTE points to a Clearing House."@en ;
+    .
+    
+
+idsc:SYSTEM a ids:BinaryOperator;
+    rdfs:label "system" ;
+    rdfs:comment "IT system a resource is managed. Must be used together with idsc:IS or idsc:IN operators. RightOperand must be a xsd:anyUri or an URL which should point to an actually deployed system."@en ;
+    .
+    
+
+# attribute
+idsc:PATH a ids:BinaryOperator ;
+    rdfs:label "path to attribute" ;
+    rdfs:comment "Path to specific attribute (default JsonPath). Must be used together with idsc:STIRNG_EQ, idsc:STRING_CONTAINS, idsc:STRING_IS_CONTAINED, or idsc:MATCHES operators. RightOperand must be a xsd:string."@en ;
     .
