@@ -58,7 +58,7 @@ ids:
     dct:created "2017-09-26"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
     owl:versionInfo "${version}" ;
-    owl:versionIRI "https://w3id.org/idsa/core/${version}>" ;
+    owl:versionIRI <https://w3id.org/idsa/core/${version}> ;
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/" ;
     vann:preferredNamespacePrefix "ids" ;
     rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
@@ -113,8 +113,6 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 .
 EOF
     
-    # "open the file to edit" ... not required. echo will do
-
     # search for files in selected folders
     echo '# ----------------------------' >> "$file"
     echo '# Imports of class files' >> "$file"
@@ -133,7 +131,7 @@ EOF
     done
     
     echo ". " >> "$file"
- }
+}
 
 # execute it
 write_to_file $1
