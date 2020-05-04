@@ -58,7 +58,7 @@ ids:
     dct:created "2017-09-26"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
     owl:versionInfo "${version}" ;
-    owl:versionIRI <https://w3id.org/idsa/core/${version}>" ;
+    owl:versionIRI <https://w3id.org/idsa/core/${version}> ;
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/" ;
     vann:preferredNamespacePrefix "ids" ;
     rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
