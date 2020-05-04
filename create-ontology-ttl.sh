@@ -131,7 +131,7 @@ EOF
     done
     
     echo ". " >> "$file"
- }
+}
 
 # execute it
 write_to_file $1
