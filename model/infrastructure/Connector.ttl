@@ -68,6 +68,18 @@ ids:defaultHost
     rdfs:range ids:Host;
     rdfs:comment "Indicates the default host that should be used for basic infrastructure interactions, e.g., providing the self description."@en.
 
+# see also ids:hasEndpoint Property also for ids:Resource
+ids:hasEndpoint
+    a owl:ObjectProperty;
+    rdfs:label "connector endpoint"@en ;
+    rdfs:domain ids:Connector ;
+    #[ # todo for IM 4.0.0
+    #            rdf:type owl:Class ;
+    #            owl:unionOf ( ids:Resource ids:Connector )
+    #          ] ;
+    rdfs:range ids:Endpoint;
+    rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en.
+
 ids:securityProfile a owl:ObjectProperty;
     rdfs:domain [ rdf:type owl:Class ;
                 owl:unionOf ( ids:Connector ids:JwtPayload)

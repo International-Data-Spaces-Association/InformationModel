@@ -11,6 +11,7 @@ Version 3.1.0 of the IDS Information model
 ### Added
 
 * `ids:created` and `ids:modified` properties with range `xsd:dateTimeStamp` for `ids:Resource` and `ids:Representation`
+* `ids:hasEndpoint` property for `ids:Connector` with range `ids:Endpoint`
 
 
 ### Fixed
