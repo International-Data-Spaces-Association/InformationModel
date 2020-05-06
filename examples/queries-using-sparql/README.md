@@ -24,7 +24,7 @@ We therefore extend the IDS information model with additional fields in the Data
 - (optional: Perl for automatically generating VoID metadata, cf. the `Informationmodel/utils` directory)
 
 ## Process Overview
-Given a [dataset](/SparqlQueries/src/main/resources/0a_LIFE_EXPECTANCY_DATA.xlsx), we create an [information model instance](/SparqlQueries/src/main/resources/1_LIFE_EXPECTANCY_RESOURCE.ttl) containing metadata from the IDS as well as Data Cube and VoID.
+Given a [dataset](/examples/queries-using-sparql/SparqlQueries/src/main/resources/0a_LIFE_EXPECTANCY_DATA.xlsx), we create an [information model instance](/examples/queries-using-sparql/SparqlQueries/src/main/resources/1_LIFE_EXPECTANCY_RESOURCE.ttl) containing metadata from the IDS as well as Data Cube and VoID.
 In this demonstration, we use a Java program based on Apache Jena for executing a [set of SPARQL queries](SparqlQueries\src\main\resources) that answer the questions mentioned above.
 For configuration and further details, please refer to the Java program as well as the SPARQL queries provided.
 
