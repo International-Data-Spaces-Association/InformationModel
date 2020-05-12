@@ -84,6 +84,7 @@ ids:assignee rdfs:subPropertyOf odrl:assignee;
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
+    idsm:referenceByUri true;
     rdfs:label "assignee"@en;
     rdfs:comment "The recipient of the policy statement."@en.
 
@@ -98,6 +99,7 @@ ids:assigner rdfs:subPropertyOf odrl:assigner;
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
+    idsm:referenceByUri true;
     rdfs:label "assigner"@en;
     rdfs:comment "The issuer of the policy statement."@en.
 
@@ -106,6 +108,7 @@ ids:targetArtifact
     #rdfs:subPropertyOf odrl:target;
     rdfs:domain ids:Rule;
     rdfs:range ids:Artifact;
+    idsm:referenceByUri true;
     rdfs:label "target"@en;
     rdfs:comment "Concrete, materialized content (artifact) which is the subject of the policy statement."@en.
 
@@ -113,6 +116,7 @@ ids:targetContent
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:DigitalContent ;
+    idsm:referenceByUri true;
     rdfs:label "target content"@en;
     rdfs:comment "Abstract content which is the subject of the policy statement."@en.
 
