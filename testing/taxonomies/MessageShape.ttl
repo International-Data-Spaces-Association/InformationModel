@@ -43,6 +43,7 @@ shapes:ResponseMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -129,16 +130,24 @@ shapes:ConnectorNotificationMessageShape
     
     sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:revokeReason ;
-		sh:datatype xsd:string ;
+		sh:path ids:revocationReason ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:revokeReason property must point from a subclass of ids:ConnectorNotificationMessage to xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:revocationReason property must point from a subclass of ids:ConnectorNotificationMessage to either an xsd:string or an rdf:langString, which also contains a language code."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedConnector ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Connector ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
         sh:minCount 1;
@@ -165,17 +174,25 @@ shapes:ParticipantNotificationMessageShape
 
     sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:revokeReason ;
-		sh:datatype xsd:string ;
+		sh:path ids:revocationReason ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:revokeReason property must point from a subclass of ids:ParticipantNotificationMessage to xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:revocationReason property must point from a subclass of ids:ParticipantNotificationMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedParticipant ;
 		sh:nodeKind sh:IRI ;
-		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";;
+		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+        #sh:class ids:Participant ;
         sh:minCount 1;
         sh:maxCount 1;
 		sh:severity sh:Violation ;
@@ -189,9 +206,16 @@ shapes:ContractRejectionMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contractRejectionReason ;
-		sh:datatype rdf:PlainLiteral ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] .
 
 shapes:ContractSupplementMessageShape
@@ -215,7 +239,9 @@ shapes:ResourceNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedResource ;
-		sh:datatype ids:Resource ;
+        #sh:class ids:Resource ;
+        sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -257,6 +283,7 @@ shapes:RequestInProcessMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -273,6 +300,7 @@ shapes:MessageProcessedNotificationShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -288,6 +316,7 @@ shapes:ArtifactRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:requestedArtifact ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Artifact ;
         sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -305,6 +334,7 @@ shapes:ParticipantRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:requestedParticipant ;
 		sh:nodeKind sh:IRI ;
+        #sh:class ids:Participant ;
         sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;

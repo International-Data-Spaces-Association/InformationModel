@@ -31,24 +31,31 @@ shapes:DescribedShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:title ;
-		sh:datatype rdf:PlainLiteral ;
+        sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:title property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:title property must point from an ids:Described to either a xsd:string or a rdf:langString with a language code."@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:description ;
-		sh:class ids:Concept ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to an ids:Concept."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to either a xsd:string or a rdf:langString with a language code"@en ; 
 	] ;
-	
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:comment ;
-		sh:datatype rdf:PlainLiteral ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:comment property must point from an ids:Described to an rdf:PlainLiteral."@en ; 
-	] .
+ .
 

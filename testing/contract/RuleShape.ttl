@@ -117,8 +117,9 @@ shapes:ConstraintShape
 		sh:path ids:leftOperand ;
 		sh:class ids:LeftOperand ;
 		sh:minCount 1 ;
+        sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have at least one ids:LeftOperand linked through the ids:leftOperand property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one ids:LeftOperand linked through the ids:leftOperand property"@en ; 
 	] ;
 
 	sh:property [
@@ -126,23 +127,34 @@ shapes:ConstraintShape
 		sh:path ids:operator ;
 		sh:class ids:BinaryOperator ;
 		sh:minCount 1 ;
+        sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have at least one ids:BinaryOperator linked through the ids:operator property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one ids:BinaryOperator linked through the ids:operator property"@en ; 
 	] ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:rightOperand ;
-		sh:datatype rdfs:Literal ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have at least one rdfs:Literal linked through the ids:rightOperand property"@en ; 
-	] ;
+	sh:xone (
+    [
+	    sh:path ids:rightOperand ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperand property must point from an ids::Constraint to Literals or rdfs:Resources. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ; 
+    ]
+    [
+        sh:path ids:rightOperandReference ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperandReference property must point from an ids::Constraint to an IRI. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ; 
+    ]
+	) ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:unit ;
 		sh:class ids:Unit ;
+        sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:unit property must point from an ids:Constraint to an ids:Unit."@en ; 
 	] .
