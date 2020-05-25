@@ -130,10 +130,17 @@ shapes:ConnectorNotificationMessageShape
     
     sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:revokeReason ;
-		sh:datatype xsd:string ;
+		sh:path ids:revocationReason ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:revokeReason property must point from a subclass of ids:ConnectorNotificationMessage to xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:revocationReason property must point from a subclass of ids:ConnectorNotificationMessage to either an xsd:string or an rdf:langString, which also contains a language code."@en ;
 	] ;
 
 	sh:property [
@@ -167,10 +174,17 @@ shapes:ParticipantNotificationMessageShape
 
     sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:revokeReason ;
-		sh:datatype xsd:string ;
+		sh:path ids:revocationReason ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:revokeReason property must point from a subclass of ids:ParticipantNotificationMessage to xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:revocationReason property must point from a subclass of ids:ParticipantNotificationMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] ;
 
 	sh:property [
@@ -192,9 +206,16 @@ shapes:ContractRejectionMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contractRejectionReason ;
-		sh:datatype rdf:PlainLiteral ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to an rdf:PlainLiteral."@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] .
 
 shapes:ContractSupplementMessageShape

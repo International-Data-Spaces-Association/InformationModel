@@ -64,12 +64,17 @@ ids:resourceInterface
     rdfs:range ids:Interface;
     rdfs:comment "Reference to the Interface defining Operations supported by the Resource."@en.
 
+# see also ids:hasEndpoint Property also for ids:Connector
 ids:resourceEndpoint
     a owl:ObjectProperty;
     rdfs:label "resource endpoint"@en;
-    rdfs:domain ids:Resource;
+    rdfs:domain ids:Resource ;
+    #[ # todo for IM 4.0.0
+    #            rdf:type owl:Class ;
+    #            owl:unionOf ( ids:Resource ids:Connector )
+    #          ] ;
     rdfs:range ids:Endpoint;
-    rdfs:comment "Reference to the Endpoints serving the resource's content."@en.
+    rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en.
 
 ids:standardLicense
     a owl:ObjectProperty ;
