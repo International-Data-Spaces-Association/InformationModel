@@ -18,7 +18,11 @@ public class SparqlSandbox {
             "3_DataCube_usesDimension.sparql",
             "4_VoID_usesNamespace.sparql",
             "5_VoID_usesClass.sparql",
-            "6_VoID_usesProperty.sparql"
+            "6_VoID_usesProperty.sparql",
+            "7_SHACL_hasDatatype.sparql",
+            "8_SHACL_isInRange.sparql",
+            "9a_SHACL_hasCardinality1-1.sparql",
+            "9b_SHACL_hasCardinality1-n.sparql"
     };
 
     public static void main(String[] args) throws IOException, URISyntaxException {
