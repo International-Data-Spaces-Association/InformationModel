@@ -11,8 +11,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class SparqlSandbox {
+
+    // RDF/TTl serialization of an ids:Resource
     private static final String INPUT = "1_LIFE_EXPECTANCY_RESOURCE.ttl";
 
+    // Files containing SPARQL queries
     private static final String[] QUERY_LOCATIONS = new String[]{
             "2_DataCube_hasDimensionCount.sparql",
             "3_DataCube_usesDimension.sparql",

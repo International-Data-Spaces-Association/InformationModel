@@ -1,6 +1,6 @@
 # SPARQL Queries
 This module illustrates the annotation of IDS resources via Data Cube or VoID, and presents a filtering mechanism based on SPARQL queries.
-That is, __given multiple IDS resources along with SPARQL queries, return all matching resources.__ 
+That is, __given multiple IDS resources along with SPARQL queries, return all matching resources.__
 
 ## Motivation and Scenario
 Having one or multiple resources, one would like to filter these based on certain criteria such as
@@ -19,7 +19,7 @@ Having one or multiple resources, one would like to filter these based on certai
 We therefore extend the IDS information model with additional fields in the Data Cube and VoID vocabularies (cf. https://github.com/International-Data-Spaces-Association/InformationModel/issues/190), and query these via SPARQL for appropriate filtering.
 
 ## Requirements
-- Java 11 (optional Java 8)
+- Java 11
 - Maven (for resolving dependencies)
 - (optional: Perl for automatically generating VoID metadata, cf. the `Informationmodel/utils` directory)
 
@@ -29,4 +29,4 @@ In this demonstration, we use a Java program based on Apache Jena for executing 
 For configuration and further details, please refer to the Java program as well as the SPARQL queries provided.
 
 Given multiple IDS resources along with SPARQL queries, this solution exactly returns all matching resources.
-Note that these queries are flexible and therefore could dynamically be used by other tools or programms. 
+Note that these queries are flexible and therefore could dynamically be used by other tools or programms.
