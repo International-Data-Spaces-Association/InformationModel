@@ -1,0 +1,10 @@
+PREFIX qb:    <http://purl.org/linked-data/cube#>
+
+SELECT ?resource WHERE {
+    ?resource a qb:DataSet ;
+        qb:structure ?structure .
+    ?structure qb:component ?component .
+    ?component qb:dimension ?dimension.
+}
+GROUP BY ?resource
+HAVING(COUNT(?dimension) = 3)

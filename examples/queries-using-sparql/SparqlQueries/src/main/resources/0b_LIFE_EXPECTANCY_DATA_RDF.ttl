@@ -1,0 +1,310 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix life_expectancy: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/> .
+@prefix life_expectancy-geo: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/Geo/> .
+
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+
+@prefix sdmx-concept:    <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension:  <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-attribute:  <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure:    <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx-metadata:   <http://purl.org/linked-data/sdmx/2009/metadata#> .
+@prefix sdmx-code:       <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix sdmx-subject:    <http://purl.org/linked-data/sdmx/2009/subject#> .
+
+
+# This document contains an example of a resource and how it is represented in the information model.
+
+# A (Data) Resource in the IDS Information Model
+life_expectancy:Resource
+  a ids:DataResource , qb:DataSet;
+  ids:title "European highway statistics - accident report"@en ;
+  ids:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
+
+# Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ.
+  ids:publisher "www.ids.org/participants/4711"^^xsd:anyURI;
+  ids:sovereign "www.ids.org/participants/42"^^xsd:anyURI;
+
+# Temporal period covered by the content of the resource
+  ids:temporalCoverage [
+                         a ids:Interval ;
+                         ids:begin [a ids:Instant ;
+                                    ids:dateTime "2004-01-01T12:00:00+02:00"^^xsd:dateTimeStamp ];
+                         ids:end   [a ids:Instant ;
+             						ids:dateTime "2008-12-31T12:00:00+02:00"^^xsd:dateTimeStamp ];
+                       ] ;
+
+# Open Government License
+  ids:customLicense "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"^^xsd:anyURI ;
+
+# Language of resource
+  ids:language idsc:EN ;
+
+# Representation of resource: Reference to an "instance" (CsvFile below)
+  ids:representation [
+                       a ids:DataRepresentation ;
+                       ids:mediaType idsc:TEXT_CSV;
+                       ids:instance life_expectancy:CsvFile ;
+                     ] ;
+
+# Data cube details
+  qb:structure life_expectancy:Structure ;
+  sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+.
+
+# A sample file in CSV format, which contains life expectancy data
+life_expectancy:CsvFile
+  a ids:Artifact ;
+  ids:byteSize "9759" ;
+  ids:fileName "LIFE_EXPECTANCY_DATA.xlsx";
+  ids:creationDate "2020-03-19" ;
+.
+
+# Data Cube structure
+life_expectancy:Structure
+  a qb:DataStructureDefinition;
+  qb:component
+# The dimensions
+    [ qb:dimension life_expectancy:refArea; qb:order 1 ],
+    [ qb:dimension life_expectancy:refPeriod; qb:order 2; qb:componentAttachment qb:Slice ],
+    [ qb:dimension sdmx-dimension:sex; qb:order 3; qb:componentAttachment qb:Slice ];
+
+# The measure(s)
+  qb:component [ qb:measure life_expectancy:lifeExpectancy];
+
+# The attributes
+  qb:component [ qb:attribute sdmx-attribute:unitMeasure;
+                 qb:componentRequired "true"^^xsd:boolean;
+                 qb:componentAttachment qb:DataSet; ] ;
+.
+
+# Data Cube dimensions (only 2, because "sex" can be taken from sdmx directly)
+life_expectancy:refArea a rdf:Property , qb:DimensionProperty;
+                        rdfs:label "reference area"@en;
+                        rdfs:subPropertyOf sdmx-dimension:refArea;
+                        rdfs:range admingeo:UnitaryAuthority;
+                        qb:concept sdmx-concept:refArea ;
+.
+
+life_expectancy:refPeriod a rdf:Property, qb:DimensionProperty;
+                          rdfs:label "reference period"@en;
+                          rdfs:subPropertyOf sdmx-dimension:refPeriod;
+                          rdfs:range interval:Interval;
+                          qb:concept sdmx-concept:refPeriod ;
+.
+
+# Data Cube measure
+life_expectancy:lifeExpectancy  a rdf:Property, qb:MeasureProperty;
+                                rdfs:label "life expectancy"@en;
+                                rdfs:subPropertyOf sdmx-measure:obsValue;
+                                rdfs:range xsd:decimal ;
+.
+
+
+
+
+# -- The actual data -----------------------------------------
+
+# Column 1
+
+life_expectancy:slice1 a qb:Slice;
+    qb:sliceStructure  life_expectancy:sliceByRegion ;
+    life_expectancy:refPeriod               <http://reference.data.gov.uk/id/gregorian-interval/2004-01-01T00:00:00/P3Y> ;
+    sdmx-dimension:sex         sdmx-code:sex-M ;
+    qb:observation life_expectancy:o11, life_expectancy:o12, life_expectancy:o13, life_expectancy:o14 ;
+    .
+
+life_expectancy:o11 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:newport_00pr ;
+    life_expectancy:lifeExpectancy          76.7 ;
+    .
+
+life_expectancy:o12 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:cardiff_00pt ;
+    life_expectancy:lifeExpectancy          78.7 ;
+    .
+
+life_expectancy:o13 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:monmouthshire_00pp ;
+    life_expectancy:lifeExpectancy          76.6 ;
+    .
+
+life_expectancy:o14 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:merthyr_tdfil_00ph ;
+    life_expectancy:lifeExpectancy          75.5 ;
+    .
+
+# Column 2
+
+life_expectancy:slice2 a qb:Slice;
+    qb:sliceStructure  life_expectancy:sliceByRegion ;
+    life_expectancy:refPeriod               <http://reference.data.gov.uk/id/gregorian-interval/2004-01-01T00:00:00/P3Y> ;
+    sdmx-dimension:sex         sdmx-code:sex-F ;
+    qb:observation life_expectancy:o21, life_expectancy:o22, life_expectancy:o23, life_expectancy:o24 ;
+    .
+
+life_expectancy:o21 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:newport_00pr ;
+    life_expectancy:lifeExpectancy          80.7 ;
+    .
+
+life_expectancy:o22 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:cardiff_00pt ;
+    life_expectancy:lifeExpectancy          83.3 ;
+    .
+
+life_expectancy:o23 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:monmouthshire_00pp ;
+    life_expectancy:lifeExpectancy          81.3 ;
+    .
+
+life_expectancy:o24 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:merthyr_tdfil_00ph ;
+    life_expectancy:lifeExpectancy          79.1 ;
+    .
+
+# Column 3
+
+life_expectancy:slice3 a qb:Slice;
+    qb:sliceStructure  life_expectancy:sliceByRegion ;
+    life_expectancy:refPeriod               <http://reference.data.gov.uk/id/gregorian-interval/2005-01-01T00:00:00/P3Y> ;
+    sdmx-dimension:sex         sdmx-code:sex-M ;
+    qb:observation life_expectancy:o31, life_expectancy:o32, life_expectancy:o33, life_expectancy:o34 ;
+    .
+
+life_expectancy:o31 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:newport_00pr ;
+    life_expectancy:lifeExpectancy          77.1 ;
+    .
+
+life_expectancy:o32 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:cardiff_00pt ;
+    life_expectancy:lifeExpectancy          78.6 ;
+    .
+
+life_expectancy:o33 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:monmouthshire_00pp ;
+    life_expectancy:lifeExpectancy          76.5 ;
+    .
+
+life_expectancy:o34 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:merthyr_tdfil_00ph ;
+    life_expectancy:lifeExpectancy          75.5 ;
+    .
+
+# Column 4
+
+life_expectancy:slice4 a qb:Slice;
+    qb:sliceStructure  life_expectancy:sliceByRegion ;
+    life_expectancy:refPeriod               <http://reference.data.gov.uk/id/gregorian-interval/2005-01-01T00:00:00/P3Y> ;
+    sdmx-dimension:sex         sdmx-code:sex-F ;
+    qb:observation life_expectancy:o41, life_expectancy:o42, life_expectancy:o43, life_expectancy:o44 ;
+    .
+
+life_expectancy:o41 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:newport_00pr ;
+    life_expectancy:lifeExpectancy          80.9 ;
+    .
+
+life_expectancy:o42 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:cardiff_00pt ;
+    life_expectancy:lifeExpectancy          83.7 ;
+    .
+
+life_expectancy:o43 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:monmouthshire_00pp ;
+    life_expectancy:lifeExpectancy          81.5 ;
+    .
+
+life_expectancy:o44 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:merthyr_tdfil_00ph ;
+    life_expectancy:lifeExpectancy          79.4 ;
+    .
+
+# Column 5
+
+life_expectancy:slice5 a qb:Slice;
+    qb:sliceStructure  life_expectancy:sliceByRegion ;
+    life_expectancy:refPeriod               <http://reference.data.gov.uk/id/gregorian-interval/2006-01-01T00:00:00/P3Y> ;
+    sdmx-dimension:sex         sdmx-code:sex-M ;
+    qb:observation life_expectancy:o51, life_expectancy:o52, life_expectancy:o53, life_expectancy:o54 ;
+    .
+
+life_expectancy:o51 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:newport_00pr ;
+    life_expectancy:lifeExpectancy          77.0 ;
+    .
+
+life_expectancy:o52 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:cardiff_00pt ;
+    life_expectancy:lifeExpectancy          78.7 ;
+    .
+
+life_expectancy:o53 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:monmouthshire_00pp ;
+    life_expectancy:lifeExpectancy          76.6 ;
+    .
+
+life_expectancy:o54 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:merthyr_tdfil_00ph ;
+    life_expectancy:lifeExpectancy          74.9 ;
+    .
+
+# Column 6
+
+life_expectancy:slice6 a qb:Slice;
+    qb:sliceStructure  life_expectancy:sliceByRegion ;
+    life_expectancy:refPeriod               <http://reference.data.gov.uk/id/gregorian-interval/2006-01-01T00:00:00/P3Y> ;
+    sdmx-dimension:sex         sdmx-code:sex-F ;
+    qb:observation life_expectancy:o61, life_expectancy:o62, life_expectancy:o63, life_expectancy:o64 ;
+    .
+
+life_expectancy:o61 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:newport_00pr ;
+    life_expectancy:lifeExpectancy          81.5 ;
+    .
+
+life_expectancy:o62 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:cardiff_00pt ;
+    life_expectancy:lifeExpectancy          83.4 ;
+    .
+
+life_expectancy:o63 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:monmouthshire_00pp ;
+    life_expectancy:lifeExpectancy          81.7 ;
+    .
+
+life_expectancy:o64 a qb:Observation;
+    qb:dataSet  life_expectancy:dataset-le3 ;
+    life_expectancy:refArea                 life_expectancy-geo:merthyr_tdfil_00ph ;
+    life_expectancy:lifeExpectancy          79.6 ;
+    .

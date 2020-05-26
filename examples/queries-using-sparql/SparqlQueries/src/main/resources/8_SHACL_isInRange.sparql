@@ -1,0 +1,14 @@
+PREFIX ids:                <https://w3id.org/idsa/core/>
+PREFIX sh:                 <http://www.w3.org/ns/shacl#>
+
+SELECT DISTINCT ?resource WHERE {
+    ?resource a ids:DataResource ;
+        ids:relatesToShape ?shape .
+
+    ?shape sh:property ?property .
+
+    ?property sh:path <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/lifeExpectancy> ;
+        sh:minInclusive ?min ;
+        sh:maxInclusive ?max .
+}
+HAVING(?min >= 0 && ?max <= 150)
