@@ -27,7 +27,7 @@ shapes:ContractShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -43,7 +43,7 @@ shapes:ContractShape
 		sh:path ids:contractStart ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractStart property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractStart property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
@@ -51,7 +51,7 @@ shapes:ContractShape
 		sh:path ids:contractEnd ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractEnd property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractEnd property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
@@ -59,7 +59,7 @@ shapes:ContractShape
 		sh:path ids:contractDate ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractDate property must point from an ids:Contract to an xsd:dateTimeStamp. "@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractDate property must point from an ids:Contract to an xsd:dateTimeStamp. "@en ;
 	] ;
 
 	sh:property [
@@ -70,7 +70,7 @@ shapes:ContractShape
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must not have more than one ids:Participant linked through the ids:provider property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must not have more than one ids:Participant linked through the ids:provider property"@en ;
 	] ;
 
 	sh:property [
@@ -80,7 +80,7 @@ shapes:ContractShape
         #sh:class ids:Participant ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ;
 	] ;
 
 	sh:property [
@@ -90,7 +90,7 @@ shapes:ContractShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have exactly one ids:TextResource linked through the ids:contractDocument property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have exactly one ids:TextResource linked through the ids:contractDocument property"@en ;
 	] ;
 
 	sh:property [
@@ -98,7 +98,7 @@ shapes:ContractShape
 		sh:path ids:contractAnnex ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractAnnex property must point from an ids:Contract to an ids:Resource."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractAnnex property must point from an ids:Contract to an ids:Resource."@en ;
 	] ;
 
 	sh:property [
@@ -106,7 +106,7 @@ shapes:ContractShape
 		sh:path ids:permission ;
 		sh:class ids:Permission ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:permission property must point from an ids:Contract to an ids:Permission."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:permission property must point from an ids:Contract to an ids:Permission."@en ;
 	] ;
 
 	sh:property [
@@ -114,7 +114,7 @@ shapes:ContractShape
 		sh:path ids:prohibition ;
 		sh:class ids:Prohibition ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ;
 	] ;
 
 	sh:property [
@@ -122,7 +122,7 @@ shapes:ContractShape
 		sh:path ids:obligation ;
 		sh:class ids:Duty ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:obligation property must point from an ids:Contract to an ids:Duty."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:obligation property must point from an ids:Contract to an ids:Duty."@en ;
 	] ;
 
 	sh:property [
@@ -130,7 +130,7 @@ shapes:ContractShape
 		sh:path ids:refersTo ;
 		sh:class ids:PolicyTemplate ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ;
 	] ;
 
 	sh:property [
@@ -138,7 +138,7 @@ shapes:ContractShape
 		sh:path (ids:permission ids:obligation ids:prohibition) ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ;
 	] .
 
 
@@ -154,7 +154,7 @@ shapes:ContractAgreementShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
 	] ;
 
 	sh:property [
@@ -165,7 +165,7 @@ shapes:ContractAgreementShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
 	] .
 
 
@@ -181,7 +181,7 @@ shapes:ContractRequestShape
         sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
 	] ;
 
 	sh:property [
@@ -192,7 +192,7 @@ shapes:ContractRequestShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
 	] .
 
 
@@ -208,5 +208,5 @@ shapes:ContractOfferShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/contract/ContractShape.ttl> (ContractOfferShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractOfferShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
 	] .
