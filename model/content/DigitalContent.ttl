@@ -159,7 +159,7 @@ ids:created
     rdfs:domain [ rdf:type owl:Class ;
                 owl:unionOf ( ids:DigitalContent ids:Representation)
               ] ;
-    rdfs:range xsd:dateTimeStamp ;
+    rdfs:range xsd:dateTimeStamp, xsd:date ;
     rdfs:label "created"@en;
     rdfs:seeAlso <http://purl.org/dc/terms/created> ;
     rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
@@ -170,7 +170,7 @@ ids:modified
     rdfs:domain [ rdf:type owl:Class ;
                 owl:unionOf ( ids:DigitalContent ids:Representation)
               ] ;
-    rdfs:range xsd:dateTimeStamp;
+    rdfs:range xsd:dateTimeStamp, xsd:date;
     rdfs:label "modified"@en;
     rdfs:seeAlso <http://purl.org/dc/terms/modified> ;
     rdfs:comment "The date/time this Digital Content has been changed the last time. Only one 'modified' attribute is usually needed."@en.
