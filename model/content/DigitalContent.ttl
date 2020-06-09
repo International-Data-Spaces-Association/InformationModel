@@ -127,6 +127,14 @@ ids:temporalCoverage
     rdfs:range ids:TemporalEntity;
     rdfs:comment "Temporal period or instance covered by the content."@en.
 
+ids:temporalResolution
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcat:temporalResolution ;
+    rdfs:label "temporal resolution"@en ;
+    rdfs:comment "Minimum time between collected data points in a time series within this content."@en ;
+    rdfs:domain ids:DigitalContent ;
+    rdfs:range dct:Frequency .
+
 ids:spatialCoverage
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:spatial;
