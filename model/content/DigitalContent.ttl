@@ -137,11 +137,11 @@ ids:spatialCoverage
 
 ids:accrualPeriodicity # consider irregular updates as well
     a owl:DatatypeProperty;
-    # rdfs:subPropertyOf dct:accrualPeriodicity - not applicable, since range is a dct:Frequency
+    rdfs:subPropertyOf dct:accrualPeriodicity ;
     rdfs:label "Accrual periodicity"@en;
     rdfs:comment "The regular period with which items are added to a collection."@en ;
     rdfs:domain ids:DigitalContent;
-    rdfs:range xsd:duration;
+    rdfs:range dct:Frequency;
     .
 
 ids:contentStandard
