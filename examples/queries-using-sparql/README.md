@@ -8,13 +8,13 @@ Having one or multiple resources, one would like to filter these based on certai
   - dimension count: "has 3 dimensions"
   - dimension usage: "uses time as dimension"
 - their terminology, in terms of VoID
-  - namespace usage: "uses RDF-Schema"
+  - namespace usage: "uses RDF Schema"
   - class usage: "uses Observation from the Data Cube vocabulary"
   - property usage: "uses sex from SDMX dimensions"
-- arbitrary constraints, in terms of SHACL
-  - "file size > 10MB"
-  - "optional field X not present"
-  - "custom license URI contains a German domain"
+- arbitrary constraints, in terms of SHACL – for example, about the usage of properties (not necessarily globally, but in those _parts_ of the dataset to which certain shapes apply):
+  - "`lifeExpectancy` property has datatype `decimal`"
+  - "`lifeExpectancy` property is in range 0–150"
+  - "`observation` property has to be used at least once"
 
 We therefore extend the IDS Information Model with additional fields in the Data Cube and VoID vocabularies (cf. https://github.com/International-Data-Spaces-Association/InformationModel/issues/190), and query these via SPARQL for appropriate filtering.
 
