@@ -47,11 +47,11 @@ life_expectancy:Resource
 # Language of resource
   ids:language idsc:EN ;
 
-# Representation of resource: Reference to an "instance" (CsvFile below)
+# Representation of resource: Reference to an "instance" (Excel file below)
   ids:representation [
                        a ids:DataRepresentation ;
-                       ids:mediaType idsc:TEXT_CSV;
-                       ids:instance life_expectancy:CsvFile ;
+                       ids:mediaType life_expectancy:APPLICATION_EXCEL;
+                       ids:instance life_expectancy:ExcelFile ;
                      ] ;
 
 # Data cube details
@@ -63,12 +63,21 @@ life_expectancy:Resource
   sh:shapesGraph life_expectancy:SliceShape ;
 .
 
-# A sample file in CSV format, which contains life expectancy data
-life_expectancy:CsvFile
+# Introduce Excel IANA media type
+life_expectancy:APPLICATION_EXCEL
+  a ids:IANAMediaType ;
+  rdfs:label "application/vnd.ms-excel" ;
+  rdfs:comment "This Media Type/OID is used to identify Microsoft Excel generically"@en ;
+  rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/application/vnd.ms-excel> ;
+  ids:filenameExtension "xlsx" ;
+.
+
+# A sample file in Excel format, which contains life expectancy data
+life_expectancy:ExcelFile
   a ids:Artifact ;
-  ids:byteSize "9759" ;
+  ids:byteSize "9759"^^xsd:nonNegativeInteger ;
   ids:fileName "LIFE_EXPECTANCY_DATA.xlsx";
-  ids:creationDate "2020-03-19" ;
+  ids:creationDate "2020-03-19"^^xsd:date ;
 .
 
 # Data Cube structure
