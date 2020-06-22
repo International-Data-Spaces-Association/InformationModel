@@ -456,6 +456,10 @@ ids:AppUpdateRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "App Update Request Message"@en ;
     rdfs:comment "Message that asks for Update of an existing app to the appStore. Payload contains app data."@en ;
+    idsm:validation [
+                        idsm:forProperty ids:affectedDataAppResource;
+                        idsm:constraint idsm:NotNull;
+                    ];
 .
 
 ids:AppUpdateResponseMessage a owl:Class;
@@ -466,12 +470,12 @@ ids:AppUpdateResponseMessage a owl:Class;
 
 
 ids:AppNotificationMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ResourceNotificationMessage ;
     idsm:abstract true ;
     rdfs:label "App Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of an DataApp."@en;
     idsm:validation [
-                        idsm:forProperty ids:affectedDataApp;
+                        idsm:forProperty ids:affectedDataAppResource;
                         idsm:constraint idsm:NotNull;
                     ];
 .
@@ -494,10 +498,14 @@ ids:AppDeleteMessage a owl:Class ;
      rdfs:comment "Message indicating an update of a specific App."@en;
 .
 
-ids:affectedDataApp rdf:type owl:ObjectProperty ;
+ids:affectedAppResource rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
-    rdfs:domain ids:AppNotificationMessage;
-    rdfs:range ids:Resource ;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:AppNotificationMessage ids:AppUpdateRequestMessage)
+              ] ;
+    rdfs:range ids:Resource ;   
+    # ToDo: 
+    #     Change range to the correct AppResource class, if defined.
     rdfs:label "affected App"@en ;
     rdfs:comment "The affected App that is referenced in the App-related notification messages. "@en;
 .

@@ -19,6 +19,7 @@ shapes:
 		sh:prefix "ids" ;
 		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
 	] .
+    
 shapes:DescriptionRequestMessage
 	a sh:NodeShape ;
 	sh:targetClass ids:DescriptionRequestMessage ;
@@ -340,4 +341,35 @@ shapes:ParticipantRequestMessageShape
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ParticipantRequestMessageShape must have exactly one IRI reference to an ids:Participant linked through the ids:requestedParticipant property"@en ;
+	] .
+
+shapes:AppUpdateRequestMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppUpdateRequestMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:affectedAppResource ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUpdateRequestMessage): An ids:AppUpdateRequestMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedAppResource property"@en ;
+	] .
+
+
+shapes:AppNotificationMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppNotificationMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:affectedAppResource ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedAppResource property"@en ;
 	] .
