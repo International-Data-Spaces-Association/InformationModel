@@ -446,9 +446,9 @@ ids:AppRegistrationRequestMessage a owl:Class;
     rdfs:comment "Message that asks for registration of a new app to the appStore. Payload contains app data."@en ;
 .
 
-ids:AppRegistrationResponseMessage a owl:Class;
+ids:AppRegistrationConfirmedMessage a owl:Class;
     rdfs:subClassOf ids:ResponseMessage ;
-    rdfs:label "App Registration Response Message"@en ;
+    rdfs:label "App Registration Confirmed Message"@en ;
     rdfs:comment "Message that follows up an AppRegistrationRequestMessage and contains the app registration confimation."@en ;
 .
 
@@ -462,9 +462,9 @@ ids:AppUpdateRequestMessage a owl:Class;
                     ];
 .
 
-ids:AppUpdateResponseMessage a owl:Class;
+ids:AppUpdateConfirmedMessage a owl:Class;
     rdfs:subClassOf ids:ResponseMessage ;
-    rdfs:label "App Update Response Message"@en ;
+    rdfs:label "App Update Confirmed Message"@en ;
     rdfs:comment "Message that follows up an AppUpdateRequestMessage and contains the app Update confimation."@en ;
 .
 
@@ -473,7 +473,7 @@ ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
     idsm:abstract true ;
     rdfs:label "App Notification Message"@en ;
-    rdfs:comment "Superclass of all messages, indicating a change of an DataApp."@en;
+    rdfs:comment "Superclass of all app notification messages, indicating a change of an DataApp."@en;
     idsm:validation [
                         idsm:forProperty ids:affectedDataAppResource;
                         idsm:constraint idsm:NotNull;
