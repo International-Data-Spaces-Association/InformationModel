@@ -117,14 +117,14 @@ ids:ConnectorUpdateMessage a owl:Class;
     rdfs:comment "Event notifying the recipient(s) about a connector's configuration change. The payload of the message must contain the updated connector's self-description."@en.
 
 ids:ConnectorCertificateGrantedMessage a owl:Class;
-	rdfs:subClassOf ids:ConnectorNotificationMessage ;
-	rdfs:label "Connector Certificate Granted Message"@en ;
-	rdfs:comment "Whenever a Connector has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
+    rdfs:label "Connector Certificate Granted Message"@en ;
+    rdfs:comment "Whenever a Connector has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
 
 ids:ConnectorCertificateRevokedMessage a owl:Class;
-	rdfs:subClassOf ids:ConnectorNotificationMessage ;
-	rdfs:label "Connector Certificate Revoked Message"@en ;
-	rdfs:comment "Indicates that a (previously certified) Connector is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
+    rdfs:label "Connector Certificate Revoked Message"@en ;
+    rdfs:comment "Indicates that a (previously certified) Connector is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
 ids:affectedConnector a owl:ObjectProperty;
     idsm:referenceByUri true;
@@ -300,7 +300,7 @@ ids:ResourceNotificationMessage a owl:Class;
     idsm:abstract true ;
     rdfs:label "Resource Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a resource."@en;
-	idsm:validation [
+    idsm:validation [
         idsm:forProperty ids:affectedResource;
         idsm:constraint idsm:NotNull;
     ].
@@ -321,6 +321,7 @@ ids:ResourceUnavailableMessage a owl:Class ;
     rdfs:comment "Message indicating that a specific resource is unavailable."@en.
 
 ids:affectedResource rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
     rdfs:domain ids:ResourceNotificationMessage;
     rdfs:range ids:Resource ;
     rdfs:label "affected Resource"@en ;
@@ -435,3 +436,76 @@ ids:LogMessage a owl:Class;
     rdfs:label "Log Message"@en ;
     rdfs:comment "Log Message which can be used to transfer logs e.g. to the clearing house."@en.
 
+
+# App-related Messages
+# ---------------------
+
+ids:AppRegistrationRequestMessage a owl:Class;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "App Registration Request Message"@en ;
+    rdfs:comment "Message that asks for registration of a new app to the appStore. Payload contains app data."@en ;
+.
+
+ids:AppRegistrationConfirmedMessage a owl:Class;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "App Registration Confirmed Message"@en ;
+    rdfs:comment "Message that follows up an AppRegistrationRequestMessage and contains the app registration confimation."@en ;
+.
+
+ids:AppUpdateRequestMessage a owl:Class;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "App Update Request Message"@en ;
+    rdfs:comment "Message that asks for Update of an existing app to the appStore. Payload contains app data."@en ;
+    idsm:validation [
+                        idsm:forProperty ids:affectedDataAppResource;
+                        idsm:constraint idsm:NotNull;
+                    ];
+.
+
+ids:AppUpdateConfirmedMessage a owl:Class;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "App Update Confirmed Message"@en ;
+    rdfs:comment "Message that follows up an AppUpdateRequestMessage and contains the app Update confimation."@en ;
+.
+
+
+ids:AppNotificationMessage a owl:Class;
+    rdfs:subClassOf ids:ResourceNotificationMessage ;
+    idsm:abstract true ;
+    rdfs:label "App Notification Message"@en ;
+    rdfs:comment "Superclass of all app notification messages, indicating a change of a DataApp."@en;
+    idsm:validation [
+                        idsm:forProperty ids:affectedDataAppResource;
+                        idsm:constraint idsm:NotNull;
+                    ];
+.
+
+ids:AppAvailableMessage a owl:Class ;
+    rdfs:subClassOf ids:AppNotificationMessage ;
+    rdfs:label "App Available Message"@en;
+    rdfs:comment "Message indicating that a specific App is available in the AppStore."@en;
+.
+
+ids:AppUnavailableMessage a owl:Class ;
+    rdfs:subClassOf ids:AppNotificationMessage ;
+    rdfs:label "App Unavailable Message"@en;
+    rdfs:comment "Message indicating that a specific App is unavailable."@en;
+.
+
+ids:AppDeleteMessage a owl:Class ;
+     rdfs:subClassOf ids:AppNotificationMessage ;
+     rdfs:label "App Delete Message"@en;
+     rdfs:comment "Message indicating an update of a specific App."@en;
+.
+
+ids:affectedAppResource rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:AppNotificationMessage ids:AppUpdateRequestMessage)
+              ] ;
+    rdfs:range ids:Resource ;   
+    # ToDo: 
+    #     Change range to the correct AppResource class, if defined.
+    rdfs:label "affected App"@en ;
+    rdfs:comment "The affected App that is referenced in the App-related notification messages. "@en;
+.
