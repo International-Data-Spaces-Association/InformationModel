@@ -6,7 +6,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -27,7 +27,7 @@ shapes:ConnectorShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -43,7 +43,7 @@ shapes:ConnectorShape
 		sh:path ids:host ;
 		sh:class ids:Host ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:host property must point from an ids:Connector to an ids:Host."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:host property must point from an ids:Connector to an ids:Host."@en ;
 	] ;
 
 	sh:property [
@@ -51,7 +51,7 @@ shapes:ConnectorShape
 		sh:path ids:defaultHost ;
 		sh:class ids:Host ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:defaultHost property must point from an ids:Connector to an ids:Host."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:defaultHost property must point from an ids:Connector to an ids:Host."@en ;
 	] ;
 
 	sh:property [
@@ -61,7 +61,7 @@ shapes:ConnectorShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:SecurityProfile linked through the ids:securityProfile property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:SecurityProfile linked through the ids:securityProfile property"@en ;
 	] ;
 	
 	sh:property [
@@ -69,7 +69,7 @@ shapes:ConnectorShape
 		sh:path ids:extendedGuarantee ;
 		sh:class ids:SecurityGuarantee ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:extendedGuarantee property must point from an ids:Connector to an ids:SecurityGuarantee"@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:extendedGuarantee property must point from an ids:Connector to an ids:SecurityGuarantee"@en ;
 	] ;
     
     sh:property [
@@ -79,7 +79,7 @@ shapes:ConnectorShape
         #sh:class ids:Agent ;
         sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:hasAgents property must point from an ids:Connector to a list of Agends using an IRI."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:hasAgents property must point from an ids:Connector to a list of Agends using an IRI."@en ;
 	] ;
 
     sh:property [
@@ -87,7 +87,7 @@ shapes:ConnectorShape
 		sh:path ids:transportCertsSha256 ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:transportCertsSha256 property must point from an ids:Connector to a xsd:string "@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:transportCertsSha256 property must point from an ids:Connector to a xsd:string "@en ;
 	] ;
 
 
@@ -96,7 +96,7 @@ shapes:ConnectorShape
 		sh:path ids:authInfo ;
 		sh:class ids:AuthInfo ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:authInfo property must point from an ids:Connector to an ids:AuthInfo."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:authInfo property must point from an ids:Connector to an ids:AuthInfo."@en ;
 	] ;
 
 	sh:property [
@@ -106,7 +106,7 @@ shapes:ConnectorShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:Catalog linked through the ids:catalog property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:Catalog linked through the ids:catalog property"@en ;
 	] ;
 
 	sh:property [
@@ -114,7 +114,7 @@ shapes:ConnectorShape
 		sh:path ids:hasEndpoint ;
 		sh:class ids:Endpoint ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector can have an ids:Enpoint linked through the ids:hasEndpoint property."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector can have an ids:Enpoint linked through the ids:hasEndpoint property."@en ;
 	] ;
 .
 
