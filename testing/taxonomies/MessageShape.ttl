@@ -6,7 +6,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/international-Data-Spaces-Association/InformationModel/testing> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -19,6 +19,7 @@ shapes:
 		sh:prefix "ids" ;
 		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
 	] .
+    
 shapes:DescriptionRequestMessage
 	a sh:NodeShape ;
 	sh:targetClass ids:DescriptionRequestMessage ;
@@ -218,7 +219,7 @@ shapes:ContractRejectionMessageShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] .
 
-shapes:ContractSupplementMessageShape
+shapes:ContractAgreementMessageShape
 	a sh:NodeShape ;
 	sh:targetClass ids:ContractAgreementMessage ;
 
@@ -229,7 +230,7 @@ shapes:ContractSupplementMessageShape
         sh:minCount 1;
         sh:maxCount 1;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractSupplementMessage): An ids:agreedContract property must point from an ids:ContractSupplementMessage to a URI refrence of a ids:ContractAgreement."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractAgreementMessage): An ids:agreedContract property must point from an ids:ContractAgreementMessage to a URI reference of a ids:ContractAgreement."@en ;
 	] .
     
 shapes:ResourceNotificationMessageShape
@@ -245,7 +246,7 @@ shapes:ResourceNotificationMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactAvailableMessageShape): A ids:ResourceNotificationMessage must have exactly one ids:Resource linked through the ids:affectedResource property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResourceNotificationMessage): A ids:ResourceNotificationMessage must have exactly one ids:Resource linked through the ids:affectedResource property"@en ;
 	] .
 
 
@@ -340,4 +341,35 @@ shapes:ParticipantRequestMessageShape
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ParticipantRequestMessageShape must have exactly one IRI reference to an ids:Participant linked through the ids:requestedParticipant property"@en ;
+	] .
+
+shapes:AppUpdateRequestMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppUpdateRequestMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:affectedAppResource ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUpdateRequestMessage): An ids:AppUpdateRequestMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedAppResource property"@en ;
+	] .
+
+
+shapes:AppNotificationMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppNotificationMessage ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:affectedAppResource ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedAppResource property"@en ;
 	] .
