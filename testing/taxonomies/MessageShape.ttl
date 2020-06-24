@@ -219,7 +219,7 @@ shapes:ContractRejectionMessageShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] .
 
-shapes:ContractSupplementMessageShape
+shapes:ContractAgreementMessageShape
 	a sh:NodeShape ;
 	sh:targetClass ids:ContractAgreementMessage ;
 
@@ -230,7 +230,7 @@ shapes:ContractSupplementMessageShape
         sh:minCount 1;
         sh:maxCount 1;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractSupplementMessage): An ids:agreedContract property must point from an ids:ContractSupplementMessage to a URI refrence of a ids:ContractAgreement."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractAgreementMessage): An ids:agreedContract property must point from an ids:ContractAgreementMessage to a URI reference of a ids:ContractAgreement."@en ;
 	] .
     
 shapes:ResourceNotificationMessageShape
@@ -246,7 +246,7 @@ shapes:ResourceNotificationMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactAvailableMessageShape): A ids:ResourceNotificationMessage must have exactly one ids:Resource linked through the ids:affectedResource property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResourceNotificationMessage): A ids:ResourceNotificationMessage must have exactly one ids:Resource linked through the ids:affectedResource property"@en ;
 	] .
 
 
