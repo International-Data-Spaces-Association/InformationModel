@@ -473,7 +473,7 @@ ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
     idsm:abstract true ;
     rdfs:label "App Notification Message"@en ;
-    rdfs:comment "Superclass of all messages, indicating a change of an DataApp."@en;
+    rdfs:comment "Superclass of all messages, indicating a change of an DataApp. Unlike Resource-related Messages, AppNotificationMessages shall cause a change of state at the recipient, the AppStore."@en;
     idsm:validation [
                         idsm:forProperty ids:affectedDataAppResource;
                         idsm:constraint idsm:NotNull;
@@ -483,19 +483,19 @@ ids:AppNotificationMessage a owl:Class;
 ids:AppAvailableMessage a owl:Class ;
     rdfs:subClassOf ids:AppNotificationMessage ;
     rdfs:label "App Available Message"@en;
-    rdfs:comment "Message indicating that a specific App is available in the AppStore."@en;
+    rdfs:comment "Message indicating that a specific App should be available (again) in the AppStore."@en;
 .
 
 ids:AppUnavailableMessage a owl:Class ;
     rdfs:subClassOf ids:AppNotificationMessage ;
     rdfs:label "App Unavailable Message"@en;
-    rdfs:comment "Message indicating that a specific App is unavailable."@en;
+    rdfs:comment "Message indicating that a specific App should be unavailable in the AppStore."@en;
 .
 
 ids:AppDeleteMessage a owl:Class ;
      rdfs:subClassOf ids:AppNotificationMessage ;
      rdfs:label "App Delete Message"@en;
-     rdfs:comment "Message indicating an update of a specific App."@en;
+     rdfs:comment "Message indicating that an App should be deleted from the AppStore."@en;
 .
 
 ids:affectedAppResource rdf:type owl:ObjectProperty ;
