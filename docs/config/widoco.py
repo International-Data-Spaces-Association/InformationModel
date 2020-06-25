@@ -91,7 +91,7 @@ def replace_widoco_html_output(filename, text):
 
 def remove_ids_trailingslash(filename):
     newHtml = ''
-    with open('../sections/', encoding="utf-8") as fp:
+    with open('../sections/'+filename, encoding="utf-8") as fp:
         for line in fp:
             if '<div class="entity" id="/' in line:
                 newHtml+=line.replace('<div class="entity" id="/','<div class="entity" id="')
@@ -100,7 +100,7 @@ def remove_ids_trailingslash(filename):
             else:
                 newHtml+=line
                 
-    with open('../sections/', 'w', encoding="utf-8") as fp:
+    with open('../sections/'+filename, 'w', encoding="utf-8") as fp:
         fp.write(newHtml)
         fp.close()
     return
