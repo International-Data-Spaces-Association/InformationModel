@@ -4,6 +4,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
@@ -13,54 +14,54 @@
 
 idsc:TimeRestrictedUsageAgreementTemplate a ids:PolicyTemplate ;
     rdfs:label "Time-restricted Usage Agreement Template" ;
-    rdfs:comment "A template for policy agreements with with a time-restricted permission."@en ;
-	skos:note """The <Consumer Participant URI> agrees to the <Provider Participant URI> to [ids:use|ids:read|...] 
-		its <Artifact URI> from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to yyyy-mm-ddThh:mm:ss.xxx+hh:mm."""@en ;
+    rdfs:comment "A template for policy agreements with a time-restricted permission."@en ;
+	spin:labelTemplate """The {?ConsumerParticipantURI} agrees to the  {?ProviderParticipantURI} to {?action element of [ids:use|
+    ids:read|...]}  its  {?content element of <Artifact URI>]}  from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to yyyy-mm-ddThh:mm:ss.xxx+hh:mm."""@en ;
     skos:note """{ 
 		"@context": "http://www.w3id.org/ids/contract.jsonld", 
 		"@type": "ContractAgreement", 
-		"uid": "<contract ID>", 
-		"refersTo": "idsc:TimeRestrictedUsageAgreementTemplate" ,
-		"target": "<Artifact URI>",
-		"ids:provider": "<Provider Participant URI>",
-		"ids:consumer": "<Consumer Participant URI>", 
-		"ids:permission": {
-			"ids:action": "[ids:use|ids:read|...]" ,
-			"ids:constraint" : {    
-					 "ids:leftOperand" : "ids:DATE_TIME",
-					 "ids:operator" : "ids:gt",
-					 "ids:rightOperand" : "\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime"
-			} ,
-			"ids:constraint" : {    
-					 "ids:leftOperand" : "ids:DATE_TIME",
-					 "ids:operator" : "ids:lt",
-					 "ids:rightOperand" : "\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime"
-			} 
+		"@id": "{?contractID}", 
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/TimeRestrictedUsageAgreementTemplate" ,
+		"targetArtifact": "{?content}",
+		"provider": "{?ProviderParticipantURI}",
+		"consumer": "{?ConsumerParticipantURI}", 
+		"permission": {
+			"action": "{?action}" ,
+			["constraint" : {    
+					 "leftOperand" : "DATE_TIME",
+					 "operator" : "gt",
+					 "rightOperand" : "\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime"
+			} [,]]+ ,
+			["constraint" : {    
+					 "leftOperand" : "DATE_TIME",
+					 "operator" : "lt",
+					 "rightOperand" : "\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime"
+			} [,]]+
 		} }"""^^xsd:string ;
+
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-		[<contract URI>] a ids:ContractAgreement ;
-			ids:uid <contract ID> ;
-			ids:refersTo idsc:TimeRestrictedUsageAgreementTemplate ;
-			ids:target <Artifact URI> ;
-			ids:consumer <Consumer Participant URI> ;
-			ids:provider <Provider Participant URI>
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:TimeRestrictedUsageAgreementTemplate ;
+			ids:targetArtifact {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
-				ids:action [ids:use|ids:read|...] ;
-				ids:constraint [
+				ids:action  {?action} ;
+				[ids:constraint [
 					ids:leftOperand ids:DATE_TIME ;
 					ids:operator ids:gt ;
 					ids:rightOperand "<yyyy-mm-ddThh:mm:ss.xxx+hh:mm>"^^xsd:dateTime
-				] ;
-				ids:constraint [
+				] ;]+
+				[ids:constraint [
 					ids:leftOperand ids:DATE_TIME ;
 					ids:operator ids:lt ;
 					ids:rightOperand "<yyyy-mm-ddThh:mm:ss.xxx+hh:mm>"^^xsd:dateTime
-				] ;
+				] ;]+
 			]
 		."""^^xsd:string 
 	.

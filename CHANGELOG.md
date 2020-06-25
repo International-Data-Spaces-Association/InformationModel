@@ -1,7 +1,60 @@
+
 # Change Log
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [3.1.0] 2020-04-30
+Version 3.1.0 of the IDS Information model
+
+
+### Added
+
+* `ids:created` and `ids:modified` properties with range `xsd:dateTimeStamp` for `ids:Resource` and `ids:Representation`
+* `ids:hasEndpoint` property for `ids:Connector` with range `ids:Endpoint`
+
+
+### Fixed
+
+* `ids:rightOperand` and `ids:rightOperandReference` (class `ids:Constraint`) changed range to `rdfs:Resource`. Even though both properties allow similar values, their inteded usage differs (cf. the specification of the underlying [ODRL ontology](https://www.w3.org/ns/odrl/2/ODRL20.html)). `ids:rightOperand` values should be interpreted directly, while `ids:rightOperandReference` values _must_ be dereferenced beforehand. 
+
+* An `ids:Constraint` is only valid, if either `ids:rightOperandReference` _or_ `ids:rightOperand` is used. Using both properties is not permitted by the corresponding SHACL shape. This behaviour is once more suggested by [ODRL](https://www.w3.org/ns/odrl/2/ODRL20.html). 
+
+* Dynamic Attribute Token (DAT) aligned to current specification in the IDS Communication Guide. DAT is now represented by the `ids:DatRequestPayload` and `ids:DatPayload` classes. While `ids:DatRequestPayload` represents the content of the token (a.k.a. claims) a clients sends to the DAPS, the `ids:DatPayload` represents the content of the token a DAPS issues after validation.
+
+* SHACL shapes for properties with IRI ranges. Property values written as defined by the RDF serialisations should now be correctly validated. 
+
+## [3.0.0] 2020-03-04
+Version 3.0.0 of the IDS Information model
+
+### Added
+
+* Request- and ResponseMessages for the ParIS service.
+
+* Revised Usage Control model based on the [Open Digital Rights Language (ODRL)](https://www.w3.org/TR/odrl-model/)
+
+* Templates for Usage Control using the [SPARQL Inferencing Notation (SPIN)](https://www.w3.org/Submission/spin-overview/)
+
+* New Connector property `ids:hasAgents`. A Connector can now publish its agents as part of the self-description.
+
+* [RDF validation with SHACL](examples/rdf-validation-using-shacl) documentation with examples using CLI tools and the Apache Jena Framework for Java.
+
+* [Perl script](utils/rdf_void_annotation.pl) as an example for extracting metadata from RDF data resources using the [Vocabulary of Interlinked Datasets (VoID)](https://www.w3.org/TR/void/) ontology.
+
+
+### Changed
+
+* Redesign of the DynamicAttributeToken (DAT) based on the new Dynamic Attribute Provisioning Service (DAPS) version. Check the corresponding [Token](model/security/Token.ttl) class as well as the [DAT payload example](examples/DAT_PAYLOAD.jsonld) for more information.
+
+* `ids:RequestMessage`, `ids:ResponseMessage`, `ids:NotificationMessage` not _abstract_ any more. These messages can now be used directly for non-core IDS communication.
+
+* `ids:DescriptionRequestMessage`(previously called `ids:SelfDescriptionRequest`) now accepts an optional URI. This can be used to either retrieve a component's self-description (by providing its own URI or nothing) or to retrieve metadata about a specific element by providing the element's URI.
+
+* Renamed some existing `ids:Message`s. Check the [Documentation Table of the ids:Message taxonomy](http://htmlpreview.github.io/?https://github.com/IndustrialDataSpace/InformationModel/blob/feature/message_taxonomy_description/model/communication/Message_Description.htm) for the current naming.
+
+### Fixed
+
+* `ids:Message` now correctly labelled as _abstract_ since it is not intended to be used directly.
 
 ## [2.1.0] 2019-12-02
 Version 2.1.0 of the IDS Information model
@@ -30,7 +83,7 @@ Version 2.0.1 of the IDS Information model
 ### Fixed
 * Changed *ids:referingConnector* (class *ids:Token*) from *owl:ObjectProperty* to *owl:DatatypeProperty* with *rdfs:range* *xsd:anyURI*. Allows to reference the connector via an URI.
 
-* Removed *idsm:abstract true* property from *ids:variant* (class *ids:Resource*). Property is invalid, since it is intended to be used by classes only.
+* Removed *idsm:abstract true* property from *ids:variant* (class *ids:Resource*). Property is invalid, since it is intended to be used by classes only. 
 
 * Minor typo fixes.
 

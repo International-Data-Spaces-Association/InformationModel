@@ -61,7 +61,7 @@ shapes:ResourceShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:customLicense ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:customLicense property must point from an ids:Resource to an xsd:anyURI."@en ; 
 	] ;
@@ -70,7 +70,6 @@ shapes:ResourceShape
 		a sh:PropertyShape ;
 		sh:path ids:contractOffer ;
 		sh:class ids:ContractOffer ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:Resource must have at least one ids:ContractOffer linked through the ids:contractOffer property"@en ; 
 	] ;
@@ -78,7 +77,8 @@ shapes:ResourceShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:publisher ;
-		sh:class ids:Agent ;
+		#sh:class ids:Agent ;
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:publisher property must point from an ids:Resource to an ids:Agent."@en ; 
 	] ;
@@ -86,7 +86,8 @@ shapes:ResourceShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:sovereign ;
-		sh:class ids:Agent ;
+		#sh:class ids:Agent ;
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:sovereign property must point from an ids:Resource to an ids:Agent."@en ; 
 	] ;

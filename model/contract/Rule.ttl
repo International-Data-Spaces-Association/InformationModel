@@ -58,7 +58,16 @@ ids:Duty rdfs:subClassOf ids:Rule;
 ids:Constraint rdfs:subClassOf odrl:Constraint;
     a owl:Class;
     rdfs:label "Constraint"@en;
-    rdfs:comment "The class of Constraints that restrict a Rule."@en.
+    rdfs:comment "The class of Constraints that restrict a Rule."@en;
+    idsm:validation [
+        idsm:forProperty ids:leftOperand;
+        idsm:constraint idsm:NotNull;
+    ] ;
+    idsm:validation [
+        idsm:forProperty ids:operator;
+        idsm:constraint idsm:NotNull;
+    ] ;
+.
 
 # Properties
 # ----------
@@ -145,11 +154,19 @@ ids:operator rdfs:subPropertyOf odrl:operator;
     rdfs:comment "The operator function applied to operands of a Constraint"@en.
 
 ids:rightOperand rdfs:subPropertyOf odrl:rightOperand;
-    a owl:DatatypeProperty;
+    a owl:ObjectProperty;
     rdfs:label "rightOperand"@en ;
     rdfs:domain ids:Constraint;
-    rdfs:range rdfs:Literal;
-    rdfs:comment "The value of the right operand in a constraint expression."@en.
+    rdfs:range rdfs:Resource;
+    rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en.
+	
+ids:rightOperandReference rdfs:subPropertyOf odrl:rightOperandReference;
+    a owl:ObjectProperty;
+    idsm:referenceByUri true;
+    rdfs:label "rightOperandReference"@en ;
+    rdfs:domain ids:Constraint;
+    rdfs:range rdfs:Resource;
+    rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en.
 
 ids:unit rdfs:subPropertyOf odrl:unit;
     a owl:ObjectProperty;

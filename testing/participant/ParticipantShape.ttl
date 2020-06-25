@@ -40,17 +40,16 @@ shapes:ParticipantShape
 		a sh:PropertyShape ;
 		sh:path ids:corporateEmailAddress ;
 		sh:datatype xsd:string ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:Participant must have at least one xsd:string linked through the ids:corporateEmailAddress property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:corporateEmailAddress property must point from an ids:Participant to xsd:string. "@en ; 
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:corporateHomepage ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:corporateHomepage property must point from an ids:Participant to an xsd:anyURI."@en ; 
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:corporateHomepage property must point from an ids:Participant to a homepage IRI."@en ; 
 	] ;
 
 	sh:property [

@@ -25,7 +25,23 @@ ids:Connector
         idsm:relationType idsm:OneToMany;
     ]; 
     idsm:validation [
+        idsm:forProperty ids:hasEndpoint;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
         idsm:forProperty ids:transportCertsSha256;
+        idsm:relationType idsm:OneToMany;
+    ]; 
+    idsm:validation [
+        idsm:forProperty ids:extendedGuarantee ;
+        idsm:relationType idsm:OneToMany;
+    ]; 
+    idsm:validation [
+        idsm:forProperty ids:securityProfile;
+        idsm:constraint idsm:NotNull;
+    ]; 
+    idsm:validation [
+        idsm:forProperty ids:hasAgents;
         idsm:relationType idsm:OneToMany;
     ].
 
@@ -45,7 +61,6 @@ ids:TrustedConnector rdfs:subClassOf ids:Connector ;
 ids:host
     a owl:ObjectProperty;
     rdfs:label "host"@en;
-    idsm:labelPluralForm "hosts"@en;
     rdfs:domain ids:Connector;
     rdfs:range ids:Host;
     rdfs:comment "Networked host operated by the Connector in order to serve and consume resource content and services."@en.
@@ -57,20 +72,38 @@ ids:defaultHost
     rdfs:range ids:Host;
     rdfs:comment "Indicates the default host that should be used for basic infrastructure interactions, e.g., providing the self description."@en.
 
+# see also ids:hasEndpoint Property also for ids:Resource
+ids:hasEndpoint
+    a owl:ObjectProperty;
+    rdfs:label "connector endpoint"@en ;
+    rdfs:domain ids:Connector ;
+    #[ # todo for IM 4.0.0
+    #            rdf:type owl:Class ;
+    #            owl:unionOf ( ids:Resource ids:Connector )
+    #          ] ;
+    rdfs:range ids:Endpoint;
+    rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en.
+
 ids:securityProfile a owl:ObjectProperty;
-    rdfs:domain ids:Connector;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Connector ids:JwtPayload)
+              ] ;
     rdfs:range ids:SecurityProfile;
     rdfs:label "securityProfile"@en;
     rdfs:comment "The SecurityProfile supported by the Connector."@en.
     
 ids:extendedGuarantee a owl:ObjectProperty;
-    rdfs:domain ids:Connector;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Connector ids:DatPayload)
+              ] ;
     rdfs:range ids:SecurityGuarantee;
     rdfs:label "extended guarantee"@en;
     rdfs:comment "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."@en.
 
 ids:transportCertsSha256 a owl:DatatypeProperty;
-    rdfs:domain ids:Connector;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Connector ids:JwtPayload)
+              ] ;
     rdfs:range xsd:string;
     rdfs:label "transportCertsSha256"@en;
     rdfs:comment "Separate certificates for IDS identification and transport encryption opens an attack vector for relay attacks. In order to prevent these attacks, a binding of this transport certificates to the connector is required. The inclusion of SHA256 fingerprints of currently valid transport certificates, mainly into the DAT, enables the client to relate the transport layer security with the IDS interactions."@en.
@@ -86,3 +119,10 @@ ids:catalog a owl:ObjectProperty;
     rdfs:range ids:Catalog;
     rdfs:label "catalog"@en;
     rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
+
+ids:hasAgent a owl:ObjectProperty;
+    idsm:referenceByUri true;
+    rdfs:label "has Agent"@en;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Agent;
+    rdfs:comment "The Agents for which this Connector may initiate and receive Messages."@en.

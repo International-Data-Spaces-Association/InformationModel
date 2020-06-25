@@ -20,13 +20,13 @@ ids:Endpoint a owl:Class ;
     idsm:validation [
         idsm:forProperty ids:path;
         idsm:constraint idsm:NotNull;
-    ] .
+    ] . 
 
 ids:StaticEndpoint
     a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
     rdfs:label "Static Endpoint"@en ;
-    rdfs:comment "Endpoint exposing  an Artifact."@en ;
+    rdfs:comment "Endpoint exposing an Artifact."@en ;
     idsm:validation [
         idsm:forProperty ids:endpointArtifact;
         idsm:constraint idsm:NotNull;
@@ -37,7 +37,7 @@ ids:InteractiveEndpoint
     a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
     rdfs:label "Interactive Endpoint"@en ;
-    rdfs:comment "Endpoint exposing a digital content in a interacitve way."@en ;
+    rdfs:comment "Endpoint exposing a digital content in an interactive way."@en ;
     idsm:validation [
         idsm:forProperty ids:endpointOperationBinding;
         idsm:constraint idsm:NotNull;
@@ -69,7 +69,7 @@ ids:endpointHost
     rdfs:comment "Network host that exposes resource content and Connector services via this endpoint."@en ;
     idsm:explanation
 """Definition of a Resource Endpoint is by purpose split into an address part (path, topic etc.)
-and host information used to augment and resolve the address. Such the overall address space
+and host information used to augment and resolve the address. As such, the overall address space
 is self-contained and may move across hosts. Further, changes of either component (address vs. host)
 do not affect the other."""@en
     .
@@ -86,7 +86,7 @@ ids:endpointOperationBinding
     rdfs:label "endpoint operation binding"@en;
     rdfs:domain ids:InteractiveEndpoint;
     rdfs:range ids:OperationBinding;
-    rdfs:comment "Operation bound to te endpoint by means of a protocol binding."@en.
+    rdfs:comment "Operation bound to the endpoint by means of a protocol binding."@en.
 
 ids:path
     a owl:DatatypeProperty;

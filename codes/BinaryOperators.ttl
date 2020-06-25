@@ -1,10 +1,13 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix time: <https://www.w3.org/TR/owl-time/#> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
@@ -13,65 +16,314 @@
 # Instances
 # ---------
 
-# Generic operators
-idsc:EQ a ids:BinaryOperator;
+# Logical operators
+idsc:EQUALS a ids:BinaryOperator;
     rdfs:seeAlso odrl:eq;
     rdfs:label "equals"@en ;
-    rdfs:comment "Equals operator. Actual semantic depends on the related LeftOperand. For instance, idsc:NOW (time:TimeInstance) requires a comparison of temporal instances while idsc:count demands a numeric comparison."@en ;
+    rdfs:comment "Logical equals operator (true = true)."@en ;
     .
     
+idsc:SAME_AS a ids:BinaryOperator;
+    rdfs:seeAlso owl:sameAs ;
+    rdfs:label "is same as"@en ;
+    rdfs:comment "Logical equals operator comapring two RDF URIs. Is true if at least one owl:sameAs relation exists."@en ;
+    skos:note "A owl:sameAs A is always true."@en ;
+    .
+
+# Arithmetic operators
 idsc:GTEQ a ids:BinaryOperator;
     rdfs:seeAlso odrl:gteq;
     rdfs:label "greater than or equals"@en ;
-    rdfs:comment "Greater-than-or-equals operator. Can be used for numeric (5 idsc:GTEQ 2) or qualitative comparisons (idsc:INTEGRITY_VERIFICATION_REMOTE idsc:gteq idsc:INTEGRITY_PROTECTION_NONE)."@en .
+    rdfs:comment "Greater-than-or-equals operator. Can be used for numeric (5 idsc:GTEQ 2) comparisons."@en .
     
-idsc:GT a ids:BinaryOperator;
+idsc:GREATERTHAN a ids:BinaryOperator;
     rdfs:seeAlso odrl:gt;
     rdfs:label "greater than"@en ;
-    rdfs:comment "Greater-than operator. Can be used for numeric (5 idsc:GT 2) or qualitative comparisons (idsc:INTEGRITY_VERIFICATION_REMOTE idsc:GT idsc:INTEGRITY_PROTECTION_NONE)."@en ;
+    rdfs:comment "Greater-than operator. Can be used for numeric (5 idsc:GT 2) comparisons."@en ;
     .
-    
+
+idsc:EQ a ids:BinaryOperator;
+    rdfs:seeAlso odrl:eq;
+    rdfs:label "equals"@en ;
+    rdfs:comment "Arithmetic equals operator (5 = 5)."@en ;
+    .
+
 idsc:LTEQ a ids:BinaryOperator;
     rdfs:seeAlso odrl:lteq;
     rdfs:label "less than or equals"@en ;
-    rdfs:comment "Less-than-or-equals operator. Can be used for numeric (2 idsc:LTEQ 5) or qualitative comparisons (idsc:INTEGRITY_PROTECTION_NONE idsc:LTEQ idsc:INTEGRITY_VERIFICATION_REMOTE)."@en ;
+    rdfs:comment "Less-than-or-equals operator. Can be used for numeric (2 idsc:LTEQ 5) comparisons."@en ;
     .
     
-idsc:LT a ids:BinaryOperator;
+idsc:LESSTHAN a ids:BinaryOperator;
     rdfs:seeAlso odrl:lt;
     rdfs:label "less than"@en ;
-    rdfs:comment "Less-than operator. Can be used for numeric (2 idsc:LT 5) or qualitative comparisons (idsc:INTEGRITY_PROTECTION_NONE idsc:LT idsc:INTEGRITY_VERIFICATION_REMOTE)."@en ;
+    rdfs:comment "Less-than operator. Can be used for numeric (2 idsc:LT 5) comparisons."@en ;
+    skos:note "Do not confuse with idsc:LT (which is a language)."@en ;
     .
     
+# Set operator
 idsc:IN a ids:BinaryOperator;
     rdfs:seeAlso odrl:isAnyOf, <https://postgis.net/docs/ST_Within.html> ;
     rdfs:label "in"@en ;
-    rdfs:comment "Element-of operator, also stating that a instance is in the boundaries of a certain range or area. Allowed RightOperands are RDF collections('(A B C)'), defined areas (http://dbpedia.org/resource/Europe), or ids:SpatialEntity."@en ;
+    rdfs:comment "Element-of operator. Allowed RightOperands are RDF collections('(A B C)')."@en ;
     .
-    
+
+# String operators
+idsc:STRING_EQ a ids:BinaryOperator;
+    #rdfs:seeAlso ;
+    rdfs:label "string equals"@en ;
+    rdfs:comment "Equals operator for strings. Evaluates to true iff all characters and their sequence is the same."@en ;
+    .
+
+idsc:STRING_CONTAINS a ids:BinaryOperator;
+    #rdfs:seeAlso ;
+    rdfs:label "string contains"@en ;
+    rdfs:comment "Contains operator for strings. Evaluates to true iff the LeftOperand contains the complete RightOperand."@en ;
+    .
+
+idsc:STRING_IS_CONTAINED a ids:BinaryOperator;
+    #rdfs:seeAlso ;
+    rdfs:label "string is contained in"@en ;
+    rdfs:comment "Contained in operator for strings. Evaluates to true iff the LeftOperand is contained completely by the RightOperand."@en ;
+    .
+
+idsc:MATCHES a ids:BinaryOperator;
+    #rdfs:seeAlso ;
+    rdfs:label "matches"@en ;
+    rdfs:comment "Regex operator for strings. Evaluates to true iff the regex pattern of the RightOperand matches the LeftOperand."@en ;
+    .
+
+
 # Temporal operators
 idsc:AFTER a ids:BinaryOperator;
     rdfs:seeAlso time:after;
     rdfs:label "after"@en ;
-    rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2. Temporal entities can either be a xsd:dateTime (time:TimeInstance) or a ids:TemporalEntity ([ ids:begin {xsd:dateTime}; ids:end {xsd:dateTime} ])."@en ;
+    rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
     .
-    
-idsc:BEFORE a ids:BinaryOperator;
-    rdfs:seeAlso time:before ;
-    rdfs:label "before"@en ;
-    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2. Temporal entities can either be a xsd:dateTime (time:TimeInstance) or a ids:TemporalEntity ([ ids:begin {xsd:dateTime}; ids:end {xsd:dateTime} ])."@en ;
-    .
-    
-idsc:IN_TIME_INTERVAL a ids:BinaryOperator;
-    rdfs:seeAlso time:inside ;
-    rdfs:label "in time interval"@en ;
-    rdfs:comment "Specifies that a given time point is inside a given ids:TemporalEntity. Recommended pattern for temporal intervals is [ ids:begin {xsd:dateTime}; ids:end {xsd:dateTime} ]."@en ;
-	.
-    
 
-# role-based
-idsc:HAS_ROLE a ids:BinaryOperator;
-    rdfs:seeAlso odrl:isAnyOf ;
-    rdfs:label "has Role"@en ;
-    rdfs:comment "If a user has a specific role required for accessing a resource. Must be used together with a RightOperand of type xsd:anyUri which should point to an accessible endpoint providing this information."@en ;
+idsc:BEFORE
+    a ids:BinaryOperator ;
+    rdfs:seeAlso time:before ;
+	rdfs:label "before"@en;
+    skos:note "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp."@en ;
+    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
     .
+
+    
+idsc:CONTAINS a ids:BinaryOperator;
+    rdfs:seeAlso time:inside, time:intervalContains;
+    rdfs:label "contains"@en ;
+    rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
+    skos:note "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
+    .
+
+
+idsc:TEMPORAL_DISJOINT
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalDisjoint;
+	rdfs:label "disjoint"@en;
+	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en;
+    skos:note "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal."@en ;
+    .
+
+idsc:DURING
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalDuring;
+	rdfs:label "during"@en;
+	rdfs:comment "If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
+    skos:note "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
+    .
+
+idsc:TEMPORAL_EQUALS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalEquals;
+	rdfs:label "interval equals"@en;
+	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."@en ;
+    skos:note "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved."@en ;
+    .
+
+idsc:FINISHED_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalFinishedBy;
+	rdfs:label "finished by"@en;
+	rdfs:comment "If an interval T1 is finished by another interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en;
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
+    .
+
+idsc:FINISHES
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalFinishes, ids:intervalIn;
+	rdfs:label "finishes"@en;
+	rdfs:comment "If an Interval T1 finishes another interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en;
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
+    .
+
+idsc:MEETS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalMeets;
+	rdfs:label "meets"@en;
+	rdfs:comment "If a TemporalEntity or (xsd:dateTimeStamp Literal) T1 meets another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the end of T1 is coincident with the beginning of T2."@en ;
+    skos:note "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another instance of TemporalEntity or xsd:dateTimeStamp Literal. Evaluates to true if T1 or T2 are Instants (or xsd:dateTimeStamp Literal) and the condition in the comment holds."@en ;
+    .
+
+idsc:MET_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalMetBy;
+	rdfs:label "met by"@en;
+	rdfs:comment "If a TemporalEntity or (xsd:dateTimeStamp Literal) T1 is met by another TemporalEntity or (xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the end of T2."@en ;
+    skos:note "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to true if T1 or T2 are Instants (or xsd:dateTimeStamp Literal) and the condition in the comment holds."@en ;
+    .
+
+idsc:OVERLAPS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalOverlaps;
+	rdfs:label "overlaps"@en;
+	rdfs:comment "If an ids:Interval T1 overlapps another ids:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en ; 
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
+    .
+
+idsc:OVERLAPPED_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalOverlappedBy;
+	rdfs:label "overlapped by"@en;
+	rdfs:comment "If a interval T1 is overlapped another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
+    .
+
+idsc:STARTS
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalStarts;
+	rdfs:label "starts"@en;
+	rdfs:comment "If an interval T1 starts with a TemporalEntity T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en ;
+    skos:note "Compares an instance of ids:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an ids:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"@en ;
+    .
+
+idsc:STARTED_BY
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:intervalStartedBy;
+	rdfs:label "started by"@en;
+	rdfs:comment "If a TemporalEntity T1 is started by another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en ;
+    skos:note "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of ids:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."@en ;
+    .
+
+
+idsc:DURATION_EQ
+	a ids:BinaryOperator ;
+	rdfs:seeAlso time:hasTemporalDuration;
+	rdfs:label "has same duration"@en;
+	rdfs:comment "If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."@en ;
+    .
+
+idsc:LONGER
+	a ids:BinaryOperator ;
+    rdfs:label "longer"@en ;
+	rdfs:comment "If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
+idsc:LONGER_EQ
+	a ids:BinaryOperator ;
+    rdfs:label "longer or equals"@en ;
+	rdfs:comment "If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
+idsc:SHORTER_EQ
+	a ids:BinaryOperator ;
+    rdfs:label "shorter or equals"@en ;
+	rdfs:comment "If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
+
+idsc:SHORTER
+	a ids:BinaryOperator ;
+    rdfs:label "shorter"@en ;
+	rdfs:comment "If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    .
+
+
+
+# Binary Operators comparing spatial entities
+# -------------------------------------------
+
+idsc:COVERED_BY
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehCoveredBy ;
+    rdfs:comment "Spatial operator 'covered by' as defined by the Egenhofer Topological Relations family: An object A is covered_by another object B if both objects share common bounding and interior faces; if A has interior faces which are bounding faces of B; and if none of B's interior faces are part of A's boundary. (https://doi.org/10.1007/3-540-51295-0_148 Definition 7)"@en ;
+    rdfs:label  "covered by"@en .
+
+idsc:COVERS
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehCovers ;
+    rdfs:comment "Spatial operator 'covers' as defined by the Egenhofer Topological Relations family: An object A covers another object B if both objects share common bounding and interior faces; if B has interior faces which are bounding faces of A; and if none of A's interior faces are part of B's boundary. (https://doi.org/10.1007/3-540-51295-0_148 Definition 6)"@en ;
+    rdfs:label  "covers"@en .
+
+idsc:INSIDE
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehInside ;
+    rdfs:comment "Spatial operator 'inside' as defined by the Egenhofer Topological Relations family: An object A is inside of another object B if (1) A and B share interior, but not bounding faces, (2) if A has bounding faces which are interior faces of B, and (3) none of B's bounding faces coincides with any of A's interior faces. (https://doi.org/10.1007/3-540-51295-0_148 Definition 4)"@en ;
+    skos:note "In addition, a point is inside a polygom iff the point is in the polygom's interior (the point itself has no interior)."@en ;
+    rdfs:label  "inside"@en .
+
+idsc:SPATIAL_CONTAINS 
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehContains ;
+    rdfs:comment "Spatial operator 'contains' as defined by the Egenhofer Topological Relations family: An object A contains another object B if A and B share interior but no bounding faces; if B has bounding faces which are interior faces of , and none of A's bounding faces coincides with any of B's interior faces. (https://doi.org/10.1007/3-540-51295-0_148 Definition 5)"@en ;
+    skos:note "In addition, a polygom contains a point iff the point is in the polygom's interior (the point itself has no interior)."@en ;
+    rdfs:label  "contains"@en .
+
+idsc:SPATIAL_EQUALS
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehEquals ;
+    rdfs:comment "Spatial operator 'equals' as defined by the Egenhofer Topological Relations family: Two objects are equal if both intersections of bounding and interior faces are not empty while the two boundary-interior intersections are empty. (https://doi.org/10.1007/3-540-51295-0_148 Definition 3)"@en ;
+    skos:note "In addition, two spatial points are equal iff both coordinates are equal (points have no interior)."@en ;
+    rdfs:label  "equals"@en .
+
+idsc:SPATIAL_OVERLAP 
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehOverlap ;
+    rdfs:comment "Spatial operator 'overlap' as defined by the Egenhofer Topological Relations family: Two objects overlap if they have common interior faces and the bounding faces have common parts with the opposite interior faces. (https://doi.org/10.1007/3-540-51295-0_148 Definition 8)"@en ;
+    rdfs:label  "overlap"@en .
+
+idsc:SPATIAL_MEET
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehMeet ;
+    rdfs:comment "Spatial operator 'meet' as defined by the Egenhofer Topological Relations family: If the intersection among the bounding faces is not empty, whereas all other 3 intersections are empty, then the two objects meet. (https://doi.org/10.1007/3-540-51295-0_148 Definition 2)"@en ;
+    rdfs:label  "meet"@en .
+
+idsc:DISJOINT
+    a ids:BinaryOperator ;
+    rdfs:seeAlso geo:ehDisjoint ;
+    rdfs:comment "Spatial operator 'disjoint' as defined by the Egenhofer Topological Relations family: If all four intersections among all object parts are empty, then the two objects are disjoint. (https://doi.org/10.1007/3-540-51295-0_148 Definition 1)"@en ;
+    rdfs:label  "disjoint"@en .
+
+
+# Organisation-based operators
+idsc:MEMBER_OF a ids:BinaryOperator;
+    rdfs:seeAlso org:memberOf ;
+    rdfs:label "memberOf"@en ;
+    rdfs:comment "If a user is part of a certain organisation required for accessing a resource. Should be used together with a RightOperand pointing to an accessible endpoint providing this information."@en ;
+    .
+
+idsc:HAS_MEMBERSHIP a ids:BinaryOperator;
+    rdfs:seeAlso org:hasMember ;
+    rdfs:label "has Member"@en ;
+    rdfs:comment "If a user has a specific membership required for accessing a resource. A membership includes always a role and a related organisation (see also org:). Should be used together with a RightOperand pointing to an accessible endpoint providing this information."@en ;
+    .
+
+idsc:HAS_SITE a ids:BinaryOperator;
+    rdfs:seeAlso org:basedAt ;
+    rdfs:label "has site"@en ;
+    rdfs:comment "If a user needs to be located at a certain site required for accessing a resource. A 'HAS_SITE' relation includes always a membership (role and related organisation) corresponding to the site. Should be used together with a RightOperand pointing to an accessible endpoint providing this information."@en ;
+    .
+
+# Assignement
+idsc:DEFINES_AS a ids:BinaryOperator ;
+    rdfs:label "defines as"@en ;
+    rdfs:comment "Allows assignments similar to 'var x := {RightOperand}'."@en ;
+    skos:note "Different to the other ids:BinaryOperator, idsc:DEFINES_AS does *not* compare a feature but tells the interpreter where to *find* one. Therefore, the constraint is not evaluated in the same way as with other operators."@en ;
+    .
+ 
