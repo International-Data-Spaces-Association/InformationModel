@@ -84,6 +84,26 @@ def replace_widoco_html_output(filename, text):
         fp.close()
     return
 
+# Remove trailing slahes from html <href> and "id" values. 
+# Slashes are inserted because ids namespace contains them. 
+# They break local referencing inside html file. 
+# workaround until it's otherweise fixed.
+
+def remove_ids_trailingslash(filename):
+    newHtml = ''
+    with open('../sections/', encoding="utf-8") as fp:
+        for line in fp:
+            if '<div class="entity" id="/' in line:
+                newHtml+=line.replace('<div class="entity" id="/','<div class="entity" id="')
+            elif '<a href="#/' in line:
+                newHtml+=line.replace('<a href="#/','<a href="#')
+            else:
+                newHtml+=line
+                
+    with open('../sections/', 'w', encoding="utf-8") as fp:
+        fp.write(newHtml)
+        fp.close()
+    return
 
 # Download information from jive and insert into the widoco output.
 def insert_jive_information(jive_credentials):
@@ -494,3 +514,4 @@ if __name__ == '__main__':
     adjust_namespaces()
     clean_up_ontology_serialization_owl_imports()
     rename_index_file()
+    remove_ids_trailingslash('crossref-en.html')
