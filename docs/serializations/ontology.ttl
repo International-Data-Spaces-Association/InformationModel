@@ -1,30 +1,39 @@
-@prefix : <https://w3id.org/idsa/core> .
+@prefix : <https://w3id.org/idsa/core%20Projekte/IDS/IM/Widoco/InformationModel/codes/OfferTemplate.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/idsa/core> .
+@base <https://w3id.org/idsa/core%20Projekte/IDS/IM/Widoco/InformationModel/codes/OfferTemplate.ttl> .
 
-<https://w3id.org/idsa/core> rdf:type owl:Ontology ;
-        <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
-        <http://purl.org/dc/terms/contributor> _:genid140 ,
-                                     _:genid141 ,
-                                     <https://github.com/HaydarAk> ,
-                                     <https://github.com/sebbader> ,
-                                     <https://github.com/Maboeckmann/> ;
-        <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
-                                 <https://github.com/cmader> ,
-                                 <https://github.com/jpullmann> ;
-        <http://purl.org/dc/terms/modified> "2020-01-13"^^xsd:date ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
-        rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace." ;
-        rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
-        rdfs:label "IDS Information Model"@en ;
-        rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
-        owl:versionIRI "https://w3id.org/idsa/core/3.0.0>" ;
-        owl:versionInfo "3.0.0" .
+<https://w3id.org/idsa/core%20Projekte/IDS/IM/Widoco/InformationModel/codes/OfferTemplate.ttl> rdf:type owl:Ontology ;
+                                                                                                             <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
+                                                                                                             <http://purl.org/dc/terms/contributor> _:genid-nodeid-genid-961eb7568ab04d40a36d76a93f38cf7b-AnnaKasprzik ,
+                                                                                                                                                    <https://github.com/HaydarAk> ,
+                                                                                                                                                    <https://github.com/Maboeckmann> ,
+                                                                                                                                                    <https://github.com/clange> ,
+                                                                                                                                                    <https://github.com/sebbader> ,
+                                                                                                                                                    _:genid1 ,
+                                                                                                                                                    _:genid2 ;
+                                                                                                             <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
+                                                                                                                                                <https://github.com/cmader> ,
+                                                                                                                                                <https://github.com/jpullmann> ;
+                                                                                                             <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
+                                                                                                             <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
+                                                                                                             rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
+                                                                                                             rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
+                                                                                                             rdfs:label "IDS Information Model"@en ;
+                                                                                                             rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+                                                                                                             owl:versionIRI "https://w3id.org/idsa/core/3.1.0>" ;
+                                                                                                             owl:versionInfo "3.1.0" .
+
+_:genid1 rdf:type <http://purl.org/dc/terms/Agent> ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://xmlns.com/foaf/0.1/name> "Andreas Müller" .
+
+_:genid2 rdf:type <http://purl.org/dc/terms/Agent> ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 
 #################################################################
 #    Annotation properties
@@ -40,14 +49,6 @@
 
 ###  http://purl.org/dc/terms/creator
 <http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/issued
-<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/modified
-<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespacePrefix
@@ -533,6 +534,15 @@ xsd:duration rdf:type rdfs:Datatype .
                                       rdfs:range <https://w3id.org/idsa/core/Participant> .
 
 
+###  https://w3id.org/idsa/core/aud
+<https://w3id.org/idsa/core/aud> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
+                                 rdfs:range <https://w3id.org/idsa/core/Audience> ;
+                                 rdfs:comment "The 'aud' (audience) claim identifies the recipients that the JWT is intended for."@en ;
+                                 rdfs:label "aud"@en ;
+                                 rdfs:seeAlso <https://tools.ietf.org/html/rfc7519#section-4.1.3> .
+
+
 ###  https://w3id.org/idsa/core/authInfo
 <https://w3id.org/idsa/core/authInfo> rdf:type owl:ObjectProperty ;
                                       rdfs:domain <https://w3id.org/idsa/core/Connector> ;
@@ -781,7 +791,7 @@ xsd:duration rdf:type rdfs:Datatype .
                                           rdfs:comment "Network host that exposes resource content and Connector services via this endpoint."@en ;
                                           rdfs:label "endpoint host"@en ;
                                           <https://w3id.org/idsa/metamodel/explanation> """Definition of a Resource Endpoint is by purpose split into an address part (path, topic etc.)
-and host information used to augment and resolve the address. Such the overall address space
+and host information used to augment and resolve the address. As such, the overall address space
 is self-contained and may move across hosts. Further, changes of either component (address vs. host)
 do not affect the other."""@en .
 
@@ -790,7 +800,7 @@ do not affect the other."""@en .
 <https://w3id.org/idsa/core/endpointOperationBinding> rdf:type owl:ObjectProperty ;
                                                       rdfs:domain <https://w3id.org/idsa/core/InteractiveEndpoint> ;
                                                       rdfs:range <https://w3id.org/idsa/core/OperationBinding> ;
-                                                      rdfs:comment "Operation bound to te endpoint by means of a protocol binding."@en ;
+                                                      rdfs:comment "Operation bound to the endpoint by means of a protocol binding."@en ;
                                                       rdfs:label "endpoint operation binding"@en .
 
 
@@ -804,7 +814,11 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/extendedGuarantee
 <https://w3id.org/idsa/core/extendedGuarantee> rdf:type owl:ObjectProperty ;
-                                               rdfs:domain <https://w3id.org/idsa/core/Connector> ;
+                                               rdfs:domain [ rdf:type owl:Class ;
+                                                             owl:unionOf ( <https://w3id.org/idsa/core/Connector>
+                                                                           <https://w3id.org/idsa/core/DatPayload>
+                                                                         )
+                                                           ] ;
                                                rdfs:range <https://w3id.org/idsa/core/SecurityGuarantee> ;
                                                rdfs:comment "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."@en ;
                                                rdfs:label "extended guarantee"@en .
@@ -841,6 +855,14 @@ do not affect the other."""@en .
                                       rdfs:comment "The Agents for which this Connector may initiate and receive Messages."@en ;
                                       rdfs:label "has Agent"@en ;
                                       <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
+
+
+###  https://w3id.org/idsa/core/hasEndpoint
+<https://w3id.org/idsa/core/hasEndpoint> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <https://w3id.org/idsa/core/Connector> ;
+                                         rdfs:range <https://w3id.org/idsa/core/Endpoint> ;
+                                         rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en ;
+                                         rdfs:label "connector endpoint"@en .
 
 
 ###  https://w3id.org/idsa/core/host
@@ -1190,7 +1212,8 @@ do not affect the other."""@en .
                                        rdfs:domain <https://w3id.org/idsa/core/Resource> ;
                                        rdfs:range <https://w3id.org/idsa/core/Agent> ;
                                        rdfs:comment "The publisher of the resource (which may differ from the sovereign)."@en ;
-                                       rdfs:label "publisher"@en .
+                                       rdfs:label "publisher"@en ;
+                                       <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/idsa/core/queryLanguage
@@ -1234,7 +1257,7 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/referringConnector
 <https://w3id.org/idsa/core/referringConnector> rdf:type owl:ObjectProperty ;
-                                                rdfs:domain <https://w3id.org/idsa/core/DatPayload> ;
+                                                rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
                                                 rdfs:range <https://w3id.org/idsa/core/Connector> .
 
 
@@ -1302,7 +1325,7 @@ do not affect the other."""@en .
 <https://w3id.org/idsa/core/resourceEndpoint> rdf:type owl:ObjectProperty ;
                                               rdfs:domain <https://w3id.org/idsa/core/Resource> ;
                                               rdfs:range <https://w3id.org/idsa/core/Endpoint> ;
-                                              rdfs:comment "Reference to the Endpoints serving the resource's content."@en ;
+                                              rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en ;
                                               rdfs:label "resource endpoint"@en .
 
 
@@ -1321,6 +1344,12 @@ do not affect the other."""@en .
                                           rdfs:range <https://w3id.org/idsa/core/Resource> ;
                                           rdfs:comment "Reference to a Resource (physically or logically) included, definition of part-whole hierarchies."@en ;
                                           rdfs:label "resource part"@en .
+
+
+###  https://w3id.org/idsa/core/rightOperand
+<https://w3id.org/idsa/core/rightOperand> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <https://w3id.org/idsa/core/Constraint> ;
+                                          rdfs:range rdfs:Resource .
 
 
 ###  https://w3id.org/idsa/core/rightOperandReference
@@ -1347,7 +1376,11 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/securityProfile
 <https://w3id.org/idsa/core/securityProfile> rdf:type owl:ObjectProperty ;
-                                             rdfs:domain <https://w3id.org/idsa/core/Connector> ;
+                                             rdfs:domain [ rdf:type owl:Class ;
+                                                           owl:unionOf ( <https://w3id.org/idsa/core/Connector>
+                                                                         <https://w3id.org/idsa/core/JwtPayload>
+                                                                       )
+                                                         ] ;
                                              rdfs:range <https://w3id.org/idsa/core/SecurityProfile> ;
                                              rdfs:comment "The SecurityProfile supported by the Connector."@en ;
                                              rdfs:label "securityProfile"@en .
@@ -1388,7 +1421,8 @@ do not affect the other."""@en .
                                        rdfs:domain <https://w3id.org/idsa/core/Resource> ;
                                        rdfs:range <https://w3id.org/idsa/core/Agent> ;
                                        rdfs:comment "The 'owner', i.e. sovereign of the data."@en ;
-                                       rdfs:label "sovereign"@en .
+                                       rdfs:label "sovereign"@en ;
+                                       <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/idsa/core/spatialCoverage
@@ -1493,6 +1527,10 @@ do not affect the other."""@en .
 <http://purl.org/dc/terms/hasVersion> rdf:type owl:DatatypeProperty .
 
 
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:DatatypeProperty .
+
+
 ###  http://purl.org/dc/terms/title
 <http://purl.org/dc/terms/title> rdf:type owl:DatatypeProperty .
 
@@ -1537,16 +1575,7 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/activityDescription
 <https://w3id.org/idsa/core/activityDescription> rdf:type owl:DatatypeProperty ;
                                                  rdfs:domain <https://w3id.org/idsa/core/Activity> ;
-                                                 rdfs:range rdf:PlainLiteral .
-
-
-###  https://w3id.org/idsa/core/aud
-<https://w3id.org/idsa/core/aud> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://w3id.org/idsa/core/DatPayload> ;
-                                 rdfs:range xsd:string ;
-                                 rdfs:comment "The 'aud' (audience) claim identifies the recipients that the JWT is intended for."@en ;
-                                 rdfs:label "aud"@en ;
-                                 rdfs:seeAlso <https://tools.ietf.org/html/rfc7519#section-4.1.3> .
+                                                 rdfs:range xsd:string .
 
 
 ###  https://w3id.org/idsa/core/authService
@@ -1582,23 +1611,23 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/contractDate
 <https://w3id.org/idsa/core/contractDate> rdf:type owl:DatatypeProperty ;
                                           rdfs:domain <https://w3id.org/idsa/core/Contract> ;
-                                          rdfs:range xsd:date ;
-                                          rdfs:comment "Date of singing the Contract."@en ;
+                                          rdfs:range xsd:dateTimeStamp ;
+                                          rdfs:comment "Absolute datetime of singing the Contract."@en ;
                                           rdfs:label "Contract date"@en .
 
 
 ###  https://w3id.org/idsa/core/contractEnd
 <https://w3id.org/idsa/core/contractEnd> rdf:type owl:DatatypeProperty ;
                                          rdfs:domain <https://w3id.org/idsa/core/Contract> ;
-                                         rdfs:range xsd:dateTime ;
-                                         rdfs:comment "Date and time the Contract is requested, offered or expected to end. If omitted, the contract has to be explicitly terminated by any of the parties."@en ;
+                                         rdfs:range xsd:dateTimeStamp ;
+                                         rdfs:comment "Absolute datetime the Contract is requested, offered or expected to end. If omitted, the contract has to be explicitly terminated by any of the parties."@en ;
                                          rdfs:label "Contract end"@en .
 
 
 ###  https://w3id.org/idsa/core/contractRejectionReason
 <https://w3id.org/idsa/core/contractRejectionReason> rdf:type owl:DatatypeProperty ;
                                                      rdfs:domain <https://w3id.org/idsa/core/ContractRejectionMessage> ;
-                                                     rdfs:range rdf:PlainLiteral ;
+                                                     rdfs:range xsd:string ;
                                                      rdfs:comment "Human-readable text describing the reason for contract rejection."@en ;
                                                      rdfs:label "Contract Rejection Reason"@en .
 
@@ -1606,8 +1635,8 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/contractStart
 <https://w3id.org/idsa/core/contractStart> rdf:type owl:DatatypeProperty ;
                                            rdfs:domain <https://w3id.org/idsa/core/Contract> ;
-                                           rdfs:range xsd:dateTime ;
-                                           rdfs:comment "Date and time the Contract is requested, offered or expected to start, depending on the type of Contract."@en ;
+                                           rdfs:range xsd:dateTimeStamp ;
+                                           rdfs:comment "Absolute datetime the Contract is requested, offered or expected to start, depending on the type of Contract."@en ;
                                            rdfs:label "Contract start"@en .
 
 
@@ -1623,12 +1652,26 @@ do not affect the other."""@en .
                                                rdfs:range xsd:anyURI .
 
 
+###  https://w3id.org/idsa/core/created
+<https://w3id.org/idsa/core/created> rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf <http://purl.org/dc/terms/issued> ;
+                                     rdfs:domain [ rdf:type owl:Class ;
+                                                   owl:unionOf ( <https://w3id.org/idsa/core/DigitalContent>
+                                                                 <https://w3id.org/idsa/core/Representation>
+                                                               )
+                                                 ] ;
+                                     rdfs:range xsd:dateTimeStamp ;
+                                     rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en ;
+                                     rdfs:label "created"@en ;
+                                     rdfs:seeAlso <http://purl.org/dc/terms/created> .
+
+
 ###  https://w3id.org/idsa/core/creationDate
 <https://w3id.org/idsa/core/creationDate> rdf:type owl:DatatypeProperty ;
                                           rdfs:subPropertyOf <http://purl.org/dc/terms/created> ;
                                           rdfs:domain <https://w3id.org/idsa/core/Artifact> ;
-                                          rdfs:range xsd:date ;
-                                          rdfs:comment "Date when the artifact was created, i.e. persisted."@en ;
+                                          rdfs:range xsd:dateTimeStamp ;
+                                          rdfs:comment "Date (as xsd:dateTimeStamp) when the artifact was created, i.e. persisted."@en ;
                                           rdfs:label "creation date"@en .
 
 
@@ -1660,7 +1703,7 @@ do not affect the other."""@en .
 <https://w3id.org/idsa/core/description> rdf:type owl:DatatypeProperty ;
                                          rdfs:subPropertyOf <http://purl.org/dc/terms/description> ;
                                          rdfs:domain <https://w3id.org/idsa/core/Described> ;
-                                         rdfs:range rdf:PlainLiteral ;
+                                         rdfs:range xsd:string ;
                                          rdfs:comment "Explanation of the resource in a natural language text."@en ;
                                          rdfs:label "description"@en .
 
@@ -1682,12 +1725,12 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/endedAt
 <https://w3id.org/idsa/core/endedAt> rdf:type owl:DatatypeProperty ;
                                      rdfs:domain <https://w3id.org/idsa/core/Activity> ;
-                                     rdfs:range xsd:dateTime .
+                                     rdfs:range xsd:dateTimeStamp .
 
 
 ###  https://w3id.org/idsa/core/exp
 <https://w3id.org/idsa/core/exp> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://w3id.org/idsa/core/DatPayload> ;
+                                 rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
                                  rdfs:range xsd:integer ;
                                  rdfs:comment "The 'exp' (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing."@en ;
                                  rdfs:label "exp"@en ;
@@ -1757,7 +1800,7 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/iat
 <https://w3id.org/idsa/core/iat> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://w3id.org/idsa/core/DatPayload> ;
+                                 rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
                                  rdfs:range xsd:integer ;
                                  rdfs:comment "The 'iat' (issued at) claim contains the point in time when the JWT was created."@en ;
                                  rdfs:label "iat"@en .
@@ -1795,7 +1838,7 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/iss
 <https://w3id.org/idsa/core/iss> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://w3id.org/idsa/core/DatPayload> ;
+                                 rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
                                  rdfs:range xsd:string ;
                                  rdfs:comment "The 'iss' (issuer) claim identifies the principal that issued the JWT."@en ;
                                  rdfs:label "iss"@en ;
@@ -1805,7 +1848,7 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/issued
 <https://w3id.org/idsa/core/issued> rdf:type owl:DatatypeProperty ;
                                     rdfs:domain <https://w3id.org/idsa/core/Message> ;
-                                    rdfs:range xsd:dateTime .
+                                    rdfs:range xsd:dateTimeStamp .
 
 
 ###  https://w3id.org/idsa/core/issuerConnector
@@ -1824,7 +1867,7 @@ do not affect the other."""@en .
 <https://w3id.org/idsa/core/keyword> rdf:type owl:DatatypeProperty ;
                                      rdfs:subPropertyOf <http://www.w3.org/ns/dcat#keyword> ;
                                      rdfs:domain <https://w3id.org/idsa/core/DigitalContent> ;
-                                     rdfs:range rdfs:Literal ;
+                                     rdfs:range xsd:string ;
                                      rdfs:comment "Controlled keywords that describe the nature, purpose, or use of the content."@en ;
                                      rdfs:label "keyword"@en .
 
@@ -1832,8 +1875,8 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/lastValidDate
 <https://w3id.org/idsa/core/lastValidDate> rdf:type owl:DatatypeProperty ;
                                            rdfs:domain <https://w3id.org/idsa/core/Certification> ;
-                                           rdfs:range xsd:date ;
-                                           rdfs:comment "Last date the given Certification is considered valid."@en ;
+                                           rdfs:range xsd:dateTimeStamp ;
+                                           rdfs:comment "Last date (as xsd:dateTimeStamp) the given Certification is considered valid."@en ;
                                            rdfs:label "last valid date"@en .
 
 
@@ -1852,7 +1895,7 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/membershipEnd
 <https://w3id.org/idsa/core/membershipEnd> rdf:type owl:DatatypeProperty ;
                                            rdfs:domain <https://w3id.org/idsa/core/ParticipantCertification> ;
-                                           rdfs:range xsd:date ;
+                                           rdfs:range xsd:dateTimeStamp ;
                                            rdfs:comment "End of the participant's IDS membership."@en ;
                                            rdfs:label "membership end"@en .
 
@@ -1863,6 +1906,20 @@ do not affect the other."""@en .
                                           rdfs:range xsd:string ;
                                           rdfs:comment "Version of the Information Model against which the Message should be interpreted."@en ;
                                           rdfs:label "model version"@en .
+
+
+###  https://w3id.org/idsa/core/modified
+<https://w3id.org/idsa/core/modified> rdf:type owl:DatatypeProperty ;
+                                      rdfs:subPropertyOf <http://purl.org/dc/terms/modified> ;
+                                      rdfs:domain [ rdf:type owl:Class ;
+                                                    owl:unionOf ( <https://w3id.org/idsa/core/DigitalContent>
+                                                                  <https://w3id.org/idsa/core/Representation>
+                                                                )
+                                                  ] ;
+                                      rdfs:range xsd:dateTimeStamp ;
+                                      rdfs:comment "The date/time this Digital Content has been changed the last time. Only one 'modified' attribute is usually needed."@en ;
+                                      rdfs:label "modified"@en ;
+                                      rdfs:seeAlso <http://purl.org/dc/terms/modified> .
 
 
 ###  https://w3id.org/idsa/core/name
@@ -1876,7 +1933,7 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/nbf
 <https://w3id.org/idsa/core/nbf> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://w3id.org/idsa/core/DatPayload> ;
+                                 rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
                                  rdfs:range xsd:integer ;
                                  rdfs:comment "The 'aud' (audience) claim identifies the recipients that the JWT is intended for."@en ;
                                  rdfs:label "nbf"@en ;
@@ -1956,16 +2013,10 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/revocationReason
 <https://w3id.org/idsa/core/revocationReason> rdf:type owl:DatatypeProperty ;
-                                              rdfs:domain _:genid2147483751 ;
+                                              rdfs:domain _:genid2147483748 ;
                                               rdfs:range xsd:string ;
                                               rdfs:comment "Plain Text containing the reason for revoking an existing certificate of either a connector or participant."@en ;
                                               rdfs:label "Revocation Reason"@en .
-
-
-###  https://w3id.org/idsa/core/rightOperand
-<https://w3id.org/idsa/core/rightOperand> rdf:type owl:DatatypeProperty ;
-                                          rdfs:domain <https://w3id.org/idsa/core/Constraint> ;
-                                          rdfs:range rdfs:Literal .
 
 
 ###  https://w3id.org/idsa/core/samplingRate
@@ -1974,6 +2025,15 @@ do not affect the other."""@en .
                                           rdfs:range xsd:decimal ;
                                           rdfs:comment "Audio sampling rate."@en ;
                                           rdfs:label "sampling rate"@en .
+
+
+###  https://w3id.org/idsa/core/scope
+<https://w3id.org/idsa/core/scope> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "Currently, the scope is limited to 'Connector' but can be used for scoping purposes in the future. Scope is currently fixed to 'https://w3id.org/idsa/core/Connector'."@en ;
+                                   rdfs:label "scope"@en ;
+                                   rdfs:seeAlso <https://tools.ietf.org/html/rfc7519#section-4.1.2> .
 
 
 ###  https://w3id.org/idsa/core/senderAgent
@@ -2000,12 +2060,12 @@ do not affect the other."""@en .
 ###  https://w3id.org/idsa/core/startedAt
 <https://w3id.org/idsa/core/startedAt> rdf:type owl:DatatypeProperty ;
                                        rdfs:domain <https://w3id.org/idsa/core/Activity> ;
-                                       rdfs:range xsd:dateTime .
+                                       rdfs:range xsd:dateTimeStamp .
 
 
 ###  https://w3id.org/idsa/core/sub
 <https://w3id.org/idsa/core/sub> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://w3id.org/idsa/core/DatPayload> ;
+                                 rdfs:domain <https://w3id.org/idsa/core/JwtPayload> ;
                                  rdfs:range xsd:string ;
                                  rdfs:comment "The 'sub' (subject) claim identifies the principal that is the subject of the JWT."@en ;
                                  rdfs:label "sub"@en ;
@@ -2016,7 +2076,7 @@ do not affect the other."""@en .
 <https://w3id.org/idsa/core/title> rdf:type owl:DatatypeProperty ;
                                    rdfs:subPropertyOf <http://purl.org/dc/terms/title> ;
                                    rdfs:domain <https://w3id.org/idsa/core/Described> ;
-                                   rdfs:range rdf:PlainLiteral ;
+                                   rdfs:range xsd:string ;
                                    rdfs:comment "(Localized) name of the entity."@en ;
                                    rdfs:label "title"@en .
 
@@ -2031,7 +2091,11 @@ do not affect the other."""@en .
 
 ###  https://w3id.org/idsa/core/transportCertsSha256
 <https://w3id.org/idsa/core/transportCertsSha256> rdf:type owl:DatatypeProperty ;
-                                                  rdfs:domain <https://w3id.org/idsa/core/Connector> ;
+                                                  rdfs:domain [ rdf:type owl:Class ;
+                                                                owl:unionOf ( <https://w3id.org/idsa/core/Connector>
+                                                                              <https://w3id.org/idsa/core/JwtPayload>
+                                                                            )
+                                                              ] ;
                                                   rdfs:range xsd:string ;
                                                   rdfs:comment "Separate certificates for IDS identification and transport encryption opens an attack vector for relay attacks. In order to prevent these attacks, a binding of this transport certificates to the connector is required. The inclusion of SHA256 fingerprints of currently valid transport certificates, mainly into the DAT, enables the client to relate the transport layer security with the IDS interactions."@en ;
                                                   rdfs:label "transportCertsSha256"@en .
@@ -2067,8 +2131,8 @@ do not affect the other."""@en .
 #    Classes
 #################################################################
 
-###  _:genid2147483751
-_:genid2147483751 rdf:type owl:Class .
+###  _:genid2147483748
+_:genid2147483748 rdf:type owl:Class .
 
 
 ###  http://org.semanticweb.owlapi/error#Error1
@@ -2263,6 +2327,10 @@ rdfs:Resource rdf:type owl:Class .
 <http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
 
 
+###  https://schema.org/Event
+<https://schema.org/Event> rdf:type owl:Class .
+
+
 ###  https://w3id.org/idsa/core/AccessTokenRequestMessage
 <https://w3id.org/idsa/core/AccessTokenRequestMessage> rdf:type owl:Class ;
                                                        rdfs:subClassOf <https://w3id.org/idsa/core/RequestMessage> ;
@@ -2282,10 +2350,10 @@ rdfs:Resource rdf:type owl:Class .
                                     rdfs:subClassOf <http://www.w3.org/ns/odrl/2/Action> ;
                                     rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en ;
                                     rdfs:label "Action"@en ;
-                                    <https://w3id.org/idsa/metamodel/validation> _:genid1 .
+                                    <https://w3id.org/idsa/metamodel/validation> _:genid18 .
 
-_:genid1 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/actionRefinement> ;
-          <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid18 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/actionRefinement> ;
+           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
 ###  https://w3id.org/idsa/core/Activity
@@ -2295,18 +2363,18 @@ _:genid1 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/co
                                       rdfs:label "Activity"@en ;
                                       rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/LifecycleEventType_1.0.html> ;
                                       <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid2 ,
-                                                                                   _:genid3 ,
-                                                                                   _:genid4 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid19 ,
+                                                                                   _:genid20 ,
+                                                                                   _:genid21 .
 
-_:genid2 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-          <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedBy> .
+_:genid19 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedAt> .
 
-_:genid3 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-          <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedAt> .
+_:genid20 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/startedBy> .
 
-_:genid4 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/activityDescription> ;
-          <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid21 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/activityDescription> ;
+           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
 ###  https://w3id.org/idsa/core/Agent
@@ -2358,10 +2426,10 @@ _:genid4 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/co
                                                     rdfs:subClassOf <https://w3id.org/idsa/core/RequestMessage> ;
                                                     rdfs:comment "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en ;
                                                     rdfs:label "Artifact Request Message"@en ;
-                                                    <https://w3id.org/idsa/metamodel/validation> _:genid9 .
+                                                    <https://w3id.org/idsa/metamodel/validation> _:genid26 .
 
-_:genid9 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-          <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/requestedArtifact> .
+_:genid26 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/requestedArtifact> .
 
 
 ###  https://w3id.org/idsa/core/ArtifactResponseMessage
@@ -2377,6 +2445,13 @@ _:genid9 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/met
                                         owl:disjointWith <https://w3id.org/idsa/core/Structure> ;
                                         rdfs:comment "Terminal data nodes, i.e. an atomic, possibly typed scalars."@en ;
                                         rdfs:label "Atomic data"@en .
+
+
+###  https://w3id.org/idsa/core/Audience
+<https://w3id.org/idsa/core/Audience> rdf:type owl:Class ;
+                                      rdfs:comment "The class of audiences (recipients) used in the JWT. "@en ;
+                                      rdfs:label "Audience"@en ;
+                                      rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> .
 
 
 ###  https://w3id.org/idsa/core/Audio
@@ -2423,9 +2498,9 @@ _:genid9 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/met
 <https://w3id.org/idsa/core/AuthInfo> rdf:type owl:Class ;
                                       rdfs:comment "Holds authentication information so that connections to the Connector's data offerings can be establised."@en ;
                                       rdfs:label "AuthInfo"@en ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid15 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid32 .
 
-_:genid15 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid32 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/authService> .
 
 
@@ -2467,9 +2542,9 @@ _:genid15 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                              rdfs:subClassOf <https://w3id.org/idsa/core/Geometry> ;
                                              rdfs:comment "Defines an area of interest as a set of connected points."@en ;
                                              rdfs:label "BoundingPolygon"@en ;
-                                             <https://w3id.org/idsa/metamodel/validation> _:genid20 .
+                                             <https://w3id.org/idsa/metamodel/validation> _:genid37 .
 
-_:genid20 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
+_:genid37 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/geoPoint> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
@@ -2479,9 +2554,9 @@ _:genid20 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                     rdfs:subClassOf <https://w3id.org/idsa/core/Connector> ;
                                     rdfs:comment "Broker holding an index of published data endpoints."@en ;
                                     rdfs:label "Broker"@en ;
-                                    <https://w3id.org/idsa/metamodel/validation> _:genid21 .
+                                    <https://w3id.org/idsa/metamodel/validation> _:genid38 .
 
-_:genid21 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connector> ;
+_:genid38 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connector> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -2497,13 +2572,13 @@ _:genid21 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                      rdfs:subClassOf <http://www.w3.org/ns/dcat#Catalog> ;
                                      rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en ;
                                      rdfs:label "Catalog"@en ;
-                                     <https://w3id.org/idsa/metamodel/validation> _:genid22 ,
-                                                                                  _:genid23 .
+                                     <https://w3id.org/idsa/metamodel/validation> _:genid39 ,
+                                                                                  _:genid40 .
 
-_:genid22 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/request> ;
+_:genid39 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/offer> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid23 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/offer> ;
+_:genid40 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/request> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -2643,17 +2718,29 @@ _:genid23 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                        rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
                                        rdfs:label "Connector"@en ;
                                        <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                       <https://w3id.org/idsa/metamodel/validation> _:genid25 ,
-                                                                                    _:genid26 ,
-                                                                                    _:genid27 .
+                                       <https://w3id.org/idsa/metamodel/validation> _:genid42 ,
+                                                                                    _:genid43 ,
+                                                                                    _:genid44 ,
+                                                                                    _:genid45 ,
+                                                                                    _:genid46 ,
+                                                                                    _:genid47 .
 
-_:genid25 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/host> ;
+_:genid42 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/host> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid26 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/transportCertsSha256> ;
+_:genid43 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasEndpoint> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid27 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasAgents> ;
+_:genid44 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/transportCertsSha256> ;
+           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+
+_:genid45 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/extendedGuarantee> ;
+           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+
+_:genid46 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityProfile> .
+
+_:genid47 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasAgents> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -2691,9 +2778,9 @@ _:genid27 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                                           rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en ;
                                                           rdfs:label "Connector Notification Message"@en ;
                                                           <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                                          <https://w3id.org/idsa/metamodel/validation> _:genid28 .
+                                                          <https://w3id.org/idsa/metamodel/validation> _:genid48 .
 
-_:genid28 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid48 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedConnector> .
 
 
@@ -2715,7 +2802,15 @@ _:genid28 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 <https://w3id.org/idsa/core/Constraint> rdf:type owl:Class ;
                                         rdfs:subClassOf <http://www.w3.org/ns/odrl/2/Constraint> ;
                                         rdfs:comment "The class of Constraints that restrict a Rule."@en ;
-                                        rdfs:label "Constraint"@en .
+                                        rdfs:label "Constraint"@en ;
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid49 ,
+                                                                                     _:genid50 .
+
+_:genid49 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/leftOperand> .
+
+_:genid50 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operator> .
 
 
 ###  https://w3id.org/idsa/core/ConsumeContentOperation
@@ -2764,17 +2859,17 @@ _:genid28 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                       rdfs:comment "Abstract set of rules governing the usage of a Resource."@en ;
                                       rdfs:label "Contract"@en ;
                                       <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid29 ,
-                                                                                   _:genid30 ,
-                                                                                   _:genid31 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid51 ,
+                                                                                   _:genid52 ,
+                                                                                   _:genid53 .
 
-_:genid29 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/permission> ;
+_:genid51 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/obligation> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid30 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/obligation> ;
+_:genid52 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/prohibition> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid31 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/prohibition> ;
+_:genid53 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/permission> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -2786,9 +2881,9 @@ _:genid31 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                                                 <https://w3id.org/idsa/core/ContractRequest> ;
                                                rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties."@en ;
                                                rdfs:label "Contract agreement"@en ;
-                                               <https://w3id.org/idsa/metamodel/validation> _:genid32 .
+                                               <https://w3id.org/idsa/metamodel/validation> _:genid54 .
 
-_:genid32 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid54 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contractStart> .
 
 
@@ -2874,33 +2969,30 @@ _:genid32 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 
 ###  https://w3id.org/idsa/core/DatPayload
 <https://w3id.org/idsa/core/DatPayload> rdf:type owl:Class ;
-                                        rdfs:comment "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are iether defined by RFC 7519 or by the IDS Information Model. As a direct consequence of the regardance of the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."@en ;
+                                        rdfs:subClassOf <https://w3id.org/idsa/core/JwtPayload> ;
+                                        rdfs:comment "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are either defined by RFC 7519 or by the IDS Information Model. As a direct consequence of regarding the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."@en ;
                                         rdfs:label "DAT Payload"@en ;
                                         rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ;
-                                        <https://w3id.org/idsa/metamodel/validation> _:genid33 ,
-                                                                                     _:genid34 ,
-                                                                                     _:genid35 ,
-                                                                                     _:genid36 ,
-                                                                                     _:genid37 ,
-                                                                                     _:genid38 .
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid55 ,
+                                                                                     _:genid56 ,
+                                                                                     _:genid57 .
 
-_:genid33 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid55 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/referringConnector> .
 
-_:genid34 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/aud> .
-
-_:genid35 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid56 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/iss> .
 
-_:genid36 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sub> .
+_:genid57 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/extendedGuarantee> ;
+           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid37 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/nbf> .
 
-_:genid38 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/exp> .
+###  https://w3id.org/idsa/core/DatRequestPayload
+<https://w3id.org/idsa/core/DatRequestPayload> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/idsa/core/JwtPayload> ;
+                                               rdfs:comment "The Dynamic Attribute Token (DAT) *Request* Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are either defined by RFC 7519 or by the IDS Information Model. As a direct consequence of regarding the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value. Note that, different to the DatPayload, the DatRequestPayload contains the *self-claims* of a connector and is not yet signed by any DAPS. Consequently, no other connector must accept a DatRequest object as a DAT. A DatRequest and its contained DatRequestPayload is *only* intended for interactions with a DAPS and *nothing else*!"@en ;
+                                               rdfs:label "DAT Request Payload"@en ;
+                                               rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> .
 
 
 ###  https://w3id.org/idsa/core/Data
@@ -2969,17 +3061,13 @@ _:genid38 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                        rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en ;
                                        rdfs:label "described"@en ;
                                        <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                       <https://w3id.org/idsa/metamodel/validation> _:genid40 ,
-                                                                                    _:genid41 ,
-                                                                                    _:genid42 .
+                                       <https://w3id.org/idsa/metamodel/validation> _:genid59 ,
+                                                                                    _:genid60 .
 
-_:genid40 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/comment> ;
+_:genid59 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/title> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid41 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/description> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
-
-_:genid42 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/title> ;
+_:genid60 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/description> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -3017,37 +3105,37 @@ _:genid42 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                                          <https://en.wikipedia.org/wiki/Digital_content> ,
                                                          <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> ;
                                             <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid43 ,
-                                                                                         _:genid44 ,
-                                                                                         _:genid45 ,
-                                                                                         _:genid46 ,
-                                                                                         _:genid47 ,
-                                                                                         _:genid48 ,
-                                                                                         _:genid49 ,
-                                                                                         _:genid50 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid61 ,
+                                                                                         _:genid62 ,
+                                                                                         _:genid63 ,
+                                                                                         _:genid64 ,
+                                                                                         _:genid65 ,
+                                                                                         _:genid66 ,
+                                                                                         _:genid67 ,
+                                                                                         _:genid68 .
 
-_:genid43 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/keyword> ;
+_:genid61 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid44 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/theme> ;
+_:genid62 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentRefinement> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid45 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> ;
+_:genid63 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentPart> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid46 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentPart> ;
+_:genid64 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid47 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> ;
+_:genid65 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid48 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> ;
+_:genid66 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/language> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid49 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/language> ;
+_:genid67 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/theme> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid50 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentRefinement> ;
+_:genid68 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/keyword> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -3056,9 +3144,9 @@ _:genid50 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                             rdfs:subClassOf <https://w3id.org/idsa/core/TemporalEntity> ;
                                             rdfs:comment "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en ;
                                             rdfs:label "Duration"@en ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid51 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid69 .
 
-_:genid51 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid69 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasDuration> .
 
 
@@ -3077,9 +3165,9 @@ _:genid51 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                                    rdfs:label "Dynamic Attribute Token (DAT)."@en ;
                                                    rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ,
                                                                 <https://w3id.org/idsa/core/DatPayload> ;
-                                                   <https://w3id.org/idsa/metamodel/validation> _:genid52 .
+                                                   <https://w3id.org/idsa/metamodel/validation> _:genid70 .
 
-_:genid52 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid70 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/tokenFormat> .
 
 
@@ -3088,13 +3176,13 @@ _:genid52 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                       rdfs:comment "Access point of data exchange and service interaction."@en ;
                                       rdfs:label "Endpoint"@en ;
                                       <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid53 ,
-                                                                                   _:genid54 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid71 ,
+                                                                                   _:genid72 .
 
-_:genid53 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid71 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/path> .
 
-_:genid54 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid72 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointHost> .
 
 
@@ -3102,6 +3190,14 @@ _:genid54 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 <https://w3id.org/idsa/core/EvaluationFacility> rdf:type owl:Class ;
                                                 rdfs:comment "Evaluation Facilities carry out the evaluation work during a certification process and issue the corresponding Certifications."@en ;
                                                 rdfs:label "Evaluation Facility"@en .
+
+
+###  https://w3id.org/idsa/core/Event
+<https://w3id.org/idsa/core/Event> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://schema.org/Event> ;
+                                   rdfs:comment "Named event with a known or unknown temporal location or duration."@en ;
+                                   rdfs:label "event"@en ;
+                                   rdfs:seeAlso <https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes> .
 
 
 ###  https://w3id.org/idsa/core/FaultPropagationRule
@@ -3175,14 +3271,14 @@ _:genid54 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                       rdfs:subClassOf <https://w3id.org/idsa/core/Location> ;
                                       rdfs:comment "A location identified by geo coordinates."@en ;
                                       rdfs:label "GeoPoint"@en ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid57 ,
-                                                                                   _:genid58 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid75 ,
+                                                                                   _:genid76 .
 
-_:genid57 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/latitude> .
-
-_:genid58 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid75 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/longitude> .
+
+_:genid76 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/latitude> .
 
 
 ###  https://w3id.org/idsa/core/Geometry
@@ -3198,14 +3294,14 @@ _:genid58 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 <https://w3id.org/idsa/core/Host> rdf:type owl:Class ;
                                   rdfs:comment "Network host capable of serving and consuming digital content and services."@en ;
                                   rdfs:label "Host"@en ;
-                                  <https://w3id.org/idsa/metamodel/validation> _:genid59 ,
-                                                                               _:genid60 .
+                                  <https://w3id.org/idsa/metamodel/validation> _:genid77 ,
+                                                                               _:genid78 .
 
-_:genid59 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/protocol> .
-
-_:genid60 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid77 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/accessUrl> .
+
+_:genid78 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/protocol> .
 
 
 ###  https://w3id.org/idsa/core/IANAMediaType
@@ -3302,22 +3398,22 @@ _:genid60 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                                      rdfs:comment "The class of all infrastructure components of the IDS."@en ;
                                                      rdfs:label "InfrastructureComponent"@en ;
                                                      <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                                     <https://w3id.org/idsa/metamodel/validation> _:genid62 ,
-                                                                                                  _:genid63 ,
-                                                                                                  _:genid64 ,
-                                                                                                  _:genid65 .
+                                                     <https://w3id.org/idsa/metamodel/validation> _:genid80 ,
+                                                                                                  _:genid81 ,
+                                                                                                  _:genid82 ,
+                                                                                                  _:genid83 .
 
-_:genid62 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid80 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/maintainer> .
 
-_:genid63 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid81 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/curator> .
 
-_:genid64 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid82 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/inboundModelVersion> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid65 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid83 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/outboundModelVersion> .
 
 
@@ -3359,11 +3455,11 @@ _:genid65 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 <https://w3id.org/idsa/core/InteractiveEndpoint> rdf:type owl:Class ;
                                                  rdfs:subClassOf <https://w3id.org/idsa/core/Endpoint> ;
                                                  owl:disjointWith <https://w3id.org/idsa/core/StaticEndpoint> ;
-                                                 rdfs:comment "Endpoint exposing a digital content in a interacitve way."@en ;
+                                                 rdfs:comment "Endpoint exposing a digital content in an interactive way."@en ;
                                                  rdfs:label "Interactive Endpoint"@en ;
-                                                 <https://w3id.org/idsa/metamodel/validation> _:genid74 .
+                                                 <https://w3id.org/idsa/metamodel/validation> _:genid92 .
 
-_:genid74 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid92 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointOperationBinding> .
 
 
@@ -3372,9 +3468,9 @@ _:genid74 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                        rdfs:subClassOf <https://w3id.org/idsa/core/Described> ;
                                        rdfs:comment "Conceptualization of the interchange of digital artifacts as a set of uniform operations (interactions primitives)."@en ;
                                        rdfs:label "Interface"@en ;
-                                       <https://w3id.org/idsa/metamodel/validation> _:genid75 .
+                                       <https://w3id.org/idsa/metamodel/validation> _:genid93 .
 
-_:genid75 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid93 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operation> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
@@ -3385,9 +3481,9 @@ _:genid75 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                                       <https://w3id.org/idsa/core/TemporalEntity> ;
                                       rdfs:comment "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."@en ;
                                       rdfs:label "Interval"@en ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid76 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid94 .
 
-_:genid76 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid94 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/begin> .
 
 
@@ -3396,14 +3492,53 @@ _:genid76 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                                     rdfs:subClassOf <https://w3id.org/idsa/core/RequestMessage> ;
                                                     rdfs:comment "Message requesting the recipient to invoke a specific operation."@en ;
                                                     rdfs:label "Invoke Operation Message"@en ;
-                                                    <https://w3id.org/idsa/metamodel/validation> _:genid77 ,
-                                                                                                 _:genid78 .
+                                                    <https://w3id.org/idsa/metamodel/validation> _:genid95 ,
+                                                                                                 _:genid96 .
 
-_:genid77 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid95 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationReference> .
 
-_:genid78 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid96 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationParameterization> .
+
+
+###  https://w3id.org/idsa/core/JwtPayload
+<https://w3id.org/idsa/core/JwtPayload> rdf:type owl:Class ;
+                                        rdfs:comment "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g. DatPayload and DatRequestPayload."@en ;
+                                        rdfs:label "JWT Payload"@en ;
+                                        <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid97 ,
+                                                                                     _:genid98 ,
+                                                                                     _:genid99 ,
+                                                                                     _:genid100 ,
+                                                                                     _:genid101 ,
+                                                                                     _:genid102 ,
+                                                                                     _:genid103 ,
+                                                                                     _:genid104 .
+
+_:genid97 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/nbf> .
+
+_:genid98 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sub> .
+
+_:genid99 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/aud> .
+
+_:genid100 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/exp> .
+
+_:genid101 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/iat> .
+
+_:genid102 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/scope> .
+
+_:genid103 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityProfile> .
+
+_:genid104 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/transportCertsSha256> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
 ###  https://w3id.org/idsa/core/KeyType
@@ -3510,10 +3645,10 @@ _:genid78 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                            rdfs:comment "The class of mutable individuals that are a potential subject to lifecycle management which may need to be tracked."@en ;
                                            rdfs:label "Managed entity"@en ;
                                            <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                           <https://w3id.org/idsa/metamodel/validation> _:genid83 .
+                                           <https://w3id.org/idsa/metamodel/validation> _:genid109 .
 
-_:genid83 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/lifecycleActivity> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid109 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/lifecycleActivity> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
 ###  https://w3id.org/idsa/core/Map
@@ -3538,34 +3673,34 @@ _:genid83 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                      rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
                                      rdfs:label "Message"@en ;
                                      <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                     <https://w3id.org/idsa/metamodel/validation> _:genid84 ,
-                                                                                  _:genid85 ,
-                                                                                  _:genid86 ,
-                                                                                  _:genid87 ,
-                                                                                  _:genid88 ,
-                                                                                  _:genid89 ,
-                                                                                  _:genid90 .
+                                     <https://w3id.org/idsa/metamodel/validation> _:genid110 ,
+                                                                                  _:genid111 ,
+                                                                                  _:genid112 ,
+                                                                                  _:genid113 ,
+                                                                                  _:genid114 ,
+                                                                                  _:genid115 ,
+                                                                                  _:genid116 .
 
-_:genid84 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/modelVersion> .
+_:genid110 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/modelVersion> .
 
-_:genid85 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issued> .
+_:genid111 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issued> .
 
-_:genid86 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issuerConnector> .
+_:genid112 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issuerConnector> .
 
-_:genid87 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientConnector> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid113 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientConnector> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid88 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityToken> .
+_:genid114 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityToken> .
 
-_:genid89 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/senderAgent> .
+_:genid115 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/senderAgent> .
 
-_:genid90 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientAgent> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid116 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientAgent> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
 ###  https://w3id.org/idsa/core/MessageExchangePattern
@@ -3581,10 +3716,10 @@ _:genid90 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/c
                                                                  rdfs:subClassOf <https://w3id.org/idsa/core/NotificationMessage> ;
                                                                  rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en ;
                                                                  rdfs:label "Message Processed Notification Message"@en ;
-                                                                 <https://w3id.org/idsa/metamodel/validation> _:genid91 .
+                                                                 <https://w3id.org/idsa/metamodel/validation> _:genid117 .
 
-_:genid91 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
+_:genid117 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 
 
 ###  https://w3id.org/idsa/core/ModificationActivity
@@ -3631,32 +3766,32 @@ _:genid91 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                        rdfs:comment "Building block of an Interface; describes the interaction by defining input, output and error parameters."@en ;
                                        rdfs:label "Operation"@en ;
                                        <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                       <https://w3id.org/idsa/metamodel/validation> _:genid93 ,
-                                                                                    _:genid94 ,
-                                                                                    _:genid95 .
+                                       <https://w3id.org/idsa/metamodel/validation> _:genid119 ,
+                                                                                    _:genid120 ,
+                                                                                    _:genid121 .
 
-_:genid93 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/fault> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid119 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/fault> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid94 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/output> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid120 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/output> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid95 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/input> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid121 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/input> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
 ###  https://w3id.org/idsa/core/OperationBinding
 <https://w3id.org/idsa/core/OperationBinding> rdf:type owl:Class ;
                                               rdfs:comment "Mapping of abstract operation signatures onto the concrete structures (e.g., HTTP headers or query parameters)."@en ;
                                               rdfs:label "operation binding"@en ;
-                                              <https://w3id.org/idsa/metamodel/validation> _:genid96 ,
-                                                                                           _:genid97 .
+                                              <https://w3id.org/idsa/metamodel/validation> _:genid122 ,
+                                                                                           _:genid123 .
 
-_:genid96 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/boundOperation> .
+_:genid122 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/apiDocument> .
 
-_:genid97 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/apiDocument> .
+_:genid123 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/boundOperation> .
 
 
 ###  https://w3id.org/idsa/core/OperationResultMessage
@@ -3699,36 +3834,36 @@ _:genid97 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                        rdfs:subClassOf <https://w3id.org/idsa/core/Named> ;
                                        rdfs:comment "Named slot of an interface operation i.e., an input, output or fault (exception)."@en ;
                                        rdfs:label "Parameter"@en ;
-                                       <https://w3id.org/idsa/metamodel/validation> _:genid98 .
+                                       <https://w3id.org/idsa/metamodel/validation> _:genid124 .
 
-_:genid98 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameterContent> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+_:genid124 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameterContent> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
 ###  https://w3id.org/idsa/core/ParameterAssignment
 <https://w3id.org/idsa/core/ParameterAssignment> rdf:type owl:Class ;
                                                  rdfs:comment "Expression of assigning a value to a parameter without creating an immediate reference."@en ;
                                                  rdfs:label "Parameter assignment"@en ;
-                                                 <https://w3id.org/idsa/metamodel/validation> _:genid99 .
+                                                 <https://w3id.org/idsa/metamodel/validation> _:genid125 .
 
-_:genid99 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameter> .
+_:genid125 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/parameter> .
 
 
 ###  https://w3id.org/idsa/core/ParameterGroup
 <https://w3id.org/idsa/core/ParameterGroup> rdf:type owl:Class ;
                                             rdfs:comment "Class of Parameters grouped according to an operator."@en ;
                                             rdfs:label "Parameter group"@en ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid100 ,
-                                                                                         _:genid101 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid126 ,
+                                                                                         _:genid127 .
 
-_:genid100 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/paramGroupingOperator> .
-
-_:genid101 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
+_:genid126 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/paramGroupMember> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
+
+_:genid127 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/paramGroupingOperator> .
 
 
 ###  https://w3id.org/idsa/core/ParameterGroupingOperator
@@ -3744,21 +3879,21 @@ _:genid101 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                                          <https://w3id.org/idsa/core/ManagedEntity> ;
                                          rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en ;
                                          rdfs:label "Participant"@en ;
-                                         <https://w3id.org/idsa/metamodel/validation> _:genid102 ,
-                                                                                      _:genid103 ,
-                                                                                      _:genid104 ,
-                                                                                      _:genid105 .
+                                         <https://w3id.org/idsa/metamodel/validation> _:genid128 ,
+                                                                                      _:genid129 ,
+                                                                                      _:genid130 ,
+                                                                                      _:genid131 .
 
-_:genid102 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberParticipant> ;
+_:genid128 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberParticipant> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid103 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberPerson> ;
+_:genid129 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberPerson> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid104 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/industrialClassification> ;
+_:genid130 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/industrialClassification> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid105 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/corporateEmailAddress> ;
+_:genid131 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/corporateEmailAddress> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -3807,9 +3942,9 @@ _:genid105 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                             rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en ;
                                                             rdfs:label "Participant Notification Message"@en ;
                                                             <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                                            <https://w3id.org/idsa/metamodel/validation> _:genid107 .
+                                                            <https://w3id.org/idsa/metamodel/validation> _:genid133 .
 
-_:genid107 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid133 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedParticipant> .
 
 
@@ -3818,9 +3953,9 @@ _:genid107 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                                        rdfs:subClassOf <https://w3id.org/idsa/core/RequestMessage> ;
                                                        rdfs:comment "Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message."@en ;
                                                        rdfs:label "Participant Request Message"@en ;
-                                                       <https://w3id.org/idsa/metamodel/validation> _:genid108 .
+                                                       <https://w3id.org/idsa/metamodel/validation> _:genid134 .
 
-_:genid108 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid134 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/requestedParticipant> .
 
 
@@ -3858,9 +3993,9 @@ _:genid108 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                                         <https://w3id.org/idsa/core/Rule> ;
                                         rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en ;
                                         rdfs:label "Permission"@en ;
-                                        <https://w3id.org/idsa/metamodel/validation> _:genid109 .
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid135 .
 
-_:genid109 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/duty> ;
+_:genid135 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/duty> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -3869,13 +4004,13 @@ _:genid109 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                     rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
                                     rdfs:comment "The class of persons (people)"@en ;
                                     rdfs:label "Person"@en ;
-                                    <https://w3id.org/idsa/metamodel/validation> _:genid110 ,
-                                                                                 _:genid111 .
+                                    <https://w3id.org/idsa/metamodel/validation> _:genid136 ,
+                                                                                 _:genid137 .
 
-_:genid110 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/phoneNumber> ;
+_:genid136 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/phoneNumber> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid111 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> ;
+_:genid137 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -3978,8 +4113,11 @@ _:genid111 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/core/QueryMessage
 <https://w3id.org/idsa/core/QueryMessage> rdf:type owl:Class ;
                                           rdfs:subClassOf <https://w3id.org/idsa/core/RequestMessage> ;
-                                          rdfs:comment "Query message intended to be consumed by a component."@en ;
-                                          rdfs:label "Query Message"@en .
+                                          rdfs:comment "Query commands are intended to annotate query strings in a specified query language or address a specific resource."@en ,
+                                                       "Query message intended to be consumed by a component."@en ;
+                                          rdfs:label "Query Command"@en ,
+                                                     "Query Message"@en ;
+                                          <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/idsa/core/QueryOperation
@@ -4028,9 +4166,9 @@ _:genid111 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                             <https://w3id.org/idsa/core/DescribedSemantically> ;
                                             rdfs:comment "Syntactic template of a Resource."@en ;
                                             rdfs:label "Representation"@en ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid112 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid138 .
 
-_:genid112 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/instance> ;
+_:genid138 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/instance> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -4046,9 +4184,9 @@ _:genid112 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                      rdfs:subClassOf <https://w3id.org/idsa/core/NotificationMessage> ;
                                                      rdfs:comment "Notification that a request has been accepted and is being processed."@en ;
                                                      rdfs:label "Request In Process Message"@en ;
-                                                     <https://w3id.org/idsa/metamodel/validation> _:genid113 .
+                                                     <https://w3id.org/idsa/metamodel/validation> _:genid139 .
 
-_:genid113 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid139 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 
 
@@ -4067,21 +4205,21 @@ _:genid113 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                       rdfs:comment "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."@en ;
                                       rdfs:label "Resource"@en ;
                                       rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset> ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid114 ,
-                                                                                   _:genid115 ,
-                                                                                   _:genid116 ,
-                                                                                   _:genid117 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid140 ,
+                                                                                   _:genid141 ,
+                                                                                   _:genid142 ,
+                                                                                   _:genid143 .
 
-_:genid114 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourceEndpoint> ;
+_:genid140 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourceEndpoint> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid115 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourcePart> ;
+_:genid141 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourcePart> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid116 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contractOffer> ;
+_:genid142 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contractOffer> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid117 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sample> ;
+_:genid143 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sample> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -4098,9 +4236,9 @@ _:genid117 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                          rdfs:comment "Superclass of all messages, indicating a change of a resource."@en ;
                                                          rdfs:label "Resource Notification Message"@en ;
                                                          <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                                         <https://w3id.org/idsa/metamodel/validation> _:genid118 .
+                                                         <https://w3id.org/idsa/metamodel/validation> _:genid144 .
 
-_:genid118 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid144 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedResource> .
 
 
@@ -4130,9 +4268,9 @@ _:genid118 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                              rdfs:subClassOf <https://w3id.org/idsa/core/Message> ;
                                              rdfs:comment "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en ;
                                              rdfs:label "Response Message"@en ;
-                                             <https://w3id.org/idsa/metamodel/validation> _:genid119 .
+                                             <https://w3id.org/idsa/metamodel/validation> _:genid145 .
 
-_:genid119 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid145 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 
 
@@ -4157,21 +4295,21 @@ _:genid119 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                   rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en ;
                                   rdfs:label "Rule"@en ;
                                   <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean ;
-                                  <https://w3id.org/idsa/metamodel/validation> _:genid120 ,
-                                                                               _:genid121 ,
-                                                                               _:genid122 ,
-                                                                               _:genid123 .
+                                  <https://w3id.org/idsa/metamodel/validation> _:genid146 ,
+                                                                               _:genid147 ,
+                                                                               _:genid148 ,
+                                                                               _:genid149 .
 
-_:genid120 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/action> ;
+_:genid146 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/action> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid121 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assignee> ;
+_:genid147 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assignee> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid122 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/constraint> ;
+_:genid148 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/constraint> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid123 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> ;
+_:genid149 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -4191,9 +4329,9 @@ _:genid123 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 <https://w3id.org/idsa/core/SecurityProfile> rdf:type owl:Class ;
                                              rdfs:comment "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."@en ;
                                              rdfs:label "SecurityProfile"@en ;
-                                             <https://w3id.org/idsa/metamodel/validation> _:genid124 .
+                                             <https://w3id.org/idsa/metamodel/validation> _:genid150 .
 
-_:genid124 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityGuarantee> ;
+_:genid150 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityGuarantee> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -4339,11 +4477,11 @@ _:genid124 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/core/StaticEndpoint
 <https://w3id.org/idsa/core/StaticEndpoint> rdf:type owl:Class ;
                                             rdfs:subClassOf <https://w3id.org/idsa/core/Endpoint> ;
-                                            rdfs:comment "Endpoint exposing  an Artifact."@en ;
+                                            rdfs:comment "Endpoint exposing an Artifact."@en ;
                                             rdfs:label "Static Endpoint"@en ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid130 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid156 .
 
-_:genid130 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid156 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointArtifact> .
 
 
@@ -4415,9 +4553,9 @@ _:genid130 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
 <https://w3id.org/idsa/core/Token> rdf:type owl:Class ;
                                    rdfs:comment "A token (e.g., for authorization) mediated as part of the message."@en ;
                                    rdfs:label "Token."@en ;
-                                   <https://w3id.org/idsa/metamodel/validation> _:genid132 .
+                                   <https://w3id.org/idsa/metamodel/validation> _:genid158 .
 
-_:genid132 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid158 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/tokenValue> .
 
 
@@ -4493,13 +4631,13 @@ _:genid132 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                             rdfs:comment "Class for Vocabularies used to describe domain-specific ids:Resources and ids:Representations."@en ;
                                             rdfs:label "VocabularyData."@en ;
                                             rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset> ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid138 ,
-                                                                                         _:genid139 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid164 ,
+                                                                                         _:genid165 .
 
-_:genid138 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/property> ;
+_:genid164 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/property> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
-_:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/propertyPartition> ;
+_:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/propertyPartition> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> .
 
 
@@ -5525,6 +5663,13 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                  <http://xmlns.com/foaf/0.1/name> "Matthias Böckmann" .
 
 
+###  https://github.com/clange
+<https://github.com/clange> rdf:type owl:NamedIndividual ,
+                                     <http://purl.org/dc/terms/Agent> ,
+                                     <http://xmlns.com/foaf/0.1/Person> ;
+                            <http://xmlns.com/foaf/0.1/name> "Christoph Lange" .
+
+
 ###  https://github.com/cmader
 <https://github.com/cmader> rdf:type owl:NamedIndividual ,
                                      <http://purl.org/dc/terms/Agent> ,
@@ -5556,6 +5701,14 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 <https://w3id.org/idsa/code/AB> rdf:type owl:NamedIndividual ,
                                          <https://w3id.org/idsa/core/Language> ;
                                 rdfs:label "Abkhaz"@en .
+
+
+###  https://w3id.org/idsa/code/ABSOLUTE_SPATIAL_POSITION
+<https://w3id.org/idsa/code/ABSOLUTE_SPATIAL_POSITION> rdf:type owl:NamedIndividual ,
+                                                                <https://w3id.org/idsa/core/LeftOperand> ;
+                                                       rdfs:comment "The current geospatial position of the *consuming connector*. In case the connector only appears as a virtual entity, the physical location of the hosting server is referenced. Allowed operators are idsc:in. No other spatial operators (close to, north of, etc.) are currently allowed."@en ;
+                                                       rdfs:label "Absolute geo-spatial position"@en ;
+                                                       rdfs:seeAlso <http://www.w3.org/ns/odrl/2/absoluteSpatialPosition> .
 
 
 ###  https://w3id.org/idsa/code/ACCOMMODATION
@@ -7657,6 +7810,12 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                             <https://w3id.org/idsa/core/Protocol> ;
                                    rdfs:comment "Industrial Data Space Secure Communication Protocol (IDSCP)" ;
                                    rdfs:label "Industrial Data Space Secure Communication Protocol (IDSCP)"@en .
+
+
+###  https://w3id.org/idsa/code/IDS_CONNECTORS_ALL
+<https://w3id.org/idsa/code/IDS_CONNECTORS_ALL> rdf:type owl:NamedIndividual ,
+                                                         <https://w3id.org/idsa/core/Audience> ;
+                                                rdfs:label "IDS_CONNECTORS_ALL" .
 
 
 ###  https://w3id.org/idsa/code/IE
@@ -10346,6 +10505,14 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                                                rdfs:label "Publishing of newspapers journals and periodicals" .
 
 
+###  https://w3id.org/idsa/code/PURPOSE
+<https://w3id.org/idsa/code/PURPOSE> rdf:type owl:NamedIndividual ,
+                                              <https://w3id.org/idsa/core/LeftOperand> ;
+                                     rdfs:comment "A defined purpose for exercising the action of the Rule. Use with idsc:IN or idsc:SAME_AS and RDF Resources."@en ;
+                                     rdfs:label "purpose"@en ;
+                                     rdfs:seeAlso <http://www.w3.org/ns/odrl/2/purpose> .
+
+
 ###  https://w3id.org/idsa/code/QHUMAN_HEALTH_AND_SOCIAL_WORK_ACTIVITIES
 <https://w3id.org/idsa/code/QHUMAN_HEALTH_AND_SOCIAL_WORK_ACTIVITIES> rdf:type owl:NamedIndividual ,
                                                                                <https://w3id.org/idsa/core/IndustrialClassificationISIC> ;
@@ -10356,6 +10523,13 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 <https://w3id.org/idsa/code/QU> rdf:type owl:NamedIndividual ,
                                          <https://w3id.org/idsa/core/Language> ;
                                 rdfs:label "Quechua"@en .
+
+
+###  https://w3id.org/idsa/code/QUANTITY
+<https://w3id.org/idsa/code/QUANTITY> rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/idsa/core/LeftOperand> ;
+                                      rdfs:comment "Quantity limitation for exercising the action of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double." ;
+                                      rdfs:label "quantity" .
 
 
 ###  https://w3id.org/idsa/code/QUARRYING_OF_STONE_SAND_AND_CLAY
@@ -10443,6 +10617,13 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 <https://w3id.org/idsa/code/REAL_ESTATE_ACTIVITIES_WITH_OWN_OR_LEASED_PROPERTY> rdf:type owl:NamedIndividual ,
                                                                                          <https://w3id.org/idsa/core/IndustrialClassificationISIC> ;
                                                                                 rdfs:label "Real estate activities with own or leased property" .
+
+
+###  https://w3id.org/idsa/code/RECURRENCE_RATE
+<https://w3id.org/idsa/code/RECURRENCE_RATE> rdf:type owl:NamedIndividual ,
+                                                      <https://w3id.org/idsa/core/LeftOperand> ;
+                                             rdfs:comment "The limit how often exercising the action of the Rule may be possible. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double." ;
+                                             rdfs:label "recurrence rate" .
 
 
 ###  https://w3id.org/idsa/code/REGULATION_OF_AND_CONTRIBUTION_TO_MORE_EFFICIENT_OPERATION_OF_BUSINESSES
@@ -11087,6 +11268,13 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                                    rdfs:label "Security and investigation activities" .
 
 
+###  https://w3id.org/idsa/code/SECURITY_LEVEL
+<https://w3id.org/idsa/code/SECURITY_LEVEL> rdf:type owl:NamedIndividual ,
+                                                     <https://w3id.org/idsa/core/LeftOperand> ;
+                                            rdfs:comment "The security level the consuming connector must have. Use together with idsc:SAME_AS or idsc:IN. The value decides which attribute dimension is regarded."@en ;
+                                            rdfs:label "security level" .
+
+
 ###  https://w3id.org/idsa/code/SECURITY_SYSTEMS_SERVICE_ACTIVITIES
 <https://w3id.org/idsa/code/SECURITY_SYSTEMS_SERVICE_ACTIVITIES> rdf:type owl:NamedIndividual ,
                                                                           <https://w3id.org/idsa/core/IndustrialClassificationISIC> ;
@@ -11396,18 +11584,18 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                                rdfs:label "Steam and air conditioning supply" .
 
 
-###  https://w3id.org/idsa/code/STIRNG_EQ
-<https://w3id.org/idsa/code/STIRNG_EQ> rdf:type owl:NamedIndividual ,
-                                                <https://w3id.org/idsa/core/BinaryOperator> ;
-                                       rdfs:comment "Equals operator for strings. Evaluates to true iff all characters and their sequence is the same."@en ;
-                                       rdfs:label "string equals"@en .
-
-
 ###  https://w3id.org/idsa/code/STRING_CONTAINS
 <https://w3id.org/idsa/code/STRING_CONTAINS> rdf:type owl:NamedIndividual ,
                                                       <https://w3id.org/idsa/core/BinaryOperator> ;
                                              rdfs:comment "Contains operator for strings. Evaluates to true iff the LeftOperand contains the complete RightOperand."@en ;
                                              rdfs:label "string contains"@en .
+
+
+###  https://w3id.org/idsa/code/STRING_EQ
+<https://w3id.org/idsa/code/STRING_EQ> rdf:type owl:NamedIndividual ,
+                                                <https://w3id.org/idsa/core/BinaryOperator> ;
+                                       rdfs:comment "Equals operator for strings. Evaluates to true iff all characters and their sequence is the same."@en ;
+                                       rdfs:label "string equals"@en .
 
 
 ###  https://w3id.org/idsa/code/STRING_IS_CONTAINED
@@ -12446,6 +12634,1131 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                 rdfs:label "Zulu"@en .
 
 
+###  https://w3id.org/idsa/code/policytemplate/AccessOfferByRoleTemplate
+<https://w3id.org/idsa/code/policytemplate/AccessOfferByRoleTemplate> rdf:type owl:NamedIndividual ,
+                                                                               <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                      <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+		user has the {?RoleURI}, which must be requested at {?PipURI}."""@en ;
+                                                                      rdfs:comment "A template for policy offers permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
+                                                                      rdfs:label "Access Offer By User Role Template" ;
+                                                                      <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:AccessOfferByRoleTemplate ;
+			ids:contentContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand {?RoleURI} ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;]+
+			]
+		.""" ,
+                                                                                                                 """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/AccessOfferByRoleTemplate\" ,
+		\"contentContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			[\"constraint\" : {    
+					 \"leftOperand\" : \"{?RoleURI}\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			}[,]]+
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate> rdf:type owl:NamedIndividual ,
+                                                                                        <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                               <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?ArtifactURI} to the {?ConsumerParticipantURI} only if a certain {?EventURI} has happened and 
+		the {?PipURI} says so."""@en ,
+                                                                                                                       """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Artifact URI>]} to the {?ConsumerParticipantURI} only if a certain {?EventURI} has happened and 
+		the {?PipURI} says so."""@en ;
+                                                                               rdfs:comment "A template for policy agreements which allow usage only after a certain payment occurred."@en ;
+                                                                               rdfs:label "Agreement for Usage After a Certain Event Template" ;
+                                                                               <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementAfterPaymentTemplate ;
+			ids:targetArtifact {?ArtifactURI} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;
+			ids:obligations [
+				ids:action idsc_action:COMPENSATE ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?price}
+				]
+			]
+		.""" ,
+                                                                                                                          """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementAfterPaymentTemplate ;
+			ids:targetArtifact {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;]+
+			ids:obligation [
+				ids:action idsc:COMPENSATE ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?price}
+				]
+			]
+		.""" ,
+                                                                                                                          """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractAgreement\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate\" ,
+		\"targetArtifact\": \"{?ArtifactURI}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			}
+		},
+		\"obligations\": {
+			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperand\" : \"{?price}\"
+			}
+		} }""" ,
+                                                                                                                          """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractAgreement\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate\" ,
+		\"targetArtifact\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+	        \"action\": \"{?action}\"  ,
+                \"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			        }
+		,
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperand\" : \"{?price}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate> rdf:type owl:NamedIndividual ,
+                                                                                  <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Artifact URI>]} given that the {?ConsumerParticipantURI} has the {?RoleURI}, which must be requested at {?PipURI}."""@en ;
+                                                                         rdfs:comment "A template for policy agreements permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
+                                                                         rdfs:label "Usage Agreement by Role Template" ;
+                                                                         <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementByRoleTemplate ;
+			ids:targetArtifact {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand {?RoleURI} ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;]+
+			]
+		.""" ,
+                                                                                                                    """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractAgreement\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate\" ,
+		\"targetArtifact\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			[\"constraint\" : {    
+					 \"leftOperand\" : \"{?RoleURI}\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			 } [,]]+
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageAgreementForPurposeTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageAgreementForPurposeTemplate> rdf:type owl:NamedIndividual ,
+                                                                                      <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                             <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Artifact URI>]}  given that the {?ConsumerParticipantURI} uses it with systems which can be used 
+		for {?PurposeURI}."""@en ;
+                                                                             rdfs:comment "A template for policy agreements which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
+                                                                             rdfs:label "Agreement for a Specific Purpose Template" ;
+                                                                             <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementForPurposeTemplate ;
+			ids:targetArtifact {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand ids:purpose ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PurposeURI}
+				] ;]+
+			]
+		.""" ,
+                                                                                                                        """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractAgreement\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementForPurposeTemplate\" ,
+		\"targetArtifact\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			[\"constraint\" : {    
+					 \"leftOperand\" : \"purpose\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PurposeURI}\"
+			 } [,]]+
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageAgreementLogAccessTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageAgreementLogAccessTemplate> rdf:type owl:NamedIndividual ,
+                                                                                     <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                            <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?ArtifactURI} to the {?ConsumerParticipantURI} but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
+                                                                            rdfs:comment "A template for policy agreements which allow usage until a certain deletion date."@en ;
+                                                                            rdfs:label "Agreement for Usage Until Deletion Template" ;
+                                                                            <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementLogAccessTemplate ;
+			ids:targetArtifact {?ArtifactURI} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} 
+				] ;
+			ids:obligation [
+				ids:action idsc_action:LOG ;
+				ids:constraint [
+					ids:leftOperand ids:systemDevice ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?LoggingEndpoint}
+				] ]
+		.""" ,
+                                                                                                                       """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractAgreement\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementLogAccessTemplate\" ,
+		\"targetArtifact\": \"{?ArtifactURI}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\"
+			} ,
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/LOG\",
+			\"constraint\" : {
+			\"leftOperand\" : \"systemDevice\",
+			\"operator\" : \"eq\",
+			\"rightOperand\" : \"{?LoggingEndpoint}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageAgreementNUsagesTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageAgreementNUsagesTemplate> rdf:type owl:NamedIndividual ,
+                                                                                   <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                          <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?ArtifactURI} to the {?ConsumerParticipantURI} at maximum {?n} times."""@en ;
+                                                                          rdfs:comment "A template for policy agreements which allow usage until a certain deletion date."@en ;
+                                                                          rdfs:label "Agreement for Usage Until Deletion Template" ;
+                                                                          <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementNUsagesTemplate ;
+			ids:targetArtifact {?ArtifactURI} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:quantity ;
+					ids:operator ids:lt ;
+					ids:rightOperand {?n + 1}
+				] ]
+		.""" ,
+                                                                                                                     """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractAgreement\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementNUsagesTemplate\" ,
+		\"targetArtifact\": \"{?ArtifactURI}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"quantity\",
+					 \"operator\" : \"lt\",
+					 \"rightOperand\" : \"{?n + 1}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageAgreementUntilDeletionTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageAgreementUntilDeletionTemplate> rdf:type owl:NamedIndividual ,
+                                                                                         <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                                <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?ArtifactURI} to the {?ConsumerParticipantURI} as long as all digital copies will be deleted at {?deletionDateTime}."""@en ;
+                                                                                rdfs:comment "A template for policy agreements which allow usage until a certain deletion date."@en ;
+                                                                                rdfs:label "Agreement for Usage Until Deletion Template" ;
+                                                                                <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractAgreement ;
+			ids:refersTo idsc_pt:UsageAgreementUntilDeletionTemplate ;
+			ids:targetArtifact {?ArtifactURI} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:DATETIME ;
+					ids:operator ids:lt ;
+					ids:rightOperand {?PipURI}
+				] ] ;
+			ids:obligation [
+				ids:action idsc_action:DELETE ;
+				ids:constraint [
+					ids:leftOperand ids:DATETIME ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?deletionDateTime}
+				]
+			]
+		.""" ,
+                                                                                                                           """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractAgreement\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementUntilDeletionTemplate\" ,
+		\"targetArtifact\": \"{?ArtifactURI}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATETIME\",
+					 \"operator\" : \"lt\",
+					 \"rightOperandReference\" : \"{?deletionDateTime}\"
+			}
+		},
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/DELETE\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATETIME\",
+					 \"operator\" : \"eq\",
+					 \"rightOperand\" : \"{?deletionDateTime}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageOfferAfterEventTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageOfferAfterEventTemplate> rdf:type owl:NamedIndividual ,
+                                                                                  <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+		consumer only if a certain {?EventURI} has happened and the {?PipURI} says so."""@en ;
+                                                                         rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
+                                                                         rdfs:label "Offer for Usage After a Certain Event Template" ;
+                                                                         <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferAfterEventTemplate ;
+			ids:contentContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:DATE_TIME ;
+					ids:operator ids:gt ;
+					ids:rightOperandReference {?EventURI}
+				] ;
+				ids:constraint [
+					ids:leftOperand {?EventURI} ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				]
+			]
+		.""" ,
+                                                                                                                    """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferAfterEventTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATE_TIME\",
+					 \"operator\" : \"gt\",
+					 \"rightOperand\" : \"{?EventURI}\"
+			},
+			\"constraint\" : {    
+					 \"leftOperand\" : \"{?EventURI}\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageOfferAfterPaymentTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageOfferAfterPaymentTemplate> rdf:type owl:NamedIndividual ,
+                                                                                    <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+		consumer only if {?price} has been payed and the {?PipURI} says so."""@en ;
+                                                                           rdfs:comment "A template for policy offers which allow usage only after a certain payment occurred."@en ;
+                                                                           rdfs:label "Offer for Usage After Payment Template" ;
+                                                                           <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferAfterPaymentTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;
+			ids:obligation [
+				ids:action idsc_action:COMPENSATE ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?price}
+				]
+			]
+		.""" ,
+                                                                                                                      """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferAfterPaymentTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			}
+		},
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperand\" : \"{?price}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageOfferByRoleTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageOfferByRoleTemplate> rdf:type owl:NamedIndividual ,
+                                                                              <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                     <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+		user has the {?RoleURI}, which must be requested at {?PipURI}."""@en ;
+                                                                     rdfs:comment "A template for policy offers permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
+                                                                     rdfs:label "Access Offer By User Role Template" ;
+                                                                     <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferByRoleTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand {?RoleURI} ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;]+
+			]
+		.""" ,
+                                                                                                                """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferByRoleTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			[\"constraint\" : {    
+					 \"leftOperand\" : \"{?RoleURI}\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			}[,]]+
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate> rdf:type owl:NamedIndividual ,
+                                                                                  <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+		consumer uses it with systems which can be used for {?PurposeURI}."""@en ;
+                                                                         rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
+                                                                         rdfs:label "Offer for a Specific Purpose Template" ;
+                                                                         <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferForPurposeTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand ids:purpose ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PurposeURI}
+				] ;]+
+			]
+		.""" ,
+                                                                                                                    """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			[\"constraint\" : {    
+					 \"leftOperand\" : \"purpose\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PurposeURI}\"
+			}[,]]+
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageOfferLogAccessTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageOfferLogAccessTemplate> rdf:type owl:NamedIndividual ,
+                                                                                 <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                        <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+		consumer but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
+                                                                        rdfs:comment "A template for policy offers which allow usage until a certain deletion date."@en ;
+                                                                        rdfs:label "Offer for Usage Until Deletion Template" ;
+                                                                        <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferLogAccessTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} 
+				] ;
+			ids:obligation [
+				ids:action idsc_action:LOG ;
+				ids:constraint [
+					ids:leftOperand ids:systemDevice ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?LoggingEndpoint}
+				] ]
+		.""" ,
+                                                                                                                   """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferLogAccessTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\"
+			} ,
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/LOG\",
+			\"constraint\" : {
+			\"leftOperand\" : \"systemDevice\",
+			\"operator\" : \"eq\",
+			\"rightOperand\" : \"{?LoggingEndpoint}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageOfferNUsagesTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageOfferNUsagesTemplate> rdf:type owl:NamedIndividual ,
+                                                                               <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                      <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+		consumer at maximum {?n} times."""@en ;
+                                                                      rdfs:comment "A template for policy offers which allow usage until a certain deletion date."@en ;
+                                                                      rdfs:label "Offer for Usage Until Deletion Template" ;
+                                                                      <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferNUsagesTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:quantity ;
+					ids:operator ids:lt ;
+					ids:rightOperand {?n + 1}
+				] ]
+		.""" ,
+                                                                                                                 """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferNUsagesTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"quantity\",
+					 \"operator\" : \"lt\",
+					 \"rightOperand\" : \"{?n + 1}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageOfferUntilDeletionTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageOfferUntilDeletionTemplate> rdf:type owl:NamedIndividual ,
+                                                                                     <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                            <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+		consumer as long as all digital copies will be deleted at {?deletionDateTime}."""@en ;
+                                                                            rdfs:comment "A template for policy offers which allow usage until a certain deletion date."@en ;
+                                                                            rdfs:label "Offer for Usage Until Deletion Template" ;
+                                                                            <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferUntilDeletionTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:DATETIME ;
+					ids:operator ids:lt ;
+					ids:rightOperand {?PipURI}
+				] ] ;
+			ids:obligation [
+				ids:action idsc_action:DELETE ;
+				ids:constraint [
+					ids:leftOperand ids:DATETIME ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?deletionDateTime}
+				]
+			]
+		.""" ,
+                                                                                                                       """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractOffer\", 
+		\"@id\": \"{?contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferUntilDeletionTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATETIME\",
+					 \"operator\" : \"lt\",
+					 \"rightOperandReference\" : \"{?deletionDateTime}\"
+			}
+		},
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/DELETE\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATETIME\",
+					 \"operator\" : \"eq\",
+					 \"rightOperand\" : \"{?deletionDateTime}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageRequestAfterEventTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageRequestAfterEventTemplate> rdf:type owl:NamedIndividual ,
+                                                                                    <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
+		only if a certain {?EventURI} has happened and the {?PipURI} says so."""@en ;
+                                                                           rdfs:comment "A template for policy requests which allow usage only after a certain event occurred."@en ;
+                                                                           rdfs:label "Request for Usage After a Certain Event Template" ;
+                                                                           <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:UsageRequestAfterEventTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:DATE_TIME ;
+					ids:operator ids:gt ;
+					ids:rightOperandReference {?EventURI}
+				] ;
+				ids:constraint [
+					ids:leftOperand {?EventURI} ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				]
+			]
+		.""" ,
+                                                                                                                      """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractRequest\", 
+		\"@id\": \"{contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestAfterEventTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATE_TIME\",
+					 \"operator\" : \"gt\",
+					 \"rightOperand\" : \"{?EventURI}\"
+			},
+			\"constraint\" : {    
+					 \"leftOperand\" : \"{?EventURI}\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate> rdf:type owl:NamedIndividual ,
+                                                                                      <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                             <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+		a {?content element of [<Representation URI>|<Artifact URI>]} from the {?ConsumerParticipantURI}
+		only if {?price} has been payed and the {?PipURI} says so."""@en ;
+                                                                             rdfs:comment "A template for policy requests which allow usage only after a certain payment occurred."@en ;
+                                                                             rdfs:label "Request for Usage After Payment Template" ;
+                                                                             <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:UsageRequestAfterPaymentTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;			
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;
+			ids:obligations [
+				ids:action idsc_action:COMPENSATE ;
+				ids:constraint [
+					ids:leftOperand ids:payAmount ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?price}
+				]
+			]
+			]
+		.""" ,
+                                                                                                                        """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractRequest\", 
+		\"@id\": \"{contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			}
+		},
+		\"obligations\": {
+			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"payAmount\",
+					 \"operator\" : \"eq\",
+					 \"rightOperand\" : \"{?price}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageRequestByRoleTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageRequestByRoleTemplate> rdf:type owl:NamedIndividual ,
+                                                                                <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                       <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<RepresentationURI>|<ArtifactURI>]} given that the {?ConsumerParticipantURI} has the {?RoleURI}, 
+		which must be requested at {?PipURI}."""@en ;
+                                                                       rdfs:comment "A template for policy requests permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
+                                                                       rdfs:label "Access Request to secure Consumer Template" ;
+                                                                       <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:UsageRequestByRoleTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand {?RoleURI} ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PipURI}
+				] ;]+
+			]
+		.""" ,
+                                                                                                                  """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractRequest\", 
+		\"@id\": \"{contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestByRoleTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			[\"constraint\" : {    
+					 \"leftOperand\" : \"{?RoleURI}\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PipURI}\"
+			 } [,]]+
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageRequestForPurposeTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageRequestForPurposeTemplate> rdf:type owl:NamedIndividual ,
+                                                                                    <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<RepresentationURI>|<ArtifactURI>]} only if the (potentially still unknown) 
+		consumer uses it with systems which can be used for {?PurposeURI}."""@en ;
+                                                                           rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
+                                                                           rdfs:label "Request for a Specific Purpose Template" ;
+                                                                           <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:UsageRequestForPurposeTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand ids:purpose ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PurposeURI}
+				] ;]+
+			]
+		.""" ,
+                                                                                                                      """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractRequest\", 
+		\"@id\": \"{contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestForPurposeTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\" ,
+			[\"constraint\" : {    
+					 \"leftOperand\" : \"purpose\",
+					 \"operator\" : \"eq\",
+					 \"rightOperandReference\" : \"{?PurposeURI}\"
+			 } [,]]+
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageRequestLogAccessTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageRequestLogAccessTemplate> rdf:type owl:NamedIndividual ,
+                                                                                   <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                          <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
+		 but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
+                                                                          rdfs:comment "A template for policy requests which allow usage until a certain deletion date."@en ;
+                                                                          rdfs:label "Request for Usage Until Deletion Template" ;
+                                                                          <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:UsageRequestLogAccessTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;			
+			ids:permission [
+				ids:action {?action} 
+				] ;
+			ids:obligation [
+				ids:action idsc_action:LOG ;
+				ids:constraint [
+					ids:leftOperand ids:systemDevice ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?LoggingEndpoint}
+				] ]
+		.""" ,
+                                                                                                                     """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractRequest\", 
+		\"@id\": \"{contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestLogAccessTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\"
+			} ,
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/LOG\",
+			\"constraint\" : {
+			\"leftOperand\" : \"systemDevice\",
+			\"operator\" : \"eq\",
+			\"rightOperand\" : \"{?LoggingEndpoint}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageRequestNUsagesTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageRequestNUsagesTemplate> rdf:type owl:NamedIndividual ,
+                                                                                 <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                        <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
+		 at maximum {?n} times."""@en ;
+                                                                        rdfs:comment "A template for policy requests which allow usage until a certain deletion date."@en ;
+                                                                        rdfs:label "Request for Usage Until Deletion Template" ;
+                                                                        <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:UsageRequestNUsagesTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;			
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:quantity ;
+					ids:operator ids:lt ;
+					ids:rightOperand {?n + 1}
+				] ]
+		.""" ,
+                                                                                                                   """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractRequest\", 
+		\"@id\": \"{contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestNUsagesTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"quantity\",
+					 \"operator\" : \"lt\",
+					 \"rightOperand\" : \"{?n + 1}\"
+			}
+		} }""" .
+
+
+###  https://w3id.org/idsa/code/policytemplate/UsageRequestUntilDeletionTemplate
+<https://w3id.org/idsa/code/policytemplate/UsageRequestUntilDeletionTemplate> rdf:type owl:NamedIndividual ,
+                                                                                       <https://w3id.org/idsa/core/PolicyTemplate> ;
+                                                                              <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
+		a as long as all digital copies will be deleted at {?deletionDateTime}."""@en ;
+                                                                              rdfs:comment "A template for policy requests which allow usage until a certain deletion date."@en ;
+                                                                              rdfs:label "Request for Usage Until Deletion Template" ;
+                                                                              <http://www.w3.org/2004/02/skos/core#note> """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractRequest ;
+			ids:refersTo idsc_pt:UsageRequestAfterPaymentTemplate ;
+			ids:targetContent {?content} ;
+			ids:consumer {?ConsumerParticipantURI} ;
+			ids:provider {?ProviderParticipantURI} ;			
+			ids:permission [
+				ids:action {?action} ;
+				ids:constraint [
+					ids:leftOperand ids:DATETIME ;
+					ids:operator ids:lt ;
+					ids:rightOperand {?PipURI}
+				] ] ;
+			ids:obligation [
+				ids:action idsc_action:DELETE ;
+				ids:constraint [
+					ids:leftOperand ids:DATETIME ;
+					ids:operator ids:eq ;
+					ids:rightOperand {?deletionDateTime}
+				]
+			]
+		.""" ,
+                                                                                                                         """{ 
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
+		\"@type\": \"ContractRequest\", 
+		\"@id\": \"{contractID}\", 
+		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate\" ,
+		\"targetContent\": \"{?content}\",
+		\"provider\": \"{?ProviderParticipantURI}\",
+		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"permission\": {
+			\"action\": \"{?action}\"  ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATETIME\",
+					 \"operator\" : \"lt\",
+					 \"rightOperandReference\" : \"{?deletionDateTime}\"
+			}
+		},
+		\"obligation\": {
+			\"action\": \"https://w3id.org/idsa/code/action/DELETE\" ,
+			\"constraint\" : {    
+					 \"leftOperand\" : \"DATETIME\",
+					 \"operator\" : \"eq\",
+					 \"rightOperand\" : \"{?deletionDateTime}\"
+			}
+		} }""" .
+
+
 ###  https://w3id.org/idsa/core/
 <https://w3id.org/idsa/core/> rdf:type owl:NamedIndividual ,
                                        <http://purl.org/vocommons/voaf#Vocabulary> ;
@@ -12456,15 +13769,8 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                                    <http://rdfs.org/ns/void#> ,
                                                                    <http://xmlns.com/foaf/0.1/> ;
                               <http://purl.org/dc/terms/created> "2017-09-26"^^xsd:date ;
-                              <http://purl.org/dc/terms/title> "The Industrial Dataspace Information Model"@en .
-
-
-###  https://w3id.org/idsa/core/ABSOLUTE_SPATIAL_POSITION
-<https://w3id.org/idsa/core/ABSOLUTE_SPATIAL_POSITION> rdf:type owl:NamedIndividual ,
-                                                                <https://w3id.org/idsa/core/LeftOperand> ;
-                                                       rdfs:comment "The current geospatial position of the *consuming connector*. In case the connector only appears as a virtual entity, the physical location of the hosting server is referenced. Allowed operators are idsc:in. No other spatial operators (close to, north of, etc.) are currently allowed."@en ;
-                                                       rdfs:label "Absolute geo-spatial position"@en ;
-                                                       rdfs:seeAlso <http://www.w3.org/ns/odrl/2/absoluteSpatialPosition> .
+                              <http://purl.org/dc/terms/modified> "2020-04-30"^^xsd:date ;
+                              <http://purl.org/dc/terms/title> "The International Data Spaces Information Model"@en .
 
 
 ###  https://w3id.org/idsa/core/IDSA
@@ -12473,35 +13779,6 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                            <http://xmlns.com/foaf/0.1/Organization> ;
                                   rdfs:label "International Data Spaces Association" ;
                                   <http://xmlns.com/foaf/0.1/homepage> <https://www.internationaldataspaces.org> .
-
-
-###  https://w3id.org/idsa/core/PURPOSE
-<https://w3id.org/idsa/core/PURPOSE> rdf:type owl:NamedIndividual ,
-                                              <https://w3id.org/idsa/core/LeftOperand> ;
-                                     rdfs:comment "A defined purpose for exercising the action of the Rule. Use with idsc:IN or idsc:SAME_AS and RDF Resources."@en ;
-                                     rdfs:label "purpose"@en ;
-                                     rdfs:seeAlso <http://www.w3.org/ns/odrl/2/purpose> .
-
-
-###  https://w3id.org/idsa/core/QUANTITY
-<https://w3id.org/idsa/core/QUANTITY> rdf:type owl:NamedIndividual ,
-                                               <https://w3id.org/idsa/core/LeftOperand> ;
-                                      rdfs:comment "Quantity limitation for exercising the action of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double." ;
-                                      rdfs:label "quantity" .
-
-
-###  https://w3id.org/idsa/core/RECURRENCE_RATE
-<https://w3id.org/idsa/core/RECURRENCE_RATE> rdf:type owl:NamedIndividual ,
-                                                      <https://w3id.org/idsa/core/LeftOperand> ;
-                                             rdfs:comment "The limit how often exercising the action of the Rule may be possible. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double." ;
-                                             rdfs:label "recurrence rate" .
-
-
-###  https://w3id.org/idsa/core/SECURITY_LEVEL
-<https://w3id.org/idsa/core/SECURITY_LEVEL> rdf:type owl:NamedIndividual ,
-                                                     <https://w3id.org/idsa/core/LeftOperand> ;
-                                            rdfs:comment "The security level the consuming connector must have. Use together with idsc:SAME_AS or idsc:IN. The value decides which attribute dimension is regarded."@en ;
-                                            rdfs:label "security level" .
 
 
 ###  https://w3id.org/idsa/core/and
@@ -12525,16 +13802,8 @@ _:genid139 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                  rdfs:label "xor" .
 
 
-_:genid140 rdf:type <http://purl.org/dc/terms/Agent> ,
-                    <http://xmlns.com/foaf/0.1/Person> ;
-           <http://xmlns.com/foaf/0.1/name> "Andreas Müller" .
-
-_:genid141 rdf:type <http://purl.org/dc/terms/Agent> ,
-                     <http://xmlns.com/foaf/0.1/Person> ;
-            <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
-
 [ owl:minCardinality 2
- ] .
+] .
 
 [ owl:cardinality 1
  ] .
@@ -12595,7 +13864,7 @@ _:genid141 rdf:type <http://purl.org/dc/terms/Agent> ,
                                           rdfs:label "emailAddress"@en .
 
 
-<https://w3id.org/idsa/core/endedAt> rdfs:comment "The point in time when the Activity was ended."@en ;
+<https://w3id.org/idsa/core/endedAt> rdfs:comment "The point in time (as xsd:dateTimeStamp) when the Activity was ended."@en ;
                                      rdfs:label "endedAt"@en .
 
 
@@ -12619,7 +13888,7 @@ _:genid141 rdf:type <http://purl.org/dc/terms/Agent> ,
                                          rdfs:label "originalEntity"@en .
 
 
-<https://w3id.org/idsa/core/issued> rdfs:comment "Date of issuing the Message."@en ;
+<https://w3id.org/idsa/core/issued> rdfs:comment "Date (as xsd:dateTimeStamp) of issuing the Message."@en ;
                                     rdfs:label "issued"@en .
 
 
@@ -12687,12 +13956,13 @@ _:genid141 rdf:type <http://purl.org/dc/terms/Agent> ,
                                                 <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
 
 
-<https://w3id.org/idsa/core/rightOperand> rdfs:comment "The value of the right operand in a constraint expression."@en ;
+<https://w3id.org/idsa/core/rightOperand> rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en ;
                                           rdfs:label "rightOperand"@en .
 
 
-<https://w3id.org/idsa/core/rightOperandReference> rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value."@en ;
-                                                   rdfs:label "rightOperandReference"@en .
+<https://w3id.org/idsa/core/rightOperandReference> rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en ;
+                                                   rdfs:label "rightOperandReference"@en ;
+                                                   <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
 
 
 <https://w3id.org/idsa/core/senderAgent> rdfs:comment "The Agent which initiated the Message."@en ;
@@ -12700,7 +13970,7 @@ _:genid141 rdf:type <http://purl.org/dc/terms/Agent> ,
                                          <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
 
 
-<https://w3id.org/idsa/core/startedAt> rdfs:comment "The point in time when the Activity was started."@en ;
+<https://w3id.org/idsa/core/startedAt> rdfs:comment "The point in time (as xsd:dateTimeStamp) when the Activity was started."@en ;
                                        rdfs:label "startedAt"@en .
 
 
@@ -12712,4 +13982,4 @@ _:genid141 rdf:type <http://purl.org/dc/terms/Agent> ,
                                   rdfs:label "unit"@en .
 
 
-###  Generated by the OWL API (version 5.1.11) https://github.com/owlcs/owlapi/
+###  Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/
