@@ -49,7 +49,7 @@ life_expectancy:Resource
 # Representation of resource: Reference to an "instance" (Excel file below)
   ids:representation [
                        a ids:DataRepresentation ;
-                       ids:mediaType life_expectancy:APPLICATION_EXCEL;
+                       ids:mediaType <http://www.iana.org/assignments/media-types/application/vnd.ms-excel>;
                        ids:instance life_expectancy:ExcelFile ;
                      ] ;
 
@@ -58,14 +58,9 @@ life_expectancy:Resource
   sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
 .
 
-# Introduce Excel IANA media type
-life_expectancy:APPLICATION_EXCEL
-  a ids:IANAMediaType ;
-  rdfs:label "application/vnd.ms-excel" ;
-  rdfs:comment "This Media Type/OID is used to identify Microsoft Excel generically"@en ;
-  rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/application/vnd.ms-excel> ;
-  ids:filenameExtension "xlsx" ;
-.
+# Excel IANA media type
+<https://www.iana.org/assignments/media-types/application/vnd.ms-excel>
+  a ids:IANAMediaType .
 
 # A sample file in Excel format, which contains life expectancy data
 life_expectancy:ExcelFile
