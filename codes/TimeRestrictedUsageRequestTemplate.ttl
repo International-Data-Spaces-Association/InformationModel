@@ -19,7 +19,7 @@ idsc:TimeRestrictedUsageRequestTemplate a ids:PolicyTemplate ;
 		its {?content element of [<Representation URI>|<Artifact URI>]} from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to 
 		yyyy-mm-ddThh:mm:ss.xxx+hh:mm."""@en ;
     skos:note """{ 
-		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@context": "https://w3id.org/idsa/context.json",
 		"@type": "ContractRequest", 
 		"@id": "{?contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/TimeRestrictedUsageRequestTemplate" ,
@@ -47,7 +47,7 @@ idsc:TimeRestrictedUsageRequestTemplate a ids:PolicyTemplate ;
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractRequest ;
-			ids:refersTo idsc_pt:TimeRestrictedUsageRequestTemplate ;
+			ids:refersTo idsc:TimeRestrictedUsageRequestTemplate ;
 			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;

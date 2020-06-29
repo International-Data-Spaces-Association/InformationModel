@@ -6,65 +6,71 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin:    <http://spinrdf.org/spin#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc_pt:UsageOfferAfterPaymentTemplate a ids:PolicyTemplate ;
+idsc:UsageOfferAfterPaymentTemplate a ids:PolicyTemplate ;
     rdfs:label "Offer for Usage After Payment Template" ;
     rdfs:comment "A template for policy offers which allow usage only after a certain payment occurred."@en ;
 	spin:labelTemplate """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
 		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
 		consumer only if {?price} has been payed and the {?PipURI} says so."""@en ;
     skos:note """{ 
-		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@context": "https://w3id.org/idsa/context.json",
 		"@type": "ContractOffer", 
 		"@id": "{?contractID}", 
-		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageOfferAfterPaymentTemplate" ,
+		"refersTo": "idsc:UsageOfferAfterPaymentTemplate" ,
 		"targetContent": "{?content}",
 		"provider": "{?ProviderParticipantURI}",
 		"permission": {
 			"action": "{?action}"  ,
 			"constraint" : {    
-					 "leftOperand" : "payAmount",
-					 "operator" : "eq",
-					 "rightOperandReference" : "{?PipURI}"
+                 "leftOperand" : "idsc:PAY_AMOUNT",
+                 "operator" : "idsc:EQ",
+                 "rightOperandReference" : "{?PipURI}"
 			}
 		},
 		"obligation": {
-			"action": "https://w3id.org/idsa/code/action/COMPENSATE" ,
-			"constraint" : {    
-					 "leftOperand" : "payAmount",
-					 "operator" : "eq",
-					 "rightOperand" : "{?price}"
-			}
-		} }"""^^xsd:string ;
+            "action": "idsc:COMPENSATE" ,
+            "constraint" : {
+                 "leftOperand" : "idsc:PAY_AMOUNT",
+                 "operator" : "idsc:EQ",
+                 "rightOperand" : {
+                    "@value": "{?price}",
+                    "ids:unit": {
+                        "@id": "http://dbpedia.org/resource/Euro"
+                    }
+                 }
+            }
+		}
+	}"""^^xsd:string ;
 
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
-		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractOffer ;
-			ids:refersTo idsc_pt:UsageOfferAfterPaymentTemplate ;
+			ids:refersTo idsc:UsageOfferAfterPaymentTemplate ;
 			ids:targetContent {?content} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;
 				ids:constraint [
 					ids:leftOperand ids:payAmount ;
-					ids:operator ids:eq ;
+					ids:operator ids:EQ ;
 					ids:rightOperandReference {?PipURI}
 				] ;
 			ids:obligation [
 				ids:action idsc_action:COMPENSATE ;
 				ids:constraint [
 					ids:leftOperand ids:payAmount ;
-					ids:operator ids:eq ;
+					ids:operator ids:EQ ;
 					ids:rightOperandReference {?price}
 				]
 			]

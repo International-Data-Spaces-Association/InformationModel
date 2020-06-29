@@ -19,7 +19,7 @@ idsc:AccessAgreementToSecureConsumerTemplate a ids:PolicyTemplate ;
         {?action element of [ids:use|ids:read|...]} its {?content element of [<Artifact URI>]} given that the consuming 
 		connector has all the specified {?SecurityGuarantee} levels."""@en ;
     skos:note """{ 
-		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@context": "https://w3id.org/idsa/context.json",
 		"@type": "ContractAgreement", 
 		"@id": "{?contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/AccessAgreementToSecureConsumerTemplate" ,
@@ -42,7 +42,7 @@ idsc:AccessAgreementToSecureConsumerTemplate a ids:PolicyTemplate ;
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractAgreement ;
-			ids:refersTo idsc_pt:AccessAgreementToSecureConsumerTemplate ;
+			ids:refersTo idsc:AccessAgreementToSecureConsumerTemplate ;
 			ids:targetArtifact {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;

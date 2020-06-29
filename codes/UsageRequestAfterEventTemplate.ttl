@@ -6,20 +6,20 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin:    <http://spinrdf.org/spin#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Instances
 # ---------
 
-idsc_pt:UsageRequestAfterEventTemplate a ids:PolicyTemplate ;
+idsc:UsageRequestAfterEventTemplate a ids:PolicyTemplate ;
     rdfs:label "Request for Usage After a Certain Event Template" ;
     rdfs:comment "A template for policy requests which allow usage only after a certain event occurred."@en ;
 	spin:labelTemplate """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
 		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
 		only if a certain {?EventURI} has happened and the {?PipURI} says so."""@en ;
     skos:note """{ 
-		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@context": "https://w3id.org/idsa/context.json",
 		"@type": "ContractRequest", 
 		"@id": "{contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageRequestAfterEventTemplate" ,
@@ -40,13 +40,13 @@ idsc_pt:UsageRequestAfterEventTemplate a ids:PolicyTemplate ;
 			}
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
-		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix idsc: <https://w3id.org/idsa/code/> .
 		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractRequest ;
-			ids:refersTo idsc_pt:UsageRequestAfterEventTemplate ;
+			ids:refersTo idsc:UsageRequestAfterEventTemplate ;
 			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;

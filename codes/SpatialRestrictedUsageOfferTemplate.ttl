@@ -19,7 +19,7 @@ idsc:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
 		{?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still 
 		unknown) consuming connector only in a certain {?URIofgeographicalregion}."""@en ;
     skos:note """{ 
-		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@context": "https://w3id.org/idsa/context.json",
 		"@type": "ContractOffer", 
 		"@id": "{?contractID}", 
 		"refersTo": "https://w3id.org/idsa/code/policytemplate/SpatialRestrictedUsageOfferTemplate" ,
@@ -41,7 +41,7 @@ idsc:SpatialRestrictedUsageOfferTemplate a ids:PolicyTemplate ;
 		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 		{?contractID} a ids:ContractOffer ;
-			ids:refersTo idsc_pt:SpatialRestrictedUsageOfferTemplate ;
+			ids:refersTo idsc:SpatialRestrictedUsageOfferTemplate ;
 			ids:targetContent {?content} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
