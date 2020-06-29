@@ -47,13 +47,6 @@ life_expectancy:Resource
 # Language of resource
   ids:language idsc:EN ;
 
-# Representation of resource: Reference to an "instance" (Excel file below)
-  ids:representation [
-                       a ids:DataRepresentation ;
-                       ids:mediaType life_expectancy:APPLICATION_EXCEL;
-                       ids:instance life_expectancy:ExcelFile ;
-                     ] ;
-
 # Data cube details
   qb:structure life_expectancy:Structure ;
   sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
@@ -61,15 +54,13 @@ life_expectancy:Resource
 # SHACL shape details
   sh:shapesGraph life_expectancy:ObservationShape ;
   sh:shapesGraph life_expectancy:SliceShape ;
-.
 
-# Introduce Excel IANA media type
-life_expectancy:APPLICATION_EXCEL
-  a ids:IANAMediaType ;
-  rdfs:label "application/vnd.ms-excel" ;
-  rdfs:comment "This Media Type/OID is used to identify Microsoft Excel generically"@en ;
-  rdfs:isDefinedBy <https://www.iana.org/assignments/media-types/application/vnd.ms-excel> ;
-  ids:filenameExtension "xlsx" ;
+# Representation of resource: Reference to an "instance" (Excel file below)
+  ids:representation [
+                       a ids:DataRepresentation ;
+                       ids:mediaType <http://www.iana.org/assignments/media-types/application/vnd.ms-excel>;
+                       ids:instance life_expectancy:ExcelFile ;
+                     ] ;
 .
 
 # Excel IANA media type

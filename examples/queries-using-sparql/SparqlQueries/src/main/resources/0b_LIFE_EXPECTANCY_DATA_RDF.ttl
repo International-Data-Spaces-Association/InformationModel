@@ -46,16 +46,16 @@ life_expectancy:Resource
 # Language of resource
   ids:language idsc:EN ;
 
+# Data cube details
+  qb:structure life_expectancy:Structure ;
+  sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+
 # Representation of resource: Reference to an "instance" (Excel file below)
   ids:representation [
                        a ids:DataRepresentation ;
                        ids:mediaType <http://www.iana.org/assignments/media-types/application/vnd.ms-excel>;
                        ids:instance life_expectancy:ExcelFile ;
                      ] ;
-
-# Data cube details
-  qb:structure life_expectancy:Structure ;
-  sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
 .
 
 # Excel IANA media type
