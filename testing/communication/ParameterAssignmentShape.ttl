@@ -28,7 +28,8 @@ shapes:ParameterAssignmentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:parameter ;
-		sh:class ids:Parameter ;
+		# sh:class ids:Parameter ; # A property with `idsm:referenceByUri true` must not have a class check
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ParameterAssignmentShape.ttl> (ParameterAssignmentShape): An ids:parameter property must point from an ids:ParameterAssignment to an ids:Parameter."@en ;
 	] ;

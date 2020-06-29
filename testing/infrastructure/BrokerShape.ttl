@@ -27,7 +27,8 @@ shapes:BrokerShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:connector ;
-		sh:class ids:Connector ;
+		# sh:class ids:Connector ; # A property with `idsm:referenceByUri true` must not have a class check
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (BrokerShape): An ids:connector property must point from an ids:Broker to an ids:Connector."@en ;
 	] .

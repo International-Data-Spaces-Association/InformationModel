@@ -46,7 +46,8 @@ shapes:RepresentationShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:representationStandard ;
-		sh:class ids:Standard ;
+		#sh:class ids:Standard ; # A property with `idsm:referenceByUri true` must not have a class check
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must point from an ids:Representation to an ids:Standard."@en ;
 	] ;
