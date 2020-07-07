@@ -15,10 +15,6 @@ ids:Operation a owl:Class;
     rdfs:comment "Building block of an Interface; describes the interaction by defining input, output and error parameters."@en;
     idsm:abstract true;
     idsm:validation [
-        idsm:forProperty ids:input;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
         idsm:forProperty ids:output;
         idsm:relationType idsm:OneToMany;
     ];
@@ -44,50 +40,8 @@ ids:pattern
     rdfs:label "pattern"@en;
     rdfs:comment "Reference to Message Exchange Pattern supported by the operation."@en.
 
-ids:input a owl:ObjectProperty;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:Parameter;
-    rdfs:label "input"@en;
-    rdfs:comment "Reference to an input Parameter (optionaly) used by the Operation."@en.
 
-ids:mandatoryInput
-    a owl:ObjectProperty;
-    rdfs:subPropertyOf ids:input;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:Parameter;
-    rdfs:label "mandatoryInput"@en;
-    rdfs:comment "Reference to an input Parameter required by the Operation."@en.
 
-ids:inputGroup a owl:ObjectProperty;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:ParameterGroup;
-    rdfs:label "input group"@en;
-    rdfs:comment "Parameterizes the input of an Operation with a predefined paramter group."@en.
-
-ids:mandatoryInputGroup a owl:ObjectProperty;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:ParameterGroup;
-    rdfs:label "mandatory input group"@en;
-    rdfs:comment "Parameterizes the input of an Operation with a predefined mandatory parameter group."@en.
-
-ids:output a owl:ObjectProperty;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:Parameter;
-    rdfs:label "output"@en;
-    rdfs:comment "Holds the result of an Operation."@en.
-
-ids:mandatoryOutput a owl:ObjectProperty;
-    rdfs:subPropertyOf ids:output;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:Parameter;
-    rdfs:label "mandatoryOutput"@en;
-    rdfs:comment "Holds the mandatory result of an Operation."@en.
-
-ids:fault a owl:ObjectProperty;
-    rdfs:domain ids:Operation;
-    rdfs:range ids:Parameter;
-    rdfs:label "fault"@en;
-    rdfs:comment "Holds information when an Operation has failed."@en.
 
 # TODO: Replace by general annotation
 #
