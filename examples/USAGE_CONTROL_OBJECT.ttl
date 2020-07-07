@@ -1,0 +1,30 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+
+_:uc_object a ids:UsageControlObject ;
+    ids:data "some text stream" ;
+    ids:contract [
+        a ids:ContractAgreement;
+        ids:targetContent <http://some-pip/path-to-collection> ;
+    ] ;
+.
+
+# hosted at the PIP
+<http://some-pip/path-to-collection> a ids:Collection ;
+    # alternative a) --> direct reference
+    ids:hasMember (_:SomeResource _:SomeOtherResource ) ;
+
+    # alternative b) --> description
+    ids:hasMember "Every resource with 'some' and 'resource' in their URI are member of this collection."@en ;
+.
+
+_:SomeResource a ids:Resource ;
+    ids:partOf <http://some-pip/path-to-collection>
+.
+
+_:SomeOtherResource a ids:Resource ;
+               ids:partOf <http://some-pip/path-to-collection>
+.

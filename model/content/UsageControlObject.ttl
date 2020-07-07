@@ -1,0 +1,41 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:UsageControlObject a owl:Class;
+           rdfs:label "Usage Control Object"@en;
+           rdfs:comment "A data element containing all relevant information for usage control engines."@en;
+           .
+
+# Properties
+# ----------
+
+ids:data a owl:ObjectProperty;
+         rdfs:label "has data"@en;
+         rdfs:domain ids:UsageControlObject;
+#rdfs:range ids:Constraint;
+         rdfs:comment "The related data or a pointer/reference to it."@en ;
+.
+
+ids:user a owl:ObjectProperty;
+        rdfs:label "has user"@en;
+        rdfs:domain ids:UsageControlObject;
+        rdfs:range ids:Participant ;
+        rdfs:comment "The participant intending to use the data."@en ;
+.
+
+ids:contract a owl:ObjectProperty;
+         rdfs:label "has contract"@en;
+         rdfs:domain ids:UsageControlObject;
+         rdfs:range ids:ContractAgreement ;
+         rdfs:comment "The target contract defining the usage of the data object."@en ;
+.
+
+
