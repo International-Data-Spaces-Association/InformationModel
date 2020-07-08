@@ -6,5 +6,30 @@
 
 idsc:INPUT_ENDPOINT
     a ids:AppEndpointType;
-    rdfs:rdfs:label "Input endpoint"@en ;
-    rdfs:comment "Indicates that an endpoint is "
+    rdfs:label "Input endpoint"@en ;
+    rdfs:comment "Endpoint is used for data input."@en ;
+.
+
+idsc:OUTPUT_ENDPOINT
+    a ids:AppEndpointType;
+    rdfs:label "Output endpoint"@en ;
+    rdfs:comment "Endpoint is used for data output."@en ;
+.
+
+idsc:STATUS_ENDPOINT
+    a ids:AppEndpointType;
+    rdfs:label "Status endpoint"@en ;
+    rdfs:comment "Endpoint is used to get app health / lifecycle status."@en ;
+.
+
+idsc:CONFIG_ENDPOINT
+    a ids:AppEndpointType;
+    rdfs:label "Config endpoint"@en ;
+    rdfs:comment "Endpoint is used for runtime-related app configurations and app parameters."@en ;
+.
+
+idsc:PROCESS_ENDPOINT
+    a ids:AppEndpointType;
+    rdfs:label "Process endpoint"@en ;
+    rdfs:comment "Endpoint is used to start (or control) app processing."@en ;
+.
