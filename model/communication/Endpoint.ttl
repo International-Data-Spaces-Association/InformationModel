@@ -44,6 +44,70 @@ ids:InteractiveEndpoint
     ] ;
     owl:disjointWith ids:StaticEndpoint .
 
+# TODO: Check compatibility of ids:Endpoint for DataApp endpoints.
+# DataApp endpoints should be described when a DataApp is described / published at a Connector or the App Store.
+# Access URI (via subClassOf ids:Endpoint and its mandatory ids:host property) is network / deployment-specific, because a DataApp is an isolated software package and does not carry such information.
+ids:AppEndpoint
+    a owl:Class ;
+    # rdfs:subClassOf ids:Endpoint ; #TODO: not possible. See explanation above.
+    rdfs:label "DataApp Endpoint"@en ;
+    rdfs:comment "Description of endpoints a DataApp offers."@en ;
+.
+
+ids:AppEndpointType
+    a owl:Class ;
+    rdfs:label "App endpoint type"@en ;
+    rdfs:comment "Class of endpoint types a data app offers."@en ;
+.
+
+ids:appEndpointInformation
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "app endpoint information"@en ;
+    rdfs:comment "Human-readable information and description of the app endpoint."@en ;
+.
+
+ids:appEndpointDocumentation
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "app endpoint documentation"@en ;
+    rdfs:comment "IRI reference to a documentation of the app endpoint,  e.g., reference to an OpenAPI-based documentation."@en ;
+.
+
+ids:appHost
+    a owl:ObjectProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range ids:Host ;
+    rdfs:label "app host"@en ;
+    rdfs:comment "Host information of a DataApp. Used during deployment / runtime. Port of the accessUrl should map to the ids:appPort"@en ;
+.
+
+ids:appEndpointPort
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range xsd:integer ;
+    rdfs:label "app endpoint port"@en ;
+    rdfs:comment "Port used to access the endpoint."@en ;
+.
+
+ids:appEndpointType
+    a owl:ObjectProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range ids:AppEndpointType ;
+    rdfs:label "App endpoint type"@en ;
+    rdfs:comment "Type of an app endpoint. Data apps have different endpoint types, e.g., for input, output or health status."@en ;
+.
+
+ids:appEndpointMediaType
+    a owl:ObjectProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range ids:MediaType ;
+    rdfs:label "appEndpointMediaType"@en ;
+    rdfs:comment "Mediatype, such as IANAN types, of the data an endpoint expects or returns ."@en ;
+.
+
 #ids:DataSink
 #    a owl:Class ;
 #    rdfs:subClassOf ids:Endpoint ;

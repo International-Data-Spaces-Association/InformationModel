@@ -12,8 +12,31 @@ ids:DataApp
     rdfs:subClassOf ids:Software;
     idsm:abstract true;
     rdfs:label "DataApp"@en;
-    rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;.
+    rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;
     # TODO: exposes at least one interface
+    idsm:validation [
+                        idsm:forProperty ids:appEndpoint;
+                        idsm:relationType idsm:OneToMany ;
+                    ];
+    idsm:validation [
+                        idsm:forProperty ids:appEndpoint;
+                        idsm:constraint idsm:NotNull;
+                    ]
+.
+ids:appDocumentation
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:DataApp ;
+    rdfs:range xsd:string ;
+    rdfs:label "app documentation"@en ;
+    rdfs:comment "text documentation of the data app. "@en ;
+.
+ids:appEndpoint
+    a owl:ObjectProperty;
+    rdfs:label "app endpoint"@en ;
+    rdfs:domain ids:DataApp;
+    rdfs:range ids:AppEndpoint;
+    rdfs:comment "Endpoints of a data app"@en ;
+.
 
 ids:SystemAdapter
     a owl:Class;
