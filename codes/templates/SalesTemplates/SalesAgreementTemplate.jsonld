@@ -1,0 +1,38 @@
+// Template
+// --------
+
+{
+    "@context": "https://w3id.org/idsa/contexts/context.jsonld",
+    "@type": "ids:SalesAgreement",
+    "@id": "?URI",
+    "ids:targetArtifact": (ArtifactTemplate),
+    "ids:provider": (ParticipantTemplate),
+    "ids:consumer": (ParticipantTemplate),
+    "ids:permission": {
+        "@type": "ids:Permission",
+        "ids:assigner": (ParticipantTemplate),              // same value as ids:provider,
+        "ids:assignee": (ParticipantTemplate),              // same value as ids:consumer,
+        "ids:action": (ActionTemplate),
+        ( "ids:constraint": (ConstraintTemplate), )*        // zero or more Constraints
+        "ids:preobligation": {
+            "@type": "ids:Obligation",
+            "ids:action": {
+                "@type": "ids:Action",
+                "ids:value": "idsc:COMPENSATE",
+                "ids:actionRefinement": {
+                    "@type": "ids:Constraint",
+                    "ids:leftOperand": "idsc:PAY_AMOUNT",
+                    "ids:operator": "idsc:EQ",
+                    "ids:rightOperand": {
+                        "@value": "?price",
+                        "@type": "http://www.w3.org/2001/XMLSchema#double"
+                    },
+                    "ids:unit": "?currency"
+                    (, "ids:pipEndpoint": "?pipUri" ){0,1}  // zero or one reference to a PIP endpoint
+                }
+            }
+        }
+        (, "ids:preobligation": (ObligationTemplate) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
+        (, "ids:postobligation": (ObligationTemplate) )*    // zero or more Obligations which have to be fulfilled after the Usage event
+    }
+}

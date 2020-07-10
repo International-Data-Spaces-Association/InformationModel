@@ -1,0 +1,48 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Template
+# --------
+
+_:SalesAgreementTemplate a ids:SalesAgreement ;
+    rdfs:label "Sales Agreement Template" ;
+    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Artifact given that the
+    Consumer has payed the ?price."""@en ;
+    rdfs:comment "This template models the perpetual transfer of data against one-off payment."@en ;
+    skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
+    ids:targetArtifact _:ArtifactTemplate ;
+    ids:provider _:ParticipantTemplate ;
+    ids:consumer _:ParticipantTemplate ;
+    ids:permission [
+        a ids:Permission ;
+        ids:assigner _:ParticipantTemplate ;            # same value as ids:provider
+        ids:assignee _:ParticipantTemplate ;            # same value as ids:consumer
+        ids:action _:ActionTemplate ;
+        ( ids:constraint _:ConstraintTemplate ; )*      # zero or more Constraints
+        ids:preobligation [
+            a ids:Obligation ;
+            ids:action [
+                a ids:Action ;
+                ids:value idsc:COMPENSATE ;
+                ids:actionRefinement [
+                    a ids:Constraint ;
+                    ids:leftOperand idsc:PAY_AMOUNT ;
+                    ids:operator idsc:EQ ;
+                    ids:rightOperand "?price"^^xsd:double ;
+                    ids:unit ?currency ;
+                    ( ids:pipEndpoint ?pipUri ; ){0,1} ;
+                ]
+            ] ;
+        ] ;
+        ( ids:preobligation _:ObligationTemplate ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
+        ( ids:postobligation _:ObligationTemplate ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
+    ]
+.
