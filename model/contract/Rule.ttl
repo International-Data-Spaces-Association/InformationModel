@@ -43,7 +43,7 @@ ids:Permission rdfs:subClassOf ids:Rule;
         idsm:relationType idsm:OneToMany;
     ].
 
-ids:Prohibition rdfs:subClassOf ids:Rule;
+ids:Prohibition rdfs:subClassOf ids:Rule; # TODO: delete?
     rdfs:subClassOf odrl:Prohibition;
     a owl:Class;
     rdfs:label "Prohibition"@en;
@@ -174,3 +174,10 @@ ids:unit rdfs:subPropertyOf odrl:unit;
     rdfs:domain ids:Constraint;
     rdfs:range ids:Unit;
     rdfs:comment "The unit of measurement of a Constraint."@en.
+
+ids:pipEndpoint a owl:ObjectProperty;
+     rdfs:label "has PIP endpoint"@en;
+     rdfs:domain ids:Constraint;
+     rdfs:range xsd:anyUri ;
+     rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en
+.
