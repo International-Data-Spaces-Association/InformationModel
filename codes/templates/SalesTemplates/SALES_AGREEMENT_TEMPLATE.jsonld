@@ -5,15 +5,15 @@
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
     "@type": "ids:SalesAgreement",
     "@id": "?URI",
-    "ids:targetArtifact": (ArtifactTemplate),
-    "ids:provider": (ParticipantTemplate),
-    "ids:consumer": (ParticipantTemplate),
+    "ids:targetArtifact": (idsc:ARTIFACT_TEMPLATE),
+    "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
+    "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
     "ids:permission": {
         "@type": "ids:Permission",
-        "ids:assigner": (ParticipantTemplate),              // same value as ids:provider,
-        "ids:assignee": (ParticipantTemplate),              // same value as ids:consumer,
-        "ids:action": (ActionTemplate),
-        ( "ids:constraint": (ConstraintTemplate), )*        // zero or more Constraints
+        "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
+        "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        "ids:action": (idsc:ACTION_TEMPLATE),
+        ( "ids:constraint": (idsc:CONSTRAINT_TEMPLATE), )*        // zero or more Constraints
         "ids:preobligation": {
             "@type": "ids:Obligation",
             "ids:action": {
@@ -32,7 +32,7 @@
                 }
             }
         }
-        (, "ids:preobligation": (ObligationTemplate) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
-        (, "ids:postobligation": (ObligationTemplate) )*    // zero or more Obligations which have to be fulfilled after the Usage event
+        (, "ids:preobligation": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
+        (, "ids:postobligation": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
     }
 }

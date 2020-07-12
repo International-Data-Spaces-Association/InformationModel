@@ -1,0 +1,14 @@
+// idsc:AgreementTemplate
+// ------------------
+
+// The ArtifactTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Artifact position in an IDS Usage Control Template.
+
+{
+    "@context": "https://w3id.org/idsa/contexts/context.jsonld",
+    "@type": "ids:ContractAgreement",
+    "@id": "?URI",
+    "ids:targetArtifact": (idsc:ARTIFACT_TEMPLATE),
+    "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
+    "ids:consumer": (idsc:PARTICIPANT_TEMPLATE)
+    (, "ids:permission": "idsc:PERMISSION_TEMPLATE" )+
+}

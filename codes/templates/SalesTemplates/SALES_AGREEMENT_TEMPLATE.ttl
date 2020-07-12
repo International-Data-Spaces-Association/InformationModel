@@ -12,21 +12,21 @@
 # Template
 # --------
 
-_:SalesAgreementTemplate a ids:SalesAgreement ;
+idsc:SALES_AGREEMENT_TEMPALTE a ids:SalesAgreement ;
     rdfs:label "Sales Agreement Template" ;
     spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Artifact given that the
     Consumer has payed the ?price."""@en ;
     rdfs:comment "This template models the perpetual transfer of data against one-off payment."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
-    ids:targetArtifact _:ArtifactTemplate ;
-    ids:provider _:ParticipantTemplate ;
-    ids:consumer _:ParticipantTemplate ;
+    ids:targetArtifact idsc:ARTIFACT_TEMPLATE ;
+    ids:provider idsc:PARTICIPANT_TEMPLATE ;
+    ids:consumer idsc:PARTICIPANT_TEMPLATE ;
     ids:permission [
         a ids:Permission ;
-        ids:assigner _:ParticipantTemplate ;            # same value as ids:provider
-        ids:assignee _:ParticipantTemplate ;            # same value as ids:consumer
-        ids:action _:ActionTemplate ;
-        ( ids:constraint _:ConstraintTemplate ; )*      # zero or more Constraints
+        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
+        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
+        ids:action idsc:ACTION_TEMPLATE ;
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ids:preobligation [
             a ids:Obligation ;
             ids:action [
@@ -42,7 +42,7 @@ _:SalesAgreementTemplate a ids:SalesAgreement ;
                 ]
             ] ;
         ] ;
-        ( ids:preobligation _:ObligationTemplate ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
-        ( ids:postobligation _:ObligationTemplate ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
+        ( ids:preobligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
+        ( ids:postobligation idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ]
 .
