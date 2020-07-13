@@ -3,7 +3,7 @@ PREFIX sh:     <http://www.w3.org/ns/shacl#>
 
 SELECT DISTINCT ?resource WHERE {
     ?resource a ids:DataResource ;
-        ids:relatesToShape ?shape .
+        sh:shapesGraph ?shape .
 
     ?shape sh:property ?property .
 
