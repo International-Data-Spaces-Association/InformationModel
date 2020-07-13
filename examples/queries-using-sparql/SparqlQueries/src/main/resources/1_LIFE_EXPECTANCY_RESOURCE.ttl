@@ -29,8 +29,8 @@ life_expectancy:Resource
   ids:description "The life expectancy for men and women for different areas on a yearly base for 2004-2008."@en;
 
 # Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ.
-  ids:publisher "www.ids.org/participants/4711"^^xsd:anyURI;
-  ids:sovereign "www.ids.org/participants/42"^^xsd:anyURI;
+  ids:publisher <www.ids.org/participants/4711>;
+  ids:sovereign <www.ids.org/participants/42>;
 
 # Temporal period covered by the content of the resource
   ids:temporalCoverage [
@@ -42,33 +42,37 @@ life_expectancy:Resource
                        ] ;
 
 # Open Government License
-  ids:customLicense "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"^^xsd:anyURI ;
+  ids:customLicense <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/>;
 
 # Language of resource
   ids:language idsc:EN ;
-
-# Representation of resource: Reference to an "instance" (CsvFile below)
-  ids:representation [
-                       a ids:DataRepresentation ;
-                       ids:mediaType idsc:TEXT_CSV;
-                       ids:instance life_expectancy:CsvFile ;
-                     ] ;
 
 # Data cube details
   qb:structure life_expectancy:Structure ;
   sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
 
 # SHACL shape details
-  ids:relatesToShape life_expectancy:ObservationShape ;
-  ids:relatesToShape life_expectancy:SliceShape ;
+  sh:shapesGraph life_expectancy:ObservationShape ;
+  sh:shapesGraph life_expectancy:SliceShape ;
+
+# Representation of resource: Reference to an "instance" (Excel file below)
+  ids:representation [
+                       a ids:DataRepresentation ;
+                       ids:mediaType <https://www.iana.org/assignments/media-types/application/vnd.ms-excel> ;
+                       ids:instance life_expectancy:ExcelFile ;
+                     ] ;
 .
 
-# A sample file in CSV format, which contains life expectancy data
-life_expectancy:CsvFile
+# Excel IANA media type
+<https://www.iana.org/assignments/media-types/application/vnd.ms-excel>
+  a ids:IANAMediaType .
+
+# A sample file in Excel format, which contains life expectancy data
+life_expectancy:ExcelFile
   a ids:Artifact ;
-  ids:byteSize "9759" ;
+  ids:byteSize 9759 ;
   ids:fileName "LIFE_EXPECTANCY_DATA.xlsx";
-  ids:creationDate "2020-03-19" ;
+  ids:creationDate "2020-03-19T12:00:00+02:00"^^xsd:dateTimeStamp ;
 .
 
 # Data Cube structure
@@ -321,7 +325,7 @@ life_expectancy:SliceShape
   a sh:NodeShape ;
   sh:targetClass qb:Slice ;
 
-# Each slice has 0..n observations
+# Each slice has 1..n observations
   sh:property [
                 sh:path qb:observation ;
                 sh:minCount 1 ;

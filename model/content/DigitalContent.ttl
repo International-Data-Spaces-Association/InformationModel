@@ -96,7 +96,9 @@ ids:defaultRepresentation
 ids:language
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:language;
-    rdfs:domain ids:DigitalContent;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:DigitalContent ids:Representation)
+              ] ;
     rdfs:range ids:Language; # does not fit the defined range of dct:language - dct:LinguisticSystem !
     rdfs:label "language"@en;
     rdfs:comment "Natural language(s) used within the content."@en.

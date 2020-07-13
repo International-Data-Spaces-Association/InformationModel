@@ -5,7 +5,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/international-Data-Spaces-Association/InformationModel/testing> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -51,7 +51,7 @@ shapes:JwtPayloadShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:aud  ;
-		sh:nodeKind sh:IRI ;
+		sh:class ids:Audience ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
 		sh:severity sh:Violation ;

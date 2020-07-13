@@ -4,7 +4,7 @@
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/international-Data-Spaces-Association/InformationModel/testing> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 shapes:
@@ -27,7 +27,8 @@ shapes:BrokerShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:connector ;
-		sh:class ids:Connector ;
+		# sh:class ids:Connector ; # A property with `idsm:referenceByUri true` must not have a class check
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (BrokerShape): An ids:connector property must point from an ids:Broker to an ids:Connector."@en ;
 	] .

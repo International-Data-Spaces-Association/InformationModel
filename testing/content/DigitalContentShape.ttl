@@ -5,7 +5,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/international-Data-Spaces-Association/InformationModel/testing> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 shapes:
@@ -81,7 +81,8 @@ shapes:DigitalContentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:theme ;
-		sh:class ids:Concept ;
+		#sh:class ids:Concept ;# A property with `idsm:referenceByUri true` must not have a class check
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:theme property must point from an ids:DigitalContent to an ids:Concept."@en ;
 	] ;
@@ -146,7 +147,8 @@ shapes:DigitalContentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contentStandard ;
-		sh:class ids:Standard ;
+		#sh:class ids:Standard ;# A property with `idsm:referenceByUri true` must not have a class check
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentStandard property must point from an ids:DigitalContent to an ids:Standard."@en ;
 	] .

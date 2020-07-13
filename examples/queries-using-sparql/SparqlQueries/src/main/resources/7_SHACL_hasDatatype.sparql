@@ -4,7 +4,7 @@ PREFIX xsd:                <http://www.w3.org/2001/XMLSchema#>
 
 SELECT DISTINCT ?resource WHERE {
     ?resource a ids:DataResource ;
-        ids:relatesToShape ?shape .
+        sh:shapesGraph ?shape .
 
     ?shape sh:property ?property .
 

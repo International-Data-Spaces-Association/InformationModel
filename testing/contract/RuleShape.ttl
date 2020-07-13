@@ -7,7 +7,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/international-Data-Spaces-Association/InformationModel/testing> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -52,7 +52,7 @@ shapes:RuleShape
 		a sh:PropertyShape ;
 		sh:path ids:assignee ;
 		sh:class ids:Participant ;
-		sh:minCount 1 ;
+		#sh:minCount 1 ; # a ContractOffer may not know the assignee yet.
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:Participant linked through the ids:assignee property"@en ;
@@ -62,7 +62,7 @@ shapes:RuleShape
 		a sh:PropertyShape ;
 		sh:path ids:assigner ;
 		sh:class ids:Participant ;
-		sh:minCount 1 ;
+		#sh:minCount 1 ; # a RequestContract may not know the assigner yet.
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:Participant linked through the ids:assigner property"@en ;
@@ -71,6 +71,7 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:targetArtifact ;
+		sh:maxCount 1 ;
 		sh:class ids:Artifact ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:targetArtifact property must point from an ids:Rule to an ids:Artifact."@en ;
@@ -80,7 +81,6 @@ shapes:RuleShape
 		a sh:PropertyShape ;
 		sh:path ids:targetContent ;
 		sh:class ids:DigitalContent ;
-		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:DigitalContent linked through the ids:targetContent property"@en ;
