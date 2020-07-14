@@ -1,3 +1,5 @@
+package de.fraunhofer.fit.ids;
+
 import org.apache.jena.graph.Graph;
 import org.apache.jena.graph.compose.Union;
 import org.apache.jena.rdf.model.Model;
@@ -8,136 +10,173 @@ import org.apache.jena.shacl.ShaclValidator;
 import org.apache.jena.shacl.Shapes;
 import org.apache.jena.shacl.ValidationReport;
 import org.apache.jena.util.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.topbraid.jenax.util.JenaUtil;
+
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
-/** Represents an employee.
- * @author Haydar Akyürek
- * A simple Java application to demonstrate the usage of the Jena framework for SHACL validation.
+/**
+ * @author Haydar Akyürek, Johannes Lipp
+ * A Java application to demonstrate the usage of the Jena framework for SHACL validation.
+ * Supports both single and multiple instances during validation. Prints the validation results.
  */
-
 public class SHACL_Validator {
 
-    final Logger logger = LoggerFactory.getLogger(SHACL_Validator.class);
-    private Path ont_path;
-    private Path shacl_path;
-    private Path instance_path;
+    private static final Logger logger = LogManager.getLogger(SHACL_Validator.class);
 
     /**
-     * main method
-     * @throws NullPointerException
-     **/
-    public static void main(String[] args) {
-        try {
-             SHACL_Validator validator = new SHACL_Validator(args[0], args[1], args[2]);
-            validator.validateRDF();
-        } catch (IOException | NullPointerException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
+     * Reads three locations from varargs, namely base model, shapes, and instance(s).
+     * Validates these iteratively and prints the results.
      *
-     * @param ont_path Path to the IDS Information Model
-     * @param shacl_path path to the SHACL shapes. Basically the same as the /testing/ directory of the IDS Information Model repository
-     * @param instance_path path to the RDF instance (in JSON-LD) which ha to be validated against SHACL
-     * @throws MalformedURLException
+     * @param args the command line args base model, shapes, and instance(s).
+     * @throws IOException on I/O error on any given path
      */
-    public SHACL_Validator(String ont_path, String shacl_path, String instance_path) throws MalformedURLException {
-        this.ont_path = format_rdf_path(ont_path);
-        this.shacl_path = format_rdf_path(shacl_path);
-        this.instance_path = format_rdf_path(instance_path) ;
+    public static void main(String[] args) throws IOException {
+        if (args.length != 3) {
+            logger.error("usage: SHACL_Validator.java <base model> <shapes dir> <instance file / instances dir>");
+            logger.info("exit");
+            return;
+        }
+
+        logger.info("Loading base model");
+        Graph model = readBaseModel(formatRdfPath(args[0]));
+        logger.info("The base model contains {} triples", model.size());
+
+        logger.info("Loading SHACL shapes");
+        Shapes shapes = readSHACL(formatRdfPath(args[1]));
+        logger.info("{} SHACL shapes in total", shapes.numShapes());
+
+        File instances = new File(args[2]);
+        if (instances.isDirectory()) {
+            logger.info("Verifying all *.ttl files in directory {}", instances.getPath());
+            File[] foundFiles = instances.listFiles((file, s) -> s.endsWith(".ttl"));
+            List<File> files = ((foundFiles == null)) ? new ArrayList<>() : List.of(foundFiles);
+            logger.info("Found {} files for validation: {}", files.size(), files);
+
+            for (File file : files) {
+                validate(model, file, shapes, true);
+            }
+        } else {
+            validate(model, instances, shapes, false);
+        }
     }
 
     /**
-     * Reads SHACL graphes, ontology and RDF instance and runs validation
-     * @throws IOException
+     * Validates an instance against a set of shapes, with knowledge from a given ontology
+     *
+     * @param model        the base model to use for ontology knowledge, e.g. for subClassOf
+     * @param instanceFile the instance to validate
+     * @param shapes       a number of shapes to use for validation
+     * @param waitForUser  whether to ask the user to manually trigger each validation
+     * @throws IOException on I/O exception on the given instance file
      */
-    void validateRDF() throws IOException {
-        Graph data_graph = readModelAndInstance();          // Read ontology and
-        Shapes shapes_graph = readSHACL();
+    public static void validate(Graph model, File instanceFile, Shapes shapes, boolean waitForUser) throws IOException {
+        logger.info("Loading instance {}", instanceFile.getName());
+        Graph instance = readInstance(formatRdfPath(instanceFile.getPath()));
+        logger.info("The instance contains {} RDF triples", instance.size());
 
-        System.out.println("Total RDF triples \t" + data_graph.size());
-        System.out.println("Total SHACL shapes \t" + shapes_graph.numShapes());
+        logger.info("Joining base model with instance");
+        Graph joinedGraph = new Union(model, instance);
+        logger.info("Total RDF triples: {} (roughly {}+{})", joinedGraph.size(), model.size(), instance.size());
 
-        ValidationReport report = ShaclValidator.get().validate(shapes_graph, data_graph);
+        ValidationReport report = ShaclValidator.get().validate(shapes, joinedGraph);
         if (!report.conforms()) {
-            logger.error("failed");
+            logger.error("Validation failed");
             logger.error(String.valueOf(report.getEntries()));
-        }
-        else {
-            System.out.println("Validation successful");
+        } else {
+            logger.info("Validation successful");
         }
 
+        if (waitForUser) {
+            logger.info("Press ENTER to continue, or type \"q\" to quit");
+            String input = new Scanner(System.in).nextLine();
+            if ("q".equals(input)) {
+                logger.info("Quit");
+                System.exit(0);
+            }
+        }
     }
 
     /**
      * Converts a path provided as string to a Path object
-     * @param string_path path to the file / directory
-     * @return Representation of the file / directory path as a Path object
-     * @throws MalformedURLException
+     *
+     * @param path path to the file / directory
+     * @return a representation of the file / directory path as a Path object
+     * @throws MalformedURLException if the given path cannot be converted into a URL
      */
-    private Path format_rdf_path(String string_path) throws MalformedURLException {
-        URL path_as_url = Paths.get(string_path).toUri().toURL();
+    private static Path formatRdfPath(String path) throws MalformedURLException {
+        URL path_as_url = Paths.get(path).toUri().toURL();
 
         if (path_as_url.getPath().substring(0, 4).contains(":")) {
             return Paths.get(path_as_url.getPath().substring(1));
-        }
-        else {
+        } else {
             return Paths.get(path_as_url.getPath());
         }
     }
 
     /**
-     * Reads IDS ontology (RDF/Turtle) and the RDF instance (JSON-LD) and builds a union of both.
-     * @return Jena Graph object which is the union of the rdf instance and ontology.
-     * @throws IOException
+     * Reads a base graph model into memory.
+     *
+     * @param path the path to load the model from
+     * @return the loaded graph model
+     * @throws IOException on I/O error on the given path
      */
-    public Graph readModelAndInstance() throws IOException {
-        Model ontologyModel = JenaUtil.createMemoryModel();
-        ontologyModel.read(Files.newInputStream(this.ont_path)
-                , null, "TTL");
-        Graph rdfInstanceModel = JenaUtil.createMemoryModel().getGraph();
-        byte[] json_ld_arr = Files.readAllBytes(this.instance_path);
-
-        RDFParser parser = RDFParser.create()
-                .source(new ByteArrayInputStream(json_ld_arr))
-                .lang(RDFLanguages.JSONLD)
-                .errorHandler(ErrorHandlerFactory.errorHandlerWarn).build();
-        parser.parse(rdfInstanceModel);
-
-        return new Union(rdfInstanceModel, ontologyModel.getGraph());
+    public static Graph readBaseModel(Path path) throws IOException {
+        return JenaUtil.createMemoryModel().read(Files.newInputStream(path), null, "TTL").getGraph();
     }
 
     /**
-     * Read all SHACL shapes files from the path provided
-     * @return Shapes object with all graphs parsed
-     * @throws IOException
+     * Reads an instance graph model into memory.
+     *
+     * @param path the path to load the model from
+     * @return the loaded graph model
+     * @throws IOException on I/O error on the given path
      */
-    private Shapes readSHACL() throws IOException {
+    public static Graph readInstance(Path path) throws IOException {
+        Graph rdfInstanceModel = JenaUtil.createMemoryModel().getGraph();
+        byte[] json_ld_arr = Files.readAllBytes(path);
+
+        RDFParser parser = RDFParser.create()
+                .source(new ByteArrayInputStream(json_ld_arr))
+                .lang(RDFLanguages.TURTLE)
+                .errorHandler(ErrorHandlerFactory.errorHandlerWarn).build();
+        parser.parse(rdfInstanceModel);
+
+        return rdfInstanceModel;
+    }
+
+    /**
+     * Reads all SHACL shapes files from the given path, and merges these
+     *
+     * @param path the path to load the shapes from
+     * @return all loaded shapes merged together
+     * @throws IOException on I/O error on the given path
+     */
+    private static Shapes readSHACL(Path path) throws IOException {
         Shapes shapes ;
         Model shapesModel = JenaUtil.createMemoryModel();
 
         //Get all regular SHACL files
-        System.out.println(this.shacl_path);
-        Stream<Path> paths = Files.walk(this.shacl_path)
-                            .filter(p -> p.toString().endsWith(".ttl"));
+        Stream<Path> paths = Files.walk(path)
+                .filter(p -> p.toString().endsWith(".ttl"));
 
         List<String> result = paths.filter(Files::isRegularFile)
-                                    .map(Path::toString)
-                                    .collect(Collectors.toList());
+                .map(Path::toString)
+                .collect(Collectors.toList());
 
         // generate SHACL shapes graph
         result.forEach(file -> shapesModel.read(file, FileUtils.langTurtle));
