@@ -1,5 +1,3 @@
-package de.fraunhofer.fit.ids;
-
 import org.apache.jena.graph.Graph;
 import org.apache.jena.graph.compose.Union;
 import org.apache.jena.rdf.model.Model;
