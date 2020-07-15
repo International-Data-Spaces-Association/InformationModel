@@ -51,6 +51,14 @@ ids:AppEndpoint
     # rdfs:subClassOf ids:Endpoint ; #TODO: not possible. See explanation above.
     rdfs:label "DataApp Endpoint"@en ;
     rdfs:comment "Description of endpoints a DataApp offers."@en ;
+    idsm:validation [
+        idsm:forProperty ids:appEndpointPort;
+        idsm:constraint idsm:NotNull ;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:appEndpointType;
+        idsm:constraint idsm:NotNull ;
+    ];
 .
 
 ids:AppEndpointType
