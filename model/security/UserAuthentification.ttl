@@ -6,45 +6,45 @@
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 
-ids:UserAuthentification a owl:Class;
+ids:UserAuthentication a owl:Class;
     idsm:abstract true;
-    rdfs:label "User Authentification"@en ;
-    rdfs:comment "Holds User authentification information. Differs from ids:AuthInfo. This class refers to user authentication methods that are not intended for direct data exchange with a connector."@en ;
+    rdfs:label "User Authentication"@en ;
+    rdfs:comment "Holds User authentication information. Differs from ids:AuthInfo. This class refers to user authentication methods that are not intended for direct data exchange with a connector."@en ;
 .
 
 ids:authUsername a owl:DatatypeProperty;
-    rdfs:domain ids:UserAuthentification ;
+    rdfs:domain ids:UserAuthentication ;
     rdfs:range xsd:string ;
     rdfs:label "auth username"@en ;
-    rdfs:comment "Username / ID used for authentification."@en ;
+    rdfs:comment "Username / ID used for authentication."@en ;
 .
 
 
-ids:BasicAuthentification a owl:Class;
+ids:BasicAuthentication a owl:Class;
     # idsm:abstract true ;
-    rdfs:subClassOf ids:UserAuthentification ;
-    rdfs:label "User Authentification"@en ;
-    rdfs:comment "Basic authentification using username / password "@en ;
+    rdfs:subClassOf ids:UserAuthentication ;
+    rdfs:label "User Authentication"@en ;
+    rdfs:comment "Basic authentication using username / password "@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7617> ;
     .
 
 ids:authPassword a owl:DatatypeProperty;
-    rdfs:domain ids:BasicAuthentification;
+    rdfs:domain ids:BasicAuthentication;
     rdfs:range xsd:string;
     rdfs:label "auth password" ;
-    rdfs:comment "Username / ID used for authentification.";
+    rdfs:comment "Username / ID used for authentication.";
     .
 
-ids:HTTPAuthentification a owl:Class;
-    rdfs:subClassOf ids:BasicAuthentification ;
-    rdfs:label "HTTP Authentification"@en ;
-    rdfs:comment "HTTP authentification."@en ;
+ids:HTTPAuthentication a owl:Class;
+    rdfs:subClassOf ids:BasicAuthentication ;
+    rdfs:label "HTTP Authentication"@en ;
+    rdfs:comment "HTTP authentication."@en ;
 .
 
 ids:httpAuthURI a owl:DatatypeProperty;
-    rdfs:domain ids:HTTPAuthentification;
+    rdfs:domain ids:HTTPAuthentication;
     rdfs:range xsd:anyURI;
     rdfs:label "http auth URI"@en ;
-    rdfs:comment "HTTP authentification URI."@en ;
+    rdfs:comment "HTTP authentication URI."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7235> ;
 .
