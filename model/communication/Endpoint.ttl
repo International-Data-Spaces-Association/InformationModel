@@ -75,14 +75,6 @@ ids:appEndpointDocumentation
     rdfs:comment "IRI reference to a documentation of the app endpoint,  e.g., reference to an OpenAPI-based documentation."@en ;
 .
 
-ids:appHost
-    a owl:ObjectProperty ;
-    rdfs:domain ids:AppEndpoint ;
-    rdfs:range ids:Host ;
-    rdfs:label "app host"@en ;
-    rdfs:comment "Host information of a DataApp. Used during deployment / runtime. Port of the accessUrl should map to the ids:appPort"@en ;
-.
-
 ids:appEndpointPort
     a owl:DatatypeProperty ;
     rdfs:domain ids:AppEndpoint ;
@@ -127,11 +119,13 @@ ids:appEndpointMediaType
 ids:endpointHost
     a owl:ObjectProperty;
     rdfs:label "endpoint host"@en;
-    rdfs:domain ids:Endpoint;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Endpoint ids:AppEndpoint)
+              ] ;
     rdfs:range ids:Host;
-    rdfs:comment "Network host that exposes resource content and Connector services via this endpoint."@en ;
+    rdfs:comment "Network host that exposes resource content, Connector services or App endpoint descriptions via this endpoint."@en ;
     idsm:explanation
-"""Definition of a Resource Endpoint is by purpose split into an address part (path, topic etc.)
+"""Definition of an endpoint is by purpose split into an address part (path, topic etc.)
 and host information used to augment and resolve the address. As such, the overall address space
 is self-contained and may move across hosts. Further, changes of either component (address vs. host)
 do not affect the other."""@en
@@ -154,7 +148,9 @@ ids:endpointOperationBinding
 ids:path
     a owl:DatatypeProperty;
     rdfs:label "path"@en;
-    rdfs:domain ids:Endpoint;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Endpoint ids:AppEndpoint)
+              ] ;
     rdfs:range xsd:string;
     rdfs:comment "Relative path, topic or queue at which the content is published by the related host."@en.
     # The property is mandatory for Artifact exposing Endpoints i.e. the only discriminating element
