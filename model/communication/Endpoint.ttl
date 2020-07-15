@@ -45,8 +45,7 @@ ids:InteractiveEndpoint
     owl:disjointWith ids:StaticEndpoint .
 
 # TODO: Check compatibility of ids:Endpoint for DataApp endpoints.
-# DataApp endpoints should be described when a DataApp is described / published at a Connector or the App Store.
-# Access URI (via subClassOf ids:Endpoint and its mandatory ids:host property) is network / deployment-specific, because a DataApp is an isolated software package and does not carry such information.
+# DataApp endpoints should be described when a DataApp is described / published at a Connector or the App Store. AccessURI (via subClassOf ids:Endpoint -> ids:host -> ids:Host) is network / deployment-specific. A DataApp is an isolated software package and does not carry such information.
 ids:AppEndpoint
     a owl:Class ;
     # rdfs:subClassOf ids:Endpoint ; #TODO: not possible. See explanation above.
@@ -105,7 +104,7 @@ ids:appEndpointMediaType
     rdfs:domain ids:AppEndpoint ;
     rdfs:range ids:MediaType ;
     rdfs:label "appEndpointMediaType"@en ;
-    rdfs:comment "Mediatype, such as IANAN types, of the data an endpoint expects or returns ."@en ;
+    rdfs:comment "Mediatype, such as IANA types, of the data an endpoint expects or returns ."@en ;
 .
 
 #ids:DataSink
