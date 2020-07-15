@@ -9,14 +9,14 @@ ids:AppRoute a owl:Class;
     rdfs:label "App Route"@en ;
     rdfs:comment """
     ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.
-    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is representend by the ids:EndToEndRoutes class.
+    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is represented by the ids:EndToEndRoutes class.
     ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.
     """@en ;
 .
 
 ids:RouteDeployMethod a owl:Class;
-    rdfs:label "Route deploy Type"@en ;
-    rdfs:comment "Technology used to deploy or realize the app route. "@en ;
+    rdfs:label "route deploy method"@en ;
+    rdfs:comment "Technology used to deploy or realize the app route."@en ;
 .
 
 ids:routeType a owl:ObjectProperty;
@@ -37,7 +37,7 @@ ids:routeConfiguration a owl:DatatypeProperty;
     rdfs:label "route configuration"@en ;
     rdfs:domain ids:AppRoute;
     rdfs:range xsd:string;
-    rdfs:comment "Configuration details (e.g. conentents of a config file) used to configure the route. Should be Base64 encoded."@en ;
+    rdfs:comment "Configuration details (e.g. contents of a config file) used to configure the route. Should be Base64 encoded."@en ;
 .
 
 ids:subRoute a owl:ObjectProperty;
@@ -49,7 +49,7 @@ ids:subRoute a owl:ObjectProperty;
 
 ids:EndToEndRoute a owl:Class;
     rdfs:subClassOf ids:AppRoute;
-    rdfs:label "End to end routes"@en ;
+    rdfs:label "end to end routes"@en ;
     rdfs:comment """
     EndToEndRoutes hold information about a communication pipelines between apps. An EndToEndRoute should hold
     one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.
