@@ -30,16 +30,12 @@ ids:AppRoute a owl:Class;
         ];
 .
 
-ids:RouteDeployMethod a owl:Class;
-    rdfs:label "route deploy method"@en ;
-    rdfs:comment "Technology used to deploy or realize the app route."@en ;
-.
 
-ids:routeDeployMethod a owl:ObjectProperty;
+ids:routeDeployMethod a owl:DatatypeProperty;
     rdfs:label "route deploy method"@en ;
     rdfs:domain ids:AppRoute;
-    rdfs:range ids:RouteDeployMethod;
-    rdfs:comment "Supplementary information about the technology used for routes."
+    rdfs:range xsd:string;
+    rdfs:comment "Supplementary information about, e.g., the technology used, for routes."
 .
 
 ids:routeDescription a owl:DatatypeProperty;
