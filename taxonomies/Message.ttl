@@ -521,5 +521,9 @@ ids:AppDeleteMessage a owl:Class ;
      rdfs:subClassOf ids:AppNotificationMessage ;
      rdfs:label "App Delete Message"@en;
      rdfs:comment "Message indicating that an App should be deleted from the AppStore."@en;
+     idsm:validation [
+                        idsm:forProperty ids:affectedDataAppResource;
+                        idsm:constraint idsm:NotNull;
+                    ];
 .
 
