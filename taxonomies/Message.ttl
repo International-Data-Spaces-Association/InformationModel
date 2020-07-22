@@ -503,6 +503,10 @@ ids:AppNotificationMessage a owl:Class;
     idsm:abstract true ;
     rdfs:label "App Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
+    idsm:validation [
+                idsm:forProperty ids:affectedDataAppResource;
+                idsm:constraint idsm:NotNull;
+            ];
 .
 
 ids:AppAvailableMessage a owl:Class ;
@@ -521,9 +525,5 @@ ids:AppDeleteMessage a owl:Class ;
      rdfs:subClassOf ids:AppNotificationMessage ;
      rdfs:label "App Delete Message"@en;
      rdfs:comment "Message indicating that an App should be deleted from the AppStore."@en;
-     idsm:validation [
-                        idsm:forProperty ids:affectedDataAppResource;
-                        idsm:constraint idsm:NotNull;
-                    ];
 .
 
