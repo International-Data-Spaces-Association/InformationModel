@@ -5,34 +5,34 @@
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
     "@type": "ids:SalesAgreement",
     "@id": "?URI",
-    "ids:targetArtifact": (idsc:ARTIFACT_TEMPLATE),
     "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
     "ids:permission": {
         "@type": "ids:Permission",
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
         "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        "ids:targetArtifact": (idsc:ARTIFACT_TEMPLATE),
         "ids:action": (idsc:ACTION_TEMPLATE),
         ( "ids:constraint": (idsc:CONSTRAINT_TEMPLATE), )*        // zero or more Constraints
         "ids:preobligation": {
             "@type": "ids:Obligation",
             "ids:action": {
                 "@type": "ids:Action",
-                "ids:value": "idsc:COMPENSATE",
+                "ids:value": { "@id": "idsc:COMPENSATE" },
                 "ids:actionRefinement": {
                     "@type": "ids:Constraint",
-                    "ids:leftOperand": "idsc:PAY_AMOUNT",
-                    "ids:operator": "idsc:EQ",
+                    "ids:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
+                    "ids:operator": { "@id": "idsc:EQ" },
                     "ids:rightOperand": {
                         "@value": "?price",
                         "@type": "http://www.w3.org/2001/XMLSchema#double"
                     },
-                    "ids:unit": "?currency"
+                    "ids:unit": { "@id": "?currency" }
                     (, "ids:pipEndpoint": "?pipUri" ){0,1}  // zero or one reference to a PIP endpoint
                 }
             }
         }
-        (, "ids:preobligation": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
-        (, "ids:postobligation": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
+        (, "ids:preObligation": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
+        (, "ids:postObligation": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
     }
 }
