@@ -89,6 +89,18 @@ ids:SoftwareRepresentation a owl:Class;
     rdfs:label "Software Representation"@en ;
     rdfs:comment "Software representation"@en .
 
+ids:AppRepresentation a owl:Class;
+    rdfs:subClassOf ids:SoftwareRepresentation ;
+    rdfs:label "App Representation"@en ;
+    rdfs:comment "App representation"@en .
+
+ids:dataAppInformation a owl:ObjectProperty;
+    rdfs:label "data app type"@en ;
+    rdfs:comment "type of the IDS data app"@en ;
+    rdfs:domain ids:AppRepresentation;
+    rdfs:range ids:DataApp;
+.
+
 # this is in fact covered by a (custom) media type
 # is a specific container representation format required?
 ids:ContainerRepresentation
