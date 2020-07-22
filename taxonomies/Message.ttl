@@ -477,7 +477,11 @@ ids:AppRegistrationConfirmedMessage a owl:Class;
 ids:AppUploadMessage a owl:Class;
     rdfs:subClassOf ids:UploadMessage ;
     rdfs:label "App Upload Message"@en ;
-    rdfs:comment "Message that usually follows a AppRegistrationConfirmedMessage and is used to upload a data app to the app store. Payload contains data app."@en ;
+    rdfs:comment "Message that usually follows a AppRegistrationConfirmedMessage and is used to upload a data app to the app store. Payload contains data app. Note that the message must refer to the prior sent, corresponding AppResource instance. The IRI of the ids:appArtifactReference must must match the IRI of the artifact which is the value for the ids:instance property. The ids:instance is specific for each representation. Therefore, if someone wants to upload multiple representations for an app, he has to state them using multiple ids:instance properties inside the AppRepresentation (and therefore inside the AppResource). Otherwise no mapping between payload and app metadata can be achieved."@en ;
+    idsm:validation [
+        idsm:forProperty ids:appArtifactReference;
+        idsm:constraint idsm:NotNull;
+    ].
 .
 
 ids:AppUploadConfirmedMessage a owl:Class;
@@ -486,6 +490,13 @@ ids:AppUploadConfirmedMessage a owl:Class;
     rdfs:comment "Message that follows up an AppUploadMessage and contains the app upload confimation."@en ;
 .
 
+ids:appArtifactReference rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:AppUploadMessage ;
+    rdfs:range ids:Artifact ;   
+    rdfs:label "app artifact reference"@en ;
+    rdfs:comment "IRI reference to the ids:Artifact, whose corresponding data is transfered as payload of the AppUploadMessage. The Artifact IRI reference must match the IRI of the instance IRI for the corresponding ids:AppRepresentation."@en;
+.
 
 ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
