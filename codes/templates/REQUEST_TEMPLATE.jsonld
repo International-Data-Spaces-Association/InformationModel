@@ -1,0 +1,13 @@
+// idsc:RequestTemplate
+// ------------------
+
+// The RequestTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Request position in an IDS Usage Control Template.
+
+{
+    "@context": "https://w3id.org/idsa/contexts/context.jsonld",
+    "@type": "ids:ContractRequest",
+    "@id": "?URI",
+    ("ids:provider": (idsc:PARTICIPANT_TEMPLATE), )?     // A request may not have the provider specified yet.
+    "ids:consumer": (idsc:PARTICIPANT_TEMPLATE)
+    (, "ids:permission": (idsc:PERMISSION_TEMPLATE) )+    // At least one Permission
+}

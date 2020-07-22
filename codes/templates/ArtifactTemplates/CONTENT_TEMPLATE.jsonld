@@ -1,14 +1,14 @@
-// _:ArtifactTemplate
+// _:ContentTemplate
 // ------------------
 
-// The ArtifactTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Artifact position in an IDS Usage Control Template.
+// The ContentTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Content position in an IDS Usage Control Template.
 
 (
-  { "@id": "?ArtifactUri" }                                     // directly insert the Artifact URI, if known
+  { "@id": "?ContentUri" }                                      // directly insert the Content URI, if known
 | // or
   {
     "@type": "ids:Collection",
-    "ids:source": { "@id": "?DefinedCollection" }                        // reference to a well-known Collection which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Artifact is in the Collection or not
+    "ids:source": { "@id": "?DefinedCollection" }             // reference to a well-known Collection which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Content is in the Collection or not
   }
 | // or
   {

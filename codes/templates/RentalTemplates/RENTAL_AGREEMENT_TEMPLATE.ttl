@@ -30,10 +30,10 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
             a ids:Constraint ;
             ids:leftOperand idsc:STATE ;
             ids:operator idsc:NOT ;
-            ids:rightOperand (?terminationState) ;          # An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
+            ids:rightOperand ?terminationState ;            # An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
             ( ids:pipEndpoint ?pipUri ; ){0,1} ;            # The location where to find this state.
         ] ;
-        ids:preobligation [
+        ids:preObligation [
             a ids:Obligation ;
             ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
             ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
@@ -53,7 +53,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
                 a ids:Constraint ;
                 ids:leftOperand idsc:POLICY_EVALUATION_TIME ;
                 ids:operator idsc:AFTER ;
-                ids:rightOperand (?duration) ;          # for a certain usage ?duration
+                ids:rightOperand ?duration ;                # for a certain usage ?duration
             ]
         ] ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
