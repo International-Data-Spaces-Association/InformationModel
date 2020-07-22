@@ -1,19 +1,15 @@
-// _:ArtifactTemplate
+// _:ActionTemplate
 // ------------------
 
-// The ArtifactTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Artifact position in an IDS Usage Control Template.
+// The ActionTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Action position in an IDS Usage Control Template.
 
 (
-  { "@id": "?ArtifactUri" }                                     // directly insert the Artifact URI, if known
+  { "@id": "?ActionUri" }                               // directly insert the Action URI, if known
 | // or
   {
-    "@type": "ids:Collection",
-    "ids:source": { "@id": "?DefinedCollection" }                        // reference to a well-known Collection which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Artifact is in the Collection or not
-  }
-| // or
-  {
-    "@type": "ids:Collection",                                  // a Collection with exactly one condition to describe its members
-    "ids:contentRefinement": [
+    "@type": "ids:Action",                            // a Collection with exactly one condition to describe its members
+    "ids:value": { "@id": "?ActionUri"},
+    "ids:actionRefinement": [
       {
         "@type": "ids:Constraint",                              // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
         "ids:leftOperand": { "@id": "?IdscLeftOperand" },       // The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
@@ -26,8 +22,9 @@
   }
 | // or
   {
-    "@type": "ids:Collection",
-    "ids:contentRefinement": [
+    "@type": "ids:Action",
+    "ids:value": { "@id": "?ActionUri"},
+    "ids:actionRefinement": [
       {
         "@type": "ids:LogicalConstraint",                           // A Collection with more than one condition to describe its members.
         "?IdsOperand": {                                            // The operand to connect the constraints, for instance ?IdsOperand := idsc:OR

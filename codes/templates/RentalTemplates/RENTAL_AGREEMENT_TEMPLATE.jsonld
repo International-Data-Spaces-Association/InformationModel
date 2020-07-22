@@ -5,24 +5,24 @@
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
     "@type": "ids:SalesAgreement",
     "@id": "?URI",
-    "ids:targetArtifact": (idsc:ARTIFACT_TEMPLATE),
     "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
     "ids:permission": {
         "@type": "ids:Permission",
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
         "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        "ids:targetArtifact": (idsc:ARTIFACT_TEMPLATE),
         "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
             "ids:leftOperand": { "@id": "idsc:STATE" },
             "ids:operator": { "@id": "idsc:NOT" },
-            "ids:rightOperand": { "@id": "?terminationState" },   // An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
+            "ids:rightOperand": { "@id": "?terminationState" }    // An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
             (, "ids:pipEndpoint": { "@id": "?pipUri" } ){0,1}     // The location where to find this state.
           }
         ] ,
-        "ids:preobligation": {
+        "ids:preObligation": {
             "@type": "ids:Obligation",
             "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer
@@ -49,11 +49,12 @@
                 "ids:rightOperand": {
                     "@value": "?duration",                        // for a certain usage ?duration
                     "@type": "http://www.w3.org/2001/XMLSchema#duration"
+                }
               }
             ]
         }
         (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
-        (, "ids:preobligation": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
+        (, "ids:preObligation": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
         (, "ids:postobligation": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
     }
 }
