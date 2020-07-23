@@ -402,6 +402,20 @@ ids:requestedArtifact rdf:type owl:ObjectProperty ;
     rdfs:label "Requested Artifact"@en ;
     rdfs:comment "References an artifact in the context of a request."@en.
 
+# Upload Messages
+# ----------------
+
+ids:UploadMessage a owl:Class;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "Upload Message"@en ;
+    rdfs:comment "Message used to upload a data to a recipient. Payload contains data."@en ;
+.
+
+ids:UploadConfirmedMessage a owl:Class;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "Upload Confirmed Message"@en ;
+    rdfs:comment "Message that follows up a UploadMessage and contains the upload confirmation."@en ;
+.
 
 # ParIS Messages
 # --------------
@@ -443,7 +457,15 @@ ids:LogMessage a owl:Class;
 ids:AppRegistrationRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "App Registration Request Message"@en ;
-    rdfs:comment "Message that asks for registration of a new app to the appStore. Payload contains app data."@en ;
+    rdfs:comment "Message that asks for registration or update of a data app to the App Store. Payload contains app-related metadata (instance of class ids:AppResource). Message header may contain an app identifier parameter of a prior registered data app. If the app identifier is supplied, the message should be interpreted as a registration for an app update. Otherwise this message is used to register a new app. "@en ;
+.
+
+ids:affectedDataApp rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:AppRegistrationRequestMessage ;
+    rdfs:range ids:AppResource ;   
+    rdfs:label "affected AppResource"@en ;
+    rdfs:comment "The affected data app that is referenced in the App-related messages. "@en;
 .
 
 ids:AppRegistrationConfirmedMessage a owl:Class;
@@ -452,32 +474,39 @@ ids:AppRegistrationConfirmedMessage a owl:Class;
     rdfs:comment "Message that follows up an AppRegistrationRequestMessage and contains the app registration confimation."@en ;
 .
 
-ids:AppUpdateRequestMessage a owl:Class;
-    rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "App Update Request Message"@en ;
-    rdfs:comment "Message that asks for Update of an existing app to the appStore. Payload contains app data."@en ;
+ids:AppUploadMessage a owl:Class;
+    rdfs:subClassOf ids:UploadMessage ;
+    rdfs:label "App Upload Message"@en ;
+    rdfs:comment "Message that usually follows a AppRegistrationConfirmedMessage and is used to upload a data app to the app store. Payload contains data app. Note that the message must refer to the prior sent, corresponding AppResource instance. The IRI of the ids:appArtifactReference must must match the IRI of the artifact which is the value for the ids:instance property. The ids:instance is specific for each representation. Therefore, if someone wants to upload multiple representations for an app, he has to state them using multiple ids:instance properties inside the AppRepresentation (and therefore inside the AppResource). Otherwise no mapping between payload and app metadata can be achieved."@en ;
     idsm:validation [
-                        idsm:forProperty ids:affectedDataAppResource;
-                        idsm:constraint idsm:NotNull;
-                    ];
+        idsm:forProperty ids:appArtifactReference;
+        idsm:constraint idsm:NotNull;
+    ];
 .
 
-ids:AppUpdateConfirmedMessage a owl:Class;
-    rdfs:subClassOf ids:ResponseMessage ;
-    rdfs:label "App Update Confirmed Message"@en ;
-    rdfs:comment "Message that follows up an AppUpdateRequestMessage and contains the app Update confimation."@en ;
+ids:AppUploadConfirmedMessage a owl:Class;
+    rdfs:subClassOf ids:UploadConfirmedMessage ;
+    rdfs:label "App Upload Confirmed Message"@en ;
+    rdfs:comment "Message that follows up an AppUploadMessage and contains the app upload confimation."@en ;
 .
 
+ids:appArtifactReference rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:AppUploadMessage ;
+    rdfs:range ids:Artifact ;   
+    rdfs:label "app artifact reference"@en ;
+    rdfs:comment "IRI reference to the ids:Artifact, whose corresponding data is transfered as payload of the AppUploadMessage. The Artifact IRI reference must match the IRI of the instance IRI for the corresponding ids:AppRepresentation."@en;
+.
 
 ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
     idsm:abstract true ;
     rdfs:label "App Notification Message"@en ;
-    rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages shall cause a state change at the recipient, the AppStore."@en;
+    rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
     idsm:validation [
-                        idsm:forProperty ids:affectedDataAppResource;
-                        idsm:constraint idsm:NotNull;
-                    ];
+                idsm:forProperty ids:affectedDataAppResource;
+                idsm:constraint idsm:NotNull;
+            ];
 .
 
 ids:AppAvailableMessage a owl:Class ;
@@ -498,14 +527,3 @@ ids:AppDeleteMessage a owl:Class ;
      rdfs:comment "Message indicating that an App should be deleted from the AppStore."@en;
 .
 
-ids:affectedAppResource rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
-    rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:AppNotificationMessage ids:AppUpdateRequestMessage)
-              ] ;
-    rdfs:range ids:Resource ;   
-    # ToDo: 
-    #     Change range to the correct AppResource class, if defined.
-    rdfs:label "affected App"@en ;
-    rdfs:comment "The affected App that is referenced in the App-related notification messages. "@en;
-.
