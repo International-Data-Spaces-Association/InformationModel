@@ -23,24 +23,6 @@ shapes:
 	] .
 
 
-shapes:SpatialEntityShape
-	a sh:NodeShape ; 
-	sh:targetClass ids:SpatialEntity ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (SpatialEntityShape): An ids:SpatialEntity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:SpatialEntity)
-			}
-		""" ;
-	] .
-
-
 shapes:LocationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Location ;
