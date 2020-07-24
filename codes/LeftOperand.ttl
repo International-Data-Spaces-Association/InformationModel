@@ -80,20 +80,20 @@ idsc:SECURITY_LEVEL a ids:LeftOperand;
     .
 
 # interaction
-idsc:ENDPOINT a ids:BinaryOperator;
+idsc:ENDPOINT a ids:BinaryOperator; #TODO Why BinaryOperator???
     rdfs:label "endpoint" ;
     rdfs:comment "Remote target for an action or information provider (PIP). Must be used together with idsc:IS or idsc:IN operators. RightOperand must be a xsd:anyUri or an URL which should point to an actually deployed endpoint. An example is a refinment of idsc:NOTIFY where idsc:REMOTE points to a Clearing House."@en ;
     .
 
 
-idsc:SYSTEM a ids:BinaryOperator;
+idsc:SYSTEM a ids:BinaryOperator; #TODO Why BinaryOperator???
     rdfs:label "system" ;
     rdfs:comment "IT system a resource is managed. Must be used together with idsc:IS or idsc:IN operators. RightOperand must be a xsd:anyUri or an URL which should point to an actually deployed system."@en ;
     .
 
 
 # attribute
-idsc:PATH a ids:BinaryOperator ;
+idsc:PATH a ids:BinaryOperator ; #TODO Why BinaryOperator???
     rdfs:label "path to attribute" ;
     rdfs:comment "Path to specific attribute (default JsonPath). Must be used together with idsc:STRING_EQ, idsc:STRING_CONTAINS, idsc:STRING_IS_CONTAINED, or idsc:MATCHES operators. RightOperand must be a xsd:string."@en ;
     .
