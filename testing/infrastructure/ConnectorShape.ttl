@@ -101,12 +101,12 @@ shapes:ConnectorShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:catalog ;
-		sh:class ids:Catalog ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
+		sh:path ids:resourceCatalog ;
+		sh:class ids:ResourceCatalog ;
+		#sh:minCount 1 ;
+		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:Catalog linked through the ids:catalog property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must point to an  ids:ResourceCatalog via the ids:resourceCatalog property."@en ;
 	] ;
 
 	sh:property [
