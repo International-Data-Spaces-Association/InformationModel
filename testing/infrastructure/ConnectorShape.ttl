@@ -40,22 +40,6 @@ shapes:ConnectorShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:host ;
-		sh:class ids:Host ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:host property must point from an ids:Connector to an ids:Host."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:defaultHost ;
-		sh:class ids:Host ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:defaultHost property must point from an ids:Connector to an ids:Host."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:securityProfile ;
 		sh:class ids:SecurityProfile ;
 		sh:minCount 1 ;
@@ -112,9 +96,19 @@ shapes:ConnectorShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:hasEndpoint ;
-		sh:class ids:Endpoint ;
+		sh:class ids:ConnectorEndpoint ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector can have an ids:Enpoint linked through the ids:hasEndpoint property."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector can have an ids:ConnectorEnpoint linked through the ids:hasEndpoint property."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:hasDefaultEndpoint ;
+		sh:class ids:ConnectorEndpoint ;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:ConnectorEnpoint linked through the ids:hasDefaultEndpoint property."@en ;
 	] ;
 .
 

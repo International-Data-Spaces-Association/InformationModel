@@ -19,11 +19,7 @@ ids:Connector
 #    idsm:validation [
 #        idsm:forProperty ids:catalog;
 #        idsm:constraint idsm:NotNull;
-#    ]; 
-    idsm:validation [
-        idsm:forProperty ids:host;
-        idsm:relationType idsm:OneToMany;
-    ]; 
+#    ];
     idsm:validation [
         idsm:forProperty ids:hasEndpoint;
         idsm:relationType idsm:OneToMany;
@@ -41,7 +37,7 @@ ids:Connector
         idsm:constraint idsm:NotNull;
     ]; 
     idsm:validation [
-        idsm:forProperty ids:hasAgents;
+        idsm:forProperty ids:hasAgent;
         idsm:relationType idsm:OneToMany;
     ].
 
@@ -58,30 +54,19 @@ ids:TrustedConnector rdfs:subClassOf ids:Connector ;
 # Properties
 # ----------
 
-ids:host
+ids:hasDefaultEndpoint
     a owl:ObjectProperty;
-    rdfs:label "host"@en;
+    rdfs:label "has default endpoint"@en;
     rdfs:domain ids:Connector;
-    rdfs:range ids:Host;
-    rdfs:comment "Networked host operated by the Connector in order to serve and consume resource content and services."@en.
-
-ids:defaultHost
-    a owl:ObjectProperty;
-    rdfs:label "Default Host"@en;
-    rdfs:domain ids:Connector;
-    rdfs:range ids:Host;
-    rdfs:comment "Indicates the default host that should be used for basic infrastructure interactions, e.g., providing the self description."@en.
+    rdfs:range ids:ConnectorEndpoint;
+    rdfs:comment "Indicates the default endpoint that should be used for basic infrastructure interactions, e.g., providing the self description."@en.
 
 # see also ids:hasEndpoint Property also for ids:Resource
 ids:hasEndpoint
     a owl:ObjectProperty;
-    rdfs:label "connector endpoint"@en ;
+    rdfs:label "has endpoint"@en ;
     rdfs:domain ids:Connector ;
-    #[ # todo for IM 4.0.0
-    #            rdf:type owl:Class ;
-    #            owl:unionOf ( ids:Resource ids:Connector )
-    #          ] ;
-    rdfs:range ids:Endpoint;
+    rdfs:range ids:ConnectorEndpoint;
     rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en.
 
 ids:securityProfile a owl:ObjectProperty;
