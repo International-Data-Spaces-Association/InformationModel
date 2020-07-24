@@ -73,9 +73,17 @@ ids:JwtPayload a owl:Class ;
         idsm:forProperty ids:transportCertsSha256;
         idsm:relationType idsm:OneToMany;
     ]; 
+    idsm:validation [
+        idsm:forProperty ids:transportCertsSha256;
+        idsm:constraint idsm:NotNull;
+    ]
     .
 
-
+ids:transportCertsSha256 a owl:DatatypeProperty;
+    rdfs:domain ids:JwtPayload ;
+    rdfs:range xsd:string;
+    rdfs:label "transportCertsSha256"@en;
+    rdfs:comment "Separate certificates for IDS identification and transport encryption opens an attack vector for relay attacks. In order to prevent these attacks, a binding of this transport certificates to the connector is required. The inclusion of SHA256 fingerprints of currently valid transport certificates, mainly into the DAT, enables the client to relate the transport layer security with the IDS interactions."@en.
 
 ids:DatPayload
     a owl:Class ;
