@@ -12,29 +12,57 @@
 ids:Catalog
     rdfs:subClassOf dcat:Catalog;
     a owl:Class;
+    idsm:abstract true;
     rdfs:label "Catalog"@en ;
+    rdfs:comment "Class that represents (distributable) Catalogs."@en ;
+    .
+
+ids:ResourceCatalog
+    rdfs:subClassOf ids:Catalog;
+    a owl:Class;
+    rdfs:label "Resource Catalog"@en ;
     rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en ;
     idsm:validation [
-        idsm:forProperty ids:request;
+        idsm:forProperty ids:requestedResources;
         idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
-        idsm:forProperty ids:offer;
+        idsm:forProperty ids:offeredResources;
         idsm:relationType idsm:OneToMany;
-    ].
+    ];
+.
+
+ids:ParticipantCatalog
+    rdfs:subClassOf ids:Catalog;
+    a owl:Class;
+    rdfs:label "Participant Catalog"@en ;
+    rdfs:comment "Class that aggregates Participants which, as a whole, from a (distributable) Catalog."@en ;
+    idsm:validation [
+        idsm:forProperty ids:members;
+        idsm:relationType idsm:OneToMany;
+    ];
+.
 
 # Properties
 # ----------
 
-ids:offer a owl:ObjectProperty;
-    rdfs:domain ids:Catalog;
+ids:offeredResources a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:dataset;
+    rdfs:domain ids:ResourceCatalog;
     rdfs:range ids:Resource;
-    rdfs:label "offer"@en;
-    rdfs:comment "A Resource that is part of a Connector, indicating a offering (of, e.g., data)."@en.
+    rdfs:label "offered resources"@en;
+    rdfs:comment "A resource that is part of a resource catalog, indicating an offering (of, e.g., data)."@en.
 
-ids:request a owl:ObjectProperty;
-    rdfs:domain ids:Catalog;
+ids:requestedResources a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:dataset;
+    rdfs:domain ids:ResourceCatalog;
     rdfs:range ids:Resource;
     rdfs:label "request"@en;
-    rdfs:comment "A Resource that is part of a Connector, indicating a request (of, e.g., data, software,...)."@en.
+    rdfs:comment "A resource that is part of a resource catalog, indicating a request (of, e.g., data, software,...)."@en.
 
+ids:members a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:dataset;
+    rdfs:domain ids:ParticipantCatalog;
+    rdfs:range ids:Participant;
+    rdfs:label "offer"@en;
+    rdfs:comment "A Participant, that is part of a participant catalog."@en.

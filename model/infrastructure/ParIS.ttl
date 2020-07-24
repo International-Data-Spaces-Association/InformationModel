@@ -12,4 +12,12 @@ ids:ParIS
     rdfs:subClassOf ids:Connector;
     rdfs:label "Participant Information Service"@en ;
     rdfs:comment "The Participant Information Service (ParIS) provides metadata and relevant information about participants (humans and organizations) in the International Data Spaces."@en .
+    
 
+ids:participantCatalog
+    a owl:ObjectProperty;
+    rdfs:domain ids:ParIS;
+    rdfs:range ids:ParticipantCatalog;
+    rdfs:label "participant catalog"@en ;
+    rdfs:comment "List of participants a ParIS may expose."@en ;
+    .
