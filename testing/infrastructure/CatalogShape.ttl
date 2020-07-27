@@ -72,3 +72,16 @@ shapes:ParticipantCatalogShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ParticipantCatalog): An ids:members property must point from an ids:ParticipantCatalog to an ids:Participant."@en ;
 	] ;
 .
+
+
+shapes:ConnectorCatalogShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:ConnectorCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:listedConnector ;
+		sh:class ids:Connector ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ConnectorCatalog): An ids:listedConnector property must point from an ids:ConnectorCatalog to an ids:Connector."@en ;
+	] ;
+.
