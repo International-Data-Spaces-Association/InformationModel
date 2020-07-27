@@ -79,3 +79,14 @@ ids:SoftwareRepresentation a owl:Class;
     rdfs:label "Software Representation"@en ;
     rdfs:comment "Software representation"@en .
 
+ids:AppRepresentation a owl:Class;
+    rdfs:subClassOf ids:SoftwareRepresentation ;
+    rdfs:label "App Representation"@en ;
+    rdfs:comment "App representation"@en .
+
+ids:dataAppInformation a owl:ObjectProperty;
+    rdfs:label "data app information"@en ;
+    rdfs:comment "Information about the concrete data app implementation"@en ;
+    rdfs:domain ids:AppRepresentation;
+    rdfs:range ids:DataApp;
+.
