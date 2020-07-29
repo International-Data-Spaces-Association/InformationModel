@@ -13,8 +13,189 @@
 
 ids:SalesAgreement a owl:Class ;
   rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Sales Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the Perpetual Data Sale policy class."@en ;
+  .
+
+ids:PurposeAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Purpose Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Purpose-restricted Data Usage' policy class."@en ;
+  .
+
+ids:NotMoreThanNAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Use Not More Than N Times Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Restricted Number of Usages' policy class."@en ;
+  .
+
+ids:RentalAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Rental Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Data Rental' policy class."@en ;
+  .
+
+ids:SwapAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Swap Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Data Swap' policy class."@en ;
+  .
+
+ids:DurationAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Duration Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Duration-restricted Data Usage' policy class."@en ;
+  .
+
+ids:IntervalUsageAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Interval Usage Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Interval-restricted Data Usage' policy class."@en ;
+  .
+
+ids:DeleteAfterIntervalAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Delete After Interval Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Interval-restricted Data Usage' policy class with the further obligation to delete the data."@en ;
 .
 
-ids:BlaBlaAgreement a owl:Class ;
-  rdfs:subClassOf ids:SalesAgreement ;
-.
+ids:LoggingAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Logging Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Local Logging' policy class."@en ;
+  .
+
+ids:NotificationAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Notification Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Remote Notifications' policy class."@en ;
+  .
+
+
+# Offers
+# ------
+
+ids:SalesOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Perpetual Data Sale' policy class."@en ;
+  .
+
+ids:PurposeOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Purpose-restricted Data Usage' policy class."@en ;
+  .
+
+ids:NotMoreThanNOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Restricted Number of Usages' policy class."@en ;
+  .
+
+ids:RentalOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Data Rental' policy class."@en ;
+  .
+
+ids:SwapOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Data Swap' policy class."@en ;
+  .
+
+ids:DurationOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Duration-restricted Data Usage' policy class."@en ;
+  .
+
+ids:IntervalUsageOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Interval-restricted Data Usage' policy class."@en ;
+  .
+
+ids:DeleteAfterIntervalOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Interval-restricted Data Usage' policy class with the further obligation to delete the data."@en ;
+  .
+
+ids:LoggingOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Local Logging' policy class."@en ;
+  .
+
+ids:NotificationOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Sales Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Remote Notifications' policy class."@en ;
+  .
+
+
+
+# Requests
+# ------
+
+ids:SalesRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Perpetual Data Sale' policy class."@en ;
+  .
+
+ids:PurposeRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Purpose-restricted Data Usage' policy class."@en ;
+  .
+
+ids:NotMoreThanNRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Restricted Number of Usages' policy class."@en ;
+  .
+
+ids:RentalRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Data Rental' policy class."@en ;
+  .
+
+ids:SwapRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Data Swap' policy class."@en ;
+  .
+
+ids:DurationRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Duration-restricted Data Usage' policy class."@en ;
+  .
+
+ids:IntervalUsageRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Interval-restricted Data Usage' policy class."@en ;
+  .
+
+ids:DeleteAfterIntervalRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Interval-restricted Data Usage' policy class with the further obligation to delete the data."@en ;
+  .
+
+ids:LoggingRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Local Logging' policy class."@en ;
+  .
+
+ids:NotificationRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Sales Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Remote Notifications' policy class."@en ;
+  .

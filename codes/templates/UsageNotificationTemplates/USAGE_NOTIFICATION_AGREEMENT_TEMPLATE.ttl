@@ -12,7 +12,7 @@
 # Template
 # --------
 
-idsc:USAGE_NOTIFICATION_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
+idsc:USAGE_NOTIFICATION_AGREEMENT_TEMPLATE a ids:NotificationAgreement ;
     rdfs:label "Usage Notification Agreement Template" ;
     spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Target given that the
     Consumer notifies ?notificationTarget each time the Target is used."""@en ;
@@ -25,12 +25,15 @@ idsc:USAGE_NOTIFICATION_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;
         ids:target idsc:TARGET_TEMPLATE ;
-        ids:action idsc:ACTION_TEMPLATE ;
-        ids:constraint [
-            a ids:Constraint ;
-            ids:leftOperand idsc:NOTIFY ;
-            ids:operator idsc:EQ ;
-            ids:rightOperand ?dataIsUsed ;                  # TODO: How to check access and specify who to notify ???
+        ids:action [
+            a ids:Action ;
+            ids:includedIn idsc:NOTIFY ;
+            ids:actionRefinement [
+                a ids:Constraint ;
+                ids:leftOperand idsc:ENDPOINT ;
+                ids:operator idsc:DEFINES_AS ;
+                ids:rightOperandReference ?notificationEndpointUrl ; # Send notification information to this URL
+            ]
         ] ;
         [ ids:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints
         [ ids:preObligation idsc:OBLIGATION_TEMPLATE ; ]*   # zero or more Obligations which need to be fulfilled before the Usage event

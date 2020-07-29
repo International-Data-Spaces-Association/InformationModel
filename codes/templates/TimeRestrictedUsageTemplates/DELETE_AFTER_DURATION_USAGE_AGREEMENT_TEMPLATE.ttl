@@ -12,7 +12,7 @@
 # Template
 # --------
 
-idsc:DELETE_AFTER_DURATION_USAGE_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
+idsc:DELETE_AFTER_DURATION_USAGE_AGREEMENT_TEMPLATE a ids:DurationAgreement ;
     rdfs:label "Time limited Data Usage Agreement Template" ;
     spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Artifact for a duration of
     ?duration given that the Consumer pays ?fee."""@en ;
@@ -24,7 +24,7 @@ idsc:DELETE_AFTER_DURATION_USAGE_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
         a ids:Permission ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
-        ids:target idsc:TARGET_TEMPLATE ;
+        ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         # TODO: Missing: How to define POLICY_EVALUATION_TIME + duration?
         ids:postObligation [
@@ -33,13 +33,13 @@ idsc:DELETE_AFTER_DURATION_USAGE_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
             ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
             ids:action [
                 a ids:Action ;
-                ids:value idsc:DELETE ;
+                ids:includedIn idsc:DELETE ;
                 ids:actionRefinement [
                     ids:constraint [
                         a ids:Constraint ;
-                        ids:leftOperand idsc:POLICY_EVALUATION_TIME ;
-                        ids:operator idsc:AFTER ;
-                        ids:rightOperand ?duration ;                # for a certain usage ?duration
+                        ids:leftOperand idsc:ELAPSED_TIME ;
+                        ids:operator idsc:DURATION_EQ ;
+                        ids:rightOperand ?duration ;        # for a certain usage ?duration
                     ] ;
                 ]
             ] ;

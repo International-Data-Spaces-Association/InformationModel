@@ -25,9 +25,15 @@ idsc:POLICY_EVALUATION_TIME a ids:LeftOperand;
     rdfs:comment "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity."@en ;
 .
 
+idsc:ELAPSED_TIME a ids:LeftOperand ;
+rdfs:seeAlso odrl:elapsedTime;
+rdfs:label "elapsed time"@en ;
+rdfs:comment "A continuous elapsed time period which may be used for exercising of the action of the Rule. Allowed operators are idsc:SHORTER, idsc:SHORTER_EQ, idsc:LONGER, idsc:LONGER_EQ, and idsc:DURATION_EQ with datatype xsd:duration."@en ;
+.
+
 idsc:DELAY a ids:LeftOperand ;
     rdfs:label "delay"@en ;
-    rdfs:comment "Delay the action. Use idsc:DURATION_EQ, idsc:LONGER, idsc:LONGER_EQ, idsc:SHORTER_EQ, or idsc:SHORTER with datatypes xsd:duration."@en ;
+    rdfs:comment "Delay the action. Use idsc:DURATION_EQ, idsc:LONGER, idsc:LONGER_EQ, idsc:SHORTER_EQ, or idsc:SHORTER with datatype xsd:duration."@en ;
 .
 
 #
@@ -80,20 +86,20 @@ idsc:SECURITY_LEVEL a ids:LeftOperand;
     .
 
 # interaction
-idsc:ENDPOINT a ids:BinaryOperator; #TODO Why BinaryOperator???
+idsc:ENDPOINT a ids:LeftOperand;
     rdfs:label "endpoint" ;
     rdfs:comment "Remote target for an action or information provider (PIP). Must be used together with idsc:IS or idsc:IN operators. RightOperand must be a xsd:anyUri or an URL which should point to an actually deployed endpoint. An example is a refinment of idsc:NOTIFY where idsc:REMOTE points to a Clearing House."@en ;
     .
 
 
-idsc:SYSTEM a ids:BinaryOperator; #TODO Why BinaryOperator???
+idsc:SYSTEM a ids:LeftOperand;
     rdfs:label "system" ;
     rdfs:comment "IT system a resource is managed. Must be used together with idsc:IS or idsc:IN operators. RightOperand must be a xsd:anyUri or an URL which should point to an actually deployed system."@en ;
     .
 
 
 # attribute
-idsc:PATH a ids:BinaryOperator ; #TODO Why BinaryOperator???
+idsc:PATH a ids:LeftOperand ;
     rdfs:label "path to attribute" ;
     rdfs:comment "Path to specific attribute (default JsonPath). Must be used together with idsc:STRING_EQ, idsc:STRING_CONTAINS, idsc:STRING_IS_CONTAINED, or idsc:MATCHES operators. RightOperand must be a xsd:string."@en ;
     .

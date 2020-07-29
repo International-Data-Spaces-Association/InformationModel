@@ -12,7 +12,7 @@
 # Template
 # --------
 
-idsc:USAGE_DURING_INTERVAL_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
+idsc:USAGE_DURING_INTERVAL_AGREEMENT_TEMPLATE a ids:IntervalUsageAgreement ;
     rdfs:label "Usage During Interval Agreement Template" ;
     spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Target between a specified start point
     and endpoint in time."""@en ;
@@ -24,17 +24,17 @@ idsc:USAGE_DURING_INTERVAL_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
         a ids:Permission ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
-        ids:target idsc:TARGET_TEMPLATE ;
+        ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [
 					ids:leftOperand idsc:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:AFTER ;
-					ids:rightOperand "?startDateTime"^^xsd:dateTime ;
+					ids:rightOperand "?startDateTime"^^xsd:dateTimeStamp ; # ?startDateTime < ?endDateTime
 				] ;
 				ids:constraint [
 					ids:leftOperand ids:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:BEFORE ;
-					ids:rightOperand "?endDateTime"^^xsd:dateTime ;
+					ids:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
 				] ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event

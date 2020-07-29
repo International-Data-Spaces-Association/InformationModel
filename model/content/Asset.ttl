@@ -19,12 +19,11 @@ ids:Asset
 .
 
 
-
 ids:AssetCollection
     a owl:Class;
-    rdfs:subClassOf odrl:AssetCollection ;
+    rdfs:subClassOf ids:Asset, odrl:AssetCollection ;
     rdfs:label "Asset Collection"@en ;
-    rdfs:comment "TODO"@en;
+    rdfs:comment "Am AssetCollection is a bracket object combining several ids:Assets."@en;
 .
 
 
@@ -33,16 +32,16 @@ ids:AssetCollection
 
 ids:assetSource a owl:ObjectProperty ;
     rdfs:subPropertyOf odrl:source ;
-    rdfs:label ""@en ;
+    rdfs:label "asset source"@en ;
     rdfs:domain ids:AssetCollection ;
     rdfs:range xsd:anyUri ;
-    rdfs:comment "TODO"@en ;
+    rdfs:comment "A remote link to the location (PIP) where this AssetCollection and its members are maintained."@en ;
 .
 
 ids:assetRefinement a owl:ObjectProperty ;
     rdfs:subPropertyOf odrl:refinement ;
-    rdfs:label ""@en ;
+    rdfs:label "asset refinement"@en ;
     rdfs:domain ids:AssetCollection ;
     rdfs:range ids:AbstractConstraint ;
-    rdfs:comment "TODO"@en ;
+    rdfs:comment "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."@en ;
 .

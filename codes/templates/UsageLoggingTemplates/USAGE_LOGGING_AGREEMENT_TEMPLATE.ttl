@@ -12,7 +12,7 @@
 # Template
 # --------
 
-idsc:USAGE_LOGGING_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
+idsc:USAGE_LOGGING_AGREEMENT_TEMPLATE a ids:LoggingAgreement ;
     rdfs:label "Usage Logging Agreement Template" ;
     spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Target given that the
     Consumer logs each time the Target is used."""@en ;
@@ -24,23 +24,13 @@ idsc:USAGE_LOGGING_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
         a ids:Permission ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
-        ids:target idsc:TARGET_TEMPLATE ;
+        ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:postObligation [
             a ids:Obligation ;
             ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
             ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
-            ids:action [
-                a ids:Action ;
-                ids:value idsc:NOTIFY ;
-                ids:actionRefinement [
-                    a ids:Constraint ;
-                    ids:leftOperand idsc:STATE ;
-                    ids:operator idsc:EQ ;
-                    ids:rightOperand ?dataIsUsed ;              # TODO: How to evaluate that? Probably a better solution possible...
-                ]
-            ] ;
-
+            ids:action idsc:LOG ;
         ] ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event

@@ -12,7 +12,7 @@
 # Template
 # --------
 
-idsc:USAGE_UNTIL_DELETION_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
+idsc:USAGE_UNTIL_DELETION_AGREEMENT_TEMPLATE a ids:DeleteAfterIntervalAgreement ;
     rdfs:label "Usage Until Deletion Agreement Template" ;
     spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Target until ?deletionDateTime,
     when the Target has to be deleted."""@en ;
@@ -24,17 +24,17 @@ idsc:USAGE_UNTIL_DELETION_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
         a ids:Permission ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
-        ids:target idsc:TARGET_TEMPLATE ;
+        ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [
 					ids:leftOperand idsc:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:AFTER ;
-					ids:rightOperand "?startDateTime"^^xsd:dateTime ;
+					ids:rightOperand "?startDateTime"^^xsd:dateTimeStamp ;
 				] ;
 				ids:constraint [
 					ids:leftOperand ids:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:BEFORE ;
-					ids:rightOperand "?endDateTime"^^xsd:dateTime ;
+					ids:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
 				] ;
         ids:postObligation [
             a ids:Obligation ;
@@ -42,13 +42,13 @@ idsc:USAGE_UNTIL_DELETION_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
             ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
             ids:action [
                 a ids:Action ;
-                ids:value idsc:DELETE ;
+                ids:includedIn idsc:DELETE ;
                 ids:actionRefinement [
                     ids:constraint [
                         a ids:Constraint ;
                         ids:leftOperand idsc:POLICY_EVALUATION_TIME ;
                         ids:operator idsc:TEMPORAL_EQUALS ;
-                        ids:rightOperand "?endDateTime"^^xsd:dateTime ;
+                        ids:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
                     ] ;
                 ]
             ] ;
