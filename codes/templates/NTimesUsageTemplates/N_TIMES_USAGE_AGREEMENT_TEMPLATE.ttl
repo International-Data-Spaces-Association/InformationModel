@@ -12,11 +12,10 @@
 # Template
 # --------
 
-idsc:SALES_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
-    rdfs:label "Sales Agreement Template" ;
-    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Artifact given that the
-    Consumer has payed the ?price."""@en ;
-    rdfs:comment "This template models the perpetual transfer of data against one-off payment."@en ;
+idsc:N_TIMES_USAGE_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
+    rdfs:label "N Times Usage Agreement Template" ;
+    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action ?n times on its specified Target."""@en ;
+    rdfs:comment "This template models the limited usage of accessing data ?n times."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
     ids:consumer idsc:PARTICIPANT_TEMPLATE ;
@@ -26,24 +25,13 @@ idsc:SALES_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
         ids:target idsc:TARGET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
-        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
-        ids:preObligation [
-            a ids:Obligation ;
-            ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
-            ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
-            ids:action [
-                a ids:Action ;
-                ids:value idsc:COMPENSATE ;
-                ids:actionRefinement [
-                    a ids:Constraint ;
-                    ids:leftOperand idsc:PAY_AMOUNT ;
-                    ids:operator idsc:EQ ;
-                    ids:rightOperand "?price"^^xsd:double ;
-                    ids:unit ?currency ;
-                    ( ids:pipEndpoint ?pipUri ; )?
-                ]
-            ] ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:COUNT ;
+            ids:operator idsc:LTEQ ;
+            ids:rightOperand ?n ;
         ] ;
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
         ( ids:postObligation idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ]

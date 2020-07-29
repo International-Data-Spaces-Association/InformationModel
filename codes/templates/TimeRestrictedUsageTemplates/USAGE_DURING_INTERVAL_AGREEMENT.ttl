@@ -12,11 +12,11 @@
 # Template
 # --------
 
-idsc:SALES_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
-    rdfs:label "Sales Agreement Template" ;
-    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Artifact given that the
-    Consumer has payed the ?price."""@en ;
-    rdfs:comment "This template models the perpetual transfer of data against one-off payment."@en ;
+idsc:USAGE_DURING_INTERVAL_AGREEMENT_TEMPLATE a ids:ContractAgreement ;
+    rdfs:label "Usage During Interval Agreement Template" ;
+    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Target between a specified start point
+    and endpoint in time."""@en ;
+    rdfs:comment "This template models the time limited usage of data."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
     ids:consumer idsc:PARTICIPANT_TEMPLATE ;
@@ -26,25 +26,18 @@ idsc:SALES_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
         ids:target idsc:TARGET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+					ids:leftOperand idsc:POLICY_EVALUATION_TIME ;
+					ids:operator idsc:AFTER ;
+					ids:rightOperand "?startDateTime"^^xsd:dateTime ;
+				] ;
+				ids:constraint [
+					ids:leftOperand ids:POLICY_EVALUATION_TIME ;
+					ids:operator idsc:BEFORE ;
+					ids:rightOperand "?endDateTime"^^xsd:dateTime ;
+				] ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
-        ids:preObligation [
-            a ids:Obligation ;
-            ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
-            ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
-            ids:action [
-                a ids:Action ;
-                ids:value idsc:COMPENSATE ;
-                ids:actionRefinement [
-                    a ids:Constraint ;
-                    ids:leftOperand idsc:PAY_AMOUNT ;
-                    ids:operator idsc:EQ ;
-                    ids:rightOperand "?price"^^xsd:double ;
-                    ids:unit ?currency ;
-                    ( ids:pipEndpoint ?pipUri ; )?
-                ]
-            ] ;
-        ] ;
-        ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
+        ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postObligation idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ]
 .
