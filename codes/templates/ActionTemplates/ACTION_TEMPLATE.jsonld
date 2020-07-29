@@ -4,11 +4,11 @@
 // The ActionTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Action position in an IDS Usage Control Template.
 
 (
-  { "@id": "?ActionUri" }                               // directly insert the Action URI, if known
+  { "@id": "?ActionUri" }                                       // directly insert the Action URI, if known
 | // or
   {
-    "@type": "ids:Action",                            // a Collection with exactly one condition to describe its members
-    "ids:value": { "@id": "?ActionUri"},
+    "@type": "ids:Action",                                      // a Collection with exactly one condition to describe the Action
+    "ids:includedIn": { "@id": "?ActionUri"},                   // The general Action, which is further constrained. For instance a idsc:WRITE is only possible if an attribute "color" is equals to "blue"
     "ids:actionRefinement": [
       {
         "@type": "ids:Constraint",                              // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
@@ -23,7 +23,7 @@
 | // or
   {
     "@type": "ids:Action",
-    "ids:value": { "@id": "?ActionUri"},
+    "ids:includedIn": { "@id": "?ActionUri"},
     "ids:actionRefinement": [
       {
         "@type": "ids:LogicalConstraint",                           // A Collection with more than one condition to describe its members.
@@ -35,7 +35,7 @@
                 "ids:leftOperand": { "@id": "?IdscLeftOperand" },
                 "ids:operator": { "@id": "?IdsBinaryOperator" },
                 "ids:rightOperand": { "@id": "?Value" }
-                (, "ids:ids:pipEndpoint": { "@id": "?AttributeLocation" } )?
+                (, "ids:pipEndpoint": { "@id": "?AttributeLocation" } )?
                 (, "ids:unit": { "@id": "?Unit" } )?
               }
             ){2,} // at least two constraints

@@ -10,32 +10,32 @@
 @prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 
-shapes:ArtifactTemplateShape
+shapes:AssetTemplateShape
 	a sh:NodeShape ;
 	sh:or (
 		[
 			sh:nodeKind sh:IRI ; # it's an RDF URI
 		]
 		[
-			sh:class ids:Collection ; # it's a simple Collection
+			sh:class ids:AssetCollection ; # it's a simple Collection
 			sh:property [
-				sh:path         ids:contentRefinement ;
-				sh:class 		ids:Constraint ;
+				sh:path         ids:assetRefinement ;
+				sh:class 				ids:Constraint ;
 				sh:maxCount     1 ;
 				sh:minInclusive 1 ;
 				sh:severity     sh:Violation ;
 			] ;
 		]
 		[
-			sh:class ids:Collection ; # it's a Collection with LogicalConstraints
+			sh:class ids:AssetCollection ; # it's a Collection with LogicalConstraints
 			sh:property [
 				sh:path [
-					sh:or ( ids:OR ids:AND ids:XONE ids:andSequence );
+					sh:or ( ids:or ids:and ids:xone );
 				];
 				sh:minInclusive 2 ;
 				sh:class ids:LogicalConstraint ;
 				sh:property [
-					sh:path         ids:contentRefinement ;
+					sh:path     ids:assetRefinement ;
 					sh:class 		ids:Constraint ;
 					sh:maxCount     1 ;
 					sh:minInclusive 1 ;

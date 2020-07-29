@@ -19,8 +19,8 @@
 | # or
     [
         a ids:Action ;
-        ids:value ?ActionUri ;
-        ids:actionRefinement [                                    # a Collection with exactly one condition to describe its members
+        ids:includedIn ?ActionUri ;                         # The general Action, which is further constrained. For instance a idsc:WRITE is only possible if an attribute "color" is equals to "blue".
+        ids:actionRefinement [                              # a Collection with exactly one condition to describe its members
             a ids:Constraint ;                              # Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
             ids:leftOperand ?IdscLeftOperand ;              # The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
             ids:operator ?IdscBinaryOperator ;              # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
@@ -32,7 +32,7 @@
 | # or
     [
         a ids:Action ;
-        ids:value ?ActionUri ;
+        ids:includedIn ?ActionUri ;
         ids:actionRefinement [
             a ids:LogicalConstraint ;                       # A Collection with more than one condition to describe its members.
             ?IdsOperand                                     # The operand to connect the constraints, for instance ?IdsOperand := idsc:OR

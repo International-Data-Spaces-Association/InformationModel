@@ -23,7 +23,7 @@ shapes:
 
 
 shapes:RuleShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Rule ;
 
 	sh:sparql [
@@ -70,33 +70,23 @@ shapes:RuleShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:targetArtifact ;
-		sh:class ids:Artifact ;
+		sh:path ids:target ;
+		sh:class ids:Asset ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:targetArtifact property must point from an ids:Rule to an ids:Artifact."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:targetContent ;
-		sh:class ids:DigitalContent ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:DigitalContent linked through the ids:targetContent property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must point from an ids:Rule to an ids:Asset."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:constraint ;
-		sh:class ids:Constraint ;
+		sh:class ids:AbstractConstraint ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:constraint property must point from an ids:Rule to an ids:Constraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:constraint property must point from an ids:Rule to an ids:Constraint or ids:LogicalConstraint."@en ;
 	] .
 
 
 shapes:PermissionShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Permission ;
 
 	sh:property [
@@ -106,66 +96,3 @@ shapes:PermissionShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:duty property must point from an ids:Permission to an ids:Duty."@en ;
 	] .
-
-
-shapes:ConstraintShape
-	a sh:NodeShape ; 
-	sh:targetClass ids:Constraint ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:leftOperand ;
-		sh:class ids:LeftOperand ;
-		sh:minCount 1 ;
-        sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one ids:LeftOperand linked through the ids:leftOperand property"@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:operator ;
-		sh:class ids:BinaryOperator ;
-		sh:minCount 1 ;
-        sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one ids:BinaryOperator linked through the ids:operator property"@en ;
-	] ;
-
-	sh:xone (
-    [
-	    sh:path ids:rightOperand ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperand property must point from an ids::Constraint to Literals or rdfs:Resources. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ;
-    ]
-    [
-        sh:path ids:rightOperandReference ;
-        sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperandReference property must point from an ids::Constraint to an IRI. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ;
-    ]
-	) ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:unit ;
-		sh:class ids:Unit ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:unit property must point from an ids:Constraint to an ids:Unit."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:pipEndpoint ;
-		sh:class xsd:anyURI ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:pipEndpoint property must point from an ids:Constraint to an xsd:anyURI."@en ;
-	] ;
-.
-

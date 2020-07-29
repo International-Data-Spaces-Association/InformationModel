@@ -1,19 +1,19 @@
-// _:ArtifactTemplate
+// _:ASSET_TEMPLATE
 // ------------------
 
-// The ArtifactTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Artifact position in an IDS Usage Control Template.
+// The ASSET_TEMPLATE is a RegEx-like representation of the possible forms, which can be inserted at the Asset position in an IDS Usage Control Template.
 
 (
-  { "@id": "?ArtifactUri" }                                     // directly insert the Artifact URI, if known
+  { "@id": "?AssetUri" }                                        // directly insert the Asset URI, if known
 | // or
   {
-    "@type": "ids:Collection",
-    "ids:source": { "@id": "?DefinedCollection" }                        // reference to a well-known Collection which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Artifact is in the Collection or not
+    "@type": "ids:AssetCollection",
+    "ids:assetSource": { "@id": "?DefinedCollection" }         // reference to a well-known Collection which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Artifact is in the Collection or not
   }
 | // or
   {
-    "@type": "ids:Collection",                                  // a Collection with exactly one condition to describe its members
-    "ids:contentRefinement": [
+    "@type": "ids:AssetCollection",                            // a Collection with exactly one condition to describe its members
+    "ids:assetRefinement": [
       {
         "@type": "ids:Constraint",                              // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
         "ids:leftOperand": { "@id": "?IdscLeftOperand" },       // The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
@@ -26,11 +26,11 @@
   }
 | // or
   {
-    "@type": "ids:Collection",
-    "ids:contentRefinement": [
+    "@type": "ids:AssetCollection",
+    "ids:assetRefinement": [
       {
         "@type": "ids:LogicalConstraint",                           // A Collection with more than one condition to describe its members.
-        "?IdsOperand": {                                            // The operand to connect the constraints, for instance ?IdsOperand := idsc:OR
+        "?IdsOperand": {                                            // The operand to connect the constraints, for instance ?IdsOperand := ids:or
           "@list": [                                                // LogicalConstraints allow the expression of alternatives. For instance, we can select which have "color":"blue" OR "color":"green"
             (
               {

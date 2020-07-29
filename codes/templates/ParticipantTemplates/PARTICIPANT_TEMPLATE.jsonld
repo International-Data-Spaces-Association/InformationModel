@@ -7,13 +7,13 @@
   { "@id": "?ParticipantUri" }                                      // directly insert the Participant URI, if known
 | // or
   {
-    "@type": "ids:Collection",
-    "ids:source": { "@id": "?DefinedCollection" }                   // reference to a well-known Collection which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Participant is in the Collection or not
+    "@type": "ids:ParticipantCollection",
+    "ids:memberPart": { "@id": "?DefinedCollection" }               // reference to a well-known Collection which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Participant is in the Collection or not
   }
 | // or
   {
-    "@type": "ids:Collection",                                      // a Collection with exactly one condition to describe its members
-    "ids:contentRefinement": [
+    "@type": "ids:ParticipantCollection",                           // a Collection with exactly one condition to describe its members
+    "ids:participantRefinement": [
       {
         "@type": "ids:Constraint",                                  // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
         "ids:leftOperand": { "@id": "?IdscLeftOperand" },           // The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
@@ -26,8 +26,8 @@
   }
 | // or
   {
-    "@type": "ids:Collection",
-    "ids:contentRefinement": [
+    "@type": "ids:ParticipantCollection",
+    "ids:participantRefinement": [
       {
         "@type": "ids:LogicalConstraint",                           // A Collection with more than one condition to describe its members.
         "?IdsOperand": {                                            // The operand to connect the constraints, for instance ?IdsOperand := idsc:OR
