@@ -83,18 +83,26 @@ idsc:ENCRYPT
     skos:note "This action is always evaluated at the provider side."@en ;
 .
 
+idsc:LOG
+    a ids:Action ;
+    rdfs:comment "TODO"@en ;
+    rdfs:label "log"@en ;
+    odrl:includedIn idsc:USE ;
+    skos:note "This action is always evaluated at the consumer side."@en ;
+.
+
 idsc:MODIFY
     a ids:Action ;
     rdfs:comment "To change a resource locally."@en ;
     rdfs:label "modify"@en ;
     rdfs:seeAlso <http://www.w3.org/ns/odrl/2/modify>;
     odrl:includedIn idsc:WRITE ;
-    skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;	
+    skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;
     .
 
 idsc:NEXT_POLICY
     a ids:Action ;
-    rdfs:comment "To forward the resource under the same policy. Implies a permission to distribute."@en ; 
+    rdfs:comment "To forward the resource under the same policy. Implies a permission to distribute."@en ;
     rdfs:label "next policy"@en ;
     rdfs:seeAlso <http://www.w3.org/ns/odrl/2/nextPolicy> ;
     odrl:includedIn idsc:DISTRIBUTE ;
@@ -103,10 +111,10 @@ idsc:NEXT_POLICY
 
 idsc:NOTIFY
     a ids:Action ;
-    rdfs:comment "To log information or notify an instance about incidents. Can be used to define Clearing House interactions."@en ; 
-    rdfs:label "log"@en ;
+    rdfs:comment "To log information or notify an instance about incidents. Can be used to define Clearing House interactions."@en ;
+    rdfs:label "notify"@en ;
     rdfs:seeAlso <http://www.w3.org/ns/odrl/2/inform> ;
-    odrl:includedIn idsc:USE ;
+    odrl:includedIn idsc:LOG ;
     skos:note "This action can target the consumer and the data provider of the resource."@en ;
     .
 
@@ -116,13 +124,13 @@ idsc:READ
     rdfs:label "read"@en ;
     rdfs:seeAlso <http://www.w3.org/ns/odrl/2/read>;
     odrl:includedIn idsc:MODIFY ;
-    skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;	
+    skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;
     .
-	
+
 idsc:TRACKPROVENANCE
     a ids:Action ;
     #odrl:implies ids:acceptTracking;
-    rdfs:comment "To accept that the use of the Asset may be tracked."@en ; 
+    rdfs:comment "To accept that the use of the Asset may be tracked."@en ;
     rdfs:label "track provenance"@en ;
     odrl:includedIn idsc:NOTIFY ;
     skos:note "This action is always evaluated at the consumer side."@en ;
@@ -141,5 +149,5 @@ idsc:WRITE
     rdfs:comment "To change a remote resource."@en ;
     rdfs:label "write"@en ;
     odrl:includedIn idsc:USE ;
-    skos:note "This action is always evaluated at the provider side. It corresponds to 'allow changes of a resource' but *not* including its deletion."@en ;	
+    skos:note "This action is always evaluated at the provider side. It corresponds to 'allow changes of a resource' but *not* including its deletion."@en ;
     .

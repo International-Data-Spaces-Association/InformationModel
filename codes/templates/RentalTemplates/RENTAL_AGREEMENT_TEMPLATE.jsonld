@@ -3,7 +3,7 @@
 
 {
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
-    "@type": "ids:SalesAgreement", TODO
+    "@type": "ids:RentalAgreement", TODO
     "@id": "?URI",
     "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
@@ -19,7 +19,7 @@
             "ids:leftOperand": { "@id": "idsc:STATE" },
             "ids:operator": { "@id": "idsc:NOT" },
             "ids:rightOperand": { "@id": "?terminationState" }    // An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
-            (, "ids:pipEndpoint": { "@id": "?pipUri" } ){0,1}     // The location where to find this state.
+            (, "ids:pipEndpoint": { "@id": "?pipUri" } )?         // The location where to find this state.
           }
         ] ,
         "ids:preObligation": {
@@ -38,7 +38,7 @@
                         "@type": "http://www.w3.org/2001/XMLSchema#double"
                     },
                     "ids:unit": { "@id": "?currency" }
-                    (, "ids:pipEndpoint": "?pipUri" ){0,1}        // zero or one reference to a PIP endpoint
+                    (, "ids:pipEndpoint": "?pipUri" )?          // zero or one reference to a PIP endpoint
                 }
             },
             "ids:constraint": [
