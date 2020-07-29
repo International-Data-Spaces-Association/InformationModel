@@ -12,19 +12,19 @@
 # Template
 # --------
 
-idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
-    rdfs:label "Data Rental Agreement Template" ;
-    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Artifact given that the
+idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
+    rdfs:label "Data Rental Offer Template" ;
+    spin:labelTemplate """The Provider offers to potential Consumers to allow a defined Action on its Artifact given that the
     Consumer pays a regular ?fee."""@en ;
     rdfs:comment "This template models the rental of data."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
-    ids:consumer idsc:PARTICIPANT_TEMPLATE ;
+    ( ids:consumer idsc:PARTICIPANT_TEMPLATE ; )?
     ids:permission [
         a ids:Permission ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
-        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
-        ids:target idsc:ASSET_TEMPLATE ;
+        ( ids:assignee idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:consumer
+        ids:target idsc:TARGET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [
             a ids:Constraint ;
@@ -36,7 +36,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
         ids:preObligation [
             a ids:Obligation ;
             ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
-            ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
+            ( ids:assignee idsc:PARTICIPANT_TEMPLATE ; )?   # same value as ids:consumer
             ids:action [
                 a ids:Action ;
                 ids:value idsc:COMPENSATE ;
