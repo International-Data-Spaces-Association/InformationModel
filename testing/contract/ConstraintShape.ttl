@@ -1,0 +1,134 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:AbstractConstraintShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AbstractConstraint ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (AbstractConstraintShape): An ids:AbstractConstraint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:AbstractConstraint)
+			}
+		""" ;
+	] ;
+.
+
+
+shapes:ConstraintShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Constraint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:leftOperand ;
+		sh:class ids:LeftOperand ;
+		sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one ids:LeftOperand linked through the ids:leftOperand property"@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:operator ;
+		sh:class ids:BinaryOperator ;
+		sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one ids:BinaryOperator linked through the ids:operator property"@en ;
+	] ;
+
+	sh:xone (
+    [
+	    sh:path ids:rightOperand ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperand property must point from an ids::Constraint to Literals or rdfs:Resources. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ;
+    ]
+    [
+        sh:path ids:rightOperandReference ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): Exactly one ids:rightOperandReference property must point from an ids::Constraint to an IRI. Note that ids:rightOperand and ids:rightOperandReference cannot be used in the same statement."@en ;
+    ]
+	) ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:unit ;
+		sh:class ids:Unit ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:unit property must point from an ids:Constraint to an ids:Unit."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:pipEndpoint ;
+		sh:class xsd:anyURI ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:pipEndpoint property must point from an ids:Constraint to an xsd:anyURI."@en ;
+	] ;
+.
+
+
+shapes:LogicalConstraintShape
+		a sh:NodeShape ;
+		sh:targetClass ids:LogicalConstraint ;
+		sh:xone (
+	    [
+		    sh:path ids:and ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+				#sh:node shapes:ConstraintListShape ;
+        sh:severity sh:Violation ;
+	    ]
+	    [
+		    sh:path ids:or ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+				#sh:node shapes:ConstraintListShape ;
+        sh:severity sh:Violation ;
+	    ]
+	    [
+		    sh:path ids:xone ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+				#sh:node shapes:ConstraintListShape ;
+        sh:severity sh:Violation ;
+	    ]
+		) ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one ids:and, ids:or, or ids:xone property must point from an ids:LogicalConstraint to a rdf:List of ids:Constraints."@en ;
+.

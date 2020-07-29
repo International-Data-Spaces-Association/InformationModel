@@ -13,8 +13,14 @@
 # --------
 
 idsc:REQUEST_PERMISSION_TEMPLATE a ids:Permission ;
-    ( ids:assigner idsc:PARTICIPANT_TEMPLATE ; )?
-    ids:assignee idsc:PARTICIPANT_TEMPLATE ;
+    (
+      (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:assigner idsc:PARTICIPANT_TEMPLATE ;
+       ids:assignee idsc:PARTICIPANT_TEMPLATE ;)
+    )
     ids:target idsc:TARGET_TEMPLATE ;
     ids:action idsc:ACTION_TEMPLATE ;
     [ ids:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints

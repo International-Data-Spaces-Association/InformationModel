@@ -27,4 +27,14 @@ ids:actionRefinement
     rdfs:label "action refinement"@en;
     rdfs:domain ids:Action;
     rdfs:range ids:Constraint;
-    rdfs:comment "Constraint that refines an Action."@en.
+    rdfs:comment "Constraint that refines an Action."@en ;
+.
+
+ids:includedIn
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf odrl:includedIn ;
+    rdfs:label "is included in"@en;
+    rdfs:domain ids:Action;
+    rdfs:range ids:Action;
+    rdfs:comment "The subject transitively asserts the object Action."@en ;
+.

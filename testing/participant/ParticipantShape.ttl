@@ -24,7 +24,7 @@ shapes:
 
 
 shapes:ParticipantShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Participant ;
 
 	sh:property [
@@ -74,7 +74,7 @@ shapes:ParticipantShape
 		sh:class ids:ParticipantCertification ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must point from an ids:Participant to an ids:ParticipantCertification."@en ;
-	] ;
+	]
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -82,11 +82,21 @@ shapes:ParticipantShape
 		sh:class ids:Person ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:memberPerson property must point from an ids:Participant to an ids:Person."@en ;
-	] .
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:participantRefinement ;
+		sh:class ids:AbstractConstraint ;
+		sh:severity sh:Violation ;
+		sh:maxCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): At maximum one ids:participantRefinement property must point from an ids:Participant to an ids:Constraint or ids:LogicalConstraint."@en ;
+	] ;
+.
 
 
 shapes:PersonShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Person ;
 
 	sh:property [
@@ -131,7 +141,7 @@ shapes:PersonShape
 
 
 shapes:SiteShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Site ;
 
 	sh:property [
@@ -141,4 +151,3 @@ shapes:SiteShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must point from an ids:Site to an xsd:string."@en ;
 	] .
-

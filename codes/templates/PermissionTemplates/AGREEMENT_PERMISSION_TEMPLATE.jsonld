@@ -1,14 +1,14 @@
-// idsc:AgreementPermissionTemplate
+// idsc:AGREEMENT_PERMISSION_TEMPLATE
 // ------------------
 
-// The AgreementPermissionTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Permission position in an IDS Usage Control Template.
+// The AGREEMENT_PERMISSION_TEMPLATE is a RegEx-like representation of the possible forms, which can be inserted at the Permission position in an IDS Usage Control Template.
 
 {
     "@type": "ids:Permission",
     "@id": "?URI",
     "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),
     "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),
-    "ids:target": (idsc:TARGET_TEMPLATE),
+    "ids:target": (idsc:ASSET_TEMPLATE),                    // A Permission has a target Asset
     "ids:action": (idsc:ACTION_TEMPLATE)
     (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*      // zero or more Constraints
     (, "ids:preObligation": (idsc:OBLIGATION_TEMPLATE) )*   // zero or more Obligations which need to be fulfilled before the Usage event
