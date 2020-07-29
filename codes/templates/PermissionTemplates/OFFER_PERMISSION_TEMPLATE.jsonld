@@ -6,8 +6,14 @@
 {
     "@type": "ids:Permission",
     "@id": "?URI",
-    ("ids:assigner": (idsc:PARTICIPANT_TEMPLATE),)?
-    ("ids:assignee": (idsc:PARTICIPANT_TEMPLATE),)?
+    (
+      ("ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )
+    | # or
+      ("ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )
+    | # or
+      ("ids:assigner": (idsc:PARTICIPANT_TEMPLATE),
+       "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),)
+    )
     "ids:target": (idsc:ASSET_TEMPLATE),                    // A Permission has a target Asset
     "ids:action": (idsc:ACTION_TEMPLATE)
     (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*      // zero or more Constraints
