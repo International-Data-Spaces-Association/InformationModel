@@ -129,21 +129,29 @@ ids:temporalCoverage
     rdfs:range ids:TemporalEntity;
     rdfs:comment "Temporal period or instance covered by the content."@en.
 
+ids:temporalResolution
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcat:temporalResolution ;
+    rdfs:label "temporal resolution"@en ;
+    rdfs:comment "Minimum time between collected data points in a time series within this content."@en ;
+    rdfs:domain ids:DigitalContent ;
+    rdfs:range dct:Frequency .
+
 ids:spatialCoverage
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:spatial;
     rdfs:label "spatial coverage"@en;
     rdfs:domain ids:DigitalContent;
-    rdfs:range ids:SpatialEntity;
+    rdfs:range ids:Location;
     rdfs:comment "Named spatial entity covered by the Resource."@en.
 
 ids:accrualPeriodicity # consider irregular updates as well
     a owl:DatatypeProperty;
-    # rdfs:subPropertyOf dct:accrualPeriodicity - not applicable, since range is a dct:Frequency
+    rdfs:subPropertyOf dct:accrualPeriodicity ;
     rdfs:label "Accrual periodicity"@en;
     rdfs:comment "The regular period with which items are added to a collection."@en ;
     rdfs:domain ids:DigitalContent;
-    rdfs:range xsd:duration;
+    rdfs:range dct:Frequency;
     .
 
 ids:contentStandard
@@ -161,9 +169,9 @@ ids:created
     rdfs:domain [ rdf:type owl:Class ;
                 owl:unionOf ( ids:DigitalContent ids:Representation)
               ] ;
-    rdfs:range xsd:dateTimeStamp ;
+    rdfs:range xsd:dateTimeStamp, xsd:date ;
     rdfs:label "created"@en;
-    rdfs:seeAlso <http://purl.org/dc/terms/created> ;
+    rdfs:seeAlso dct:created ;
     rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
 
 ids:modified
@@ -172,7 +180,7 @@ ids:modified
     rdfs:domain [ rdf:type owl:Class ;
                 owl:unionOf ( ids:DigitalContent ids:Representation)
               ] ;
-    rdfs:range xsd:dateTimeStamp;
+    rdfs:range xsd:dateTimeStamp, xsd:date;
     rdfs:label "modified"@en;
-    rdfs:seeAlso <http://purl.org/dc/terms/modified> ;
+    rdfs:seeAlso dct:modified ;
     rdfs:comment "The date/time this Digital Content has been changed the last time. Only one 'modified' attribute is usually needed."@en.
