@@ -3,14 +3,14 @@
 
 {
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
-    "@type": "ids:RentalAgreement",
+    "@type": "ids:RentalOffer",
     "@id": "?URI",
     "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
-    "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
+    ( "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )?
     "ids:permission": {
         "@type": "ids:Permission",
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
-        "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )?         // same value as ids:consumer,
         "ids:target": (idsc:TARGET_TEMPLATE),
         "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
@@ -25,7 +25,7 @@
         "ids:preObligation": {
             "@type": "ids:Obligation",
             "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider
-            "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer
+            ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )?     // same value as ids:consumer
             "ids:action": {
                 "@type": "ids:Action",
                 "ids:value": { "@id": "idsc:COMPENSATE" },
@@ -38,7 +38,7 @@
                         "@type": "http://www.w3.org/2001/XMLSchema#double"
                     },
                     "ids:unit": { "@id": "?currency" }
-                    (, "ids:pipEndpoint": "?pipUri" )?        // zero or one reference to a PIP endpoint
+                    (, "ids:pipEndpoint": "?pipUri" )?            // zero or one reference to a PIP endpoint
                 }
             },
             "ids:constraint": [

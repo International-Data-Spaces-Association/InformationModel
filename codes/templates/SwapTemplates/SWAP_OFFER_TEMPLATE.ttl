@@ -12,18 +12,18 @@
 # Template
 # --------
 
-idsc:SWAP_AGREEMENT_TEMPLATE a ids:SwapAgreement ;
-    rdfs:label "Data Swap Agreement Template" ;
-    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on the Provider's Data Asset and at the
+idsc:SWAP_OFFER_TEMPLATE a ids:SwapOffer ;
+    rdfs:label "Data Swap Offer Template" ;
+    spin:labelTemplate """The Provider offers to a potential Consumer to allow a defined Action on the Provider's Data Asset if at the
     same time the Consumer agrees to allow (another) defined Action on the Consumer's Data Asset to the Provider."""@en ;
     rdfs:comment "This template models the data swap between two IDS Participants."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
-    ids:consumer idsc:PARTICIPANT_TEMPLATE ;
+    ( ids:consumer idsc:PARTICIPANT_TEMPLATE ; )?
     ids:permission [
         a ids:Permission ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
-        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
+        ( ids:assignee idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:consumer
         ids:target idsc:TARGET_TEMPLATE ;                   # the Provider's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
@@ -32,7 +32,7 @@ idsc:SWAP_AGREEMENT_TEMPLATE a ids:SwapAgreement ;
     ] ;
     ids:permission [
         a ids:Permission ;
-        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
+        ( ids:assigner idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:consumer
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         ids:target idsc:TARGET_TEMPLATE ;                   # the Consumer's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;

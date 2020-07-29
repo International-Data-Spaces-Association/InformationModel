@@ -10,7 +10,7 @@
 @prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 
-shapes:ArtifactTemplateShape
+shapes:TargetTemplateShape
 	a sh:NodeShape ;
 	sh:or (
 		[
@@ -20,7 +20,7 @@ shapes:ArtifactTemplateShape
 			sh:class ids:Collection ; # it's a simple Collection
 			sh:property [
 				sh:path         ids:contentRefinement ;
-				sh:class 		ids:Constraint ;
+				sh:class 				ids:Constraint ;
 				sh:maxCount     1 ;
 				sh:minInclusive 1 ;
 				sh:severity     sh:Violation ;
@@ -36,7 +36,7 @@ shapes:ArtifactTemplateShape
 				sh:class ids:LogicalConstraint ;
 				sh:property [
 					sh:path         ids:contentRefinement ;
-					sh:class 		ids:Constraint ;
+					sh:class 				ids:Constraint ;
 					sh:maxCount     1 ;
 					sh:minInclusive 1 ;
 					sh:severity     sh:Violation ;
@@ -44,5 +44,5 @@ shapes:ArtifactTemplateShape
 			] ;
 		]
 	) ;
-	sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/codes/ArtifactTemplates/ArtifactTemplateShape.ttl> (ArtifactTemplateShape): An _:ArtifactTemplate must (a) be a URI, (b) have a contentRefinement property linking to a ids:Constraint or (c) ."@en ;
+	sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/codes/TargetTemplates/TargetTemplateShape.ttl> (TargetTemplateShape): An _:TargetTemplate must (a) be a URI, (b) have a contentRefinement property linking to a ids:Constraint or (c) ."@en ;
 .

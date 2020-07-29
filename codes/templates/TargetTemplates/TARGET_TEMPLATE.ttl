@@ -9,17 +9,17 @@
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
-# idsc:CONTENT_TEMPLATE
+# idsc:TARGET_TEMPLATE
 # ---------
 
-# The CONTENT_TEMPLATE is a RegEx-like representation of the possible forms, which can be inserted at the Traget position in an IDS Usage Control Template.
+# The TARGET_TEMPLATE is a RegEx-like representation of the possible forms, which can be inserted at the Target position in an IDS Usage Control Template.
 
 (
-    ?ContentUri                                             # directly insert the Content URI, if known. Must be either a ids:Resource, ids:Representation or ids:Artifact
+    ?TargetUri                                              # directly insert the Target URI, if known
 | # or
     [
         a ids:Collection ;
-        ids:source ?DefinedCollection ;                     # reference to a well-known Collection, which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Artifact is in the Collection or not
+        ids:source ?DefinedCollection ;                     # reference to a well-known Collection, which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Target is in the Collection or not
     ]
 | # or
     [

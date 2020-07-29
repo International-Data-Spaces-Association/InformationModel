@@ -12,7 +12,7 @@
 # Template
 # --------
 
-idsc:RENTAL_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
+idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
     rdfs:label "Data Rental Agreement Template" ;
     spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Artifact given that the
     Consumer pays a regular ?fee."""@en ;
@@ -24,14 +24,14 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
         a ids:Permission ;
         ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
-        ids:targetArtifact idsc:ARTIFACT_TEMPLATE ;
+        ids:target idsc:TARGET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [
             a ids:Constraint ;
             ids:leftOperand idsc:STATE ;
             ids:operator idsc:NOT ;
             ids:rightOperand ?terminationState ;            # An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
-            ( ids:pipEndpoint ?pipUri ; ){0,1} ;            # The location where to find this state.
+            ( ids:pipEndpoint ?pipUri ; )?                  # The location where to find this state.
         ] ;
         ids:preObligation [
             a ids:Obligation ;
@@ -44,9 +44,9 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:SalesAgreement ;
                     a ids:Constraint ;
                     ids:leftOperand idsc:PAY_AMOUNT ;
                     ids:operator idsc:EQ ;
-                    ids:rightOperand "?fee"^^xsd:double ; # pay the ?fee
+                    ids:rightOperand "?fee"^^xsd:double ;   # pay the ?fee
                     ids:unit ?currency ;
-                    ( ids:pipEndpoint ?pipUri ; ){0,1} ;
+                    ( ids:pipEndpoint ?pipUri ; )?
                 ]
             ] ;
             ids:constraint [
