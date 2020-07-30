@@ -12,6 +12,10 @@ ids:Broker
     rdfs:subClassOf ids:Connector;
     rdfs:label "Broker"@en ;
     rdfs:comment "Broker holding an index of published data endpoints."@en;
+    idsm:validation [
+        idsm:forProperty ids:connectorCatalog;
+        idsm:relationType idsm:OneToMany;
+    ];
     .
 
 ids:connectorCatalog a owl:ObjectProperty;
