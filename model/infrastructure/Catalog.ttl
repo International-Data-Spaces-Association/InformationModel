@@ -43,6 +43,17 @@ ids:ParticipantCatalog
     ];
 .
 
+ids:ConnectorCatalog
+    rdfs:subClassOf ids:Catalog;
+    a owl:Class;
+    rdfs:label "Connector Catalog"@en ;
+    rdfs:comment "Class that aggregates Connectors which, as a whole, from a (distributable) Catalog."@en ;
+    idsm:validation [
+        idsm:forProperty ids:listedConnector;
+        idsm:relationType idsm:OneToMany;
+    ];
+.
+
 # Properties
 # ----------
 
@@ -66,3 +77,12 @@ ids:members a owl:ObjectProperty;
     rdfs:range ids:Participant;
     rdfs:label "offer"@en;
     rdfs:comment "A Participant, that is part of a participant catalog."@en.
+
+ids:listedConnector a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:dataset;
+    rdfs:domain ids:ConnectorCatalog;
+    rdfs:range ids:Connector;
+    rdfs:label "listed Connector"@en;
+    rdfs:comment "A Connector, that is part of a Connector catalog."@en;
+.
+

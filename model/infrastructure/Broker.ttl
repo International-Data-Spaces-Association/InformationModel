@@ -13,14 +13,14 @@ ids:Broker
     rdfs:label "Broker"@en ;
     rdfs:comment "Broker holding an index of published data endpoints."@en;
     idsm:validation [
-        idsm:forProperty ids:connector;
+        idsm:forProperty ids:connectorCatalog;
         idsm:relationType idsm:OneToMany;
-    ].
+    ];
+    .
 
-ids:connector a owl:ObjectProperty;
-    idsm:referenceByUri true;
-    rdfs:label "connector"@en;
+ids:connectorCatalog a owl:ObjectProperty;
+    rdfs:label "connector Catalog"@en;
     rdfs:domain ids:Broker;
-    rdfs:range ids:Connector;
-    rdfs:comment "Reference to a Connector listed in the Broker."@en.
+    rdfs:range ids:ConnectorCatalog;
+    rdfs:comment "Reference to catalog of Connectors, which are listed in the Broker."@en.
 

@@ -35,7 +35,12 @@ ids:Connector
     idsm:validation [
         idsm:forProperty ids:hasAgent;
         idsm:relationType idsm:OneToMany;
-    ].
+    ];
+    idsm:validation [
+        idsm:forProperty ids:resourceCatalog;
+        idsm:relationType idsm:OneToMany;
+    ]
+    .
 
 ids:BaseConnector rdfs:subClassOf ids:Connector ;
     a owl:Class;
@@ -93,7 +98,7 @@ ids:resourceCatalog a owl:ObjectProperty;
     rdfs:label "resource catalog"@en;
     rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
 
-ids:hasAgents a owl:ObjectProperty;
+ids:hasAgent a owl:ObjectProperty;
     idsm:referenceByUri true;
     rdfs:label "has Agent"@en;
     rdfs:domain ids:Connector;
