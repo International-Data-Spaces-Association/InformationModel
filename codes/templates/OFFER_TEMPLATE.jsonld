@@ -7,7 +7,13 @@
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
     "@type": "ids:ContractOffer",
     "@id": "?URI",
-    "ids:provider": (idsc:PARTICIPANT_TEMPLATE)
-    (, "ids:consumer": (idsc:PARTICIPANT_TEMPLATE) )?     // An offer may not have the consumer specified yet.
+    (
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE) )
+    | // or
+      ( "ids:consumer": (idsc:PARTICIPANT_TEMPLATE) )
+    | // or
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
+        "ids:consumer": (idsc:PARTICIPANT_TEMPLATE) )
+    )
     (, "ids:permission": (idsc:OFFER_PERMISSION_TEMPLATE) )+    // At least one Permission
 }

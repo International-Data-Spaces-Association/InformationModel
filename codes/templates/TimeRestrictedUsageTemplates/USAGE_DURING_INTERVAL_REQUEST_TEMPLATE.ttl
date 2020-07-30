@@ -12,18 +12,30 @@
 # Template
 # --------
 
-idsc:USAGE_DURING_INTERVAL_AGREEMENT_TEMPLATE a ids:IntervalUsageAgreement ;
-    rdfs:label "Usage During Interval Agreement Template" ;
-    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Target between a specified start point
+idsc:USAGE_DURING_INTERVAL_REQUEST_TEMPLATE a ids:IntervalUsageRequest ;
+    rdfs:label "Usage During Interval Request Template" ;
+    spin:labelTemplate """The Consumer requests from a potential Provider to allow a defined Action on its Asset between a specified start point
     and endpoint in time."""@en ;
     rdfs:comment "This template models the time limited usage of data."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
-    ids:provider idsc:PARTICIPANT_TEMPLATE ;
-    ids:consumer idsc:PARTICIPANT_TEMPLATE ;
+    (
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;
+       ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    )
     ids:permission [
         a ids:Permission ;
-        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
-        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        )
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [

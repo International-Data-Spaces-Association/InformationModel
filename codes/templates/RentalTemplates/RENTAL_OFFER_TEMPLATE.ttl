@@ -14,16 +14,28 @@
 
 idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
     rdfs:label "Data Rental Offer Template" ;
-    spin:labelTemplate """The Provider offers to potential Consumers to allow a defined Action on its Artifact given that the
+    spin:labelTemplate """The Provider offers to potential Consumers to allow a defined Action on its Asset given that the
     Consumer pays a regular ?fee."""@en ;
     rdfs:comment "This template models the rental of data."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
-    ids:provider idsc:PARTICIPANT_TEMPLATE ;
-    ( ids:consumer idsc:PARTICIPANT_TEMPLATE ; )?
+    (
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;
+       ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    )
     ids:permission [
         a ids:Permission ;
-        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
-        ( ids:assignee idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:consumer
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        )
         ids:target idsc:TARGET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [
@@ -35,11 +47,17 @@ idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
         ] ;
         ids:preObligation [
             a ids:Obligation ;
-            ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
-            ( ids:assignee idsc:PARTICIPANT_TEMPLATE ; )?   # same value as ids:consumer
+            (
+              (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+            | # or
+              (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+            | # or
+              (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+               ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+            )
             ids:action [
                 a ids:Action ;
-                ids:value idsc:COMPENSATE ;
+                ids:includedIn idsc:COMPENSATE ;
                 ids:actionRefinement [
                     a ids:Constraint ;
                     ids:leftOperand idsc:PAY_AMOUNT ;

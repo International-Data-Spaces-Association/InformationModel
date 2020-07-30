@@ -5,12 +5,24 @@
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
     "@type": "ids:RentalOffer",
     "@id": "?URI",
-    "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
-    ( "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )?
+    (
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE), )
+    | // or
+      ( "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
+    | // or
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
+        "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
+    )
     "ids:permission": {
         "@type": "ids:Permission",
-        "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
-        ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )?         // same value as ids:consumer,
+        (
+          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
+        | // or
+          ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+        | // or
+          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
+            "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+        )
         "ids:target": (idsc:TARGET_TEMPLATE),
         "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
@@ -24,11 +36,17 @@
         ] ,
         "ids:preObligation": {
             "@type": "ids:Obligation",
-            "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider
-            ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )?     // same value as ids:consumer
+            (
+              ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
+            | // or
+              ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+            | // or
+              ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
+                "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+            )
             "ids:action": {
                 "@type": "ids:Action",
-                "ids:value": { "@id": "idsc:COMPENSATE" },
+                "ids:includedIn": { "@id": "idsc:COMPENSATE" },
                 "ids:actionRefinement": {
                     "@type": "ids:Constraint",
                     "ids:leftOperand": { "@id": "idsc:PAY_AMOUNT" },

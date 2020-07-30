@@ -18,26 +18,44 @@ idsc:SWAP_REQUEST_TEMPLATE a ids:SwapRequest ;
     same time offers to allow (another) defined Action on the Consumer's Data Asset to the Provider."""@en ;
     rdfs:comment "This template models the data swap between two IDS Participants."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
-    ( ids:provider idsc:PARTICIPANT_TEMPLATE ; )?
-    ids:consumer idsc:PARTICIPANT_TEMPLATE ;
+    (
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;
+       ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    )
     ids:permission [
         a ids:Permission ;
-        ( ids:assigner idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:provider
-        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        )
         ids:target idsc:ASSET_TEMPLATE ;                   # the Provider's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
-        ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
+        ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postobligation idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ] ;
     ids:permission [
         a ids:Permission ;
-        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
-        ( ids:assignee idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:provider
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:consumer
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        )
         ids:target idsc:ASSET_TEMPLATE ;                   # the Consumer's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
-        ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
+        ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postobligation idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ] ;
 .

@@ -18,8 +18,8 @@
     ?ParticipantUri                                         # directly insert the Participant URI, if known
 | # or
     [
-        a ids:Collection ;
-        ids:source ?DefinedCollection ;                     # reference to a well-known Collection, which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Participant is in the Collection or not
+        a ids:ParticipantCollection ;
+        ids:memberPart ?DefinedCollection ;                     # reference to a well-known Collection, which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Participant is in the Collection or not
     ]
 | # or
     [

@@ -18,12 +18,24 @@ idsc:SWAP_OFFER_TEMPLATE a ids:SwapOffer ;
     same time the Consumer agrees to allow (another) defined Action on the Consumer's Data Asset to the Provider."""@en ;
     rdfs:comment "This template models the data swap between two IDS Participants."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
-    ids:provider idsc:PARTICIPANT_TEMPLATE ;
-    ( ids:consumer idsc:PARTICIPANT_TEMPLATE ; )?
+    (
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;
+       ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    )
     ids:permission [
         a ids:Permission ;
-        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
-        ( ids:assignee idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:consumer
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        )
         ids:target idsc:ASSET_TEMPLATE ;                   # the Provider's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
@@ -32,8 +44,14 @@ idsc:SWAP_OFFER_TEMPLATE a ids:SwapOffer ;
     ] ;
     ids:permission [
         a ids:Permission ;
-        ( ids:assigner idsc:PARTICIPANT_TEMPLATE ; )?       # same value as ids:consumer
-        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:consumer
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        )
         ids:target idsc:ASSET_TEMPLATE ;                   # the Consumer's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
