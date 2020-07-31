@@ -44,6 +44,13 @@ ids:DurationEntity
         idsm:constraint idsm:NotNull;
     ].
 
+ids:Frequency
+    a owl:Class;
+    rdfs:subClassOf dct:Frequency;
+    idsm:abstract true;
+    rdfs:label "Frequency"@en ;
+    rdfs:comment "Class of all frequencies."@en.
+
 ids:dateTime
     a owl:DatatypeProperty;
     rdfs:subPropertyOf time:inXSDDateTimeStamp;#  time-zone is mandatory
