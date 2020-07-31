@@ -25,26 +25,13 @@ shapes:EndpointShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Endpoint ;
 
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:Endpoint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:Endpoint)
-			}
-		""" ;
-	] ;
-
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:endpointHost ;
-		sh:class ids:Host ;
+		sh:path ids:accessURL ;
+		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:endpointHost property must point from an ids:Endpoint to an ids:Host."@en ;
-	] ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:acccessURL property must point from an ids:Endpoint to an xsd:anyURI."@en ;
+	];
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -68,31 +55,72 @@ shapes:EndpointShape
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:outboundPath property must point from an ids:Endpoint to an xsd:string."@en ;
-	] .
+	];
+	
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointInformation ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:endpointInformation property must point from an ids:Endpoint to an xsd:string."@en ;
+		];
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointDocumentation ;
+		sh:datatype xsd:anyURI ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:endpointDocumentation property must point from an ids:Endpoint to an xsd:anyURI."@en ;
+	];
+.
 
 
-shapes:StaticEndpointShape
+shapes:ConnectorEndpointShape
 	a sh:NodeShape ; 
-	sh:targetClass ids:StaticEndpoint ;
-
+	sh:targetClass ids:ConnectorEndpoint ;
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:endpointArtifact ;
 		sh:class ids:Artifact ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (StaticEndpointShape): An ids:endpointArtifact property must point from an ids:StaticEndpoint to an ids:Artifact."@en ;
-	] .
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (ConnectorEndpointShape): An ids:endpointArtifact property must point from an ids:ConnectorEndpoint to an ids:Artifact."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:accessURL ;
+		sh:nodeKind sh:IRI ;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (ConnectorEndpointShape): An ids:accessURL property must point from an ids:ConnectorEndpoint to an IRI."@en ;
+	]
+.
 
 
-shapes:InteractiveEndpointShape
+shapes:AppEndpointShape
 	a sh:NodeShape ; 
-	sh:targetClass ids:InteractiveEndpoint ;
+	sh:targetClass ids:AppEndpoint ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:endpointOperationBinding ;
-		sh:class ids:OperationBinding ;
+		sh:path ids:appEndpointType ;
+		sh:class ids:AppEndpointType ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (InteractiveEndpointShape): An ids:endpointOperationBinding property must point from an ids:InteractiveEndpoint to an ids:OperationBinding."@en ;
-	] .
-
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointType property must point from an ids:AppEndpoint to an ids:AppEndpointType."@en ;
+	] ;
+	
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appEndpointPort ;
+		sh:datatype xsd:nonNegativeInteger ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointPort property must point from an ids:AppEndpoint to an xsd:nonNegativeInteger."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appEndpointMediaType ;
+		sh:class ids:MediaType ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointMediaType property must point from an ids:AppEndpoint to an ids:MediaType."@en ;
+	] ;
+.

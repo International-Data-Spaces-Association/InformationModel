@@ -104,17 +104,23 @@ ids:assigner rdfs:subPropertyOf odrl:assigner;
 
 ids:targetArtifact
     a owl:ObjectProperty;
-    #rdfs:subPropertyOf odrl:target;
     rdfs:domain ids:Rule;
     rdfs:range ids:Artifact;
-    rdfs:label "target"@en;
+    rdfs:label "target artifact"@en;
     rdfs:comment "Concrete, materialized content (artifact) which is the subject of the policy statement."@en.
 
-ids:targetContent
+ids:targetRepresentation
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
-    rdfs:range ids:DigitalContent ;
-    rdfs:label "target content"@en;
+    rdfs:range ids:Representation;
+    rdfs:label "target representation"@en;
+    rdfs:comment "Concrete representation which is the subject of the policy statement."@en.
+
+ids:targetResource
+    a owl:ObjectProperty;
+    rdfs:domain ids:Rule;
+    rdfs:range ids:Resource ;
+    rdfs:label "target resource"@en;
     rdfs:comment "Abstract content which is the subject of the policy statement."@en.
 
 ids:duty rdfs:subPropertyOf odrl:duty;
@@ -135,7 +141,7 @@ ids:contentRefinement
     a owl:ObjectProperty;
     # rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "content refinement"@en;
-    rdfs:domain ids:DigitalContent;
+    rdfs:domain ids:Resource;
     rdfs:range ids:Constraint;
     rdfs:comment "Constraint that refines a (composite) Digital Content."@en.
 
@@ -173,5 +179,6 @@ ids:unit rdfs:subPropertyOf odrl:unit;
     a owl:ObjectProperty;
     rdfs:label "unit"@en;
     rdfs:domain ids:Constraint;
-    rdfs:range ids:Unit;
+    rdfs:range xsd:anyURI;
+    rdfs:seeAlso <http://qudt.org/2.1/vocab/unit> ;
     rdfs:comment "The unit of measurement of a Constraint."@en.
