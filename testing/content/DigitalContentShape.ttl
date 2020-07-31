@@ -23,7 +23,7 @@ shapes:
 
 
 shapes:DigitalContentShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:DigitalContent ;
 
 	sh:sparql [
@@ -97,7 +97,7 @@ shapes:DigitalContentShape
 			[
                 sh:datatype rdf:langString ;
             ]
-            );
+    );
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:keyword property must point from an ids:DigitalContent to a xsd:string or rdf:langString (which additionally contains a language tag)."@en ;
 	] ;
@@ -125,7 +125,7 @@ shapes:DigitalContentShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:accrualPeriodicity property must point from an ids:DigitalContent to an xsd:duration."@en ;
 	] ;
-    
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:created ;
@@ -143,7 +143,7 @@ shapes:DigitalContentShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:DigitalContentShape must have at most one ids:modified attribute pointing to a valid xsd:dateTimeStamp."@en ;
 	] ;
-    
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contentStandard ;
@@ -151,4 +151,3 @@ shapes:DigitalContentShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentStandard property must point from an ids:DigitalContent to an ids:Standard."@en ;
 	] .
-

@@ -51,27 +51,36 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:assignee ;
-		sh:class ids:Participant ;
-		sh:minCount 1 ;
+		sh:or (
+      [ sh:nodeKind sh:IRI ; ]
+			[ sh:class ids:Participant ; ]
+    );
+		sh:minCount 0 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:Participant linked through the ids:assignee property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have at maximum one ids:Participant linked through the ids:assignee property."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:assigner ;
-		sh:class ids:Participant ;
-		sh:minCount 1 ;
+		sh:or (
+      [ sh:nodeKind sh:IRI ; ]
+			[ sh:class ids:Participant ; ]
+    );
+		sh:minCount 0 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:Participant linked through the ids:assigner property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have at maximum one ids:Participant linked through the ids:assigner property"@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:target ;
-		sh:class ids:Asset ;
+		sh:or (
+      [ sh:nodeKind sh:IRI ; ]
+			[ sh:class ids:Asset ; ]
+    );
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must point from an ids:Rule to an ids:Asset."@en ;
 	] ;
