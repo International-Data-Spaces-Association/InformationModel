@@ -4,6 +4,48 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.0 - Draft] 2020-7-31
+Version 4.0.0 of the IDS Information model
+
+
+### Added
+
+* `ids:ConfigurationModel` for Connector configuration and deployment related information.
+    * Several complementary classes, including `ids:Proxy`, `ids:LogLevel`, `ids:AppRoute`, `ids:UserAuthentication`.
+* Redesign for `ids:DadaApp` class.
+    * `ids:DataApp` as superclass of the subclasses `ids:OrchestrationApp`, `ids:SmartDataApp`, `ids:SystemAdapterApp` .
+    * New properties `ids:appDocumentation` and `ids:appEndpoint` to enable app and app endpoint documentation.
+* `ids:AppEndpoint` as sub class of `ids:Endpoint`. With app endpoints, a data app can describe its endpoint-specific information, such as path suffixes, port, endpoint documentation.
+* languages for `ids:Representation`. One can no add languages to concrete `ids:Representations`.
+
+
+### Changed
+
+* `ids:MediaType`. Removed the instances for `ids:IANAMediaType`.
+    * Properties with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g. for JSON-LD:
+    ```
+    "ids:mediatype": {
+      "@id": "https://www.iana.org/assignments/media-types/application/ld+json",
+      "@type": "ids:IANAMediaType"
+    }
+    ```
+    * For custom media types (`ids:CustomMediaType`), it is advised to use a recognizable unique identifier.
+
+* `ids:standardLicense` property. Switched from  `rdfs:range ids:License` to `xsd:anyURI` since there is no vocabulary with an complete, regulary updated list of software and data licenses to the best of our knowledge. Users should add the IRI to the correct license. We recommend using sources such as [Wikidata](www.wikidata.org/) to search for most common licenses.
+
+* `ids:contentSandard` properties of class `ids:DigitalContent` and `ids:representationStandard` properties of class `ids:Representation` now have range `xsd:anyURI`.
+
+* Redesign of `ids:Endpoint` class.
+    * New property: `ids:accessURL`, `ids:endpointInformation`
+
+### Fixed
+
+
+### Removed
+* `ids:InterativeEndpoint`.
+* `ids:Host`. Information are now part of the `ids:Endpoint` itself.
+* `ids:Operation`, `ids:Parameter`, `ids:Activity`
+
 ## [3.1.0] 2020-04-30
 Version 3.1.0 of the IDS Information model
 
@@ -16,13 +58,13 @@ Version 3.1.0 of the IDS Information model
 
 ### Fixed
 
-* `ids:rightOperand` and `ids:rightOperandReference` (class `ids:Constraint`) changed range to `rdfs:Resource`. Even though both properties allow similar values, their inteded usage differs (cf. the specification of the underlying [ODRL ontology](https://www.w3.org/ns/odrl/2/ODRL20.html)). `ids:rightOperand` values should be interpreted directly, while `ids:rightOperandReference` values _must_ be dereferenced beforehand. 
+* `ids:rightOperand` and `ids:rightOperandReference` (class `ids:Constraint`) changed range to `rdfs:Resource`. Even though both properties allow similar values, their inteded usage differs (cf. the specification of the underlying [ODRL ontology](https://www.w3.org/ns/odrl/2/ODRL20.html)). `ids:rightOperand` values should be interpreted directly, while `ids:rightOperandReference` values _must_ be dereferenced beforehand.
 
-* An `ids:Constraint` is only valid, if either `ids:rightOperandReference` _or_ `ids:rightOperand` is used. Using both properties is not permitted by the corresponding SHACL shape. This behaviour is once more suggested by [ODRL](https://www.w3.org/ns/odrl/2/ODRL20.html). 
+* An `ids:Constraint` is only valid, if either `ids:rightOperandReference` _or_ `ids:rightOperand` is used. Using both properties is not permitted by the corresponding SHACL shape. This behaviour is once more suggested by [ODRL](https://www.w3.org/ns/odrl/2/ODRL20.html).
 
 * Dynamic Attribute Token (DAT) aligned to current specification in the IDS Communication Guide. DAT is now represented by the `ids:DatRequestPayload` and `ids:DatPayload` classes. While `ids:DatRequestPayload` represents the content of the token (a.k.a. claims) a clients sends to the DAPS, the `ids:DatPayload` represents the content of the token a DAPS issues after validation.
 
-* SHACL shapes for properties with IRI ranges. Property values written as defined by the RDF serialisations should now be correctly validated. 
+* SHACL shapes for properties with IRI ranges. Property values written as defined by the RDF serialisations should now be correctly validated.
 
 ## [3.0.0] 2020-03-04
 Version 3.0.0 of the IDS Information model
@@ -83,7 +125,7 @@ Version 2.0.1 of the IDS Information model
 ### Fixed
 * Changed *ids:referingConnector* (class *ids:Token*) from *owl:ObjectProperty* to *owl:DatatypeProperty* with *rdfs:range* *xsd:anyURI*. Allows to reference the connector via an URI.
 
-* Removed *idsm:abstract true* property from *ids:variant* (class *ids:Resource*). Property is invalid, since it is intended to be used by classes only. 
+* Removed *idsm:abstract true* property from *ids:variant* (class *ids:Resource*). Property is invalid, since it is intended to be used by classes only.
 
 * Minor typo fixes.
 
