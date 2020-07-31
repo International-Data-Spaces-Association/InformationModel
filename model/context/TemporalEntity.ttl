@@ -26,7 +26,7 @@ ids:Instant
 
 ids:Interval
     a owl:Class;
-    rdfs:subClassOf time:Interval, ids:TemporalEntity; #time:Interval may have zero extent. time:ProperInterval may not.
+    rdfs:subClassOf time:Interval, ids:TemporalEntity, dct:PeriodOfTime ;
     rdfs:label "Interval"@en ;
     rdfs:comment "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."@en;
     idsm:validation [
@@ -36,7 +36,7 @@ ids:Interval
 
 ids:DurationEntity
     a owl:Class;
-    rdfs:subClassOf  ids:TemporalEntity; #time:Interval may have zero extent. time:ProperInterval may not.
+    rdfs:subClassOf  ids:TemporalEntity;
     rdfs:label "Duration"@en ;
     rdfs:comment "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en;
     idsm:validation [
