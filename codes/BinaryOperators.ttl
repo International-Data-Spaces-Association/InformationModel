@@ -49,7 +49,7 @@ idsc:GTEQ a ids:BinaryOperator;
     rdfs:label "greater than or equals"@en ;
     rdfs:comment "Greater-than-or-equals operator. Can be used for numeric (5 idsc:GTEQ 2) comparisons."@en .
 
-idsc:GREATERTHAN a ids:BinaryOperator;
+idsc:GT a ids:BinaryOperator;
     rdfs:seeAlso odrl:gt;
     rdfs:label "greater than"@en ;
     rdfs:comment "Greater-than operator. Can be used for numeric (5 idsc:GT 2) comparisons."@en ;
@@ -67,7 +67,7 @@ idsc:LTEQ a ids:BinaryOperator;
     rdfs:comment "Less-than-or-equals operator. Can be used for numeric (2 idsc:LTEQ 5) comparisons."@en ;
     .
 
-idsc:LESSTHAN a ids:BinaryOperator;
+idsc:LT a ids:BinaryOperator;
     rdfs:seeAlso odrl:lt;
     rdfs:label "less than"@en ;
     rdfs:comment "Less-than operator. Can be used for numeric (2 idsc:LT 5) comparisons."@en ;
@@ -331,6 +331,12 @@ idsc:HAS_SITE a ids:BinaryOperator;
     rdfs:seeAlso org:basedAt ;
     rdfs:label "has site"@en ;
     rdfs:comment "If a user needs to be located at a certain site required for accessing a resource. A 'HAS_SITE' relation includes always a membership (role and related organisation) corresponding to the site. Should be used together with a RightOperand pointing to an accessible endpoint providing this information."@en ;
+    .
+
+# Network range
+idsc:INSIDE_NETWORK a ids:BinaryOperator;
+    rdfs:label "inside network"@en ;
+    rdfs:comment "Is satisfied if a system is inside a specified target network or network range."@en ;
     .
 
 # Assignement
