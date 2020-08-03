@@ -4,25 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [4.0.0 - Draft] 2020-7-31
+## [4.0.0] 2020-08-04
 Version 4.0.0 of the IDS Information model
 
 
 ### Added
 
-* `ids:ConfigurationModel` for Connector configuration and deployment related information.
+* `ids:ConfigurationModel` class for Connector configuration and deployment related information.
     * Several complementary classes, including `ids:Proxy`, `ids:LogLevel`, `ids:AppRoute`, `ids:UserAuthentication`.
 * Redesign for `ids:DadaApp` class.
-    * `ids:DataApp` as superclass of the subclasses `ids:OrchestrationApp`, `ids:SmartDataApp`, `ids:SystemAdapterApp` .
-    * New properties `ids:appDocumentation` and `ids:appEndpoint` to enable app and app endpoint documentation.
-* `ids:AppEndpoint` as sub class of `ids:Endpoint`. With app endpoints, a data app can describe its endpoint-specific information, such as path suffixes, port, endpoint documentation.
-* languages for `ids:Representation`. One can no add languages to concrete `ids:Representations`.
-
+    * `ids:DataApp` as superclass of `ids:OrchestrationApp`, `ids:SmartDataApp`, `ids:SystemAdapterApp` .
+    * New properties `ids:appDocumentation` with range `xsd:string` and `ids:appEndpoint` with range `ids:AppEndpoint` to enable app and app endpoint documentation.
+* `ids:AppEndpoint` as subclass of `ids:Endpoint`. to describe data app endpoints, such as path suffixes, ports and endpoint documentation.
+* Languages for `ids:Representation` via the `ids:language` property. One can no add languages to `ids:Representations`.
+* `ids:ResourceCatalog`, `ids:ConnectorCatalog` and `ids:ParticipantCatalog` as subclasses of `ids:Catalog` to enable infrastructure components, e.g., Broker and ParIS, to present Connector- and Participant- specific catalogs.
+* New messages:
+    * Messages for app-related communication between app provider and app store.
+    * `ids:UploadMessage` and `ids:UploadResponseMessage` to allow data upload to a recipient.
 
 ### Changed
 
 * `ids:MediaType`. Removed the instances for `ids:IANAMediaType`.
-    * Properties with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g. for JSON-LD:
+    * Mediatypes via `ids:mediatype` with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g. for JSON-LD:
     ```
     "ids:mediatype": {
       "@id": "https://www.iana.org/assignments/media-types/application/ld+json",
@@ -31,20 +34,30 @@ Version 4.0.0 of the IDS Information model
     ```
     * For custom media types (`ids:CustomMediaType`), it is advised to use a recognizable unique identifier.
 
+* Renamed property `ids:catalog` of Connector to `ids:resourceCatalog` and changed range to `ids:ResourceCatalog`.
+* Connectors can now present multiple catalogs via the `ids:resourceCatalog` property.
 * `ids:standardLicense` property. Switched from  `rdfs:range ids:License` to `xsd:anyURI` since there is no vocabulary with an complete, regulary updated list of software and data licenses to the best of our knowledge. Users should add the IRI to the correct license. We recommend using sources such as [Wikidata](www.wikidata.org/) to search for most common licenses.
 
 * `ids:contentSandard` properties of class `ids:DigitalContent` and `ids:representationStandard` properties of class `ids:Representation` now have range `xsd:anyURI`.
 
 * Redesign of `ids:Endpoint` class.
-    * New property: `ids:accessURL`, `ids:endpointInformation`
+    * Removed `ids:InteractiveEndpoint`.
+    * `ids:StaticEndpoint` is now called `ids:ConnectorEndpoint`. `ids:ConnectorEndpoint` contains additional properties, especially for endpoint description and documentation.
+    * `ids:Host` information is now part of the `ids:Endpoint`.
+    * New property: `ids:ids:endpointInformation` with range `xsd:string` and `ids:ids:endpointDocumentation` with range `xsd:anyURI` for endpoint description and documentation.
 
-### Fixed
+
+* Refactoring of `ids:Message` subclasses:
+    * Removed `ids:...AvailableMessage` notifications for `ids:Resource`, `ids:Connector` and `ids:Participant`. The corresponding update messages, e.g., `ids:ResourceUpdateMessage`, should no be used to announce availability and updates.
 
 
 ### Removed
-* `ids:InterativeEndpoint`.
+* Classes related to runtime related interaction, such as `ids:Operation`, `ids:Activity`, `ids:Interface`, `ids:Parameter`.
 * `ids:Host`. Information are now part of the `ids:Endpoint` itself.
-* `ids:Operation`, `ids:Parameter`, `ids:Activity`
+* `ids:transportCertsSha256` from Connector class. Property should only be part of the `ids:Token` class.
+* Some `ids:Resource` and `ids:Representation` subclasses, such as `ids:SchemaResource` and `ids:SimpleResource`.
+* Some unused classes, e.g., `ids:Audio`, `ids:Video`, `ids:Text`
+
 
 ## [3.1.0] 2020-04-30
 Version 3.1.0 of the IDS Information model
