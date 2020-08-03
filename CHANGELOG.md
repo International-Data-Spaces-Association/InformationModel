@@ -24,9 +24,9 @@ Version 4.0.0 of the IDS Information model
 
 ### Changed
 
-* `ids:MediaType`. Removed the instances for `ids:IANAMediaType`.
+* `ids:MediaType`. Removed instances for `ids:IANAMediaType`.
     * Mediatypes via `ids:mediatype` with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g. for JSON-LD:
-    ```
+    ```JSON
     "ids:mediatype": {
       "@id": "https://www.iana.org/assignments/media-types/application/ld+json",
       "@type": "ids:IANAMediaType"
@@ -36,19 +36,13 @@ Version 4.0.0 of the IDS Information model
 
 * Renamed property `ids:catalog` of Connector to `ids:resourceCatalog` and changed range to `ids:ResourceCatalog`.
 * Connectors can now present multiple catalogs via the `ids:resourceCatalog` property.
-* `ids:standardLicense` property. Switched from  `rdfs:range ids:License` to `xsd:anyURI` since there is no vocabulary with an complete, regulary updated list of software and data licenses to the best of our knowledge. Users should add the IRI to the correct license. We recommend using sources such as [Wikidata](www.wikidata.org/) to search for most common licenses.
-
+* Switched range of `ids:standardLicense` property from `ids:License` to `xsd:anyURI`. There is no vocabulary with an complete, regulary updated list of software and data licenses which we can provide as instances of the `ids:License` class, to the best of our knowledge. Users should add the IRI to the correct license. We recommend using sources such as [Wikidata](www.wikidata.org/) to search for most common licenses.
 * `ids:contentSandard` properties of class `ids:DigitalContent` and `ids:representationStandard` properties of class `ids:Representation` now have range `xsd:anyURI`.
-
 * Redesign of `ids:Endpoint` class.
     * Removed `ids:InteractiveEndpoint`.
     * `ids:StaticEndpoint` is now called `ids:ConnectorEndpoint`. `ids:ConnectorEndpoint` contains additional properties, especially for endpoint description and documentation.
     * `ids:Host` information is now part of the `ids:Endpoint`.
-    * New property: `ids:ids:endpointInformation` with range `xsd:string` and `ids:ids:endpointDocumentation` with range `xsd:anyURI` for endpoint description and documentation.
-
-
-* Refactoring of `ids:Message` subclasses:
-    * Removed `ids:...AvailableMessage` notifications for `ids:Resource`, `ids:Connector` and `ids:Participant`. The corresponding update messages, e.g., `ids:ResourceUpdateMessage`, should no be used to announce availability and updates.
+    * New property: `ids:ids:endpointInformation` with range `xsd:string` and `ids:endpointDocumentation` with range `xsd:anyURI` for endpoint description and documentation.
 
 
 ### Removed
@@ -57,6 +51,9 @@ Version 4.0.0 of the IDS Information model
 * `ids:transportCertsSha256` from Connector class. Property should only be part of the `ids:Token` class.
 * Some `ids:Resource` and `ids:Representation` subclasses, such as `ids:SchemaResource` and `ids:SimpleResource`.
 * Some unused classes, e.g., `ids:Audio`, `ids:Video`, `ids:Text`
+* Refactoring of `ids:Message` subclasses:
+    * Removed `ids:...AvailableMessage` notifications for `ids:Resource`, `ids:Connector` and `ids:Participant`. The corresponding update messages, e.g., `ids:ResourceUpdateMessage`, should no be used to announce availability and updates.
+
 
 
 ## [3.1.0] 2020-04-30
