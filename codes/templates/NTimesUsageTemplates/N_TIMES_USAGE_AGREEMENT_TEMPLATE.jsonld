@@ -18,7 +18,8 @@
             "@type:" "ids:Constraint",
             "ids:leftOperand": { "@id": "idsc:COUNT" },
             "ids:operator": { "@id": "idsc:LTEQ" },
-            "ids:rightOperand": { "@id": "?n" }                   // Do not execute the Action more than ?n times.
+            "ids:rightOperand": { "@id": "?n" },                  // Do not execute the Action more than ?n times.
+            "ids:pipEndpoint": "?pipUri"                          // the PIP that counts the access events
           }
         ]
         (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
