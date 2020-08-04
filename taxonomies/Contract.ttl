@@ -71,6 +71,12 @@ ids:IntervalUsageAgreement a owl:Class ;
   rdfs:comment "The ContractAgreement class representing the 'Interval-restricted Data Usage' policy class."@en ;
   .
 
+ids:SpatialAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Spatial Usage Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Location Restricted Usage' policy class."@en ;
+  .
+
 ids:DeleteAfterIntervalAgreement a owl:Class ;
   rdfs:subClassOf ids:ContractAgreement ;
   rdfs:label "Delete After Interval Agreement"@en ;
@@ -151,6 +157,12 @@ ids:IntervalUsageOffer a owl:Class ;
   rdfs:subClassOf ids:ContractOffer ;
   rdfs:label "Sales Offer"@en ;
   rdfs:comment "The ContractOffer class representing the 'Interval-restricted Data Usage' policy class."@en ;
+  .
+
+ids:SpatialOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Spatial Usage Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Location Restricted Usage' policy class."@en ;
   .
 
 ids:DeleteAfterIntervalOffer a owl:Class ;
@@ -234,6 +246,12 @@ ids:IntervalUsageRequest a owl:Class ;
   rdfs:subClassOf ids:ContractRequest ;
   rdfs:label "Sales Request"@en ;
   rdfs:comment "The ContractRequest class representing the 'Interval-restricted Data Usage' policy class."@en ;
+  .
+
+ids:SpatialRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Spatial Usage Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Location Restricted Usage' policy class."@en ;
   .
 
 ids:DeleteAfterIntervalRequest a owl:Class ;
