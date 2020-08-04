@@ -23,6 +23,12 @@ ids:PurposeAgreement a owl:Class ;
   rdfs:comment "The ContractAgreement class representing the 'Purpose-restricted Data Usage' policy class."@en ;
   .
 
+ids:SecurityAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Security Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Security Level Restricted Policy' policy class."@en ;
+  .
+
 ids:NotMoreThanNAgreement a owl:Class ;
   rdfs:subClassOf ids:ContractAgreement ;
   rdfs:label "Use Not More Than N Times Agreement"@en ;
@@ -109,6 +115,12 @@ ids:PurposeOffer a owl:Class ;
   rdfs:subClassOf ids:ContractOffer ;
   rdfs:label "Sales Offer"@en ;
   rdfs:comment "The ContractOffer class representing the 'Purpose-restricted Data Usage' policy class."@en ;
+  .
+
+ids:SecurityOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Security Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Security Level Restricted Policy' policy class."@en ;
   .
 
 ids:NotMoreThanNOffer a owl:Class ;
@@ -198,6 +210,12 @@ ids:PurposeRequest a owl:Class ;
   rdfs:subClassOf ids:ContractRequest ;
   rdfs:label "Sales Request"@en ;
   rdfs:comment "The ContractRequest class representing the 'Purpose-restricted Data Usage' policy class."@en ;
+  .
+
+ids:SecurityRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Security Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Security Level Restricted Policy' policy class."@en ;
   .
 
 ids:NotMoreThanNRequest a owl:Class ;
