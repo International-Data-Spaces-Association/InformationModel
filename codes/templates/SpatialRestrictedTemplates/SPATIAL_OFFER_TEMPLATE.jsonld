@@ -1,0 +1,66 @@
+// Template
+// --------
+
+{
+    "@context": "https://w3id.org/idsa/contexts/context.jsonld",
+    "@type": "ids:SpatialOffer",
+    "@id": "?URI",
+    (
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE), )
+    | // or
+      ( "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
+    | // or
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
+        "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
+    )
+    "ids:permission": {
+        "@type": "ids:Permission",
+        (
+          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
+        | // or
+          ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+        | // or
+          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
+            "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+        )
+        "ids:target": (idsc:ASSET_TEMPLATE),
+        "ids:action": (idsc:ACTION_TEMPLATE),
+        "ids:constraint": {
+            "@type": "ids:Constraint",
+            "ids:leftOperand": { "@id": "idsc:ABSOLUTE_SPATIAL_POSITION" },
+            "ids:operator": { "@id": "?spatialOperator" },
+            "ids:rightOperand": {
+              (
+                  "@id": "?area",                                  // a URI of a named area, for instance http://dbpedia.org/resource/Europe
+              | # or
+                  "@type": "ids:GeoPoint",
+                  "ids:latitude": {
+                      "@value": "?lat",                           // the latitude, for instance 48.856700
+                      "@type": "http://www.w3.org/2001/XMLSchema#float"
+                  },
+                  "ids:longitude": {
+                      "@value": "?lng",                           // the longitude, for instance 2.350800
+                      "@type": "http://www.w3.org/2001/XMLSchema#float"
+                  }
+              | # or
+                  "@type": "ids:BoundingPolygon",
+                  ("ids:geoPoint": {
+                      "@type": "ids:GeoPoint",
+                      "ids:latitude": {
+                          "@value": "?lat",
+                          "@type": "http://www.w3.org/2001/XMLSchema#float"
+                      },
+                      "ids:longitude": {
+                          "@value": "?lng",
+                          "@type": "http://www.w3.org/2001/XMLSchema#float"
+                      }
+                    }){3,}  # at least three GeoPoints are needed to define an area
+                ] ;
+              )
+            }
+        }
+        (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
+        (, "ids:preObligation": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more Obligations which need to be fulfilled before the Usage event
+        (, "ids:postObligation": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more additional Obligations which have to be fulfilled after the Usage event
+    }
+}
