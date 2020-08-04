@@ -3,7 +3,7 @@
 
 {
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
-    "@type": "ids:DurationRequest",
+    "@type": "ids:DurationOffer",
     "@id": "?URI",
     (
       ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE), )
@@ -25,28 +25,13 @@
         )
         "ids:target": (idsc:ASSET_TEMPLATE),
         "ids:action": (idsc:ACTION_TEMPLATE),
-        "ids:postObligation": {
-            "@type": "ids:Obligation",
-            (
-              ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
-            | // or
-              ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
-            | // or
-              ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
-                "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
-            )
-            "ids:action": {
-                "@type": "ids:Action",
-                "ids:includedIn": { "@id": "idsc:DELETE" },
-                "ids:actionRefinement": {
-                    "@type": "ids:Constraint",
-                    "ids:leftOperand": { "@id": "idsc:ELAPSED_TIME" },
-                    "ids:operator": { "@id": "idsc:DURATION_EQ" },
-                    "ids:rightOperand": {
-                        "@value": "?duration",                   // for a certain usage ?duration
-                        "@type": "http://www.w3.org/2001/XMLSchema#duration"
-                    }
-                }
+        "ids:constraint": {
+            "@type": "ids:Constraint",
+            "ids:leftOperand": { "@id": "idsc:ELAPSED_TIME" },
+            "ids:operator": { "@id": "idsc:SHORTER_EQ" },
+            "ids:rightOperand": {
+                "@value": "?duration",                   // for a certain usage ?duration
+                "@type": "http://www.w3.org/2001/XMLSchema#duration"
             }
         }
         (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints

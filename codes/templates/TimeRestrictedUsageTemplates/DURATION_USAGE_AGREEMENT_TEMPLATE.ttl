@@ -12,10 +12,9 @@
 # Template
 # --------
 
-idsc:DELETE_AFTER_DURATION_USAGE_AGREEMENT_TEMPLATE a ids:DurationAgreement ;
-    rdfs:label "Delete after Duration Usage Agreement Template" ;
-    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Asset for a duration of
-    ?duration given that the Consumer pays ?fee."""@en ;
+idsc:DURATION_AGREEMENT_TEMPLATE a ids:DurationAgreement ;
+    rdfs:label "Duration Usage Agreement Template" ;
+    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Asset for a duration of ?duration."""@en ;
     rdfs:comment "This template models the time limited usage of data."@en ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
@@ -26,23 +25,11 @@ idsc:DELETE_AFTER_DURATION_USAGE_AGREEMENT_TEMPLATE a ids:DurationAgreement ;
         ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
-        ids:postObligation [
-            a ids:Obligation ;
-            ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
-            ids:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
-            ids:action [
-                a ids:Action ;
-                ids:includedIn idsc:DELETE ;
-                ids:actionRefinement [
-                    ids:constraint [
-                        a ids:Constraint ;
-                        ids:leftOperand idsc:ELAPSED_TIME ;
-                        ids:operator idsc:DURATION_EQ ;
-                        ids:rightOperand ?duration ;        # for a certain usage ?duration
-                    ] ;
-                ]
-            ] ;
-
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:ELAPSED_TIME ;
+            ids:operator idsc:SHORTER_EQ ;
+            ids:rightOperand ?duration ;                    # for a certain usage ?duration
         ] ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
