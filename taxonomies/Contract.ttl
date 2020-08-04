@@ -41,6 +41,12 @@ ids:SwapAgreement a owl:Class ;
   rdfs:comment "The ContractAgreement class representing the 'Data Swap' policy class."@en ;
   .
 
+ids:RolebasedAgreement a owl:Class ;
+  rdfs:subClassOf ids:ContractAgreement ;
+  rdfs:label "Role-restricted Data Usage Agreement"@en ;
+  rdfs:comment "The ContractAgreement class representing the 'Role-restricted Data Usage' policy class."@en ;
+  .
+
 ids:DurationAgreement a owl:Class ;
   rdfs:subClassOf ids:ContractAgreement ;
   rdfs:label "Duration Agreement"@en ;
@@ -103,6 +109,12 @@ ids:SwapOffer a owl:Class ;
   rdfs:subClassOf ids:ContractOffer ;
   rdfs:label "Sales Offer"@en ;
   rdfs:comment "The ContractOffer class representing the 'Data Swap' policy class."@en ;
+  .
+
+ids:RolebasedOffer a owl:Class ;
+  rdfs:subClassOf ids:ContractOffer ;
+  rdfs:label "Role-restricted Data Usage Offer"@en ;
+  rdfs:comment "The ContractOffer class representing the 'Role-restricted Data Usage' policy class."@en ;
   .
 
 ids:DurationOffer a owl:Class ;
@@ -168,6 +180,12 @@ ids:SwapRequest a owl:Class ;
   rdfs:subClassOf ids:ContractRequest ;
   rdfs:label "Sales Request"@en ;
   rdfs:comment "The ContractRequest class representing the 'Data Swap' policy class."@en ;
+  .
+
+ids:RolebasedRequest a owl:Class ;
+  rdfs:subClassOf ids:ContractRequest ;
+  rdfs:label "Role-restricted Data Usage Request"@en ;
+  rdfs:comment "The ContractRequest class representing the 'Role-restricted Data Usage' policy class."@en ;
   .
 
 ids:DurationRequest a owl:Class ;
