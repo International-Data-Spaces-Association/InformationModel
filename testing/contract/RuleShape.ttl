@@ -78,12 +78,21 @@ shapes:RuleShape
 	] ;
 
 	sh:property [
+					a sh:PropertyShape ;
+					sh:path ids:targetRepresentation ;
+					sh:maxCount 1 ;
+					sh:class ids:Representation ;
+					sh:severity sh:Violation ;
+					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:targetRepresentation property must point from an ids:Rule to an ids:Representation."@en ;
+				] ;
+
+	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:targetContent ;
-		sh:class ids:DigitalContent ;
+		sh:path ids:targetResource ;
+		sh:class ids:Resource ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:DigitalContent linked through the ids:targetContent property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have exactly one ids:Resource linked through the ids:targetContent property"@en ;
 	] ;
 
 	sh:property [

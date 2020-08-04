@@ -56,40 +56,13 @@ ids:resourcePart a owl:ObjectProperty;
     rdfs:range ids:Resource;
     rdfs:comment "Reference to a Resource (physically or logically) included, definition of part-whole hierarchies."@en .
 
-ids:resourceInterface
-    a owl:ObjectProperty;# Renamed from "interface" to be distinguished from a Software's programming interface
-    rdfs:label "resource interface"@en;
-    rdfs:domain ids:Resource;
-    rdfs:range ids:Interface;
-    rdfs:comment "Reference to the Interface defining Operations supported by the Resource."@en.
-
 # see also ids:hasEndpoint Property also for ids:Connector
 ids:resourceEndpoint
     a owl:ObjectProperty;
     rdfs:label "resource endpoint"@en;
     rdfs:domain ids:Resource ;
-    #[ # todo for IM 4.0.0
-    #            rdf:type owl:Class ;
-    #            owl:unionOf ( ids:Resource ids:Connector )
-    #          ] ;
-    rdfs:range ids:Endpoint;
+    rdfs:range ids:ConnectorEndpoint;
     rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en.
-
-ids:standardLicense
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf dct:licence ;
-    rdfs:domain ids:Resource ;
-    rdfs:range ids:License ;
-    rdfs:label "Standard License"@en;
-    rdfs:comment "Reference to a well-known License regulating the general usage of the Resource."@en.
-
-ids:customLicense
-    a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dct:licence ;
-    rdfs:domain ids:Resource ;
-    rdfs:range xsd:anyURI;
-    rdfs:label "Custom License"@en;
-    rdfs:comment "URL reference to a custom license regulating the general usage of the Resource."@en.
 
 # compare dct:rights etc.
 ids:contractOffer
