@@ -96,25 +96,15 @@ ids:ConnectorNotificationMessage a owl:Class;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:ConnectorAvailableMessage a owl:Class;
+ids:ConnectorUpdateMessage a owl:Class;
     rdfs:subClassOf ids:ConnectorNotificationMessage ;
-    rdfs:label "Connector Available Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) about the availability of a new connector. The payload of the message must contain the new connector's self-description."@en.
+    rdfs:label "Connector Update Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) about the availability and current configuration of a connector. The payload of the message must contain the updated connector's self-description."@en.
 
 ids:ConnectorUnavailableMessage a owl:Class;
     rdfs:subClassOf ids:ConnectorNotificationMessage ;
     rdfs:label "Connector Unavailable Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a connector will be unavailable and never be available again."@en.
-
-ids:ConnectorInactiveMessage a owl:Class;
-    rdfs:subClassOf ids:ConnectorNotificationMessage ;
-    rdfs:label "Connector Inactive Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a connector will be inactive and most likely be available again in the future."@en.
-
-ids:ConnectorUpdateMessage a owl:Class;
-    rdfs:subClassOf ids:ConnectorNotificationMessage ;
-    rdfs:label "Connector Update Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) about a connector's configuration change. The payload of the message must contain the updated connector's self-description."@en.
+    rdfs:comment "Event notifying the recipient(s) that a connector will be unavailable. The same connector may be available again in the future."@en.
 
 ids:ConnectorCertificateGrantedMessage a owl:Class;
     rdfs:subClassOf ids:ConnectorNotificationMessage ;
@@ -146,15 +136,15 @@ ids:ParticipantNotificationMessage a owl:Class;
     ].
     
 
-ids:ParticipantAvailableMessage a owl:Class;
+ids:ParticipantUpdateMessage a owl:Class;
     rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Available Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) about the availability of a new participant. The payload of the message must contain the new connector's self-description."@en.
+    rdfs:comment "Event notifying the recipient(s) about the availability and current description of a participant. The payload of the message must contain the participant's self-description."@en.
 
 ids:ParticipantUnavailableMessage a owl:Class;
     rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Unavailable Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a participant will be unavailable and never be available again."@en.
+    rdfs:comment "Event notifying the recipient(s) that a participant will be unavailable. The same participant may be available again in the future."@en.
 
 ids:ParticipantCertificateGrantedMessage a owl:Class;
     rdfs:subClassOf ids:ParticipantNotificationMessage ;
@@ -165,11 +155,6 @@ ids:ParticipantCertificateRevokedMessage a owl:Class;
     rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Certificate Revoked Message"@en ;
     rdfs:comment "Indicates that a (previously certified) Participant is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
-
-ids:ParticipantUpdateMessage a owl:Class;
-    rdfs:subClassOf ids:ParticipantNotificationMessage ;
-    rdfs:label "Participant Information Changed Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that information describing this Participant has changed. This event is mainly intended for information describing the Participant that is NOT a direct subject of the certification process."@en.
 
 ids:affectedParticipant a owl:ObjectProperty;
     idsm:referenceByUri true;
@@ -305,20 +290,15 @@ ids:ResourceNotificationMessage a owl:Class;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:ResourceAvailableMessage a owl:Class ;
-    rdfs:subClassOf ids:ResourceNotificationMessage ;
-    rdfs:label "Resource Available Message"@en;
-    rdfs:comment "Message indicating that a specific resource is available."@en.
-
 ids:ResourceUpdateMessage a owl:Class ;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
     rdfs:label "Resource Update Message"@en;
-    rdfs:comment "Message indicating an update of a specific resource."@en.
+    rdfs:comment "Message indicating the availability and current description of a specific resource. The resource must be present in the payload of this message."@en.
 
 ids:ResourceUnavailableMessage a owl:Class ;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
     rdfs:label "Resource Unavailable Message"@en;
-    rdfs:comment "Message indicating that a specific resource is unavailable."@en.
+    rdfs:comment "Message indicating that a specific resource is unavailable. The same resource may be available again in the future."@en.
 
 ids:affectedResource rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
@@ -335,10 +315,6 @@ ids:InvokeOperationMessage a owl:Class ;
     idsm:validation [
         idsm:forProperty ids:operationReference;
         idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:operationParameterization;
-        idsm:constraint idsm:NotNull;
     ].
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
@@ -348,11 +324,6 @@ ids:operationReference rdf:type owl:DatatypeProperty ;
     rdfs:label "Operation Reference"@en ;
     rdfs:comment "References the operation to be invoked on the recipient's side by an URI."@en.
 
-ids:operationParameterization rdf:type owl:DatatypeProperty ;
-    rdfs:domain ids:InvokeOperationMessage ;
-    rdfs:range ids:ParameterAssignment ;
-    rdfs:label "Operation Parameterization"@en ;
-    rdfs:comment "Parameter assignment of the invoked operation's input parameters."@en.
 
 ids:RequestInProcessMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage;
@@ -402,6 +373,20 @@ ids:requestedArtifact rdf:type owl:ObjectProperty ;
     rdfs:label "Requested Artifact"@en ;
     rdfs:comment "References an artifact in the context of a request."@en.
 
+# Upload Messages
+# ----------------
+
+ids:UploadMessage a owl:Class;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "Upload Message"@en ;
+    rdfs:comment "Message used to upload a data to a recipient. Payload contains data."@en ;
+.
+
+ids:UploadResponseMessage a owl:Class;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "Upload Response Message"@en ;
+    rdfs:comment "Message that follows up a UploadMessage and contains the upload confirmation."@en ;
+.
 
 # ParIS Messages
 # --------------
@@ -443,69 +428,73 @@ ids:LogMessage a owl:Class;
 ids:AppRegistrationRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "App Registration Request Message"@en ;
-    rdfs:comment "Message that asks for registration of a new app to the appStore. Payload contains app data."@en ;
+    rdfs:comment "Message that asks for registration or update of a data app to the App Store. Payload contains app-related metadata (instance of class ids:AppResource). Message header may contain an app identifier parameter of a prior registered data app. If the app identifier is supplied, the message should be interpreted as a registration for an app update. Otherwise this message is used to register a new app. "@en ;
 .
 
-ids:AppRegistrationConfirmedMessage a owl:Class;
+ids:affectedDataApp rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:AppRegistrationRequestMessage ;
+    rdfs:range ids:AppResource ;   
+    rdfs:label "affected AppResource"@en ;
+    rdfs:comment "The affected data app that is referenced in the App-related messages. "@en;
+.
+
+ids:AppRegistrationResponseMessage a owl:Class;
     rdfs:subClassOf ids:ResponseMessage ;
-    rdfs:label "App Registration Confirmed Message"@en ;
+    rdfs:label "App Registration Response Message"@en ;
     rdfs:comment "Message that follows up an AppRegistrationRequestMessage and contains the app registration confimation."@en ;
 .
 
-ids:AppUpdateRequestMessage a owl:Class;
-    rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "App Update Request Message"@en ;
-    rdfs:comment "Message that asks for Update of an existing app to the appStore. Payload contains app data."@en ;
+ids:AppUploadMessage a owl:Class;
+    rdfs:subClassOf ids:UploadMessage ;
+    rdfs:label "App Upload Message"@en ;
+    rdfs:comment "Message that usually follows a AppRegistrationResponseMessage and is used to upload a data app to the app store. Payload contains data app. Note that the message must refer to the prior sent, corresponding AppResource instance. The IRI of the ids:appArtifactReference must must match the IRI of the artifact which is the value for the ids:instance property. The ids:instance is specific for each representation. Therefore, if someone wants to upload multiple representations for an app, he has to state them using multiple ids:instance properties inside the AppRepresentation (and therefore inside the AppResource). Otherwise no mapping between payload and app metadata can be achieved."@en ;
     idsm:validation [
-                        idsm:forProperty ids:affectedDataAppResource;
-                        idsm:constraint idsm:NotNull;
-                    ];
+        idsm:forProperty ids:appArtifactReference;
+        idsm:constraint idsm:NotNull;
+    ];
 .
 
-ids:AppUpdateConfirmedMessage a owl:Class;
-    rdfs:subClassOf ids:ResponseMessage ;
-    rdfs:label "App Update Confirmed Message"@en ;
-    rdfs:comment "Message that follows up an AppUpdateRequestMessage and contains the app Update confimation."@en ;
+ids:AppUploadResponseMessage a owl:Class;
+    rdfs:subClassOf ids:UploadResponseMessage ;
+    rdfs:label "App Upload Response Message"@en ;
+    rdfs:comment "Message that follows up an AppUploadMessage and contains the app upload confimation."@en ;
 .
 
+ids:appArtifactReference rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:AppUploadMessage ;
+    rdfs:range ids:Artifact ;   
+    rdfs:label "app artifact reference"@en ;
+    rdfs:comment "IRI reference to the ids:Artifact, whose corresponding data is transfered as payload of the AppUploadMessage. The Artifact IRI reference must match the IRI of the instance IRI for the corresponding ids:AppRepresentation."@en;
+.
 
 ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
     idsm:abstract true ;
     rdfs:label "App Notification Message"@en ;
-    rdfs:comment "Superclass of all app notification messages, indicating a change of a DataApp."@en;
+    rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
     idsm:validation [
-                        idsm:forProperty ids:affectedDataAppResource;
-                        idsm:constraint idsm:NotNull;
-                    ];
+                idsm:forProperty ids:affectedDataAppResource;
+                idsm:constraint idsm:NotNull;
+            ];
 .
 
 ids:AppAvailableMessage a owl:Class ;
     rdfs:subClassOf ids:AppNotificationMessage ;
     rdfs:label "App Available Message"@en;
-    rdfs:comment "Message indicating that a specific App is available in the AppStore."@en;
+    rdfs:comment "Message indicating that a specific App should be available (again) in the AppStore."@en;
 .
 
 ids:AppUnavailableMessage a owl:Class ;
     rdfs:subClassOf ids:AppNotificationMessage ;
     rdfs:label "App Unavailable Message"@en;
-    rdfs:comment "Message indicating that a specific App is unavailable."@en;
+    rdfs:comment "Message indicating that a specific App should be unavailable in the AppStore."@en;
 .
 
 ids:AppDeleteMessage a owl:Class ;
      rdfs:subClassOf ids:AppNotificationMessage ;
      rdfs:label "App Delete Message"@en;
-     rdfs:comment "Message indicating an update of a specific App."@en;
+     rdfs:comment "Message indicating that an App should be deleted from the AppStore."@en;
 .
 
-ids:affectedAppResource rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
-    rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:AppNotificationMessage ids:AppUpdateRequestMessage)
-              ] ;
-    rdfs:range ids:Resource ;   
-    # ToDo: 
-    #     Change range to the correct AppResource class, if defined.
-    rdfs:label "affected App"@en ;
-    rdfs:comment "The affected App that is referenced in the App-related notification messages. "@en;
-.

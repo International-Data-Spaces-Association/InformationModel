@@ -2,7 +2,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -25,19 +24,63 @@ shapes:CatalogShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Catalog ;
 
+    sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (CatalogShape): An ids:Catalog is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Catalog)
+			}
+		""" ;
+	] ;
+.
+
+
+shapes:ResourceCatalogShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:ResourceCatalog ;
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:offer ;
+		sh:path ids:offeredResources ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (CatalogShape): An ids:offer property must point from an ids:Catalog to an ids:Resource."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ResourceCatalog): An ids:offeredResources property must point from an ids:ResourceCatalog to an ids:Resource."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:request ;
+		sh:path ids:requestedResources ;
 		sh:class ids:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (CatalogShape): An ids:request property must point from an ids:Catalog to an ids:Resource."@en ;
-	] .
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ResourceCatalog): An ids:requestedResources property must point from an ids:ResourceCatalog to an ids:Resource."@en ;
+	] ;
+.
 
+
+shapes:ParticipantCatalogShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:ParticipantCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:members ;
+		sh:class ids:Participant ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ParticipantCatalog): An ids:members property must point from an ids:ParticipantCatalog to an ids:Participant."@en ;
+	] ;
+.
+
+
+shapes:ConnectorCatalogShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:ConnectorCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:listedConnector ;
+		sh:class ids:Connector ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ConnectorCatalog): An ids:listedConnector property must point from an ids:ConnectorCatalog to an ids:Connector."@en ;
+	] ;
+.

@@ -31,6 +31,7 @@ ids:Rule
     idsm:validation [
         idsm:forProperty ids:action;
         idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotNull;
     ].
 
 ids:Permission rdfs:subClassOf ids:Rule;
@@ -90,7 +91,6 @@ ids:assigner rdfs:subPropertyOf odrl:assigner;
 
 ids:target
     a owl:ObjectProperty;
-    #rdfs:subPropertyOf odrl:target;
     rdfs:domain ids:Rule;
     rdfs:range
     rdfs:label "target"@en;
@@ -113,7 +113,7 @@ ids:constraint rdfs:subPropertyOf odrl:constraint;
 ids:assetRefinement
     a owl:ObjectProperty;
     rdfs:subPropertyOf odrl:refinement ;
-    rdfs:label "asset refinement"@en;
-    rdfs:domain ids:Asset ;
-    rdfs:range ids:AbstractConstraint ;
+    rdfs:label "content refinement"@en;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:AbstractConstraint;
     rdfs:comment "Constraint that refines a (composite) Digital Content."@en.

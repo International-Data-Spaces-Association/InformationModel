@@ -16,16 +16,6 @@ ids:DataRepresentation
     rdfs:label "Data representation"@en ;
     rdfs:comment "Physical representation of (structured) data."@en .
 
-# TODO: is this needed here?
-# Only DR deals with schema, dataType etc.
-#ids:schema a owl:ObjectProperty;
-#    rdfs:domain ids:DataRepresentation;
-#    rdfs:range ids:Schema;
-#    rdfs:label "data schema"@en;
-#    rdfs:comment "Schema this representation conforms to (defined in terms of a schema language)."@en;
-#    rdfs:seeAlso <http://www.ddialliance.org/Specification/DDI-CV/DataType_1.0.html> .
-
-# TODO: this will not work for custom datatypes like GS1 message types
 # define range as anyURI (type defining schema element) or literal (JSON schema reference)
 ids:dataType
     a owl:DatatypeProperty;
@@ -80,43 +70,23 @@ ids:VideoRepresentation a owl:Class;
 
 ids:frameRate a owl:DatatypeProperty;
     rdfs:domain ids:VideoRepresentation;
-    rdfs:range xsd:decimal ;# frames/second
+    rdfs:range xsd:decimal ;
     rdfs:label "frame rate"@en;
-    rdfs:comment "Video frame rate."@en.
+    rdfs:comment "Video frame rate, as frames/second."@en.
 
 ids:SoftwareRepresentation a owl:Class;
     rdfs:subClassOf ids:Representation ;
     rdfs:label "Software Representation"@en ;
     rdfs:comment "Software representation"@en .
 
-# this is in fact covered by a (custom) media type
-# is a specific container representation format required?
-ids:ContainerRepresentation
-    a owl:Class;
-    rdfs:subClassOf ids:Representation ;
-    rdfs:label "Container representation"@en ;
-    rdfs:comment "Container representation, i.e. of a (compressed) archive."@en .
+ids:AppRepresentation a owl:Class;
+    rdfs:subClassOf ids:SoftwareRepresentation ;
+    rdfs:label "App Representation"@en ;
+    rdfs:comment "App representation"@en .
 
-#ids:ArchiveFormat
-#    a owl:Class;
-#    rdfs:label "Archive format"@en ;
-#    rdfs:comment "Archive format."@en .
-
-#ids:packaging a owl:ObjectProperty; # tar
-#    rdfs:domain ids:ContainerRepresentation;
-#    rdfs:range  ids:ArchiveFormat;
-#    rdfs:label "packaging"@en;
-#    rdfs:comment "archive format (including or independent of compression)"@en.
-
-#ids:compression a owl:ObjectProperty; # gzip, 7zip etc.
-#    rdfs:domain ids:ContainerRepresentation;
-#    rdfs:range  ids:ArchiveFormat; # TODO: should be a more specific class?
-#    rdfs:label "compression"@en;
-#    rdfs:comment "compression format (including or independent of packaging)"@en.
-
-ids:CollectionRepresentation
-    a owl:Class;
-    rdfs:subClassOf ids:Representation ;
-    rdfs:label "Collection representation"@en ;
-    rdfs:comment "Representation of a Collection, i.e. a Map or List of elements."@en .
-
+ids:dataAppInformation a owl:ObjectProperty;
+    rdfs:label "data app information"@en ;
+    rdfs:comment "Information about the concrete data app implementation"@en ;
+    rdfs:domain ids:AppRepresentation;
+    rdfs:range ids:DataApp;
+.

@@ -20,15 +20,16 @@ shapes:
 	] .
 
 
-shapes:BrokerShape
+shapes:ParISShape
 	a sh:NodeShape ; 
-	sh:targetClass ids:Broker ;
+	sh:targetClass ids:ParIS ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:connectorCatalog ;
-		sh:class ids:ConnectorCatalog;
+		sh:path ids:participantCatalog ;
+		sh:class ids:ParticipantCatalog ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (BrokerShape): An ids:connectorCatalog property must point from an ids:Broker to an ids:ConnectorCatalog."@en ;
-	] .
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ParISShape.ttl> (ParISShape): An ids:participantCatalog property must point from an ids:ParIS to an ids:ParticipantCatalog."@en ;
+	];
+.
 
