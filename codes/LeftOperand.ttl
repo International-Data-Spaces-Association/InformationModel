@@ -15,8 +15,14 @@
 
 # business
 # --------
+idsc:PAYMENT a ids:LeftOperand;
+    rdfs:label "payment"@en;
+    rdfs:comment "Monetary payment, without any further sepcification on the type, amount or purpose."@en ;
+.
+
 idsc:PAY_AMOUNT a ids:LeftOperand;
     rdfs:seeAlso odrl:payAmount;
+    ids:broader idsc:PAYMENT ;
     rdfs:label "payAmount"@en;
     rdfs:comment "Monetary amount to pay, usually used with idsc:EQ. Datatype is double. Currency required."@en ;
 .
