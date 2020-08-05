@@ -18,12 +18,12 @@
     ?ParticipantUri                                         # directly insert the Participant URI, if known
 | # or
     [
-        a ids:ParticipantCollection ;
-        ids:memberPart ?DefinedCollection ;                     # reference to a well-known Collection, which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Participant is in the Collection or not
+        a ids:Participant ;
+        ids:memberParticipant ?Participant ;                     # reference to a well-known Collection, which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Participant is in the Collection or not
     ]
 | # or
     [
-        a ids:ParticipantCollection ;
+        a ids:Participant ;
         ids:participantRefinement [                         # a Collection with exactly one condition to describe its members
             a ids:Constraint ;                              # Define a collection of data objects which, for instance all have an explicit attribute "role":"ADMIN"
             ids:leftOperand ?IdscLeftOperand ;              # The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
@@ -35,7 +35,7 @@
     ]
 | # or
     [
-        a ids:ParticipantCollection ;
+        a ids:Participant ;
         ids:participantRefinement [
             a ids:LogicalConstraint ;                       # A Collection with more than one condition to describe its members.
             ?IdsOperand                                     # The operand to connect the constraints, for instance ?IdsOperand := idsc:OR

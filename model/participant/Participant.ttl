@@ -86,12 +86,21 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
     rdfs:comment "Indicates that a participant has a member which is again a participant. This is useful for defining hierarchical relations in a participant's organization as well as identifying groups of participants to capture, e.g., members of a collaboration."@en.
 
 
-ids:participantCertification
+    ids:participantCertification
+        a owl:ObjectProperty;
+        rdfs:label "participant certification"@en;
+        rdfs:domain ids:Participant;
+        rdfs:range ids:ParticipantCertification;
+        rdfs:comment "Certification issued for the given Participant."@en.
+
+
+ids:participantRefinement
     a owl:ObjectProperty;
-    rdfs:label "participant certification"@en;
-    rdfs:domain ids:Participant;
-    rdfs:range ids:ParticipantCertification;
-    rdfs:comment "Certification issued for the given Participant."@en.
+    rdfs:label "participant refinment"@en;
+    rdfs:domain ids:Participant ;
+    rdfs:range ids:AbstractConstraint ;
+    rdfs:comment "Conditions which needs to be satisfied that a single Participant can be seen as a member of the subject Participant. For instance, all Participants with their headquarter in Europe might be a potential consumer of GDPR-releated data."@en;
+.
 
 
 # Properties for describing a Person
@@ -150,4 +159,3 @@ ids:siteAddress
     rdfs:range xsd:string;
     rdfs:label "site address"@en;
     rdfs:comment "Indicates an address for the site."@en.
-
