@@ -23,7 +23,7 @@
           idsc:FINISHED_BY | idsc:FINISHES | idsc:MEETS | idsc:MET_BY |
           idsc:OVERLAPS | idsc:OVERLAPPED_BY | idsc:STARTS | idsc:STARTED_BY) ; # The comaprison operator, for instance AFTER
         ids:rightOperand "?Value"^^xsd:dateTimeStamp ;                          # The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
-        ( ids:ids:pipEndpoint ?ClockEndpoint ; )?                               # A URI or path expression to a shared time provider, if necessary.
+        ( ids:pipEndpoint ?ClockEndpoint ; )?                               # A URI or path expression to a shared time provider, if necessary.
     )
 | # or
     (
@@ -32,7 +32,7 @@
         ids:operator ( idsc:SHORTER | idsc:SHORTER_EQ | idsc:LONGER |
           idsc:LONGER_EQ | idsc:DURATION_EQ ) ;                                 # The comaprison operator, for instance SHORTER
         ids:rightOperand "?Value"^^xsd:duration ;                               # The value expression, for instance ?Value := "P0Y0M0DT0H10M0S"
-        ( ids:ids:pipEndpoint ?ClockEndpoint ; )?                               # A URI or path expression to a provider of the usage duration.
+        ( ids:pipEndpoint ?ClockEndpoint ; )?                               # A URI or path expression to a provider of the usage duration.
     )
 | # or
     (
@@ -44,14 +44,14 @@
                   ids:leftOperand idsc:POLICY_EVALUATION_TIME ;                 # The current time, usually the system time.
                   ids:operator idsc:AFTER ;                                     # The comaprison operator, for instance AFTER
                   ids:rightOperand "?Value"^^xsd:dateTimeStamp ;                # The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
-                  ( ids:ids:pipEndpoint ?ClockEndpoint ; )?                     # A URI or path expression to a shared time provider, if necessary.
+                  ( ids:pipEndpoint ?ClockEndpoint ; )?                     # A URI or path expression to a shared time provider, if necessary.
               ]
               [
                   a ids:TemporalConstraint ;                                    # A TemporalConstraint, for instance current time < January 1st 2021
                   ids:leftOperand idsc:POLICY_EVALUATION_TIME ;                 # The current time, usually the system time.
                   ids:operator idsc:BEFORE ;                                    # The comaprison operator, for instance AFTER
                   ids:rightOperand "?Value"^^xsd:dateTimeStamp ;                # The value expression, for instance ?Value := "2020-12-12T23:59:59.999+02:00"
-                  ( ids:ids:pipEndpoint ?ClockEndpoint ; )?                     # A URI or path expression to a shared time provider, if necessary.
+                  ( ids:pipEndpoint ?ClockEndpoint ; )?                     # A URI or path expression to a shared time provider, if necessary.
               ]
             ) # ')' is used as an RDF List operator here
     )

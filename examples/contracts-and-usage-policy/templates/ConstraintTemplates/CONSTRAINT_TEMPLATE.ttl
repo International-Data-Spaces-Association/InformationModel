@@ -20,7 +20,7 @@
         ids:leftOperand ?IdscLeftOperand ;                  # The feature of interest, for instance ?IdscLeftOperand := idsc:PAY_AMOUNT
         ids:operator ?IdscBinaryOperator ;                  # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:EQ
         ids:rightOperand ?Value ;                           # The value expression all members of this collection have to share, for instance ?Value := "5"
-        ( ids:ids:pipEndpoint ?AttributeLocation ; )?       # A URI or path expression to the target attribute, ?AttributeLocation := <https://bank.com/bankaccount>
+        ( ids:pipEndpoint ?AttributeLocation ; )?       # A URI or path expression to the target attribute, ?AttributeLocation := <https://bank.com/bankaccount>
         ( ids:unit ?Unit ; )?                               # A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Euro>.
     ]
 | # or
@@ -33,7 +33,7 @@
                     ids:leftOperand ?IdscLeftOperand ;
                     ids:operator ?IdsBinaryOperator ;
                     ids:rightOperand ?Value ;
-                    ( ids:ids:pipEndpoint ?AttributeLocation ; )?
+                    ( ids:pipEndpoint ?AttributeLocation ; )?
                     ( ids:unit ?Unit ; )?
                 ){2,} # at least two constraints
             ) # ')' is used as an RDF List operator here
