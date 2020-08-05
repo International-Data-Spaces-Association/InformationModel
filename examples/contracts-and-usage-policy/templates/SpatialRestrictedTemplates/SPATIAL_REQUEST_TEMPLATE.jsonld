@@ -31,8 +31,8 @@
             "ids:operator": { "@id": "?spatialOperator" },
             "ids:rightOperand": {
               (
-                  "@id": "?area",                                  // a URI of a named area, for instance http://dbpedia.org/resource/Europe
-              | # or
+                  "@id": "?area"                                   // a URI of a named area, for instance http://dbpedia.org/resource/Europe
+              | // or
                   "@type": "ids:GeoPoint",
                   "ids:latitude": {
                       "@value": "?lat",                           // the latitude, for instance 48.856700
@@ -42,20 +42,19 @@
                       "@value": "?lng",                           // the longitude, for instance 2.350800
                       "@type": "http://www.w3.org/2001/XMLSchema#float"
                   }
-              | # or
+              | // or
                   "@type": "ids:BoundingPolygon",
-                  ("ids:geoPoint": {
-                      "@type": "ids:GeoPoint",
-                      "ids:latitude": {
-                          "@value": "?lat",
-                          "@type": "http://www.w3.org/2001/XMLSchema#float"
-                      },
-                      "ids:longitude": {
-                          "@value": "?lng",
-                          "@type": "http://www.w3.org/2001/XMLSchema#float"
-                      }
-                    }){3,}  # at least three GeoPoints are needed to define an area
-                ] ;
+                  (, "ids:geoPoint": {
+                        "@type": "ids:GeoPoint",
+                        "ids:latitude": {
+                            "@value": "?lat",
+                            "@type": "http://www.w3.org/2001/XMLSchema#float"
+                        },
+                        "ids:longitude": {
+                            "@value": "?lng",
+                            "@type": "http://www.w3.org/2001/XMLSchema#float"
+                        }
+                    }){3,}  // at least three GeoPoints are needed to define an area
               )
             }
         }

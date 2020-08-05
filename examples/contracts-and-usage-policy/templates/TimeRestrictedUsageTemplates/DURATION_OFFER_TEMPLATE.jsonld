@@ -3,7 +3,7 @@
 
 {
     "@context": "https://w3id.org/idsa/contexts/context.jsonld",
-    "@type": "ids:EventOffer",
+    "@type": "ids:DurationOffer",
     "@id": "?URI",
     (
       ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE), )
@@ -27,16 +27,15 @@
         "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": {
             "@type": "ids:Constraint",
-            "ids:leftOperand": {
-              "@id": "?EventURI",                                 // The identifier of this event, for instance http://dbpedia.org/resource/Category:FIFA_World_Cup_tournaments
-              "ids:broader" : "idsc:EVENT"
-            },
-            "ids:operator": { "@id": "idsc:EQUALS" },             // if pipReturnValue == true --> Constraint is staisfied
+            "ids:leftOperand": { "@id": "idsc:ELAPSED_TIME" },
+            "ids:operator": { "@id": "idsc:SHORTER_EQ" },
             "ids:rightOperand": {
-                "@value": "true",
-                "@type": "http://www.w3.org/2001/XMLSchema#:boolean"
-            },
-            "ids:pipEndpoint": { "@id": "?askIfEventPipUri" }   // The PIP call for this event, for instance https//pip.com/path/isFIFA_World_Cup_tournaments or https//pip.com/ids?event=FIFA_World_Cup_tournaments
+                "@value": "?duration",                   // for a certain usage ?duration
+                "@type": "http://www.w3.org/2001/XMLSchema#duration"
+            }
         }
+        (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
+        (, "ids:preObligation": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more Obligations which need to be fulfilled before the Usage event
+        (, "ids:postObligation": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more additional Obligations which have to be fulfilled after the Usage event
     }
 }
