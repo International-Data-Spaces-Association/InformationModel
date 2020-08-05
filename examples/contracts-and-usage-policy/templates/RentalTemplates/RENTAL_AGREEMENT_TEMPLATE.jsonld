@@ -7,6 +7,7 @@
     "@id": "?URI",
     "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
+    ids:preOobligation: Duty to Pay
     "ids:permission": {
         "@type": "ids:Permission",
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
@@ -14,6 +15,13 @@
         "ids:target": (idsc:ASSET_TEMPLATE),
         "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
+          {
+            "@type:" "ids:Constraint",
+            "ids:leftOperand": { "@id": "idsc:STATE" },
+            "ids:operator": { "@id": "idsc:NOT" },
+            "ids:rightOperand": { "@id": "?terminationState" }    // An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
+            (, "ids:pipEndpoint": { "@id": "?pipUri" } )?         // The location where to find this state.
+          },
           {
             "@type:" "ids:Constraint",
             "ids:leftOperand": { "@id": "idsc:STATE" },
@@ -29,17 +37,18 @@
             "ids:action": {
                 "@type": "ids:Action",
                 "ids:includedIn": { "@id": "idsc:COMPENSATE" },
-                "ids:actionRefinement": {
+                "ids:actionRefinement": [{
                     "@type": "ids:Constraint",
-                    "ids:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
+                    "ids:leftOperand": { "@id": "idsc:PAYMENT" },
                     "ids:operator": { "@id": "idsc:EQ" },
+
                     "ids:rightOperand": {
                         "@value": "?fee",
                         "@type": "http://www.w3.org/2001/XMLSchema#double"
                     },
                     "ids:unit": { "@id": "?currency" }
                     (, "ids:pipEndpoint": "?pipUri" )?          // zero or one reference to a PIP endpoint
-                }
+                }]
             },
             "ids:constraint": [
               {
