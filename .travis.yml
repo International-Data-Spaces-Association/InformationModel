@@ -6,7 +6,7 @@ addons:
     - raptor2-utils
 script:
 - echo "Starting build!"
-- find -type f -name "*.ttl" -not -path "./.git/*" -not -path "./examples/usage-policy/*" -not -path "./codes/templates*/*" | sed 's/.*/"&"/' | xargs -n1 rapper -q -i turtle > /dev/null
+- find -type f -name "*.ttl" -not -path "./.git/*" -not -path "./examples/contracts-and-usage-policy/*" | sed 's/.*/"&"/' | xargs -n1 rapper -q -i turtle > /dev/null
 - echo "Finished build."
 
 
