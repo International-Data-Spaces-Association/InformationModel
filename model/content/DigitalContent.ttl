@@ -11,7 +11,7 @@
 # -------
 
 ids:DigitalContent
-    a owl:Class;    
+    a owl:Class;
     rdfs:subClassOf ids:Described, dcat:Dataset;
     idsm:abstract true;
     rdfs:label "Digital content"@en ;
@@ -190,9 +190,12 @@ ids:contentStandard
 ids:created
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:issued;
-    rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:DigitalContent ids:Representation)
-              ] ;
+    rdfs:domain [ owl:unionOf (
+          ids:DigitalContent
+          ids:Representation
+          ids:UsageControlObject
+          )
+    ] ;
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "created"@en;
     rdfs:seeAlso dct:created ;
@@ -202,7 +205,7 @@ ids:modified
     a owl:DatatypeProperty;
     rdfs:subPropertyOf dct:modified;
     rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:DigitalContent ids:Representation)
+                owl:unionOf ( ids:DigitalContent ids:Representation ids:UsageControlObject)
               ] ;
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "modified"@en;
