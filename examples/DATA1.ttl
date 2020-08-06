@@ -1,9 +1,6 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
-@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
-@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
@@ -19,15 +16,15 @@ data1:
         ids:begin [ ids:date "2000-01-01"^^xsd:date ];
         ids:end   [ ids:date "2017-12-31"^^xsd:date ]
     ] ;
-    ids:language idsc_lang:ENGLISH ;
+    ids:language idsc:EN ;
     ids:representation [
         a ids:TextRepresentation ;
-        ids:mediaType idsc_media:APPLICATION_PDF;
+        ids:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
         ids:instance data1:report_pdf ;
     ] ;
     ids:representation [
         a ids:TextRepresentation ;
-        ids:mediaType idsc_media:APPLICATION_MSWORD;
+        ids:mediaType <https://www.iana.org/assignments/media-types/application/msword> ;
         ids:instance data1:report_doc ;
     ] ;
 
