@@ -32,7 +32,7 @@ idsc:DURATION_AGREEMENT_TEMPLATE a ids:DurationAgreement ;
             ids:rightOperand ?duration ;                    # for a certain usage ?duration
         ] ;
         ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
-        ( ids:preObligation idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
-        ( ids:postObligation idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
+        ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
+        ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
     ]
 .

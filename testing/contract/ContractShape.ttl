@@ -111,14 +111,6 @@ shapes:ContractShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:prohibition ;
-		sh:class ids:Prohibition ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:prohibition property must point from an ids:Contract to an ids:Prohibition."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path ids:obligation ;
 		sh:class ids:Duty ;
 		sh:severity sh:Violation ;
@@ -127,18 +119,10 @@ shapes:ContractShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:refersTo ;
-		sh:class ids:PolicyTemplate ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path (ids:permission ids:obligation ids:prohibition) ;
+		sh:path (ids:permission ids:obligation) ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission or ids:obligation property linked."@en ;
 	] .
 
 
