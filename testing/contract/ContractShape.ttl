@@ -132,14 +132,31 @@ shapes:ContractShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:refersTo property must point from an ids:Contract to an ids:PolicyTemplate."@en ;
 	] ;
+	sh:or ( [ sh:property [
+							  sh:path ids:permission ;
+							  sh:minCount 1 ;
+							  sh:severity sh:Violation ;
+							  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path (ids:permission ids:obligation ids:prohibition) ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ;
-	] .
+						  ]
+			]
+			[ sh:property [
+							  sh:path ids:prohibition ;
+							  sh:minCount 1 ;
+							  sh:severity sh:Violation ;
+							  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ;
+						  ]
+			]
+			[ sh:property [
+							  sh:path ids:obligation ;
+							  sh:minCount 1 ;
+							  sh:severity sh:Violation ;
+							  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission, ids:obligation or ids:prohibition property linked."@en ;
+						  ]
+			]
+		  );
+
+.
 
 
 shapes:ContractAgreementShape
