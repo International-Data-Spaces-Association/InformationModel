@@ -1,9 +1,6 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix idsc_prot: <https://w3id.org/idsa/protocol/> .
-@prefix idsc_auth: <https://w3id.org/idsa/code/auth/> .
-@prefix idsc_cert: <https://w3id.org/idsa/code/certification/> .
-
+@prefix idsc: <https://w3id.org/idsa/code/> .
 # Participant URI is resolved by Identity Manager
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
@@ -20,37 +17,46 @@ conn2:
     ids:physicalLocation <http://sws.geonames.org/3247450/> ; #Datacenter located in Bonn
     ids:outboundModelVersion "4.0.0" ;
     ids:inboundModelVersion "4.0.0" ;
-
-    # Network hosts maintained by the Connector
-    ids:host conn2:http_host ;
-
+    ids:hasDefaultEndpoint conn2:http_host;
     # Security and trust features
     ids:authInfo conn2:auth_info ;
     ids:securityProfile idsc:BASE_CONNECTOR_SECURITY_PROFILE ;
     ids:componentCertification conn2:certification ;
 
     # Catalog of mediated resources
-    ids:catalog [
-        a ids:Catalog;
-        ids:offer conn2:data1, conn2:data2, conn2:data3 ; # those resources are "offer(s)", in contrast to "request"
+    ids:resourceCatalog [
+        a ids:ResourceCatalog;
+        ids:offeredResources conn2:data1, conn2:data2, conn2:data3 ; # those resources are "offer(s)", in contrast to "request"
     ].
 
 <http://sws.geonames.org/3247450/> a ids:GeoFeature .
 
 conn2:http_host
     a ids:ConnectorEndpoint ;
-    ids:accessURL "https://connector.aastat.gov.de"^^xsd:anyURI ; # how does the host url relate to the connector description?
+    ids:accessURL <https://connector.aastat.gov.de> ;
     .
 
 conn2:auth_info
     a ids:AuthInfo ;
-    ids:authService "https://keycloak.aastat.gov.de"^^xsd:anyURI ;
+    ids:authService <https://keycloak.aastat.gov.de>;
     ids:authStandard idsc:OAUTH2_JWT ;
     .
 
 conn2:certification
     a ids:ComponentCertification ;
-    ids:certificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
+    ids:certificationLevel idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
     # ids:evaluationFacility
-    ids:lastValidDate "2020-12-31"^^xsd:date ;
+    ids:lastValidDate "2020-12-31T13:20:00Z"^^xsd:dateTimeStamp ;
     .
+
+conn2:data1 a ids:Resource;
+            ids:title "some Resource";
+.
+
+conn2:data2 a ids:Resource;
+            ids:title "another Resource";
+.
+
+conn2:data3 a ids:Resource;
+            ids:title "yet another Resource";
+.

@@ -1,6 +1,6 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
+@prefix idsc: <https://w3id.org/idsa/code/> .
 # Participant URI is resolved by Identity Manager
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
@@ -29,25 +29,24 @@ conn1:
     # Catalog of mediated resources
     ids:resourceCatalog [
         a ids:ResourceCatalog ;
-        # no offerings
     ].
 
 <http://sws.geonames.org/3247450/> a ids:GeoFeature .
 
 conn1:http_host
     a ids:ConnectorEndpoint ;
-    ids:accessURL "https://monconnector.aastat.gov.de"^^xsd:anyURI ;
+    ids:accessURL <https://monconnector.aastat.gov.de>;
     .
 
 conn1:auth_info
     a ids:AuthInfo ;
-    ids:authService "https://keycloak.aastat.gov.de"^^xsd:anyURI ;
+    ids:authService <https://keycloak.aastat.gov.de>;
     ids:authStandard idsc:OAUTH2_JWT ;
     .
 
 conn1:certification
     a ids:ComponentCertification ;
-    ids:certificationLevel idsc_cert:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
+    ids:certificationLevel idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
     # ids:evaluationFacility
-    ids:lastValidDate "2020-12-31"^^xsd:date ;
+    ids:lastValidDate "2020-12-31T13:20:00Z"^^xsd:dateTimeStamp;
     .
