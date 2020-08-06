@@ -103,7 +103,7 @@ ids:and rdfs:subPropertyOf odrl:and;
   rdfs:domain ids:LogicalConstraint;
   #rdfs:range rdf:List;
   rdfs:range ids:Constraint;
-  rdfs:comment "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' List must be satisfied."@en ;
+  rdfs:comment "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
 .
 
 ids:or rdfs:subPropertyOf odrl:or;
@@ -112,7 +112,7 @@ ids:or rdfs:subPropertyOf odrl:or;
   rdfs:domain ids:LogicalConstraint;
   #rdfs:range rdf:List;
   rdfs:range ids:Constraint;
-  rdfs:comment "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' List must be satisfied."@en ;
+  rdfs:comment "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;"@en ;
 .
 
 ids:xone rdfs:subPropertyOf odrl:xone;
@@ -121,5 +121,5 @@ ids:xone rdfs:subPropertyOf odrl:xone;
   rdfs:domain ids:LogicalConstraint;
   #rdfs:range rdf:List;
   rdfs:range ids:Constraint;
-  rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' List must be satisfied."@en ;
+  rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;"@en ;
 .

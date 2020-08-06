@@ -111,24 +111,24 @@ shapes:LogicalConstraintShape
 	    [
 		    sh:path ids:and ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-				#sh:node shapes:ConstraintListShape ;
+        #sh:maxCount 1 ;
+				sh:class ids:Constraint ;
         sh:severity sh:Violation ;
 	    ]
 	    [
 		    sh:path ids:or ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-				#sh:node shapes:ConstraintListShape ;
+        #sh:maxCount 1 ;
+				sh:class ids:Constraint ;
         sh:severity sh:Violation ;
 	    ]
 	    [
 		    sh:path ids:xone ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-				#sh:node shapes:ConstraintListShape ;
+        #sh:maxCount 1 ;
+				sh:class ids:Constraint ;
         sh:severity sh:Violation ;
 	    ]
 		) ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one ids:and, ids:or, or ids:xone property must point from an ids:LogicalConstraint to a rdf:List of ids:Constraints."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one ids:and, ids:or, or ids:xone property must point from an ids:LogicalConstraint to  ids:Constraints."@en ;
 .
