@@ -7,28 +7,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [4.0.0] 2020-08-04
 Version 4.0.0 of the IDS Information Model
 
-
 ### Added
 
 * `ids:ConfigurationModel` class for Connector configuration and deployment related information.
-    * Several complementary classes, including `ids:Proxy`, `ids:LogLevel`, `ids:AppRoute`, `ids:UserAuthentication`.
-* Redesign for `ids:DadaApp` class.
-    * `ids:DataApp` as superclass of `ids:OrchestrationApp`, `ids:SmartDataApp`, `ids:SystemAdapterApp` .
-    * New properties `ids:appDocumentation` with range `xsd:string` and `ids:appEndpoint` with range `ids:AppEndpoint` to enable app and app endpoint documentation.
-* `ids:AppEndpoint` as subclass of `ids:Endpoint`. to describe data app endpoints, such as path suffixes, ports and endpoint documentation.
+  * Several complementary classes, including `ids:Proxy`, `ids:LogLevel`, `ids:AppRoute`, `ids:UserAuthentication`.
+* Redesign for `ids:DataApp` class.
+  * `ids:DataApp` as superclass of `ids:OrchestrationApp`, `ids:SmartDataApp`, `ids:SystemAdapterApp` .
+  * New properties `ids:appDocumentation` with range `xsd:string` and `ids:appEndpoint` with range `ids:AppEndpoint` to enable app and app endpoint documentation.
+* `ids:AppEndpoint`, a subclass of `ids:Endpoint` to describe data app endpoints, such as path suffixes, ports and endpoint documentation.
 * Languages for `ids:Representation` via the `ids:language` property. One can no add languages to `ids:Representations`.
-* `ids:ResourceCatalog`, `ids:ConnectorCatalog` and `ids:ParticipantCatalog` as subclasses of `ids:Catalog` to enable infrastructure components, e.g., Broker and ParIS, to present Connector- and Participant- specific catalogs.
+* `ids:ResourceCatalog`, `ids:ConnectorCatalog` and `ids:ParticipantCatalog` as subclasses of `ids:Catalog` to enable infrastructure components, e.g., Broker and ParIS, to present Connector- and Participant-specific catalogs.
 * New messages:
-    * Messages for app-related communication between app provider and app store.
-    * `ids:UploadMessage` and `ids:UploadResponseMessage` to allow data upload to a recipient.
+  * Messages for app-related communication between app provider and app store.
+  * `ids:UploadMessage` and `ids:UploadResponseMessage` to allow data upload to a recipient.
 
 ### Changed
 
 * `ids:MediaType`. Removed instances for `ids:IANAMediaType`.
-    * Mediatypes via `ids:mediatype` with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g. for JSON-LD:
+    * Mediatypes via `ids:mediaType` with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g., for JSON-LD:
     ```JSON
-    "ids:mediatype": {
-      "@id": "https://www.iana.org/assignments/media-types/application/ld+json",
+    "ids:mediaType": {
+      "@id":   "https://www.iana.org/assignments/media-types/application/ld+json",
       "@type": "ids:IANAMediaType"
     }
     ```
@@ -37,13 +36,13 @@ Version 4.0.0 of the IDS Information Model
 * Renamed property `ids:catalog` of Connector to `ids:resourceCatalog` and changed range to `ids:ResourceCatalog`.
 * Connectors can now present multiple catalogs via the `ids:resourceCatalog` property.
 * Switched range of `ids:standardLicense` property from `ids:License` to `xsd:anyURI`. There is no vocabulary with an complete, regulary updated list of software and data licenses which we can provide as instances of the `ids:License` class, to the best of our knowledge. Users should add the IRI to the correct license. We recommend using sources such as [Wikidata](www.wikidata.org/) to search for most common licenses.
-* `ids:contentSandard` properties of class `ids:DigitalContent` and `ids:representationStandard` properties of class `ids:Representation` now have range `xsd:anyURI`.
+* `ids:contentStandard` properties of class `ids:DigitalContent` and `ids:representationStandard` properties of class `ids:Representation` now have range `xsd:anyURI`.
 * Redesign of `ids:Endpoint` class.
-    * Removed `ids:InteractiveEndpoint`.
-    * `ids:StaticEndpoint` is now called `ids:ConnectorEndpoint`. `ids:ConnectorEndpoint` contains additional properties, especially for endpoint description and documentation.
-    * `ids:Host` information is now part of the `ids:Endpoint`.
-    * New property: `ids:ids:endpointInformation` with range `xsd:string` and `ids:endpointDocumentation` with range `xsd:anyURI` for endpoint description and documentation.
-
+  * Removed `ids:InteractiveEndpoint`.
+  * `ids:StaticEndpoint` is now called `ids:ConnectorEndpoint`. `ids:ConnectorEndpoint` contains additional properties, especially for endpoint description and documentation.
+  * `ids:Host` information is now part of the `ids:Endpoint`.
+  * New property: `ids:ids:endpointInformation` with range `xsd:string` and `ids:endpointDocumentation` with range `xsd:anyURI` for endpoint description and documentation.
+* Core classes for digital content (`ids:Resource`, `ids:DigitalContent`, `ids:Representation`, `ids:Artifact`) now aligned with W3C [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/)
 
 ### Removed
 * Classes related to runtime related interaction, such as `ids:Operation`, `ids:Activity`, `ids:Interface`, `ids:Parameter`.
