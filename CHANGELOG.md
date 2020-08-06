@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [4.0.0] 2020-08-04
-Version 4.0.0 of the IDS Information model
+Version 4.0.0 of the IDS Information Model
 
 
 ### Added
@@ -57,7 +57,7 @@ Version 4.0.0 of the IDS Information model
 
 
 ## [3.1.0] 2020-04-30
-Version 3.1.0 of the IDS Information model
+Version 3.1.0 of the IDS Information Model
 
 
 ### Added
@@ -77,7 +77,7 @@ Version 3.1.0 of the IDS Information model
 * SHACL shapes for properties with IRI ranges. Property values written as defined by the RDF serialisations should now be correctly validated.
 
 ## [3.0.0] 2020-03-04
-Version 3.0.0 of the IDS Information model
+Version 3.0.0 of the IDS Information Model
 
 ### Added
 
@@ -109,7 +109,7 @@ Version 3.0.0 of the IDS Information model
 * `ids:Message` now correctly labelled as _abstract_ since it is not intended to be used directly.
 
 ## [2.1.0] 2019-12-02
-Version 2.1.0 of the IDS Information model
+Version 2.1.0 of the IDS Information Model
 
 ### Added
 
@@ -127,7 +127,7 @@ Version 2.1.0 of the IDS Information model
 
 
 ## [2.0.1] 2019-11-19
-Version 2.0.1 of the IDS Information model
+Version 2.0.1 of the IDS Information Model
 
 ### Changed
 * Removed property *ids:baseContractOffer* from class *ids:ContractRequestMessage* due to redundancy. By definition *ids:ContractRequestMessage* already requires a contract in its payload. The property is therefore not needed.
@@ -141,7 +141,7 @@ Version 2.0.1 of the IDS Information model
 
 
 ## [2.0.0] 2019-10-14
-Version 2.0 of the IDS Information model
+Version 2.0 of the IDS Information Model
 
 
 ### Added
