@@ -1,0 +1,92 @@
+{
+  "@context": {
+    "ids": "https://w3id.org/idsa/core/",
+    "idsc": "https://w3id.org/idsa/code/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "http://foo.bar",
+      "@type": "ids:AppResource",
+      "ids:customLicense": {
+        "@id": "https://www.gnu.org/licenses/gpl-3.0-standalone.html"
+      },
+      "ids:description": {
+        "@language": "en",
+        "@value": "AppResource 2."
+      },
+      "ids:keyword": [
+        "bla",
+        "Data",
+        "processing"
+      ],
+      "ids:title": "App Title"
+    },
+    {
+      "@id": "_:ub61bL21C25",
+      "@type": "ids:ResourceCatalog",
+      "ids:offeredResources": [
+        {
+          "@id": "http://appIdentifier_2"
+        },
+        {
+          "@id": "http://foo.bar"
+        }
+      ]
+    },
+    {
+      "@id": "http://appstore.fit.fraunhofer.de",
+      "@type": "ids:AppStore",
+      "ids:curator": {
+        "@id": "http://fit.fraunhofer.de/participant/bar"
+      },
+      "ids:description": "IDS AppStore self-description",
+      "ids:hasDefaultEndpoint": {
+        "@id": "_:ub61bL13C28"
+      },
+      "ids:maintainer": {
+        "@id": "http://fit.fraunhofer.de/participant/foo"
+      },
+      "ids:outboundModelVersion": "4.0.0",
+      "ids:resourceCatalog": {
+        "@id": "_:ub61bL21C25"
+      },
+      "ids:securityProfile": {
+        "@id": "idsc:TRUSTED_CONNECTOR_SECURITY_PROFILE"
+      },
+      "ids:title": "AppStore"
+    },
+    {
+      "@id": "http://appIdentifier_2",
+      "@type": "ids:AppResource",
+      "ids:customLicense": {
+        "@id": "https://www.gnu.org/licenses/gpl-3.0-standalone.html"
+      },
+      "ids:description": {
+        "@language": "en",
+        "@value": "AppResource 1"
+      },
+      "ids:keyword": [
+        "bla",
+        "Data",
+        "processing"
+      ],
+      "ids:title": "App 1 Title"
+    },
+    {
+      "@id": "_:ub61bL13C28",
+      "@type": "ids:ConnectorEndpoint",
+      "ids:accessURL": {
+        "@id": "http://appstore.fit.fraunhofer.de"
+      },
+      "ids:endpointDocumentation": {
+        "@id": "http://IRItoSomeAPIdocumentation"
+      },
+      "ids:endpointInformation": "This is the default endpoint of the AppStore.",
+      "ids:inboundPath": "/input",
+      "ids:outboundPath": "/output"
+    }
+  ]
+}

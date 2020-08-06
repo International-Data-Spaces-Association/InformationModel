@@ -88,3 +88,15 @@ shapes:VideoRepresentationShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (VideoRepresentationShape): An ids:frameRate property must point from an ids:VideoRepresentation to an xsd:decimal."@en ;
 	] .
 
+shapes:AppRepresentationShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppRepresentation ;
+
+	sh:property [
+					a sh:PropertyShape ;
+					sh:path ids:dataAppInformation ;
+					sh:class ids:DataApp ;
+					sh:severity sh:Violation ;
+					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppInformation property must point from an ids:AppRepresentation to an ids:DataApp."@en ;
+				] .
+

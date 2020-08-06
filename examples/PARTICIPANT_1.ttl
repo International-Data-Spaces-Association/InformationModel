@@ -1,7 +1,6 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix idsc_cert: <https://w3id.org/idsa/code/certification/> .
-
+@prefix idsc: <https://w3id.org/idsa/code/> .
 # Participant URI is resolved by Identity Manager
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
@@ -12,7 +11,7 @@ part1:
     ids:title "Highway monitoring and statistics agency"@en;
     ids:description "Agency maintaining a large-scale infrastructure for monitoring, analysis and prediction of highway utilization statistics in Europe."@en ;
     ids:corporateEmailAddress "info@aastat.de" ;
-    ids:corporateHomepage "http://aastat.de"^^xsd:anyURI ;
+    ids:corporateHomepage <http://aastat.de> ;
     # ids:industrialClassification?
     ids:primarySite [
         a ids:Site ;
@@ -20,8 +19,7 @@ part1:
     ] ;
     ids:participantCertification [
         a ids:ParticipantCertification ;
-        ids:certificationLevel idsc_cert:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM ;
-        # ids:evaluationFacility?
-        ids:lastValidDate "2020-12-31"^^xsd:date
+        ids:certificationLevel idsc:PARTICIPANT_CENTRAL_LEVEL_MANAGEMENT_SYSTEM ;
+        ids:lastValidDate "2020-12-31T13:20:00Z"^^xsd:dateTimeStamp;
     ]
     .

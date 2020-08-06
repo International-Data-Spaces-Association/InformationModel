@@ -1,48 +1,48 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
-@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
-@prefix idsc_action: <https://w3id.org/idsa/code/action/> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
 data1:
-    a ids:Text ;
+    a ids:TextResource ;
     ids:title "European highway statistics - accident report"@en ;
     ids:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
     ids:keyword "report", "highway", "statistics", "Europe" ;
     ids:temporalCoverage [
         a ids:Interval ;
-        ids:begin [ ids:date "2000-01-01"^^xsd:date ];
-        ids:end   [ ids:date "2017-12-31"^^xsd:date ]
+        ids:begin [
+            a ids:Instant ;
+            ids:dateTime "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        ];
+        ids:end   [
+            a ids:Instant ;
+            ids:dateTime "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        ] ;
     ] ;
-    ids:language idsc_lang:ENGLISH ;
+    ids:language idsc:EN ;
     ids:representation [
         a ids:TextRepresentation ;
-        ids:mediaType idsc_media:APPLICATION_PDF;
+        ids:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
         ids:instance data1:report_pdf ;
     ] ;
     ids:representation [
         a ids:TextRepresentation ;
-        ids:mediaType idsc_media:APPLICATION_MSWORD;
+        ids:mediaType <https://www.iana.org/assignments/media-types/application/msword> ;
         ids:instance data1:report_doc ;
     ] ;
 
     # Communication
-    ids:endpoint [
-        a ids:StaticEndpoint ;
-        ids:endpointHost conn2:http_host ;
-        ids:endpointArtifact data1:report_pdf ;
-        ids:path "/reports/Highway_accident_statistics.pdf"
+    ids:resourceEndpoint [
+        a ids:ResourceEndpoint ;
+        ids:accessURL "https://connector.aastat.gov.de/reports/Highway_accident_statistics.pdf"^^xsd:anyURI ;
     ] ;
-    ids:endpoint [
-        a ids:StaticEndpoint ;
-        ids:endpointHost conn2:http_host ;
-        ids:endpointArtifact data1:report_doc ;
-        ids:path "/reports/Highway_accident_statistics.doc"
+    ids:resourceEndpoint [
+        a ids:ResourceEndpoint ;
+        ids:accessURL "https://connector.aastat.gov.de/reports/Highway_accident_statistics.doc"^^xsd:anyURI ;
     ] ;
 
     # Commodization
@@ -53,14 +53,14 @@ data1:report_pdf
     a ids:Artifact ;
     ids:byteSize "1923497"^^xsd:nonNegativeInteger ;
     ids:fileName "Highway_accident_statistics.pdf" ;
-    ids:creationDate "2018-06-01"^^xsd:date ;
+    ids:creationDate "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
     .
 
 data1:report_doc
     a ids:Artifact ;
     ids:byteSize "28923491"^^xsd:nonNegativeInteger ;
     ids:fileName "Highway_accident_statistics.doc" ;
-    ids:creationDate "2018-06-01"^^xsd:date ;
+    ids:creationDate "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
     .
 
 data1:offer
@@ -68,15 +68,15 @@ data1:offer
     ids:permission [
         ids:assigner part1: ;
         # individual target(s)
-        ids:targetArtifact data1:report_pdf ;
-        ids:targetArtifact data1:report_doc ;
-        ids:action idsc_action:USE ;
+        ids:target data1: ;
+        ids:action idsc:USE ;
         # Obligation
-        ids:duty [
-            ids:action idsc_action:COMPENSATE ;
+        ids:obligation [
+            a ids:Duty ;
+            ids:action idsc:COMPENSATE ;
             ids:constraint [
-                ids:leftOperand     ids:payAmount ;
-                  ids:operator      ids:eq ;
+                ids:leftOperand     idsc:PAY_AMOUNT ;
+                  ids:operator      ids:EQ ;
                   ids:rightOperand  25 ;
                   ids:unit          <http://dbpedia.org/resource/Euro>
             ]
