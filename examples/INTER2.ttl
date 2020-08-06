@@ -1,15 +1,9 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
-
 @prefix conn2:   <https://aastat.gov.de/connector/conn2/> .
 @prefix broker1: <https://aastat.gov.de/broker/broker1/> .
 @prefix : <https://aastat.gov.de/message/> .
@@ -27,20 +21,20 @@
     ids:securityToken [ 
 		a ids:securityToken ;
 		ids:tokenFormat idsc:JWT ;
-		ids:tokenValue "Some token goes here"^^xsd:string .
+		ids:tokenValue "Some token goes here"^^xsd:string ;
 	] .
 
 :inter2_r
     # Response part. Result is in payload
     a ids:ResultMessage;
     ids:correlationMessage :inter2_q ;
-    ids:issuerConnector broker1: ;
-    ids:recipientConnector conn2: ;
+    ids:issuerConnector :broker1 ;
+    ids:recipientConnector :conn2 ;
     ids:issued "2020-08-06T15:57:01Z"^^xsd:dateTimeStamp;
 	ids:senderAgent broker1:senderAgent ;
     ids:modelVersion "4.0.0";
 	ids:securityToken [ 
 		a ids:securityToken ;
 		ids:tokenFormat idsc:JWT ;
-		ids:tokenValue "Some token goes here"^^xsd:string .
+		ids:tokenValue "Some token goes here"^^xsd:string ;
 	] .
