@@ -23,6 +23,8 @@ Version 4.0.0 of the IDS Information Model
 
 ### Changed
 
+* Major changes on the IDS Usage Policy Language. See section [IDS Usage Policy Language - Updates and major Changes](#usagepolicy) below.
+
 * `ids:MediaType`. Removed instances for `ids:IANAMediaType`.
     * Mediatypes via `ids:mediaType` with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g., for JSON-LD:
     ```JSON
@@ -55,6 +57,20 @@ Version 4.0.0 of the IDS Information Model
 
 
 
+## <a name="usagepolicy">IDS Usage Policy Language - Updates and major Changes</a>
+
+
+The first version of the IDS Usage Policy Language has been created by the end of 2019 and presented the combined state of discussion of the IDS community. As such, it of course reflected the best intentions and views at that time. However, the following developments, examinations and the deeper understanding of the topic now requires a major update, which is provided with this document and implemented as an integral part into the IDS Information Model version 4.0.0. Obviously, it is still unlikely that the language itself is already finished and no further updates will become necessary. Nevertheless, the significant improvements and lessons learned since 2019 certainly justify this rework of the Usage Policy Language.
+
+At the core, the usage policy classes and the highly related templates have been affected most. The IDS community understood the deficiencies of the original set and therefore developed the current classifications. Integrating several perspectives – legal, data modelling, business-driven, and from an enforcement perspective – the current proposals should be mature and expressive enough to reflect most use cases.
+
+In addition, the Actions, LeftOperands, and BinaryOperators have been further restricted and defined in order to minimize the uncertainty about their meaning, requirements and implications. An IDS Contract must not be interpreted differently by different systems, while both claim a correct implementation of the language. For instance, the operators for ‘Time’ now have defined datatypes, and a clear semantic how temporal entities are compared.
+
+The intended communication process for improvements, new use cases or bug reports is aligned with the IDS Information Model in general. Deficiencies and/or errors can be discussed with the responsible working group through GitHub Issues at the IDS Information Model GitHub Repository .
+
+---
+
+
 ## [3.1.0] 2020-04-30
 Version 3.1.0 of the IDS Information Model
 
@@ -74,6 +90,8 @@ Version 3.1.0 of the IDS Information Model
 * Dynamic Attribute Token (DAT) aligned to current specification in the IDS Communication Guide. DAT is now represented by the `ids:DatRequestPayload` and `ids:DatPayload` classes. While `ids:DatRequestPayload` represents the content of the token (a.k.a. claims) a clients sends to the DAPS, the `ids:DatPayload` represents the content of the token a DAPS issues after validation.
 
 * SHACL shapes for properties with IRI ranges. Property values written as defined by the RDF serialisations should now be correctly validated.
+
+---
 
 ## [3.0.0] 2020-03-04
 Version 3.0.0 of the IDS Information Model
@@ -107,6 +125,8 @@ Version 3.0.0 of the IDS Information Model
 
 * `ids:Message` now correctly labelled as _abstract_ since it is not intended to be used directly.
 
+---
+
 ## [2.1.0] 2019-12-02
 Version 2.1.0 of the IDS Information Model
 
@@ -124,6 +144,7 @@ Version 2.1.0 of the IDS Information Model
 
 * Example of *ids:Resource* (in JSON-LD and RDF/TTL) and corresponding SHACL shapes to describe (temperature) sensor data with domain-specific semantics. Example and README can be found in the /*examples/domain-specific semantics using SHACL* directory.
 
+---
 
 ## [2.0.1] 2019-11-19
 Version 2.0.1 of the IDS Information Model
@@ -138,6 +159,7 @@ Version 2.0.1 of the IDS Information Model
 
 * Minor typo fixes.
 
+---
 
 ## [2.0.0] 2019-10-14
 Version 2.0 of the IDS Information Model
