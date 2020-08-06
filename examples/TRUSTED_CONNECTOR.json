@@ -10,44 +10,37 @@
     "@value" : "Example Trusted Connector maintained by the Fraunhofer FIT" ,
     "@language" : "en"
     } ],
-  "maintainer" : "https://www.fit.fraunhofer.de",
-  "curator" : "https://www.fit.fraunhofer.de",
-  "inboundModelVersion" : [ "2.0.0-SNAPSHOT" ],
-  "outboundModelVersion" : "2.0.0-SNAPSHOT",
-  "host" : [{
-    "@type" : "ids:Host", 
-    "protocol" : {
-        "@id" : "https://w3id.org/idsa/code/idsc:HTTP2"
-    },
-    "accessURL" : {
-        "@id" :  "https://connector.fit.fraunhofer.de/trafichub/httphost"
-    }
-  }],
+  "maintainer" : {"@id": "https://www.fit.fraunhofer.de"},
+  "curator" :  {"@id": "https://www.fit.fraunhofer.de"},
+  "inboundModelVersion" : [ "4.0.0" ],
+  "outboundModelVersion" : "4.0.0",
   "authInfo" : [{
-    "@type" : "ids:AuthInfo", 
+    "@type" : "ids:AuthInfo",
     "authService" : {
         "@id" : "https://keycloak.aastat.gov.de"
     },
     "authStandard" : {
-        "@id" :  "https://w3id.org/idsa/code/idsc:OAUTH2_JWT"
+        "@id" :  "https://w3id.org/idsa/code/OAUTH2_JWT"
     }
   }],
   "securityProfile" : {
-    "@id" : "https://w3id.org/idsa/code/TRUSTED_CONNECTOR_SECURITY_PROFILE"
+    "@id" : "https://w3id.org/idsa/code/TRUSTED_PLUS_SECURITY_PROFILE"
   },
-  "transportCertsSha256" : "<some SHA-256 value>",
-  
+
   "componentCertification" : [{
-    "@type" : "ids:ComponentCertification", 
+    "@type" : "ids:ComponentCertification",
     "certificationLevel" : {
-        "@id" : "https://w3id.org/idsa/code/idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION"
+        "@id" : "https://w3id.org/idsa/code/COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION"
         },
-    "lastValidDate" : "2020-12-31"
+    "lastValidDate" : {
+        "@value": "2020-12-31T12:00:00.000+02:00",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+    }
   }],
-  
-  "catalog" : {
-    "@type" : "ids:Catalog",
-    "offer" : [ {
+
+  "resourceCatalog" : {
+    "@type" : "ids:ResourceCatalog",
+    "offeredResources" : [ {
       "@type" : "ids:DataResource",
       "representation" : [ {
         "@type" : "ids:DataRepresentation",
