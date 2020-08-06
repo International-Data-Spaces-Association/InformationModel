@@ -1,6 +1,11 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<<<<<<< HEAD:examples/CONNECTOR_2.ttl
+@prefix idsc: <https://w3id.org/idsa/code/> .
+=======
+
+>>>>>>> c64da445f48de90ee438832be1698e65c96ab252:examples/CONN2.ttl
 # Participant URI is resolved by Identity Manager
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 
@@ -46,7 +51,7 @@ conn2:certification
     a ids:ComponentCertification ;
     ids:certificationLevel idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
     # ids:evaluationFacility
-    ids:lastValidDate "2020-12-31T13:20:00Z"^^xsd:dateTimeStamp ;
+    ids:lastValidDate "2020-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
     .
 
 conn2:data1 a ids:Resource;

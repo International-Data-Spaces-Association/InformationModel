@@ -1,0 +1,58 @@
+{
+  "@context" : "https://w3id.org/idsa/contexts/4.0.0/context.jsonld",
+  "@type" : "ids:TrustedConnector",
+  "@id" : "https://connector.fit.fraunhofer.de/",
+  "title" : [ {
+    "@value" : "Fraunhofer FIT - Traffic statistics hub",
+    "@language" : "en"
+      } ],
+  "description" : [ {
+    "@value" : "Example Trusted Connector maintained by the Fraunhofer FIT" ,
+    "@language" : "en"
+    } ],
+  "maintainer" : {"@id": "https://www.fit.fraunhofer.de"},
+  "curator" :  {"@id": "https://www.fit.fraunhofer.de"},
+  "inboundModelVersion" : [ "4.0.0" ],
+  "outboundModelVersion" : "4.0.0",
+  "authInfo" : [{
+    "@type" : "ids:AuthInfo",
+    "authService" : {
+        "@id" : "https://keycloak.aastat.gov.de"
+    },
+    "authStandard" : {
+        "@id" :  "https://w3id.org/idsa/code/OAUTH2_JWT"
+    }
+  }],
+  "securityProfile" : {
+    "@id" : "https://w3id.org/idsa/code/TRUSTED_PLUS_SECURITY_PROFILE"
+  },
+
+  "componentCertification" : [{
+    "@type" : "ids:ComponentCertification",
+    "certificationLevel" : {
+        "@id" : "https://w3id.org/idsa/code/COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION"
+        },
+    "lastValidDate" : {
+        "@value": "2020-12-31T12:00:00.000+02:00",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+    }
+  }],
+
+  "resourceCatalog" : {
+    "@type" : "ids:ResourceCatalog",
+    "offeredResources" : [ {
+      "@type" : "ids:DataResource",
+      "representation" : [ {
+        "@type" : "ids:DataRepresentation",
+        "instance" : [ {
+          "@type" : "ids:Artifact",
+          "byteSize" : 0,
+          "@id" : "https://connector.fit.fraunhofer.de/artifactID"
+        } ],
+        "@id" : "https://connector.fit.fraunhofer.de/autogen/dataRepresentation/e1ff4338-5844-4d2e-934e-668ae8fa070c"
+      } ],
+      "@id" : "https://connector.fit.fraunhofer.de/autogen/dataResource/a1247d97-fa1d-4fb4-b22f-590b2f53fa6e"
+    } ],
+    "@id" : "https://connector.fit.fraunhofer.de/catalog/dafa31e1-ec72-4fa8-b1a1-53f22de508e4"
+  }
+}
