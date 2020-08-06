@@ -1,4 +1,3 @@
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -19,7 +18,7 @@
     ids:modelVersion "4.0.0";
 	ids:senderAgent conn2:senderAgent ;
     ids:securityToken [ 
-		a ids:securityToken ;
+		a ids:DynamicAttributeToken ;
 		ids:tokenFormat idsc:JWT ;
 		ids:tokenValue "Some token goes here"^^xsd:string ;
 	] .
@@ -34,7 +33,7 @@
 	ids:senderAgent broker1:senderAgent ;
     ids:modelVersion "4.0.0";
 	ids:securityToken [ 
-		a ids:securityToken ;
+		a ids:DynamicAttributeToken ;
 		ids:tokenFormat idsc:JWT ;
 		ids:tokenValue "Some token goes here"^^xsd:string ;
 	] .

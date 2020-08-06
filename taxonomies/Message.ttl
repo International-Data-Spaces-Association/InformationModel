@@ -237,7 +237,7 @@ ids:ContractOfferMessage a owl:Class ;
 ids:ContractAgreementMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Contract Agreement Message"@en;
-    rdfs:comment "Message containing a contract with resource access modalities on which two parties have agreed."@en;
+    rdfs:comment "Message containing a contract, as an instance of ids:ContractAgreement, with resource access modalities on which two parties have agreed in the payload."@en;
     .
 
 ids:ContractRejectionMessage a owl:Class ;
@@ -255,12 +255,6 @@ ids:contractRejectionReason a owl:DatatypeProperty;
     rdfs:domain ids:ContractRejectionMessage;
     rdfs:range xsd:string;
     rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
-
-ids:agreedContract a owl:ObjectProperty;
-    rdfs:label "approved Contract"@en;
-    rdfs:domain ids:ContractAgreementMessage;
-    rdfs:range ids:ContractAgreement;
-    rdfs:comment "References the Contract Agreement of two parties."@en.
 
 
 # Security-related Messages
