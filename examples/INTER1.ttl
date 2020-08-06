@@ -1,17 +1,19 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
-@prefix broker1: <https://aastat.gov.de/broker/broker1/> .
 @prefix : <https://aastat.gov.de/message/> .
 
 :inter1
-    a ids:ConnectorAvailableMessage;
-    ids:issuerConnector conn2: ;
-    ids:recipientConnector broker1: ;
-    ids:issued "2018-10-01T15:57:00"^^xsd:dateTime ;
-    ids:modelVersion "1.0.0";
-    ids:authorizationToken [
-        a ids:Token;
-        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
-    ] .
+    a ids:ConnectorAvailableMessage ;
+    ids:issuerConnector <https://aastat.gov.de/connector/conn2/> ;
+    ids:recipientConnector <https://aastat.gov.de/broker/broker1/> ;
+    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    ids:modelVersion "4.0.0" ;
+	ids:affectedConnector <https://aastat.gov.de/connector/conn2/> ;
+	ids:senderAgent "https://astaat.gov.de/connector/senderAgent>"^^xsd:anyURI ;
+    ids:securityToken [ 
+		a ids:securityToken ;
+		ids:tokenFormat idsc:JWT ;
+		ids:tokenValue "Some token goes here"^^xsd:string .
+	] .

@@ -17,48 +17,56 @@
 conn3:inter3_r a ids:ContractRequestMessage;
     ids:issuerConnector conn3: ;
     ids:recipientConnector conn2: ;
-    ids:issued "2018-10-01T15:57:00"^^xsd:dateTime;
-    ids:modelVersion "1.0.0";
-    ids:authorizationToken [
-        a ids:Token;
-        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
-    ];
+    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    ids:modelVersion "4.0.0";
+    ids:securityToken [ 
+		a ids:securityToken ;
+		ids:tokenFormat idsc:JWT ;
+		ids:tokenValue "Some token goes here"^^xsd:string .
+	];
+	ids:senderAgent conn3:senderAgent ;
     ids:baseContractOffer data1:offer.
 
 # counteroffer from providing connector as part of the payload
 conn2:inter3_o a ids:ContractOfferMessage;
     ids:issuerConnector conn2: ;
     ids:recipientConnector conn3: ;
-    ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
-    ids:modelVersion "1.0.0";
-    ids:authorizationToken [
-        a ids:Token;
-        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
-    ];
+    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    ids:modelVersion "4.0.0";
+    ids:securityToken [ 
+		a ids:securityToken ;
+		ids:tokenFormat idsc:JWT ;
+		ids:tokenValue "Some token goes here"^^xsd:string .
+	];
+	ids:senderAgent conn2:senderAgent ;
     ids:correlationMessage conn3:inter3_r.
 
 # agreement on a contract
 conn3:inter3_a a ids:ContractAgreementMessage;
     ids:issuerConnector conn3: ;
     ids:recipientConnector conn2: ;
-    ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
-    ids:modelVersion "1.0.0";
-    ids:authorizationToken [
-        a ids:Token;
-        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
-    ];
+    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    ids:modelVersion "4.0.0";
+    ids:securityToken [ 
+		a ids:securityToken ;
+		ids:tokenFormat idsc:JWT ;
+		ids:tokenValue "Some token goes here"^^xsd:string .
+	];
+	ids:senderAgent conn3:senderAgent ;
     ids:correlationMessage conn2:inter3_o.
 
 # confirmation of contract agreement
 conn2:inter3_a a ids:ContractAgreementMessage;
     ids:issuerConnector conn2: ;
     ids:recipientConnector conn3: ;
-    ids:issued "2018-10-01T15:59:00"^^xsd:dateTime;
-    ids:modelVersion "1.0.0";
-    ids:authorizationToken [
-        a ids:Token;
-        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
-    ];
+    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    ids:modelVersion "4.0.0";
+    ids:securityToken [ 
+		a ids:securityToken ;
+		ids:tokenFormat idsc:JWT ;
+		ids:tokenValue "Some token goes here"^^xsd:string .
+	];
+	ids:senderAgent conn2:senderAgent ;
     ids:correlationMessage conn3:inter3_a.
 
 
