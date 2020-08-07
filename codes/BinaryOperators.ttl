@@ -18,7 +18,7 @@
 
 # Logical operators
 idsc:EQUALS a ids:BinaryOperator;
-    rdfs:seeAlso odrl:eq;
+    skos:broader odrl:eq;
     rdfs:label "equals"@en ;
     rdfs:comment "Logical equals operator (true = true)."@en ;
     .
@@ -31,7 +31,7 @@ idsc:SAME_AS a ids:BinaryOperator;
     .
 
 idsc:NOT a ids:BinaryOperator;
-    rdfs:seeAlso odrl:neq;
+    skos:broader odrl:neq;
     rdfs:label "not equals"@en ;
     rdfs:comment "Logical difference operator (false != true)."@en ;
     .
@@ -45,30 +45,30 @@ idsc:HAS_STATE a ids:BinaryOperator;
 
 # Arithmetic operators
 idsc:GTEQ a ids:BinaryOperator;
-    rdfs:seeAlso odrl:gteq;
+    skos:broader odrl:gteq;
     rdfs:label "greater than or equals"@en ;
     rdfs:comment "Greater-than-or-equals operator. Can be used for numeric (5 idsc:GTEQ 2) comparisons."@en .
 
 idsc:GT a ids:BinaryOperator;
-    rdfs:seeAlso odrl:gt;
+    skos:broader odrl:gt;
     rdfs:label "greater than"@en ;
     rdfs:comment "Greater-than operator. Can be used for numeric (5 idsc:GT 2) comparisons."@en ;
     .
 
 idsc:EQ a ids:BinaryOperator;
-    rdfs:seeAlso odrl:eq;
+    skos:broader odrl:eq;
     rdfs:label "equals"@en ;
     rdfs:comment "Arithmetic equals operator (5 = 5)."@en ;
     .
 
 idsc:LTEQ a ids:BinaryOperator;
-    rdfs:seeAlso odrl:lteq;
+    skos:broader odrl:lteq;
     rdfs:label "less than or equals"@en ;
     rdfs:comment "Less-than-or-equals operator. Can be used for numeric (2 idsc:LTEQ 5) comparisons."@en ;
     .
 
 idsc:LT a ids:BinaryOperator;
-    rdfs:seeAlso odrl:lt;
+    skos:broader odrl:lt;
     rdfs:label "less than"@en ;
     rdfs:comment "Less-than operator. Can be used for numeric (2 idsc:LT 5) comparisons."@en ;
     skos:note "Do not confuse with idsc:LT (which is a language)."@en ;
@@ -76,7 +76,7 @@ idsc:LT a ids:BinaryOperator;
 
 # Set operator
 idsc:IN a ids:BinaryOperator;
-    rdfs:seeAlso odrl:isAnyOf, <https://postgis.net/docs/ST_Within.html> ;
+    skos:broader odrl:isAnyOf, <https://postgis.net/docs/ST_Within.html> ;
     rdfs:label "in"@en ;
     rdfs:comment "Element-of operator. Allowed RightOperands are RDF collections('(A B C)')."@en ;
     .
