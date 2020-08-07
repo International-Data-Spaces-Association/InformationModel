@@ -11,22 +11,22 @@ Version 4.0.0 of the IDS Information Model
 
 * `ids:ConfigurationModel` class for Connector configuration and deployment related information.
   * Several complementary classes, including `ids:Proxy`, `ids:LogLevel`, `ids:AppRoute`, `ids:UserAuthentication`.
-* Redesign for `ids:DataApp` class.
+* Redesign of `ids:DataApp` class.
   * `ids:DataApp` as superclass of `ids:OrchestrationApp`, `ids:SmartDataApp`, `ids:SystemAdapterApp` .
   * New properties `ids:appDocumentation` with range `xsd:string` and `ids:appEndpoint` with range `ids:AppEndpoint` to enable app and app endpoint documentation.
 * `ids:AppEndpoint`, a subclass of `ids:Endpoint` to describe data app endpoints, such as path suffixes, ports and endpoint documentation.
-* Languages for `ids:Representation` via the `ids:language` property. One can no add languages to `ids:Representations`.
+* Languages for `ids:Representation` via the `ids:language` property.
 * `ids:ResourceCatalog`, `ids:ConnectorCatalog` and `ids:ParticipantCatalog` as subclasses of `ids:Catalog` to enable infrastructure components, e.g., Broker and ParIS, to present Connector- and Participant-specific catalogs.
 * New messages:
-  * Messages for app-related communication between app provider and app store.
+  * Messages for app-related communication between App Provider and App Store.
   * `ids:UploadMessage` and `ids:UploadResponseMessage` to allow data upload to a recipient.
 
 ### Changed
 
-* Major changes on the IDS Usage Policy Language. See section [IDS Usage Policy Language - Updates and major Changes](#usagepolicy) below.
+* Major changes on the IDS Usage Policy Language. See section [IDS Usage Policy Language – Updates and major Changes](#usagepolicy-4.0.0) below.
 
 * `ids:MediaType`. Removed instances for `ids:IANAMediaType`.
-    * Mediatypes via `ids:mediaType` with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), e.g., for JSON-LD:
+    * Media types via `ids:mediaType` with range `ids:IANAMediaType` should be used with the corresponding [IANA URLs](https://www.iana.org/assignments/media-types/media-types.xhtml), as these have complete coverage. E.g., for JSON-LD:
     ```JSON
     "ids:mediaType": {
       "@id":   "https://www.iana.org/assignments/media-types/application/ld+json",
@@ -37,7 +37,7 @@ Version 4.0.0 of the IDS Information Model
 
 * Renamed property `ids:catalog` of Connector to `ids:resourceCatalog` and changed range to `ids:ResourceCatalog`.
 * Connectors can now present multiple catalogs via the `ids:resourceCatalog` property.
-* Switched range of `ids:standardLicense` property from `ids:License` to `xsd:anyURI`. There is no vocabulary with an complete, regulary updated list of software and data licenses which we can provide as instances of the `ids:License` class, to the best of our knowledge. Users should add the IRI to the correct license. We recommend using sources such as [Wikidata](www.wikidata.org/) to search for most common licenses.
+* Switched range of `ids:standardLicense` property from `ids:License` to `xsd:anyURI`. There is no vocabulary with a complete, regularly updated list of software and data licenses which we can provide as instances of the `ids:License` class, to the best of our knowledge. Users should provide the IRI of the correct license. We recommend using sources such as [Wikidata](http://www.wikidata.org/) to search for most common licenses.
 * `ids:contentStandard` properties of class `ids:DigitalContent` and `ids:representationStandard` properties of class `ids:Representation` now have range `xsd:anyURI`.
 * Redesign of `ids:Endpoint` class.
   * Removed `ids:InteractiveEndpoint`.
@@ -53,11 +53,11 @@ Version 4.0.0 of the IDS Information Model
 * Some `ids:Resource` and `ids:Representation` subclasses, such as `ids:SchemaResource` and `ids:SimpleResource`.
 * Some unused classes, e.g., `ids:Audio`, `ids:Video`, `ids:Text`
 * Refactoring of `ids:Message` subclasses:
-    * Removed `ids:...AvailableMessage` notifications for `ids:Resource`, `ids:Connector` and `ids:Participant`. The corresponding update messages, e.g., `ids:ResourceUpdateMessage`, should no be used to announce availability and updates.
+    * Removed `ids:...AvailableMessage` notifications for `ids:Resource`, `ids:Connector` and `ids:Participant`. The corresponding update messages, e.g., `ids:ResourceUpdateMessage`, should now be used to announce availability and updates.
 
 
 
-## <a name="usagepolicy">IDS Usage Policy Language - Updates and major Changes</a>
+## <a name="usagepolicy-4.0.0">IDS Usage Policy Language – Updates and major Changes</a>
 
 
 The first version of the IDS Usage Policy Language has been created by the end of 2019 and presented the combined state of discussion of the IDS community. As such, it of course reflected the best intentions and views at that time. However, the following developments, examinations and the deeper understanding of the topic now requires a major update, which is provided with this document and implemented as an integral part into the IDS Information Model version 4.0.0. Obviously, it is still unlikely that the language itself is already finished and no further updates will become necessary. Nevertheless, the significant improvements and lessons learned since 2019 certainly justify this rework of the Usage Policy Language.
