@@ -1,0 +1,78 @@
+// Template
+// --------
+
+{
+    "@context": "https://w3id.org/idsa/contexts/context.jsonld",
+    "@type": "ids:RentalOffer",
+    "@id": "?URI",
+    (
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE), )
+    | // or
+      ( "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
+    | // or
+      ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
+        "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
+    )
+    "ids:permission": {
+        "@type": "ids:Permission",
+        (
+          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
+        | // or
+          ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+        | // or
+          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
+            "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+        )
+        "ids:target": (idsc:TARGET_TEMPLATE),
+        "ids:action": (idsc:ACTION_TEMPLATE),
+        "ids:constraint": [
+          {
+            "@type:" "ids:Constraint",
+            "ids:leftOperand": { "@id": "idsc:STATE" },
+            "ids:operator": { "@id": "idsc:NOT" },
+            "ids:rightOperand": { "@id": "?terminationState" }    // An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
+            (, "ids:pipEndpoint": { "@id": "?pipUri" } )?         // The location where to find this state.
+          }
+        ] ,
+        "ids:preDuty": {
+            "@type": "ids:Duty",
+            (
+              ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
+            | // or
+              ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+            | // or
+              ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
+                "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+            )
+            "ids:action": {
+                "@type": "ids:Action",
+                "ids:includedIn": { "@id": "idsc:COMPENSATE" },
+                "ids:actionRefinement": {
+                    "@type": "ids:Constraint",
+                    "ids:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
+                    "ids:operator": { "@id": "idsc:EQ" },
+                    "ids:rightOperand": {
+                        "@value": "?fee",
+                        "@type": "http://www.w3.org/2001/XMLSchema#double"
+                    },
+                    "ids:unit": { "@id": "?currency" }
+                    (, "ids:pipEndpoint": "?pipUri" )?            // zero or one reference to a PIP endpoint
+                }
+            },
+            "ids:constraint": [
+              {
+                "@type": { "@id": "ids:Constraint" },
+                "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+                "ids:operator": { "@id": "idsc:AFTER" },
+                "ids:rightOperand": {
+                    "@value": "?duration",                        // for a certain usage ?duration
+                    "@type": "http://www.w3.org/2001/XMLSchema#duration"
+                }
+              }
+            ]
+        }
+        (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
+        (, "ids:preDuty": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
+        (, "ids:postDuty": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
+    }
+}

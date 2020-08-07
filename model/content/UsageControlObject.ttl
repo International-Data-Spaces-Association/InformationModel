@@ -1,0 +1,103 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:UsageControlObject a owl:Class;
+           rdfs:label "Usage Control Object"@en;
+           rdfs:comment "A data element containing all relevant information for usage control engines."@en;
+           idsm:validation [
+               idsm:forProperty ids:data;
+               idsm:constraint idsm:NotNull;
+           ];
+           idsm:validation [
+               idsm:forProperty ids:contract;
+               idsm:constraint idsm:NotNull;
+               idsm:relationType idsm:OneToMany;
+           ] ;
+           idsm:validation [
+               idsm:forProperty ids:created;
+               idsm:constraint idsm:NotNull;
+           ] ;
+           idsm:validation [
+               idsm:forProperty ids:action ;
+               idsm:relationType idsm:OneToMany;
+           ] ;
+           idsm:validation [
+               idsm:forProperty ids:hasState;
+               idsm:relationType idsm:OneToMany;
+           ] ;
+           .
+
+ # Properties
+ # ----------
+
+ ids:data a owl:ObjectProperty;
+          rdfs:label "has data"@en;
+          rdfs:domain ids:UsageControlObject;
+          rdfs:range xsd:anyURI ;
+          rdfs:comment "The related data or a pointer/reference to it."@en ;
+ .
+
+ ids:user a owl:ObjectProperty;
+         rdfs:label "has user"@en;
+         rdfs:domain ids:UsageControlObject;
+         rdfs:range ids:Participant ;
+         rdfs:comment "The participant intending to use the data."@en ;
+ .
+
+ ids:source a owl:ObjectProperty;
+          rdfs:label "source"@en;
+          rdfs:domain ids:UsageControlObject;
+          rdfs:range xsd:anyURI ;
+          rdfs:comment "The application which provided the data object. Should be a valid URI. Must be unique in the regarded environment."@en ;
+ .
+
+ ids:contract a owl:ObjectProperty;
+          rdfs:label "has contract"@en;
+          rdfs:domain ids:UsageControlObject;
+          rdfs:range ids:ContractAgreement ;
+          rdfs:comment "The target contract defining the usage of the data object."@en ;
+ .
+
+
+ ids:usageDuration a owl:ObjectProperty;
+         rdfs:label "usage duration"@en;
+         rdfs:domain ids:UsageControlObject;
+         rdfs:range xsd:duration ;
+         rdfs:comment "Last modification date/time."@en ;
+ .
+
+ ids:accessed a owl:ObjectProperty;
+         rdfs:label "last accessed"@en;
+         rdfs:domain ids:UsageControlObject;
+         rdfs:range xsd:dateTimeStamp ;
+         rdfs:comment "Last read or write access."@en ;
+ .
+
+ ids:action a owl:ObjectProperty;
+         rdfs:label "applied actions"@en;
+         rdfs:domain ids:UsageControlObject;
+         rdfs:range ids:Action ;
+         rdfs:comment "The sequence of executed actions on the data object. Must be an element of ids:Action."@en ;
+ .
+
+ ids:hasState a owl:ObjectProperty;
+         rdfs:label "has state"@en;
+         rdfs:domain ids:UsageControlObject;
+         rdfs:range ids:ArtifactState ;
+         rdfs:comment "The list of combined current states of the data object."@en ;
+ .
+
+ ids:requester a owl:ObjectProperty;
+         rdfs:label "requesting application"@en;
+         rdfs:domain ids:UsageControlObject;
+         rdfs:range xsd:anyURI ;
+         rdfs:comment "	The target application requesting the usage. Should be some locally unique identifiers, preferably URIs."@en ;
+ .

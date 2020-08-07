@@ -11,7 +11,7 @@
 # -------
 
 ids:DigitalContent
-    a owl:Class;    
+    a owl:Class;
     rdfs:subClassOf ids:Described, dcat:Dataset;
     idsm:abstract true;
     rdfs:label "Digital content"@en ;
@@ -160,7 +160,7 @@ ids:temporalResolution
     rdfs:label "temporal resolution"@en ;
     rdfs:comment "Minimum time between collected data points in a time series within this content."@en ;
     rdfs:domain ids:DigitalContent ;
-    rdfs:range dct:Frequency .
+    rdfs:range ids:Frequency .
 
 ids:spatialCoverage
     a owl:ObjectProperty;
@@ -176,7 +176,7 @@ ids:accrualPeriodicity # consider irregular updates as well
     rdfs:label "Accrual periodicity"@en;
     rdfs:comment "The regular period with which items are added to a collection."@en ;
     rdfs:domain ids:DigitalContent;
-    rdfs:range dct:Frequency;
+    rdfs:range ids:Frequency;
     .
 
 ids:contentStandard
@@ -190,9 +190,12 @@ ids:contentStandard
 ids:created
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:issued;
-    rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:DigitalContent ids:Representation)
-              ] ;
+    rdfs:domain [ owl:unionOf (
+          ids:DigitalContent
+          ids:Representation
+          ids:UsageControlObject
+          )
+    ] ;
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "created"@en;
     rdfs:seeAlso dct:created ;
@@ -202,7 +205,7 @@ ids:modified
     a owl:DatatypeProperty;
     rdfs:subPropertyOf dct:modified;
     rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:DigitalContent ids:Representation)
+                owl:unionOf ( ids:DigitalContent ids:Representation ids:UsageControlObject)
               ] ;
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "modified"@en;
