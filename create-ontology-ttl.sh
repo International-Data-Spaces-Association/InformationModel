@@ -53,8 +53,10 @@ ids:
        <https://github.com/sebbader> ,
        <https://github.com/Maboeckmann> ,
        <https://github.com/clange> ,
-       <https://github.com/HaydarAk>,
-       <https://github.com/JohannesLipp> ;
+       <https://github.com/HaydarAk> ,
+       <https://github.com/jlangkau> ,
+       <https://github.com/JohannesLipp> ,
+       <https://github.com/mkollenstart> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
@@ -114,6 +116,15 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 .
 <https://github.com/Maboeckmann> a dct:Agent, foaf:Person ;
     foaf:name "Matthias Böckmann" ;
+.
+<https://github.com/jlangkau> a dct:Agent, foaf:Person ;
+    foaf:name "Jörg Langkau" ;
+.
+<https://github.com/mkollenstart> a dct:Agent, foaf:Person ;
+    foaf:name "Maarten Kollenstart" ;
+.
+<https://github.com/JohannesLipp> a dct:Agent, foaf:Person ;
+    foaf:name "Johannes Lipp" ;
 .
 EOF
     
