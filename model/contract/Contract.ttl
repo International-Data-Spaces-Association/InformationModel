@@ -121,18 +121,3 @@ ids:prohibition rdfs:subPropertyOf odrl:prohibition;
     rdfs:domain ids:Contract;
     rdfs:range ids:Prohibition;
     rdfs:comment "A Prohibition imposed by the Contract."@en.
-
-ids:obligation rdfs:subPropertyOf odrl:obligation;
-    a owl:ObjectProperty;
-    rdfs:label "obligation"@en;
-    rdfs:domain ids:Contract;
-    rdfs:range ids:Duty;
-    rdfs:comment "A Duty imposed by the Contract."@en.
-
-
-# Reference to a policy template
-ids:refersTo a owl:ObjectProperty;
-    rdfs:domain ids:Contract;
-    rdfs:range ids:PolicyTemplate ;
-    rdfs:label "refers to policy template"@en ;
-    rdfs:comment "Links a policy to the policy template it is derived from."@en.
