@@ -23,11 +23,11 @@ ids:ResourceCatalog
     rdfs:label "Resource Catalog"@en ;
     rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en ;
     idsm:validation [
-        idsm:forProperty ids:requestedResources;
+        idsm:forProperty ids:requestedResource;
         idsm:relationType idsm:OneToMany;
     ];
     idsm:validation [
-        idsm:forProperty ids:offeredResources;
+        idsm:forProperty ids:offeredResource;
         idsm:relationType idsm:OneToMany;
     ];
 .
@@ -38,7 +38,7 @@ ids:ParticipantCatalog
     rdfs:label "Participant Catalog"@en ;
     rdfs:comment "Class that aggregates Participants which, as a whole, from a (distributable) Catalog."@en ;
     idsm:validation [
-        idsm:forProperty ids:members;
+        idsm:forProperty ids:member;
         idsm:relationType idsm:OneToMany;
     ];
 .
@@ -57,25 +57,25 @@ ids:ConnectorCatalog
 # Properties
 # ----------
 
-ids:offeredResources a owl:ObjectProperty;
+ids:offeredResource a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:dataset;
     rdfs:domain ids:ResourceCatalog;
     rdfs:range ids:Resource;
-    rdfs:label "offered resources"@en;
-    rdfs:comment "A resource that is part of a resource catalog, indicating an offering (of, e.g., data)."@en.
+    rdfs:label "offered resource"@en;
+    rdfs:comment "A Resource that is part of a resource catalog, indicating an offering (of, e.g., data)."@en.
 
-ids:requestedResources a owl:ObjectProperty;
+ids:requestedResource a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:dataset;
     rdfs:domain ids:ResourceCatalog;
     rdfs:range ids:Resource;
-    rdfs:label "request"@en;
-    rdfs:comment "A resource that is part of a resource catalog, indicating a request (of, e.g., data, software,...)."@en.
+    rdfs:label "requested resource"@en;
+    rdfs:comment "A Resource that is part of a resource catalog, indicating a request (of, e.g., data, software,...)."@en.
 
-ids:members a owl:ObjectProperty;
+ids:member a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:dataset;
     rdfs:domain ids:ParticipantCatalog;
     rdfs:range ids:Participant;
-    rdfs:label "offer"@en;
+    rdfs:label "member"@en;
     rdfs:comment "A Participant, that is part of a participant catalog."@en.
 
 ids:listedConnector a owl:ObjectProperty;
