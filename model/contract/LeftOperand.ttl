@@ -5,6 +5,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # Classes
 # -------
@@ -19,7 +20,7 @@ ids:LeftOperand rdfs:subClassOf odrl:LeftOperand;
 # ----------
 ids:broader
     a owl:ObjectProperty;
-    rdfs:seeAlso odrl:includedIn ;
+    skos:broader odrl:includedIn ;
     rdfs:seeAlso <http://www.w3.org/2004/02/skos/core#broader> ;
     rdfs:label "broader LeftOperand"@en;
     rdfs:domain ids:LeftOperand;
