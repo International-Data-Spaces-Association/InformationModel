@@ -8,7 +8,7 @@ write_to_file()
     local version=$1
     
     if [[ -z "$version" ]] ; then
-        version="3.1.0"
+        version="4.0.0"
         echo "Warning! No version parameter supplied. Assuming version ${version}" >&2
     fi
     
