@@ -38,7 +38,12 @@ ids:Connector
     idsm:validation [
         idsm:forProperty ids:resourceCatalog;
         idsm:relationType idsm:OneToMany;
-    ]
+    ];
+    idsm:validation [
+        idsm:forProperty ids:hasDefaultEndpoint;
+        idsm:relationType idsm:NotNull;
+    ];
+
     .
 
 ids:BaseConnector rdfs:subClassOf ids:Connector ;
