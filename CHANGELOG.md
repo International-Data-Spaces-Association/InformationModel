@@ -43,7 +43,7 @@ Version 4.0.0 of the IDS Information Model
   * Removed `ids:InteractiveEndpoint`.
   * `ids:StaticEndpoint` is now called `ids:ConnectorEndpoint`. `ids:ConnectorEndpoint` contains additional properties, especially for endpoint description and documentation.
   * `ids:Host` information is now part of the `ids:Endpoint`.
-  * New property: `ids:ids:endpointInformation` with range `xsd:string` and `ids:endpointDocumentation` with range `xsd:anyURI` for endpoint description and documentation.
+  * New property: `ids:endpointInformation` with range `xsd:string` and `ids:endpointDocumentation` with range `xsd:anyURI` for endpoint description and documentation.
 * Core classes for digital content (`ids:Resource`, `ids:DigitalContent`, `ids:Representation`, `ids:Artifact`) now aligned with W3C [DCAT 2](https://www.w3.org/TR/vocab-dcat-2/)
 
 ### Removed
