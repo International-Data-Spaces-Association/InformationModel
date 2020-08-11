@@ -2,7 +2,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
@@ -19,19 +18,11 @@ ids:Connector
 #    idsm:validation [
 #        idsm:forProperty ids:catalog;
 #        idsm:constraint idsm:NotNull;
-#    ]; 
-    idsm:validation [
-        idsm:forProperty ids:host;
-        idsm:relationType idsm:OneToMany;
-    ]; 
+#    ];
     idsm:validation [
         idsm:forProperty ids:hasEndpoint;
         idsm:relationType idsm:OneToMany;
     ];
-    idsm:validation [
-        idsm:forProperty ids:transportCertsSha256;
-        idsm:relationType idsm:OneToMany;
-    ]; 
     idsm:validation [
         idsm:forProperty ids:extendedGuarantee ;
         idsm:relationType idsm:OneToMany;
@@ -41,9 +32,19 @@ ids:Connector
         idsm:constraint idsm:NotNull;
     ]; 
     idsm:validation [
-        idsm:forProperty ids:hasAgents;
+        idsm:forProperty ids:hasAgent;
         idsm:relationType idsm:OneToMany;
-    ].
+    ];
+    idsm:validation [
+        idsm:forProperty ids:resourceCatalog;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:hasDefaultEndpoint;
+        idsm:relationType idsm:NotNull;
+    ];
+
+    .
 
 ids:BaseConnector rdfs:subClassOf ids:Connector ;
     a owl:Class;
@@ -58,30 +59,19 @@ ids:TrustedConnector rdfs:subClassOf ids:Connector ;
 # Properties
 # ----------
 
-ids:host
+ids:hasDefaultEndpoint
     a owl:ObjectProperty;
-    rdfs:label "host"@en;
+    rdfs:label "has default endpoint"@en;
     rdfs:domain ids:Connector;
-    rdfs:range ids:Host;
-    rdfs:comment "Networked host operated by the Connector in order to serve and consume resource content and services."@en.
-
-ids:defaultHost
-    a owl:ObjectProperty;
-    rdfs:label "Default Host"@en;
-    rdfs:domain ids:Connector;
-    rdfs:range ids:Host;
-    rdfs:comment "Indicates the default host that should be used for basic infrastructure interactions, e.g., providing the self description."@en.
+    rdfs:range ids:ConnectorEndpoint;
+    rdfs:comment "Indicates the default endpoint that should be used for basic infrastructure interactions, e.g., providing the self description."@en.
 
 # see also ids:hasEndpoint Property also for ids:Resource
 ids:hasEndpoint
     a owl:ObjectProperty;
-    rdfs:label "connector endpoint"@en ;
+    rdfs:label "has endpoint"@en ;
     rdfs:domain ids:Connector ;
-    #[ # todo for IM 4.0.0
-    #            rdf:type owl:Class ;
-    #            owl:unionOf ( ids:Resource ids:Connector )
-    #          ] ;
-    rdfs:range ids:Endpoint;
+    rdfs:range ids:ConnectorEndpoint;
     rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en.
 
 ids:securityProfile a owl:ObjectProperty;
@@ -100,24 +90,16 @@ ids:extendedGuarantee a owl:ObjectProperty;
     rdfs:label "extended guarantee"@en;
     rdfs:comment "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."@en.
 
-ids:transportCertsSha256 a owl:DatatypeProperty;
-    rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:Connector ids:JwtPayload)
-              ] ;
-    rdfs:range xsd:string;
-    rdfs:label "transportCertsSha256"@en;
-    rdfs:comment "Separate certificates for IDS identification and transport encryption opens an attack vector for relay attacks. In order to prevent these attacks, a binding of this transport certificates to the connector is required. The inclusion of SHA256 fingerprints of currently valid transport certificates, mainly into the DAT, enables the client to relate the transport layer security with the IDS interactions."@en.
-
 ids:authInfo a owl:ObjectProperty;
     rdfs:domain ids:Connector;
     rdfs:range ids:AuthInfo;
     rdfs:label "authInfo"@en;
     rdfs:comment "Information of the authentication service used by the Connector."@en.
 
-ids:catalog a owl:ObjectProperty;
+ids:resourceCatalog a owl:ObjectProperty;
     rdfs:domain ids:Connector;
-    rdfs:range ids:Catalog;
-    rdfs:label "catalog"@en;
+    rdfs:range ids:ResourceCatalog;
+    rdfs:label "resource catalog"@en;
     rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
 
 ids:hasAgent a owl:ObjectProperty;
@@ -126,3 +108,11 @@ ids:hasAgent a owl:ObjectProperty;
     rdfs:domain ids:Connector;
     rdfs:range ids:Agent;
     rdfs:comment "The Agents for which this Connector may initiate and receive Messages."@en.
+
+# TODO: maybe needed for configuration model later. 
+#ids:configurationModel a owl:ObjectProperty;
+#    rdfs:label "Configuration Model"@en;
+#    rdfs:domain ids:Connector;
+#    rdfs:range ids:ConfigurationModel;
+#    rdfs:comment "References the Configuration Model, which deployed the Connector."@en;
+#.

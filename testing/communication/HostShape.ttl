@@ -2,11 +2,10 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -30,7 +29,7 @@ shapes:HostShape
 		sh:path ids:protocol ;
 		sh:class ids:Protocol ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/HostShape.ttl> (HostShape): An ids:protocol property must point from an ids:Host to an ids:Protocol."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/HostShape.ttl> (HostShape): An ids:protocol property must point from an ids:Host to an ids:Protocol."@en ;
 	] ;
 
 	sh:property [
@@ -38,7 +37,7 @@ shapes:HostShape
 		sh:path ids:accessUrl ;
 		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/HostShape.ttl> (HostShape): An ids:accessUrl property must point from an ids:Host to an access IRI."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/HostShape.ttl> (HostShape): An ids:accessUrl property must point from an ids:Host to an access IRI."@en ;
 	] ;
 
 	sh:property [
@@ -46,6 +45,6 @@ shapes:HostShape
 		sh:path ids:pathPrefix ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/HostShape.ttl> (HostShape): An ids:pathPrefix property must point from an ids:Host to an xsd:string."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/HostShape.ttl> (HostShape): An ids:pathPrefix property must point from an ids:Host to an xsd:string."@en ;
 	] .
 

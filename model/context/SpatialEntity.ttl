@@ -13,19 +13,12 @@
 # Classes
 # -------
 
-ids:SpatialEntity rdfs:subClassOf wgs84:SpatialThing;
-    a owl:Class;
-    rdfs:subClassOf geo:SpatialObject ;
-    idsm:abstract true;
-    rdfs:label "SpatialEntity"@en ;
-    rdfs:comment "Anything with spatial extent, i.e. size, shape, or position, e.g., places and unique positions."@en.
-
-ids:Location rdfs:subClassOf ids:SpatialEntity;
+ids:Location a owl:Class;
     rdfs:subClassOf dct:Location;
-    a owl:Class;
+    rdfs:subClassOf wgs84:SpatialThing;
     idsm:abstract true;
     rdfs:label "Location"@en ;
-    rdfs:comment "Class of all locations on Earth."@en.
+    rdfs:comment "Class of all locations."@en.
 
 ids:GeoPoint rdfs:subClassOf ids:Location;
     a owl:Class;

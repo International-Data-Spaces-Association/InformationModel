@@ -56,10 +56,9 @@ ids:mediaType
 
 # Standard followed at representation level, i.e. it governs the serialization of an abstract content like RDF/XML, Turtle for RDF
 ids:representationStandard
-    idsm:referenceByUri true;
-    a owl:ObjectProperty ;
+    a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:conformsTo ;
     rdfs:domain ids:Representation;
-    rdfs:range ids:Standard;
+    rdfs:range xsd:anyURI;
     rdfs:label "representation standard"@en;
     rdfs:comment "Standards document defining the given Representation (in contrast to general Resource content). The Representation is assumed to conform to that Standard."@en.

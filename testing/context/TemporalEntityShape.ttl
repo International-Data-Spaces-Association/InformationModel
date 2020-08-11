@@ -6,7 +6,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -30,7 +30,7 @@ shapes:InstantShape
 		sh:path ids:dateTime ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/TemporalEntityShape.ttl> (InstantShape): An ids:dateTime property must point from an ids:Instant to an xsd:dateTimeStamp."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (InstantShape): An ids:dateTime property must point from an ids:Instant to an xsd:dateTimeStamp."@en ;
 	] .
 
 
@@ -43,7 +43,7 @@ shapes:IntervalShape
 		sh:path ids:begin ;
 		sh:class ids:Instant ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to an ids:Instant."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to an ids:Instant."@en ;
 	] ;
 
 	sh:property [
@@ -51,6 +51,6 @@ shapes:IntervalShape
 		sh:path ids:end ;
 		sh:class ids:Instant ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must point from an ids:Interval to an ids:Instant."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must point from an ids:Interval to an ids:Instant."@en ;
 	] .
 

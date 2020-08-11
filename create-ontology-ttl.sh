@@ -8,7 +8,7 @@ write_to_file()
     local version=$1
     
     if [[ -z "$version" ]] ; then
-        version="2.0.1"
+        version="4.0.0"
         echo "Warning! No version parameter supplied. Assuming version ${version}" >&2
     fi
     
@@ -53,7 +53,10 @@ ids:
        <https://github.com/sebbader> ,
        <https://github.com/Maboeckmann> ,
        <https://github.com/clange> ,
-       <https://github.com/HaydarAk> ;
+       <https://github.com/HaydarAk> ,
+       <https://github.com/jlangkau> ,
+       <https://github.com/JohannesLipp> ,
+       <https://github.com/mkollenstart> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
@@ -105,11 +108,23 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 <https://github.com/HaydarAk> a dct:Agent, foaf:Person ;
     foaf:name "Haydar Akyürek" ;
 .
+<https://github.com/JohannesLipp> a dct:Agent, foaf:Person ;
+    foaf:name "Johannes Lipp" ;
+.
 <https://github.com/clange> a dct:Agent, foaf:Person ;
     foaf:name "Christoph Lange" ;
 .
 <https://github.com/Maboeckmann> a dct:Agent, foaf:Person ;
     foaf:name "Matthias Böckmann" ;
+.
+<https://github.com/jlangkau> a dct:Agent, foaf:Person ;
+    foaf:name "Jörg Langkau" ;
+.
+<https://github.com/mkollenstart> a dct:Agent, foaf:Person ;
+    foaf:name "Maarten Kollenstart" ;
+.
+<https://github.com/JohannesLipp> a dct:Agent, foaf:Person ;
+    foaf:name "Johannes Lipp" ;
 .
 EOF
     
@@ -121,6 +136,7 @@ EOF
     # search for files in selected folders (omitting metamodel/)
     for class in $(find \
                        model/* \
+                       metamodel/ \
                        taxonomies/ \
                        codes/ \
                        -maxdepth 1 -name "*.ttl")

@@ -1,0 +1,13 @@
+PREFIX ids:                <https://w3id.org/idsa/core/>
+PREFIX sh:                 <http://www.w3.org/ns/shacl#>
+PREFIX xsd:                <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?resource WHERE {
+    ?resource a ids:DataResource ;
+        sh:shapesGraph ?shape .
+
+    ?shape sh:property ?property .
+
+    ?property sh:path <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/lifeExpectancy> ;
+        sh:datatype xsd:decimal .
+}
