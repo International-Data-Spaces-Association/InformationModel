@@ -72,11 +72,8 @@ ids:JwtPayload a owl:Class ;
     idsm:validation [
         idsm:forProperty ids:transportCertsSha256;
         idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotEmpty;
     ]; 
-    idsm:validation [
-        idsm:forProperty ids:transportCertsSha256;
-        idsm:constraint idsm:NotNull;
-    ]
     .
 
 ids:transportCertsSha256 a owl:DatatypeProperty;
