@@ -16,11 +16,8 @@ ids:DataApp
     idsm:validation [
                         idsm:forProperty ids:appEndpoint;
                         idsm:relationType idsm:OneToMany ;
+                        idsm:constraint idsm:NotEmpty;
                     ];
-    idsm:validation [
-                        idsm:forProperty ids:appEndpoint;
-                        idsm:constraint idsm:NotNull;
-                    ]
 .
 ids:appDocumentation
     a owl:DatatypeProperty ;
