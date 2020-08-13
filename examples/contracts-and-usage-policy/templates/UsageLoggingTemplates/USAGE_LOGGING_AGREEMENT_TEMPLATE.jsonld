@@ -17,7 +17,14 @@
             "@type": "ids:Duty",
             "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer
-            "ids:action": { "@id": "idsc:LOG" }
+            "ids:action": { 
+				"@id": "idsc:LOG",,
+				"refinement": [{    
+					"leftOperand": "idsc:LoggingEndpoint",  
+					"operator": "eq",  
+					"rightOperand": { "@value": "?LoggingEndpointUri", "@type": "xsd:anyURI"} 
+				}] 
+			}
         }
         (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
         (, "ids:preDuty": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more Obligations which need to be fulfilled before the Usage event
