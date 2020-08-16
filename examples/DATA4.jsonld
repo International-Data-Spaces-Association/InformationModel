@@ -7,8 +7,7 @@
         "@language": "en"
     },
     "ids:description": {
-        "@value": "This dataset contains the complete stock market prices of
-            all 2019 Wall Street listed companies in each milliseconds.",
+        "@value": "This dataset contains the complete stock market prices of all 2019 Wall Street listed companies in each milliseconds.",
         "@language": "en"
     },
     "ids:keyword": ["stock price", "Wall Street", "2019"],
@@ -35,12 +34,13 @@
     },
     "ids:representation": {
         "ids:instance": {
-            "@id": "ex:StockDataCSV" TODO
-
-            _:StockDataCSV a ids:Artifact ;
-                ids:byteSize "2479823132"^^xsd:integer ;
-                ids:fileName "2019_wall_street.csv" ;
-            .
+            "@id": "_:ub565bL15C17",
+            "@type": "ids:Artifact",
+            "ids:byteSize": {
+                "@value": "2479823132",
+                "@type": "http://www.w3.org/2001/XMLSchema#integer"
+            },
+            "ids:fileName": "2019_wall_street.csv"
         },
         "ids:mediaType": {
             "@id": "https://www.iana.org/assignments/media-types/text/csv"
@@ -53,13 +53,13 @@
             "@value": "https://business-int.com/connector/reports/2019_wall_street.csv"
         }
     },
-    "ids:contractOffer": {
+    "ids:contractOffer": [{
         "@type": "ids:ContractOffer",
         "ids:provider": {"@id": "http://idsa.org/participants/BusIntOrg"},
-        "ids:permission": {
+        "ids:permission": [{
             "@type": "ids:Permission",
             "ids:assigner": {"@id": "http://idsa.org/participants/BusIntOrg"},
-            "ids:target": "",
+            "ids:target": "_:ub565bL15C17",
             "ids:action": {"@id": "idsc:READ"},
             "ids:postDuty": {
                 "@type": "ids:Duty",
@@ -67,7 +67,7 @@
                 "ids:action": {
                     "@type": "ids:Action",
                     "ids:includedIn": "idsc:COMPENSATE",
-                    "ids:actionRefinement": {
+                    "ids:actionRefinement": [{
                         "@type": "ids:Constraint",
                         "ids:leftOperand": {
                           "@id": "idsc:PAY_AMOUNT"
@@ -79,9 +79,9 @@
                         "ids:unit": {
                           "@id": "https://www.wikidata.org/wiki/Q1235644"
                         }
-                    }
+                    }]
                 }
             }
-        }
-    }
+        }]
+    }]
 }
