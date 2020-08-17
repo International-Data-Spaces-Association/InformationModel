@@ -1,0 +1,124 @@
+{
+
+  "@context" : {
+
+    "ids" : "https://w3id.org/idsa/core/",
+
+    "idsc" : "https://w3id.org/idsa/code/"
+
+  },
+
+  "@type" : "ids:BaseConnector",
+
+  "@id" : "http://echo.ids.isst.fraunhofer.de/",
+
+  "ids:inboundModelVersion" : [ "3.1.0" ],
+
+  "ids:outboundModelVersion" : "3.1.0",
+
+  "ids:securityProfile" : {
+
+    "@id" : "idsc:BASE_CONNECTOR_SECURITY_PROFILE"
+
+  },
+
+  "ids:catalog" : {
+
+    "@type" : "ids:Catalog",
+
+    "@id" : "https://w3id.org/idsa/autogen/catalog/26d09db6-3686-48db-b6f3-6ff5d530dff1",
+
+    "ids:offer" : [ {
+
+      "@type" : "ids:Resource",
+
+      "@id" : "https://w3id.org/idsa/autogen/resource/6e5cb489-31be-495b-9a8f-2068e34768c7",
+
+      "ids:description" : [ {
+
+        "@value" : "Echo Service for the IDS-LAB.",
+
+        "@language" : "en"
+
+      } ],
+
+      "ids:title" : [ {
+
+        "@value" : "Echo Service",
+
+        "@language" : "en"
+
+      } ],
+
+      "ids:resourceEndpoint" : [ {
+
+        "@type" : "ids:InteractiveEndpoint",
+
+        "@id" : "https://w3id.org/idsa/autogen/interactiveEndpoint/ebbb6e33-516b-4cf4-91ab-55dac3568902",
+
+        "ids:path" : "https://echo.ids.isst.fraunhofer.de/echo",
+
+        "ids:endpointHost" : {
+
+          "@type" : "ids:Host",
+
+          "@id" : "http://echo.ids.isst.fraunhofer.de/",
+
+          "ids:protocol" : {
+
+            "@id" : "idsc:HTTP"
+
+          },
+
+          "ids:accessUrl" : {
+
+            "@id" : "https://echo.ids.isst.fraunhofer.de/echo"
+
+          }
+
+        },
+
+        "ids:endpointOperationBinding" : {
+
+          "@type" : "ids:OperationBinding",
+
+          "@id" : "https://w3id.org/idsa/autogen/operationBinding/27cd307c-f7bb-47f6-8d8f-839bb50c8a3d",
+
+          "ids:apiDocument" : {
+
+            "@type" : "ids:Resource",
+
+            "@id" : "https://echo.ids.isst.fraunhofer.de/OpenApiDocumentForEchoService"
+
+          },
+
+          "ids:boundOperation" : {
+
+            "@type" : "ids:ConsumeContentOperation",
+
+            "@id" : "https://echo.ids.isst.fraunhofer.de/EchoOperation"
+
+          }
+
+        }
+
+      } ]
+
+    } ]
+
+  },
+
+  "ids:maintainer" : {
+
+    "@id" : "https://www.isst.fraunhofer.de/"
+
+  },
+
+  "ids:curator" : {
+
+    "@id" : "https://www.isst.fraunhofer.de/"
+
+  }
+
+}
+
