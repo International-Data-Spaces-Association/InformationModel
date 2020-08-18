@@ -1,5 +1,5 @@
 {
-    "@context": "https://w3id.org/idsa/contexts/context.jsonld",
+    "@context" : "https://w3id.org/idsa/contexts/context.jsonld",
     "@type": "ids:DataResource",
     "@id": "https://business-int.com/connector/StockData",
     "ids:title": {
@@ -33,6 +33,7 @@
         "@id": "idsc:EN"
     },
     "ids:representation": {
+        "@type" : "ids:DataRepresentation",
         "ids:instance": {
             "@id": "_:ub565bL15C17",
             "@type": "ids:Artifact",
@@ -43,30 +44,38 @@
             "ids:fileName": "2019_wall_street.csv"
         },
         "ids:mediaType": {
+            "@type": "ids:IANAMediaType",
             "@id": "https://www.iana.org/assignments/media-types/text/csv"
         }
     },
     "ids:resourceEndpoint": {
         "@type": "ids:ConnectorEndpoint",
         "ids:accessURL": {
-            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
-            "@value": "https://business-int.com/connector/reports/2019_wall_street.csv"
+            "@id": "https://business-int.com/connector/reports/2019_wall_street.csv"
         }
     },
     "ids:contractOffer": [{
         "@type": "ids:ContractOffer",
         "ids:provider": {"@id": "http://idsa.org/participants/BusIntOrg"},
+        "ids:contractDocument" : {
+                    "@type" : "ids:TextResource",
+                    "@id" : "https://business-int.com/connector/StockDataContract"
+        },
         "ids:permission": [{
             "@type": "ids:Permission",
             "ids:assigner": {"@id": "http://idsa.org/participants/BusIntOrg"},
-            "ids:target": "_:ub565bL15C17",
+            "ids:target": {
+                "@id": "https://business-int.com/connector/StockData"
+            },
             "ids:action": {"@id": "idsc:READ"},
             "ids:postDuty": {
                 "@type": "ids:Duty",
                 "ids:assigner": {"@id": "http://idsa.org/participants/BusIntOrg"},
                 "ids:action": {
                     "@type": "ids:Action",
-                    "ids:includedIn": "idsc:COMPENSATE",
+                    "ids:includedIn": {
+                    "@id": "idsc:COMPENSATE"
+                    },
                     "ids:actionRefinement": [{
                         "@type": "ids:Constraint",
                         "ids:leftOperand": {
@@ -77,11 +86,12 @@
                         },
                         "ids:rightOperand": 5000000.0,
                         "ids:unit": {
+                          "@type" : "ids:Unit",
                           "@id": "https://www.wikidata.org/wiki/Q1235644"
                         }
                     }]
                 }
             }
         }]
-    }]
-}
+        }]
+        }
