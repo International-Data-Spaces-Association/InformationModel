@@ -8,7 +8,7 @@ _:StockData a ids:DataResource ;
     ids:description """This dataset contains the complete stock market prices of
     all 2019 Wall Street listed companies in each milliseconds."""@en ;
     ids:keyword "stock price", "Wall Street", "2019" ;
-    ids:publisher <http://idsa.org/participants/BusIntOrg>;
+    ids:publisher <http://idsa.org/participants/BusIntInc>;
     ids:temporalCoverage [ a ids:Interval ;
                            ids:begin [ a ids:Instant ;
                                        ids:dateTime "2019-01-01T00:00:00.000-04:00"^^xsd:dateTimeStamp ];
@@ -20,8 +20,7 @@ _:StockData a ids:DataResource ;
                          ids:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
                        ];
     ids:resourceEndpoint [ a ids:ConnectorEndpoint ;
-                           ids:accessURL <https://business-int.com/connector/reports/2019_wall_street.csv>;
-                         ];
+        ids:accessURL "https://bi.com/connector/reports/2019_wall_street.csv"^^xsd:anyURI ];
     ids:contractOffer _:StockDataOffer .
 
 
@@ -33,18 +32,18 @@ _:StockDataCSV a ids:Artifact ;
 _:StockDataOffer a ids:SalesOffer, ids:ContractOffer ;
      ids:provider <http://idsa.org/participants/BusIntOrg> ;
      ids:contractDocument _:StockDataContract ;
-     ids:permission [ 
+     ids:permission [
         a ids:Permission ;
         ids:assigner <http://idsa.org/participants/BusIntOrg> ;
         ids:target _:StockData ;
         ids:action idsc:READ ;
-        ids:postDuty [ 
+        ids:postDuty [
         a ids:Duty ;
         ids:assigner <http://idsa.org/participants/BusIntOrg> ;
-        ids:action [ 
+        ids:action [
             a ids:Action ;
             ids:includedIn idsc:COMPENSATE ;
-            ids:actionRefinement [  
+            ids:actionRefinement [
                 a ids:Constraint ;
                 ids:leftOperand idsc:PAY_AMOUNT ;
                 ids:operator idsc:EQ ;
