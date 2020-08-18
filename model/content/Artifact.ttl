@@ -12,7 +12,7 @@
 
 ids:Artifact
     a owl:Class;
-    rdfs:subClassOf ids:RepresentationInstance; # dcat:Distribution partial subclass of dcat:Distribution w.r.t materialization aspects
+    rdfs:subClassOf ids:Asset, ids:RepresentationInstance; # dcat:Distribution partial subclass of dcat:Distribution w.r.t materialization aspects
     rdfs:label "Artifact"@en ;
     rdfs:comment "Instance of a Representation materialized at a partiuclar version and point in time. Possesses characteristics like file name, size, creation date etc."@en ;
     owl:disjointWith ids:Value .
@@ -110,4 +110,3 @@ ids:duration
 # dct:description
 # dct:licence
 # dct:rights
-
