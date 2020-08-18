@@ -1,0 +1,17 @@
+###################################
+# Sample RDF / TTL of a Sensor Data 
+###################################
+
+@prefix data: <http://example.org/data#> .
+@prefix ex: <http://example.org/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:47649009-11b0-4b1b-a192-b7305d86a2bc
+    a ex:SensorMeasurement ;
+    ex:value 20.5 ;
+    ex:unit  "F" ;
+    ex:timestamp "2019-10-28T13:00Z"^^xsd:datetime ;
+    ex:location [ 
+         ex:lon 120.05 ;
+         ex:lat 160.20 ;
+    ].

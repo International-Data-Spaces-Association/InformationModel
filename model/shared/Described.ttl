@@ -12,8 +12,18 @@
 # Classes
 # -------
 
+
+### Removing this class, as it is already defined in model/content/Concept.ttl
+#ids:Concept
+#	a owl:Class ;
+#	rdfs:subClassOf skos:Concept ;
+#	rdfs:label "Concept"@en .
+
+
+
 ids:Described
     a owl:Class ;
+    idsm:abstract true;
     rdfs:label "described"@en ;
     rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en;
     idsm:validation [
@@ -23,23 +33,24 @@ ids:Described
     idsm:validation [
         idsm:forProperty ids:description;
         idsm:relationType idsm:OneToMany;
-    ].
+    ] ;
+    .
 
 ids:title #.. how does it relate to "name", is "title" a functional property?
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:title ;
     rdfs:label "title"@en ;
-    idsm:labelPluralForm "titles"@en;
     rdfs:domain ids:Described ;
-    rdfs:range rdf:PlainLiteral;
+    rdfs:range xsd:string;
     rdfs:comment "(Localized) name of the entity."@en .
 
+# description is used for explanation in natural language. 
+# ids:theme (class ids:DigitalContent) is used for SKOS representation
 ids:description
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:description ;
     rdfs:label "description"@en ;
-    idsm:labelPluralForm "descriptions"@en;
     rdfs:domain ids:Described ;
-    rdfs:range rdf:PlainLiteral ;
-    rdfs:comment "(Localized) textual description of the entity."@en .
-
+    rdfs:range xsd:string ; 
+    rdfs:comment "Explanation of the resource in a natural language text."@en ;
+    .

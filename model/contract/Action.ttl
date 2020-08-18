@@ -11,9 +11,7 @@
 
 ids:Action rdfs:subClassOf odrl:Action;
     a owl:Class;
-    idsm:abstract true;
     rdfs:label "Action"@en;
-    idsm:labelPluralForm "Actions"@en;
     rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en;
     idsm:validation [
         idsm:forProperty ids:actionRefinement;
@@ -27,7 +25,16 @@ ids:actionRefinement
     a owl:ObjectProperty;
     # rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "action refinement"@en;
-    idsm:labelPluralForm "actionRefinements"@en;
     rdfs:domain ids:Action;
     rdfs:range ids:Constraint;
-    rdfs:comment "Constraint that refines an Action."@en.
+    rdfs:comment "Constraint that refines an Action."@en ;
+.
+
+ids:includedIn
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf odrl:includedIn ;
+    rdfs:label "is included in"@en;
+    rdfs:domain ids:Action;
+    rdfs:range ids:Action;
+    rdfs:comment "The subject transitively asserts the object Action."@en ;
+.

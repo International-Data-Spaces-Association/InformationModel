@@ -1,0 +1,91 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+<https://example-connector.com>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:BaseConnector ;
+        rdfs:subClassOf ids:Connector;
+        ids:catalog               <https://w3id.org/idsa/autogen/catalog/b0baaeed-6e7e-47dc-86d7-edf087b47845> ;
+        ids:curator               "https://example-connector.com" ;
+        ids:inboundModelVersion   "2.1.0" ;
+        ids:maintainer            "https://example-connector.com" ;
+        ids:outboundModelVersion  "2.1.0" ;
+        ids:title                 "Example Connector"@en .
+
+<https://w3id.org/idsa/autogen/catalog/b0baaeed-6e7e-47dc-86d7-edf087b47845>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Catalog ;
+        ids:offer  <https://w3id.org/idsa/autogen/resource/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98> ;
+        ids:offer  <https://w3id.org/idsa/autogen/resource/resource:uuid:8d254705-b95d-4827-b245-13f8f7c21156> ;
+        ids:offer  <https://w3id.org/idsa/autogen/resource/resource:uuid:db2c1abe-0bec-4278-8916-def8dcb982a6> .
+
+<https://w3id.org/idsa/autogen/resource/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Resource ;
+        ids:customLicense     "www.licence.de" ;
+        ids:keyword           ""@en ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/interactiveEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/metaEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:standardLicense   <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
+        ids:version           "Version 1" .
+
+<https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:StaticEndpoint ;
+        ids:endpointArtifact  <https://w3id.org/idsa/autogen/artifact/1c0310cd-7460-4390-ba7a-9bd9616e9943> ;
+        ids:endpointHost      <https://w3id.org/idsa/autogen/host/069c0f90-7888-4dca-8927-83f457bf3bbe> ;
+        ids:path              "StaticEndpointPath" .
+
+<https://w3id.org/idsa/autogen/artifact/1c0310cd-7460-4390-ba7a-9bd9616e9943>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Artifact ;
+        ids:byteSize  "n/a" ;
+        ids:checkSum  "967e1e28e9f6ef1c45f1ecf2c9c9e1d2c54a6201bce0cd4a9106c299df6f1349" ;
+        ids:checkSum  "e34b2ec0976211907c087c42706cdfe130b3d03c917820f790733681c065f897" ;
+        ids:checkSum  "25ecff326e5909a5c53f21dbce14c9c10cbd516b17714fe7ed04d4b4958a1400" ;
+        ids:fileName  "Anfahrtsbeschreibung.pdf" ;
+        ids:fileName  "http://ids-mock-http-file:3005/data/last.json" ;
+        ids:fileName  "http://ids-mock-http-file:3005/data/data.csv" .
+
+<https://w3id.org/idsa/autogen/host/069c0f90-7888-4dca-8927-83f457bf3bbe>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Host ;
+        ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98/data" ;
+        ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98/meta" ;
+        ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:8d254705-b95d-4827-b245-13f8f7c21156/data" ;
+        ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:8d254705-b95d-4827-b245-13f8f7c21156/meta" ;
+        ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:db2c1abe-0bec-4278-8916-def8dcb982a6/data" ;
+        ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:db2c1abe-0bec-4278-8916-def8dcb982a6/meta" ;
+        ids:protocol   <https://w3id.org/idsa/code/protocol/HTTP> .
+
+<https://w3id.org/idsa/autogen/interactiveEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:InteractiveEndpoint ;
+        ids:endpointArtifact  <https://w3id.org/idsa/autogen/artifact/1c0310cd-7460-4390-ba7a-9bd9616e9943> ;
+        ids:endpointHost      <https://w3id.org/idsa/autogen/host/069c0f90-7888-4dca-8927-83f457bf3bbe> ;
+        ids:path              "InteractiveEndpointPath" .
+
+<https://w3id.org/idsa/autogen/metaEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:MetaEndpoint ;
+        ids:endpointHost  <https://w3id.org/idsa/autogen/host/069c0f90-7888-4dca-8927-83f457bf3bbe> ;
+        ids:path          "MetaEndpointPath" .
+
+<https://w3id.org/idsa/autogen/resource/resource:uuid:8d254705-b95d-4827-b245-13f8f7c21156>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Resource ;
+        ids:customLicense     "www.licence.de" ;
+        ids:description       "Temperature data for IDS-Lab usecase"@en ;
+        ids:keyword           "Temperature;JSON;IDS-Lab"@en ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/interactiveEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/metaEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:standardLicense   <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
+        ids:version           "Version 1" .
+
+<https://w3id.org/idsa/autogen/resource/resource:uuid:db2c1abe-0bec-4278-8916-def8dcb982a6>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Resource ;
+        ids:customLicense     "www.licence.de" ;
+        ids:keyword           ""@en ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/interactiveEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:resourceEndpoint  <https://w3id.org/idsa/autogen/metaEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
+        ids:standardLicense   <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
+        ids:version           "Version 1" .

@@ -5,24 +5,20 @@
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
 @prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geo: <http://www.opengis.net/def/function/geosparql/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
 # Classes
 # -------
 
-ids:SpatialEntity rdfs:subClassOf wgs84:SpatialThing;
-    a owl:Class;
-    idsm:abstract true;
-    rdfs:label "SpatialEntity"@en ;
-    rdfs:comment "Anything with spatial extent, i.e. size, shape, or position, e.g., places and unique positions."@en.
-
-ids:Location rdfs:subClassOf ids:SpatialEntity;
+ids:Location a owl:Class;
     rdfs:subClassOf dct:Location;
-    a owl:Class;
+    rdfs:subClassOf wgs84:SpatialThing;
     idsm:abstract true;
     rdfs:label "Location"@en ;
-    rdfs:comment "Class of all locations on Earth."@en.
+    rdfs:comment "Class of all locations."@en.
 
 ids:GeoPoint rdfs:subClassOf ids:Location;
     a owl:Class;
@@ -60,7 +56,7 @@ ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
         idsm:constraint idsm:NotEmpty;
     ].
 
-# Properties for describing spatial entitites
+# Properties for describing spatial entities
 # -------------------------------------------
 
 ids:latitude rdfs:subPropertyOf wgs84:lat;
@@ -81,6 +77,5 @@ ids:geoPoint a owl:ObjectProperty;
      rdfs:domain ids:BoundingPolygon;
      rdfs:range ids:GeoPoint;
      rdfs:label "geoPoint"@en;
-     idsm:labelPluralForm "geoPoints"@en;
      rdfs:comment "Refers to a GeoPoint that is member of a BoundingPolygon."@en.
 

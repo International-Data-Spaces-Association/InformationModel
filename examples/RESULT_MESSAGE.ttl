@@ -1,0 +1,24 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix conn2:   <https://aastat.gov.de/connector/conn2/> .
+@prefix broker1: <https://aastat.gov.de/broker/broker1/> .
+@prefix : <https://aastat.gov.de/message/> .
+
+
+:inter2_r
+    # Response part. Result is in payload
+    a ids:ResultMessage;
+    ids:correlationMessage :inter2_q ;
+    ids:issuerConnector :broker1 ;
+    ids:recipientConnector :conn2 ;
+    ids:issued "2020-08-06T15:57:01Z"^^xsd:dateTimeStamp;
+	ids:senderAgent broker1:senderAgent ;
+    ids:modelVersion "4.0.0";
+	ids:securityToken [ 
+		a ids:DynamicAttributeToken ;
+		ids:tokenFormat idsc:JWT ;
+		ids:tokenValue "Some token goes here"^^xsd:string ;
+	] .

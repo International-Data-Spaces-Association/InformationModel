@@ -1,0 +1,57 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:SoftwareShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:Software ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:softwareInterface ;
+		sh:class ids:Interface ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/DigitalContentShape.ttl> (SoftwareShape): An ids:softwareInterface property must point from an ids:Software to an ids:Interface."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:icon ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/DigitalContentShape.ttl> (SoftwareShape): An ids:icon property must point from an ids:Software to an xsd:string."@en ;
+	] .
+
+
+shapes:ListShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:List ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:sortOrder ;
+		sh:class ids:SortOrder ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/DigitalContentShape.ttl> (ListShape): An ids:sortOrder property must point from an ids:List to an ids:SortOrder."@en ;
+	] .
+

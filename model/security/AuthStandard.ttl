@@ -4,18 +4,18 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
-@prefix idsc_auth: <https://w3id.org/idsa/code/auth/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
 
 # Classes
 # -------
 
 ids:AuthStandard a owl:Class;
     rdfs:label "AuthStandard"@en ;
-    rdfs:comment "The class of authentication standards that may be supported by Connectors.".
+    rdfs:comment "The class of authentication standards that may be supported by Connectors."@en.
 
 # Instances
 # ---------
 
-idsc_auth:OAUTH2_JWT a ids:AuthStandard;
+idsc:OAUTH2_JWT a ids:AuthStandard;
     rdfs:comment "OAUTH2 via JWT".
 

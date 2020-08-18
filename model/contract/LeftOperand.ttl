@@ -5,6 +5,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # Classes
 # -------
@@ -14,77 +15,15 @@ ids:LeftOperand rdfs:subClassOf odrl:LeftOperand;
     rdfs:label "LeftOperand"@en;
     rdfs:comment "Instances of the LeftOperand class are used as the leftOperand of a Constraint."@en.
 
-# Instances
-# ---------
 
-ids:payAmount a ids:LeftOperand;
-    rdfs:seeAlso odrl:payAmount;
-    rdfs:label "payAmount";
-    rdfs:comment "Monetary amount to pay.".
-
-ids:DATE_TIME a ids:LeftOperand;
-    rdfs:seeAlso odrl:dateTime;
-    rdfs:label "dateTime";
-    rdfs:comment "The date (and optional time and timezone) of exercising the action of the Rule.".
-
-ids:timeInterval a ids:LeftOperand;
-    rdfs:seeAlso odrl:timeInterval;
-    rdfs:label "timeInterval";
-    rdfs:comment "Recurring Time Interval.".
-
-ids:purpose a ids:LeftOperand;
-    rdfs:seeAlso odrl:purpose;
-    rdfs:label "purpose";
-    rdfs:comment "A defined purpose for exercising the action of the Rule.".
-
-ids:count a ids:LeftOperand;
-    rdfs:seeAlso odrl:count;
-    rdfs:label "count";
-    rdfs:comment "Numeric count of executions of the action of the Rule.".
-
-ids:quantity a ids:LeftOperand;
-    rdfs:label "quantity";
-    rdfs:comment "Quantity limitation for exercising the action of the Rule.".
-
-ids:recurrenceRate a ids:LeftOperand;
-    rdfs:label "recurrenceRate";
-    rdfs:comment "The limit how often exercising the action of the Rule may be possible.".
-    
-ids:securityLevel a ids:LeftOperand;
-    rdfs:label "securityLevel";
-    rdfs:comment "The security level the consuming connector must have. The value decides which attribute dimension is regarded."@en ;
-#    rdfs:range [
-#        owl:oneOf  (
-#            idsc_sec:LOCAL_INTEGRITY_PROTECTION
-#            idsc_sec:REMOTE_INTEGRITY_VERIFICATION
-#            idsc_sec:KERNEL_CORE_CONTAINER_VERIFICATION
-#            idsc_sec:KERNEL_CORE_CONTAINER_APPLICATION_VERIFICATION
-#            idsc_sec:SERVER_SIDE_ONLY
-#            idsc_sec:MUTUAL_AUTHENTICATION
-#            idsc_sec:PROCESS_GROUP_ISOLATION
-#            idsc_sec:LEAST_PRIVILEGE_ISOLATION
-#            idsc_sec:LOCAL_ENFORCEMENT
-#            idsc_sec:REMOTE_VERIFICATION
-#            idsc_sec:USAGE_CONTROL_POLICY_ENFORCEMENT
-#            idsc_sec:REMOTE_POLICY_COMPLIANCE_VERIFICATION
-#            idsc_sec:LOCAL_AUDIT_LOGGING
-#            idsc_sec:REMOTE_AUDIT_TRACING
-#            idsc_sec:SECURE_DATA_ERASURE
-#            idsc_sec:LOCAL_FULL_DATA_ENCRYPTION
-#            idsc_sec:BASE_CONNECTOR_SECURITY_PROFILE
-#            idsc_sec:TRUSTED_CONNECTOR_SECURITY_PROFILE
-#            idsc_sec:TRUSTED_CONNECTOR_PLUS_SECURITY_PROFILE
-#            )
-#    ]
-    .
-    
-ids:absoluteSpatialPosition a ids:LeftOperand ;
-    rdfs:seeAlso odrl:absoluteSpatialPosition ;
-    rdfs:label "Absolute geo-spatial position";
-    rdfs:comment "The allowed region of the consuming connector or Data App."@en ;
-    rdfs:seeAlso odrl:spatial ;
-    # TODO rdfs:range <URI of geographical region>
-    .
-    
-
-
+# Properties
+# ----------
+ids:broader
+    a owl:ObjectProperty;
+    skos:broader odrl:includedIn ;
+    rdfs:seeAlso <http://www.w3.org/2004/02/skos/core#broader> ;
+    rdfs:label "broader LeftOperand"@en;
+    rdfs:domain ids:LeftOperand;
+    rdfs:range ids:LeftOperand;
+    rdfs:comment "This LeftOperand is transitively included in the object LeftOperand."@en ;
+.

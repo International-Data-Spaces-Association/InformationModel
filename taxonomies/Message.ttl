@@ -9,18 +9,17 @@
 # Classes
 # -------
 
-# Basic Message Types
-# -------------------
+# Basic Message Types: Request, Response, Notification
+# May be used direcoty for non-core IDS scenarios. 
+# -----------------------------------------------------
 
 ids:RequestMessage a owl:Class;
     rdfs:subClassOf ids:Message ;
-    idsm:abstract true;
     rdfs:label "Request Message"@en ;
     rdfs:comment "Client-generated message initiating a communication, motivated by a certain reason and with an answer expected."@en.
 
 ids:ResponseMessage a owl:Class;
     rdfs:subClassOf ids:Message ;
-    idsm:abstract true;
     rdfs:label "Response Message"@en ;
     rdfs:comment "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en;
     idsm:validation [
@@ -30,21 +29,19 @@ ids:ResponseMessage a owl:Class;
 
 ids:NotificationMessage a owl:Class ;
     rdfs:subClassOf ids:Message ;
-    idsm:abstract true;
     rdfs:label "Notification Message"@en ;
     rdfs:comment "Event messages are informative and no response is expected by the sender."@en.
+
+
+# Core IDS Messages
+# -----------------
+
 
 ids:CommandMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
     idsm:abstract true;
     rdfs:label "Command Message"@en ;
     rdfs:comment "Command messages are usually sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en.
-
-ids:QueryMessage a owl:Class ;
-    rdfs:subClassOf ids:RequestMessage ;
-    idsm:abstract true;
-    rdfs:label "Query Command"@en ;
-    rdfs:comment "Query commands are intended to annotate query strings in a specified query language or address a specific resource."@en.
 
 ids:ResultMessage a owl:Class;
     rdfs:subClassOf ids:ResponseMessage ;
@@ -66,92 +63,155 @@ ids:rejectionReason a owl:ObjectProperty;
     rdfs:label "rejectionReason"@en;
     rdfs:comment "Specifies the reason of the rejection."@en.
 
-# Self-description Access
-# -----------------------
+# Self-Description
+# -----------------
 
-ids:SelfDescriptionRequest a owl:Class;
+ids:DescriptionRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "Self Description Request"@en ;
-    rdfs:comment "Message requesting the self-description of an Infrastructure Component."@en.
+    rdfs:label "Description Request Message"@en ;
+    rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g. because the element was not found." @en.
 
-ids:SelfDescriptionResponse a owl:Class ;
+ids:DescriptionResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage ;
-    rdfs:label "Self Description Response"@en ;
-    rdfs:comment "Message containing the self-description of an Infrastructure Component."@en.
+    rdfs:label "Description Response Message"@en ;
+    rdfs:comment "Message containing the metadata, which a Connector previously requested via the ids:DescriptionRequestMessage, in its payload."@en.
+
+ids:requestedElement a owl:DatatypeProperty;
+    rdfs:label "requested Element"@en;
+    rdfs:comment "The element whose metadata is requested. "@en;
+    rdfs:domain ids:DescriptionRequestMessage ;
+    rdfs:range xsd:anyURI ;
+.
 
 # Connector-related Messages
 # --------------------------
 
-ids:ConnectorAvailableMessage a owl:Class;
+ids:ConnectorNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Connector Available Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) about the availability of a new connector. The payload of the message must contain the new connector's self-description."@en.
+    idsm:abstract true ;
+    rdfs:label "Connector Notification Message"@en ;
+    rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en;
+    idsm:validation [
+        idsm:forProperty ids:affectedConnector;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:ConnectorUpdateMessage a owl:Class;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
+    rdfs:label "Connector Update Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) about the availability and current configuration of a connector. The payload of the message must contain the updated connector's self-description."@en.
 
 ids:ConnectorUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
     rdfs:label "Connector Unavailable Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a connector will be unavailable and never be available again."@en.
+    rdfs:comment "Event notifying the recipient(s) that a connector will be unavailable. The same connector may be available again in the future."@en.
 
-ids:ConnectorTemporarilyUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Connector Temporarlily Unavailable Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a connector will be temporarily unavailable and most likely be available again in the future."@en.
+ids:ConnectorCertificateGrantedMessage a owl:Class;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
+    rdfs:label "Connector Certificate Granted Message"@en ;
+    rdfs:comment "Whenever a Connector has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
 
-ids:ConnectorConfigurationChangeMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Connector Configuration Change Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) about a connector's configuration change. The payload of the message must contain the updated connector's self-description."@en.
+ids:ConnectorCertificateRevokedMessage a owl:Class;
+    rdfs:subClassOf ids:ConnectorNotificationMessage ;
+    rdfs:label "Connector Certificate Revoked Message"@en ;
+    rdfs:comment "Indicates that a (previously certified) Connector is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
+
+ids:affectedConnector a owl:ObjectProperty;
+    idsm:referenceByUri true;
+    rdfs:label "affected Connector"@en;
+    rdfs:domain ids:ConnectorNotificationMessage;
+    rdfs:range ids:Connector;
+    rdfs:comment "References the connector that is affected by the runtime condition change."@en.
 
 # Participant-related Messages
 # ----------------------------
+ids:ParticipantNotificationMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    idsm:abstract true ;
+    rdfs:label "Participant Notification Message"@en ;
+    rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en;
+    idsm:validation [
+        idsm:forProperty ids:affectedParticipant;
+        idsm:constraint idsm:NotNull;
+    ].
+    
+
+ids:ParticipantUpdateMessage a owl:Class;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
+    rdfs:label "Participant Available Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) about the availability and current description of a participant. The payload of the message must contain the participant's self-description."@en.
+
+ids:ParticipantUnavailableMessage a owl:Class;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
+    rdfs:label "Participant Unavailable Message"@en ;
+    rdfs:comment "Event notifying the recipient(s) that a participant will be unavailable. The same participant may be available again in the future."@en.
 
 ids:ParticipantCertificateGrantedMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
     rdfs:label "Participant Certificate Granted Message"@en ;
     rdfs:comment "Whenever a Participant has been successfully certified by the Certification Body, the Identity Provider can use this message to notify Infrastructure Components."@en.
 
-ids:ParticipantCertificateUnavailableMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Participant Certificate Unavailable Message"@en ;
+ids:ParticipantCertificateRevokedMessage a owl:Class;
+    rdfs:subClassOf ids:ParticipantNotificationMessage ;
+    rdfs:label "Participant Certificate Revoked Message"@en ;
     rdfs:comment "Indicates that a (previously certified) Participant is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
-ids:ParticipantCertificateSuspendedMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Participant Certificate Suspended Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that a Participant is temporarily no more certified."@en.
+ids:affectedParticipant a owl:ObjectProperty;
+    idsm:referenceByUri true;
+    rdfs:label "affected Participant"@en;
+    rdfs:domain ids:ParticipantNotificationMessage;
+    rdfs:range ids:Participant;
+    rdfs:comment "References the participant that is referenced in the participant-related notification messages."@en.
 
-ids:ParticipantInformationChangedMessage a owl:Class;
-    rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Participant Information Changed Message"@en ;
-    rdfs:comment "Event notifying the recipient(s) that information describing this Participant has changed. This event is mainly intended for information describing the Participant that is NOT a direct subject of the certification process."@en.
+ids:revocationReason 
+    a owl:DatatypeProperty;
+    rdfs:label "Revocation Reason"@en;
+    rdfs:domain [ owl:unionOf (
+            ids:ConnectorCertificateRevokedMessage
+            ids:ParticipantCertificateRevokedMessage
+            )
+        ];
+    rdfs:range xsd:string;
+    rdfs:comment "Plain Text containing the reason for revoking an existing certificate of either a connector or participant."@en.
 
-# Broker Messages
-# ---------------
+# Query related Messages
+# -----------------------
 
-ids:BrokerQueryScope a owl:Class;
-    rdfs:label "RejectionReason"@en ;
-    rdfs:comment "Class of scopes that may limit the space of broker query results."@en.
-
-ids:BrokerQueryMessage a owl:Class;
-    rdfs:subClassOf ids:QueryMessage;
-    rdfs:label "Broker Query Message"@en ;
-    rdfs:comment "Query command intended to be consumed by a Broker."@en.
-
-ids:brokerQueryScope a owl:ObjectProperty;
-    rdfs:label "brokerQueryScope"@en;
-    rdfs:domain ids:BrokerQueryMessage;
-    rdfs:range ids:BrokerQueryScope;
-    rdfs:comment "The scope of a query defined in a BrokerQuery message."@en.
+ids:QueryMessage a owl:Class ;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "Query Message"@en ;
+    rdfs:comment "Query message intended to be consumed by a component."@en.
 
 ids:QueryLanguage a owl:Class;
     rdfs:label "QueryLanguage"@en ;
     rdfs:comment "Class of query languages in which query strings may be formalized."@en.
 
+ids:QueryScope a owl:Class;
+    rdfs:label "Query Scope"@en ;
+    rdfs:comment "Class of scopes that may limit the space of query results, e.g. ALL, ACTIVE_ONLY."@en.
+
+ids:QueryTarget a owl:Class;
+    rdfs:label "Query Target"@en ;
+    rdfs:comment "Class of recipients of a query message, e.g. BROKER, APPSTORE, ANY."@en.
+
 ids:queryLanguage a owl:ObjectProperty;
-    rdfs:domain ids:BrokerQueryMessage;
+    rdfs:domain ids:QueryMessage;
     rdfs:range ids:QueryLanguage;
     rdfs:label "queryLanguage"@en;
-    rdfs:comment "If queryPayloadType refers to a query string, this property specifies the language of the query."@en.
+    rdfs:comment "This property specifies the language of the query."@en.
+
+ids:queryScope a owl:ObjectProperty;
+    rdfs:label "queryScope"@en;
+    rdfs:domain ids:QueryMessage;
+    rdfs:range ids:QueryScope;
+    rdfs:comment "Refers to the scope property of a query message, see ids:QueryScope."@en.
+
+ids:recipientScope a owl:ObjectProperty;
+    rdfs:label "recipient scope"@en;
+    rdfs:domain ids:QueryMessage;
+    rdfs:range ids:QueryTarget;
+    rdfs:comment "Refers to the target property of a query message, see ids:QueryTarget."@en.
+
 
 # Contract Negotiation
 # --------------------
@@ -159,71 +219,88 @@ ids:queryLanguage a owl:ObjectProperty;
 ids:ContractRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Contract Request Message"@en;
-    rdfs:comment "Message containing a suggested content contract (as offered by the data consumer to the data provider) in the associated payload (which is an instance of ContractRequest).";
-    idsm:validation [
-        idsm:forProperty ids:baseContractOffer;
-        idsm:constraint idsm:NotNull;
-    ].
+    rdfs:comment "Message containing a suggested content contract (as offered by the data consumer to the data provider) in the associated payload (which is an instance of ContractRequest)."@en ;
+    .
 
-ids:baseContractOffer a owl:ObjectProperty;
-    rdfs:label "Base Contract Offer"@en ;
-    idsm:referenceByUri true;
-    rdfs:domain ids:ContractRequestMessage;
-    rdfs:range ids:ContractOffer;
-    rdfs:comment "The basic offered contract that the contract request message refers to."@en.
-
+ids:ContractResponseMessage a owl:Class ;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "Contract Response Message"@en;
+    rdfs:comment "Message containing a response to a contract request (of a data consumer) in form of a counter-proposal of a contract in the associated payload (which is an instance of ContractOffcer). "@en ;
+    .
+    
 ids:ContractOfferMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Contract Offer Message"@en;
-    rdfs:comment "Message containing a offered content contract (as offered by the data provider to the data consumer) in the associated payload (which is an instance of ContractOffer).".
+    rdfs:comment "Message containing a offered content contract (as offered by a data provider to the data consumer) in the associated payload (which is an instance of ContractOffer). In contrast to the ids:ContractResponseMessage, the ids:ContractOfferMessage is not related to a previous contract "@en.
+
 
 ids:ContractAgreementMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Contract Agreement Message"@en;
-    rdfs:comment "Message containing a contract with resource access modalities on which two parties have agreed."@en.
+    rdfs:comment "Message containing a contract, as an instance of ids:ContractAgreement, with resource access modalities on which two parties have agreed in the payload."@en;
+    .
 
 ids:ContractRejectionMessage a owl:Class ;
     rdfs:subClassOf ids:RejectionMessage;
     rdfs:label "Contract Rejection Message"@en;
     rdfs:comment "Message indicating rejection of a contract."@en.
 
+ids:ContractSupplementMessage a owl:Class ;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Contract Supplement Message"@en;
+    rdfs:comment "Message containing supplemental information to access resources of a contract (e.g. resource access tokens)."@en.
+
 ids:contractRejectionReason a owl:DatatypeProperty;
     rdfs:label "Contract Rejection Reason"@en ;
     rdfs:domain ids:ContractRejectionMessage;
-    rdfs:range rdf:PlainLiteral;
+    rdfs:range xsd:string;
     rdfs:comment "Human-readable text describing the reason for contract rejection."@en.
+
 
 # Security-related Messages
 # -------------------------
 
-ids:AccessTokenRequest a owl:Class ;
+ids:AccessTokenRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "Access Token Request"@en;
+    rdfs:label "AccessToken Request Message"@en;
     rdfs:comment "Message requesting an access token. This is intended for point-to-point communication with, e.g., Brokers."@en.
 
-ids:AccessTokenResponse a owl:Class ;
+ids:AccessTokenResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage ;
     rdfs:label "Access Token Response"@en;
     rdfs:comment "Response to an access token request, intended for point-to-point communication."@en.
 
-# Resource Exchange
-# -----------------
 
-ids:ArtifactAvailableMessage a owl:Class ;
+# Resource related messages
+# -------------------------
+
+ids:ResourceNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    rdfs:label "Artifact Available Message"@en;
-    rdfs:comment "Message indicating availability of a specific artifact."@en;
+    idsm:abstract true ;
+    rdfs:label "Resource Notification Message"@en ;
+    rdfs:comment "Superclass of all messages, indicating a change of a resource."@en;
     idsm:validation [
-        idsm:forProperty ids:availableArtifact;
+        idsm:forProperty ids:affectedResource;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:availableArtifact rdf:type owl:DatatypeProperty ;
+ids:ResourceUpdateMessage a owl:Class ;
+    rdfs:subClassOf ids:ResourceNotificationMessage ;
+    rdfs:label "Resource Update Message"@en;
+    rdfs:comment "Message indicating the availability and current description of a specific resource. The resource must be present in the payload of this message."@en.
+
+ids:ResourceUnavailableMessage a owl:Class ;
+    rdfs:subClassOf ids:ResourceNotificationMessage ;
+    rdfs:label "Resource Unavailable Message"@en;
+    rdfs:comment "Message indicating that a specific resource is unavailable. The same resource may be available again in the future."@en.
+
+ids:affectedResource rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
-    rdfs:domain ids:ArtifactAvailableMessage;
-    rdfs:range ids:Artifact ;
-    rdfs:label "Available Artifact"@en ;
-    rdfs:comment "References a new artifact from an availability indication."@en.
+    rdfs:domain ids:ResourceNotificationMessage;
+    rdfs:range ids:Resource ;
+    rdfs:label "affected Resource"@en ;
+    rdfs:comment "The affected resource that is referenced in the resource-related notification messages. "@en.
+
 
 ids:InvokeOperationMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
@@ -232,10 +309,6 @@ ids:InvokeOperationMessage a owl:Class ;
     idsm:validation [
         idsm:forProperty ids:operationReference;
         idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:operationParameterization;
-        idsm:constraint idsm:NotNull;
     ].
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
@@ -243,13 +316,8 @@ ids:operationReference rdf:type owl:DatatypeProperty ;
     rdfs:domain ids:InvokeOperationMessage ;
     rdfs:range ids:Operation ;
     rdfs:label "Operation Reference"@en ;
-    rdfs:comment "References the operation to be invoked on the recipient's side."@en.
+    rdfs:comment "References the operation to be invoked on the recipient's side by an URI."@en.
 
-ids:operationParameterization rdf:type owl:DatatypeProperty ;
-    rdfs:domain ids:InvokeOperationMessage ;
-    rdfs:range ids:ParameterAssignment ;
-    rdfs:label "Operation Parameterization"@en ;
-    rdfs:comment "Parameter assignment of the invoked operation's input parameters."@en.
 
 ids:RequestInProcessMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage;
@@ -260,9 +328,9 @@ ids:RequestInProcessMessage a owl:Class ;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:MessageProcessedNotification a owl:Class ;
+ids:MessageProcessedNotificationMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage;
-    rdfs:label "Message Processed"@en;
+    rdfs:label "Message Processed Notification Message"@en;
     rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en;
     idsm:validation [
         idsm:forProperty ids:correlationMessage;
@@ -270,27 +338,157 @@ ids:MessageProcessedNotification a owl:Class ;
     ].
 
 ids:OperationResultMessage  a owl:Class ;
-    rdfs:subClassOf ids:MessageProcessedNotification;
+    rdfs:subClassOf ids:ResponseMessage;
     rdfs:label "Operation Result Message"@en;
     rdfs:comment "Message indicating that the result of a former InvokeOperation message is available. May transfer the result data in its associated payload section."@en.
 
+
+# Artifact-related Messages
+# -------------------------
+
 ids:ArtifactRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "Retrieve Artifact"@en;
+    rdfs:label "Artifact Request Message"@en;
     rdfs:comment "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en;
     idsm:validation [
         idsm:forProperty ids:requestedArtifact;
         idsm:constraint idsm:NotNull;
     ].
 
-ids:requestedArtifact rdf:type owl:DatatypeProperty ;
+ids:ArtifactResponseMessage a owl:Class ;
+    rdfs:subClassOf ids:ResponseMessage;
+    rdfs:label "Artifact Response Message"@en;
+    rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
+
+ids:requestedArtifact rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Requested Artifact"@en ;
     rdfs:comment "References an artifact in the context of a request."@en.
 
-ids:ArtifactResponseMessage a owl:Class ;
+# Upload Messages
+# ----------------
+
+ids:UploadMessage a owl:Class;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "Upload Message"@en ;
+    rdfs:comment "Message used to upload a data to a recipient. Payload contains data."@en ;
+.
+
+ids:UploadResponseMessage a owl:Class;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "Upload Response Message"@en ;
+    rdfs:comment "Message that follows up a UploadMessage and contains the upload confirmation."@en ;
+.
+
+# ParIS Messages
+# --------------
+
+ids:ParticipantRequestMessage a owl:Class ;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "Participant Request Message"@en;
+    rdfs:comment "Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message."@en;
+    idsm:validation [
+        idsm:forProperty ids:requestedParticipant;
+        idsm:constraint idsm:NotNull;
+    ].
+
+ids:ParticipantResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
-    rdfs:label "Artifact Response"@en;
-    rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
+    rdfs:label "Participant Response Message"@en;
+    rdfs:comment "Message that follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en.
+
+ids:requestedParticipant rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:ParticipantRequestMessage;
+    rdfs:range ids:Participant ;
+    rdfs:label "Requested Participant"@en ;
+    rdfs:comment "References a Participant in the context of a request."@en.
+
+
+# Log messaging
+# -------------
+
+ids:LogMessage a owl:Class;
+    rdfs:subClassOf ids:NotificationMessage ;
+    rdfs:label "Log Message"@en ;
+    rdfs:comment "Log Message which can be used to transfer logs e.g. to the clearing house."@en.
+
+
+# App-related Messages
+# ---------------------
+
+ids:AppRegistrationRequestMessage a owl:Class;
+    rdfs:subClassOf ids:RequestMessage ;
+    rdfs:label "App Registration Request Message"@en ;
+    rdfs:comment "Message that asks for registration or update of a data app to the App Store. Payload contains app-related metadata (instance of class ids:AppResource). Message header may contain an app identifier parameter of a prior registered data app. If the app identifier is supplied, the message should be interpreted as a registration for an app update. Otherwise this message is used to register a new app. "@en ;
+.
+
+ids:affectedDataApp rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:AppRegistrationRequestMessage ;
+    rdfs:range ids:AppResource ;   
+    rdfs:label "affected AppResource"@en ;
+    rdfs:comment "The affected data app that is referenced in the App-related messages. "@en;
+.
+
+ids:AppRegistrationResponseMessage a owl:Class;
+    rdfs:subClassOf ids:ResponseMessage ;
+    rdfs:label "App Registration Response Message"@en ;
+    rdfs:comment "Message that follows up an AppRegistrationRequestMessage and contains the app registration confimation."@en ;
+.
+
+ids:AppUploadMessage a owl:Class;
+    rdfs:subClassOf ids:UploadMessage ;
+    rdfs:label "App Upload Message"@en ;
+    rdfs:comment "Message that usually follows a AppRegistrationResponseMessage and is used to upload a data app to the app store. Payload contains data app. Note that the message must refer to the prior sent, corresponding AppResource instance. The IRI of the ids:appArtifactReference must must match the IRI of the artifact which is the value for the ids:instance property. The ids:instance is specific for each representation. Therefore, if someone wants to upload multiple representations for an app, he has to state them using multiple ids:instance properties inside the AppRepresentation (and therefore inside the AppResource). Otherwise no mapping between payload and app metadata can be achieved."@en ;
+    idsm:validation [
+        idsm:forProperty ids:appArtifactReference;
+        idsm:constraint idsm:NotNull;
+    ];
+.
+
+ids:AppUploadResponseMessage a owl:Class;
+    rdfs:subClassOf ids:UploadResponseMessage ;
+    rdfs:label "App Upload Response Message"@en ;
+    rdfs:comment "Message that follows up an AppUploadMessage and contains the app upload confimation."@en ;
+.
+
+ids:appArtifactReference rdf:type owl:ObjectProperty ;
+    idsm:referenceByUri true;
+    rdfs:domain ids:AppUploadMessage ;
+    rdfs:range ids:Artifact ;   
+    rdfs:label "app artifact reference"@en ;
+    rdfs:comment "IRI reference to the ids:Artifact, whose corresponding data is transfered as payload of the AppUploadMessage. The Artifact IRI reference must match the IRI of the instance IRI for the corresponding ids:AppRepresentation."@en;
+.
+
+ids:AppNotificationMessage a owl:Class;
+    rdfs:subClassOf ids:ResourceNotificationMessage ;
+    idsm:abstract true ;
+    rdfs:label "App Notification Message"@en ;
+    rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
+    idsm:validation [
+                idsm:forProperty ids:affectedDataAppResource;
+                idsm:constraint idsm:NotNull;
+            ];
+.
+
+ids:AppAvailableMessage a owl:Class ;
+    rdfs:subClassOf ids:AppNotificationMessage ;
+    rdfs:label "App Available Message"@en;
+    rdfs:comment "Message indicating that a specific App should be available (again) in the AppStore."@en;
+.
+
+ids:AppUnavailableMessage a owl:Class ;
+    rdfs:subClassOf ids:AppNotificationMessage ;
+    rdfs:label "App Unavailable Message"@en;
+    rdfs:comment "Message indicating that a specific App should be unavailable in the AppStore."@en;
+.
+
+ids:AppDeleteMessage a owl:Class ;
+     rdfs:subClassOf ids:AppNotificationMessage ;
+     rdfs:label "App Delete Message"@en;
+     rdfs:comment "Message indicating that an App should be deleted from the AppStore."@en;
+.
+
