@@ -7,31 +7,31 @@
 @base <https://w3id.org/idsa/core> .
 
 <https://w3id.org/idsa/core> rdf:type owl:Ontology ;
-                                                                                                                              <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
-                                                                                                                              <http://purl.org/dc/terms/contributor> _:genid-nodeid-_:AndreasMueller ,
-                                                                                                                                                                     _:genid-nodeid-_:AnnaKasprzik ,
-                                                                                                                                                                     <https://github.com/HaydarAk> ,
-                                                                                                                                                                     <https://github.com/JohannesLipp> ,
-                                                                                                                                                                     <https://github.com/Maboeckmann> ,
-                                                                                                                                                                     <https://github.com/clange> ,
-                                                                                                                                                                     <https://github.com/jlangkau> ,
-                                                                                                                                                                     <https://github.com/mkollenstart> ,
-                                                                                                                                                                     <https://github.com/sebbader> ;
-                                                                                                                              <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
-                                                                                                                                                                 <https://github.com/cmader> ,
-                                                                                                                                                                 <https://github.com/jpullmann> ;
-                                                                                                                              <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
-                                                                                                                              <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
-                                                                                                                              <http://rdfs.org/ns/void#vocabulary> <http://purl.org/dc/terms/> ,
-                                                                                                                                                                   <http://purl.org/vocab/vann/> ,
-                                                                                                                                                                   <http://purl.org/vocommons/voaf#> ,
-                                                                                                                                                                   <http://rdfs.org/ns/void#> ,
-                                                                                                                                                                   <http://xmlns.com/foaf/0.1/> ;
-                                                                                                                              rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
-                                                                                                                              rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
-                                                                                                                              rdfs:label "IDS Information Model"@en ;
-                                                                                                                              rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
-                                                                                                                              owl:versionInfo "4.0.0" .
+            <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
+            <http://purl.org/dc/terms/contributor> _:AndreasMueller ,
+                                                   _:AnnaKasprzik ,
+                                                   <https://github.com/HaydarAk> ,
+                                                   <https://github.com/JohannesLipp> ,
+                                                   <https://github.com/Maboeckmann> ,
+                                                   <https://github.com/clange> ,
+                                                   <https://github.com/jlangkau> ,
+                                                   <https://github.com/mkollenstart> ,
+                                                   <https://github.com/sebbader> ;
+            <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
+                                               <https://github.com/cmader> ,
+                                               <https://github.com/jpullmann> ;
+            <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
+            <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
+            <http://rdfs.org/ns/void#vocabulary> <http://purl.org/dc/terms/> ,
+                                                 <http://purl.org/vocab/vann/> ,
+                                                 <http://purl.org/vocommons/voaf#> ,
+                                                 <http://rdfs.org/ns/void#> ,
+                                                 <http://xmlns.com/foaf/0.1/> ;
+            rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
+            rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
+            rdfs:label "IDS Information Model"@en ;
+            rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+            owl:versionInfo "4.0.0" .
 
 #################################################################
 #    Annotation properties
@@ -6939,7 +6939,7 @@ owl:Class rdf:type owl:Class .
                                                       <https://w3id.org/idsa/core/PolicyTemplate> ;
                                              rdfs:comment "A generic template for policy requests with one permission and several constraints" ;
                                              rdfs:label "Policy Request Template" ;
-                                             <http://www.w3.org/2004/02/skos/core#note> """The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] 
+                                             <http://www.w3.org/2004/02/skos/core#note> """The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...]
 		its [<Representation URI>|<Artifact URI>].
 		Optional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].
 		Optional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."""@en ,
@@ -6964,17 +6964,17 @@ owl:Class rdf:type owl:Class .
 				]
 			] ;]*
 		.""" ,
-                                                                                        """{ 
+                                                                                        """{
 		\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",
-		\"@type\": \"ContractRequest\", 
-		\"uid\": \"<contract ID>\", 
+		\"@type\": \"ContractRequest\",
+		\"uid\": \"<contract ID>\",
 		\"refersTo\": \"idsc:RequestTemplate\" ,
 		\"target\": \"[<Representation URI>|<Artifact URI>]\",
 		\"ids:provider\": \"<Provider Participant URI>\",
-		\"ids:consumer\": \"<Consumer Participant URI>\", 
+		\"ids:consumer\": \"<Consumer Participant URI>\",
 		\"ids:permission\": {
 			\"ids:action\": \"[ids:use|ids:read|...]\" ,
-			[\"ids:constraint\" : {    
+			[\"ids:constraint\" : {
 					 \"ids:leftOperand\" : \"<Attribute URI>\",
 					 \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",
 					 \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"
@@ -8620,11 +8620,11 @@ _:genid161 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                             rdfs:label "OneToMany"@en .
 
 
-_:genid162 rdf:type <http://purl.org/dc/terms/Agent> ,
+_:AndreasMueller rdf:type <http://purl.org/dc/terms/Agent> ,
                     <http://xmlns.com/foaf/0.1/Person> ;
            <http://xmlns.com/foaf/0.1/name> "Andreas Müller" .
 
-_:genid163 rdf:type <http://purl.org/dc/terms/Agent> ,
+_:AnnaKasprzik rdf:type <http://purl.org/dc/terms/Agent> ,
                      <http://xmlns.com/foaf/0.1/Person> ;
             <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 
