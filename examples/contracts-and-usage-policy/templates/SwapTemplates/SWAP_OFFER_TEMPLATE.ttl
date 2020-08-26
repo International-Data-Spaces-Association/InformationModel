@@ -1,0 +1,61 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Template
+# --------
+
+idsc:SWAP_OFFER_TEMPLATE a ids:SwapOffer ;
+    rdfs:label "Data Swap Offer Template" ;
+    spin:labelTemplate """The Provider offers to a potential Consumer to allow a defined Action on the Provider's Data Asset if at the
+    same time the Consumer agrees to allow (another) defined Action on the Consumer's Data Asset to the Provider."""@en ;
+    rdfs:comment "This template models the data swap between two IDS Participants."@en ;
+    skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
+    (
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;
+       ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    )
+    ids:permission [
+        a ids:Permission ;
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        )
+        ids:target idsc:ASSET_TEMPLATE ;                   # the Provider's Data Asset
+        ids:action idsc:ACTION_TEMPLATE ;
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
+        ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
+    ] ;
+    ids:permission [
+        a ids:Permission ;
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:consumer
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        )
+        ids:target idsc:ASSET_TEMPLATE ;                   # the Consumer's Data Asset
+        ids:action idsc:ACTION_TEMPLATE ;
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more additional Obligations which need to be fulfilled before the Usage event
+        ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
+    ] ;
+.

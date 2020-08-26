@@ -1,0 +1,9 @@
+PREFIX ids:    <https://w3id.org/idsa/core/>
+PREFIX void:   <http://rdfs.org/ns/void#>
+
+SELECT DISTINCT ?resource WHERE {
+    ?resource a ids:DataResource ;
+        void:propertyPartition ?propertyPartition .
+
+    ?propertyPartition void:property <http://purl.org/linked-data/sdmx/2009/dimension#sex> .
+}

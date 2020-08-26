@@ -7,7 +7,7 @@
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix idsc_cat: <https://w3id.org/idsa/code/unit/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 shapes:
@@ -29,7 +29,7 @@ shapes:ConceptShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/content/ConceptShape.ttl> (ConceptShape): An ids:Concept is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ConceptShape.ttl> (ConceptShape): An ids:Concept is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type

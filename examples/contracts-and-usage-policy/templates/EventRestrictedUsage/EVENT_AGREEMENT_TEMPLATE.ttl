@@ -1,0 +1,39 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Template
+# --------
+
+idsc:EVENT_AGREEMENT_TEMPLATE a ids:EventAgreement ;
+    rdfs:label "Use Data during an Event Agreement Template" ;
+    spin:labelTemplate """The Provider agrees to the Consumer to allow a defined Action on its Asset for a duration of certain Event."""@en ;
+    rdfs:comment "This template models the permission to use a certain data asset when a defined event occurs."@en ;
+    skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
+    ids:provider idsc:PARTICIPANT_TEMPLATE ;
+    ids:consumer idsc:PARTICIPANT_TEMPLATE ;
+    ids:permission [
+        a ids:Permission ;
+        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
+        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
+        ids:target idsc:ASSET_TEMPLATE ;
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand [
+              rdf:subject ?EventURI ;    # TODO: rdf:subject is not defined in the IDS IM # The identifier of this event, for instance http://dbpedia.org/resource/Category:FIFA_World_Cup_tournaments
+              ids:broader idsc:EVENT ;
+            ] ;
+            ids:operator idsc:EQUALS ;                    # if pipReturnValue == true --> Constraint is staisfied
+            ids:rightOperand "true"^^xsd:boolean ;        # for a certain usage ?duration
+            ids:pipEndpoint ?askIfEventPipUri ;           # The PIP call for this event, for instance https//pip.com/path/isFIFA_World_Cup_tournaments or https//pip.com/ids?event=FIFA_World_Cup_tournaments
+        ] ;
+    ]
+.

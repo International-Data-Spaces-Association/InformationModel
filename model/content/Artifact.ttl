@@ -41,7 +41,7 @@ ids:byteSize
     rdfs:label "byte size"@en ;
     rdfs:comment "Size of the Artifact in bytes."@en ;
     rdfs:domain ids:Artifact ;
-    rdfs:range xsd:nonNegativeInteger .
+    rdfs:range xsd:integer .
 
 ids:fileName
     a owl:DatatypeProperty;
@@ -58,12 +58,6 @@ ids:creationDate
     rdfs:domain ids:Artifact ;
     rdfs:range xsd:dateTimeStamp .
 
-ids:artifactParameterization
-    a owl:ObjectProperty;
-    rdfs:domain ids:Artifact ;
-    rdfs:range ids:ParameterAssignment;
-    rdfs:label "artifact parameterization"@en;
-    rdfs:comment "Reference to a parameter assignment that describes how an artifact has been created."@en.
 
 # replaced by ids:Value
 #ids:literalValue

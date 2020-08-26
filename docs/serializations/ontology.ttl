@@ -1,31 +1,32 @@
-@prefix : <https://w3id.org/idsa/core%20Projekte/IDS/IM/Widoco/InformationModel/codes/OfferTemplate.ttl#> .
+@prefix ids: <https://w3id.org/idsa/core> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/idsa/core%20Projekte/IDS/IM/Widoco/InformationModel/codes/OfferTemplate.ttl> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://w3id.org/idsa/core> .
 
-<https://w3id.org/idsa/core%20Projekte/IDS/IM/Widoco/InformationModel/codes/OfferTemplate.ttl> rdf:type owl:Ontology ;
-                                                                                                             <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
-                                                                                                             <http://purl.org/dc/terms/contributor> _:genid-nodeid-genid-961eb7568ab04d40a36d76a93f38cf7b-AnnaKasprzik ,
-                                                                                                                                                    <https://github.com/HaydarAk> ,
-                                                                                                                                                    <https://github.com/Maboeckmann> ,
-                                                                                                                                                    <https://github.com/clange> ,
-                                                                                                                                                    <https://github.com/sebbader> ,
-                                                                                                                                                    _:genid1 ,
-                                                                                                                                                    _:genid2 ;
-                                                                                                             <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
-                                                                                                                                                <https://github.com/cmader> ,
-                                                                                                                                                <https://github.com/jpullmann> ;
-                                                                                                             <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
-                                                                                                             <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
-                                                                                                             rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
-                                                                                                             rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
-                                                                                                             rdfs:label "IDS Information Model"@en ;
-                                                                                                             rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
-                                                                                                             owl:versionIRI "https://w3id.org/idsa/core/3.1.0>" ;
-                                                                                                             owl:versionInfo "3.1.0" .
+ids: rdf:type owl:Ontology ;
+         <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
+         <http://purl.org/dc/terms/contributor> <https://github.com/HaydarAk> ,
+                                                <https://github.com/Maboeckmann> ,
+                                                <https://github.com/clange> ,
+                                                <https://github.com/sebbader> ,
+                                                _:genid1 ,
+                                                _:genid2 ;
+         <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
+                                            <https://github.com/cmader> ,
+                                            <https://github.com/jpullmann> ;
+         <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
+         <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
+         rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
+         rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
+         rdfs:label "IDS Information Model"@en ;
+         rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+         owl:versionIRI "https://w3id.org/idsa/core/3.1.0>" ;
+         owl:versionInfo "3.1.0" .
 
 _:genid1 rdf:type <http://purl.org/dc/terms/Agent> ,
                    <http://xmlns.com/foaf/0.1/Person> ;
@@ -6206,8 +6207,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/AccessAgreementToSecureConsumerTemplate
 <https://w3id.org/idsa/code/AccessAgreementToSecureConsumerTemplate> rdf:type owl:NamedIndividual ,
                                                                               <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                     <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} agrees to the {?ProviderParticipantURI} to 
-        {?action element of [ids:use|ids:read|...]} its {?content element of [<Artifact URI>]} given that the consuming 
+                                                                     <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} agrees to the {?ProviderParticipantURI} to
+        {?action element of [ids:use|ids:read|...]} its {?content element of [<Artifact URI>]} given that the consuming
 		connector has all the specified {?SecurityGuarantee} levels."""@en ;
                                                                      rdfs:comment "A template for policy agreements with one permission and several constraints about the security level of the consuming connector."@en ;
                                                                      rdfs:label "Access Agreement to secure Consumer Template" ;
@@ -6231,17 +6232,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/AccessAgreementToSecureConsumerTemplate\" ,
 		\"targetArtifact\": \"{?Content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"securityLevel\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?SecurityGuarantee}\"
@@ -6252,8 +6253,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/AccessOfferToSecureConsumerTemplate
 <https://w3id.org/idsa/code/AccessOfferToSecureConsumerTemplate> rdf:type owl:NamedIndividual ,
                                                                           <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                 <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its 
-		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) consuming connector has all the specified {?SecurityGuarantee} 
+                                                                 <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) consuming connector has all the specified {?SecurityGuarantee}
 		levels."""@en ;
                                                                  rdfs:comment "A template for policy offers with one permission and several constraints about the security level of the consuming connector." ;
                                                                  rdfs:label "Access Offer to secure Consumer Template" ;
@@ -6276,16 +6277,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                            """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                            """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/AccessOfferToSecureConsumerTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"securityLevel\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?SecurityGuarantee}\"
@@ -6296,8 +6297,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/AccessRequestToSecureConsumerTemplate
 <https://w3id.org/idsa/code/AccessRequestToSecureConsumerTemplate> rdf:type owl:NamedIndividual ,
                                                                             <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                   <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Representation URI>|<Artifact URI>]} given that the consuming connector has all the specified 
+                                                                   <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Representation URI>|<Artifact URI>]} given that the consuming connector has all the specified
 		{?SecurityGuarantee} levels."""@en ;
                                                                    rdfs:comment "A template for policy requests with one permission and several constraints about the security level of the consuming connector."@en ;
                                                                    rdfs:label "Access Request to secure Consumer Template" ;
@@ -6321,17 +6322,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                              """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                              """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/AccessRequestToSecureConsumerTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"securityLevel\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?SecurityGuarantee}\"
@@ -6344,7 +6345,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                         <https://w3id.org/idsa/core/PolicyTemplate> ;
                                                rdfs:comment "A generic template for policy agreements with one permission and several constraints" ;
                                                rdfs:label "Policy Agreement Template" ;
-                                               <http://www.w3.org/2004/02/skos/core#note> """The <Provider Participant URI> agrees with the <Consumer Participant URI> that the later 
+                                               <http://www.w3.org/2004/02/skos/core#note> """The <Provider Participant URI> agrees with the <Consumer Participant URI> that the later
 		is allowed to [ids:use|ids:read|...] its <Artifact URI> .
 		Optional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].
 		Optional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."""@en ,
@@ -6369,17 +6370,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			] ;]*
 		.""" ,
-                                                                                          """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"uid\": \"<contract ID>\", 
+                                                                                          """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"uid\": \"<contract ID>\",
 		\"refersTo\": \"idsc:AgreementTemplate\" ,
 		\"target\": \"<Artifact URI>\",
 		\"ids:provider\": \"<Provider Participant URI>\",
-		\"ids:consumer\": \"<Consumer Participant URI>\", 
+		\"ids:consumer\": \"<Consumer Participant URI>\",
 		\"ids:permission\": {
 			\"ids:action\": \"[ids:use|ids:read|...]\" ,
-			[\"ids:constraint\" : {    
+			[\"ids:constraint\" : {
 					 \"ids:leftOperand\" : \"<Attribute URI>\",
 					 \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",
 					 \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"
@@ -9428,6 +9429,13 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                 rdfs:label "Mongolian"@en .
 
 
+###  https://w3id.org/idsa/core/DATE_TIME
+<https://w3id.org/idsa/core/DATE_TIME> rdf:type owl:NamedIndividual ,
+                                              <https://w3id.org/idsa/core/LeftOperand> ;
+                                     rdfs:comment "The date (and optional time and timezone) of exercising the action of the Rule." ;
+                                     rdfs:label "dateTime" ;
+                                     skos:broader <http://www.w3.org/ns/odrl/2/dateTime> .
+
 ###  https://w3id.org/idsa/code/MODIFY
 <https://w3id.org/idsa/code/MODIFY> rdf:type owl:NamedIndividual ,
                                              <https://w3id.org/idsa/core/Action> ;
@@ -9535,7 +9543,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                            <https://w3id.org/idsa/core/PolicyTemplate> ;
                                                   rdfs:comment "A minimal template where additional information already reveals sensitive content."@en ;
                                                   rdfs:label "Policy Offer Template" ;
-                                                  <http://www.w3.org/2004/02/skos/core#note> """The <Provider Participant URI> allows someone to do something with its 
+                                                  <http://www.w3.org/2004/02/skos/core#note> """The <Provider Participant URI> allows someone to do something with its
 		[<Resource URI>|<Representation URI>|<Artifact URI>]. Any further information exchange
 		is up to the participants."""@en ,
                                                                                              """@prefix ids: <https://w3id.org/idsa/core/> .
@@ -9545,12 +9553,12 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:uid <contract ID> ;
 			ids:refersTo idsc:MinimalOfferTemplate ;
 			ids:target [<Resource URI>|<Representation URI>|<Artifact URI>] ;
-			ids:provider <Provider Participant URI> 
+			ids:provider <Provider Participant URI>
 		.""" ,
-                                                                                             """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"uid\": \"<contract ID>\", 
+                                                                                             """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"uid\": \"<contract ID>\",
 		\"refersTo\": \"idsc:MinimalOfferTemplate\" ,
 		\"target\": \"[<Resource URI>|<Representation URI>|<Artifact URI>]\",
 		\"ids:provider\": \"<Provider Participant URI>\"
@@ -9577,14 +9585,14 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
 		.""" ,
-                                                                                               """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"uid\": \"<contract ID>\", 
+                                                                                               """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"uid\": \"<contract ID>\",
 		\"refersTo\": \"idsc:MinimalRequestTemplate\" ,
 		\"target\": \"[<Representation URI>|<Artifact URI>]\",
 		\"ids:provider\": \"<Provider Participant URI>\",
-		\"ids:consumer\": \"<Consumer Participant URI>\", 
+		\"ids:consumer\": \"<Consumer Participant URI>\",
 		} }""" .
 
 
@@ -10176,7 +10184,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                     <https://w3id.org/idsa/core/PolicyTemplate> ;
                                            rdfs:comment "A generic template for policy offers with one permission and several constraints" ;
                                            rdfs:label "Policy Offer Template" ;
-                                           <http://www.w3.org/2004/02/skos/core#note> """The <Provider Participant URI> allows the <Consumer Participant URI> to [ids:use|ids:read|...] 
+                                           <http://www.w3.org/2004/02/skos/core#note> """The <Provider Participant URI> allows the <Consumer Participant URI> to [ids:use|ids:read|...]
 		its [<Resource URI>|<Representation URI>|<Artifact URI>].
 		Optional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].
 		Optional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."""@en ,
@@ -10200,16 +10208,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			] ;]*
 		.""" ,
-                                                                                      """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"uid\": \"<contract ID>\", 
+                                                                                      """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"uid\": \"<contract ID>\",
 		\"refersTo\": \"idsc:OfferTemplate\" ,
 		\"target\": \"[<Resource URI>|<Representation URI>|<Artifact URI>]\",
 		\"ids:provider\": \"<Provider Participant URI>\",
 		\"ids:permission\": {
 			\"ids:action\": \"[ids:use|ids:read|...]\" ,
-			[\"ids:constraint\" : {    
+			[\"ids:constraint\" : {
 					 \"ids:leftOperand\" : \"<Attribute URI>\",
 					 \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",
 					 \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"
@@ -11101,7 +11109,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                       <https://w3id.org/idsa/core/PolicyTemplate> ;
                                              rdfs:comment "A generic template for policy requests with one permission and several constraints" ;
                                              rdfs:label "Policy Request Template" ;
-                                             <http://www.w3.org/2004/02/skos/core#note> """The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] 
+                                             <http://www.w3.org/2004/02/skos/core#note> """The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...]
 		its [<Representation URI>|<Artifact URI>].
 		Optional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].
 		Optional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."""@en ,
@@ -11126,17 +11134,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			] ;]*
 		.""" ,
-                                                                                        """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"uid\": \"<contract ID>\", 
+                                                                                        """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"uid\": \"<contract ID>\",
 		\"refersTo\": \"idsc:RequestTemplate\" ,
 		\"target\": \"[<Representation URI>|<Artifact URI>]\",
 		\"ids:provider\": \"<Provider Participant URI>\",
-		\"ids:consumer\": \"<Consumer Participant URI>\", 
+		\"ids:consumer\": \"<Consumer Participant URI>\",
 		\"ids:permission\": {
 			\"ids:action\": \"[ids:use|ids:read|...]\" ,
-			[\"ids:constraint\" : {    
+			[\"ids:constraint\" : {
 					 \"ids:leftOperand\" : \"<Attribute URI>\",
 					 \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",
 					 \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"
@@ -11681,7 +11689,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/SpatialRestrictedUsageAgreementTemplate
 <https://w3id.org/idsa/code/SpatialRestrictedUsageAgreementTemplate> rdf:type owl:NamedIndividual ,
                                                                               <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                     <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} agrees to the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+                                                                     <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} agrees to the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
 		its {?content element of [<Artifact URI>]} only in a certain {?URIofgeographicalregion}."""@en ;
                                                                      rdfs:comment "A template for policy agreements with a location-restricted permission."@en ;
                                                                      rdfs:label "Location-restricted Usage Agreement Template" ;
@@ -11705,29 +11713,29 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/SpatialRestrictedUsageAgreementTemplate\" ,
 		\"targetArtifact\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"absoluteSpatialPosition\",
 					 \"operator\" : \"in\",
 					 \"rightOperand\" : \"{?URIofgeographicalregion}\"
-			} 
+			}
 		} }""" .
 
 
 ###  https://w3id.org/idsa/code/SpatialRestrictedUsageOfferTemplate
 <https://w3id.org/idsa/code/SpatialRestrictedUsageOfferTemplate> rdf:type owl:NamedIndividual ,
                                                                           <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                 <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its 
-		{?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still 
+                                                                 <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its
+		{?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still
 		unknown) consuming connector only in a certain {?URIofgeographicalregion}."""@en ;
                                                                  rdfs:comment "A template for policy offers with a location-restricted permission." ;
                                                                  rdfs:label "Location-restricted Usage Offer Template" ;
@@ -11750,16 +11758,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                            """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                            """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/SpatialRestrictedUsageOfferTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"absoluteSpatialPosition\",
 					 \"operator\" : \"in\",
 					 \"rightOperand\" : \"{?URIofgeographicalregion}\"
@@ -11794,17 +11802,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                              """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{?contractID}\",  
+                                                                                                              """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/SpatialRestrictedUsageRequestTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"absoluteSpatialPosition\",
 					 \"operator\" : \"in\",
 					 \"rightOperand\" : \"{?URIofgeographicalregion}\"
@@ -12139,22 +12147,22 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                             """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                             """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/TimeRestrictedUsageAgreementTemplate\" ,
 		\"targetArtifact\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"gt\",
 					 \"rightOperand\" : \"\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime\"
 			} [,]]+ ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"lt\",
 					 \"rightOperand\" : \"\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime\"
@@ -12167,9 +12175,9 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
                                                                        <https://w3id.org/idsa/core/PolicyTemplate> ;
                                                               rdfs:comment "A template for policy offers with a time-restricted permission." ;
                                                               rdfs:label "Time-restricted Usage Offer Template" ;
-                                                              <http://www.w3.org/2004/02/skos/core#note> """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its 
-		{?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still 
-		unknown) consuming connector from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to 
+                                                              <http://www.w3.org/2004/02/skos/core#note> """The {?ProviderParticipantURI} allows to {?action element of [ids:use|ids:read|...]} its
+		{?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still
+		unknown) consuming connector from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to
 		yyyy-mm-ddThh:mm:ss.xxx+hh:mm."""@en ,
                                                                                                          """@prefix ids: <https://w3id.org/idsa/core/> .
 		@prefix idsc: <https://w3id.org/idsa/code/> .
@@ -12195,21 +12203,21 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                         """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
+                                                                                                         """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
 		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/TimeRestrictedUsageOfferTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"gt\",
 					 \"rightOperand\" : \"\"yyyy-mm-ddThh:mm:ss.xx+hh:mm\"^^xsd:dateTime\"
 			}[,]]+ ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"lt\",
 					 \"rightOperand\" : \"\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime\"
@@ -12220,8 +12228,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/TimeRestrictedUsageRequestTemplate
 <https://w3id.org/idsa/code/TimeRestrictedUsageRequestTemplate> rdf:type owl:NamedIndividual ,
                                                                          <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                <http://spinrdf.org/spin#labelTemplate> """The  {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Representation URI>|<Artifact URI>]} from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to 
+                                                                <http://spinrdf.org/spin#labelTemplate> """The  {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Representation URI>|<Artifact URI>]} from yyyy-mm-ddThh:mm:ss.xxx+hh:mm to
 		yyyy-mm-ddThh:mm:ss.xxx+hh:mm."""@en ;
                                                                 rdfs:comment "A template for policy requests with a time-restricted permission."@en ;
                                                                 rdfs:label "Time-restricted Usage Request Template" ;
@@ -12250,26 +12258,26 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                           """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                           """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/TimeRestrictedUsageRequestTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\",  
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"gt\",
 					 \"rightOperand\" : \"\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime\"
 			}[,]]+ ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"lt\",
 					 \"rightOperand\" : \"\"yyyy-mm-ddThh:mm:ss.xxx+hh:mm\"^^xsd:dateTime\"
-			} [,]]+ 
+			} [,]]+
 		} }""" .
 
 
@@ -12637,8 +12645,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/AccessOfferByRoleTemplate
 <https://w3id.org/idsa/code/policytemplate/AccessOfferByRoleTemplate> rdf:type owl:NamedIndividual ,
                                                                                <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                      <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+                                                                      <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown)
 		user has the {?RoleURI}, which must be requested at {?PipURI}."""@en ;
                                                                       rdfs:comment "A template for policy offers permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
                                                                       rdfs:label "Access Offer By User Role Template" ;
@@ -12661,16 +12669,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                 """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                 """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/AccessOfferByRoleTemplate\" ,
 		\"contentContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"{?RoleURI}\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -12681,11 +12689,11 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate> rdf:type owl:NamedIndividual ,
                                                                                         <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                               <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?ArtifactURI} to the {?ConsumerParticipantURI} only if a certain {?EventURI} has happened and 
+                                                                               <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
+		its {?ArtifactURI} to the {?ConsumerParticipantURI} only if a certain {?EventURI} has happened and
 		the {?PipURI} says so."""@en ,
-                                                                                                                       """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Artifact URI>]} to the {?ConsumerParticipantURI} only if a certain {?EventURI} has happened and 
+                                                                                                                       """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Artifact URI>]} to the {?ConsumerParticipantURI} only if a certain {?EventURI} has happened and
 		the {?PipURI} says so."""@en ;
                                                                                rdfs:comment "A template for policy agreements which allow usage only after a certain payment occurred."@en ;
                                                                                rdfs:label "Agreement for Usage After a Certain Event Template" ;
@@ -12743,16 +12751,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			]
 		.""" ,
-                                                                                                                          """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                          """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate\" ,
 		\"targetArtifact\": \"{?ArtifactURI}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -12760,22 +12768,22 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 		},
 		\"obligations\": {
 			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?price}\"
 			}
 		} }""" ,
-                                                                                                                          """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                          """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementAfterPaymentTemplate\" ,
 		\"targetArtifact\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 	        \"action\": \"{?action}\"  ,
-                \"constraint\" : {    
+                \"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -12783,7 +12791,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 		,
 		\"obligation\": {
 			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?price}\"
@@ -12794,7 +12802,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate> rdf:type owl:NamedIndividual ,
                                                                                   <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
 		its {?content element of [<Artifact URI>]} given that the {?ConsumerParticipantURI} has the {?RoleURI}, which must be requested at {?PipURI}."""@en ;
                                                                          rdfs:comment "A template for policy agreements permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
                                                                          rdfs:label "Usage Agreement by Role Template" ;
@@ -12818,17 +12826,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                    """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                    """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementByRoleTemplate\" ,
 		\"targetArtifact\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"{?RoleURI}\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -12839,8 +12847,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageAgreementForPurposeTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageAgreementForPurposeTemplate> rdf:type owl:NamedIndividual ,
                                                                                       <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                             <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Artifact URI>]}  given that the {?ConsumerParticipantURI} uses it with systems which can be used 
+                                                                             <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Artifact URI>]}  given that the {?ConsumerParticipantURI} uses it with systems which can be used
 		for {?PurposeURI}."""@en ;
                                                                              rdfs:comment "A template for policy agreements which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
                                                                              rdfs:label "Agreement for a Specific Purpose Template" ;
@@ -12864,17 +12872,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                        """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                        """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementForPurposeTemplate\" ,
 		\"targetArtifact\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"purpose\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PurposeURI}\"
@@ -12885,7 +12893,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageAgreementLogAccessTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageAgreementLogAccessTemplate> rdf:type owl:NamedIndividual ,
                                                                                      <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                            <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+                                                                            <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
 		its {?ArtifactURI} to the {?ConsumerParticipantURI} but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
                                                                             rdfs:comment "A template for policy agreements which allow usage until a certain deletion date."@en ;
                                                                             rdfs:label "Agreement for Usage Until Deletion Template" ;
@@ -12901,7 +12909,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:consumer {?ConsumerParticipantURI} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
-				ids:action {?action} 
+				ids:action {?action}
 				] ;
 			ids:obligation [
 				ids:action idsc_action:LOG ;
@@ -12911,14 +12919,14 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 					ids:rightOperand {?LoggingEndpoint}
 				] ]
 		.""" ,
-                                                                                                                       """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                       """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementLogAccessTemplate\" ,
 		\"targetArtifact\": \"{?ArtifactURI}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"
 			} ,
@@ -12935,7 +12943,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageAgreementNUsagesTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageAgreementNUsagesTemplate> rdf:type owl:NamedIndividual ,
                                                                                    <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                          <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+                                                                          <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
 		its {?ArtifactURI} to the {?ConsumerParticipantURI} at maximum {?n} times."""@en ;
                                                                           rdfs:comment "A template for policy agreements which allow usage until a certain deletion date."@en ;
                                                                           rdfs:label "Agreement for Usage Until Deletion Template" ;
@@ -12958,17 +12966,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 					ids:rightOperand {?n + 1}
 				] ]
 		.""" ,
-                                                                                                                     """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                     """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementNUsagesTemplate\" ,
 		\"targetArtifact\": \"{?ArtifactURI}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"quantity\",
 					 \"operator\" : \"lt\",
 					 \"rightOperand\" : \"{?n + 1}\"
@@ -12979,7 +12987,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageAgreementUntilDeletionTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageAgreementUntilDeletionTemplate> rdf:type owl:NamedIndividual ,
                                                                                          <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                                <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
+                                                                                <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} allows the {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
 		its {?ArtifactURI} to the {?ConsumerParticipantURI} as long as all digital copies will be deleted at {?deletionDateTime}."""@en ;
                                                                                 rdfs:comment "A template for policy agreements which allow usage until a certain deletion date."@en ;
                                                                                 rdfs:label "Agreement for Usage Until Deletion Template" ;
@@ -13010,17 +13018,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			]
 		.""" ,
-                                                                                                                           """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractAgreement\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                           """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractAgreement\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageAgreementUntilDeletionTemplate\" ,
 		\"targetArtifact\": \"{?ArtifactURI}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATETIME\",
 					 \"operator\" : \"lt\",
 					 \"rightOperandReference\" : \"{?deletionDateTime}\"
@@ -13028,7 +13036,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 		},
 		\"obligation\": {
 			\"action\": \"https://w3id.org/idsa/code/action/DELETE\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATETIME\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?deletionDateTime}\"
@@ -13039,8 +13047,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageOfferAfterEventTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageOfferAfterEventTemplate> rdf:type owl:NamedIndividual ,
                                                                                   <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Representation URI>|<Artifact URI>]} to the (potentially still unknown)
 		consumer only if a certain {?EventURI} has happened and the {?PipURI} says so."""@en ;
                                                                          rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
                                                                          rdfs:label "Offer for Usage After a Certain Event Template" ;
@@ -13068,21 +13076,21 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			]
 		.""" ,
-                                                                                                                    """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                    """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferAfterEventTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"gt\",
 					 \"rightOperand\" : \"{?EventURI}\"
 			},
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"{?EventURI}\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -13093,8 +13101,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageOfferAfterPaymentTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageOfferAfterPaymentTemplate> rdf:type owl:NamedIndividual ,
                                                                                     <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown)
 		consumer only if {?price} has been payed and the {?PipURI} says so."""@en ;
                                                                            rdfs:comment "A template for policy offers which allow usage only after a certain payment occurred."@en ;
                                                                            rdfs:label "Offer for Usage After Payment Template" ;
@@ -13125,16 +13133,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			]
 		.""" ,
-                                                                                                                      """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                      """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferAfterPaymentTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -13142,7 +13150,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 		},
 		\"obligation\": {
 			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?price}\"
@@ -13153,8 +13161,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageOfferByRoleTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageOfferByRoleTemplate> rdf:type owl:NamedIndividual ,
                                                                               <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                     <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+                                                                     <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown)
 		user has the {?RoleURI}, which must be requested at {?PipURI}."""@en ;
                                                                      rdfs:comment "A template for policy offers permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
                                                                      rdfs:label "Access Offer By User Role Template" ;
@@ -13177,16 +13185,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferByRoleTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"{?RoleURI}\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -13197,8 +13205,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate> rdf:type owl:NamedIndividual ,
                                                                                   <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+                                                                         <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown)
 		consumer uses it with systems which can be used for {?PurposeURI}."""@en ;
                                                                          rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
                                                                          rdfs:label "Offer for a Specific Purpose Template" ;
@@ -13221,16 +13229,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                    """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                    """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"purpose\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PurposeURI}\"
@@ -13241,8 +13249,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageOfferLogAccessTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageOfferLogAccessTemplate> rdf:type owl:NamedIndividual ,
                                                                                  <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                        <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+                                                                        <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown)
 		consumer but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
                                                                         rdfs:comment "A template for policy offers which allow usage until a certain deletion date."@en ;
                                                                         rdfs:label "Offer for Usage Until Deletion Template" ;
@@ -13258,7 +13266,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:targetContent {?content} ;
 			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
-				ids:action {?action} 
+				ids:action {?action}
 				] ;
 			ids:obligation [
 				ids:action idsc_action:LOG ;
@@ -13268,10 +13276,10 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 					ids:rightOperand {?LoggingEndpoint}
 				] ]
 		.""" ,
-                                                                                                                   """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                   """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferLogAccessTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
@@ -13291,8 +13299,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageOfferNUsagesTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageOfferNUsagesTemplate> rdf:type owl:NamedIndividual ,
                                                                                <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                      <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+                                                                      <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown)
 		consumer at maximum {?n} times."""@en ;
                                                                       rdfs:comment "A template for policy offers which allow usage until a certain deletion date."@en ;
                                                                       rdfs:label "Offer for Usage Until Deletion Template" ;
@@ -13315,16 +13323,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 					ids:rightOperand {?n + 1}
 				] ]
 		.""" ,
-                                                                                                                 """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                 """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferNUsagesTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"quantity\",
 					 \"operator\" : \"lt\",
 					 \"rightOperand\" : \"{?n + 1}\"
@@ -13335,8 +13343,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageOfferUntilDeletionTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageOfferUntilDeletionTemplate> rdf:type owl:NamedIndividual ,
                                                                                      <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                            <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown) 
+                                                                            <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<Resource URI>|<Representation URI>|<Artifact URI>]} to the (potentially still unknown)
 		consumer as long as all digital copies will be deleted at {?deletionDateTime}."""@en ;
                                                                             rdfs:comment "A template for policy offers which allow usage until a certain deletion date."@en ;
                                                                             rdfs:label "Offer for Usage Until Deletion Template" ;
@@ -13367,16 +13375,16 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			]
 		.""" ,
-                                                                                                                       """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractOffer\", 
-		\"@id\": \"{?contractID}\", 
+                                                                                                                       """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractOffer\",
+		\"@id\": \"{?contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageOfferUntilDeletionTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATETIME\",
 					 \"operator\" : \"lt\",
 					 \"rightOperandReference\" : \"{?deletionDateTime}\"
@@ -13384,7 +13392,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 		},
 		\"obligation\": {
 			\"action\": \"https://w3id.org/idsa/code/action/DELETE\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATETIME\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?deletionDateTime}\"
@@ -13395,7 +13403,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageRequestAfterEventTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageRequestAfterEventTemplate> rdf:type owl:NamedIndividual ,
                                                                                     <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]}
 		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
 		only if a certain {?EventURI} has happened and the {?PipURI} says so."""@en ;
                                                                            rdfs:comment "A template for policy requests which allow usage only after a certain event occurred."@en ;
@@ -13425,22 +13433,22 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			]
 		.""" ,
-                                                                                                                      """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                                      """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestAfterEventTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATE_TIME\",
 					 \"operator\" : \"gt\",
 					 \"rightOperand\" : \"{?EventURI}\"
 			},
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"{?EventURI}\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -13451,7 +13459,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate> rdf:type owl:NamedIndividual ,
                                                                                       <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                             <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+                                                                             <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]}
 		a {?content element of [<Representation URI>|<Artifact URI>]} from the {?ConsumerParticipantURI}
 		only if {?price} has been payed and the {?PipURI} says so."""@en ;
                                                                              rdfs:comment "A template for policy requests which allow usage only after a certain payment occurred."@en ;
@@ -13466,7 +13474,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:refersTo idsc_pt:UsageRequestAfterPaymentTemplate ;
 			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
-			ids:provider {?ProviderParticipantURI} ;			
+			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;
 				ids:constraint [
@@ -13484,17 +13492,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			]
 			]
 		.""" ,
-                                                                                                                        """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                                        """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -13502,7 +13510,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 		},
 		\"obligations\": {
 			\"action\": \"https://w3id.org/idsa/code/action/COMPENSATE\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"payAmount\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?price}\"
@@ -13513,8 +13521,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageRequestByRoleTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageRequestByRoleTemplate> rdf:type owl:NamedIndividual ,
                                                                                 <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                       <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<RepresentationURI>|<ArtifactURI>]} given that the {?ConsumerParticipantURI} has the {?RoleURI}, 
+                                                                       <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<RepresentationURI>|<ArtifactURI>]} given that the {?ConsumerParticipantURI} has the {?RoleURI},
 		which must be requested at {?PipURI}."""@en ;
                                                                        rdfs:comment "A template for policy requests permitting access to users with a certain role. Information about the membership of a user is supplied at a defined PIP."@en ;
                                                                        rdfs:label "Access Request to secure Consumer Template" ;
@@ -13538,17 +13546,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                  """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                                  """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestByRoleTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"{?RoleURI}\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PipURI}\"
@@ -13559,8 +13567,8 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageRequestForPurposeTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageRequestForPurposeTemplate> rdf:type owl:NamedIndividual ,
                                                                                     <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]} 
-		its {?content element of [<RepresentationURI>|<ArtifactURI>]} only if the (potentially still unknown) 
+                                                                           <http://spinrdf.org/spin#labelTemplate> """The {?ConsumerParticipantURI} asks {?ProviderParticipantURI} to {?action element of [ids:use|ids:read|...]}
+		its {?content element of [<RepresentationURI>|<ArtifactURI>]} only if the (potentially still unknown)
 		consumer uses it with systems which can be used for {?PurposeURI}."""@en ;
                                                                            rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
                                                                            rdfs:label "Request for a Specific Purpose Template" ;
@@ -13584,17 +13592,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				] ;]+
 			]
 		.""" ,
-                                                                                                                      """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                                      """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestForPurposeTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\" ,
-			[\"constraint\" : {    
+			[\"constraint\" : {
 					 \"leftOperand\" : \"purpose\",
 					 \"operator\" : \"eq\",
 					 \"rightOperandReference\" : \"{?PurposeURI}\"
@@ -13605,7 +13613,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageRequestLogAccessTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageRequestLogAccessTemplate> rdf:type owl:NamedIndividual ,
                                                                                    <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                          <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+                                                                          <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]}
 		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
 		 but demands a logging of each data access at {?LoggingEndpoint}."""@en ;
                                                                           rdfs:comment "A template for policy requests which allow usage until a certain deletion date."@en ;
@@ -13620,9 +13628,9 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:refersTo idsc_pt:UsageRequestLogAccessTemplate ;
 			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
-			ids:provider {?ProviderParticipantURI} ;			
+			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
-				ids:action {?action} 
+				ids:action {?action}
 				] ;
 			ids:obligation [
 				ids:action idsc_action:LOG ;
@@ -13632,14 +13640,14 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 					ids:rightOperand {?LoggingEndpoint}
 				] ]
 		.""" ,
-                                                                                                                     """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                                     """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestLogAccessTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"
 			} ,
@@ -13656,7 +13664,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageRequestNUsagesTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageRequestNUsagesTemplate> rdf:type owl:NamedIndividual ,
                                                                                  <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                        <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+                                                                        <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]}
 		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
 		 at maximum {?n} times."""@en ;
                                                                         rdfs:comment "A template for policy requests which allow usage until a certain deletion date."@en ;
@@ -13671,7 +13679,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:refersTo idsc_pt:UsageRequestNUsagesTemplate ;
 			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
-			ids:provider {?ProviderParticipantURI} ;			
+			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;
 				ids:constraint [
@@ -13680,17 +13688,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 					ids:rightOperand {?n + 1}
 				] ]
 		.""" ,
-                                                                                                                   """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                                   """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestNUsagesTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"quantity\",
 					 \"operator\" : \"lt\",
 					 \"rightOperand\" : \"{?n + 1}\"
@@ -13701,7 +13709,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 ###  https://w3id.org/idsa/code/policytemplate/UsageRequestUntilDeletionTemplate
 <https://w3id.org/idsa/code/policytemplate/UsageRequestUntilDeletionTemplate> rdf:type owl:NamedIndividual ,
                                                                                        <https://w3id.org/idsa/core/PolicyTemplate> ;
-                                                                              <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]} 
+                                                                              <http://spinrdf.org/spin#labelTemplate> """The {?ProviderParticipantURI} asks to {?action element of [ids:use|ids:read|...]}
 		its {?content element of [<Representation URI>|<Artifact URI>]} to the {?ConsumerParticipantURI}
 		a as long as all digital copies will be deleted at {?deletionDateTime}."""@en ;
                                                                               rdfs:comment "A template for policy requests which allow usage until a certain deletion date."@en ;
@@ -13716,7 +13724,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 			ids:refersTo idsc_pt:UsageRequestAfterPaymentTemplate ;
 			ids:targetContent {?content} ;
 			ids:consumer {?ConsumerParticipantURI} ;
-			ids:provider {?ProviderParticipantURI} ;			
+			ids:provider {?ProviderParticipantURI} ;
 			ids:permission [
 				ids:action {?action} ;
 				ids:constraint [
@@ -13733,17 +13741,17 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 				]
 			]
 		.""" ,
-                                                                                                                         """{ 
-		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\", 
-		\"@type\": \"ContractRequest\", 
-		\"@id\": \"{contractID}\", 
+                                                                                                                         """{
+		\"@context\": \"http://www.w3id.org/ids/contract.jsonld\",
+		\"@type\": \"ContractRequest\",
+		\"@id\": \"{contractID}\",
 		\"refersTo\": \"https://w3id.org/idsa/code/policytemplate/UsageRequestAfterPaymentTemplate\" ,
 		\"targetContent\": \"{?content}\",
 		\"provider\": \"{?ProviderParticipantURI}\",
-		\"consumer\": \"{?ConsumerParticipantURI}\", 
+		\"consumer\": \"{?ConsumerParticipantURI}\",
 		\"permission\": {
 			\"action\": \"{?action}\"  ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATETIME\",
 					 \"operator\" : \"lt\",
 					 \"rightOperandReference\" : \"{?deletionDateTime}\"
@@ -13751,7 +13759,7 @@ _:genid165 <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/
 		},
 		\"obligation\": {
 			\"action\": \"https://w3id.org/idsa/code/action/DELETE\" ,
-			\"constraint\" : {    
+			\"constraint\" : {
 					 \"leftOperand\" : \"DATETIME\",
 					 \"operator\" : \"eq\",
 					 \"rightOperand\" : \"{?deletionDateTime}\"

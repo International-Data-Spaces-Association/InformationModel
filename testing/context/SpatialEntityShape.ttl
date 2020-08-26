@@ -8,7 +8,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -23,31 +23,13 @@ shapes:
 	] .
 
 
-shapes:SpatialEntityShape
-	a sh:NodeShape ; 
-	sh:targetClass ids:SpatialEntity ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/SpatialEntityShape.ttl> (SpatialEntityShape): An ids:SpatialEntity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:SpatialEntity)
-			}
-		""" ;
-	] .
-
-
 shapes:LocationShape
 	a sh:NodeShape ; 
 	sh:targetClass ids:Location ;
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/SpatialEntityShape.ttl> (LocationShape): An ids:Location is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (LocationShape): An ids:Location is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -68,7 +50,7 @@ shapes:GeoPointShape
 		sh:path ids:latitude ;
 		sh:datatype xsd:float ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:latitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:latitude property must point from an ids:GeoPoint to an xsd:float."@en ;
 	] ;
 
 	sh:property [
@@ -76,7 +58,7 @@ shapes:GeoPointShape
 		sh:path ids:longitude ;
 		sh:datatype xsd:float ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:longitude property must point from an ids:GeoPoint to an xsd:float."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:longitude property must point from an ids:GeoPoint to an xsd:float."@en ;
 	] .
 
 
@@ -86,7 +68,7 @@ shapes:GeometryShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeometryShape): An ids:Geometry is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeometryShape): An ids:Geometry is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -107,6 +89,6 @@ shapes:BoundingPolygonShape
 		sh:path ids:geoPoint ;
 		sh:class ids:GeoPoint ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/context/SpatialEntityShape.ttl> (BoundingPolygonShape): An ids:geoPoint property must point from an ids:BoundingPolygon to an ids:GeoPoint."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (BoundingPolygonShape): An ids:geoPoint property must point from an ids:BoundingPolygon to an ids:GeoPoint."@en ;
 	] .
 

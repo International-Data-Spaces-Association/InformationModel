@@ -193,10 +193,10 @@ idsc:LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION a ids:LocalDataConfidentialityGu
 # ----------------------------------
 
 # NOTE: Only explicitly supported guarantees are listed!
-idsc:BASE_CONNECTOR_SECURITY_PROFILE
+idsc:BASE_SECURITY_PROFILE
     a ids:SecurityProfile;
-    rdfs:label "Base Connector security profile"@en;
-    rdfs:comment "Default security profile of a 'Base Connector'"@en;
+    rdfs:label "Base security profile"@en;
+    rdfs:comment "Default security profile of a certified IDS Connector."@en;
     ids:securityGuarantee idsc:INTEGRITY_PROTECTION_NONE;
     ids:securityGuarantee idsc:INTEGRITY_VERIFICATION_SCOPE_NONE;
     ids:securityGuarantee idsc:APP_RESOURCES_NONE;
@@ -207,10 +207,10 @@ idsc:BASE_CONNECTOR_SECURITY_PROFILE
     ids:securityGuarantee idsc:AUDIT_LOCAL_LOGGING;
     .
 
-idsc:TRUSTED_CONNECTOR_SECURITY_PROFILE
+idsc:TRUST_SECURITY_PROFILE
     a ids:SecurityProfile;
-    rdfs:label "Trusted Connector security profile"@en;
-    rdfs:comment "Default security profile of a 'Trusted Connector'"@en;
+    rdfs:label "Trust security profile"@en;
+    rdfs:comment "The Security Profile TRUST as defined by the IDS certification criteria."@en;
     #ids:parentSecurityProfile idsc:BASE_CONNECTOR_SECURITY_PROFILE;
     ids:securityGuarantee idsc:INTEGRITY_VERIFICATION_REMOTE;
     ids:securityGuarantee idsc:AUTHENTICATION_MUTUAL;
@@ -222,10 +222,10 @@ idsc:TRUSTED_CONNECTOR_SECURITY_PROFILE
     ids:securityGuarantee idsc:LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION;
     .
 
-idsc:TRUSTED_CONNECTOR_PLUS_SECURITY_PROFILE
+idsc:TRUST_PLUS_SECURITY_PROFILE
     a ids:SecurityProfile;
-    rdfs:label "Trusted Connector Plus security profile"@en;
-    rdfs:comment "Default security profile of a 'Trusted Connector Plus' aus expected in future versions of IDS."@en;
+    rdfs:label "Trust Plus security profile"@en;
+    rdfs:comment "The Security Profile TRUST+ as defined by the IDS certification criteria."@en;
     ids:securityGuarantee idsc:INTEGRITY_VERIFICATION_REMOTE;
     ids:securityGuarantee idsc:AUTHENTICATION_MUTUAL;
     ids:securityGuarantee idsc:SERVICE_ISOLATION_LEAST_PRIVILEGE;
