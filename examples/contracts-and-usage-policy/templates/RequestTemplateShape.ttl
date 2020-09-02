@@ -14,7 +14,6 @@
 shapes:RequestTemplateShape
 	a sh:NodeShape ;
 	sh:targetClass ids:ContractRequest ;
-	# message for violation of the sh:node constraint:
     sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RequestTemplateShape.ttl> (HasProviderOrConsumerNodeShape): In a _:ContractRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant."@en ;
 	sh:node shapes:HasProviderOrConsumerNodeShape ;
 	sh:property shapes:RequestTemplate-atLeastOneRequestPermissionPropertyShape ;
@@ -23,9 +22,9 @@ shapes:RequestTemplateShape
 
 shapes:RequestTemplate-atLeastOneRequestPermissionPropertyShape
     a sh:PropertyShape ;
-    sh:path			ids:permission ;
-    sh:node	        shapes:RequestPermissionTemplateShape ;
-    sh:minCount		1 ;
-    sh:severity     sh:Violation ;
-    sh:message      "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RequestTemplateShape.ttl> (RequestTemplate-atLeastOneRequestPermissionPropertyShape): In a _:ContractRequest the ids:permission property must point to at least one ids:Permission. In the ids:Permission, at least the ids:target and ids:action properties and one of (ids:assigner and ids:assignee) have to be specified."@en ;
+    sh:path	ids:permission ;
+    sh:node	shapes:RequestPermissionTemplateShape ;
+    sh:minCount	1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RequestTemplateShape.ttl> (RequestTemplate-atLeastOneRequestPermissionPropertyShape): In a _:ContractRequest the ids:permission property must point to at least one ids:Permission. In the ids:Permission, at least the ids:target and ids:action properties and one of (ids:assigner and ids:assignee) have to be specified."@en ;
 .

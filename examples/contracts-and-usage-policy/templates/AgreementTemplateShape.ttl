@@ -13,18 +13,18 @@
 
 shapes:AgreementTemplateShape
 	a sh:NodeShape ;
-	sh:targetClass  ids:ContractAgreement ;
-	sh:property     shapes:ParticipantTemplate-providerPropertyShape ;
-	sh:property     shapes:ParticipantTemplate-consumerPropertyShape ;
-	sh:property     shapes:AgreementTemplate-atLeastOnePermissionPropertyShape ;
+	sh:targetClass ids:ContractAgreement ;
+	sh:property shapes:ParticipantTemplate-providerPropertyShape ;
+	sh:property shapes:ParticipantTemplate-consumerPropertyShape ;
+	sh:property shapes:AgreementTemplate-atLeastOnePermissionPropertyShape ;
 .	
 
 
 shapes:AgreementTemplate-atLeastOnePermissionPropertyShape
     a sh:PropertyShape ;
-    sh:path			ids:permission ;
-    sh:node	        shapes:AgreementPermissionTemplateShape ;
-    sh:minCount		1 ;
-    sh:severity     sh:Violation ;
-    sh:message      "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/AgreementTemplateShape.ttl> (AgreementTemplate-atLeastOnePermissionPropertyShape): In a _:ContractAgreement the ids:permission property must point to at least one ids:Permission. In the ids:Permission, at least the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified."@en ;
+    sh:path	ids:permission ;
+    sh:node	shapes:AgreementPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/AgreementTemplateShape.ttl> (AgreementTemplate-atLeastOnePermissionPropertyShape): In a _:ContractAgreement the ids:permission property must point to at least one ids:Permission. In the ids:Permission, at least the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified."@en ;
 .

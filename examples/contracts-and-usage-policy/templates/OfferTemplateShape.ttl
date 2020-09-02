@@ -14,7 +14,6 @@
 shapes:OfferTemplateShape
 	a sh:NodeShape ;
 	sh:targetClass ids:ContractOffer ;
-	# message for violation of the sh:node constraint:
     sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplateShape.ttl> (HasProviderOrConsumerNodeShape): In a _:ContractOffer a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant."@en ;
 	sh:node shapes:HasProviderOrConsumerNodeShape ;
 	sh:property shapes:OfferTemplate-atLeastOneOfferPermissionPropertyShape ;
@@ -34,16 +33,16 @@ shapes:HasProviderOrConsumerNodeShape
             sh:property shapes:HasProviderOrConsumer-consumerPropertyShape ;
         ]
     ) ;
-    sh:severity     sh:Violation ;
+    sh:severity sh:Violation ;
 .
 
 shapes:HasProviderOrConsumer-providerPropertyShape
     a sh:PropertyShape ;
     sh:path ids:provider ;
     sh:node shapes:ParticipantTemplateOptionsShape ;
-    sh:minCount     1 ;
-    sh:maxCount     1 ;
-    sh:severity     sh:Violation ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
     sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplate.ttl> (HasProviderOrConsumer-providerPropertyShape): In a _:ContractOffer or _:ContractRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant each. This can in any case be a) an IRI or b) an ids:Participant."@en ;
 .
 
@@ -51,18 +50,18 @@ shapes:HasProviderOrConsumer-consumerPropertyShape
     a sh:PropertyShape ;
     sh:path ids:consumer ;
     sh:node shapes:ParticipantTemplateOptionsShape ;
-    sh:minCount     1 ;
-    sh:maxCount     1 ;
-    sh:severity     sh:Violation ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
     sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplate.ttl> (HasProviderOrConsumer-consumerPropertyShape): In a _:ContractOffer or _:ContractRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant each. This can in any case be a) an IRI or b) an ids:Participant."@en ;
 .	
 
 
 shapes:OfferTemplate-atLeastOneOfferPermissionPropertyShape
     a sh:PropertyShape ;
-    sh:path			ids:permission ;
-    sh:node	        shapes:OfferPermissionTemplateShape ;
-    sh:minCount		1 ;
-    sh:severity     sh:Violation ;
-    sh:message      "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplateShape.ttl> (OfferTemplate-atLeastOneOfferPermissionPropertyShape): In a _:ContractOffer the ids:permission property must point to at least one ids:Permission. In the ids:Permission, at least the ids:target and ids:action properties and one of (ids:assigner and ids:assignee) have to be specified."@en ;
+    sh:path	ids:permission ;
+    sh:node	shapes:OfferPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplateShape.ttl> (OfferTemplate-atLeastOneOfferPermissionPropertyShape): In a _:ContractOffer the ids:permission property must point to at least one ids:Permission. In the ids:Permission, at least the ids:target and ids:action properties and one of (ids:assigner and ids:assignee) have to be specified."@en ;
 .
