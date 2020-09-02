@@ -1,0 +1,62 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:ActionTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:Action ;
+    sh:property shapes:ActionTemplate-actionRefinementPropertyShape ;
+    sh:property shapes:ActionTemplate-includedInPropertyShape ;
+.
+
+
+shapes:ActionTemplate-actionRefinementPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:actionRefinement ;
+    sh:or(
+        [
+            sh:class ids:Constraint ;
+        ]
+        [
+            sh:class ids:LogicalConstraint ;
+        ]
+    ) ;
+    # sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ActionTemplates/ActionTemplateShape.ttl> (ActionTemplate-actionRefinementPropertyShape): In an _:Action the ids:actionRefinement property must point to a) zero or one ids:Costraint or b) zero or one ids:LogicalCostraint."@en ;
+.
+
+
+shapes:ActionTemplate-includedInPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:includedIn ;
+    sh:node shapes:ActionTemplateOptionsShape ;
+    # sh:minCount 1 ;
+    sh:maxCount 1;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ActionTemplates/ActionTemplateShape.ttl> (ActionTemplate-includedInPropertyShape): In an _:Action the ids:includedIn property must point to a) zero or one IRI or b) zero or one ids:Action."@en ;
+.
+
+
+shapes:ActionTemplateOptionsShape
+    a sh:NodeShape ;
+    sh:or(
+        [
+            sh:nodeKind sh:IRI ;
+        ]
+        [
+            sh:class ids:Action ;
+        ]
+    ) ;
+    sh:severity sh:Violation ;
+.

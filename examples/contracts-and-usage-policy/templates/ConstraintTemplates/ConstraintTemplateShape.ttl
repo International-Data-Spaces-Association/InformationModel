@@ -1,0 +1,104 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:ConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:Constraint ;
+    sh:property shapes:ConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:ConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:ConstraintTemplate-rightOperandPropertyShape ;
+    sh:property shapes:ConstraintTemplate-pipEndpointPropertyShape ;
+    sh:property shapes:ConstraintTemplate-unitPropertyShape ;
+.
+
+
+shapes:LogicalConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:LogicalConstraint ;
+    sh:property shapes:LogicalConstraintTemplate-operandPropertyShape ;
+.
+
+
+shapes:ConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:class ids:LeftOperand ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/ConstraintTemplateShape.ttl> (ConstraintTemplate-leftOperandPropertyShape): In a _:Constraint the ids:leftOperand property must point to exactly one ids:LeftOperand."@en ;
+.
+
+
+shapes:ConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:class ids:BinaryOperator ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/ConstraintTemplateShape.ttl> (ConstraintTemplate-operatorPropertyShape): In a _:Constraint the ids:operator property must point to exactly one ids:BinaryOperator."@en ;
+.
+
+
+shapes:ConstraintTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path [ sh:alternativePath (ids:rightOperand ids:rightOperandReference) ] ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/ConstraintTemplateShape.ttl> (ConstraintTemplate-rightOperandPropertyShape): In a _:Constraint one of the properties a) ids:rightOperand or b) ids:rightOperandReference must point to an adequate value according to the ids:LeftOperand used in this constraint."@en ;
+.
+
+
+shapes:ConstraintTemplate-pipEndpointPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:pipEndpoint ;
+    sh:datatype xsd:anyURI ;
+    sh:maxCount 1;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/ConstraintTemplateShape.ttl> (ConstraintTemplate-pipEndpointPropertyShape): In a _:Constraint the ids:pipEndpoint property must point to zero or one URI or path expressions to the target endpoint."@en ;
+.
+
+
+shapes:ConstraintTemplate-unitPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:unit ;
+    sh:datatype xsd:anyURI ;
+    sh:maxCount 1;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/ConstraintTemplateShape.ttl> (ConstraintTemplate-unitPropertyShape): In a _:Constraint the ids:unit property must point to zero or one URI to specify the unit of the value linked."@en ;
+.
+
+
+shapes:LogicalConstraintTemplate-operandPropertyShape
+    a sh:PropertyShape ;
+    sh:path [ sh:alternativePath ( ids:and ids:or ids:xone) ] ;
+    sh:class ids:Constraint ;
+    sh:minCount 2 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/ConstraintTemplateShape.ttl> (LogicalConstraintTemplate-operandPropertyShape): In a _:LogicalConstraint one of the properties a) ids:and, b) ids:or, or c) ids:xone must point from an ids:LogicalConstraint to at least two ids:Constraints."@en ;
+.
+
+
+shapes:ConstraintTemplateOptionsShape
+    a sh:NodeShape ;
+    sh:or(
+        [
+            sh:class ids:Constraint ;
+        ]
+        [
+            sh:class ids:LogicalConstraint ;
+        ]
+    ) ;
+.

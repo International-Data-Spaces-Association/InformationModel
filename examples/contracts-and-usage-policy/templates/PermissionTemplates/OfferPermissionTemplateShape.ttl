@@ -1,0 +1,62 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:OfferPermissionTemplateShape
+    a sh:NodeShape ;
+    # TODO see AgreementPermissionTemplateShape.ttl
+    # sh:targetClass ids:Permission ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/OfferPermissionTemplateShape.ttl> (HasAssignerOrAssigneeNodeShape): A _:Permission in a _:ContractOffer or _:ContractRequest must have a) one participant as ids:assigner or b) one participant as ids:assignee or c) one participant as ids:assigner and one participant as ids:assignee."@en ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:PermissionTemplate-constraintPropertyShape ;
+    sh:property shapes:PermissionTemplate-preDutyPropertyShape ;
+    sh:property shapes:PermissionTemplate-postDutyPropertyShape ;
+.
+
+
+shapes:HasAssignerOrAssigneeNodeShape
+    a sh:NodeShape ;
+    sh:or(
+        [
+            sh:property shapes:HasAssignerOrAssigneeNode-assignerPropertyShape ;
+        ] 
+        [
+            sh:property shapes:HasAssignerOrAssigneeNode-assigneePropertyShape ;
+        ]
+        [
+            sh:property shapes:HasAssignerOrAssigneeNode-assignerPropertyShape ;
+            sh:property shapes:HasAssignerOrAssigneeNode-assigneePropertyShape ;
+        ]
+    ) ;
+    sh:severity     sh:Violation ;
+.
+
+shapes:HasAssignerOrAssigneeNode-assigneePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:assignee ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+.
+
+
+shapes:HasAssignerOrAssigneeNode-assignerPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:assigner ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+.

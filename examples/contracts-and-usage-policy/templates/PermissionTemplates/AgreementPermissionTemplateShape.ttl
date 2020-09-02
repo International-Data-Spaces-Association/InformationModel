@@ -1,0 +1,97 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:AgreementPermissionTemplateShape
+    a sh:NodeShape ;
+    # TODO
+    # Only linked via sh:node in AgreementTemplateShape for now, because Agreement, Offer and Request all use ids:Permission but they have different constraints to the ids:assigner and ids:assignee property.
+    # sh:targetClass ids:Permission ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:PermissionTemplate-constraintPropertyShape ;
+    sh:property shapes:PermissionTemplate-preDutyPropertyShape ;
+    sh:property shapes:PermissionTemplate-postDutyPropertyShape ;
+.
+
+
+shapes:AgreementPermissionTemplate-assigneePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:assignee ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/AgreementPermissionTemplateShapes.ttl> (AgreementPermissionTemplate-assigneePropertyShape): In an _:AgreementPermission the ids:assignee property must point to exactly one participant. This can be a) an IRI or b) an ids:Participant."@en ;
+.
+
+
+shapes:AgreementPermissionTemplate-assignerPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:assigner ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/AgreementPermissionTemplateShapes.ttl> (AgreementPermissionTemplate-assignerPropertyShape): In an _:AgreementPermission the ids:assigner property must point to exactly one participant. This can be a) an IRI or b) an ids:Participant."@en ;
+.
+
+
+shapes:PermissionTemplate-targetPropertyShape 
+    a sh:PropertyShape ;
+    sh:path ids:target ;
+    sh:node shapes:AssetTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/AgreementPermissionTemplateShapes.ttl> (PermissionTemplate-targetPropertyShape): In a _:Permission the ids:target property must point to exactly one asset. An _:Asset must a) be a IRI or b) be a ids:AssetCollection. The ids:AssetCollection must have b.1) a ids:assetSource property pointing to a xsd:anyURI or b.2) a ids:assetRefinement property pointing to to a ids:AbstractConstraint."@en ;
+.
+
+
+shapes:PermissionTemplate-actionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:action ;
+    sh:node shapes:ActionTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/AgreementPermissionTemplateShapes.ttl> (PermissionTemplate-actionPropertyShape): In an _:Permission the ids:action property must point to exactly one action. An _:Action must be a) an IRI or b) an ids:Action."@en ;
+.
+
+
+shapes:PermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:node shapes:ConstraintTemplateOptionsShape ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/AgreementPermissionTemplateShapes.ttl> (PermissionTemplate-constraintPropertyShape): In an _:Permission the ids:constraint property must point to constraints in form of a a) ids:Costraint or b) ids:LogicalCostraint."@en ;
+.
+
+
+shapes:PermissionTemplate-preDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:preDuty ;
+    sh:class ids:Duty ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/AgreementPermissionTemplateShapes.ttl> (PermissionTemplate-preDutyPropertyShape): In an _:Permission the ids:preDuty property must point to pre-duties in form of a ids:Duty."@en ;
+.
+
+
+shapes:PermissionTemplate-postDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:postDuty ;
+    sh:class ids:Duty ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PermissionTemplates/AgreementPermissionTemplateShapes.ttl> (PermissionTemplate-postDutyPropertyShape): In an _:Permission the ids:postDuty property must point to post-duties in form of a ids:Duty."@en ;
+.

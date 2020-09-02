@@ -1,0 +1,63 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/shapes/> .
+
+
+shapes:ObligationTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:Duty ;
+    sh:property shapes:ObligationTemplate-assignerPropertyShape ;
+    sh:property shapes:ObligationTemplate-assigneePropertyShape ;
+    sh:property shapes:ObligationTemplate-actionPropertyShape ;
+    sh:property shapes:ObligationTemplate-constraintPropertyShape ;
+.
+
+
+shapes:ObligationTemplate-assignerPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:assigner ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ObligationTemplates/ObligationTemplateShapes.ttl> (ObligationTemplate-assignerPropertyShape): In a _:Duty for a _:ContractAgreement the ids:assigner property must point to exactly one participant. This can be a) an IRI or b) an ids:Participant. In a _:Duty for a _:ContractOffer or _:ContractRequest the ids:assigner property may still be missing."@en ; 
+.
+
+
+shapes:ObligationTemplate-assigneePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:assignee ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ObligationTemplates/ObligationTemplateShapes.ttl> (ObligationTemplate-assigneePropertyShape): In a _:Duty for a _:ContractAgreement the ids:assignee property must point to exactly one participant. This can be a) an IRI or b) an ids:Participant. In a _:Duty for a _:ContractOffer or _:ContractRequest the ids:assignee property may still be missing."@en ; 
+.
+
+
+shapes:ObligationTemplate-actionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:action ;
+    sh:node shapes:ActionTemplateOptionsShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ObligationTemplates/ObligationTemplateShapes.ttl> (ObligationTemplate-actionPropertyShape): In a _:Duty the ids:action property must point to exactly one action. An _:Action must be a) an IRI or b) an ids:Action."@en ;
+.
+
+
+shapes:ObligationTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:node shapes:ConstraintTemplateOptionsShape ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ObligationTemplates/ObligationTemplateShapes.ttl> (ObligationTemplate-constraintPropertyShape): In a _:Duty the ids:constraint property can only point to constraints in form of a a) ids:Costraint or b) ids:LogicalCostraint."@en ;
+.

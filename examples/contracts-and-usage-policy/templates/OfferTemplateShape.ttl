@@ -1,0 +1,68 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:OfferTemplateShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ContractOffer ;
+	# message for violation of the sh:node constraint:
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplateShape.ttl> (HasProviderOrConsumerNodeShape): In a _:ContractOffer a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant."@en ;
+	sh:node shapes:HasProviderOrConsumerNodeShape ;
+	sh:property shapes:OfferTemplate-atLeastOneOfferPermissionPropertyShape ;
+.
+
+shapes:HasProviderOrConsumerNodeShape
+    a sh:NodeShape ;
+    sh:or(
+        [
+            sh:property shapes:HasProviderOrConsumer-providerPropertyShape ;
+        ] 
+        [
+            sh:property shapes:HasProviderOrConsumer-consumerPropertyShape ;
+        ]
+        [
+            sh:property shapes:HasProviderOrConsumer-providerPropertyShape ;
+            sh:property shapes:HasProviderOrConsumer-consumerPropertyShape ;
+        ]
+    ) ;
+    sh:severity     sh:Violation ;
+.
+
+shapes:HasProviderOrConsumer-providerPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:provider ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:severity     sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplate.ttl> (HasProviderOrConsumer-providerPropertyShape): In a _:ContractOffer or _:ContractRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant each. This can in any case be a) an IRI or b) an ids:Participant."@en ;
+.
+
+shapes:HasProviderOrConsumer-consumerPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:consumer ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:severity     sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplate.ttl> (HasProviderOrConsumer-consumerPropertyShape): In a _:ContractOffer or _:ContractRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant each. This can in any case be a) an IRI or b) an ids:Participant."@en ;
+.	
+
+
+shapes:OfferTemplate-atLeastOneOfferPermissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path			ids:permission ;
+    sh:node	        shapes:OfferPermissionTemplateShape ;
+    sh:minCount		1 ;
+    sh:severity     sh:Violation ;
+    sh:message      "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/OfferTemplateShape.ttl> (OfferTemplate-atLeastOneOfferPermissionPropertyShape): In a _:ContractOffer the ids:permission property must point to at least one ids:Permission. In the ids:Permission, at least the ids:target and ids:action properties and one of (ids:assigner and ids:assignee) have to be specified."@en ;
+.

@@ -1,0 +1,84 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:ParticipantTemplateShape
+	a sh:NodeShape ;
+    sh:targetClass ids:Participant ;
+    sh:property shapes:ParticipantTemplate-memberParticipantPropertyShape ;
+    sh:property shapes:ParticipantTemplate-participantRefinementPropertyShape ;
+.
+
+
+shapes:ParticipantTemplate-memberParticipantPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:memberParticipant ;
+    sh:datatype xsd:anyURI ;
+    # sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ParticipantTemplates/ParticipantTemplateShape.ttl> (ParticipantTemplate-memberParticipantPropertyShape): In a _:Participant the ids:memberParticipant property must point to zero or one xsd:anyURI."@en ;
+.
+
+
+shapes:ParticipantTemplate-participantRefinementPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:participantRefinement ;
+    sh:or(
+        [
+            sh:class ids:Constraint ;
+        ]
+        [
+            sh:class ids:LogicalConstraint ;
+        ]
+    ) ;
+    # sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ParticipantTemplates/ParticipantTemplateShape.ttl> (ParticipantTemplate-participantRefinementPropertyShape): In a _:Participant the ids:participantRefinement property must point to a) zero or one ids:Costraint or b) zero or one ids:LogicalCostraint."@en ;
+.
+
+
+shapes:ParticipantTemplateOptionsShape
+    a sh:NodeShape ;
+    sh:or(
+        [
+            sh:nodeKind sh:IRI ;
+        ]
+        [
+            sh:class ids:Participant ;
+        ]
+    ) ;
+    sh:severity sh:Violation ;
+.
+
+
+shapes:ParticipantTemplate-providerPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:provider ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:severity     sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ParticipantTemplateShape.ttl> (ParticipantTemplate-providerPropertyShape): The ids:provider property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant."@en ;
+.
+
+
+shapes:ParticipantTemplate-consumerPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:consumer ;
+    sh:node shapes:ParticipantTemplateOptionsShape ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:severity     sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ParticipantTemplateShape.ttl> (ParticipantTemplate-providerPropertyShape): The ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant."@en ;
+.
