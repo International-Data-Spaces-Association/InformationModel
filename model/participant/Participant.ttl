@@ -15,13 +15,13 @@ ids:Agent
     a owl:Class;
     rdfs:subClassOf ids:Described, odrl:Party, foaf:Agent ;# odrl:Party makes it a reliable party in contracting
     rdfs:label "Agent"@en;
-    rdfs:comment "Internal or external Agent interacting with the Industrial Data Space, not necessarily an IDS Participant."@en.
+    rdfs:comment "Internal or external Agent interacting with the International Data Spaces, not necessarily an IDS Participant."@en.
 
 ids:Participant
     a owl:Class;
     rdfs:subClassOf ids:Agent, ids:ManagedEntity, org:Organization; # foaf:Organization is implied
     rdfs:label "Participant"@en;
-    rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
+    rdfs:comment "Stakeholder in the International Data Spaces, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
     idsm:validation [
         idsm:forProperty ids:memberPerson;
         idsm:relationType idsm:OneToMany;
