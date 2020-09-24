@@ -20,7 +20,7 @@ ids:Endpoint a owl:Class ;
                         idsm:forProperty ids:endpointDocumentation;
                         idsm:relationType idsm:OneToMany ;
                     ];
-    
+
 .
 
 ids:ConnectorEndpoint
@@ -50,6 +50,14 @@ ids:AppEndpointType
     rdfs:label "App endpoint type"@en ;
     rdfs:comment "Class of endpoint types a data app offers."@en ;
 .
+
+ids:GenericEndpoint
+    a owl:Class ;
+    rdfs:subClassOf ids:Endpoint ;
+    rdfs:label "Generic Endpoint"@en ;
+    rdfs:comment "Generic endpoints describe non-IIDS-specific endpoints, e.g. to integrate external services."@en ;
+.
+
 
 # Properties
 # -------
