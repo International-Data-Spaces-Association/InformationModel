@@ -139,3 +139,19 @@ ids:appEndpointMediaType
     rdfs:label "app endpoint media type"@en ;
     rdfs:comment "Mediatype, such as IANA types, of the data an endpoint expects or returns ."@en ;
 .
+
+ids:genericEndpointAuthentication
+	a owl:ObjectProperty ;
+	rdfs:domain ids:GenericEndpoint ;
+	rdfs:range ids:BasicAuthentication ;
+	rdfs:label "generic endpoint authentication"@en ;
+    rdfs:comment "Authentication credentials for generic endpoints. "@en ;
+.
+
+ids:genericEndpointConfiguration
+	a owl:DatatypeProperty ;
+	rdfs:domain ids:GenericEndpoint ;
+	rdfs:range xsd:string ;
+	rdfs:label "generic endpoint configuration"@en ;
+    rdfs:comment "Endpoint-specific configuration details (e.g. contents of a config file) used for the endpoint."@en ;
+.

@@ -28,6 +28,10 @@ ids:AppRoute a owl:Class;
             idsm:forProperty ids:appRouteEnd;
             idsm:relationType idsm:OneToMany ;
         ];
+	idsm:validation [
+		idsm:forProperty ids:appRouteOutput;
+		idsm:relationType idsm:OneToMany ;
+	];
 .
 
 
@@ -71,13 +75,20 @@ ids:EndToEndRoute a owl:Class;
 ids:appRouteStart a owl:ObjectProperty;
     rdfs:label "app route start"@en ;
     rdfs:domain ids:AppRoute;
-    rdfs:range ids:AppEndpoint;
+    rdfs:range ids:Endpoint;
     rdfs:comment "Start of a route."@en ;
 .
 
 ids:appRouteEnd a owl:ObjectProperty;
     rdfs:label "app route end"@en ;
     rdfs:domain ids:AppRoute;
-    rdfs:range ids:AppEndpoint;
+    rdfs:range ids:Endpoint;
     rdfs:comment "End of a route."@en ;
+.
+
+ids:appRouteOutput a owl:ObjectProperty;
+    rdfs:domain ids:AppRoute;
+    rdfs:range ids:Resource;
+    rdfs:label "app route output"@en ;
+    rdfs:comment "Corresponding ids:Resource for the output(s) of an app route."@en ;
 .
