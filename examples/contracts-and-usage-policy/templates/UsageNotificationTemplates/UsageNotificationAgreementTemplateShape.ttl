@@ -1,0 +1,141 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:NotificationAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:NotificationAgreement ;
+    sh:property shapes:NotificationAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationAgreementTemplateShape): In a _:NotificationAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. In the Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:NOTIFY and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:ENDPOINT, ids:operator pointing to idsc:DEFINES_AS and ids:rightOperandReference pointing to an IRI the information is notified to."@en ;
+.
+
+
+shapes:NotificationAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:NotificationAgreementPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationAgreementTemplate-permissionPropertyShape): In a _:NotificationAgreement the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. In the Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:NOTIFY and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:ENDPOINT, ids:operator pointing to idsc:DEFINES_AS and ids:rightOperandReference pointing to an IRI the information is notified to."@en ;
+.
+
+
+shapes:NotificationAgreementPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:NotificationPermissionTemplate-postDutyPropertyShape ;
+.
+
+
+shapes:NotificationPermissionTemplate-postDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:postDuty ;
+    sh:class ids:Duty ;
+    sh:node shapes:NotificationPermissionPostDutyTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl/> (NotificationPermissionTemplate-postDutyPropertyShape): In an ids:NotificationAgreement/-Offer/-Request within the ids:Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:NOTIFY and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:ENDPOINT, ids:operator pointing to idsc:DEFINES_AS and ids:rightOperandReference pointing to an IRI the information is notified to."@en ;
+.
+
+
+shapes:NotificationPermissionPostDutyTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:NotificationPermissionPostDutyTemplate-actionPropertyShape ;
+.
+
+
+shapes:NotificationPermissionPostDutyTemplate-actionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:action ;
+    sh:class ids:Action ;
+    sh:node shapes:NotificationPermissionPostDutyActionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationPermissionPostDutyTemplate-actionPropertyShape):  In an ids:NotificationAgreement/-Offer/-Request within the ids:Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:NOTIFY and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:ENDPOINT, ids:operator pointing to idsc:DEFINES_AS and ids:rightOperandReference pointing to an IRI the information is notified to."@en ;
+.
+
+shapes:NotificationPermissionPostDutyActionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:NotificationPermissionPostDutyActionTemplate-includedInPropertyShape ;
+    sh:property shapes:NotificationPermissionPostDutyActionTemplate-actionRefinementPropertyShape ;
+.
+
+
+shapes:NotificationPermissionPostDutyActionTemplate-includedInPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:includedIn ;
+    sh:hasValue idsc:NOTIFY ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationPermissionPostDutyActionTemplate-includedInPropertyShape): In an ids:NotificationAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action the ids:includedIn property must point to idsc:NOTIFY."@en ;
+.
+
+
+shapes:NotificationPermissionPostDutyActionTemplate-actionRefinementPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:actionRefinement ;
+    sh:class ids:Constraint ;
+    sh:node shapes:NotificationPermissionPostDutyActionConstraintTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationPermissionPostDutyActionTemplate-actionRefinementPropertyShape): In an ids:NotificationAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:ENDPOINT, ids:operator pointing to idsc:DEFINES_AS and ids:rightOperandReference pointing to an IRI the information is notified to."@en ;
+.
+
+
+shapes:NotificationPermissionPostDutyActionConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:NotificationPermissionPostDutyActionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:NotificationPermissionPostDutyActionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:NotificationPermissionPostDutyActionConstraintTemplate-rightOperandReferencePropertyShape ;
+.
+
+
+shapes:NotificationPermissionPostDutyActionConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:ENDPOINT ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationPermissionPostDutyActionConstraintTemplate-leftOperandPropertyShape): In an ids:NotificationAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:leftOperand must point to idsc:ENDPOINT."@en ;
+.
+
+
+shapes:NotificationPermissionPostDutyActionConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:DEFINES_AS ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationPermissionPostDutyActionConstraintTemplate-operatorPropertyShape): In an ids:NotificationAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:operator must point to idsc:DEFINES_AS."@en ;
+.
+
+
+shapes:NotificationPermissionPostDutyActionConstraintTemplate-rightOperandReferencePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperandReference ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationAgreementTemplateShape.ttl> (NotificationPermissionPostDutyActionConstraintTemplate-rightOperandReferencePropertyShape): In an ids:NotificationAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:rightOperandReference must point to an IRI the information is notified to."@en ;
+.

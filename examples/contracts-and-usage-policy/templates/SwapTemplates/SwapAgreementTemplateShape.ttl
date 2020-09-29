@@ -1,0 +1,40 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:SwapAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:SwapAgreement ;
+    sh:property shapes:SwapAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SwapTemplates/SwapAgreementTemplateShape.ttl> (SwapAgreementTemplateShape): In a _:SwapAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to exactly two ids:Permissions. In each ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. Additionally, the ids:assigner of one ids:Permission has to be the ids:assignee of the other ids:Permission and vice versa."@en ;
+.
+
+
+shapes:SwapAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:SwapAgreementPermissionTemplate ;
+    sh:minCount 2 ;
+    sh:maxCount 2 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SwapTemplates/SwapAgreementTemplateShape.ttl> (SwapAgreementTemplate-permissionPropertyShape): In a _:SwapAgreement the ids:permission property must point to exactly two ids:Permissions. In each ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. Additionally, the ids:assigner of one ids:Permission has to be the ids:assignee of the other ids:Permission and vice versa."@en ;
+.
+
+
+shapes:SwapAgreementPermissionTemplate
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+.

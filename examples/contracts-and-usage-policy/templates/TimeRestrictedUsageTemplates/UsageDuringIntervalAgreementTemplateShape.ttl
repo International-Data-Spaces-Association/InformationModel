@@ -1,0 +1,163 @@
+
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:IntervalUsageAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:IntervalUsageAgreement ;
+    sh:property shapes:IntervalUsageAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl> (IntervalUsageAgreementTemplateShape): In a _:IntervalUsageAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:IntervalUsageAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:IntervalUsageAgreementPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl> (IntervalUsageAgreementTemplateShape-permissionPropertyShape): In a _:IntervalUsageAgreement the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:IntervalUsageAgreementPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionTemplate-constraintPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionTemplate-constraintPropertyForAfterShape ;
+    sh:property shapes:IntervalUsagePermissionTemplate-constraintPropertyForBeforeShape ;
+.
+
+
+shapes:IntervalUsagePermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:minCount 2 ;
+    sh:maxCount 2 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionTemplate-constraintPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission two ids:constraint properties must point to an ids:Constraint each."@en ;
+.
+
+
+shapes:IntervalUsagePermissionTemplate-constraintPropertyForAfterShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:qualifiedValueShape [ sh:node shapes:IntervalUsagePermissionConstraintForAfterTemplateShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionTemplate-constraintPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint where the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForAfterTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:IntervalUsagePermissionConstraintForAfterTemplate-leftOperandPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionConstraintForAfterTemplate-operatorPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionConstraintForAfterTemplate-rightOperandPropertyShape ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForAfterTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:POLICY_EVALUATION_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionConstraintForAfterTemplate-leftOperandPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:POLICY_EVALUATION_TIME."@en ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForAfterTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:AFTER ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionConstraintForAfterTemplate-operatorPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:AFTER."@en ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForAfterTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionConstraintForAfterTemplate-rightOperandPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:rightOperand property specifying start timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:IntervalUsagePermissionTemplate-constraintPropertyForBeforeShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:qualifiedValueShape [ sh:node shapes:IntervalUsagePermissionConstraintForBeforeTemplateShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionTemplate-constraintPropertyForeBeforeShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint where the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForBeforeTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:IntervalUsagePermissionConstraintForBeforeTemplate-leftOperandPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionConstraintForBeforeTemplate-operatorPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionConstraintForBeforeTemplate-rightOperandPropertyShape ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForBeforeTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:POLICY_EVALUATION_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionConstraintForBeforeTemplate-leftOperandPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:POLICY_EVALUATION_TIME."@en ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForBeforeTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:BEFORE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionConstraintForBeforeTemplate-operatorPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:BEFORE."@en ;
+.
+
+
+shapes:IntervalUsagePermissionConstraintForBeforeTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageAgreementTemplateShape.ttl/> (IntervalUsagePermissionConstraintForBeforeTemplate-rightOperandPropertyShape): In an ids:IntervalUsageAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:rightOperand property specifying end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+

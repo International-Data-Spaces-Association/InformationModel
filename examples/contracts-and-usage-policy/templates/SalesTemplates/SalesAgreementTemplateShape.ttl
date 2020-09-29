@@ -1,0 +1,154 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:SalesAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:SalesAgreement ;
+    sh:property shapes:SalesAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesAgreementTemplateShape): In a _:SalesAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee, ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:COMPENSATE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action within the ids:Constraint the ids:leftOperand must point to idsc:PAY_AMOUNT, the ids:operator to idsc:EQ, the ids:rightOperand to a price as xsd:double and the ids:unit to an IRI specifying the currency."@en ;
+.
+
+
+shapes:SalesAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:SalesAgreementPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesAgreementTemplate-permissionPropertyShape): In a _:SalesAgreement ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee, ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:COMPENSATE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action within the ids:Constraint the ids:leftOperand must point to idsc:PAY_AMOUNT, the ids:operator to idsc:EQ, the ids:rightOperand to a price as xsd:double and the ids:unit to an IRI specifying the currency."@en ;
+.
+
+
+shapes:SalesAgreementPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:SalesPermissionTemplate-preDutyPropertyShape ;
+.
+
+
+shapes:SalesPermissionTemplate-preDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:preDuty ;
+    sh:class ids:Duty ;
+    sh:node shapes:SalesPermissionPreDutyTemplateShape ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl/> (SalesPermissionTemplate-preDutyPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission the ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee, ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:COMPENSATE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action within the ids:Constraint the ids:leftOperand must point to idsc:PAY_AMOUNT, the ids:operator to idsc:EQ, the ids:rightOperand to a price as xsd:double and the ids:unit to an IRI specifying the currency."@en ;
+.
+
+
+shapes:SalesPermissionPreDutyTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:ObligationTemplate-assignerPropertyShape ;
+    sh:property shapes:ObligationTemplate-assigneePropertyShape ;
+    sh:property shapes:SalesPermissionPreDutyTemplate-actionPropertyShape ;
+.
+
+
+shapes:SalesPermissionPreDutyTemplate-actionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:action ;
+    sh:class ids:Action ;
+    sh:node shapes:SalesPermissionPreDutyActionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesPermissionPreDutyTemplate-actionPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission within the ids:preDuty within the ids:Action the ids:includedIn property must point to idsc:COMPENSATE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action within the ids:Constraint the ids:leftOperand must point to idsc:PAY_AMOUNT, the ids:operator to idsc:EQ, the ids:rightOperand to a price as xsd:double and the ids:unit to an IRI specifying the currency."@en ;
+.
+
+shapes:SalesPermissionPreDutyActionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:SalesPermissionPreDutyActionTemplate-includedInPropertyShape ;
+    sh:property shapes:SalesPermissionPreDutyActionTemplate-actionRefinementPropertyShape ;
+.
+
+
+shapes:SalesPermissionPreDutyActionTemplate-includedInPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:includedIn ;
+    sh:hasValue idsc:COMPENSATE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesPermissionPreDutyActionTemplate-includedInPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action the ids:includedIn property must point to idsc:COMPENSATE."@en ;
+.
+
+
+shapes:SalesPermissionPreDutyActionTemplate-actionRefinementPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:actionRefinement ;
+    sh:class ids:Constraint ;
+    sh:node shapes:SalesPermissionPreDutyActionConstraintTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesPermissionPreDutyActionTemplate-actionRefinementPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action the ids:actionRefinement property must point to an ids:Constraint. The ids:Constraint must have ids:leftOperand pointing to idsc:PAY_AMOUNT, ids:operator pointing to idsc:EQ, ids:rightOperand pointing to a price as xsd:double and ids:unit pointing to an IRI specifying the currency."@en ;
+.
+
+
+shapes:SalesPermissionPreDutyActionConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:SalesPermissionPreDutyActionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:SalesPermissionPreDutyActionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:SalesPermissionPreDutyActionConstraintTemplate-rightOperandPropertyShape ;
+    sh:property shapes:SalesPermissionPreDutyActionConstraintTemplate-unitPropertyShape ;
+.
+
+
+shapes:SalesPermissionPreDutyActionConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:PAY_AMOUNT ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesPermissionPreDutyActionConstraintTemplate-leftOperandPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:leftOperand must point to idsc:PAY_AMOUNT."@en ;
+.
+
+
+shapes:SalesPermissionPreDutyActionConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:EQ ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesPermissionPreDutyActionConstraintTemplate-operatorPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:operator must point to idsc:EQ."@en ;
+.
+
+
+shapes:SalesPermissionPreDutyActionConstraintTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:double ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesPermissionPreDutyActionConstraintTemplate-rightOperandPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:rightOperand must point to a fee as xsd:double."@en ;
+.
+
+
+shapes:SalesPermissionPreDutyActionConstraintTemplate-unitPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:unit ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SalesAgreementTemplateShape.ttl> (SalesPermissionPreDutyActionConstraintTemplate-unitPropertyShape): In an ids:SalesAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:unit must point to an IRI specifying the currency."@en ;
+.

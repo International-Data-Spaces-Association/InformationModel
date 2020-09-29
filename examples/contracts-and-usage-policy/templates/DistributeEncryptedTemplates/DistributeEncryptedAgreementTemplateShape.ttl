@@ -1,0 +1,84 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:DistributeEncryptedAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:DistributeEncryptedAgreement ;
+    sh:property shapes:ParticipantTemplate-providerPropertyShape ;
+    sh:property shapes:ParticipantTemplate-consumerPropertyShape ;
+    sh:property shapes:DistributeEncryptedAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedAgreementTemplateShape.ttl> (DistributeEncryptedAgreementTemplateShape): In a _:DistributeEncryptedAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee and ids:target properties have to be specified. The ids:action must point to idsc:DISTRIBUTE. The ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee and ids:action pointing to idsc:ENCRYPT."@en ;
+.
+
+
+shapes:DistributeEncryptedAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:DistributeEncryptedAgreementPermissionTemplate ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedAgreementTemplateShape.ttl> (DistributeEncryptedAgreementTemplate-permissionPropertyShape): In a _:DistributeEncryptedAgreement the ids:permission property must point to exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee and ids:target properties have to be specified. In the ids:Permission the ids:action must point to idsc:DISTRIBUTE. In the ids:Permission the ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee and ids:action pointing to idsc:ENCRYPT."@en ;
+.
+
+
+shapes:DistributeEncryptedAgreementPermissionTemplate
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:DistributeEncryptedPermissionTemplate-actionPropertyShape ;
+    sh:property shapes:DistributeEncryptedPermissionTemplate-preDutyPropertyShape ;
+.
+
+
+shapes:DistributeEncryptedPermissionTemplate-actionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:action ;
+    sh:hasValue idsc:DISTRIBUTE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedAgreementTemplateShape.ttl> (DistributeEncryptedPermissionTemplate-actionPropertyShape): In a _:DistributeEncryptedAgreement within the ids:Permission the ids:action must point to idsc:DISTRIBUTE"@en ;
+.
+
+
+shapes:DistributeEncryptedPermissionTemplate-preDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:preDuty ;
+    sh:class ids:Duty ;
+    sh:node shapes:DistributeEncryptedPermissionPreDutyTemplateShape ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedAgreementTemplates/DistributeEncryptedAgreementTemplateShape.ttl> (DistributeEncryptedPermissionTemplate-preDutyPropertyShape): In an ids:DistributeEncryptedAgreement/-Offer/-Request within the ids:Permission the ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee and ids:action pointing to idsc:ENCRYPT."@en ;
+.
+
+
+shapes:DistributeEncryptedPermissionPreDutyTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:ObligationTemplate-assignerPropertyShape ;
+    sh:property shapes:ObligationTemplate-assigneePropertyShape ;
+    sh:property shapes:DistributeEncryptedPermissionPreDutyTemplate-actionPropertyShape ;
+.
+
+
+shapes:DistributeEncryptedPermissionPreDutyTemplate-actionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:action ;
+    sh:hasValue idsc:ENCRYPT ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedAgreementTemplateShape.ttl> (DistributeEncryptedPermissionPreDutyTemplate-actionPropertyShape): In an ids:DistributeEncryptedAgreement/-Offer/-Request within the ids:Permission the ids:preDuty property must point to an ids:Duty with an ids:action property pointing to the value idsc:ENCRYPT."@en ;
+.

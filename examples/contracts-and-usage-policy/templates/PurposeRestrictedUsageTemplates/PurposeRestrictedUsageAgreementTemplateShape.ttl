@@ -1,0 +1,107 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:PurposeAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:PurposeAgreement ;
+    sh:property shapes:PurposeAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PurposeRestrictedUsageTemplates/PurposeRestrictedUsageAgreementTemplateShape.ttl> (PurposeAgreementTemplateShape): In a _:PurposeAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:PURPOSE, ids:operator idsc:SAME_AS, ids:rightOperandReference specifying the purpose as an IRI and ids:pipEndpoint pointing to a PipUri."@en ;
+.
+
+
+shapes:PurposeAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:PurposeAgreementPermissionTemplate ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PurposeRestrictedUsageTemplates/PurposeRestrictedUsageAgreementTemplateShape.ttl> (PurposeAgreementTemplate-permissionPropertyShape): In a _:PurposeAgreement the ids:permission property must point to exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:PURPOSE, ids:operator idsc:SAME_AS, ids:rightOperandReference specifying the purpose as an IRI and ids:pipEndpoint pointing to a PipUri."@en ;
+.
+
+
+shapes:PurposeAgreementPermissionTemplate
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:PurposePermissionTemplate-constraintPropertyShape ;
+.
+
+
+shapes:PurposePermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:node shapes:PurposePermissionConstraintTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PurposeRestrictedUsageTemplates/PurposeRestrictedUsageAgreementTemplateShape.ttl/> (PurposePermissionTemplate-constraintPropertyShape): In an ids:PurposeAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:PURPOSE, ids:operator idsc:SAME_AS, ids:rightOperandReference specifying the purpose as an IRI and ids:pipEndpoint pointing to a PipUri."@en ;
+.
+
+
+shapes:PurposePermissionConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:PurposePermissionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:PurposePermissionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:PurposePermissionConstraintTemplate-rightOperandReferencePropertyShape ;
+    sh:property shapes:PurposePermissionConstraintTemplate-pipEndpointPropertyShape ;
+.
+
+
+shapes:PurposePermissionConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:PURPOSE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PurposeRestrictedUsageTemplates/PurposeRestrictedUsageAgreementTemplateShape.ttl/> (PurposePermissionConstraintTemplate-leftOperandPropertyShape): In an ids:PurposeAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:PURPOSE."@en ;
+.
+
+
+shapes:PurposePermissionConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:SAME_AS ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PurposeRestrictedUsageTemplates/PurposeRestrictedUsageAgreementTemplateShape.ttl/> (PurposePermissionConstraintTemplate-operatorPropertyShape): In an ids:PurposeAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:SAME_AS."@en ;
+.
+
+
+shapes:PurposePermissionConstraintTemplate-rightOperandReferencePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperandReference ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PurposeRestrictedUsageTemplates/PurposeRestrictedUsageAgreementTemplateShape.ttl/> (PurposePermissionConstraintTemplate-rightOperandReferencePropertyShape): In an ids:PurposeAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:rightOperandReference property specifying the purpose as an IRI."@en ;
+.
+
+
+shapes:PurposePermissionConstraintTemplate-pipEndpointPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:pipEndpoint ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/PurposeRestrictedUsageTemplates/PurposeRestrictedUsageAgreementTemplateShape.ttl/> (PurposePermissionConstraintTemplate-pipEndpointPropertyShape): In an ids:PurposeAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:pipEndpoint property specifying the PipUri."@en ;
+.
+

@@ -1,0 +1,151 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:SpatialAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:SpatialAgreement ;
+    sh:property shapes:SpatialAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SpatialAgreementTemplateShape.ttl> (SpatialAgreementTemplateShape): In a _:SpatialAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION, ids:operator pointing to an IRI of a spatial comparison operator (e.g. idsc:INSIDE) and ids:rightOperand pointing to one of three things: 1.) an URI of a named area. 2.) an ids:GeoPoint with ids:latitude and ids:longitude both pointing to an xsd:float. Or 3.) an ids:BoundingPolygon with at least three ids:geoPoint properties pointing to an ids:Geopoint with ids:latitude and ids:longitude each."@en ;
+.
+
+
+shapes:SpatialAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:SpatialAgreementPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SalesTemplates/SpatialAgreementTemplateShape.ttl> (SpatialAgreementTemplate-permissionPropertyShape): In a _:SpatialAgreement the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION, ids:operator pointing to an IRI of a spatial comparison operator (e.g. idsc:INSIDE) and ids:rightOperand pointing to one of three things: 1.) an URI of a named area. 2.) an ids:GeoPoint with ids:latitude and ids:longitude both pointing to an xsd:float. Or 3.) an ids:BoundingPolygon with at least three ids:geoPoint properties pointing to an ids:Geopoint with ids:latitude and ids:longitude each."@en ;
+.
+
+
+shapes:SpatialAgreementPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:SpatialPermissionTemplate-constraintPropertyShape ;
+.
+
+
+shapes:SpatialPermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:node shapes:SpatialPermissionConstraintTemplateShape ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/SpatialAgreementTemplateShape.ttl/> (SpatialPermissionTemplate-constraintPropertyShape): In an ids:SpatialAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION, ids:operator pointing to an IRI of a spatial comparison operator (e.g. idsc:INSIDE) and ids:rightOperand pointing to one of three things: 1.) an URI of a named area. 2.) an ids:GeoPoint with ids:latitude and ids:longitude both pointing to an xsd:float. Or 3.) an ids:BoundingPolygon with at least three ids:geoPoint properties pointing to an ids:Geopoint with ids:latitude and ids:longitude each."@en ;
+.
+
+
+shapes:SpatialPermissionConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:SpatialPermissionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:SpatialPermissionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:SpatialPermissionConstraintTemplate-rightOperandPropertyShape ;
+.
+
+
+shapes:SpatialPermissionConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:ABSOLUTE_SPATIAL_POSITION ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/SpatialAgreementTemplateShape.ttl> (SpatialPermissionConstraintTemplate-leftOperandPropertyShape): In an ids:SpatialAgreement/-Offer/-Request within the ids:Permission within the ids:Constraint the ids:leftOperand must point to idsc:ABSOLUTE_SPATIAL_POSITION."@en ;
+.
+
+
+shapes:SpatialPermissionConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/SpatialAgreementTemplateShape.ttl> (SpatialPermissionConstraintTemplate-operatorPropertyShape): In an ids:SpatialAgreement/-Offer/-Request within the ids:Permission within the Constraint the ids:operator must point to an IRI of a spatial comparison operator (e.g. idsc:INSIDE)."@en ;
+.
+
+
+shapes:SpatialPermissionConstraintTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:or (
+        [
+            sh:nodeKind sh:IRI ;
+        ]
+        [
+            sh:class ids:GeoPoint ;
+            sh:node shapes:SpatialPermissionConstraintGeoPointTemplateShape ;
+        ]
+        [
+            sh:class ids:BoundingPolygon ;
+            sh:node shapes:SpatialPermissionConstraintBoundingPolygonTemplateShape ;
+        ]
+    ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/SpatialAgreementTemplateShape.ttl> (SpatialPermissionConstraintTemplate-rightOperandPropertyShape): In an ids:SpatialAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:rightOperand must point to one of three things: 1.) an URI of a named area. 2.) an ids:GeoPoint with ids:latitude and ids:longitude both pointing to an xsd:float. Or 3.) an ids:BoundingPolygon with at least three ids:geoPoint properties pointing to an ids:Geopoint with ids:latitude and ids:longitude each."@en ;
+.
+
+
+shapes:SpatialPermissionConstraintGeoPointTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:SpatialPermissionConstraintGeoPointTemplate-latitudePropertyShape ;
+    sh:property shapes:SpatialPermissionConstraintGeoPointTemplate-longitudePropertyShape ;
+.
+
+
+shapes:SpatialPermissionConstraintGeoPointTemplate-latitudePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:latitude ;
+    sh:datatype xsd:float ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/SpatialAgreementTemplateShape.ttl> (SpatialPermissionConstraintGeoPointTemplate-latitudePropertyShape): In an ids:GeoPoint the ids:latitude must point a xsd:float."@en ;
+.
+
+
+shapes:SpatialPermissionConstraintGeoPointTemplate-longitudePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:longitude ;
+    sh:datatype xsd:float ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/SpatialAgreementTemplateShape.ttl> (SpatialPermissionConstraintGeoPointTemplate-longitudePropertyShape): In an ids:GeoPoint the ids:longitude must point a xsd:float."@en ;
+.
+
+
+shapes:SpatialPermissionConstraintBoundingPolygonTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:SpatialPermissionConstraintBoundingPolygonTemplate-geoPointPropertyShape ;
+.
+
+
+shapes:SpatialPermissionConstraintBoundingPolygonTemplate-geoPointPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:geoPoint ;
+    sh:class ids:GeoPoint ;
+    sh:node shapes:SpatialPermissionConstraintGeoPointTemplateShape ;
+    sh:minCount 3 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/SpatialAgreementTemplateShape.ttl> (SpatialPermissionConstraintBoundingPolygonTemplate-geopointPropertyShape): An ids:BoundingPolygon must have at least three ids:geoPoint properties pointing to an ids:Geopoint with ids:latitude and ids:longitude each."@en ;
+.

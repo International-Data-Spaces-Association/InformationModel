@@ -1,0 +1,131 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:EventAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:EventAgreement ;
+    sh:property shapes:EventAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventRestrictedUsage/EventAgreementTemplateShape.ttl> (EventAgreementTemplateShape): In a _:EventAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint. Within the constraint the ids:leftOperand specifies an EventURI via rdf:subject and defines ids:broader pointing to idsc:EVENT. The ids:operator must be idsc:EQUALS, the ids:rightOperand must be true as xsd:boolean and the ids:pipEndpoint must specify an EventPipUri."@en ;
+.
+
+
+shapes:EventAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:EventAgreementPermissionTemplate ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventRestrictedUsage/EventAgreementTemplateShape.ttl> (EventAgreementTemplate-permissionPropertyShape): In a _:EventAgreement the ids:permission property must point to exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint. Within the constraint the ids:leftOperand specifies an EventURI via rdf:subject and defines ids:broader pointing to idsc:EVENT. The ids:operator must be idsc:EQUALS, the ids:rightOperand must be true as xsd:boolean and the ids:pipEndpoint must specify an EventPipUri."@en ;
+.
+
+
+shapes:EventAgreementPermissionTemplate
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:EventPermissionTemplate-constraintPropertyShape ;
+.
+
+
+shapes:EventPermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:node shapes:EventPermissionConstraintTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventAgreementTemplates/EventAgreementTemplateShape.ttl> (EventPermissionTemplate-constraintPropertyShape): In an ids:EventAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint. Within the constraint the ids:leftOperand specifies an EventURI via rdf:subject and defines ids:broader pointing to idsc:EVENT. The ids:operator must be idsc:EQUALS, the ids:rightOperand must be true as xsd:boolean and the ids:pipEndpoint must specify an EventPipUri."@en ;
+.
+
+
+shapes:EventPermissionConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:EventPermissionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:EventPermissionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:EventPermissionConstraintTemplate-rightOperandPropertyShape ;
+    sh:property shapes:EventPermissionConstraintTemplate-pipEndpointPropertyShape ;
+.
+
+
+shapes:EventPermissionConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:node shapes:EventPermissionConstraintTemplate-leftOperandPropertyShape-valueShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventAgreementTemplates/EventAgreementTemplateShape.ttl> (EventPermissionConstraintTemplate-leftOperandPropertyShape): In an ids:EventAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint. Within the constraint the ids:leftOperand specifies an EventURI via rdf:subject and defines ids:broader pointing to idsc:EVENT."@en ;
+.
+
+
+shapes:EventPermissionConstraintTemplate-leftOperandPropertyShape-valueShape
+    a sh:NodeShape ;
+    sh:property shapes:EventPermissionConstraintTemplate-subjectPropertyShape ;
+    sh:property shapes:EventPermissionConstraintTemplate-broaderPropertyShape ;
+.
+
+
+shapes:EventPermissionConstraintTemplate-subjectPropertyShape
+    a sh:PropertyShape ;
+    sh:path rdf:subject ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventAgreementTemplates/EventAgreementTemplateShape.ttl> (EventPermissionConstraintTemplate-subjectPropertyShape): In an ids:EventAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint. Within the constraint the ids:leftOperand specifies an EventURI via rdf:subject and defines ids:broader pointing to idsc:EVENT."@en ;
+.
+
+
+shapes:EventPermissionConstraintTemplate-broaderPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:broader ;
+    sh:hasValue idsc:EVENT ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventAgreementTemplates/EventAgreementTemplateShape.ttl> (EventPermissionConstraintTemplate-broaderPropertyShape): In an ids:EventAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint. Within the constraint the ids:leftOperand specifies an EventURI via rdf:subject and defines ids:broader pointing to idsc:EVENT."@en ;
+.
+
+
+shapes:EventPermissionConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:EQUALS ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventAgreementTemplates/EventAgreementTemplateShape.ttl> (EventPermissionConstraintTemplate-operatorPropertyShape): In an ids:EventAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:EQUALS."@en ;
+.
+
+
+shapes:EventPermissionConstraintTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:hasValue "true"^^xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventAgreementTemplates/EventAgreementTemplateShape.ttl> (EventPermissionConstraintTemplate-rightOperandPropertyShape): In an ids:EventAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:rightOperand property pointing to true as xsd:boolean."@en ;
+.
+
+
+shapes:EventPermissionConstraintTemplate-pipEndpointPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:pipEndpoint ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/EventAgreementTemplates/EventAgreementTemplateShape.ttl> (EventPermissionConstraintTemplate-pipEndpointPropertyShape): In an ids:EventAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:pipEndpoint property pointing to the EventPipUri."@en ;
+.

@@ -1,0 +1,108 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:NotMoreThanNAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:NotMoreThanNAgreement ;
+    sh:property shapes:NotMoreThanNAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/NTimesUsageTemplates/NTimesUsageAgreementTemplateShape.ttl> (NotMoreThanNAgreementTemplateShape): In a _:NotMoreThanNAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:COUNT, ids:operator idsc:LTEQ, ids:rightOperand specifying the N as xsd:interger >= 1 and ids:pipEndpoint pointing to a PipUri."@en ;
+.
+
+
+shapes:NotMoreThanNAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:NotMoreThanNAgreementPermissionTemplate ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/NTimesUsageTemplates/NTimesUsageAgreementTemplateShape.ttl> (NotMoreThanNAgreementTemplate-permissionPropertyShape): In a _:NotMoreThanNAgreement the ids:permission property must point to exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:COUNT, ids:operator idsc:LTEQ, ids:rightOperand specifying the N as xsd:interger >= 1 and ids:pipEndpoint pointing to a PipUri."@en ;
+.
+
+
+shapes:NotMoreThanNAgreementPermissionTemplate
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:NotMoreThanNPermissionTemplate-constraintPropertyShape ;
+.
+
+
+shapes:NotMoreThanNPermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:node shapes:NotMoreThanNPermissionConstraintTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/NTimesUsageTemplates/NTimesUsageAgreementTemplate.ttl> (NotMoreThanNPermissionTemplate-constraintPropertyShape): In an ids:NotMoreThanNAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:COUNT, ids:operator idsc:LTEQ, ids:rightOperand specifying the N as xsd:interger >= 1 and ids:pipEndpoint pointing to a PipUri."@en ;
+.
+
+
+shapes:NotMoreThanNPermissionConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:NotMoreThanNPermissionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:NotMoreThanNPermissionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:NotMoreThanNPermissionConstraintTemplate-rightOperandPropertyShape ;
+    sh:property shapes:NotMoreThanNPermissionConstraintTemplate-pipEndpointPropertyShape ;
+.
+
+
+shapes:NotMoreThanNPermissionConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:COUNT ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/NTimesUsageTemplates/NTimesUsageAgreementTemplate.ttl> (NotMoreThanNPermissionConstraintTemplate-leftOperandPropertyShape): In an ids:NotMoreThanNAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:COUNT."@en ;
+.
+
+
+shapes:NotMoreThanNPermissionConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:LTEQ ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/NTimesUsageTemplates/NTimesUsageAgreementTemplate.ttl> (NotMoreThanNPermissionConstraintTemplate-operatorPropertyShape): In an ids:NotMoreThanNAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:LTEQ."@en ;
+.
+
+
+shapes:NotMoreThanNPermissionConstraintTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:integer ;
+    sh:minInclusive 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/NTimesUsageTemplates/NTimesUsageAgreementTemplate.ttl> (NotMoreThanNPermissionConstraintTemplate-rightOperandPropertyShape): In an ids:NotMoreThanNAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:rightOperand property specifying the N as xsd:integer >= 1."@en ;
+.
+
+
+shapes:NotMoreThanNPermissionConstraintTemplate-pipEndpointPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:pipEndpoint ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/NTimesUsageTemplates/NTimesUsageAgreementTemplate.ttl> (NotMoreThanNPermissionConstraintTemplate-pipEndpointPropertyShape): In an ids:NotMoreThanNAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:pipEndpoint property specifying the PipUri."@en ;
+.
+
