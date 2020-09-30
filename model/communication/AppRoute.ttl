@@ -90,5 +90,5 @@ ids:appRouteOutput a owl:ObjectProperty;
     rdfs:domain ids:AppRoute;
     rdfs:range ids:Resource;
     rdfs:label "app route output"@en ;
-    rdfs:comment "Corresponding ids:Resource for the output(s) of an app route."@en ;
+    rdfs:comment "ids:Resource that corresponds to the output of an app route.  Rationale: whereas an ids:Endpoint can have an ids:endpointArtifact, it is additionally important that the data flow inside the ids:Connector / ids:ConfigurationModel is aware of the ids:ContractOffer (a property of ids:Resource!) associated with the data coming into the Connector or going out of the Connector.  Use: Whenever properties of this Resource change, it may make sense to notify the ids:broker(s) configured for this AppRoute."@en ;
 .
