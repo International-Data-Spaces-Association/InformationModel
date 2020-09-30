@@ -28,6 +28,10 @@ ids:ConfigurationModel a owl:Class ;
                        idsm:forProperty ids:connectorProxy;
                        idsm:relationType idsm:OneToMany ;
                    ];
+    idsm:validation [
+                       idsm:forProperty ids:configuredBroker;
+                       idsm:relationType idsm:OneToMany ;
+                   ];
    idsm:validation [
                        idsm:forProperty ids:appRoute;
                        idsm:relationType idsm:OneToMany ;
@@ -88,6 +92,13 @@ ids:keyStore a owl:DatatypeProperty;
     rdfs:range xsd:anyURI;
     rdfs:label "key store"@en ;
     rdfs:comment "URI of the key store server."@en ;
+.
+
+ids:configuredBroker a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:Broker;
+    rdfs:label "broker"@en ;
+    rdfs:comment "One or more brokers to which the ids:Connector that we are configuring (cf. ids:connectorDescription) may want to talk."@en ;
 .
 
 ids:appRoute a owl:ObjectProperty;
