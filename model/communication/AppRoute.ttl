@@ -9,7 +9,7 @@ ids:AppRoute a owl:Class;
     rdfs:label "App Route"@en ;
     rdfs:comment """
     ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.
-    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is represented by the ids:EndToEndRoutes class.
+    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between two adjacent data apps is represented by the ids:RouteStep class.
     ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.
     """@en ;
     idsm:validation [
@@ -17,7 +17,7 @@ ids:AppRoute a owl:Class;
         idsm:constraint idsm:NotNull ;
     ];
     idsm:validation [
-        idsm:forProperty ids:subRoute;
+        idsm:forProperty ids:hasSubRoute;
         idsm:relationType idsm:OneToMany ;
     ];
     idsm:validation [
@@ -56,18 +56,18 @@ ids:routeConfiguration a owl:DatatypeProperty;
     rdfs:comment "Configuration details (e.g. contents of a config file) used to configure the route. Should be Base64 encoded."@en ;
 .
 
-ids:subRoute a owl:ObjectProperty;
+ids:hasSubRoute a owl:ObjectProperty;
     rdfs:label "sub route"@en ;
     rdfs:domain ids:AppRoute;
-    rdfs:range ids:EndToEndRoute;
+    rdfs:range ids:RouteStep;
     rdfs:comment "Route between two or more app endpoints inside a app routing pipeline."@en ;
 .
 
-ids:EndToEndRoute a owl:Class;
+ids:RouteStep a owl:Class;
     rdfs:subClassOf ids:AppRoute;
     rdfs:label "end to end route"@en ;
     rdfs:comment """
-    EndToEndRoute hold information about a communication pipelines between apps. An EndToEndRoute should hold
+    RouteSteps hold information about a communication pipelines between apps. A RouteStep should hold
     one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.
     """@en ;
     .
