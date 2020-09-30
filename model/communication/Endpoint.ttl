@@ -55,7 +55,7 @@ ids:GenericEndpoint
     a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
     rdfs:label "Generic Endpoint"@en ;
-    rdfs:comment "Generic endpoints describe non-IIDS-specific endpoints, e.g. to integrate external services."@en ;
+    rdfs:comment "Generic endpoints describe non-IDS-specific endpoints, e.g., to integrate external services."@en ;
 .
 
 
@@ -84,7 +84,7 @@ ids:endpointDocumentation
     rdfs:domain ids:Endpoint ;
     rdfs:range xsd:anyURI ;
     rdfs:label "endpoint documentation"@en ;
-    rdfs:comment "IRI reference to a documentation of the endpoint,  e.g., reference to an OpenAPI-based documentation."@en ;
+    rdfs:comment "IRI reference to a documentation of the endpoint, e.g., reference to an OpenAPI-based documentation."@en ;
 .
 
 ids:endpointArtifact
@@ -106,14 +106,14 @@ ids:inboundPath
     rdfs:label "inbound topic"@en;
     rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Relative path used for inbound communication via this endpoint, i.e. input messages and faults only."@en.
+    rdfs:comment "Relative path used for inbound communication via this endpoint, i.e., input messages and faults only."@en.
 
 ids:outboundPath
     a owl:DatatypeProperty;
     rdfs:label "outbound topic"@en;
     rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Relative path used for outbound communication via this endpoint, i.e. output messages and faults only."@en.
+    rdfs:comment "Relative path used for outbound communication via this endpoint, i.e., output messages and faults only."@en.
 
 
 ids:appEndpointType
@@ -153,5 +153,5 @@ ids:genericEndpointConfiguration
 	rdfs:domain ids:GenericEndpoint ;
 	rdfs:range xsd:string ;
 	rdfs:label "generic endpoint configuration"@en ;
-    rdfs:comment "Endpoint-specific configuration details (e.g. contents of a config file) used for the endpoint."@en ;
+    rdfs:comment "Endpoint-specific configuration details (e.g., contents of a config file) used for the endpoint."@en ;
 .
