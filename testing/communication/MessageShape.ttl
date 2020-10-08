@@ -138,6 +138,16 @@ shapes:MessageShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ;
 	] ;
 
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:operationReference ;
+		sh:nodeKind sh:IRI ;
+        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:operationReference property must point from an ids:Message to a URI."@en ;
+	] ;
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:contentVersion ;

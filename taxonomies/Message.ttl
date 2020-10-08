@@ -312,9 +312,8 @@ ids:InvokeOperationMessage a owl:Class ;
     ].
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:InvokeOperationMessage ;
-    rdfs:range ids:Operation ;
+    rdfs:range xsd:anyURI ;
     rdfs:label "Operation Reference"@en ;
     rdfs:comment "References the operation to be invoked on the recipient's side by an URI."@en.
 
