@@ -1,0 +1,64 @@
+
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:DeleteAfterIntervalRequestTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:DeleteAfterIntervalRequest ;
+    sh:node shapes:HasProviderOrConsumerNodeShape ;
+    sh:property shapes:DeleteAfterIntervalRequestTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionRequestTemplateShape.ttl> (DeleteAfterIntervalRequestTemplateShape): In a _:DeleteAfterIntervalRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp. In the Permission the ids:postDuty property must point to an ids:Duty with at least one of (ids:assigner or ids:assignee) pointing to a participant, and exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:DELETE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalRequestTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:DeleteAfterIntervalRequestPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionRequestTemplateShape.ttl> (DeleteAfterIntervalRequestTemplateShape-permissionPropertyShape): In a _:DeleteAfterIntervalRequest the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp. In the Permission the ids:postDuty property must point to an ids:Duty with at least one of (ids:assigner or ids:assignee) pointing to a participant, and exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:DELETE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalRequestPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyForAfterShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyForBeforeShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-postDutyPropertyShape ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionTemplate-postDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:postDuty ;
+    sh:class ids:Duty ;
+    sh:node shapes:DeleteAfterIntervalPermissionPostDutyTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionRequestTemplateShape.ttl/> (DeleteAfterIntervalPermissionTemplate-postDutyPropertyShape): In an ids:DeleteAfterIntervalRequest/-Request/-Request within the ids:Permission ids:postDuty property must point to an ids:Duty with at least one of (ids:assigner or ids:assignee) pointing to a participant, and exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:DELETE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionPostDutyTemplate-actionPropertyShape ;
+.

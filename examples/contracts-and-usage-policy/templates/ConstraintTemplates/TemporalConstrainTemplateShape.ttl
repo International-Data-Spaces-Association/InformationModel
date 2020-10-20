@@ -1,0 +1,239 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:TemporalConstraintTemplateShape
+	a sh:NodeShape ;
+    sh:node shapes:TemporalConstraintTemplateOptionsShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateShape): A _:TemporalConstraint can be defined as a) an ids:TemporalConstraint where the ids:leftOperand property must point to idsc:POLICY_EVALUATION_TIME, the ids:operator points to exactly one of (idsc:AFTER | idsc:BEFORE | idsc:CONTAINS | idsc:TEMPORAL_DISJOINT | idsc:DURING | idsc:TEMPORAL_EQUALS | idsc:FINISHED_BY | idsc:FINISHES | idsc:MEETS | idsc:MET_BY | idsc:OVERLAPS | idsc:OVERLAPPED_BY | idsc:STARTS | idsc:STARTED_BY), the ids:rightOperand points to one xsd:duration and the ids:pipEndpoint property can point to zero or one IRI specifying a clock endpoint; b) as ids:TemporalConstraint where the ids:leftOperand property must point to idsc:ELAPSED_TIME,  the ids:operator points to exactly one of (idsc:SHORTER | idsc:SHORTER_EQ | idsc:LONGER), the ids:rightOperand points to one xsd:duration and the ids:pipEndpoint property can point to zero or one IRI specifying a clock endpoint; or c) an ids:LogicalConstraint with exactly two ids:and properties each pointing to one ids:TemporalConstraint. In one TemporalConstraint within the ids:LogicalConstraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER, the ids:rightOperand must point to an xsd:dateTimeStamp and zero or one ids:pipEndpoint properties point to the IRI of a clock endpoint. In the other TemporalConstraint within the ids:LogicalConstraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE, the ids:rightOperand must point to an xsd:dateTimeStamp and zero or one ids:pipEndpoint properties point to the IRI of a clock endpoint."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionsShape
+    a sh:NodeShape ;
+    sh:or(
+        [
+            sh:class ids:TemporalConstraint ;
+            sh:node shapes:TemporalConstraintTemplateOptionPolicyEvalTimeShape ;
+        ]
+        [
+            sh:class ids:TemporalConstraint ;
+            sh:node shapes:TemporalConstraintTemplateOptionElapsedTimeShape ;
+        ]
+        [
+            sh:class ids:LogicalConstraint ;
+            sh:node shapes:TemporalConstraintTemplateOptionLogicalConstraintShape ;
+        ]
+    ) ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateShape): A _:TemporalConstraint can be defined as a) an ids:TemporalConstraint where the ids:leftOperand property must point to idsc:POLICY_EVALUATION_TIME, the ids:operator points to exactly one of (idsc:AFTER | idsc:BEFORE | idsc:CONTAINS | idsc:TEMPORAL_DISJOINT | idsc:DURING | idsc:TEMPORAL_EQUALS | idsc:FINISHED_BY | idsc:FINISHES | idsc:MEETS | idsc:MET_BY | idsc:OVERLAPS | idsc:OVERLAPPED_BY | idsc:STARTS | idsc:STARTED_BY), the ids:rightOperand points to one xsd:duration and the ids:pipEndpoint property can point to zero or one IRI specifying a clock endpoint; b) as ids:TemporalConstraint where the ids:leftOperand property must point to idsc:ELAPSED_TIME,  the ids:operator points to exactly one of (idsc:SHORTER | idsc:SHORTER_EQ | idsc:LONGER), the ids:rightOperand points to one xsd:duration and the ids:pipEndpoint property can point to zero or one IRI specifying a clock endpoint; or c) an ids:LogicalConstraint with exactly two ids:and properties each pointing to one ids:TemporalConstraint. In one TemporalConstraint within the ids:LogicalConstraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER, the ids:rightOperand must point to an xsd:dateTimeStamp and zero or one ids:pipEndpoint properties point to the IRI of a clock endpoint. In the other TemporalConstraint within the ids:LogicalConstraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE, the ids:rightOperand must point to an xsd:dateTimeStamp and zero or one ids:pipEndpoint properties point to the IRI of a clock endpoint."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionPolicyEvalTimeShape
+    a sh:NodeShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionPolicyEvalTime-leftOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionPolicyEvalTime-operatorPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionPolicyEvalTime-rightOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplate-pipEndpointPropertyShape ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionPolicyEvalTime-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:POLICY_EVALUATION_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateOptionPolicyEvalTime-leftOperandPropertyShape): In a _:TemporalConstraint the ids:leftOperand property must point to idsc:POLICY_EVALUATION_TIME or idsc:ELAPSED_TIME."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionPolicyEvalTime-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:in (
+        idsc:AFTER idsc:BEFORE idsc:CONTAINS idsc:TEMPORAL_DISJOINT idsc:DURING idsc:TEMPORAL_EQUALS idsc:FINISHED_BY idsc:FINISHES idsc:MEETS idsc:MET_BY idsc:OVERLAPS idsc:OVERLAPPED_BY idsc:STARTS idsc:STARTED_BY
+    ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateOptionPolicyEvalTime-operatorPropertyShape): In a _:TemporalConstraint with ids:leftOperand idsc:POLICY_EVALUATION_TIME the ids:operator property must point to exactly one of the following values: idsc:AFTER | idsc:BEFORE | idsc:CONTAINS | idsc:TEMPORAL_DISJOINT | idsc:DURING | idsc:TEMPORAL_EQUALS | idsc:FINISHED_BY | idsc:FINISHES | idsc:MEETS | idsc:MET_BY | idsc:OVERLAPS | idsc:OVERLAPPED_BY | idsc:STARTS | idsc:STARTED_BY."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionPolicyEvalTime-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateOptionPolicyEvalTime-rightOperandPropertyShape): In a _:TemporalConstraint with ids:leftOperand idsc:POLICY_EVALUATION_TIME the ids:rightOperand property must point to a xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionElapsedTimeShape
+    a sh:NodeShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionElapsedTime-leftOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionElapsedTime-operatorPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionElapsedTime-rightOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplate-pipEndpointPropertyShape ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionElapsedTime-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:ELAPSED_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateOptionElapsedTime-leftOperandPropertyShape): In a _:TemporalConstraint the ids:leftOperand property must point to idsc:POLICY_EVALUATION_TIME or idsc:ELAPSED_TIME."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionElapsedTime-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:in (
+        idsc:SHORTER idsc:SHORTER_EQ idsc:LONGER
+    ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateOptionElapsedTime-operatorPropertyShape): In a _:TemporalConstraint with ids:leftOperand idsc:ELAPSED_TIME the ids:operator property must point to exactly one of the following values: idsc:SHORTER | idsc:SHORTER_EQ | idsc:LONGER."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionElapsedTime-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:duration ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplateOptionElapsedTime-rightOperandPropertyShape): In a _:TemporalConstraint with ids:leftOperand idsc:ELAPSED_TIME the ids:rightOperand property must point to a xsd:duration."@en ;
+.
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraintShape
+    a sh:NodeShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraint-andPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraint-andPropertyTemporalConstraintForAfterShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraint-andPropertyTemporalConstraintForBeforeShape ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraint-andPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:and ;
+    sh:minCount 2 ;
+    sh:maxCount 2 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RolebasedAgreementTemplates/RolebasedAgreementTemplateShape.ttl/> (TemporalConstraintTemplateOptionLogicalConstraint-andPropertyShape): If an ids:LogicalConstraint is used to define a temporal duration, it must have two ids:and properties which must point to one ids:TemporalConstraint each."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraint-andPropertyTemporalConstraintForAfterShape
+    a sh:PropertyShape ;
+    sh:path ids:and ;
+    sh:class ids:TemporalConstraint ;
+    sh:qualifiedValueShape [ sh:node shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForAfterShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl/> (TemporalConstraintTemplateOptionLogicalConstraint-andPropertyTemporalConstraintForAfterShape): If an ids:LogicalConstraint is used to define a temporal duration, it must have two ids:and properties which must point to one ids:TemporalConstraint each. In one TemporalConstraint within the ids:LogicalConstraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER, the ids:rightOperand must point to an xsd:dateTimeStamp and zero or one ids:pipEndpoint properties point to the IRI of a clock endpoint."@en ;
+.
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForAfterShape
+    a sh:NodeShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-leftOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForAfter-operatorPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-rightOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplate-pipEndpointPropertyShape ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:POLICY_EVALUATION_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl/> (TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-leftOperandPropertyShape): If an ids:LogicalConstraint is used to define a temporal duration, it must have two ids:and properties which must point to one ids:TemporalConstraint each. In the TemporalConstraints within the ids:LogicalConstraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForAfter-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:AFTER ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl/> (TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-leftOperandPropertyShape): If an ids:LogicalConstraint is used to define a temporal duration, it must have two ids:and properties which must point to one ids:TemporalConstraint each. In one TemporalConstraint within the ids:LogicalConstraint the ids:operator must point to idsc:AFTER."@en ;
+.
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl/> (TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-leftOperandPropertyShape): If an ids:LogicalConstraint is used to define a temporal duration, it must have two ids:and properties which must point to one ids:TemporalConstraint each. In the TemporalConstraints within the ids:LogicalConstraint the ids:rightOperand must point to an xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraint-andPropertyTemporalConstraintForBeforeShape
+    a sh:PropertyShape ;
+    sh:path ids:and ;
+    sh:class ids:TemporalConstraint ;
+    sh:qualifiedValueShape [ sh:node shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForBeforeShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl/> (TemporalConstraintTemplateOptionLogicalConstraint-andPropertyTemporalConstraintForBeforeShape): If an ids:LogicalConstraint is used to define a temporal duration, it must have two ids:and properties which must point to one ids:TemporalConstraint each. In one TemporalConstraint within the ids:LogicalConstraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE, the ids:rightOperand must point to an xsd:dateTimeStamp and zero or one ids:pipEndpoint properties point to the IRI of a clock endpoint."@en ;
+.
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForBeforeShape
+    a sh:NodeShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-leftOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForBefore-operatorPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-rightOperandPropertyShape ;
+    sh:property shapes:TemporalConstraintTemplate-pipEndpointPropertyShape ;
+.
+
+
+shapes:TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraintForBefore-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:BEFORE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl/> (TemporalConstraintTemplateOptionLogicalConstraintTemporalConstraint-leftOperandPropertyShape): If an ids:LogicalConstraint is used to define a temporal duration, it must have two ids:and properties which must point to one ids:TemporalConstraint each. In one TemporalConstraint within the ids:LogicalConstraint the ids:operator must point to idsc:BEFORE."@en ;
+.
+
+
+shapes:TemporalConstraintTemplate-pipEndpointPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:pipEndpoint ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/TemporalConstraintTemplateShape.ttl> (TemporalConstraintTemplate-pipEndpointPropertyShape): In a _:TemporalConstraint the ids:pipEndpoint property points to zero or one IRI specifying a clock endpoint ."@en ;
+.

@@ -1,0 +1,44 @@
+
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:IntervalUsageOfferTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:IntervalUsageOffer ;
+    sh:node shapes:HasProviderOrConsumerNodeShape ;
+    sh:property shapes:IntervalUsageOfferTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageOfferTemplateShape.ttl> (IntervalUsageOfferTemplateShape): In a _:IntervalUsageOffer a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:IntervalUsageOfferTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:IntervalUsageOfferPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/IntervalUsageOfferTemplateShape.ttl> (IntervalUsageOfferTemplateShape-permissionPropertyShape): In a _:IntervalUsageOffer the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:IntervalUsageOfferPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionTemplate-constraintPropertyShape ;
+    sh:property shapes:IntervalUsagePermissionTemplate-constraintPropertyForAfterShape ;
+    sh:property shapes:IntervalUsagePermissionTemplate-constraintPropertyForBeforeShape ;
+.

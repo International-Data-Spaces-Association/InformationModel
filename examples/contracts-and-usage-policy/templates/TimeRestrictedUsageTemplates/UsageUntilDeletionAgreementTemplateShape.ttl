@@ -1,0 +1,264 @@
+
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:DeleteAfterIntervalAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:DeleteAfterIntervalAgreement ;
+    sh:property shapes:DeleteAfterIntervalAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalAgreementTemplateShape): In a _:DeleteAfterIntervalAgreement the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp. In the Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:assigner pointing to a participant, exactly one ids:assignee pointing to a participant, and exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:DELETE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:DeleteAfterIntervalAgreementPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalAgreementTemplateShape-permissionPropertyShape): In a _:DeleteAfterIntervalAgreement the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. There must be two ids:constraint properties pointing to an ids:Constraint each. Within one ids:Constrint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp. Within the other ids:Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp. In the Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:assigner pointing to a participant, exactly one ids:assignee pointing to a participant, and exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:DELETE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalAgreementPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyForAfterShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyForBeforeShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionTemplate-postDutyPropertyShape ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:minCount 2 ;
+    sh:maxCount 2 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionTemplate-constraintPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission two ids:constraint properties must point to an ids:Constraint each."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyForAfterShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:qualifiedValueShape [ sh:node shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplateShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionTemplate-constraintPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint where the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand must specify the start timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplate-leftOperandPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplate-operatorPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplate-rightOperandPropertyShape ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:POLICY_EVALUATION_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionConstraintForAfterTemplate-leftOperandPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:POLICY_EVALUATION_TIME."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:AFTER ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionConstraintForAfterTemplate-operatorPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:AFTER."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForAfterTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionConstraintForAfterTemplate-rightOperandPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:rightOperand property specifying start timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionTemplate-constraintPropertyForBeforeShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:Constraint ;
+    sh:qualifiedValueShape [ sh:node shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplateShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionTemplate-constraintPropertyForeBeforeShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint where the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:BEFORE and the ids:rightOperand must specify the end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplate-leftOperandPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplate-operatorPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplate-rightOperandPropertyShape ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:POLICY_EVALUATION_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionConstraintForBeforeTemplate-leftOperandPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:POLICY_EVALUATION_TIME."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:BEFORE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionConstraintForBeforeTemplate-operatorPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:BEFORE."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionConstraintForBeforeTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionConstraintForBeforeTemplate-rightOperandPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission one ids:constraint property must point to an ids:Constraint with an ids:rightOperand property specifying end timestamp of the interval as xsd:dateTimeStamp."@en ;
+.
+
+shapes:DeleteAfterIntervalPermissionTemplate-postDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:postDuty ;
+    sh:class ids:Duty ;
+    sh:node shapes:DeleteAfterIntervalPermissionPostDutyTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl/> (DeleteAfterIntervalPermissionTemplate-postDutyPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission ids:postDuty property must point to an ids:Duty with exactly one ids:assigner pointing to a participant, exactly one ids:assignee pointing to a participant, and exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:DELETE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:ObligationTemplate-assignerPropertyShape ;
+    sh:property shapes:ObligationTemplate-assigneePropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionPostDutyTemplate-actionPropertyShape ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyTemplate-actionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:action ;
+    sh:class ids:Action ;
+    sh:node shapes:DeleteAfterIntervalPermissionPostDutyActionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalPermissionPostDutyTemplate-actionPropertyShape):  In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission ids:postDuty property must point to an ids:Duty with exactly one ids:assigner pointing to a participant, exactly one ids:assignee pointing to a participant, and exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:DELETE and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp."@en ;
+.
+
+shapes:DeleteAfterIntervalPermissionPostDutyActionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionPostDutyActionTemplate-includedInPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionPostDutyActionTemplate-actionRefinementPropertyShape ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyActionTemplate-includedInPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:includedIn ;
+    sh:hasValue idsc:DELETE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalPermissionPostDutyActionTemplate-includedInPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action the ids:includedIn property must point to idsc:DELETE."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyActionTemplate-actionRefinementPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:actionRefinement ;
+    sh:class ids:Constraint ;
+    sh:node shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalPermissionPostDutyActionTemplate-actionRefinementPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:POLICY_EVALUATION_TIME, ids:operator pointing to idsc:TEMPORAL_EQUALS and ids:rightOperand pointing to end date time given as xsd:dateTimeStamp.."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-rightOperandPropertyShape ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-leftOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:POLICY_EVALUATION_TIME ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-leftOperandPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:TEMPORAL_EQUALS ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-operatorPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:operator must point to idsc:TEMPORAL_EQUALS."@en ;
+.
+
+
+shapes:DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-rightOperandPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperand ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/UsageUntilDeletionAgreementTemplateShape.ttl> (DeleteAfterIntervalPermissionPostDutyActionConstraintTemplate-rightOperandPropertyShape): In an ids:DeleteAfterIntervalAgreement/-Offer/-Request within the ids:Permission within the ids:Duty within the ids:Action within the Constraint the ids:rightOperand pointing to end date time given as xsd:dateTimeStamp.."@en ;
+.

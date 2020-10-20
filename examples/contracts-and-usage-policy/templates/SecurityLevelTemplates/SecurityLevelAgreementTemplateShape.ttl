@@ -1,0 +1,188 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:SecurityLevelAgreementTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:SecurityAgreement ;
+    sh:property shapes:SecurityLevelAgreementTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl> (SecurityLevelAgreementTemplateShape): In a _:SecurityAgreement the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. There must be one ids:constraint properties pointing to an ids:LogicalConstraint. Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. At least one ids:Constraint must be specified where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference must point to idsc:TRUST_PLUS_SECURITY_PROFILE. Within the other two possible ids:Constraints the ids:leftOperand must also point to idsc:SECURITY_LEVEL and the ids:operator must point to idsc:SAME_AS. For one ids:Constraint the ids:rightOperandReference can point to idsc:TRUST_SECURITY_PROFILE, the other can point to idsc:BASE_SECURITY_PROFILE. If the idsc:BASE_SECURITY_PROFILE is present, the idsc:TRUST_SECURITY_PROFILE must also be present."@en ;
+.
+
+
+shapes:SecurityLevelAgreementTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:SecurityLevelAgreementPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl> (SecurityLevelAgreementTemplateShape-permissionPropertyShape): In a _:SecurityAgreement the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. There must be one ids:constraint properties pointing to an ids:LogicalConstraint. Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. At least one ids:Constraint must be specified where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference must point to idsc:TRUST_PLUS_SECURITY_PROFILE. Within the other two possible ids:Constraints the ids:leftOperand must also point to idsc:SECURITY_LEVEL and the ids:operator must point to idsc:SAME_AS. For one ids:Constraint the ids:rightOperandReference can point to idsc:TRUST_SECURITY_PROFILE, the other can point to idsc:BASE_SECURITY_PROFILE. If the idsc:BASE_SECURITY_PROFILE is present, the idsc:TRUST_SECURITY_PROFILE must also be present."@en ;
+.
+
+
+shapes:SecurityLevelAgreementPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
+    sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplate-constraintPropertyShape ;
+.
+
+
+shapes:SecurityLevelPermissionTemplate-constraintPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:constraint ;
+    sh:class ids:LogicalConstraint ;
+    sh:node shapes:SecurityLevelPermissionTemplateLogicalConstraintShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplate-constraintPropertyShape): In an ids:SecurityAgreement/-Offer/-Request within the ids:Permission there must be one ids:constraint properties pointing to an ids:LogicalConstraint."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraintShape
+    a sh:NodeShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-orPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-orBasePropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-orTrustPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-orTrustPlusPropertyShape ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraint-orPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:or ;
+    sh:minCount 1 ;
+    sh:maxCount 3 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraint-orPropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. At least one ids:Constraint must be specified where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference must point to idsc:TRUST_PLUS_SECURITY_PROFILE. Within the other two possible ids:Constraints the ids:leftOperand must also point to idsc:SECURITY_LEVEL and the ids:operator must point to idsc:SAME_AS. For one ids:Constraint the ids:rightOperandReference can point to idsc:TRUST_SECURITY_PROFILE, the other can point to idsc:BASE_SECURITY_PROFILE. If the idsc:BASE_SECURITY_PROFILE is present, the idsc:TRUST_SECURITY_PROFILE must also be present."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraint-orBasePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:or ;
+    sh:class ids:Constraint ;
+    sh:qualifiedValueShape [ sh:node shapes:SecurityLevelPermissionTemplateLogicalConstraintBaseShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 0 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraint-orBasePropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. There can be one ids:Constraint where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference must point to idsc:BASE_SECURITY_PROFILE. If the idsc:BASE_SECURITY_PROFILE is present, the idsc:TRUST_SECURITY_PROFILE must also be present."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraintBaseShape
+    a sh:NodeShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-leftOperandPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-operatorPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraintBase-rightOperandReferencePropertyShape ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraint-leftOperandPropertyShape
+a sh:PropertyShape ;
+    sh:path ids:leftOperand ;
+    sh:hasValue idsc:SECURITY_LEVEL ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraint-leftOperandPropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. For each ids:Constraint the ids:leftOperand must point to idsc:SECURITY_LEVEL."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraint-operatorPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:operator ;
+    sh:hasValue idsc:SAME_AS ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraint-operatorPropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. For each ids:Constraint the ids:operator must point to idsc:SAME_AS."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraintBase-rightOperandReferencePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperandReference ;
+    sh:hasValue idsc:BASE_SECURITY_PROFILE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraintBase-rightOperandReferencePropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. There can be one ids:Constraint where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference can point to idsc:BASE_SECURITY_PROFILE. If the idsc:BASE_SECURITY_PROFILE is present, the idsc:TRUST_SECURITY_PROFILE must also be present."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraint-orTrustPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:or ;
+    sh:class ids:Constraint ;
+    sh:qualifiedValueShape [ sh:node shapes:SecurityLevelPermissionTemplateLogicalConstraintTrustShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 0 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraint-orTrustPropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. There can be one ids:Constraint where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference can point to idsc:TRUST_SECURITY_PROFILE. If the idsc:BASE_SECURITY_PROFILE is present, the idsc:TRUST_SECURITY_PROFILE must also be present."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraintTrustShape
+    a sh:NodeShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-leftOperandPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-operatorPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraintTrust-rightOperandReferencePropertyShape ;
+.
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraintTrust-rightOperandReferencePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperandReference ;
+    sh:hasValue idsc:TRUST_SECURITY_PROFILE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraintTrust-rightOperandReferencePropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. There can be one ids:Constraint where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference can point to idsc:TRUST_SECURITY_PROFILE. If the idsc:BASE_SECURITY_PROFILE is present, the idsc:TRUST_SECURITY_PROFILE must also be present."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraint-orTrustPlusPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:or ;
+    sh:class ids:Constraint ;
+    sh:qualifiedValueShape [ sh:node shapes:SecurityLevelPermissionTemplateLogicalConstraintTrustPlusShape ] ;
+    sh:qualifiedValueShapesDisjoint true ;
+    sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraint-orTrustPlusPropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. At least one ids:Constraint must be specified where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference must point to idsc:TRUST_PLUS_SECURITY_PROFILE."@en ;
+.
+
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraintTrustPlusShape
+    a sh:NodeShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-leftOperandPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraint-operatorPropertyShape ;
+    sh:property shapes:SecurityLevelPermissionTemplateLogicalConstraintTrustPlus-rightOperandReferencePropertyShape ;
+.
+
+shapes:SecurityLevelPermissionTemplateLogicalConstraintTrustPlus-rightOperandReferencePropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:rightOperandReference ;
+    sh:hasValue idsc:TRUST_PLUS_SECURITY_PROFILE ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/SecurityLevelAgreementTemplates/SecurityLevelAgreementTemplateShape.ttl/> (SecurityLevelPermissionTemplateLogicalConstraintTrustPlus-rightOperandReferencePropertyShape): Within the ids:LogicalConstraint there must be one to three ids:or properties pointing to one ids:Constraint each. At least one ids:Constraint must be specified where the ids:leftOperand must point to idsc:SECURITY_LEVEL, the ids:operator must point to idsc:SAME_AS and the ids:rightOperandReference must point to idsc:TRUST_PLUS_SECURITY_PROFILE."@en ;
+.

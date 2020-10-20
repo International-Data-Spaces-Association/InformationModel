@@ -14,25 +14,27 @@
 shapes:ConnectorbasedOfferTemplateShape
     a sh:NodeShape ;
     sh:targetClass ids:ConnectorbasedOffer ;
+    sh:node shapes:HasProviderOrConsumerNodeShape ;
     sh:property shapes:ConnectorbasedOfferTemplate-permissionPropertyShape ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedOfferTemplateShape.ttl> (ConnectorbasedOfferTemplateShape): In a _:ConnectorbasedOffer a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant  or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:SYSTEM, ids:operator idsc:SAME_AS and ids:rightOperandReference pointing to the ConnectorUri."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedOfferTemplateShape.ttl> (ConnectorbasedOfferTemplateShape): In a _:ConnectorbasedOffer a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:SYSTEM, ids:operator idsc:SAME_AS and ids:rightOperandReference pointing to the ConnectorUri."@en ;
 .
 
 
 shapes:ConnectorbasedOfferTemplate-permissionPropertyShape
     a sh:PropertyShape ;
     sh:path ids:permission ;
-    sh:node shapes:ConnectorbasedOfferPermissionTemplate ;
+    sh:class ids:Permission ;
+    sh:node shapes:ConnectorbasedOfferPermissionTemplateShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedOfferTemplateShape.ttl> (ConnectorbasedOfferTemplate-permissionPropertyShape): In a _:ConnectorbasedOffer the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission, the ids:target and ids:action properties and one of (ids:assigner and ids:assignee) have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:SYSTEM, ids:operator idsc:SAME_AS and ids:rightOperandReference pointing to the ConnectorUri."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedOfferTemplateShape.ttl> (ConnectorbasedOfferTemplate-permissionPropertyShape): In a _:ConnectorbasedOffer the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission, the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:SYSTEM, ids:operator idsc:SAME_AS and ids:rightOperandReference pointing to the ConnectorUri."@en ;
 .
 
 
-shapes:ConnectorbasedOfferPermissionTemplate
+shapes:ConnectorbasedOfferPermissionTemplateShape
     a sh:NodeShape ;
-    sh:property shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
     sh:property shapes:PermissionTemplate-targetPropertyShape ;
     sh:property shapes:PermissionTemplate-actionPropertyShape ;
     sh:property shapes:ConnectorbasedPermissionTemplate-constraintPropertyShape ;

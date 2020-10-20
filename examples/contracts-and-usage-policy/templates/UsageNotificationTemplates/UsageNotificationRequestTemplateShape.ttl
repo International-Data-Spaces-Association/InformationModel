@@ -1,0 +1,41 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:NotificationRequestTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:NotificationRequest ;
+    sh:node shapes:HasProviderOrConsumerNodeShape ;
+    sh:property shapes:NotificationRequestTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationRequestTemplateShape.ttl> (NotificationRequestTemplateShape): In a _:NotificationRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. In the Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:NOTIFY and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:ENDPOINT, ids:operator pointing to idsc:DEFINES_AS and ids:rightOperandReference pointing to an IRI the information is notified to."@en ;
+.
+
+
+shapes:NotificationRequestTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:NotificationRequestPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/UsageNotificationTemplates/UsageNotificationRequestTemplateShape.ttl> (NotificationRequestTemplate-permissionPropertyShape): In a _:NotificationRequest the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. In the Permission the ids:postDuty property must point to an ids:Duty with exactly one ids:action pointing to ids:Action. Within the ids:Action the ids:includedIn property must point to idsc:NOTIFY and the ids:actionRefinement property must point to an ids:Constraint. Within the ids:Action the ids:Constraint must have ids:leftOperand pointing to idsc:ENDPOINT, ids:operator pointing to idsc:DEFINES_AS and ids:rightOperandReference pointing to an IRI the information is notified to."@en ;
+.
+
+
+shapes:NotificationRequestPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:NotificationPermissionTemplate-postDutyPropertyShape ;
+.

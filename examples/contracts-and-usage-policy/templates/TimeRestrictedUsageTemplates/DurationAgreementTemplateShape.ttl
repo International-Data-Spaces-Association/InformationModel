@@ -15,7 +15,7 @@ shapes:DurationAgreementTemplateShape
     a sh:NodeShape ;
     sh:targetClass ids:DurationAgreement ;
     sh:property shapes:DurationAgreementTemplate-permissionPropertyShape ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DurationAgreementTemplates/DurationAgreementTemplateShape.ttl> (DurationAgreementTemplateShape): In a _:DurationAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ELAPSED_TIME, ids:operator idsc:SHORTER_EQ and ids:rightOperand pointing xsd:duration specifying the duration of the agreement."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/DurationAgreementTemplateShape.ttl> (DurationAgreementTemplateShape): In a _:DurationAgreement the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ELAPSED_TIME, ids:operator idsc:SHORTER_EQ and ids:rightOperand pointing xsd:duration specifying the duration of the agreement."@en ;
 .
 
 
@@ -27,7 +27,7 @@ shapes:DurationAgreementTemplate-permissionPropertyShape
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DurationAgreementTemplates/DurationAgreementTemplateShape.ttl> (DurationAgreementTemplate-permissionPropertyShape): In a _:DurationAgreement the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ELAPSED_TIME, ids:operator idsc:SHORTER_EQ and ids:rightOperand pointing xsd:duration specifying the duration of the agreement."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/DurationAgreementTemplateShape.ttl> (DurationAgreementTemplate-permissionPropertyShape): In a _:DurationAgreement the ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ELAPSED_TIME, ids:operator idsc:SHORTER_EQ and ids:rightOperand pointing xsd:duration specifying the duration of the agreement."@en ;
 .
 
 
@@ -48,7 +48,7 @@ shapes:DurationPermissionTemplate-constraintPropertyShape
     sh:node shapes:DurationPermissionConstraintTemplateShape ;
     sh:minCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DurationAgreementTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionTemplate-constraintPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ELAPSED_TIME, ids:operator idsc:SHORTER_EQ and ids:rightOperand pointing xsd:duration specifying the duration of the agreement."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionTemplate-constraintPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:ELAPSED_TIME, ids:operator idsc:SHORTER_EQ and ids:rightOperand pointing xsd:duration specifying the duration of the agreement."@en ;
 .
 
 
@@ -67,7 +67,7 @@ shapes:DurationPermissionConstraintTemplate-leftOperandPropertyShape
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DurationAgreementTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionConstraintTemplate-leftOperandPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:ELAPSED_TIME."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionConstraintTemplate-leftOperandPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:ELAPSED_TIME."@en ;
 .
 
 
@@ -78,7 +78,7 @@ shapes:DurationPermissionConstraintTemplate-operatorPropertyShape
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DurationAgreementTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionConstraintTemplate-operatorPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:SHORTER_EQ."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionConstraintTemplate-operatorPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:SHORTER_EQ."@en ;
 .
 
 
@@ -89,5 +89,5 @@ shapes:DurationPermissionConstraintTemplate-rightOperandPropertyShape
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DurationAgreementTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionConstraintTemplate-rightOperandPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:rightOperand property pointing to a xsd:duration specifying the duration of the agreement."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/TimeRestrictedUsageTemplates/DurationAgreementTemplateShape.ttl> (DurationPermissionConstraintTemplate-rightOperandPropertyShape): In an ids:DurationAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:rightOperand property pointing to a xsd:duration specifying the duration of the agreement."@en ;
 .

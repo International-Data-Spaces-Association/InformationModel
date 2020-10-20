@@ -15,13 +15,14 @@ shapes:ConnectorbasedAgreementTemplateShape
     a sh:NodeShape ;
     sh:targetClass ids:ConnectorbasedAgreement ;
     sh:property shapes:ConnectorbasedAgreementTemplate-permissionPropertyShape ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedAgreementTemplateShape): In a _:ConnectorbasedAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:SYSTEM, ids:operator idsc:SAME_AS and ids:rightOperandReference pointing to the ConnectorUri."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedAgreementTemplateShape): In a _:ConnectorbasedAgreement the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee, ids:target and ids:action properties have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:SYSTEM, ids:operator idsc:SAME_AS and ids:rightOperandReference pointing to the ConnectorUri."@en ;
 .
 
 
 shapes:ConnectorbasedAgreementTemplate-permissionPropertyShape
     a sh:PropertyShape ;
     sh:path ids:permission ;
+    sh:class ids:Permission ;
     sh:node shapes:ConnectorbasedAgreementPermissionTemplate ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -43,6 +44,7 @@ shapes:ConnectorbasedAgreementPermissionTemplate
 shapes:ConnectorbasedPermissionTemplate-constraintPropertyShape
     a sh:PropertyShape ;
     sh:path ids:constraint ;
+    sh:class ids:Constraint ;
     sh:node shapes:ConnectorbasedPermissionConstraintTemplateShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -51,42 +53,42 @@ shapes:ConnectorbasedPermissionTemplate-constraintPropertyShape
 .
 
 
-sh:ConnectorbasedPermissionConstraintTemplateShape
+shapes:ConnectorbasedPermissionConstraintTemplateShape
     a sh:NodeShape ;
-    sh:property shapes:ConnectorbasedPermissionTemplate-leftOperandShape ;
-    sh:property shapes:ConnectorbasedPermissionTemplate-operatorShape ;
-    sh:property shapes:ConnectorbasedPermissionTemplate-rightOperandReferenceShape ;
+    sh:property shapes:ConnectorbasedPermissionConstraintTemplate-leftOperandPropertyShape ;
+    sh:property shapes:ConnectorbasedPermissionConstraintTemplate-operatorPropertyShape ;
+    sh:property shapes:ConnectorbasedPermissionConstraintTemplate-rightOperandReferencePropertyShape ;
 .
 
 
-shapes:ConnectorbasedPermissionConstraintTemplate-leftOperandShape
+shapes:ConnectorbasedPermissionConstraintTemplate-leftOperandPropertyShape
     a sh:PropertyShape ;
     sh:path ids:leftOperand ;
     sh:hasValue idsc:SYSTEM ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedPermissionConstraintTemplate-leftOperandShape): In an ids:ConnectorbasedAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:SYSTEM."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedPermissionConstraintTemplate-leftOperandPropertyShape): In an ids:ConnectorbasedAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:leftOperand property pointing to the value idsc:SYSTEM."@en ;
 .
 
 
-shapes:ConnectorbasedPermissionConstraintTemplate-operatorShape
+shapes:ConnectorbasedPermissionConstraintTemplate-operatorPropertyShape
     a sh:PropertyShape ;
     sh:path ids:operator ;
     sh:hasValue idsc:SAME_AS ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedPermissionConstraintTemplate-operatorShape): In an ids:ConnectorbasedAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:SAME_AS."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedPermissionConstraintTemplate-operatorPropertyShape): In an ids:ConnectorbasedAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:operator property pointing to the value idsc:SAME_AS."@en ;
 .
 
 
-shapes:ConnectorbasedPermissionConstraintTemplate-rightOperandReferenceShape
+shapes:ConnectorbasedPermissionConstraintTemplate-rightOperandReferencePropertyShape
     a sh:PropertyShape ;
     sh:path ids:rightOperandReference ;
     sh:nodeKind sh:IRI ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedPermissionConstraintTemplate-rightOperandReferenceShape): In an ids:ConnectorbasedAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:rightOperandReference property pointing to the ConnectorUri."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConnectorbasedAgreementTemplates/ConnectorbasedAgreementTemplateShape.ttl> (ConnectorbasedPermissionConstraintTemplate-rightOperandReferencePropertyShape): In an ids:ConnectorbasedAgreement/-Offer/-Request within the ids:Permission the ids:constraint property must point to an ids:Constraint with an ids:rightOperandReference property pointing to the ConnectorUri."@en ;
 .

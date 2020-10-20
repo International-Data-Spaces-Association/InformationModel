@@ -17,7 +17,7 @@ shapes:DistributeEncryptedAgreementTemplateShape
     sh:property shapes:ParticipantTemplate-providerPropertyShape ;
     sh:property shapes:ParticipantTemplate-consumerPropertyShape ;
     sh:property shapes:DistributeEncryptedAgreementTemplate-permissionPropertyShape ;
-    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedAgreementTemplateShape.ttl> (DistributeEncryptedAgreementTemplateShape): In a _:DistributeEncryptedAgreement a) the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee and ids:target properties have to be specified. The ids:action must point to idsc:DISTRIBUTE. The ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee and ids:action pointing to idsc:ENCRYPT."@en ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedAgreementTemplateShape.ttl> (DistributeEncryptedAgreementTemplateShape): In a _:DistributeEncryptedAgreement the ids:provider property must point to exactly one participant and the ids:consumer property must point to exactly one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:assigner, ids:assignee and ids:target properties have to be specified. The ids:action must point to idsc:DISTRIBUTE. The ids:preDuty property must point to an ids:Duty with exactly one ids:assigner, exactly one ids:assignee and ids:action pointing to idsc:ENCRYPT."@en ;
 .
 
 
@@ -25,7 +25,7 @@ shapes:DistributeEncryptedAgreementTemplate-permissionPropertyShape
     a sh:PropertyShape ;
     sh:path ids:permission ;
     sh:class ids:Permission ;
-    sh:node shapes:DistributeEncryptedAgreementPermissionTemplate ;
+    sh:node shapes:DistributeEncryptedAgreementPermissionTemplateShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:severity sh:Violation ;
@@ -33,7 +33,7 @@ shapes:DistributeEncryptedAgreementTemplate-permissionPropertyShape
 .
 
 
-shapes:DistributeEncryptedAgreementPermissionTemplate
+shapes:DistributeEncryptedAgreementPermissionTemplateShape
     a sh:NodeShape ;
     sh:property shapes:AgreementPermissionTemplate-assignerPropertyShape ;
     sh:property shapes:AgreementPermissionTemplate-assigneePropertyShape ;

@@ -13,7 +13,7 @@
 
 shapes:ConstraintTemplateShape
     a sh:NodeShape ;
-    sh:targetClass ids:Constraint ;
+    #sh:targetClass ids:Constraint ;
     sh:property shapes:ConstraintTemplate-leftOperandPropertyShape ;
     sh:property shapes:ConstraintTemplate-operatorPropertyShape ;
     sh:property shapes:ConstraintTemplate-rightOperandPropertyShape ;
@@ -84,7 +84,14 @@ shapes:ConstraintTemplate-unitPropertyShape
 shapes:LogicalConstraintTemplate-operandPropertyShape
     a sh:PropertyShape ;
     sh:path [ sh:alternativePath ( ids:and ids:or ids:xone) ] ;
-    sh:class ids:Constraint ;
+    sh:or (
+        [
+            sh:class ids:Constraint ;
+        ]
+        [
+            sh:class ids:TemporalConstraint ;
+        ]
+    ) ;
     sh:minCount 2 ;
     sh:severity sh:Violation ;
     sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/ConstraintTemplates/ConstraintTemplateShape.ttl> (LogicalConstraintTemplate-operandPropertyShape): In a _:LogicalConstraint one of the properties a) ids:and, b) ids:or, or c) ids:xone must point from an ids:LogicalConstraint to at least two ids:Constraints."@en ;

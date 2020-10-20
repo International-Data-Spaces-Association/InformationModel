@@ -1,0 +1,61 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:RentalRequestTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:RentalRequest ;
+    sh:node shapes:HasProviderOrConsumerNodeShape ;
+    sh:property shapes:RentalRequestTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/RentalRequestTemplateShape.ttl> (RentalRequestTemplateShape): In a _:RentalRequest a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:STATE, ids:operator idsc:NOT, ids:rightOperand specifying a termination state as an entity representing the (final) state of the contract and zero or one ids:pipEndpoint property pointing to a PipUri. In the Permission the ids:preDuty property must point to an ids:Duty with at least one of (ids:assigner or ids:assignee) pointing to a participant, ids:action pointing to ids:Action (1) and the ids:constraint property must point to an ids:Constraint (2). Within the ids:Action (1) the ids:includedIn property must point to idsc:COMPENSATE and the ids:actionRefinement property must point to an ids:Constraint (3). Within the ids:Action (1) the ids:Constraint (3) must have ids:leftOperand pointing to idsc:PAY_AMOUNT, ids:operator pointing to idsc:EQ, ids:rightOperand pointing to a fee as xsd:double, ids:unit pointing to an IRI specifying the currency and zero or one ids:pipEndpoint pointing to a PipUri. Within the ids:Duty within the ids:Constraint (2) the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand specifies the duration of usage as xsd:duration."@en ;
+.
+
+
+shapes:RentalRequestTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:RentalRequestPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/RentalRequestTemplateShape.ttl> (RentalRequestTemplate-permissionPropertyShape): In a _:RentalRequest the ids:permission property must point to exactly one ids:Permission. In the ids:Permission ids:target and ids:action properties and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. The ids:constraint property must point to an ids:Constraint with ids:leftOperand idsc:STATE, ids:operator idsc:NOT, ids:rightOperand specifying a termination state as an entity representing the (final) state of the contract and zero or one ids:pipEndpoint property pointing to a PipUri. In the Permission the ids:preDuty property must point to an ids:Duty with at least one of (ids:assigner or ids:assignee) pointing to a participant, ids:action pointing to ids:Action (1) and the ids:constraint property must point to an ids:Constraint (2). Within the ids:Action (1) the ids:includedIn property must point to idsc:COMPENSATE and the ids:actionRefinement property must point to an ids:Constraint (3). Within the ids:Action (1) the ids:Constraint (3) must have ids:leftOperand pointing to idsc:PAY_AMOUNT, ids:operator pointing to idsc:EQ, ids:rightOperand pointing to a fee as xsd:double, ids:unit pointing to an IRI specifying the currency and zero or one ids:pipEndpoint pointing to a PipUri. Within the ids:Duty within the ids:Constraint (2) the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand specifies the duration of usage as xsd:duration."@en ;
+.
+
+
+shapes:RentalRequestPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:PermissionTemplate-actionPropertyShape ;
+    sh:property shapes:RentalAgreementPermissionTemplate-constraintPropertyShape ;
+    sh:property shapes:RentalPermissionRequestTemplate-preDutyPropertyShape ;
+.
+
+
+shapes:RentalPermissionRequestTemplate-preDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:preDuty ;
+    sh:class ids:Duty ;
+    sh:node shapes:RentalPermissionRequestPreDutyTemplateShape ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/RentalTemplates/RentalRequestTemplateShape.ttl/> (RentalPermissionTemplate-preDutyPropertyShape): In an ids:RentalOffer/-Request within the ids:Permission the ids:preDuty property must point to an ids:Duty with at least one of (ids:assigner or ids:assignee) pointing to a participant, ids:action pointing to ids:Action (1) and the ids:constraint property must point to an ids:Constraint (2). Within the ids:Action (1) the ids:includedIn property must point to idsc:COMPENSATE and the ids:actionRefinement property must point to an ids:Constraint (3). Within the ids:Action (1) the ids:Constraint (3) must have ids:leftOperand pointing to idsc:PAY_AMOUNT, ids:operator pointing to idsc:EQ, ids:rightOperand pointing to a fee as xsd:double, ids:unit pointing to an IRI specifying the currency and zero or one ids:pipEndpoint pointing to a PipUri. Within the ids:Duty within the ids:Constraint (2) the ids:leftOperand must point to idsc:POLICY_EVALUATION_TIME, the ids:operator must point to idsc:AFTER and the ids:rightOperand specifies the duration of usage as xsd:duration."@en ;
+.
+
+
+shapes:RentalPermissionRequestPreDutyTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:RentalPermissionPreDutyTemplate-actionPropertyShape ;
+    sh:property shapes:RentalPermissionPreDutyTemplate-constraintPropertyShape ;
+.

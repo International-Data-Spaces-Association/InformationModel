@@ -1,0 +1,59 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/> .
+
+
+shapes:DistributeEncryptedOfferTemplateShape
+    a sh:NodeShape ;
+    sh:targetClass ids:DistributeEncryptedOffer ;
+    sh:node shapes:HasProviderOrConsumerNodeShape ;
+    sh:property shapes:DistributeEncryptedOfferTemplate-permissionPropertyShape ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedOfferTemplateShape.ttl> (DistributeEncryptedOfferTemplateShape): In a _:DistributeEncryptedOffer a) the ids:provider property must point to one participant or b) the ids:consumer property must point to one participant or c) the ids:provider and the ids:consumer must point to one participant. This can in any case be a) an IRI or b) an ids:Participant. The ids:permission property must point to at exactly one ids:Permission. In the ids:Permission the ids:target property and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. The ids:action must point to idsc:DISTRIBUTE. The ids:preDuty property must point to an ids:Duty with exactly one ids:action pointing to idsc:ENCRYPT and at least one of (ids:assigner and ids:assignee)."@en ;
+.
+
+
+shapes:DistributeEncryptedOfferTemplate-permissionPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:permission ;
+    sh:class ids:Permission ;
+    sh:node shapes:DistributeEncryptedOfferPermissionTemplateShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedOfferTemplateShape.ttl> (DistributeEncryptedOfferTemplate-permissionPropertyShape): In a _:DistributeEncryptedOffer the ids:permission property must point to exactly one ids:Permission. In the ids:Permission the ids:target property and at least one of (ids:assigner or ids:assignee) pointing to a participant have to be specified. In the ids:Permission the ids:action must point to idsc:DISTRIBUTE. In the ids:Permission the ids:preDuty property must point to an ids:Duty with exactly one ids:action pointing to idsc:ENCRYPT and at least one of (ids:assigner and ids:assignee)."@en ;
+.
+
+
+shapes:DistributeEncryptedOfferPermissionTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:PermissionTemplate-targetPropertyShape ;
+    sh:property shapes:DistributeEncryptedPermissionTemplate-actionPropertyShape ;
+    sh:property shapes:DistributeEncryptedOfferPermissionTemplate-preDutyPropertyShape ;
+.
+
+
+shapes:DistributeEncryptedOfferPermissionTemplate-preDutyPropertyShape
+    a sh:PropertyShape ;
+    sh:path ids:preDuty ;
+    sh:class ids:Duty ;
+    sh:node shapes:DistributeEncryptedOfferPermissionPreDutyTemplateShape ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/examples/contract-and-usage-policy/templates/DistributeEncryptedTemplates/DistributeEncryptedOfferTemplateShape.ttl> (DistributeEncryptedOfferPermissionTemplate-preDutyPropertyShape): In an ids:DistributeEncryptedOffer/-Request within the ids:Permission the ids:preDuty property must point to an ids:Duty with exactly one ids:action pointing to idsc:ENCRYPT and at least one of (ids:assigner and ids:assignee)."@en ;
+.
+
+
+shapes:DistributeEncryptedOfferPermissionPreDutyTemplateShape
+    a sh:NodeShape ;
+    sh:node shapes:HasAssignerOrAssigneeNodeShape ;
+    sh:property shapes:DistributeEncryptedPermissionPreDutyTemplate-actionPropertyShape ;
+.
