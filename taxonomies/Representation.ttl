@@ -89,3 +89,17 @@ ids:dataAppInformation a owl:ObjectProperty;
     rdfs:domain ids:AppRepresentation;
     rdfs:range ids:DataApp;
 .
+
+ids:appDestribtutionService a owl:DatatypeProperty;
+    rdfs:label "app destribtution service"@en ;
+    rdfs:comment "IRI reference to storage and distribution system for the correspending data app. Unlinke regular representations for IDS resources, a data app may not be retrieved directly from a connector but from a separate registry instead."@en ;
+    rdfs:domain ids:AppRepresentation;
+    rdfs:range xsd:anyURI;
+    .
+
+ids:appRunetimeEnvironment a owl:DatatypeProperty;
+    rdfs:label "app runtime environment"@en ;
+    rdfs:comment "Runtime environment of a data app, e.g. software (or hardware) required to run the app."@en ;
+    rdfs:domain ids:AppRepresentation;
+    rdfs:range xsd:string;
+    

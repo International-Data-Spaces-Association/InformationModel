@@ -20,7 +20,7 @@ ids:Endpoint a owl:Class ;
                         idsm:forProperty ids:endpointDocumentation;
                         idsm:relationType idsm:OneToMany ;
                     ];
-    
+
 .
 
 ids:ConnectorEndpoint
@@ -130,4 +130,12 @@ ids:appEndpointMediaType
     rdfs:range ids:MediaType ;
     rdfs:label "app endpoint media type"@en ;
     rdfs:comment "Mediatype, such as IANA types, of the data an endpoint expects or returns ."@en ;
+.
+
+ids:appEndpointProtocol
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "app endpoint protocol"@en ;
+    rdfs:comment "Protocol used to communicate with the app endpoint."@en ;
 .

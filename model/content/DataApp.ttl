@@ -34,6 +34,20 @@ ids:appEndpoint
     rdfs:comment "Endpoints of a data app"@en ;
 .
 
+ids:appEnvironmentVariables a owl:DatatypeProperty;
+    rdfs:label "app environment variables"@en ;
+    rdfs:comment "Necessary or optional environment variables of a data app."@en ;
+    rdfs:domain ids:DataApp;
+    rdfs:range xsd:string;
+.
+
+ids:appStorageConfiguration a owl:DatatypeProperty
+    rdfs:label "app storage configuration"@en;
+    rdfs:comment "Storage configuration of a data app. Value may differ based on the app ecosystem, e.g. a writeable path in the file system or a volume name (e.g. for containerized apps)"@en ;
+    rdfs:domain ids:DataApp;
+    rdfs:range xsd:string;
+.
+
 ids:SystemAdapter
     a owl:Class;
     rdfs:subClassOf ids:DataApp;
