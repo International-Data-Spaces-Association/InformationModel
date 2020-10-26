@@ -124,4 +124,12 @@ shapes:AppEndpointShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointMediaType property must point from an ids:AppEndpoint to an ids:MediaType."@en ;
 	] ;
+    
+    	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appEndpointProtocol ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointProtocol property must point from an ids:AppEndpoint to xsd:string."@en ;
+	] ;
 .

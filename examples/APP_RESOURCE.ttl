@@ -21,10 +21,13 @@
     ids:representation [
         a ids:AppRepresentation ;
         ids:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
-        ids:instance <https://connector.fit.fraunhofer.de/apps/instance/42> ;
+        ids:dataAppDistributionService <https://example.com> ;
+        ids:dataAppRuntimeEnvironment "Docker" ;
         ids:dataAppInformation [
             a ids:SmartDataApp ;
             ids:appDocumentation "App-related human-readable documentation.";
+            ids:appEnvironmentVariables "$Env1 = environment variable 1, $Env2 = environment variable 2";
+            ids:appStorageConfiguration "1 Docker volume required, e.g. -v /data";
             ids:appEndpoint [
                 a ids:AppEndpoint;
                 ids:appEndpointInformation "I am an app endpoint. I do endpoint things.";
@@ -32,16 +35,11 @@
                 ids:appEndpointType idsc:INPUT_ENDPOINT ;
                 ids:appEndPointPort 5000 ;
                 ids:path "/input";
-                ids:appEndpointMediaType <https://www.iana.org/assignments/media-types/application/json>
+                ids:appEndpointMediaType <https://www.iana.org/assignments/media-types/application/json> ;
+                ids:appEndpointProtocol "HTTP/1.1";
                 ]
             ];
     ]
-.
-<https://connector.fit.fraunhofer.de/apps/instance/42>
-    a ids:Artifact ;
-    ids:byteSize 9759 ;
-    ids:fileName "app_docker_image.zip";
-    ids:creationDate "2020-03-19T12:00:00+02:00"^^xsd:dateTimeStamp ;
 .
 
 <https://www.iana.org/assignments/media-types/application/zip> a ids:IANAMediaType .
