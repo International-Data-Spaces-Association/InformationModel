@@ -43,6 +43,12 @@ ids:CommandMessage a owl:Class;
     rdfs:label "Command Message"@en ;
     rdfs:comment "Command messages are usually sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en.
 
+ids:QueryMessage a owl:Class ;
+    rdfs:subClassOf ids:RequestMessage ;
+    idsm:abstract true;
+    rdfs:label "Query Command"@en ;
+    rdfs:comment "Query commands are intended to annotate query strings in a specified query language or address a specific resource."@en.
+
 ids:ResultMessage a owl:Class;
     rdfs:subClassOf ids:ResponseMessage ;
     rdfs:label "Result Message"@en ;
