@@ -4,6 +4,8 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
+# Classes
+# -------
 
 ids:AppRoute a owl:Class;
     rdfs:label "App Route"@en ;
@@ -36,8 +38,25 @@ ids:AppRoute a owl:Class;
     	idsm:forProperty ids:appRouteBroker;
     	idsm:relationType idsm:OneToMany ;
     ];
+    idsm:validation [
+         idsm:forProperty ids:appRouteClearingHouse;
+         idsm:relationType idsm:OneToMany ;
+    ];
+
 .
 
+ids:RouteStep a owl:Class;
+              rdfs:subClassOf ids:AppRoute;
+              rdfs:label "Route step"@en ;
+              rdfs:comment """
+    RouteSteps hold information about a communication pipelines between apps. A RouteStep should hold
+    one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.
+    """@en ;
+.
+
+
+# Properties
+# ----------
 
 ids:routeDeployMethod a owl:DatatypeProperty;
     rdfs:label "route deploy method"@en ;
@@ -66,15 +85,6 @@ ids:hasSubRoute a owl:ObjectProperty;
     rdfs:range ids:RouteStep;
     rdfs:comment "Route between two or more app endpoints inside a app routing pipeline."@en ;
 .
-
-ids:RouteStep a owl:Class;
-    rdfs:subClassOf ids:AppRoute;
-    rdfs:label "end to end route"@en ;
-    rdfs:comment """
-    RouteSteps hold information about a communication pipelines between apps. A RouteStep should hold
-    one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.
-    """@en ;
-    .
 
 ids:appRouteStart a owl:ObjectProperty;
     rdfs:label "app route start"@en ;
@@ -110,4 +120,25 @@ ids:appRouteBroker a owl:ObjectProperty;
 One or more ids:Broker(s) to which changes/updates of this route's ids:appRouteOutput ids:Resource are announced.
 This should be a subset of those Brokers that have been configured as ids:configuredBrokers in the ids:ConfigurationModel of which this is an ids:appRoute.
 """@en ;
+.
+
+ids:appRouteClearingHouse a owl:ObjectProperty;
+    rdfs:domain ids:AppRoute;
+    rdfs:range ids:ClearingHouse;
+    rdfs:label "app route broker"@en ;
+    rdfs:comment """
+One or more ids:ClearingHouse(s) to which information of this route's  data exchange are notified.
+This should be a subset of clearing houses listed in the corresponding ids:ClearingHouseCatalog for a given configuration model. The Configuration Model ids:configuredClearingHouse in the ids:ConfigurationModel of which this is an ids:appRoute.
+"""@en ;
+.
+
+ids:requiredDataApp a owl:ObjectProperty;
+    rdfs:domain ids:RouteStep;
+    rdfs:range ids:AppRepresentation;
+    rdfs:label "requiredDataApp"@en;
+    rdfs:comment """
+    Refers to the concrete app representation (ids:AppRepresentation) for a data app (ids:DataApp) which is deployed in the Connector maintained by the Configuration Model and
+    whoose endpoint (ids:AppEndpoint) is used in this ids:RouteStep. The referred app representation should be part of the catalog of AppResources in the
+    corresponding Configuration Model (cf. ids:configuredAppResource property in class ids:ConfigurationModel).
+    """@en ;
 .
