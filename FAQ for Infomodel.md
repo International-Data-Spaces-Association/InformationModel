@@ -1,7 +1,8 @@
 # Frequently asked questions (FAQ) about the InformationModel.
 
 
-## FAQ	## Question 1?
+## FAQ	
+## Question 1?
 Answer.
 
 
