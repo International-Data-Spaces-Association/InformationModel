@@ -84,16 +84,35 @@ def replace_widoco_html_output(filename, text):
         fp.close()
     return
 
+# Remove trailing slahes from html <href> and "id" values. 
+# Slashes are inserted because ids namespace contains them. 
+# They break local referencing inside html file. 
+# workaround until it's otherweise fixed.
+
+def remove_ids_trailingslash(filename):
+    newHtml = ''
+    with open('../sections/'+filename, encoding="utf-8") as fp:
+        for line in fp:
+            if '<div class="entity" id="/' in line:
+                newHtml+=line.replace('<div class="entity" id="/','<div class="entity" id="')
+            elif '<a href="#/' in line:
+                newHtml+=line.replace('<a href="#/','<a href="#')
+            else:
+                newHtml+=line
+                
+    with open('../sections/'+filename, 'w', encoding="utf-8") as fp:
+        fp.write(newHtml)
+        fp.close()
+    return
 
 # Download information from jive and insert into the widoco output.
 def insert_jive_information(jive_credentials):
     intro, description = get_jive_information(jive_credentials)
+    image_names = get_image_names()
 
-    image_names = download_images(intro, jive_credentials)
     intro = replace_image_names(intro, image_names)
     replace_widoco_html_output('introduction-en.html', intro)
 
-    image_names = download_images(description, jive_credentials)
     description = replace_image_names(description, image_names)
     replace_widoco_html_output('description-en.html', description)
 
@@ -129,9 +148,15 @@ def get_jive_information(jive_credentials):
             subsection_id += 1
             description_text += '<div class="jive-rendered-content">' + useful_text
 
+    # Fix a enumeration mistake in the current version of the jive documents (last checked: 08/19)
+    description_text = re.sub(r'Figure\s3\s20:', 'Figure 3.24:', description_text)
+    description_text = re.sub(r'Figure\s3\s21:', 'Figure 3.25:', description_text)
+
     return intorduction_text, description_text
 
 
+# Not used right now because the current version in jive does not have
+# pictures with a high resolution.
 # Downloads the referenced images in the given text from jive.
 def download_images(text, jive_credentials):
     session = requests.Session()
@@ -162,14 +187,74 @@ def download_images(text, jive_credentials):
     return image_names
 
 
+# Define a translation from the jive image-names to the ones with better resolution.
+def get_image_names():
+    return {'pastedImage_1.png': 'Figure_3_13_Representations_of_the_Information_Model.png',
+            'pastedImage_9.png': 'Table_2_01_Class_diagram.png',
+            'pastedImage_10.png': 'Table_2_02_Association.png',
+            'pastedImage_15.png': 'Table_2_03_Association_Class.png',
+            'pastedImage_16.png': 'Table_2_04_1_Aggregation_and_Composition.png',
+            'pastedImage_16_2.png': 'Figure_3_14_Facets_of_the_Information_Model.png',
+            'pastedImage_17.png': 'Table_2_04_2_Aggregation_and_Composition.png',
+            'pastedImage_20.png': 'Figure_3_15_Taxonomy_of_the_resource_concept.png',
+            'pastedImage_23.png': 'Figure_3_16_Views_of_the_resource_(3C_principle).png',
+            'pastedImage_25.png': 'Table_2_05_Generalization.png',
+            'pastedImage_27.png': 'Figure_3_17_Relation_of_Views_and_Layers.png',
+            'pastedImage_32.png': 'Figure_3_18_Layers_of_the_Content_view.png',
+            'pastedImage_37.png': 'Figure_3_19_Partial_taxonomy_of_content_kinds.png',
+            'pastedImage_46.png': 'Figure_3_20_Outline_of_the_Representation_concept.png',
+            'pastedImage_52.png': 'Figure_3_21_Outline_of_the_Provenance_concept.png',
+            'pastedImage_57.png': 'Figure_3_22_Layers_of_the_Communication_view.png',
+            'pastedImage_67.png': 'Figure_3_23_Outline_of_the_Interface_concept.png',
+            'pastedImage_71.png': 'Figure_3_24_Outline_of_the_Operation_concept.png',
+            'pastedImage_79.png': 'Figure_3_25_Outline_of_the_Parameter_concept.png',
+            'pastedImage_88.png': 'Figure_3_26_Outline_of_the_resource_endpoint_concept.png',
+            'pastedImage_91.png': 'Figure_3_27_Outline_of_the_Product_concept.png',
+            'pastedImage_102.png': 'Figure_3_28_Taxonomy_of_Product_Pricing_concepts.png',
+            'pastedImage_109.png': 'Figure_3_29.png',
+            'pastedImage_120.png': 'Figure_3_30_Taxonomy_of_the_Data_Asset_Context.png',
+            'pastedImage_131.png': 'Figure_3_31_Dimensions_of_Data_Apps.png',
+            'pastedImage_140.png': 'Figure_3_32_Content_view_of_the_Data_App_resource.png',
+            'pastedImage_157.png': 'Figure_3_33_Description_matrix_of_the_Data_App_Functionality_dimension.png',
+            'pastedImage_163.png': 'Figure_3_34_Data_App_taxonomy.png',
+            'pastedImage_170.png': 'Figure_3_35_Outline_of_the_Data_Providing_App_concept.png',
+            'pastedImage_185.png': 'Figure_3_36_Taxonomy_of_infrastructure_components.png',
+            'pastedImage_196.png': 'Figure_3_37_Outline_of_the_Connector_concept.png',
+            'pastedImage_204.png': 'Figure_3_38_Outline_of_the_Security_Profile_concept.png',
+            'pastedImage_212.png': 'Figure_3_39_Outline_of_the_Participant_concept.png',
+            'pastedImage_227.png': 'Figure_3_40_Outline_of_the_Usage_Contract_concept.png',
+            'pastedImage_233.png': 'Figure_3_41_Outline_of_the_Rule_concept.png',
+            'pastedImage_241.png': 'Figure_3_42_Outline_of_the_Subscription_concept.png',
+            'pastedImage_253.png': 'Figure_3_43_Outline_of_the_Data_Transfer_concept.png',
+            'pastedImage_262.png': 'Figure_3_44_Outline_of_the_Entity_with_Lifecycle.png'}
+
+
 # Replaces the links to the images in the text to the new locations.
 def replace_image_names(text, image_names):
-    for image_name in image_names:
-        image_id = image_names[image_name][1]
-        image_old_name = image_names[image_name][0]
+    images_in_text = re.findall('src="(.*?).png"', text)
+
+    # Replace links from pastedImage_XXX.png to new paths.
+    for text_name in images_in_text:
+        old_name = text_name[text_name.rfind('/') + 1:] + '.png'
+        res = re.search(r'(\d{3}-\d{4}-\d-\d{4})', text_name)
+        image_id = res.group(1)
         regex = r'https:\/\/industrialdataspace\.jiveon\.com\/servlet\/JiveServlet\/(\w*)Image\/' + image_id + \
-                r'\/(([0-9-]*)\/)?'
-        text = re.sub(regex + image_old_name, 'img/' + image_name, text)
+                r'\/(([0-9-]*)\/)?' + old_name
+        text = re.sub(regex, '../images/' + image_names[old_name], text)
+
+        if old_name == 'pastedImage_16.png':
+            image_names[old_name] = image_names['pastedImage_16_2.png']
+
+    # Remove fixed width/height tags, to get better sized images.
+    regex = r'(<img\sclass="jive-image\simage-\d+\s(?:[\w-]*\s?)*"\sheight="([\d]*)"\ssrc="\.\.\/images\/' \
+            r'(?:Figure|Table)[_\d]*[\w_]*\.png"\s(?:style="(?:\s?[\w-]*\:\s[\w-]*;)*"\s)width="([\d]*)"\/>)'
+
+    results = re.findall(regex, text)
+    for res in results:
+        new_text = res[0].replace('height="%d"' % int(res[1]), '')
+        new_text = new_text.replace('width="%d"' % int(res[2]), '')
+        text = text.replace(res[0], new_text)
+
     return text
 
 
@@ -220,13 +305,13 @@ def clean_up_json_ontology_owl_imports():
     regex_ontology_refs = r'file\:[\w\/\.\:]*'
     new_ref = 'https://w3id.org/idsa/core'
 
-    with open('../serializations/ontology.json', 'r') as fp:
+    with open('../serializations/ontology.json', 'r', encoding="latin-1") as fp:
         new_content = fp.read()
 
     new_content = re.sub(regex_owl_import, '', new_content)
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.json', 'w') as fp:
+    with open('../serializations/ontology.json', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
@@ -238,7 +323,7 @@ def clean_up_nt_ontology_owl_imports():
     new_ref = 'https://w3id.org/idsa/core'
 
     new_content = ''
-    with open('../serializations/ontology.nt', 'r') as fp:
+    with open('../serializations/ontology.nt', 'r', encoding="latin-1") as fp:
         for line in fp.readlines():
             res = re.search(regex_owl_import, line)
             if res:
@@ -247,7 +332,7 @@ def clean_up_nt_ontology_owl_imports():
 
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.nt', 'w') as fp:
+    with open('../serializations/ontology.nt', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
@@ -258,13 +343,13 @@ def clean_up_ttl_ontology_owl_imports():
     regex_ontology_refs = r'file\:[\w\/\.\:#]*'
     new_ref = 'https://w3id.org/idsa/core'
 
-    with open('../serializations/ontology.ttl', 'r') as fp:
+    with open('../serializations/ontology.ttl', 'r', encoding="latin-1") as fp:
         new_content = fp.read()
 
     new_content = re.sub(regex_owl_imports, '', new_content)
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.ttl', 'w') as fp:
+    with open('../serializations/ontology.ttl', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
@@ -276,7 +361,7 @@ def clean_up_xml_ontology_owl_imports():
     new_ref = 'https://w3id.org/idsa/core'
 
     new_content = ''
-    with open('../serializations/ontology.xml', 'r') as fp:
+    with open('../serializations/ontology.xml', 'r', encoding="latin-1") as fp:
         for line in fp.readlines():
             res = re.search(regex_owl_imports, line)
             if res:
@@ -285,7 +370,7 @@ def clean_up_xml_ontology_owl_imports():
 
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.xml', 'w') as fp:
+    with open('../serializations/ontology.xml', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
         fp.close()
 
@@ -429,3 +514,4 @@ if __name__ == '__main__':
     adjust_namespaces()
     clean_up_ontology_serialization_owl_imports()
     rename_index_file()
+    remove_ids_trailingslash('crossref-en.html')

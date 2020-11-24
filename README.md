@@ -1,9 +1,11 @@
+# This branch is an interim solution to bridge the time until the documentation ends up in the proper master branch. As soon as this is the case, this branch (gh-pages) must be deleted immediately.
+
 # The International Data Spaces (IDS) Information Model
 
 The Information Model is an RDFS/OWL-ontology covering the fundamental concepts of the [International Data Spaces](https://www.internationaldataspaces.org) (IDS), i.e. the types of *digital contents* that are exchanged by *participants* by means of the IDS *infrastructure components*. The ontology and its documentation are published at [https://w3id.org/idsa/core](https://w3id.org/idsa/core). The model development is led by the [Fraunhofer Institutes for Applied Information Technology FIT](https://www.fit.fraunhofer.de/en) and [Intelligent Analysis and Information Systems IAIS](https://www.iais.fraunhofer.de/en) with support by members of the [International Data Spaces Association](https://www.internationaldataspaces.org/) in the context of the *Information Model* sub-working group (SWG4). The group is chaired by [Christoph Lange](https://github.com/clange/) ([Fraunhofer FIT](https://www.fit.fraunhofer.de/)) and [Sebastian Tramp](https://sebastian.tramp.name) ([eccenca GmbH](https://www.eccenca.com)). 
 
 The model development is based on [GitHub](https://github.com/International-Data-Spaces-Association/InformationModel), following a [defined branching model](CONTRIBUTING.md). Contributions and community feedback are maintained via the GitHub [ticketing system](images/Issue_Lifecycle.jpg). The [release process](images/Release_process.jpg) is aligned with the International Data Spaces Association architecture
-working group meetings, i.e. there are roughly 2 releases scheduled per year with intermediary updates to the development branch. The current release version is *3.0.0*, with the latest revision *3.1.0*. The Information Model and associated resources published on GitHub are available under the [Apache License 2.0](https://github.com/International-Data-Spaces-Association/InformationModel/blob/master/LICENSE).
+working group meetings, i.e. there are roughly 2 releases scheduled per year with intermediary updates to the development branch. The current release version is *4.0.0*, with the latest revision *4.0.0*. The Information Model and associated resources published on GitHub are available under the [Apache License 2.0](https://github.com/International-Data-Spaces-Association/InformationModel/blob/master/LICENSE).
 
 ## Authors and contributors
 
@@ -21,6 +23,7 @@ with significant contributions, comments and support by (in alphabetical order):
 - Dr. Sandra Geisler, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
 - Dr. Anna Kasprzik, [TIB](https://www.tib.eu/en)
 - Dr. Christoph Lange, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en) (see above)
+- Jörg Langkau, [nicos AG](http://www.nicos-ag.com)
 - Johannes Lipp, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
 - Andreas W. Müller, [Schaeffler](https://www.schaeffler.de/content.schaeffler.de/en/)
 - Dr. Michael Theß, [Signal Cruncher GmbH](https://signal-cruncher.com/)
@@ -39,8 +42,8 @@ There are following top-level files and directories:
 - `model`: Core model split into sub-model directories each serving a particular modeling aspect.
 - `references`: Versioned sources of relevant 3rd party models used as a reference (informative or effective, i.e. via concept import)
 - `taxonomies`: Hierarchical arrangement of concepts (classes) extending a base concept defined by the core `model`.
-- `testing`: Test resources (e.g. [SHACL](https://www.w3.org/TR/shacl/) shapes and [RDFUnit](http://aksw.org/Projects/RDFUnit.html) test cases), used by tools and the build process to ensure the syntactic validity and semantic consistence of the Information Model
-- `utils`: Utility scripts used for Information Model development and testing
+- `testing`: Test resources (e.g. RDFUnit) used by tools and the build process to ensure the syntactic validity and semantic consistence of the Information Model
+- `utils` : Utility scripts used for Information Model development and testing
 - `views`: Individual tailored views defined upon the overall model for a particular purpose, e.g. the selection of Glossary terms
 - `Ontology.ttl`: Top-level metadata of the Information Model.
 

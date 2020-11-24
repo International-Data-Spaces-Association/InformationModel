@@ -97,5 +97,23 @@ shapes:AppRepresentationShape
 					sh:class ids:DataApp ;
 					sh:severity sh:Violation ;
 					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppInformation property must point from an ids:AppRepresentation to an ids:DataApp."@en ;
-				] .
+				] ;
+    
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path ids:dataAppDistributionService ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppDistributionService property must point from an ids:AppRepresentation to an IRI."@en ;
+				];
+    
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path ids:dataAppRuntimeEnvironment ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppRuntimeEnvironment property must point from an ids:AppRepresentation to an xsd:string."@en ;
+    ];
+
+.
 

@@ -60,9 +60,16 @@ shapes:EndpointShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:endpointInformation ;
-		sh:datatype xsd:string ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+            ]
+            [
+                sh:datatype rdf:langString ;
+            ]
+            );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:endpointInformation property must point from an ids:Endpoint to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:endpointInformation property must point from an ids:Endpoint to either a xsd:string or a rdf:langString with a language code."@en ;
 		];
 
 	sh:property [
@@ -123,5 +130,13 @@ shapes:AppEndpointShape
 		sh:class ids:MediaType ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointMediaType property must point from an ids:AppEndpoint to an ids:MediaType."@en ;
+	] ;
+    
+    	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appEndpointProtocol ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointProtocol property must point from an ids:AppEndpoint to xsd:string."@en ;
 	] ;
 .
