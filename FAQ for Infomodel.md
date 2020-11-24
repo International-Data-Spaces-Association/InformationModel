@@ -1,16 +1,13 @@
-## This is an FAQ for Infomodel | Frequently asked questions about the InformationModel.
+# Frequently asked questions (FAQ) about the InformationModel.
 
-## FAQ
-**Question:** 
 
-**Answer:**
+## FAQ	## Question 1?
+Answer.
 
-##
-**Q:**
 
-**A:**
+## Question 2?
+Answer.
 
-##
-**Q:**
 
-**A:**
+## Question 3?
+Answer.
