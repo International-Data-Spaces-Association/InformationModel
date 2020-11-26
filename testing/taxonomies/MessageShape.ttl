@@ -19,7 +19,7 @@ shapes:
 		sh:prefix "ids" ;
 		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
 	] .
-    
+
 shapes:DescriptionRequestMessage
 	a sh:NodeShape ;
 	sh:targetClass ids:DescriptionRequestMessage ;
@@ -46,8 +46,10 @@ shapes:ResponseMessageShape
 		sh:nodeKind sh:IRI ;
         #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
+		# --- @PNL: ---
+		# sh:minCount 1 ;
+		# sh:maxCount 1 ;
+		# --- @PNL END ---
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
@@ -81,7 +83,7 @@ shapes:QueryMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:queryLanguage property must point from an ids:QueryMessage to an ids:QueryLanguage."@en ;
 	] ;
-    
+
     sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:querySceope ;
@@ -89,7 +91,7 @@ shapes:QueryMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:querySceope property must point from an ids:QueryMessage to an ids:QueryScope."@en ;
 	] ;
-    
+
     sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:recipientScope ;
@@ -128,7 +130,7 @@ shapes:ConnectorNotificationMessageShape
 			}
 		""" ;
 	] ;
-    
+
     sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:revocationReason ;
@@ -219,10 +221,23 @@ shapes:ContractRejectionMessageShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] .
 
-    
+
 shapes:ResourceNotificationMessageShape
 	a sh:NodeShape ;
 	sh:targetClass ids:ResourceNotificationMessage ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResourceNotificationMessageShape): An ids:ResourceNotificationMessage is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:ResourceNotificationMessage)
+			}
+		""" ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -311,8 +326,8 @@ shapes:ArtifactRequestMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one IRI reference to an ids:Artifact linked through the ids:requestedArtifact property"@en ;
 	] .
-    
-    
+
+
 
 shapes:ParticipantRequestMessageShape
 	a sh:NodeShape ;
@@ -350,6 +365,19 @@ shapes:AppNotificationMessageShape
 	a sh:NodeShape ;
 	sh:targetClass ids:AppNotificationMessage ;
 
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:AppNotificationMessage)
+			}
+		""" ;
+	] ;
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedAppResource ;
@@ -359,4 +387,18 @@ shapes:AppNotificationMessageShape
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedAppResource property"@en ;
-	] .
+	]	.
+
+	shapes:AppUploadMessageShape
+		a sh:NodeShape ;
+		sh:targetClass ids:AppUploadMessage ;
+
+		sh:property [
+			a sh:PropertyShape ;
+			sh:path ids:appArtifactReference ;
+			sh:nodeKind sh:IRI ;
+    	sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+			sh:minCount 1 ;
+			sh:severity sh:Violation ;
+			sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUploadMessageShape): An ids:AppUploadMessage must have exactly one IRI reference to an ids:Artifact linked through the ids:affectedAppResource property"@en ;
+		]

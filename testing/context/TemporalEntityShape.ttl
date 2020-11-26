@@ -22,7 +22,7 @@ shapes:
 
 
 shapes:InstantShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Instant ;
 
 	sh:property [
@@ -35,15 +35,16 @@ shapes:InstantShape
 
 
 shapes:IntervalShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Interval ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:begin ;
 		sh:class ids:Instant ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to an ids:Instant."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to at least one ids:Instant."@en ;
 	] ;
 
 	sh:property [
@@ -54,3 +55,16 @@ shapes:IntervalShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must point from an ids:Interval to an ids:Instant."@en ;
 	] .
 
+
+	shapes:DurationEntityShape
+		a sh:NodeShape ;
+		sh:targetClass ids:DurationEntity ;
+
+		sh:property [
+			a sh:PropertyShape ;
+			sh:path ids:hasDuration ;
+			sh:datatype xsd:duration ;
+			sh:minCount 1 ;
+			sh:severity sh:Violation ;
+			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (DurationEntityShape): An ids:hasDuration property must point from an ids:DurationEntity to at least one xsd:duration."@en ;
+	] .

@@ -1,0 +1,86 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:AppRouteShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppRoute ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:routeDeployMethod ;
+    sh:datatype xsd:string ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeDeployMethod property must point from an ids:AppRoute to at least one xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:routeConfiguration ;
+    sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeConfiguration property must point from an ids:AppRoute an xsd:string."@en ;
+
+	] ;
+
+  sh:property [
+  a sh:PropertyShape ;
+  sh:path ids:routeDescription ;
+  sh:datatype xsd:string ;
+  sh:severity sh:Violation ;
+  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeDescription property must point from an ids:AppRoute an xsd:string."@en ;
+  ] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:subRoute ;
+    sh:class ids:EndToEndRoute ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:subRoute property must point from an ids:AppRoute an ids:EndToEndRoute."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:routeConfiguration ;
+    sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeConfiguration property must point from an ids:AppRoute an xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appRouteStart ;
+    sh:class ids:AppEndpoint ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:appRouteStart property must point from an ids:AppRoute an ids:AppEndpoint."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appRouteEnd ;
+    sh:class ids:AppEndpoint ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:appRouteEnd property must point from an ids:AppRoute an ids:AppEndpoint."@en ;
+	] ;
+.

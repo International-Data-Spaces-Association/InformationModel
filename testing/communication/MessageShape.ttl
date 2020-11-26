@@ -22,7 +22,7 @@ shapes:
 
 
 shapes:MessageShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Message ;
 
     sh:sparql [
@@ -61,10 +61,12 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-        sh:nodeKind sh:IRI ;
+    sh:nodeKind sh:IRI ;
 		#sh:class ids:Message ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:correlationMessage property must point from an ids:Message to an ids:Message via an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:correlationMessage property must point from an ids:Message to exactly one ids:Message via an IRI."@en ;
 	] ;
 
 	sh:property [
@@ -155,4 +157,3 @@ shapes:MessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:contentVersion property must point from an ids:Message to an xsd:string."@en ;
 	] .
-

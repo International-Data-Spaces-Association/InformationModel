@@ -23,7 +23,7 @@ shapes:
 
 
 shapes:InfrastructureComponentShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:InfrastructureComponent ;
 
 	sh:sparql [
@@ -71,8 +71,9 @@ shapes:InfrastructureComponentShape
 		a sh:PropertyShape ;
 		sh:path ids:inboundModelVersion ;
 		sh:datatype xsd:string ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:inboundModelVersion property must point from an ids:InfrastructureComponent to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:inboundModelVersion property must point from an ids:InfrastructureComponent to at least one xsd:string."@en ;
 	] ;
 
 	sh:property [
@@ -99,4 +100,3 @@ shapes:InfrastructureComponentShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:publicKey property must point from an ids:InfrastructureComponent to an ids:PublicKey."@en ;
 	] .
-
