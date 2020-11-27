@@ -21,7 +21,7 @@ ids:ResourceCatalog
     a owl:Class;
     rdfs:subClassOf ids:Catalog;
     rdfs:label "Resource Catalog"@en ;
-    rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates Resources form a (distributable) Catalog."@en ;
     idsm:validation [
         idsm:forProperty ids:requestedResource;
         idsm:relationType idsm:OneToMany;
@@ -36,7 +36,7 @@ ids:ParticipantCatalog
     a owl:Class;
     rdfs:subClassOf ids:Catalog;
     rdfs:label "Participant Catalog"@en ;
-    rdfs:comment "Class that aggregates Participants, as a whole, from a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates Participants from a (distributable) Catalog."@en ;
     idsm:validation [
         idsm:forProperty ids:member;
         idsm:relationType idsm:OneToMany;
@@ -47,7 +47,7 @@ ids:ConnectorCatalog
     a owl:Class;
     rdfs:subClassOf ids:Catalog;
     rdfs:label "Connector Catalog"@en ;
-    rdfs:comment "Class that aggregates Connectors, as a whole, from a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates Connectors from a (distributable) Catalog."@en ;
     idsm:validation [
         idsm:forProperty ids:listedConnector;
         idsm:relationType idsm:OneToMany;
@@ -58,14 +58,14 @@ ids:BrokerCatalog
     a owl:Class;
     rdfs:subClassOf ids:ConnectorCatalog;
     rdfs:label "Broker Catalog"@en ;
-    rdfs:comment "Class that aggregates Brokers, as a whole, from a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates Brokers from a (distributable) Catalog."@en ;
 .
 
 ids:AppStoreCatalog
     a owl:Class;
     rdfs:subClassOf ids:ConnectorCatalog;
     rdfs:label "AppStore Catalog"@en ;
-    rdfs:comment "Class that aggregates AppStores , as a whole, from a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates AppStores from a (distributable) Catalog."@en ;
 .
 
 # TODO: Align with ResourceCatalog
@@ -73,7 +73,7 @@ ids:AppResourceCatalog
     a owl:Class;
     rdfs:subClassOf ids:Catalog;
     rdfs:label "App Resource Catalog"@en ;
-    rdfs:comment "Class that aggregates App Resources , as a whole, from a (distributable) Catalog. May be used to list installed apps in a component."@en ;
+    rdfs:comment "Class that aggregates App Resources from a (distributable) Catalog. May be used to list installed apps in a component."@en ;
     idsm:validation [
         idsm:forProperty ids:listedAppResource;
         idsm:relationType idsm:OneToMany;
@@ -84,7 +84,7 @@ ids:ClearingHouseCatalog
     rdfs:subClassOf ids:Catalog;
     a owl:Class;
     rdfs:label "Clearing House Catalog"@en ;
-    rdfs:comment "Class that aggregates AppStores , as a whole, from a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates AppStores from a (distributable) Catalog."@en ;
     idsm:validation [
         idsm:forProperty ids:listedClearingHouse;
         idsm:relationType idsm:OneToMany;
