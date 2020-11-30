@@ -10,18 +10,18 @@
 # -------
 
 ids:Catalog
-    rdfs:subClassOf dcat:Catalog;
     a owl:Class;
+    rdfs:subClassOf dcat:Catalog;
     idsm:abstract true;
     rdfs:label "Catalog"@en ;
     rdfs:comment "Class that represents (distributable) Catalogs."@en ;
     .
 
 ids:ResourceCatalog
-    rdfs:subClassOf ids:Catalog;
     a owl:Class;
+    rdfs:subClassOf ids:Catalog;
     rdfs:label "Resource Catalog"@en ;
-    rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates Resources form a (distributable) Catalog."@en ;
     idsm:validation [
         idsm:forProperty ids:requestedResource;
         idsm:relationType idsm:OneToMany;
@@ -33,10 +33,10 @@ ids:ResourceCatalog
 .
 
 ids:ParticipantCatalog
-    rdfs:subClassOf ids:Catalog;
     a owl:Class;
+    rdfs:subClassOf ids:Catalog;
     rdfs:label "Participant Catalog"@en ;
-    rdfs:comment "Class that aggregates Participants which, as a whole, from a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates Participants from a (distributable) Catalog."@en ;
     idsm:validation [
         idsm:forProperty ids:member;
         idsm:relationType idsm:OneToMany;
@@ -44,15 +44,53 @@ ids:ParticipantCatalog
 .
 
 ids:ConnectorCatalog
-    rdfs:subClassOf ids:Catalog;
     a owl:Class;
+    rdfs:subClassOf ids:Catalog;
     rdfs:label "Connector Catalog"@en ;
-    rdfs:comment "Class that aggregates Connectors which, as a whole, from a (distributable) Catalog."@en ;
+    rdfs:comment "Class that aggregates Connectors from a (distributable) Catalog."@en ;
     idsm:validation [
         idsm:forProperty ids:listedConnector;
         idsm:relationType idsm:OneToMany;
     ];
 .
+
+ids:BrokerCatalog
+    a owl:Class;
+    rdfs:subClassOf ids:ConnectorCatalog;
+    rdfs:label "Broker Catalog"@en ;
+    rdfs:comment "Class that aggregates Brokers from a (distributable) Catalog."@en ;
+.
+
+ids:AppStoreCatalog
+    a owl:Class;
+    rdfs:subClassOf ids:ConnectorCatalog;
+    rdfs:label "AppStore Catalog"@en ;
+    rdfs:comment "Class that aggregates AppStores from a (distributable) Catalog."@en ;
+.
+
+# TODO: Align with ResourceCatalog
+ids:AppResourceCatalog
+    a owl:Class;
+    rdfs:subClassOf ids:Catalog;
+    rdfs:label "App Resource Catalog"@en ;
+    rdfs:comment "Class that aggregates App Resources from a (distributable) Catalog. May be used to list installed apps in a component."@en ;
+    idsm:validation [
+        idsm:forProperty ids:listedAppResource;
+        idsm:relationType idsm:OneToMany;
+    ];
+.
+
+ids:ClearingHouseCatalog
+    rdfs:subClassOf ids:Catalog;
+    a owl:Class;
+    rdfs:label "Clearing House Catalog"@en ;
+    rdfs:comment "Class that aggregates AppStores from a (distributable) Catalog."@en ;
+    idsm:validation [
+        idsm:forProperty ids:listedClearingHouse;
+        idsm:relationType idsm:OneToMany;
+    ];
+.
+
 
 # Properties
 # ----------
@@ -76,13 +114,27 @@ ids:member a owl:ObjectProperty;
     rdfs:domain ids:ParticipantCatalog;
     rdfs:range ids:Participant;
     rdfs:label "member"@en;
-    rdfs:comment "A Participant, that is part of a participant catalog."@en.
+    rdfs:comment "A Participant that is part of a participant catalog."@en.
 
 ids:listedConnector a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:dataset;
     rdfs:domain ids:ConnectorCatalog;
     rdfs:range ids:Connector;
     rdfs:label "listed Connector"@en;
-    rdfs:comment "A Connector, that is part of a Connector catalog."@en;
+    rdfs:comment "A Connector that is part of a Connector catalog."@en;
 .
 
+ids:listedClearingHouse a owl:ObjectProperty;
+   rdfs:subPropertyOf dcat:dataset;
+   rdfs:domain ids:ClearingHouseCatalog;
+   rdfs:range ids:ClearingHouse;
+   rdfs:label "listed Clearing House"@en;
+   rdfs:comment "A Clearing House that is part of a Clearing House catalog."@en;
+.
+
+ids:listedAppResource a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:dataset;
+    rdfs:domain ids:AppResourceCatalog;
+    rdfs:range ids:AppResource;
+    rdfs:label "listed AppResource"@en;
+    rdfs:comment "An AppResource that is part of an AppResourceCatalog."@en.

@@ -12,6 +12,10 @@ ids:ConfigurationModel a owl:Class ;
                      idsm:forProperty ids:configurationModelLogLevel;
                      idsm:constraint idsm:NotNull ;
                      ];
+   idsm:validation [
+                       idsm:forProperty ids:knownBroker;
+                       idsm:constraint idsm:OneToMany ;
+                   ];
     idsm:validation [
                        idsm:forProperty ids:connectorStatus;
                        idsm:constraint idsm:NotNull ;
@@ -90,8 +94,36 @@ ids:keyStore a owl:DatatypeProperty;
     rdfs:comment "URI of the key store server."@en ;
 .
 
+ids:configuredBroker a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:BrokerCatalog;
+    rdfs:label "configured broker"@en ;
+    rdfs:comment "Catalog of Brokers to which the ids:Connector that we are configuring (cf. ids:connectorDescription) may want to talk."@en ;
+.
+
 ids:appRoute a owl:ObjectProperty;
     rdfs:label "app route";
     rdfs:domain ids:ConfigurationModel;
     rdfs:range ids:AppRoute;
+.
+
+ids:configuredAppStore a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:AppStoreCatalog;
+    rdfs:label "configured appstore"@en ;
+    rdfs:comment "One or more app stores to which the ids:Connector that we are configuring (cf. ids:connectorDescription) may want to talk, e.g. to retrieve apps from them."@en ;
+.
+
+ids:configuredAppResource a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:AppResourceCatalog;
+    rdfs:label "configured app resources"@en;
+    rdfs:comment "Catalog of app resources for a given Configuration Model. Used to persist configured / installed apps."@en;
+.
+
+ids:configuredClearingHouse a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:ClearingHouseCatalog;
+    rdfs:label "configured clearing house"@en;
+    rdfs:comment "Catalog of clearing houses for a given Configuration Model."@en;
 .
