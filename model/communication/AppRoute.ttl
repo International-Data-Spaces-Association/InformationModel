@@ -4,12 +4,14 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 
+# Classes
+# -------
 
 ids:AppRoute a owl:Class;
     rdfs:label "App Route"@en ;
     rdfs:comment """
     ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.
-    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is represented by the ids:EndToEndRoutes class.
+    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between two adjacent data apps is represented by the ids:RouteStep class.
     ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.
     """@en ;
     idsm:validation [
@@ -17,7 +19,7 @@ ids:AppRoute a owl:Class;
         idsm:constraint idsm:NotNull ;
     ];
     idsm:validation [
-        idsm:forProperty ids:subRoute;
+        idsm:forProperty ids:hasSubRoute;
         idsm:relationType idsm:OneToMany ;
     ];
     idsm:validation [
@@ -28,8 +30,32 @@ ids:AppRoute a owl:Class;
             idsm:forProperty ids:appRouteEnd;
             idsm:relationType idsm:OneToMany ;
         ];
+	idsm:validation [
+		idsm:forProperty ids:appRouteOutput;
+		idsm:relationType idsm:OneToMany ;
+	];
+    idsm:validation [
+    	idsm:forProperty ids:appRouteBroker;
+    	idsm:relationType idsm:OneToMany ;
+    ];
+    idsm:validation [
+         idsm:forProperty ids:appRouteClearingHouse;
+         idsm:relationType idsm:OneToMany ;
+    ];
+
 .
 
+ids:RouteStep a owl:Class;
+              rdfs:subClassOf ids:AppRoute;
+              rdfs:label "Route step"@en ;
+              rdfs:comment """RouteSteps hold information about a communication pipelines between apps. A RouteStep should hold
+    one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.
+    """@en ;
+.
+
+
+# Properties
+# ----------
 
 ids:routeDeployMethod a owl:DatatypeProperty;
     rdfs:label "route deploy method"@en ;
@@ -52,32 +78,62 @@ ids:routeConfiguration a owl:DatatypeProperty;
     rdfs:comment "Configuration details (e.g. contents of a config file) used to configure the route. Should be Base64 encoded."@en ;
 .
 
-ids:subRoute a owl:ObjectProperty;
+ids:hasSubRoute a owl:ObjectProperty;
     rdfs:label "sub route"@en ;
     rdfs:domain ids:AppRoute;
-    rdfs:range ids:EndToEndRoute;
+    rdfs:range ids:RouteStep;
     rdfs:comment "Route between two or more app endpoints inside a app routing pipeline."@en ;
 .
-
-ids:EndToEndRoute a owl:Class;
-    rdfs:subClassOf ids:AppRoute;
-    rdfs:label "end to end route"@en ;
-    rdfs:comment """
-    EndToEndRoute hold information about a communication pipelines between apps. An EndToEndRoute should hold
-    one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.
-    """@en ;
-    .
 
 ids:appRouteStart a owl:ObjectProperty;
     rdfs:label "app route start"@en ;
     rdfs:domain ids:AppRoute;
-    rdfs:range ids:AppEndpoint;
+    rdfs:range ids:Endpoint;
     rdfs:comment "Start of a route."@en ;
 .
 
 ids:appRouteEnd a owl:ObjectProperty;
     rdfs:label "app route end"@en ;
     rdfs:domain ids:AppRoute;
-    rdfs:range ids:AppEndpoint;
+    rdfs:range ids:Endpoint;
     rdfs:comment "End of a route."@en ;
+.
+
+ids:appRouteOutput a owl:ObjectProperty;
+    rdfs:domain ids:AppRoute;
+    rdfs:range ids:Resource;
+    rdfs:label "app route output"@en ;
+    rdfs:comment """ids:Resource that corresponds to the output of an app route.
+Rationale: whereas an ids:Endpoint can have an ids:endpointArtifact, it is additionally important that the data flow inside the ids:Connector / ids:ConfigurationModel is aware of the ids:ContractOffer (a property of ids:Resource!) associated with the data coming into the Connector or going out of the Connector.
+Use: Whenever properties of this Resource change, it may make sense to notify the ids:broker(s) configured for this AppRoute.
+Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the output resource of one step serves immediately as the input that is processed by the subsequent step(s).  An ids:SystemAdapter typically does not change the ids:Resource, but might rather make it available in a different ids:Representation.  An ids:SmartDataApp might replate its input(s) by an entirely different (e.g., fused) resource.
+"""@en ;
+.
+
+ids:appRouteBroker a owl:ObjectProperty;
+    rdfs:domain ids:AppRoute;
+    rdfs:range ids:Broker;
+    rdfs:label "app route broker"@en ;
+    rdfs:comment """One or more ids:Broker(s) to which changes/updates of this route's ids:appRouteOutput ids:Resource are announced.
+This should be a subset of those Brokers that have been configured as ids:configuredBrokers in the ids:ConfigurationModel of which this is an ids:appRoute.
+"""@en ;
+.
+
+ids:appRouteClearingHouse a owl:ObjectProperty;
+    rdfs:domain ids:AppRoute;
+    rdfs:range ids:ClearingHouse;
+    rdfs:label "app route broker"@en ;
+    rdfs:comment """One or more ids:ClearingHouse(s) to which information of this route's  data exchange are notified.
+This should be a subset of clearing houses listed in the corresponding ids:ClearingHouseCatalog for a given configuration model. The Configuration Model ids:configuredClearingHouse in the ids:ConfigurationModel of which this is an ids:appRoute.
+"""@en ;
+.
+
+ids:requiredDataApp a owl:ObjectProperty;
+    rdfs:domain ids:RouteStep;
+    rdfs:range ids:AppRepresentation;
+    rdfs:label "requiredDataApp"@en;
+    rdfs:comment """Refers to the concrete app representation (ids:AppRepresentation) for a data app (ids:DataApp) which is deployed in the Connector maintained by the Configuration Model and
+    whoose endpoint (ids:AppEndpoint) is used in this ids:RouteStep. The referred app representation should be part of the catalog of AppResources in the
+    corresponding Configuration Model (cf. ids:configuredAppResource property in class ids:ConfigurationModel).
+    """@en ;
 .
