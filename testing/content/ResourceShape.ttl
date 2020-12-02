@@ -21,7 +21,7 @@ shapes:
 	] .
 
 shapes:ResourceShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Resource ;
 
 	sh:property [
@@ -60,6 +60,7 @@ shapes:ResourceShape
 		sh:path ids:publisher ;
 		#sh:class ids:Agent ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:publisher property must point from an ids:Resource to an ids:Agent."@en ;
 	] ;
@@ -69,6 +70,7 @@ shapes:ResourceShape
 		sh:path ids:sovereign ;
 		#sh:class ids:Agent ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:sovereign property must point from an ids:Resource to an ids:Agent."@en ;
 	] ;
@@ -85,6 +87,7 @@ shapes:ResourceShape
 		a sh:PropertyShape ;
 		sh:path ids:variant ;
 		sh:class ids:Resource ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:variant property must point from an ids:Resource to an ids:Resource."@en ;
 	] .

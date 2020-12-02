@@ -39,6 +39,7 @@ shapes:EndpointShape
 		a sh:PropertyShape ;
 		sh:path ids:path ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:path property must point from an ids:Endpoint to an xsd:string."@en ;
 	] ;
@@ -47,6 +48,7 @@ shapes:EndpointShape
 		a sh:PropertyShape ;
 		sh:path ids:inboundPath ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:inboundPath property must point from an ids:Endpoint to an xsd:string."@en ;
 	] ;
@@ -55,6 +57,7 @@ shapes:EndpointShape
 		a sh:PropertyShape ;
 		sh:path ids:outboundPath ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:outboundPath property must point from an ids:Endpoint to an xsd:string."@en ;
 	];
@@ -91,6 +94,7 @@ shapes:ConnectorEndpointShape
 		a sh:PropertyShape ;
 		sh:path ids:endpointArtifact ;
 		sh:class ids:Artifact ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (ConnectorEndpointShape): An ids:endpointArtifact property must point from an ids:ConnectorEndpoint to an ids:Artifact."@en ;
 	] ;
@@ -115,6 +119,7 @@ shapes:AppEndpointShape
 		sh:path ids:appEndpointType ;
 		sh:class ids:AppEndpointType ;
 		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointType property must point from an ids:AppEndpoint to at least one ids:AppEndpointType."@en ;
 	] ;
@@ -124,14 +129,58 @@ shapes:AppEndpointShape
 		sh:path ids:appEndpointPort ;
 		sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointPort property must point from an ids:AppEndpoint to an xsd:integer >= 0."@en ;
 	] ;
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:appEndpointMediaType ;
 		sh:class ids:MediaType ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointMediaType property must point from an ids:AppEndpoint to an ids:MediaType."@en ;
 	] ;
-.
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appEndpointProtocol ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointProtocol property must point from an ids:AppEndpoint to an xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:language ;
+		sh:class ids:Language ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:language property must point from an ids:AppEndpoint to an ids:Language."@en ;
+	] ;
+	.
+
+
+shapes:GenericEndpointShape
+		a sh:NodeShape ;
+		sh:targetClass ids:GenericEndpoint ;
+
+		sh:property [
+			a sh:PropertyShape ;
+			sh:path ids:genericEndpointAuthentication ;
+			sh:class ids:BasicAuthentication ;
+			sh:maxCount 1 ;
+			sh:severity sh:Violation ;
+			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (GenericEndpointShape): An ids:genericEndpointAuthentication property must point from an ids:GenericEndpoint to an ids:BasicAuthentication."@en ;
+		] ;
+
+		sh:property [
+			a sh:PropertyShape ;
+			sh:path ids:genericEndpointConfiguration ;
+			sh:datatype xsd:string ;
+			sh:maxCount 1 ;
+			sh:severity sh:Violation ;
+			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (GenericEndpointShape): An ids:genericEndpointConfiguration property must point from an ids:GenericEndpoint to an xsd:string."@en ;
+		] ;

@@ -47,6 +47,7 @@ shapes:ProxyShape
 		a sh:PropertyShape ;
 		sh:path ids:proxyAuthentication ;
 		sh:class ids:BasicAuthentication ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:proxyAuthentication property must point from an ids:Proxy to an ids:BasicAuthentication."@en ;
 	] ;
@@ -74,28 +75,6 @@ shapes:ProxyShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:endpointDocumentation property must point from an ids:Proxy to an IRI."@en ;
 	];
-.
-
-
-shapes:ConnectorEndpointShape
-	a sh:NodeShape ;
-	sh:targetClass ids:ConnectorEndpoint ;
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:endpointArtifact ;
-		sh:class ids:Artifact ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ConnectorEndpointShape): An ids:endpointArtifact property must point from an ids:ConnectorEndpoint to an ids:Artifact."@en ;
-	] ;
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:accessURL ;
-		sh:nodeKind sh:IRI ;
-		sh:minCount 1;
-		sh:maxCount 1;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ConnectorEndpointShape): An ids:accessURL property must point from an ids:ConnectorEndpoint to an IRI."@en ;
-	]
 .
 
 

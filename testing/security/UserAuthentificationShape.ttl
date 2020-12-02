@@ -40,6 +40,7 @@ shapes:UserAuthenticationShape
 		a sh:PropertyShape ;
 		sh:path ids:authUsername ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/UserAuthenticationShape.ttl> (UserAuthenticationShape): An ids:authUsername property must point from an ids:UserAuthentication to a xsd:string."@en ;
 	] ;
@@ -54,6 +55,7 @@ shapes:BasicAuthenticationShape
 		a sh:PropertyShape ;
 		sh:path ids:authPassword ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/UserAuthenticationShape.ttl> (BasicAuthenticationShape): An ids:authPassword property must point from an ids:BasicAuthentication to a xsd:string."@en ;
 	] ;
@@ -68,6 +70,7 @@ shapes:HTTPAuthenticationShape
 		a sh:PropertyShape ;
 		sh:path ids:httpAuthURI ;
 		sh:datatype xsd:anyURI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/UserAuthenticationShape.ttl> (BasicAuthenticationShape): An ids:httpAuthURI property must point from an ids:HTTPAuthentication to a xsd:anyURI."@en ;
 	] ;

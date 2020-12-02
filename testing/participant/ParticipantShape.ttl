@@ -48,6 +48,7 @@ shapes:ParticipantShape
 		a sh:PropertyShape ;
 		sh:path ids:corporateHomepage ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:corporateHomepage property must point from an ids:Participant to a homepage IRI."@en ;
 	] ;
@@ -72,6 +73,7 @@ shapes:ParticipantShape
 		a sh:PropertyShape ;
 		sh:path ids:participantCertification ;
 		sh:class ids:ParticipantCertification ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must point from an ids:Participant to an ids:ParticipantCertification."@en ;
 	];
@@ -103,6 +105,7 @@ shapes:PersonShape
 		a sh:PropertyShape ;
 		sh:path ids:familyName ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:familyName property must point from an ids:Person to an xsd:string."@en ;
 	] ;
@@ -111,6 +114,7 @@ shapes:PersonShape
 		a sh:PropertyShape ;
 		sh:path ids:givenName ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:givenName property must point from an ids:Person to an xsd:string."@en ;
 	] ;
@@ -135,6 +139,7 @@ shapes:PersonShape
 		a sh:PropertyShape ;
 		sh:path ids:homepage ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:homepage property must point from an ids:Person to an xsd:string."@en ;
 	] .
@@ -148,6 +153,7 @@ shapes:SiteShape
 		a sh:PropertyShape ;
 		sh:path ids:siteAddress ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must point from an ids:Site to an xsd:string."@en ;
 	] .

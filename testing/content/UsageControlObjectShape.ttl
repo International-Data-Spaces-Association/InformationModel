@@ -30,6 +30,7 @@ shapes:UsageControlObjectShape
 		sh:path ids:data ;
 		sh:datatype xsd:anyURI ;
 		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:data property must point from an ids:UsageControlObject to at least on xsd:anyURI."@en ;
 	] ;
@@ -38,6 +39,7 @@ shapes:UsageControlObjectShape
 		a sh:PropertyShape ;
 		sh:path ids:user ;
 		sh:class ids:Participant ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:user property must point from an ids:UsageControlObject to an ids:Participant."@en ;
 	] ;
@@ -46,6 +48,7 @@ shapes:UsageControlObjectShape
 		a sh:PropertyShape ;
 		sh:path ids:source ;
 		sh:datatype xsd:anyURI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:source property must point from an ids:UsageControlObject to an xsd:anyURI."@en ;
 	] ;
@@ -63,6 +66,7 @@ shapes:UsageControlObjectShape
 		a sh:PropertyShape ;
 		sh:path ids:usageDuration ;
 		sh:datatype xsd:duration ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:usageDuration property must point from an ids:UsageControlObject to an xsd:duration."@en ;
 	] ;
@@ -71,6 +75,7 @@ shapes:UsageControlObjectShape
 		a sh:PropertyShape ;
 		sh:path ids:accessed ;
 		sh:datatype xsd:dateTimeStamp ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:accessed property must point from an ids:UsageControlObject to an xsd:dateTimeStamp."@en ;
 	] ;
@@ -95,6 +100,7 @@ shapes:UsageControlObjectShape
 		a sh:PropertyShape ;
 		sh:path ids:requester ;
 		sh:datatype xsd:anyURI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:requester property must point from an ids:UsageControlObject to an ids:TemporalEntity."@en ;
 	] ;
@@ -108,4 +114,14 @@ shapes:UsageControlObjectShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:created property must point from an ids:UsageControlObject to exactly one xsd:dateTimeStamp."@en ;
 	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:modified ;
+		sh:datatype xsd:dateTimeStamp ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:modified property must point from an ids:UsageControlObject to an xsd:dateTimeStamp."@en ;
+	] ;
+
 .

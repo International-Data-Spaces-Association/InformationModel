@@ -39,6 +39,7 @@ shapes:ConfigurationModelShape
 		sh:path ids:configurationModelLogLevel ;
 		sh:class ids:LogLevel ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:ConfigurationModel must have at least one ids:LogLevel linked through the ids:configurationModelLogLevel property"@en ;
 	] ;
@@ -48,6 +49,7 @@ shapes:ConfigurationModelShape
 		sh:path ids:connectorStatus ;
 		sh:class ids:ConnectorStatus ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:connectorStatus property must point from an ids:ConfigurationModel to at least one ids:ConnectorStatus."@en ;
 	] ;
@@ -57,6 +59,7 @@ shapes:ConfigurationModelShape
 		sh:path ids:connectorDeployMode ;
 		sh:class ids:ConnectorDeployMode ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:connectorDeployMode property must point from an ids:ConfigurationModel to at least one ids:ConnectorDeployMode."@en ;
 	] ;
@@ -65,7 +68,8 @@ shapes:ConfigurationModelShape
 		a sh:PropertyShape ;
 		sh:path ids:connectorDescription ;
 		sh:class ids:Connector ;
-		sh:minCount 1 ;
+		# sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:ConfigurationModel must have at least one ids:Connector linked through the ids:connectorDescription property"@en ;
 	] ;
@@ -82,6 +86,7 @@ shapes:ConfigurationModelShape
 		a sh:PropertyShape ;
 		sh:path ids:trustStore ;
 		sh:datatype xsd:anyURI ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:trustStore property must point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
 	] ;
@@ -90,14 +95,52 @@ shapes:ConfigurationModelShape
 		a sh:PropertyShape ;
 		sh:path ids:keyStore ;
 		sh:datatype xsd:anyURI ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:keyStore property must point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:appRoute ;
-		sh:class ids:AppRoute ;
+		sh:path ids:configuredBroker ;
+		sh:class ids:BrokerCatalog ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:appRoute property must point from an ids:ConfigurationModel to an ids:AppRoute."@en ;
-	] .
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredBroker property must point from an ids:ConfigurationModel to an ids:BrokerCatalog."@en ;
+	] ;
+
+	sh:property [
+	a sh:PropertyShape ;
+	sh:path ids:appRoute ;
+	sh:class ids:AppRoute ;
+	sh:severity sh:Violation ;
+	sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:appRoute property must point from an ids:ConfigurationModel to an ids:AppRoute."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:configuredAppStore ;
+		sh:class ids:AppStoreCatalog ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredAppStore property must point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:configuredAppResource ;
+		sh:class ids:AppResourceCatalog ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredAppResource property must point from an ids:ConfigurationModel to an ids:AppResourceCatalog."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:configuredClearingHouse ;
+		sh:class ids:ClearingHouseCatalog ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredClearingHouse property must point from an ids:ConfigurationModel to an ids:ClearingHouseCatalog."@en ;
+	] ;
+.

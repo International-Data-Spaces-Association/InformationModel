@@ -31,6 +31,7 @@ shapes:AppRouteShape
 		sh:path ids:routeDeployMethod ;
     sh:datatype xsd:string ;
 		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeDeployMethod property must point from an ids:AppRoute to at least one xsd:string."@en ;
 	] ;
@@ -39,6 +40,7 @@ shapes:AppRouteShape
 		a sh:PropertyShape ;
 		sh:path ids:routeConfiguration ;
     sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeConfiguration property must point from an ids:AppRoute an xsd:string."@en ;
 
@@ -48,16 +50,17 @@ shapes:AppRouteShape
   a sh:PropertyShape ;
   sh:path ids:routeDescription ;
   sh:datatype xsd:string ;
+	sh:maxCount 1 ;
   sh:severity sh:Violation ;
   sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeDescription property must point from an ids:AppRoute an xsd:string."@en ;
   ] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:subRoute ;
+		sh:path ids:hasSubRoute ;
     sh:class ids:EndToEndRoute ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:subRoute property must point from an ids:AppRoute an ids:EndToEndRoute."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:hasSubRoute property must point from an ids:AppRoute an ids:EndToEndRoute."@en ;
 	] ;
 
 	sh:property [

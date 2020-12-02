@@ -42,6 +42,7 @@ shapes:DigitalContentShape
 		a sh:PropertyShape ;
 		sh:path ids:contentType ;
 		sh:class ids:ContentType ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentType property must point from an ids:DigitalContent to an ids:ContentType."@en ;
 	] ;
@@ -91,6 +92,7 @@ shapes:DigitalContentShape
 					a sh:PropertyShape ;
 					sh:path ids:standardLicense ;
 					sh:nodeKind sh:IRI ;
+					sh:maxCount 1 ;
 					sh:severity sh:Violation ;
 					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:standardLicense property must point from an ids:Resource to an xsd:anyURI."@en ;
 				] ;
@@ -99,6 +101,7 @@ shapes:DigitalContentShape
 					a sh:PropertyShape ;
 					sh:path ids:customLicense ;
 					sh:nodeKind sh:IRI ;
+					sh:maxCount 1 ;
 					sh:severity sh:Violation ;
 					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:customLicense property must point from an ids:Resource to an xsd:anyURI."@en ;
 				] ;
@@ -130,6 +133,7 @@ shapes:DigitalContentShape
 		a sh:PropertyShape ;
 		sh:path ids:temporalResolution ;
 		sh:class ids:Frequency ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:temporalResolution property must point from an ids:DigitalContent to an ids:Frequency."@en ;
 	] ;
@@ -146,6 +150,7 @@ shapes:DigitalContentShape
 		a sh:PropertyShape ;
 		sh:path ids:accrualPeriodicity ;
 		sh:class ids:Frequency ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:accrualPeriodicity property must point from an ids:DigitalContent to an ids:Frequency."@en ;
 	] ;
@@ -173,6 +178,7 @@ shapes:DigitalContentShape
 		sh:path ids:contentStandard ;
 		#sh:class ids:Standard ;# A property with `idsm:referenceByUri true` must not have a class check
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentStandard property must point from an ids:DigitalContent to an IRI."@en ;
 	] .
