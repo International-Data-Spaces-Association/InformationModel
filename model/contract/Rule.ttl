@@ -31,6 +31,7 @@ ids:Rule
     idsm:validation [
         idsm:forProperty ids:action;
         idsm:relationType idsm:OneToMany;
+        idsm:constraint idsm:NotEmpty;
     ].
 
 ids:Permission rdfs:subClassOf ids:Rule;
@@ -39,7 +40,11 @@ ids:Permission rdfs:subClassOf ids:Rule;
     rdfs:label "Permission"@en;
     rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en;
     idsm:validation [
-        idsm:forProperty ids:duty;
+        idsm:forProperty ids:preDuty;
+        idsm:relationType idsm:OneToMany;
+    ] ;
+    idsm:validation [
+        idsm:forProperty ids:postDuty;
         idsm:relationType idsm:OneToMany;
     ].
 
@@ -55,19 +60,6 @@ ids:Duty rdfs:subClassOf ids:Rule;
     rdfs:label "Duty"@en;
     rdfs:comment "The class of Duties as defined in the ODRL ontology."@en.
 
-ids:Constraint rdfs:subClassOf odrl:Constraint;
-    a owl:Class;
-    rdfs:label "Constraint"@en;
-    rdfs:comment "The class of Constraints that restrict a Rule."@en;
-    idsm:validation [
-        idsm:forProperty ids:leftOperand;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:operator;
-        idsm:constraint idsm:NotNull;
-    ] ;
-.
 
 # Properties
 # ----------
@@ -84,6 +76,7 @@ ids:assignee rdfs:subPropertyOf odrl:assignee;
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
+    idsm:referenceByUri true ;
     rdfs:label "assignee"@en;
     rdfs:comment "The recipient of the policy statement."@en.
 
@@ -98,30 +91,17 @@ ids:assigner rdfs:subPropertyOf odrl:assigner;
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
+    idsm:referenceByUri true ;
     rdfs:label "assigner"@en;
     rdfs:comment "The issuer of the policy statement."@en.
 
-ids:targetArtifact
+ids:target
     a owl:ObjectProperty;
-    #rdfs:subPropertyOf odrl:target;
     rdfs:domain ids:Rule;
-    rdfs:range ids:Artifact;
+    rdfs:range ids:Asset;
+    idsm:referenceByUri true ;
     rdfs:label "target"@en;
-    rdfs:comment "Concrete, materialized content (artifact) which is the subject of the policy statement."@en.
-
-ids:targetContent
-    a owl:ObjectProperty;
-    rdfs:domain ids:Rule;
-    rdfs:range ids:DigitalContent ;
-    rdfs:label "target content"@en;
-    rdfs:comment "Abstract content which is the subject of the policy statement."@en.
-
-ids:duty rdfs:subPropertyOf odrl:duty;
-    a owl:ObjectProperty;
-    rdfs:label "duty"@en;
-    rdfs:domain ids:Permission;
-    rdfs:range ids:Duty;
-    rdfs:comment "The Duties imposed by a Permission."@en.
+    rdfs:comment "The subject of the policy statement (ids:Rule)."@en.
 
 ids:constraint rdfs:subPropertyOf odrl:constraint;
     a owl:ObjectProperty;
@@ -130,46 +110,24 @@ ids:constraint rdfs:subPropertyOf odrl:constraint;
     rdfs:range ids:Constraint;
     rdfs:comment "The constraint to be used for a specific rule."@en.
 
-ids:contentRefinement
+ids:assetRefinement
     a owl:ObjectProperty;
-    # rdfs:subPropertyOf odrl:refinement ;
+    rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "content refinement"@en;
-    rdfs:domain ids:DigitalContent;
-    rdfs:range ids:Constraint;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:AbstractConstraint;
     rdfs:comment "Constraint that refines a (composite) Digital Content."@en.
 
-ids:leftOperand
+ids:preDuty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;
-    rdfs:subPropertyOf odrl:leftOperand;
-    rdfs:label "leftOperand"@en ;
-    rdfs:domain ids:Constraint;
-    rdfs:range ids:LeftOperand ;
-    rdfs:comment "The left operand in a constraint expression."@en.
+    rdfs:label "pre-duty"@en;
+    rdfs:domain ids:Permission;
+    rdfs:range ids:Duty;
+    rdfs:comment "A Duty imposed by the Rule, which must be executed before the Rule."@en.
 
-ids:operator rdfs:subPropertyOf odrl:operator;
+ids:postDuty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;
-    rdfs:label "operator"@en ;
-    rdfs:domain ids:Constraint;
-    rdfs:range ids:BinaryOperator;
-    rdfs:comment "The operator function applied to operands of a Constraint"@en.
-
-ids:rightOperand rdfs:subPropertyOf odrl:rightOperand;
-    a owl:DatatypeProperty;
-    rdfs:label "rightOperand"@en ;
-    rdfs:domain ids:Constraint;
-    rdfs:range rdfs:Literal;
-    rdfs:comment "The value of the right operand in a constraint expression."@en.
-	
-ids:rightOperandReference rdfs:subPropertyOf odrl:rightOperandReference;
-    a owl:ObjectProperty;
-    rdfs:label "rightOperandReference"@en ;
-    rdfs:domain ids:Constraint;
-    rdfs:range rdfs:Resource;
-    rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value."@en.
-
-ids:unit rdfs:subPropertyOf odrl:unit;
-    a owl:ObjectProperty;
-    rdfs:label "unit"@en;
-    rdfs:domain ids:Constraint;
-    rdfs:range ids:Unit;
-    rdfs:comment "The unit of measurement of a Constraint."@en.
+    rdfs:label "post-duty"@en;
+    rdfs:domain ids:Permission;
+    rdfs:range ids:Duty;
+    rdfs:comment "A Duty imposed by the Rule, which must be executed after the Rule."@en.

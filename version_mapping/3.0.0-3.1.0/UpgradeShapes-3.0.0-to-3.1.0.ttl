@@ -1,0 +1,323 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+ids:ActivityUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Activity ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:activityDescription ?newActivityDescription .
+			idsm:VersionUpgrade ids:activityDescription ?oldActivityDescription .
+			
+			$this ids:endedAt ?newEndedAt .
+			idsm:VersionUpgrade ids:endedAt ?oldEndedAt .
+			
+			$this ids:startedAt ?newStartedAt .
+			idsm:VersionUpgrade ids:endedAt ?oldStartedAt .
+		}
+		WHERE {
+			OPTIONAL {$this ids:activityDescription ?oldActivityDescription .}
+			BIND(STRDT(STR(?oldActivityDescription), xsd:string) AS ?newActivityDescription)
+			
+			
+			OPTIONAL {$this ids:endedAt ?oldEndedAt .}			
+			BIND(if(regex(?oldEndedAt, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldEndedAt,
+				STRDT(CONCAT(STR(?oldEndedAt),"Z"), xsd:dateTimeStamp )
+			as ?newEndedAt)
+			
+			OPTIONAL {$this ids:startedAt ?oldStartedAt .}
+			BIND(if(regex(?oldStartedAt, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldStartedAt,
+				STRDT(CONCAT(STR(?oldStartedAt),"Z"), xsd:dateTimeStamp )
+			as ?newStartedAt)
+		}
+		""" ;
+			sh:condition ids:Activity ;    # Rules only apply if the input matches the respective shape
+	] ;
+.
+
+
+ids:ContractUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Contract ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:contractDate ?newContractDate .
+			idsm:VersionUpgrade ids:contractDate ?oldContractDate.
+			
+			$this ids:contractEnd ?newContractEnd .
+			idsm:VersionUpgrade ids:contractEnd ?oldContractEnd.
+			
+			$this ids:contractStart ?newContractStart .
+			idsm:VersionUpgrade ids:contractStart ?oldContractStart.
+		}
+		WHERE {
+			OPTIONAL {$this ids:contractDate ?oldContractDate .}
+			BIND(if(regex(?oldContractDate, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldContractDate,
+				STRDT(CONCAT(STR(?oldContractDate),"Z"), xsd:dateTimeStamp )
+			as ?newContractDate)			
+			
+			OPTIONAL {$this ids:contractEnd ?oldContractEnd .}
+			BIND(if(regex(?oldContractEnd, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldContractEnd,
+				STRDT(CONCAT(STR(?oldContractEnd),"Z"), xsd:dateTimeStamp )
+			as ?newContractEnd)
+			
+			
+			OPTIONAL {$this ids:contractStart ?oldContractStart .}
+			BIND(if(regex(?oldContractStart, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldContractStart,
+				STRDT(CONCAT(STR(?oldContractStart),"Z"), xsd:dateTimeStamp )
+			as ?newContractStart)
+		}
+		""" ;
+			sh:condition ids:Contract ;    # Rules only apply if the input matches the respective shape
+	] ;
+.
+
+ids:MessageUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Message ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:contractRejectionReason ?newContractRejectionReason .
+			idsm:VersionUpgrade ids:contractRejectionReason ?oldContractRejectionReason.
+			
+			$this ids:issued ?newIssued .
+			idsm:VersionUpgrade ids:issued ?oldIssued.
+		}
+		WHERE {
+			OPTIONAL {$this ids:contractRejectionReason ?oldContractRejectionReason .}
+			BIND(STRDT(STR(?oldContractRejectionReason), xsd:string) AS ?newContractRejectionReason)
+			
+			
+			OPTIONAL {$this ids:issued ?oldIssued .}
+			BIND(if(regex(?oldIssued, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldIssued,
+				STRDT(CONCAT(STR(?oldIssued),"Z"), xsd:dateTimeStamp )
+			as ?newIssued)
+		}
+		""" ;
+			sh:condition ids:Message ;    # Rules only apply if the input matches the respective shape
+	] ;
+.
+
+
+ids:ArtifactUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Artifact ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:creationDate ?newCreationDate .
+			idsm:VersionUpgrade ids:creationDate ?oldCreationDate.
+		}
+		WHERE {
+			OPTIONAL {$this ids:creationDate ?oldCreationDate .}
+			
+			BIND(if(regex(?oldCreationDate, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldCreationDate,
+				STRDT(CONCAT(STR(?oldCreationDate),"Z"), xsd:dateTimeStamp )
+			as ?newCreationDate)
+		}
+		""" ;
+			sh:condition ids:Artifact ;    # Rules only apply if the input matches the respective shape
+	] ;
+.
+
+
+ids:DescribedUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Described ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:description ?newDescription .
+			idsm:VersionUpgrade ids:description ?oldDescription.
+			
+			$this ids:title ?newTitle .
+			idsm:VersionUpgrade ids:title ?oldTitle.
+		}
+		WHERE {
+			OPTIONAL {$this ids:description ?oldDescription .}
+			BIND(STRDT(STR(?oldDescription), xsd:string) AS ?newDescription)
+			
+			OPTIONAL {$this ids:title ?oldTitle .}
+			BIND(STRDT(STR(?oldTitle), xsd:string) AS ?newTitle)
+		}
+		""" ;
+			sh:condition ids:Described ;    # Rules only apply if the input matches the respective shape
+	] ;
+.
+
+
+ids:DigitalContentUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:DigitalContent ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:keyword ?newKeyword .
+			idsm:VersionUpgrade ids:keyword ?oldKeyword.
+		}
+		WHERE {
+			OPTIONAL {$this ids:keyword ?oldKeyword .}
+			BIND(STRDT(STR(?oldKeyword), xsd:string) AS ?newKeyword)
+		}
+		""" ;
+			sh:condition ids:DigitalContent ;    # Rules only apply if the input matches the respective shape
+	] ;
+.
+
+
+ids:CertificationUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Certification ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:lastValidDate ?newLastValidDate .
+			idsm:VersionUpgrade ids:lastValidDate ?oldLastValidDate.
+		}
+		WHERE {
+			OPTIONAL {$this ids:lastValidDate ?oldLastValidDate .}
+			
+			BIND(if(regex(?oldLastValidDate, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldLastValidDate,
+				STRDT(CONCAT(STR(?oldLastValidDate),"Z"), xsd:dateTimeStamp )
+			as ?newLastValidDate)
+		}
+		""" ;
+			sh:condition ids:Certification ;    # Rules only apply if the input matches the respective shape
+	] ;
+.
+
+
+ids:ParticipantCertificationUpgradeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ParticipantCertification ;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:prefixes ids: ;
+		sh:construct """
+		prefix dash: <http://datashapes.org/dash#>
+		prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		prefix schema: <http://schema.org/>
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+		prefix ids: <https://w3id.org/idsa/core/>
+		prefix idsc: <https://w3id.org/idsa/code/>
+		prefix idsm: <https://w3id.org/idsa/metamodel/>
+
+		CONSTRUCT {
+			$this ids:membershipEnd ?newMembershipEnd .
+			idsm:VersionUpgrade ids:membershipEnd ?oldMembershipEnd.
+		}
+		WHERE {
+			OPTIONAL {$this ids:membershipEnd ?oldMembershipEnd .}
+			
+			BIND(if(regex(?oldMembershipEnd, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
+				oldMembershipEnd,
+				STRDT(CONCAT(STR(?oldMembershipEnd),"Z"), xsd:dateTimeStamp )
+			as ?newMembershipEnd)
+		}
+		""" ;
+			sh:condition ids:ParticipantCertification ;    # Rules only apply if the input matches the respective shape
+	] ;
+.

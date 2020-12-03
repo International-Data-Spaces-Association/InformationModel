@@ -8,101 +8,43 @@
 
 ids:DataResource
     a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:someValuesFrom ids:Data
-    ] ;
+    rdfs:subClassOf ids:Resource ;
     rdfs:label "Data Resource"@en ;
     rdfs:comment "Resource (at least partially) comprising data content."@en .
 
 ids:TextResource
     a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:someValuesFrom ids:Text
-    ] ;
+    rdfs:subClassOf ids:Resource ;
     rdfs:label "Text Resource"@en ;
     rdfs:comment "Resource (at least partially) comprising textual content."@en .
 
 ids:AudioResource
     a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:someValuesFrom ids:Audio
-    ] ;
+    rdfs:subClassOf ids:Resource ;
     rdfs:label "Audio Resource"@en ;
     rdfs:comment "Resource (at least partially) comprising audio content."@en .
 
 ids:ImageResource
     a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:someValuesFrom ids:Image
-    ] ;
+    rdfs:subClassOf ids:Resource ;
     rdfs:label "Image Resource"@en ;
     rdfs:comment "Resource (at least partially) comprising image content."@en .
 
 # language is optional
 ids:VideoResource
     a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:someValuesFrom ids:Video
-    ] ;
+    rdfs:subClassOf ids:Resource ;
     rdfs:label "Video Resource"@en ;
     rdfs:comment "Resource (at least partially) comprising video content."@en .
 
 ids:SoftwareResource
     a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:someValuesFrom ids:Software
-    ] ;
+    rdfs:subClassOf ids:Resource ;
     rdfs:label "Software Resource"@en ;
     rdfs:comment "Resource (at least partially) comprising Software."@en .
 
-ids:SchemaResource
+ids:AppResource
     a owl:Class;
-    rdfs:label "Schema Resource"@en ;
-    rdfs:comment "Resource (at least partially) comprising a Schema."@en .
-
-ids:SimpleResource
-    a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:cardinality 1
-    ] ;
-    rdfs:label "Simple Resource"@en ;
-    rdfs:comment "Resource comprising exactly one Digital Content."@en .
-
-ids:CompositeResource
-    a owl:Class;
-    rdfs:subClassOf ids:Resource ,
-    [
-        a owl:Restriction ;
-        owl:onProperty ids:contentPart ;
-        owl:minCardinality 2
-    ] ;
-    rdfs:label "Composite Resource"@en ;
-    rdfs:comment "Resource comprising multiple Digital Contents."@en .
-
-ids:CollectionResource
-    a owl:Class;
-    rdfs:subClassOf ids:Resource, ids:Collection;
-    rdfs:label "Collection resource"@en ;
-    rdfs:comment "Resource comprising a set of named (Map) or ordered (List) elements."@en .
-
+    rdfs:subClassOf ids:Resource ;
+    rdfs:label "App Resource"@en ;
+    rdfs:comment "Resource comprising IDS data apps."@en .

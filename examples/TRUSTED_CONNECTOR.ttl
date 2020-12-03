@@ -13,54 +13,47 @@ conn1:
     a ids:TrustedConnector ;
     # General properties
     ids:title "Fraunhofer FIT - Traffic statistics hub" ;
-    ids:description "Example Trusted Connector maintained by the Fraunhofer FIT" ;
-    ids:maintainer "https://www.fit.fraunhofer.de";
-    ids:curator "https://www.fit.fraunhofer.de";
+    ids:description "Example Trusted Connector maintained by the Fraunhofer FIT"@en ;
+    ids:maintainer <https://www.fit.fraunhofer.de>;
+    ids:curator <https://www.fit.fraunhofer.de>;
 
     # Information Model of the Connector
-    ids:outboundModelVersion "2.0.0-SNAPSHOT" ;
-    
+    ids:outboundModelVersion "4.0.0" ;
+
     # Information Model version that the Connector is capable of reading/processing
-    ids:inboundModelVersion "2.0.0-SNAPSHOT" ;
-    
-    # Network host(s) maintained by the Connector. Describes the protocol and access URL of the host.
-    ids:host [
-        a ids:Host ;
-        ids:protocol idsc:HTTP2;
-        ids:accessUrl "https://connector.fit.fraunhofer.de/trafichub/httphost" ;
-        ];
-    
+    ids:inboundModelVersion "4.0.0" ;
+
+
     # Default host of the Connector. May be used for basic infrastructure interactions, e.g., providing the self description
-    ids:defaultHost [
-        a ids:Host ;
-        ids:protocol idsc:HTTP2;
-        ids:accessUrl "https://connector.aastat.gov.de" ;
-        ];
+  #  ids:defaultHost [
+  #      a ids:Host ;
+  #      ids:protocol idsc:HTTP2;
+  #      ids:accessUrl "https://connector.aastat.gov.de" ;
+  #      ];
 
     # Security and trust features
     # Holds information regarding the authentication so that connections to the Connector's data offerings can be establised.
     # Properties contain the authentication service URI and authentication protocol (OAUTH2_JWT)
     ids:authInfo [
         a ids:AuthInfo ;
-        ids:authService "https://keycloak.aastat.gov.de" ;
+        ids:authService <https://keycloak.aastat.gov.de> ;
         ids:authStandard idsc:OAUTH2_JWT ;
         ];
-    
+
     # Information on the security profile of the connector
-    ids:securityProfile idsc:TRUSTED_CONNECTOR_SECURITY_PROFILE;
-    ids:transportCertsSha256 "<some SHA-256 value>";
-    
-    
+    ids:securityProfile idsc:TRUSTED_PLUS_SECURITY_PROFILE;
+
+
     # Information regarding the certification of the Connector including the certification level and validity date.
     ids:componentCertification [
         a ids:ComponentCertification ;
         ids:certificationLevel idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION ;
-        ids:lastValidDate "2020-12-31";
+        ids:lastValidDate "2020-12-31T13:20:00+02:00"^^xsd:dateTimeStamp;
     ];
 
     # Catalog of offered and requested resources
-    ids:catalog [
-        a ids:Catalog;
-        ids:offer "<sample_offered_DataResource>";
-        ids:request "<sample_requested_DataResource>";
+    ids:resourceCatalog [
+        a ids:ResourceCatalog;
+        ids:offeredResource "<sample_offered_DataResource>";
+        ids:requestedResource "<sample_requested_DataResource>";
     ].

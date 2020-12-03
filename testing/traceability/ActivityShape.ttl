@@ -7,7 +7,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 shapes:
 	a owl:Ontology ;
@@ -28,7 +28,7 @@ shapes:ActivityShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:Activity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:Activity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -51,7 +51,7 @@ shapes:ActivityShape
             ]
             );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:activityDescription property must point from an ids:Activity to either a xsd:string or a rdf:langString which contains a language code.."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:activityDescription property must point from an ids:Activity to either a xsd:string or a rdf:langString which contains a language code.."@en ;
 	] ;
 
 	sh:property [
@@ -60,7 +60,7 @@ shapes:ActivityShape
 		sh:class ids:Participant ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:Activity must not have more than one ids:Participant linked through the ids:startedBy property"@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:Activity must not have more than one ids:Participant linked through the ids:startedBy property"@en ;
 	] ;
 
 	sh:property [
@@ -68,7 +68,7 @@ shapes:ActivityShape
 		sh:path ids:startedAt ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:startedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:startedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
@@ -76,7 +76,7 @@ shapes:ActivityShape
 		sh:path ids:endedBy ;
 		sh:class ids:Participant ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedBy property must point from an ids:Activity to an ids:Participant."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedBy property must point from an ids:Activity to an ids:Participant."@en ;
 	] ;
 
 	sh:property [
@@ -84,7 +84,7 @@ shapes:ActivityShape
 		sh:path ids:endedAt ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ;
 	] .
 
 
@@ -97,6 +97,6 @@ shapes:ModificationActivityShape
 		sh:path ids:invalidated ;
 		sh:datatype ids:ManagedEntity ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/traceability/ActivityShape.ttl> (ModificationActivityShape): An ids:invalidated property must point from an ids:ModificationActivity to an ids:ManagedEntity."@en ; 
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ModificationActivityShape): An ids:invalidated property must point from an ids:ModificationActivity to an ids:ManagedEntity."@en ;
 	] .
 

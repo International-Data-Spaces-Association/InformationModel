@@ -1,0 +1,57 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Template
+# --------
+
+idsc:USAGE_LOGGING_OFFER_TEMPLATE a ids:LoggingOffer ;
+    rdfs:label "Usage Logging Offer Template" ;
+    spin:labelTemplate """The Provider offers to the Consumer to allow a defined Action on its Asset given that the
+    Consumer logs each time the Asset is used."""@en ;
+    rdfs:comment "This template models data usage under the condition of logging each access."@en ;
+    skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
+    (
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;
+       ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    )
+    ids:permission [
+        a ids:Permission ;
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        )
+        ids:target idsc:ASSET_TEMPLATE ;
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:postDuty [
+            a ids:Duty ;
+            (
+              (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+            | # or
+              (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+            | # or
+              (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+               ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+            )
+            ids:action idsc:LOG ;
+        ] ;
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
+        ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
+    ]
+.

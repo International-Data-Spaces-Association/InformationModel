@@ -15,20 +15,11 @@ ids:ManagedEntity
     rdfs:subClassOf ids:Described ;
     idsm:abstract true;
     rdfs:label "Managed entity"@en ;
-    rdfs:comment "The class of mutable individuals that are a potential subject to lifecycle management which may need to be tracked."@en;
-    idsm:validation [
-        idsm:forProperty ids:lifecycleActivity;
-        idsm:relationType idsm:OneToMany;
-    ].
+    rdfs:comment "The class of mutable individuals."@en;
+.
 
 # Properties of ManagedEntity
 # -------------------------------------
-
-ids:lifecycleActivity a owl:ObjectProperty;
-    rdfs:label "lifecycleActivity"@en;
-    rdfs:domain ids:ManagedEntity;
-    rdfs:range ids:Activity;
-    rdfs:comment "Activity that occurs during the lifecycle of the Managed Entity."@en.
 
 ids:version a owl:DatatypeProperty;
     rdfs:subPropertyOf dct:hasVersion;
