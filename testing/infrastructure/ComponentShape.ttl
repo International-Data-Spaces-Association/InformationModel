@@ -23,7 +23,7 @@ shapes:
 
 
 shapes:InfrastructureComponentShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:InfrastructureComponent ;
 
 	sh:sparql [
@@ -44,7 +44,8 @@ shapes:InfrastructureComponentShape
 		sh:path ids:maintainer ;
 		#sh:class ids:Participant ;
 		sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
+    sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:InfrastructureComponent must have at least one ids:Participant linked through the ids:maintainer property"@en ;
 	] ;
@@ -54,7 +55,8 @@ shapes:InfrastructureComponentShape
 		sh:path ids:curator ;
 		#sh:class ids:Participant ;
 		sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
+    sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:InfrastructureComponent must have at least one ids:Participant linked through the ids:curator property"@en ;
 	] ;
@@ -63,6 +65,7 @@ shapes:InfrastructureComponentShape
 		a sh:PropertyShape ;
 		sh:path ids:physicalLocation ;
 		sh:class ids:Location ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:physicalLocation property must point from an ids:InfrastructureComponent to an ids:Location."@en ;
 	] ;
@@ -71,8 +74,9 @@ shapes:InfrastructureComponentShape
 		a sh:PropertyShape ;
 		sh:path ids:inboundModelVersion ;
 		sh:datatype xsd:string ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:inboundModelVersion property must point from an ids:InfrastructureComponent to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:inboundModelVersion property must point from an ids:InfrastructureComponent to at least one xsd:string."@en ;
 	] ;
 
 	sh:property [
@@ -80,6 +84,7 @@ shapes:InfrastructureComponentShape
 		sh:path ids:outboundModelVersion ;
 		sh:datatype xsd:string ;
 		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:InfrastructureComponent must have at least one xsd:string linked through the ids:outboundModelVersion property"@en ;
 	] ;
@@ -88,6 +93,7 @@ shapes:InfrastructureComponentShape
 		a sh:PropertyShape ;
 		sh:path ids:componentCertification ;
 		sh:class ids:ComponentCertification ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:componentCertification property must point from an ids:InfrastructureComponent to an ids:ComponentCertification."@en ;
 	] ;
@@ -96,7 +102,7 @@ shapes:InfrastructureComponentShape
 		a sh:PropertyShape ;
 		sh:path ids:publicKey ;
 		sh:class ids:PublicKey ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (InfrastructureComponentShape): An ids:publicKey property must point from an ids:InfrastructureComponent to an ids:PublicKey."@en ;
 	] .
-
