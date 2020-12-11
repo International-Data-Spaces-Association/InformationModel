@@ -63,7 +63,6 @@ shapes:MessageShape
 		sh:path ids:correlationMessage ;
     sh:nodeKind sh:IRI ;
 		#sh:class ids:Message ;
-		# sh:minCount 1 ; pnl
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:correlationMessage property must point from an ids:Message to exactly one ids:Message via an IRI."@en ;
@@ -73,8 +72,8 @@ shapes:MessageShape
 		a sh:PropertyShape ;
 		sh:path ids:issuerConnector ;
 		sh:nodeKind sh:IRI ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-        #sh:class ids:Connector ;
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    #sh:class ids:Connector ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -85,8 +84,8 @@ shapes:MessageShape
 		a sh:PropertyShape ;
 		sh:path ids:recipientConnector ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Connector ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    #sh:class ids:Connector ;
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientConnector property must point from an ids:Message to an ids:Connector via an IRI."@en ;
 	] ;
@@ -96,9 +95,9 @@ shapes:MessageShape
 		sh:path ids:senderAgent ;
 		sh:nodeKind sh:IRI ;
 		#sh:class ids:Agent ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one ids:Agent linked as an IRI through the ids:senderAgent property"@en ;
 	] ;
@@ -108,7 +107,7 @@ shapes:MessageShape
 		sh:path ids:recipientAgent ;
 		sh:nodeKind sh:IRI ;
 		#sh:class ids:Agent ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:recipientAgent property must point from an ids:Message to an ids:Agent via an IRI."@en ;
 	] ;
@@ -137,7 +136,7 @@ shapes:MessageShape
 		sh:path ids:transferContract ;
 		sh:nodeKind sh:IRI ;
 		sh:maxCount 1 ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:transferContract property must point from an ids:Message to an ids:Contract."@en ;
 	] ;
@@ -147,7 +146,7 @@ shapes:MessageShape
 		a sh:PropertyShape ;
 		sh:path ids:operationReference ;
 		sh:nodeKind sh:IRI ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:operationReference property must point from an ids:Message to a URI."@en ;
 	] ;
