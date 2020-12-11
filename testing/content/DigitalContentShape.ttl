@@ -44,7 +44,7 @@ shapes:DigitalContentShape
 		sh:class ids:ContentType ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentType property must point from an ids:DigitalContent to an ids:ContentType."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentType property must not have more than one point from an ids:DigitalContent to an ids:ContentType."@en ;
 	] ;
 
 	sh:property [
@@ -89,22 +89,22 @@ shapes:DigitalContentShape
 	] ;
 
 	sh:property [
-					a sh:PropertyShape ;
-					sh:path ids:standardLicense ;
-					sh:nodeKind sh:IRI ;
-					sh:maxCount 1 ;
-					sh:severity sh:Violation ;
-					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:standardLicense property must point from an ids:Resource to an xsd:anyURI."@en ;
-				] ;
+		a sh:PropertyShape ;
+		sh:path ids:standardLicense ;
+		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:standardLicense property must not have more than one point from an ids:Resource to an xsd:anyURI."@en ;
+	] ;
 
 	sh:property [
-					a sh:PropertyShape ;
-					sh:path ids:customLicense ;
-					sh:nodeKind sh:IRI ;
-					sh:maxCount 1 ;
-					sh:severity sh:Violation ;
-					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:customLicense property must point from an ids:Resource to an xsd:anyURI."@en ;
-				] ;
+		a sh:PropertyShape ;
+		sh:path ids:customLicense ;
+		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:customLicense property must not have more than one point from an ids:Resource to an xsd:anyURI."@en ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -135,7 +135,7 @@ shapes:DigitalContentShape
 		sh:class ids:Frequency ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:temporalResolution property must point from an ids:DigitalContent to an ids:Frequency."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:temporalResolution property must not have more than one point from an ids:DigitalContent to an ids:Frequency."@en ;
 	] ;
 
 	sh:property [
@@ -152,7 +152,7 @@ shapes:DigitalContentShape
 		sh:class ids:Frequency ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:accrualPeriodicity property must point from an ids:DigitalContent to an ids:Frequency."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:accrualPeriodicity property must not have more than one point from an ids:DigitalContent to an ids:Frequency."@en ;
 	] ;
 
 	sh:property [
@@ -180,5 +180,5 @@ shapes:DigitalContentShape
 		sh:nodeKind sh:IRI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentStandard property must point from an ids:DigitalContent to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:contentStandard property must not have more than one point from an ids:DigitalContent to an IRI."@en ;
 	] .
