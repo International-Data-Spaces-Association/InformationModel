@@ -69,7 +69,7 @@ shapes:ContractShape
 		a sh:PropertyShape ;
 		sh:path ids:provider ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Participant ;
+    #sh:class ids:Participant ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -125,90 +125,9 @@ shapes:ContractShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path (ids:permission ids:obligation) ;
+		sh:path ids:prohibition ;
+		sh:class ids:Prohibition
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:permission or ids:obligation property linked."@en ;
-	] .
-
-
-shapes:ContractAgreementShape
-	a sh:NodeShape ;
-	sh:targetClass ids:ContractAgreement ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:consumer ;
-		sh:nodeKind sh:IRI ;
-		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-		# sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:provider ;
-		sh:nodeKind sh:IRI ;
-		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-		# sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractAgreementShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
-	] ;
-.
-
-
-shapes:ContractRequestShape
-	a sh:NodeShape ;
-	sh:targetClass ids:ContractRequest ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:consumer ;
-		sh:nodeKind sh:IRI ;
-		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-    # sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:provider ;
-		sh:nodeKind sh:IRI ;
-	  sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-		# sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
-	] .
-
-
-shapes:ContractOfferShape
-	a sh:NodeShape ;
-	sh:targetClass ids:ContractOffer ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:consumer ;
-		sh:nodeKind sh:IRI ;
-		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-    # sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:provider ;
-		sh:nodeKind sh:IRI ;
-		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-		# sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractOfferShape): An ids:Contract must have exactly one ids:Participant linked through the ids:provider property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:prohibition to an ids:Prohibition."@en ;
 	] .
