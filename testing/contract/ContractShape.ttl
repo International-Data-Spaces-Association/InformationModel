@@ -80,11 +80,9 @@ shapes:ContractShape
 		a sh:PropertyShape ;
 		sh:path ids:consumer ;
 		sh:nodeKind sh:IRI ;
-		# --- @PNL --- NOT IN ORIGINAL
 		# sh:minCount 1 ;
 		sh:maxCount 1 ;
-		# ---@PNL --- END
-	      #sh:class ids:Participant ;
+	  #sh:class ids:Participant ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ;
@@ -203,7 +201,6 @@ shapes:ContractOfferShape
 	a sh:NodeShape ;
 	sh:targetClass ids:ContractOffer ;
 
-	# --- @PNL --- NOT IN ORIGINAL
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:consumer ;
@@ -214,7 +211,6 @@ shapes:ContractOfferShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractRequestShape): An ids:Contract must have exactly one ids:Participant linked through the ids:consumer property"@en ;
 	] ;
-	# --- @PNL --- END
 
 	sh:property [
 		a sh:PropertyShape ;
