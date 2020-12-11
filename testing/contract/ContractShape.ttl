@@ -44,7 +44,7 @@ shapes:ContractShape
 		sh:datatype xsd:dateTimeStamp ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractStart property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractStart property must not have more than one point from an ids:Contract to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
@@ -53,7 +53,7 @@ shapes:ContractShape
 		sh:maxCount 1 ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractEnd property must point from an ids:Contract to an xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractEnd property must not have more than one point from an ids:Contract to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
@@ -62,7 +62,7 @@ shapes:ContractShape
 		sh:maxCount 1 ;
 		sh:datatype xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractDate property must point from an ids:Contract to an xsd:dateTimeStamp. "@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractDate property must not have more than one point from an ids:Contract to an xsd:dateTimeStamp. "@en ;
 	] ;
 
 	sh:property [
@@ -85,7 +85,7 @@ shapes:ContractShape
 	  #sh:class ids:Participant ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:consumer property must point from an ids:Contract to an ids:Participant."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:consumer property must not have more than one point from an ids:Contract to an ids:Participant."@en ;
 	] ;
 
 	sh:property [
@@ -95,7 +95,7 @@ shapes:ContractShape
 		# sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have exactly one ids:TextResource linked through the ids:contractDocument property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must not have more than one point from an ids:TextResource linked through the ids:contractDocument property"@en ;
 	] ;
 
 	sh:property [
@@ -104,7 +104,7 @@ shapes:ContractShape
 		sh:class ids:Resource ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractAnnex property must point from an ids:Contract to an ids:Resource."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractAnnex property must not have more than one point from an ids:Contract to an ids:Resource."@en ;
 	] ;
 
 	sh:property [
