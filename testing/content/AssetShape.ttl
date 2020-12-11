@@ -38,14 +38,6 @@ shapes:AssetShape
 			}
 		""" ;
 	] ;
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:assetRefinement ;
-		sh:class ids:AbstractConstraint ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetRefinement property must point from an ids:AssetCollection to an ids:Constraint or ids:LogicalConstraint."@en ;
-	] ;
 .
 
 
@@ -59,6 +51,15 @@ shapes:AssetCollectionShape
 		sh:nodeKind sh:IRI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetSource property must point from an ids:AssetCollection to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetSource property must not have more than one point from an ids:AssetCollection to an IRI."@en ;
 	] ;
+	
+	sh:property [
+		 a sh:PropertyShape ;
+		 sh:path ids:assetRefinement ;
+		 sh:class ids:AbstractConstraint ;
+		 sh:maxCount 1 ;
+		 sh:severity sh:Violation ;
+		 sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetRefinement property must not have more than one point from an ids:AssetCollection to an ids:Constraint or ids:LogicalConstraint."@en ;
+	 ] ;
 .
