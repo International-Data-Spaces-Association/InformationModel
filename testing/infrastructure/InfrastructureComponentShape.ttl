@@ -1,0 +1,86 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:InfrastructureComponentShape
+	a sh:NodeShape ;
+	sh:targetClass ids:InfrastructureComponentShape ;
+
+  sh:property [
+  	a sh:PropertyShape ;
+  	sh:path ids:maintainer ;
+  	sh:class ids:Participant ;
+    sh:minCount 1 ;
+  	sh:severity sh:Violation ;
+  	sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (InfrastructureComponentShape): An ids:maintainer property must have at least one point from an ids:InfrastructureComponent to an ids:Participant."@en ;
+  ] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:curator ;
+    sh:class ids:Participant ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (InfrastructureComponentShape): An ids:curator property must have at least one point from an ids:InfrastructureComponent to an ids:Participant."@en ;
+  ] ;
+
+  sh:property [
+   a sh:PropertyShape ;
+   sh:path ids:physicalLocation ;
+   sh:class ids:Location ;
+   sh:severity sh:Violation ;
+   sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (InfrastructureComponentShape): An ids:physicalLocation property must point from an ids:InfrastructureComponent to an ids:Location."@en ;
+  ] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:inboundModelVersion ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (InfrastructureComponentShape): An ids:inboundModelVersion property must have at least one point from an ids:InfrastructureComponent to an xsd:string."@en ;
+  ] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:outboundModelVersion ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (InfrastructureComponentShape): An ids:outboundModelVersion property must have at least one point from an ids:InfrastructureComponent to an xsd:string."@en ;
+  ] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:componentCertification ;
+    sh:class ids:ComponentCertification ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (InfrastructureComponentShape): An ids:componentCertification property must point from an ids:InfrastructureComponent to an ids:ComponentCertification."@en ;
+  ] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:publicKey ;
+    sh:class ids:PublicKey ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/BrokerShape.ttl> (InfrastructureComponentShape): An ids:publicKey property must point from an ids:InfrastructureComponent to an ids:PublicKey."@en ;
+  ] ;
+  .
