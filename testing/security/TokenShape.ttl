@@ -67,8 +67,8 @@ shapes:JwtPayloadShape
 		a sh:PropertyShape ;
 		sh:path ids:aud  ;
 		sh:class ids:Audience ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:aud property must point from an ids:JwtPayload to an ids:Audience via an IRI."@en ;
 	] ;
@@ -77,8 +77,8 @@ shapes:JwtPayloadShape
 		a sh:PropertyShape ;
 		sh:path ids:exp  ;
 		sh:datatype xsd:integer ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:exp property must point from an ids:JwtPayload to an xsd:integer."@en ;
 	] ;
@@ -87,8 +87,8 @@ shapes:JwtPayloadShape
 		a sh:PropertyShape ;
 		sh:path ids:iat  ;
 		sh:datatype xsd:integer ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:iat property must point from an ids:JwtPayload to an xsd:integer."@en ;
 	] ;
@@ -106,17 +106,17 @@ shapes:JwtPayloadShape
 		a sh:PropertyShape ;
 		sh:path ids:nbf  ;
 		sh:datatype xsd:integer ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly ids:nbf property must point from an ids:JwtPayload to an xsd:integer."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:nbf property must point from an ids:JwtPayload to an xsd:integer."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:referringConnector ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Connector ;
+    #sh:class ids:Connector ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): An ids:referringConnector property must point from an ids:JwtPayload to zero or one Connector via an IRI."@en ;
@@ -126,23 +126,23 @@ shapes:JwtPayloadShape
 		a sh:PropertyShape ;
 		sh:path ids:sub ;
 		sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:sub property must point from an ids:JwtPayload to an xsd:string."@en ;
 	] ;
 
-    sh:property [
+  sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:scope ;
 		sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:sub property must point from an ids:JwtPayload to an xsd:string."@en ;
 	] ;
 
-    sh:property [
+  sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:securityProfile ;
 		sh:class ids:SecurityProfile ;
@@ -152,14 +152,14 @@ shapes:JwtPayloadShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): An ids:JwtPayload must have exactly one ids:SecurityProfile linked through the ids:securityProfile property"@en ;
 	] ;
 
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path ids:transportCertsSha256 ;
-        sh:datatype xsd:string ;
-        sh:minCount 1;
-        sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): The ids:transportCertsSha256 property must point from an ids:JwtPayload to at least one xsd:string containing the SHA256 fingerprints."@en ;
-	] ;
+#    sh:property [
+#        a sh:PropertyShape ;
+#        sh:path ids:transportCertsSha256 ;
+#        sh:datatype xsd:string ;
+#        sh:minCount 1;
+#        sh:severity sh:Violation ;
+#        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): The ids:transportCertsSha256 property must point from an ids:JwtPayload to at least one xsd:string containing the SHA256 fingerprints."@en ;
+#	] ;
 .
 
 
@@ -171,8 +171,8 @@ shapes:DatPayloadShape
 		a sh:PropertyShape ;
 		sh:path ids:referringConnector  ;
 		sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (DatPayloadShape): Exactly one ids:iss property must point from ids:DatPayload to ids:Connector via an IRI."@en ;
 	] ;
@@ -181,8 +181,8 @@ shapes:DatPayloadShape
 		a sh:PropertyShape ;
 		sh:path ids:iss  ;
 		sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (DatPayloadShape): Exactly one ids:iss property must point from an ids:DatPayload to an xsd:string."@en ;
 	] ;
