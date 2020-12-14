@@ -50,7 +50,7 @@ shapes:ParticipantShape
 		sh:nodeKind sh:IRI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:corporateHomepage property must point from an ids:Participant to a homepage IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:corporateHomepage property must not have more than one point from an ids:Participant to a homepage IRI."@en ;
 	] ;
 
 	sh:property [
@@ -61,13 +61,6 @@ shapes:ParticipantShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:memberParticipant property must point from an ids:Participant to an ids:Participant."@en ;
 	] ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:industrialClassification ;
-		sh:class ids:IndustrialClassification ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:industrialClassification property must point from an ids:Participant to an ids:IndustrialClassification."@en ;
-	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -75,7 +68,7 @@ shapes:ParticipantShape
 		sh:class ids:ParticipantCertification ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must point from an ids:Participant to an ids:ParticipantCertification."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must not have more than one point from an ids:Participant to an ids:ParticipantCertification."@en ;
 	];
 
 	sh:property [
@@ -92,7 +85,7 @@ shapes:ParticipantShape
 		sh:class ids:AbstractConstraint ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): At maximum one ids:participantRefinement property must point from an ids:Participant to an ids:Constraint or ids:LogicalConstraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): At maximum one ids:participantRefinement property must not have more than one point from an ids:Participant to an ids:Constraint or ids:LogicalConstraint."@en ;
 	] ;
 .
 
@@ -107,7 +100,7 @@ shapes:PersonShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:familyName property must point from an ids:Person to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:familyName property must not have more than one point from an ids:Person to an xsd:string."@en ;
 	] ;
 
 	sh:property [
@@ -116,7 +109,7 @@ shapes:PersonShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:givenName property must point from an ids:Person to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:givenName property must not have more than one point from an ids:Person to an xsd:string."@en ;
 	] ;
 
 	sh:property [
@@ -141,7 +134,7 @@ shapes:PersonShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:homepage property must point from an ids:Person to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An ids:homepage property must not have more than one point from an ids:Person to an xsd:string."@en ;
 	] .
 
 
@@ -155,5 +148,5 @@ shapes:SiteShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must point from an ids:Site to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must not have more than one point from an ids:Site to an xsd:string."@en ;
 	] .
