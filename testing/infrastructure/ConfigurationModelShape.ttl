@@ -41,7 +41,7 @@ shapes:ConfigurationModelShape
     sh:minCount 1 ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:ConfigurationModel must have at least one ids:LogLevel linked through the ids:configurationModelLogLevel property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:ConfigurationModel must have exactly one ids:LogLevel linked through the ids:configurationModelLogLevel property"@en ;
 	] ;
 
 	sh:property [
@@ -51,7 +51,7 @@ shapes:ConfigurationModelShape
     sh:minCount 1 ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:connectorStatus property must point from an ids:ConfigurationModel to at least one ids:ConnectorStatus."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:connectorStatus property must point from an ids:ConfigurationModel to exactly one ids:ConnectorStatus."@en ;
 	] ;
 
 	sh:property [
@@ -61,7 +61,7 @@ shapes:ConfigurationModelShape
     sh:minCount 1 ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:connectorDeployMode property must point from an ids:ConfigurationModel to at least one ids:ConnectorDeployMode."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:connectorDeployMode property must point from an ids:ConfigurationModel to exactly one ids:ConnectorDeployMode."@en ;
 	] ;
 
 	sh:property [
@@ -71,7 +71,7 @@ shapes:ConfigurationModelShape
 		# sh:minCount 1 ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:ConfigurationModel must have at least one ids:Connector linked through the ids:connectorDescription property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:ConfigurationModel must not have more than one ids:Connector linked through the ids:connectorDescription property"@en ;
 	] ;
 
 	sh:property [
@@ -88,7 +88,7 @@ shapes:ConfigurationModelShape
 		sh:datatype xsd:anyURI ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:trustStore property must point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:trustStore property must not have more than one point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
 	] ;
 
 	sh:property [
@@ -97,7 +97,7 @@ shapes:ConfigurationModelShape
 		sh:datatype xsd:anyURI ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:keyStore property must point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:keyStore property must not have more than one point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
 	] ;
 
 	sh:property [
@@ -106,16 +106,16 @@ shapes:ConfigurationModelShape
 		sh:class ids:BrokerCatalog ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredBroker property must point from an ids:ConfigurationModel to an ids:BrokerCatalog."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredBroker property must not have more than one point from an ids:ConfigurationModel to an ids:BrokerCatalog."@en ;
 	] ;
 
 	sh:property [
-	a sh:PropertyShape ;
-	sh:path ids:appRoute ;
-	sh:class ids:AppRoute ;
-	sh:severity sh:Violation ;
-	sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:appRoute property must point from an ids:ConfigurationModel to an ids:AppRoute."@en ;
-	] ;
+		a sh:PropertyShape ;
+		sh:path ids:appRoute ;
+		sh:class ids:AppRoute ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:appRoute property must point from an ids:ConfigurationModel to an ids:AppRoute."@en ;
+		] ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -123,7 +123,7 @@ shapes:ConfigurationModelShape
 		sh:class ids:AppStoreCatalog ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredAppStore property must point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredAppStore property must not have more than one point from an ids:ConfigurationModel to an xsd:anyURI."@en ;
 	] ;
 
 	sh:property [
@@ -132,7 +132,7 @@ shapes:ConfigurationModelShape
 		sh:class ids:AppResourceCatalog ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredAppResource property must point from an ids:ConfigurationModel to an ids:AppResourceCatalog."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredAppResource property must not have more than one point from an ids:ConfigurationModel to an ids:AppResourceCatalog."@en ;
 	] ;
 
 	sh:property [
@@ -141,6 +141,6 @@ shapes:ConfigurationModelShape
 		sh:class ids:ClearingHouseCatalog ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredClearingHouse property must point from an ids:ConfigurationModel to an ids:ClearingHouseCatalog."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ComponentShape.ttl> (ConfigurationModelShape): An ids:configuredClearingHouse property must not have more than one point from an ids:ConfigurationModel to an ids:ClearingHouseCatalog."@en ;
 	] ;
 .

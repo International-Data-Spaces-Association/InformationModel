@@ -59,8 +59,8 @@ shapes:ConnectorShape
 		a sh:PropertyShape ;
 		sh:path ids:hasAgent ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Agent ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    #sh:class ids:Agent ;
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:hasAgents property must point from an ids:Connector to a list of Agends using an IRI."@en ;
 	] ;
@@ -71,7 +71,7 @@ shapes:ConnectorShape
 		sh:class ids:AuthInfo ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:authInfo property must point from an ids:Connector to an ids:AuthInfo."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:authInfo property must not have more than one point from an ids:Connector to an ids:AuthInfo."@en ;
 	] ;
 
 	sh:property [
