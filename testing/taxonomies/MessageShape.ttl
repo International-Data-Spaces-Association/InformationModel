@@ -81,7 +81,7 @@ shapes:QueryMessageShape
 		sh:class ids:QueryLanguage ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:queryLanguage property must point from an ids:QueryMessage to an ids:QueryLanguage."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:queryLanguage property must point from an ids:QueryMessage to zero or one ids:QueryLanguage."@en ;
 	] ;
 
     sh:property [
@@ -90,7 +90,7 @@ shapes:QueryMessageShape
 		sh:class ids:QueryScope ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:querySceope property must point from an ids:QueryMessage to an ids:QueryScope."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:querySceope property must point from an ids:QueryMessage to zero or one ids:QueryScope."@en ;
 	] ;
 
     sh:property [
@@ -99,7 +99,7 @@ shapes:QueryMessageShape
 		sh:class ids:QueryTarget ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:recipientScope property must point from an ids:QueryMessage to an ids:QueryTarget."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:recipientScope property must point from an ids:QueryMessage to zero or one ids:QueryTarget."@en ;
 	] .
 
 
@@ -113,7 +113,7 @@ shapes:RejectionMessageShape
 		sh:class ids:RejectionReason ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RejectionMessageShape): An ids:rejectionReason property must point from an ids:RejectionMessage to an ids:RejectionReason."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RejectionMessageShape): An ids:rejectionReason property must point from an ids:RejectionMessage to zero or one ids:RejectionReason."@en ;
 	] .
 
 
@@ -154,11 +154,11 @@ shapes:ConnectorNotificationMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:affectedConnector ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Connector ;
+    #sh:class ids:Connector ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
-        sh:minCount 1;
-        sh:maxCount 1;
+    sh:minCount 1;
+    sh:maxCount 1;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ConnectorNotificationMessage): An ids:ConnectorNotificationMessage must have exactly one URI reference to a ids:Connector linked through the ids:affectedConnector property."@en ;
 	] .
 
@@ -192,7 +192,7 @@ shapes:ParticipantNotificationMessageShape
             );
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:revocationReason property must point from a subclass of ids:ParticipantNotificationMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:revocationReason property must not have more than one point from a subclass of ids:ParticipantNotificationMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] ;
 
 	sh:property [
@@ -200,9 +200,9 @@ shapes:ParticipantNotificationMessageShape
 		sh:path ids:affectedParticipant ;
 		sh:nodeKind sh:IRI ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
-        #sh:class ids:Participant ;
-        sh:minCount 1;
-        sh:maxCount 1;
+    #sh:class ids:Participant ;
+    sh:minCount 1;
+    sh:maxCount 1;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ParticipantNotificationMessage): An ids:ParticipantNotificationMessage must have exactly one IRI reference to a ids:Participant linked through the ids:affectedParticipant property."@en ;
 	] .
@@ -224,7 +224,7 @@ shapes:ContractRejectionMessageShape
             );
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must point from an ids:ContractRejectionMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ContractRejectionMessageShape): An ids:contractRejectionReason property must not have more than one point from an ids:ContractRejectionMessage to either a xsd:string or rdf:langString which also contains a language code."@en ;
 	] .
 
 
@@ -248,9 +248,9 @@ shapes:ResourceNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedResource ;
-        #sh:class ids:Resource ;
-        sh:nodeKind sh:IRI ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    #sh:class ids:Resource ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -266,7 +266,7 @@ shapes:InvokeOperationMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:operationReference ;
 		sh:nodeKind sh:IRI ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -278,9 +278,9 @@ shapes:InvokeOperationMessageShape
 		sh:path ids:operationParameterization ;
 		sh:datatype ids:ParameterAssignment ;
 		sh:minCount 1 ;
-        sh:maxCount 1 ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have at least one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ;
 	] .
 
 
@@ -292,7 +292,7 @@ shapes:RequestInProcessMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Message ;
+    #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -309,7 +309,7 @@ shapes:MessageProcessedNotificationShape
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Message ;
+    #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -325,8 +325,8 @@ shapes:ArtifactRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:requestedArtifact ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Artifact ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    #sh:class ids:Artifact ;
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -343,8 +343,8 @@ shapes:ParticipantRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:requestedParticipant ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Participant ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    #sh:class ids:Participant ;
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -359,10 +359,10 @@ shapes:AppUpdateRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:affectedDataApp ;
 		sh:nodeKind sh:IRI ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUpdateRequestMessageShape): An ids:AppUpdateRequestMessage must point to one IRI reference to an ids:AppResource linked through the ids:affectedDataApp property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUpdateRequestMessageShape): An ids:AppUpdateRequestMessage must point to zero or one IRI reference to an ids:AppResource linked through the ids:affectedDataApp property"@en ;
 	] .
 
 
@@ -387,7 +387,7 @@ shapes:AppNotificationMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:affectedAppResource ;
 		sh:nodeKind sh:IRI ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -406,7 +406,7 @@ shapes:AppRegistrationRequestMessageShape
   	sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppRegistrationRequestMessageShape): An ids:AppRegistrationRequestMessage must have exactly one IRI reference to an ids:AppResource linked through the ids:affectedDataApp property"@en ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppRegistrationRequestMessageShape): An ids:AppRegistrationRequestMessage must have zero or one IRI reference to an ids:AppResource linked through the ids:affectedDataApp property"@en ;
 	] ;
 .
 
