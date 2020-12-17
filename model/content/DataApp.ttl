@@ -18,7 +18,13 @@ ids:DataApp
                         idsm:relationType idsm:OneToMany ;
                         idsm:constraint idsm:NotEmpty;
                     ];
+					
+	idsm:validation [
+                        idsm:forProperty ids:supportedUsagePolicies;
+                        idsm:relationType idsm:OneToMany ;
+                    ];
 .
+
 ids:appDocumentation
     a owl:DatatypeProperty ;
     rdfs:domain ids:DataApp ;
@@ -47,6 +53,14 @@ ids:appStorageConfiguration a owl:DatatypeProperty;
     rdfs:domain ids:DataApp;
     rdfs:range xsd:string;
 .
+
+ids:supportedUsagePolicies a owl:ObjectProperty ;
+	rdfs:domain ids:DataApp ;
+	rdfs:range ids:UsagePolicyClass ;
+	rdfs:label "supported usage policies" @en;
+	rdfs:comment "IDS Usage Policies a DataApp supports"@en.
+	
+	
 
 ids:SystemAdapter
     a owl:Class;

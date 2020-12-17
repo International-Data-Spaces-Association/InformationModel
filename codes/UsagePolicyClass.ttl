@@ -1,0 +1,118 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+
+idsc:ALLOW_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label: "Allow data usage" @en;
+	rdfs:comment: "This policy restricts the usage of the data to a specific Data Consumer, regardless of how many connectors they have and without any further usage restriction." @en.
+	
+idsc:CONNECTOR_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "Connector restricted data usage" @en;
+	rdfs:comment "This policy restrict the usage of the data to a specific IDS connector."@en .
+	
+idsc:APPLICATION_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "System restricted data usage" @en;
+	rdfs:comment "This policy restricts the usage of the data to a specific system or application inside an IDS connector." @en.
+
+idsc:INTERVAL_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "Interval restricted data usage" @en;
+	rdfs:comment "This policy restricts the usage of the data to a specific (time) interval." @en.
+
+idsc:DURATION_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "Duration restricted data usage" @en;
+	rdfs:comment "This policy restricts the usage of the data to a specific duration." @en.
+	
+idsc:LOCATION_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "Location restricted data usage" @en;
+	rdfs:comment "This policy restricts the usage of the data to a specific location, e.g. expressed via location areas, geographic points or geographic bounding polygons." @en.
+	
+idsc:PREPATUAL_DATA_SALE 
+	a ids:UsagePolicyClass ;
+	rdfs:label "Prepatual data sale" @en;
+	rdfs:comment "This policy restricts the transfer of a Data Asset against a one-off payment in a given currency" @en.
+	
+idsc:DATA_RENTAL 
+	a ids:UsagePolicyClass ;
+	rdfs:label "Data rental" @en;
+	rdfs:comment "This policy restricts transfer of data in return for a monthly fee. The ending is not specified. Nevertheless, the policy ends when a notice of termination has been made by any of the policy partners." @en.
+	
+idsc:ROLE_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "Role restricted data usage" @en;
+	rdfs:comment """This policy restricts the usage of the data to a specific role. 
+					For example, you can instantiate a policy of this class that allows only the members of the engineering department to use your data. 
+					This policy class faces few limitations, i.e., in order to evaluate the conditions, it requires that the user roles are available and follow a common vocabulary""" @en.
+
+idsc:PURPOSE_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "Purpose restricted data usage" @en;
+	rdfs:comment "This policy restricts the usage of data assets limited to specific purposes." @en.
+
+idsc:EVENT_RESTRICTED_DATA_USAGE
+	a ids:UsagePolicyClass ;
+	rdfs:label "Event restricted data usage" @en;
+	rdfs:comment """This policy restricts the usage of data assets limited to specific events.
+					The ODRL language defines an identified event as a context for exercising the action of the Rule. 
+					Events are temporal periods of time. A Data Provider may want to restrict the usage of the data to a specific event when the exact time and date of the event is not clear in advance. 
+					Therefore, the event condition can be specified in a policy.""" @en.
+
+idsc:RESTRICTED_NUMBER_OF_USAGES
+	a ids:UsagePolicyClass ;
+	rdfs:label "Restricted number of usages" @en;
+	rdfs:comment """This policy restricts the usage of data assets limited to numeric count of executions of actions. 
+					A mechanism is needed that counts the usage of data in order to enforce the policy."""@en .
+					
+idsc:SECURITY_LEVEL_RESTRICTED_POLICY
+	a ids:UsagePolicyClass ;
+	rdfs:label "Security level restricted policy" @en;
+	rdfs:comment "This policy restricts the usage of data assets limited to a security level the consumer must conform to."@en.
+
+idsc:USE_DATA_AND_DELETE_AFTER
+	a ids:UsagePolicyClass ;
+	rdfs:label "Use data and delete after" @en;
+	rdfs:comment "This policy restricts the usage of data assets with the obligation to delete the asset after usage." @en.
+	
+idsc:MODIFY_DATA_IN_TRANSIT
+	a ids:UsagePolicyClass ;
+	rdfs:label "Modfy data in transit" @en;
+	rdfs:comment "This policy restricts the usage of data assets with the obligation to anonymize the data when it is leaving the Data Provider connector or when it is entering the Data Consumer connector" @en.
+	
+idsc:MODIFY_DATA_IN_REST
+	a ids:UsagePolicyClass ;
+	rdfs:label "Modfy data in rest" @en;
+	rdfs:comment """This policy restricts the usage of data assets with the obligation to anonymize the data before permission to use the data is granted. 
+					In contrast to the idscMODIFY_DATA_IN_TRANSIT policy class, it demands the modifications to be done when data is stored.""" @en.
+					
+idsc:LOCAL_LOGGING
+	a ids:UsagePolicyClass ;
+	rdfs:label "Local logging" @en;
+	rdfs:comment "This policy restricts the usage of data assets with the obligation to log prior specified processes, such as the data access." @en.
+	
+idsc:REMOTE_NOTIFICATION
+	a ids:UsagePolicyClass ;
+	rdfs:label "Remote notification" @en;
+	rdfs:comment "This policy restricts the usage of data assets with the obligation to notify a specific party about the data usage." @en.
+	
+idsc:ATTACH_POLICY_FOR_THIRD_PARTY
+	a ids:UsagePolicyClass ;
+	rdfs:label "Remote notification" @en;
+	rdfs:comment "This policy restricts the usage of data assets with the obligation to notify a specific party about the data usage." @en.
+	
+idsc:DISTRIBUTE_ONLY_IF_ENCRYPTED
+	a ids:UsagePolicyClass ;
+	rdfs:label "Distribute only if encrypted" @en;
+	rdfs:comment "This policy restricts the usage of data assets with the obligation to encrypt the data asset before distribution." @en.
+	
+idsc:STATE_RESTRICTED_POLICY
+	a ids:UsagePolicyClass ;
+	rdfs:label "State restricted policy" @en;
+	rdfs:comment "This policy restricts the usage of data assets limited to specific states. Possible states include, for example, that the contract for the given data asset has not yet expired." @en.
+	
