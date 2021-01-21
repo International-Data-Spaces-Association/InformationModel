@@ -152,14 +152,14 @@ shapes:JwtPayloadShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): An ids:JwtPayload must have exactly one ids:SecurityProfile linked through the ids:securityProfile property"@en ;
 	] ;
 
-#    sh:property [
-#        a sh:PropertyShape ;
-#        sh:path ids:transportCertsSha256 ;
-#        sh:datatype xsd:string ;
-#        sh:minCount 1;
-#        sh:severity sh:Violation ;
-#        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): The ids:transportCertsSha256 property must point from an ids:JwtPayload to at least one xsd:string containing the SHA256 fingerprints."@en ;
-#	] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path ids:transportCertsSha256 ;
+      sh:datatype xsd:string ;
+      sh:minCount 1;
+      sh:severity sh:Violation ;
+      sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): The ids:transportCertsSha256 property must point from an ids:JwtPayload to at least one xsd:string containing the SHA256 fingerprints."@en ;
+] ;
 .
 
 

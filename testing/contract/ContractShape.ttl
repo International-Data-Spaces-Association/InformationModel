@@ -127,7 +127,22 @@ shapes:ContractShape
 		a sh:PropertyShape ;
 		sh:path ids:prohibition ;
 		sh:class ids:Prohibition ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:Contract must have at least one ids:prohibition to an ids:Prohibition."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:prohibition must point from an ids:Contract to an ids:Prohibition."@en ;
 	] .
+
+
+	shapes:ContractAgreementShape
+		a sh:NodeShape ;
+		sh:targetClass ids:ContractAgreement ;
+
+		sh:property [
+			a sh:PropertyShape ;
+			sh:path ids:contractStart ;
+			sh:datatype xsd:dateTimeStamp ;
+			sh:minCount 1 ;
+			sh:maxCount 1 ;
+			sh:severity sh:Violation ;
+			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (ContractShape): An ids:contractStart property must point from an ids:ContractAgreement to exactly one xsd:dateTimeStamp."@en ;
+		] ;
+	.
