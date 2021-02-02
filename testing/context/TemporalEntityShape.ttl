@@ -21,36 +21,68 @@ shapes:
 	] .
 
 
+shapes:TemporalEntityShape
+		a sh:NodeShape ;
+		sh:targetClass ids:TemporalEntity ;
+
+		sh:property [
+				a sh:PropertyShape ;
+				sh:path ids:hasDuration ;
+				sh:datatype xsd:duration ;
+				sh:maxCount 1 ;
+				sh:severity sh:Violation ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (TemporalEntityShape): An ids:hasDuration property must not have more than one point from an ids:TemporalEntity to an xsd:duration."@en ;
+		] ;
+.
+
 shapes:InstantShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Instant ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:dateTime ;
 		sh:datatype xsd:dateTimeStamp ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (InstantShape): An ids:dateTime property must point from an ids:Instant to an xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (InstantShape): An ids:dateTime property must not have more than one point from an ids:Instant to an xsd:dateTimeStamp."@en ;
 	] .
 
 
 shapes:IntervalShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Interval ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:begin ;
 		sh:class ids:Instant ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to an ids:Instant."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to exactly one ids:Instant."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:end ;
 		sh:class ids:Instant ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must point from an ids:Interval to an ids:Instant."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must not have more than one point from an ids:Interval to an ids:Instant."@en ;
 	] .
 
+
+	shapes:DurationEntityShape
+		a sh:NodeShape ;
+		sh:targetClass ids:DurationEntity ;
+
+		sh:property [
+			a sh:PropertyShape ;
+			sh:path ids:hasDuration ;
+			sh:datatype xsd:duration ;
+			sh:minCount 1 ;
+			sh:maxCount 1 ;
+			sh:severity sh:Violation ;
+			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (DurationEntityShape): An ids:hasDuration property must point from an ids:DurationEntity to exactly one xsd:duration."@en ;
+	] .

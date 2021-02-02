@@ -24,13 +24,26 @@ shapes:
 
 
 shapes:DescribedShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Described ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+	  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): A ids:Described is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+	  sh:prefixes shapes: ;
+	  sh:select """
+	  	SELECT ?this ?type
+	    WHERE {
+	    	?this rdf:type ?type .
+	      FILTER (?type = ids:Described)
+	    }
+	  """ ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:title ;
-        sh:or (
+    sh:or (
             [
                 sh:datatype xsd:string ;
 			]
@@ -57,4 +70,3 @@ shapes:DescribedShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to either a xsd:string or a rdf:langString with a language code"@en ;
 	] ;
  .
-

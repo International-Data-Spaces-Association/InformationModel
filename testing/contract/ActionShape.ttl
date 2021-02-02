@@ -17,9 +17,10 @@ shapes:ActionShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:actionRefinement ;
-		sh:class ids:AbstractConstraint ;
+		sh:class ids:Constraint ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:actionRefinement property must point from an ids:Action to an ids:Constraint or ids:LogicalConstraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:actionRefinement property must have at least one point from an ids:Action to an ids:Constraint."@en ;
 	] ;
 
 	sh:property [
@@ -28,7 +29,7 @@ shapes:ActionShape
 		sh:class ids:Action ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): At maximum one ids:includedIn property can point from an ids:Action to an ids:Action."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:includedIn property must not have more than one point from an ids:Action to an ids:Action."@en ;
 	] ;
 
 .

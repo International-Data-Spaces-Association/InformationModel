@@ -1,0 +1,78 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ProxyShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Proxy ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:proxyURI ;
+		sh:datatype xsd:anyURI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:acccessURL property must point from an ids:Proxy to exactly one xsd:anyURI."@en ;
+	];
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:noProxy ;
+		sh:datatype xsd:anyURI ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:noProxy property must point from an ids:Proxy to an xsd:anyURI."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:proxyAuthentication ;
+		sh:class ids:BasicAuthentication ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:proxyAuthentication property must not have more than one point from an ids:Proxy to an ids:BasicAuthentication."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:outboundPath ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:outboundPath property must point from an ids:Proxy to an xsd:string."@en ;
+	];
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointInformation ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:endpointInformation property must point from an ids:Proxy to an xsd:string."@en ;
+		];
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointDocumentation ;
+		sh:nodeKind sh:IRI ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ProxyShape.ttl> (ProxyShape): An ids:endpointDocumentation property must point from an ids:Proxy to an IRI."@en ;
+	];
+.

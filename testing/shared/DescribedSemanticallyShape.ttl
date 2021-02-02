@@ -20,8 +20,22 @@ shapes:
 
 
 shapes:DescribedSemanticallyShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:DescribedSemantically ;
+
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+	  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedSemanticallyShape.ttl> (DescribedSemanticallyShape): A ids:DescribedSemantically is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+	  sh:prefixes shapes: ;
+	  sh:select """
+	  	SELECT ?this ?type
+	    WHERE {
+	    	?this rdf:type ?type .
+	      FILTER (?type = ids:DescribedSemantically)
+	    }
+	  """ ;
+	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -35,7 +49,7 @@ shapes:DescribedSemanticallyShape
 		a sh:PropertyShape ;
 		sh:path ids:shapesGraph ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedSemantically.ttl> (DescribedSemanticallyShape): An ids:shapesGraph property must point from an ids:DescribedSemantically to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedSemantically.ttl> (DescribedSemanticallyShape): An ids:shapesGraph property must point from an ids:DescribedSemantically to zero or one IRI."@en ;
 	] .
-

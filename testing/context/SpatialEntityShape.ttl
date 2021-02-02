@@ -24,7 +24,7 @@ shapes:
 
 
 shapes:LocationShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Location ;
 
 	sh:sparql [
@@ -42,28 +42,32 @@ shapes:LocationShape
 
 
 shapes:GeoPointShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:GeoPoint ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:latitude ;
 		sh:datatype xsd:float ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:latitude property must point from an ids:GeoPoint to an xsd:float."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:latitude property must point from an ids:GeoPoint to exactly one xsd:float."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:longitude ;
 		sh:datatype xsd:float ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:longitude property must point from an ids:GeoPoint to an xsd:float."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:longitude property must point from an ids:GeoPoint to exactly one xsd:float."@en ;
 	] .
 
 
 shapes:GeometryShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Geometry ;
 
 	sh:sparql [
@@ -81,14 +85,14 @@ shapes:GeometryShape
 
 
 shapes:BoundingPolygonShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:BoundingPolygon ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:geoPoint ;
 		sh:class ids:GeoPoint ;
+		sh:minCount 3 ; # maybe 3 to form a shape that is more than a line?
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (BoundingPolygonShape): An ids:geoPoint property must point from an ids:BoundingPolygon to an ids:GeoPoint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (BoundingPolygonShape): An ids:geoPoint property must point from an ids:BoundingPolygon to at least three ids:GeoPoints."@en ;
 	] .
-

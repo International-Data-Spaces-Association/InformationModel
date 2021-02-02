@@ -1,0 +1,77 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+shapes:UserAuthenticationShape
+	a sh:NodeShape ;
+	sh:targetClass ids:UserAuthentication ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+	  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/UserAuthenticationShape.ttl> (UserAuthenticationShape): A ids:UserAuthentication is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+	  sh:prefixes shapes: ;
+	  sh:select """
+	  	SELECT ?this ?type
+	    WHERE {
+	    	?this rdf:type ?type .
+	      FILTER (?type = ids:UserAuthentication)
+	    }
+	  """ ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:authUsername ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/UserAuthenticationShape.ttl> (UserAuthenticationShape): An ids:authUsername property must point from an ids:UserAuthentication to zero or one xsd:string."@en ;
+	] ;
+.
+
+
+shapes:BasicAuthenticationShape
+	a sh:NodeShape ;
+	sh:targetClass ids:BasicAuthentication ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:authPassword ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/UserAuthenticationShape.ttl> (BasicAuthenticationShape): An ids:authPassword property must point from an ids:BasicAuthentication to zero or one xsd:string."@en ;
+	] ;
+.
+
+
+shapes:HTTPAuthenticationShape
+	a sh:NodeShape ;
+	sh:targetClass ids:HTTPAuthentication ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:httpAuthURI ;
+		sh:datatype xsd:anyURI ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/UserAuthenticationShape.ttl> (BasicAuthenticationShape): An ids:httpAuthURI property must point from an ids:HTTPAuthentication to zero or one xsd:anyURI."@en ;
+	] ;
+.

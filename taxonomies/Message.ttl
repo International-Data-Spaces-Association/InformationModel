@@ -10,7 +10,7 @@
 # -------
 
 # Basic Message Types: Request, Response, Notification
-# May be used directory for non-core IDS scenarios. 
+# May be used directory for non-core IDS scenarios.
 # -----------------------------------------------------
 
 ids:RequestMessage a owl:Class;
@@ -69,7 +69,7 @@ ids:rejectionReason a owl:ObjectProperty;
 ids:DescriptionRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Description Request Message"@en ;
-    rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g. because the element was not found." @en.
+    rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g. because the element was not found."@en.
 
 ids:DescriptionResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage ;
@@ -134,7 +134,7 @@ ids:ParticipantNotificationMessage a owl:Class;
         idsm:forProperty ids:affectedParticipant;
         idsm:constraint idsm:NotNull;
     ].
-    
+
 
 ids:ParticipantUpdateMessage a owl:Class;
     rdfs:subClassOf ids:ParticipantNotificationMessage ;
@@ -163,7 +163,7 @@ ids:affectedParticipant a owl:ObjectProperty;
     rdfs:range ids:Participant;
     rdfs:comment "References the participant that is referenced in the participant-related notification messages."@en.
 
-ids:revocationReason 
+ids:revocationReason
     a owl:DatatypeProperty;
     rdfs:label "Revocation Reason"@en;
     rdfs:domain [ owl:unionOf (
@@ -227,7 +227,7 @@ ids:ContractResponseMessage a owl:Class ;
     rdfs:label "Contract Response Message"@en;
     rdfs:comment "Message containing a response to a contract request (of a data consumer) in form of a counter-proposal of a contract in the associated payload (which is an instance of ids:ContractOffer). "@en ;
     .
-    
+
 ids:ContractOfferMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Contract Offer Message"@en;
@@ -427,7 +427,7 @@ ids:AppRegistrationRequestMessage a owl:Class;
 ids:affectedDataApp rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
     rdfs:domain ids:AppRegistrationRequestMessage ;
-    rdfs:range ids:AppResource ;   
+    rdfs:range ids:AppResource ;
     rdfs:label "affected AppResource"@en ;
     rdfs:comment "The affected data app that is referenced in the App-related messages. "@en;
 .
@@ -457,7 +457,7 @@ ids:AppUploadResponseMessage a owl:Class;
 ids:appArtifactReference rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
     rdfs:domain ids:AppUploadMessage ;
-    rdfs:range ids:Artifact ;   
+    rdfs:range ids:Artifact ;
     rdfs:label "app artifact reference"@en ;
     rdfs:comment "IRI reference to the ids:Artifact, whose corresponding data is transfered as payload of the AppUploadMessage. The Artifact IRI reference must match the IRI of the instance IRI for the corresponding ids:AppRepresentation."@en;
 .
@@ -490,4 +490,3 @@ ids:AppDeleteMessage a owl:Class ;
      rdfs:label "App Delete Message"@en;
      rdfs:comment "Message indicating that an App should be deleted from the AppStore."@en;
 .
-

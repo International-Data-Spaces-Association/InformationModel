@@ -56,7 +56,7 @@ shapes:RuleShape
 			[ sh:class ids:Participant ; ]
     );
 		sh:minCount 0 ;
-		sh:maxCount 1 ;
+		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have at maximum one ids:Participant linked through the ids:assignee property."@en ;
 	] ;
@@ -69,7 +69,7 @@ shapes:RuleShape
 			[ sh:class ids:Participant ; ]
     );
 		sh:minCount 0 ;
-		sh:maxCount 1 ;
+		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have at maximum one ids:Participant linked through the ids:assigner property"@en ;
 	] ;
@@ -81,8 +81,18 @@ shapes:RuleShape
       [ sh:nodeKind sh:IRI ; ]
 			[ sh:class ids:Asset ; ]
     );
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must point from an ids:Rule to an ids:Asset."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must not have more than one point from an ids:Rule to an ids:Asset."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:assetRefinement ;
+		sh:class ids:AbstractConstraint ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:assetRefinement must not have more than one point from an ids:Rule to an ids:AbstractConstraint."@en ;
 	] ;
 
 	sh:property [
@@ -113,3 +123,8 @@ shapes:PermissionShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:postDuty property must point from an ids:Permission to an ids:Duty."@en ;
 	] .
+
+
+#shapes:DutyShape
+#		a sh:NodeShape ;
+#		sh:targetClass ids:Duty ;

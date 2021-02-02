@@ -23,7 +23,7 @@ shapes:
 
 
 shapes:ManagedEntityShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:ManagedEntity ;
 
 	sh:sparql [
@@ -51,7 +51,7 @@ shapes:ManagedEntityShape
 		a sh:PropertyShape ;
 		sh:path ids:version ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:version property must point from an ids:ManagedEntity to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ManagedEntityShape.ttl> (ManagedEntityShape): An ids:version property must point from an ids:ManagedEntity to zero or one xsd:string."@en ;
 	] .
-

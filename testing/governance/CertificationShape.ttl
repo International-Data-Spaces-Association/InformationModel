@@ -22,7 +22,7 @@ shapes:
 
 
 shapes:CertificationBodyShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:CertificationBody ;
 
 	sh:sparql [
@@ -40,7 +40,7 @@ shapes:CertificationBodyShape
 
 
 shapes:CertificationShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Certification ;
 
 	sh:sparql [
@@ -60,29 +60,32 @@ shapes:CertificationShape
 		a sh:PropertyShape ;
 		sh:path ids:certificationLevel ;
 		sh:class ids:CertificationLevel ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:certificationLevel property must point from an ids:Certification to an ids:CertificationLevel."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:certificationLevel property must not have more than one point from an ids:Certification to an ids:CertificationLevel."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:lastValidDate ;
 		sh:datatype xsd:dateTimeStamp ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:lastValidDate property must point from an ids:Certification to an xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:lastValidDate property must not have more than one point from an ids:Certification to an xsd:dateTimeStamp."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:evaluationFacility ;
 		sh:class ids:EvaluationFacility ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:evaluationFacility property must point from an ids:Certification to an ids:EvaluationFacility."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:evaluationFacility property must not have more than one point from an ids:Certification to an ids:EvaluationFacility."@en ;
 	] .
 
 
 shapes:CertificationSchemeShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:CertificationScheme ;
 
 	sh:sparql [
@@ -100,7 +103,7 @@ shapes:CertificationSchemeShape
 
 
 shapes:CertificationLevelShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:CertificationLevel ;
 
 	sh:sparql [
@@ -120,7 +123,7 @@ shapes:CertificationLevelShape
 		a sh:PropertyShape ;
 		sh:path ids:includedCertificationLevel ;
 		sh:class ids:CertificationLevel ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationLevelShape): An ids:includedCertificationLevel property must point from an ids:CertificationLevel to an ids:CertificationLevel."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationLevelShape): An ids:includedCertificationLevel property must not have more than one point from an ids:CertificationLevel to an ids:CertificationLevel."@en ;
 	] .
-

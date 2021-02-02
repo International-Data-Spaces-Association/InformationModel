@@ -28,7 +28,7 @@ shapes:AssetShape
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetShape): An ids:AssetShape is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetShape): An ids:Asset is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
@@ -49,15 +49,17 @@ shapes:AssetCollectionShape
 		a sh:PropertyShape ;
 		sh:path ids:assetSource ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetSource property must point from an ids:AssetCollection to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetSource property must not have more than one point from an ids:AssetCollection to an IRI."@en ;
 	] ;
-
+	
 	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:assetRefinement ;
-		sh:class ids:AbstractConstraint ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetRefinement property must point from an ids:AssetCollection to an ids:Constraint or ids:LogicalConstraint."@en ;
-	] ;
+		 a sh:PropertyShape ;
+		 sh:path ids:assetRefinement ;
+		 sh:class ids:AbstractConstraint ;
+		 sh:maxCount 1 ;
+		 sh:severity sh:Violation ;
+		 sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetRefinement property must not have more than one point from an ids:AssetCollection to an ids:Constraint or ids:LogicalConstraint."@en ;
+	 ] ;
 .

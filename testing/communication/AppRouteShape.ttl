@@ -1,0 +1,120 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:AppRouteShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppRoute ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:routeDeployMethod ;
+    sh:datatype xsd:string ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeDeployMethod property must have exactly one point from an ids:AppRoute to an xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:routeConfiguration ;
+    sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeConfiguration property must not have more than one point from an ids:AppRoute to an xsd:string."@en ;
+
+	] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:routeDescription ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:routeDescription property must not have more than one point from an ids:AppRoute to an xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:hasSubRoute ;
+    sh:class ids:RouteStep ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:hasSubRoute property must point from an ids:AppRoute to an ids:RouteStep."@en ;
+	] ;
+
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appRouteStart ;
+    sh:class ids:Endpoint ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:appRouteStart property must point from an ids:AppRoute to an ids:Endpoint."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appRouteEnd ;
+    sh:class ids:Endpoint ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:appRouteEnd property must point from an ids:AppRoute to an ids:Endpoint."@en ;
+	] ;
+
+  sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appRouteOutput ;
+    sh:class ids:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:appRouteOutput property must point from an ids:AppRoute to an ids:Resource."@en ;
+	] ;
+
+  sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appRouteBroker ;
+    sh:class ids:Broker ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:appRouteBroker property must point from an ids:AppRoute to an ids:Broker."@en ;
+	] ;
+
+  sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:appRouteClearingHouse ;
+    sh:class ids:ClearingHouse ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/AppRouteShape.ttl> (AppRouteShape): An ids:appRouteClearingHouse property must point from an ids:AppRoute to an ids:ClearingHouse."@en ;
+	] ;
+.
+
+shapes:RouteStepShape
+	a sh:NodeShape ;
+	sh:targetClass ids:RouteStep ;
+
+  sh:property [
+	  a sh:PropertyShape ;
+	  sh:path ids:requiredDataApp ;
+	  sh:class ids:AppRepresentation ;
+	  sh:maxCount 1 ;
+	  sh:severity sh:Violation ;
+	  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/RouteStepShape.ttl> (RouteStepShape): An ids:requiredDataApp property must not have more than one point from an ids:AppRoute to an ids:RequiredDataApp."@en ;
+	  ] ;
+  .

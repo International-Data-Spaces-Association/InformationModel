@@ -21,7 +21,7 @@ shapes:
 
 
 shapes:DataAppShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:DataApp ;
 
 	sh:sparql [
@@ -58,23 +58,25 @@ shapes:DataAppShape
 				  ]
 			  );
 		sh:severity sh:Violation ;
+		sh:maxCount 1 ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DataAppShape.ttl> (DataAppShape): An ids:appEndpoint property must point from an ids:DataApp to an ids:AppEndpoint."@en ;
 	];
-    
-    sh:property [
+
+  sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:appStorageConfiguration ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DataAppShape.ttl> (DataAppShape): An ids:appStorageConfiguration property must point from an ids:DataApp to an xsd:string."@en;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DataAppShape.ttl> (DataAppShape): An ids:appStorageConfiguration property must not have more than one point from an ids:DataApp to an xsd:string."@en;
 		];
-        
-    sh:property [
+
+	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:appEnvironmentVariables ;
 		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DataAppShape.ttl> (DataAppShape): An ids:appEnvironmentVariables property must point from an ids:DataApp to an xsd:string."@en;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DataAppShape.ttl> (DataAppShape): An ids:appEnvironmentVariables property must not have more than one point from an ids:DataApp to an xsd:string."@en;
 		];
 .
-

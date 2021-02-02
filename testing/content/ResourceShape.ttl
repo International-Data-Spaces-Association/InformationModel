@@ -21,7 +21,7 @@ shapes:
 	] .
 
 shapes:ResourceShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Resource ;
 
 	sh:property [
@@ -60,8 +60,9 @@ shapes:ResourceShape
 		sh:path ids:publisher ;
 		#sh:class ids:Agent ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:publisher property must point from an ids:Resource to an ids:Agent."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:publisher property must not have more than one point from an ids:Resource to an ids:Agent."@en ;
 	] ;
 
 	sh:property [
@@ -69,8 +70,9 @@ shapes:ResourceShape
 		sh:path ids:sovereign ;
 		#sh:class ids:Agent ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:sovereign property must point from an ids:Resource to an ids:Agent."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:sovereign property must not have more than one point from an ids:Resource to an ids:Agent."@en ;
 	] ;
 
 	sh:property [
@@ -85,27 +87,9 @@ shapes:ResourceShape
 		a sh:PropertyShape ;
 		sh:path ids:variant ;
 		sh:class ids:Resource ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:variant property must point from an ids:Resource to an ids:Resource."@en ;
-	] .
-
-shapes:ImageResourceShape
-	a sh:NodeShape;
-	sh:targetClass ids:ImageResource;
-	sh:property [
-					a sh:PropertyShape ;
-					sh:path ids:representation ;
-					sh:class ids:ImageRepresentation ;
-					sh:severity sh:Violation ;
-					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ImageResourceShape): An ids:representation property must point from an ids:DigitalContent to an ids:Representation."@en ;
-				] ;
-
-	sh:property [
-					a sh:PropertyShape ;
-					sh:path ids:defaultRepresentation ;
-					sh:class ids:ImageRepresentation ;
-					sh:severity sh:Violation ;
-					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:defaultRepresentation property must point from an ids:DigitalContent to an ids:Representation."@en ;
-				] ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:variant property must not have more than one point from an ids:Resource to an ids:Resource."@en ;
+	] ;
 
 .

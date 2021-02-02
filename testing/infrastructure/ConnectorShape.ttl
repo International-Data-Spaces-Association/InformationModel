@@ -21,7 +21,7 @@ shapes:
 
 
 shapes:ConnectorShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Connector ;
 
 	sh:sparql [
@@ -46,7 +46,7 @@ shapes:ConnectorShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:SecurityProfile linked through the ids:securityProfile property"@en ;
 	] ;
-	
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:extendedGuarantee ;
@@ -54,13 +54,13 @@ shapes:ConnectorShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:extendedGuarantee property must point from an ids:Connector to an ids:SecurityGuarantee"@en ;
 	] ;
-    
+
     sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:hasAgent ;
 		sh:nodeKind sh:IRI ;
-        #sh:class ids:Agent ;
-        sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
+    #sh:class ids:Agent ;
+    sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:hasAgents property must point from an ids:Connector to a list of Agends using an IRI."@en ;
 	] ;
@@ -69,8 +69,9 @@ shapes:ConnectorShape
 		a sh:PropertyShape ;
 		sh:path ids:authInfo ;
 		sh:class ids:AuthInfo ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:authInfo property must point from an ids:Connector to an ids:AuthInfo."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:authInfo property must not have more than one point from an ids:Connector to an ids:AuthInfo."@en ;
 	] ;
 
 	sh:property [
@@ -101,4 +102,3 @@ shapes:ConnectorShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): An ids:Connector must have exactly one ids:ConnectorEnpoint linked through the ids:hasDefaultEndpoint property."@en ;
 	] ;
 .
-

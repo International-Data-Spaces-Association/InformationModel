@@ -21,70 +21,76 @@ shapes:
 
 
 shapes:DataRepresentationShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:DataRepresentation ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:dataType ;
 		sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (DataRepresentationShape): An ids:dataType property must point from an ids:DataRepresentation to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (DataRepresentationShape): An ids:dataType property must point from an ids:DataRepresentation to zero or one IRI."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:dataTypeSchema ;
 		sh:class ids:Resource ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (DataRepresentationShape): An ids:dataTypeSchema property must point from an ids:DataRepresentation to an ids:Resource."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (DataRepresentationShape): An ids:dataTypeSchema property must point from an ids:DataRepresentation to zero or one ids:Resource."@en ;
 	] .
 
 
 shapes:AudioRepresentationShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:AudioRepresentation ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:samplingRate ;
 		sh:datatype xsd:decimal ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AudioRepresentationShape): An ids:samplingRate property must point from an ids:AudioRepresentation to an xsd:decimal."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AudioRepresentationShape): An ids:samplingRate property must point from an ids:AudioRepresentation to zero or one xsd:decimal."@en ;
 	] .
 
 
 shapes:ImageRepresentationShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:ImageRepresentation ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:width ;
 		sh:datatype xsd:decimal ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (ImageRepresentationShape): An ids:width property must point from an ids:ImageRepresentation to an xsd:decimal."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (ImageRepresentationShape): An ids:width property must point from an ids:ImageRepresentation to zero or one xsd:decimal."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:height ;
 		sh:datatype xsd:decimal ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (ImageRepresentationShape): An ids:height property must point from an ids:ImageRepresentation to an xsd:decimal."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (ImageRepresentationShape): An ids:height property must point from an ids:ImageRepresentation to zero or one xsd:decimal."@en ;
 	] .
 
 
 shapes:VideoRepresentationShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:VideoRepresentation ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:frameRate ;
 		sh:datatype xsd:decimal ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (VideoRepresentationShape): An ids:frameRate property must point from an ids:VideoRepresentation to an xsd:decimal."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (VideoRepresentationShape): An ids:frameRate property must point from an ids:VideoRepresentation to zero or one xsd:decimal."@en ;
 	] .
 
 shapes:AppRepresentationShape
@@ -92,28 +98,30 @@ shapes:AppRepresentationShape
 	sh:targetClass ids:AppRepresentation ;
 
 	sh:property [
-					a sh:PropertyShape ;
-					sh:path ids:dataAppInformation ;
-					sh:class ids:DataApp ;
-					sh:severity sh:Violation ;
-					sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppInformation property must point from an ids:AppRepresentation to an ids:DataApp."@en ;
-				] ;
-    
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path ids:dataAppDistributionService ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppDistributionService property must point from an ids:AppRepresentation to an IRI."@en ;
-				];
-    
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path ids:dataAppRuntimeEnvironment ;
-        sh:datatype xsd:string ;
-        sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppRuntimeEnvironment property must point from an ids:AppRepresentation to an xsd:string."@en ;
-    ];
+		a sh:PropertyShape ;
+		sh:path ids:dataAppInformation ;
+		sh:class ids:DataApp ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppInformation property must point from an ids:AppRepresentation to zero or one ids:DataApp."@en ;
+	] ;
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:dataAppDistributionService ;
+    sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppDistributionService property must point from an ids:AppRepresentation to zero or one IRI."@en ;
+	];
+
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path ids:dataAppRuntimeEnvironment ;
+    sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+    sh:severity sh:Violation ;
+    sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/RepresentationShape.ttl> (AppRepresentationShape): An ids:dataAppRuntimeEnvironment property must point from an ids:AppRepresentation to zero or one xsd:string."@en ;
+	];
 
 .
-

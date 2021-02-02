@@ -24,14 +24,15 @@ shapes:
 
 
 shapes:NamedShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Named ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:name ;
 		sh:datatype xsd:string ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/NamedShape.ttl> (NamedShape): An ids:name property must point from an ids:Named to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/NamedShape.ttl> (NamedShape): An ids:name property must point from an ids:Named to exactly one xsd:string."@en ;
 	] .
-

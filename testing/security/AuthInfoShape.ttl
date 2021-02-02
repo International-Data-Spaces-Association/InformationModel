@@ -21,22 +21,24 @@ shapes:
 
 
 shapes:AuthInfoShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:AuthInfo ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:authService ;
 		sh:nodeKind sh:IRI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authService property must point from an ids:AuthInfo to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authService property must point from an ids:AuthInfo to exactly an IRI."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:authStandard ;
 		sh:class ids:AuthStandard ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authStandard property must point from an ids:AuthInfo to an ids:AuthStandard."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/AuthInfoShape.ttl> (AuthInfoShape): An ids:authStandard property must point from an ids:AuthInfo to zero or one ids:AuthStandard."@en ;
 	] .
-

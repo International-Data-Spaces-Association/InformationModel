@@ -21,7 +21,7 @@ shapes:
 
 
 shapes:CatalogShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Catalog ;
 
     sh:sparql [
@@ -40,7 +40,7 @@ shapes:CatalogShape
 
 
 shapes:ResourceCatalogShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:ResourceCatalog ;
 	sh:property [
 		a sh:PropertyShape ;
@@ -61,7 +61,7 @@ shapes:ResourceCatalogShape
 
 
 shapes:ParticipantCatalogShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:ParticipantCatalog ;
 	sh:property [
 		a sh:PropertyShape ;
@@ -74,7 +74,7 @@ shapes:ParticipantCatalogShape
 
 
 shapes:ConnectorCatalogShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:ConnectorCatalog ;
 	sh:property [
 		a sh:PropertyShape ;
@@ -82,5 +82,29 @@ shapes:ConnectorCatalogShape
 		sh:class ids:Connector ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ConnectorCatalog): An ids:listedConnector property must point from an ids:ConnectorCatalog to an ids:Connector."@en ;
+	] ;
+.
+
+shapes:ClearingHouseCatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ClearingHouseCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:listedClearingHouse ;
+		sh:class ids:ClearingHouse ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ClearingHouseCatalog): An ids:listedClearingHouse property must point from an ids:ClearingHouseCatalog to an ids:ClearingHouse."@en ;
+	] ;
+.
+
+shapes:AppResourceCatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppResourceCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:listedAppResource ;
+		sh:class ids:AppResource ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (AppResourceCatalog): An ids:listedAppResource property must point from an ids:AppResourceCatalog to an ids:AppResource."@en ;
 	] ;
 .
