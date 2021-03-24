@@ -68,9 +68,10 @@ ids:action
     rdfs:subPropertyOf odrl:action;
     a owl:ObjectProperty;
     rdfs:label "action"@en;
-    rdfs:domain ids:Rule;
+    rdfs:domain [ rdf:type owl:Class ;
+			owl:unionOf ( ids:Rule ids:UsageControlObject)] ;
     rdfs:range ids:Action;
-    rdfs:comment "The operation relating to the asset for which permission is being granted."@en.
+    rdfs:comment "The operation relating to the asset /  data object. "@en.
 
 ids:assignee rdfs:subPropertyOf odrl:assignee;
     a owl:ObjectProperty;
@@ -114,9 +115,10 @@ ids:assetRefinement
     a owl:ObjectProperty;
     rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "content refinement"@en;
-    rdfs:domain ids:Rule;
+    rdfs:domain [ rdf:type owl:Class ;
+			owl:unionOf ( ids:Rule ids:AssetCollection)];
     rdfs:range ids:AbstractConstraint;
-    rdfs:comment "Constraint that refines a (composite) Digital Content."@en.
+    rdfs:comment "AssetRefinement define constraints that refines a (composite) Digital Content in an ids:Rule respectively the ids:AssetCollection."@en.
 
 ids:preDuty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;
