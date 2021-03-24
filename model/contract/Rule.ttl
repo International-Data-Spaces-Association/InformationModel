@@ -115,7 +115,8 @@ ids:assetRefinement
     a owl:ObjectProperty;
     rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "content refinement"@en;
-    rdfs:domain ids:Rule;
+    rdfs:domain [ rdf:type owl:Class ;
+			owl:unionOf ( ids:Rule ids:AssetCollection)];
     rdfs:range ids:AbstractConstraint;
     rdfs:comment "AssetRefinement define constraint that refines a (composite) Digital Content in an ids:Rule respectively the AssetCollection."@en.
 
