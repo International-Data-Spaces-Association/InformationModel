@@ -22,10 +22,6 @@ ids:Participant
     rdfs:subClassOf ids:Agent, ids:ManagedEntity, org:Organization; # foaf:Organization is implied
     rdfs:label "Participant"@en;
     rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
-    idsm:validation [
-        idsm:forProperty ids:legalName;
-        idsm:constraint idsm:NotNull;
-    ];
 	idsm:validation [
         idsm:forProperty ids:memberPerson;
         idsm:relationType idsm:OneToMany;
@@ -41,18 +37,6 @@ ids:Participant
 	idsm:validation [
         idsm:forProperty ids:hasBusinessIdentifier;
         idsm:relationType idsm:OneToMany;
-    ];
-	idsm:validation [
-        idsm:forProperty ids:vatID;
-        idsm:constraint idsm:NotNull;
-    ];
-	idsm:validation [
-        idsm:forProperty ids:jurisdication;
-        idsm:constraint idsm:NotNull;
-    ];
-	idsm:validation [
-        idsm:forProperty ids:legalForm;
-        idsm:constraint idsm:NotNull;
     ];
 .
 
