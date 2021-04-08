@@ -35,7 +35,7 @@ ids:Participant
         idsm:relationType idsm:OneToMany;
     ];
 	idsm:validation [
-        idsm:forProperty ids:hasBusinessIdentifier;
+        idsm:forProperty ids:businessIdentifier;
         idsm:relationType idsm:OneToMany;
     ];
 .
@@ -112,7 +112,7 @@ ids:participantRefinement
     rdfs:comment "Conditions which needs to be satisfied that a single Participant can be seen as a member of the subject Participant. For instance, all Participants with their headquarter in Europe might be a potential consumer of GDPR-releated data."@en;
 .
 
-ids:hasBusinessIdentifier
+ids:businessIdentifier
 	a owl:ObjectProperty ;
 	rdfs:domain ids:Participant ;
 	rdfs:range ids:BusinessIdentifier ;
@@ -136,12 +136,12 @@ ids:legalForm
 	rdfs:comment "Legal form of the participant. It is advisable to use an existing standard such as ISO-20275."@en ;
 .
 
-ids:jurisdication
+ids:jurisdiction 
 	a owl:DatatypeProperty ;
 	rdfs:domain ids:Participant ;
 	rdfs:range xsd:string ;
 	rdfs:label "legal form"@en ;
-	rdfs:comment "Jurisdication / court which is responsible for the entity. The use of existing standards such as ISO 3166-2 is recommended."@en ;
+	rdfs:comment "jurisdiction / court which is responsible for the entity. The use of existing standards such as ISO 3166-2 is recommended."@en ;
 .
 
 

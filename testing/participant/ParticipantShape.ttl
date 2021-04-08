@@ -72,10 +72,10 @@ shapes:ParticipantShape
 	
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:hasBusinessIdentifier ;
+		sh:path ids:businessIdentifier ;
 		sh:class ids:BusinessIdentifier ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:hasBusinessIdentifier property must point from an ids:Participant to an ids:BusinessIdentifier."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:businessIdentifier property must point from an ids:Participant to an ids:BusinessIdentifier."@en ;
 	];
 
 	sh:property [
@@ -83,19 +83,21 @@ shapes:ParticipantShape
 		sh:path ids:vatID ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		#sh:minCount 1 ;
+		#TODO for major release: Enforce property
+		#sh:minCount 1 ; 
 		sh:maxCount 1 ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one VAT number as xsd:string linked through the ids:vatID property."@en ;
 	];
 	
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:jurisdication ;
+		sh:path ids:jurisdiction ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
+		#TODO for major release: Enforce property
 		#sh:minCount 1 ;
 		sh:maxCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one jurisdication as xsd:string linked through the ids:jurisdication property."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one jurisdiction as xsd:string linked through the ids:jurisdiction property."@en ;
 	];
 
 	sh:property [
@@ -103,7 +105,8 @@ shapes:ParticipantShape
 		sh:path ids:legalForm ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		#sh:minCount 1 ;
+		#TODO for major release: Enforce property
+		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one legal form as xsd:string linked through the ids:legalForm property."@en ;
 	];
