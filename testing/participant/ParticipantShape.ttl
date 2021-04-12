@@ -8,7 +8,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -61,7 +61,6 @@ shapes:ParticipantShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:memberParticipant property must point from an ids:Participant to an ids:Participant."@en ;
 	] ;
 
-
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:participantCertification ;
@@ -69,6 +68,47 @@ shapes:ParticipantShape
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must not have more than one point from an ids:Participant to an ids:ParticipantCertification."@en ;
+	];
+	
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:businessIdentifier ;
+		sh:class ids:BusinessIdentifier ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:businessIdentifier property must point from an ids:Participant to an ids:BusinessIdentifier."@en ;
+	];
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:vatID ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		#TODO for major release: Enforce property
+		#sh:minCount 1 ; 
+		sh:maxCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one VAT number as xsd:string linked through the ids:vatID property."@en ;
+	];
+	
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:jurisdiction ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		#TODO for major release: Enforce property
+		#sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one jurisdiction as xsd:string linked through the ids:jurisdiction property."@en ;
+	];
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:legalForm ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		#TODO for major release: Enforce property
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one legal form as xsd:string linked through the ids:legalForm property."@en ;
 	];
 
 	sh:property [
