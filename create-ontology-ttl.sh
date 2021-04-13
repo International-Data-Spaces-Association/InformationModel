@@ -64,7 +64,7 @@ ids:
     owl:versionIRI <https://w3id.org/idsa/core/${version}> ;
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/" ;
     vann:preferredNamespacePrefix "ids" ;
-    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+    rdfs:seeAlso <https://international-data-spaces-association.github.io/InformationModel/> ;
     void:vocabulary
        vann: ,
        void: ,
