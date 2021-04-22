@@ -386,8 +386,9 @@ ids:UploadResponseMessage a owl:Class;
 
 ids:ParticipantRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
-    rdfs:label "Participant Request Message"@en;
-    rdfs:comment "Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message."@en;
+	owl:deprecated true;
+    rdfs:label "Participant Request Message (Deprecated)"@en;
+    rdfs:comment "This class is deprecated. Use ids:DescriptionRequestMessage instead."@en;
     idsm:validation [
         idsm:forProperty ids:requestedParticipant;
         idsm:constraint idsm:NotNull;
@@ -395,8 +396,9 @@ ids:ParticipantRequestMessage a owl:Class ;
 
 ids:ParticipantResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
-    rdfs:label "Participant Response Message"@en;
-    rdfs:comment "Message that follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en.
+	owl:deprecated true;
+    rdfs:label "Participant Response Message (Deprecated)"@en;
+    rdfs:comment "This class is deprecated. Use ids:DescriptionResponseMessage instead."@en.
 
 ids:requestedParticipant rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
