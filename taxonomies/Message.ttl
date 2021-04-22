@@ -388,7 +388,7 @@ ids:ParticipantRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
 	owl:deprecated true;
     rdfs:label "Participant Request Message (Deprecated)"@en;
-    rdfs:comment "This class is deprecated. Use ids:DescriptionRequestMessage instead."@en;
+    rdfs:comment "This class is deprecated. Use ids:DescriptionRequestMessage instead. Message asking for retrieving the specified Participants information as the payload of an ids:ParticipantResponse message."@en;
     idsm:validation [
         idsm:forProperty ids:requestedParticipant;
         idsm:constraint idsm:NotNull;
@@ -398,14 +398,15 @@ ids:ParticipantResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
 	owl:deprecated true;
     rdfs:label "Participant Response Message (Deprecated)"@en;
-    rdfs:comment "This class is deprecated. Use ids:DescriptionResponseMessage instead."@en.
+    rdfs:comment "This class is deprecated. Use ids:DescriptionResponseMessage instead. ParticipantResponseMessage follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en.
 
 ids:requestedParticipant rdf:type owl:ObjectProperty ;
     idsm:referenceByUri true;
+	owl:deprecated true;
     rdfs:domain ids:ParticipantRequestMessage;
     rdfs:range ids:Participant ;
-    rdfs:label "Requested Participant"@en ;
-    rdfs:comment "References a Participant in the context of a request."@en.
+    rdfs:label "Requested Participant (Deprecated)"@en ;
+    rdfs:comment "This property is deprecated. Use ids:requestedElement along with ids:DescriptionRequestMessage instead. References a Participant in the context of a request."@en.
 
 
 # Log messaging
