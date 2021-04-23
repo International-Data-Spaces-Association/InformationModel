@@ -206,7 +206,7 @@ csvw:groupChar a rdf:Property;
   rdfs:isDefinedBy csvw: .
 csvw:header a rdf:Property;
   rdfs:label "header"@en;
-  rdfs:comment """A boolean atomic property that, if `true`, sets the header row count flag to `1`, and if `;
+  rdfs:comment """A boolean atomic property that, if `true`, sets the header row count flag to `1`, and if `false` to `0`, unless headerRowCount is provided, in which case the value provided for the header property is ignored."""@en;
   rdfs:domain csvw:Dialect;
   rdfs:range xsd:boolean;
   rdfs:isDefinedBy csvw: .
@@ -289,7 +289,7 @@ csvw:null a rdf:Property;
   rdfs:isDefinedBy csvw: .
 csvw:ordered a rdf:Property;
   rdfs:label "ordered"@en;
-  rdfs:comment """A boolean atomic property taking a single value which indicates whether a list that is the value of the cell is ordered (if `true`) or unordered (if `;
+  rdfs:comment """A boolean atomic property taking a single value which indicates whether a list that is the value of the cell is ordered (if `true`) or unordered (if `false`)."""@en;
   rdfs:domain [ owl:unionOf (csvw:TableGroup csvw:Table csvw:Schema csvw:Column)];
   rdfs:range xsd:boolean;
   rdfs:isDefinedBy csvw: .
@@ -332,7 +332,7 @@ csvw:referencedRow a rdf:Property;
   rdfs:isDefinedBy csvw: .
 csvw:required a rdf:Property;
   rdfs:label "required"@en;
-  rdfs:comment """A boolean atomic property taking a single value which indicates whether the cell must have a non-null value. The default is `;
+  rdfs:comment """A boolean atomic property taking a single value which indicates whether the cell must have a non-null value. The default is `false`. """@en;
   rdfs:domain [ owl:unionOf (csvw:TableGroup csvw:Table csvw:Schema csvw:Column)];
   rdfs:range xsd:boolean;
   rdfs:isDefinedBy csvw: .
@@ -392,7 +392,7 @@ csvw:skipColumns a rdf:Property;
   rdfs:isDefinedBy csvw: .
 csvw:skipInitialSpace a rdf:Property;
   rdfs:label "skip initial space"@en;
-  rdfs:comment """A boolean atomic property that, if `true`, sets the trim flag to "start". If `;
+  rdfs:comment """A boolean atomic property that, if `true`, sets the trim flag to "start". If `false`, to `false`."""@en;
   rdfs:domain csvw:Dialect;
   rdfs:range xsd:boolean;
   rdfs:isDefinedBy csvw: .
@@ -460,7 +460,7 @@ For a Column: A natural language property that provides possible alternative nam
   rdfs:isDefinedBy csvw: .
 csvw:trim a rdf:Property;
   rdfs:label "trim"@en;
-  rdfs:comment """An atomic property that, if the boolean `true`, sets the trim flag to `true` and if the boolean `;
+  rdfs:comment """An atomic property that, if the boolean `true`, sets the trim flag to `true` and if the boolean `false` to `false`. If the value provided is a string, sets the trim flag to the provided value, which must be one of "true", "false", "start" or "end"."""@en;
   rdfs:domain csvw:Dialect;
   rdfs:range xsd:boolean;
   rdfs:isDefinedBy csvw: .
