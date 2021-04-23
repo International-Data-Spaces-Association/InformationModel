@@ -21,14 +21,6 @@ ids:Constraint rdfs:subClassOf ids:AbstractConstraint ;
     a owl:Class;
     rdfs:label "Constraint"@en;
     rdfs:comment "The class of Constraints that restrict a Rule."@en;
-    idsm:validation [
-        idsm:forProperty ids:leftOperand;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:operator;
-        idsm:constraint idsm:NotNull;
-    ] ;
 .
 
 ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
@@ -36,18 +28,6 @@ ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
     a owl:Class;
     rdfs:label "Logical Constraint"@en;
     rdfs:comment "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."@en;
-    idsm:validation [
-        idsm:forProperty ids:and;
-        idsm:relationType idsm:OneToMany;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:or;
-        idsm:relationType idsm:OneToMany;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:xone;
-        idsm:relationType idsm:OneToMany;
-    ] ;
 .
 
 # Properties

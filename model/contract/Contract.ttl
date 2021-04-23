@@ -15,18 +15,7 @@ ids:Contract
     rdfs:label "Contract"@en ;
     idsm:abstract true;
     rdfs:comment "Abstract set of rules governing the usage of a Resource."@en;
-    idsm:validation [
-        idsm:forProperty ids:permission;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:prohibition;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:obligation;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
     # Ensure the parties are set at rule level (i.e. assignee)
 
 ids:ContractAgreement
@@ -35,10 +24,6 @@ ids:ContractAgreement
     rdfs:label "Contract agreement"@en ;
     rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties."@en;
     # End is optional
-    idsm:validation [
-        idsm:forProperty ids:contractStart;
-        idsm:constraint idsm:NotNull;
-    ];
     owl:disjointWith ids:ContractRequest, ids:ContractOffer .
 
 ids:ContractRequest

@@ -13,16 +13,6 @@ ids:DataApp
     rdfs:label "DataApp"@en;
     rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;
     # TODO: exposes at least one interface
-    idsm:validation [
-                        idsm:forProperty ids:appEndpoint;
-                        idsm:relationType idsm:OneToMany ;
-                        idsm:constraint idsm:NotEmpty;
-                    ];
-					
-	idsm:validation [
-                        idsm:forProperty ids:supportedUsagePolicies;
-                        idsm:relationType idsm:OneToMany ;
-                    ];
 .
 
 ids:appDocumentation

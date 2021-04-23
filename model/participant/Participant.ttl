@@ -22,36 +22,13 @@ ids:Participant
     rdfs:subClassOf ids:Agent, ids:ManagedEntity, org:Organization; # foaf:Organization is implied
     rdfs:label "Participant"@en;
     rdfs:comment "Stakeholder in the International Data Spaces, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
-    idsm:validation [
-        idsm:forProperty ids:memberPerson;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:memberParticipant;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:corporateEmailAddress;
-        idsm:relationType idsm:OneToMany;
-    ];
-	idsm:validation [
-        idsm:forProperty ids:businessIdentifier;
-        idsm:relationType idsm:OneToMany;
-    ];
 .
 
 ids:Person rdfs:subClassOf foaf:Person;
     a owl:Class;
     rdfs:label "Person"@en;
     rdfs:comment "The class of persons (people)"@en;
-    idsm:validation [
-        idsm:forProperty ids:phoneNumber;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:emailAddress;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
 ids:Site a owl:Class;
     rdfs:subClassOf org:Site;

@@ -11,10 +11,6 @@
 ids:SecurityProfile a owl:Class;
     rdfs:label "SecurityProfile"@en ;
     rdfs:comment "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."@en ;
-    idsm:validation [
-        idsm:forProperty ids:securityGuarantee;
-        idsm:relationType idsm:OneToMany;
-    ];
     # .. specifies several security aspects expressing the minimum requirements a Data Consumer must meet to be granted access to the Data Endpoints exposed by a providing Connector.
     .
 

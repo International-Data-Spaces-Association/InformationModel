@@ -16,37 +16,14 @@ ids:Rule
     idsm:abstract true;
     rdfs:label "Rule"@en;
     rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en;
-    idsm:validation [
-        idsm:forProperty ids:constraint;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:assigner;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:assignee;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:action;
-        idsm:relationType idsm:OneToMany;
-        idsm:constraint idsm:NotEmpty;
-    ].
+.
 
 ids:Permission rdfs:subClassOf ids:Rule;
     rdfs:subClassOf odrl:Permission;
     a owl:Class;
     rdfs:label "Permission"@en;
     rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en;
-    idsm:validation [
-        idsm:forProperty ids:preDuty;
-        idsm:relationType idsm:OneToMany;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:postDuty;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
 ids:Prohibition rdfs:subClassOf ids:Rule;
     rdfs:subClassOf odrl:Prohibition;

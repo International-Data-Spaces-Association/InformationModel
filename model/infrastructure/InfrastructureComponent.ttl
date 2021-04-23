@@ -15,23 +15,7 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
     idsm:abstract true;
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS."@en;
-    idsm:validation [
-        idsm:forProperty ids:maintainer;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:curator;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:inboundModelVersion;
-        idsm:constraint idsm:NotEmpty;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:outboundModelVersion;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 # Properties of InfrastructureComponent
 # -------------------------------------
