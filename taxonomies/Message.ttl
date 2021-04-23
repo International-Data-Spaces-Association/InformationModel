@@ -111,7 +111,6 @@ ids:ConnectorCertificateRevokedMessage a owl:Class;
     rdfs:comment "Indicates that a (previously certified) Connector is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
 ids:affectedConnector a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "affected Connector"@en;
     rdfs:domain ids:ConnectorNotificationMessage;
     rdfs:range ids:Connector;
@@ -148,7 +147,6 @@ ids:ParticipantCertificateRevokedMessage a owl:Class;
     rdfs:comment "Indicates that a (previously certified) Participant is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
 ids:affectedParticipant a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "affected Participant"@en;
     rdfs:domain ids:ParticipantNotificationMessage;
     rdfs:range ids:Participant;
@@ -283,7 +281,6 @@ ids:ResourceUnavailableMessage a owl:Class ;
     rdfs:comment "Message indicating that a specific resource is unavailable. The same resource may be available again in the future."@en.
 
 ids:affectedResource rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:ResourceNotificationMessage;
     rdfs:range ids:Resource ;
     rdfs:label "affected Resource"@en ;
@@ -336,7 +333,6 @@ ids:ArtifactResponseMessage a owl:Class ;
     rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
 
 ids:requestedArtifact rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Requested Artifact"@en ;
@@ -374,8 +370,7 @@ ids:ParticipantResponseMessage a owl:Class ;
     rdfs:comment "This class is deprecated. Use ids:DescriptionResponseMessage instead. ParticipantResponseMessage follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en.
 
 ids:requestedParticipant rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
-	owl:deprecated true;
+    owl:deprecated true;
     rdfs:domain ids:ParticipantRequestMessage;
     rdfs:range ids:Participant ;
     rdfs:label "Requested Participant (Deprecated)"@en ;
@@ -401,7 +396,6 @@ ids:AppRegistrationRequestMessage a owl:Class;
 .
 
 ids:affectedDataApp rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:AppRegistrationRequestMessage ;
     rdfs:range ids:AppResource ;
     rdfs:label "affected AppResource"@en ;
@@ -427,7 +421,6 @@ ids:AppUploadResponseMessage a owl:Class;
 .
 
 ids:appArtifactReference rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:AppUploadMessage ;
     rdfs:range ids:Artifact ;
     rdfs:label "app artifact reference"@en ;

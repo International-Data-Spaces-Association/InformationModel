@@ -12,7 +12,6 @@
 
 ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
     a owl:Class;
-
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS."@en;
 .
@@ -21,7 +20,6 @@ ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
 # -------------------------------------
 
 ids:maintainer a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
     rdfs:label "maintainer"@en;
@@ -29,7 +27,6 @@ ids:maintainer a owl:ObjectProperty;
 
 ids:curator a owl:ObjectProperty;
     rdfs:subPropertyOf dct:publisher;
-    idsm:referenceByUri true;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
     rdfs:label "curator"@en;

@@ -11,7 +11,6 @@
 ids:Connector
     rdfs:subClassOf ids:InfrastructureComponent;
     a owl:Class;
-
     rdfs:label "Connector"@en ;
     rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
 # TODO: a connector might not want to present a catalog
@@ -80,7 +79,6 @@ ids:resourceCatalog a owl:ObjectProperty;
     rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
 
 ids:hasAgent a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "has Agent"@en;
     rdfs:domain ids:Connector;
     rdfs:range ids:Agent;
