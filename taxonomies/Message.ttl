@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -22,10 +22,7 @@ ids:ResponseMessage a owl:Class;
     rdfs:subClassOf ids:Message ;
     rdfs:label "Response Message"@en ;
     rdfs:comment "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en;
-    idsm:validation [
-        idsm:forProperty ids:correlationMessage;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:NotificationMessage a owl:Class ;
     rdfs:subClassOf ids:Message ;
@@ -39,7 +36,7 @@ ids:NotificationMessage a owl:Class ;
 
 ids:CommandMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
-    idsm:abstract true;
+
     rdfs:label "Command Message"@en ;
     rdfs:comment "Command messages are usually sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en.
 
@@ -88,13 +85,10 @@ ids:requestedElement a owl:DatatypeProperty;
 
 ids:ConnectorNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "Connector Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en;
-    idsm:validation [
-        idsm:forProperty ids:affectedConnector;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:ConnectorUpdateMessage a owl:Class;
     rdfs:subClassOf ids:ConnectorNotificationMessage ;
@@ -117,7 +111,6 @@ ids:ConnectorCertificateRevokedMessage a owl:Class;
     rdfs:comment "Indicates that a (previously certified) Connector is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
 ids:affectedConnector a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "affected Connector"@en;
     rdfs:domain ids:ConnectorNotificationMessage;
     rdfs:range ids:Connector;
@@ -127,13 +120,10 @@ ids:affectedConnector a owl:ObjectProperty;
 # ----------------------------
 ids:ParticipantNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "Participant Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en;
-    idsm:validation [
-        idsm:forProperty ids:affectedParticipant;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 
 ids:ParticipantUpdateMessage a owl:Class;
@@ -157,7 +147,6 @@ ids:ParticipantCertificateRevokedMessage a owl:Class;
     rdfs:comment "Indicates that a (previously certified) Participant is no more certified. This could happen, for instance, if the Certification Body revokes a granted certificate or if the certificate just expires."@en.
 
 ids:affectedParticipant a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "affected Participant"@en;
     rdfs:domain ids:ParticipantNotificationMessage;
     rdfs:range ids:Participant;
@@ -276,13 +265,10 @@ ids:AccessTokenResponseMessage a owl:Class ;
 
 ids:ResourceNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "Resource Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a resource."@en;
-    idsm:validation [
-        idsm:forProperty ids:affectedResource;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:ResourceUpdateMessage a owl:Class ;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
@@ -295,7 +281,6 @@ ids:ResourceUnavailableMessage a owl:Class ;
     rdfs:comment "Message indicating that a specific resource is unavailable. The same resource may be available again in the future."@en.
 
 ids:affectedResource rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:ResourceNotificationMessage;
     rdfs:range ids:Resource ;
     rdfs:label "affected Resource"@en ;
@@ -306,10 +291,7 @@ ids:InvokeOperationMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Invoke Operation Message"@en;
     rdfs:comment "Message requesting the recipient to invoke a specific operation."@en;
-    idsm:validation [
-        idsm:forProperty ids:operationReference;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:operationReference rdf:type owl:DatatypeProperty ;
     rdfs:domain ids:InvokeOperationMessage ;
@@ -322,19 +304,13 @@ ids:RequestInProcessMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage;
     rdfs:label "Request In Process Message"@en;
     rdfs:comment "Notification that a request has been accepted and is being processed."@en;
-    idsm:validation [
-        idsm:forProperty ids:correlationMessage;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:MessageProcessedNotificationMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage;
     rdfs:label "Message Processed Notification Message"@en;
     rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en;
-    idsm:validation [
-        idsm:forProperty ids:correlationMessage;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:OperationResultMessage  a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
@@ -349,10 +325,7 @@ ids:ArtifactRequestMessage a owl:Class ;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Artifact Request Message"@en;
     rdfs:comment "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en;
-    idsm:validation [
-        idsm:forProperty ids:requestedArtifact;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:ArtifactResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
@@ -360,7 +333,6 @@ ids:ArtifactResponseMessage a owl:Class ;
     rdfs:comment "Message that follows up a RetrieveArtifact Message and contains the Artifact's data in the payload section."@en.
 
 ids:requestedArtifact rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:ArtifactRequestMessage;
     rdfs:range ids:Artifact ;
     rdfs:label "Requested Artifact"@en ;
@@ -389,10 +361,7 @@ ids:ParticipantRequestMessage a owl:Class ;
 	owl:deprecated true;
     rdfs:label "Participant Request Message (Deprecated)"@en;
     rdfs:comment "This class is deprecated. Use ids:DescriptionRequestMessage instead. Message asking for retrieving the specified Participants information as the payload of an ids:ParticipantResponse message."@en;
-    idsm:validation [
-        idsm:forProperty ids:requestedParticipant;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:ParticipantResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage;
@@ -401,8 +370,7 @@ ids:ParticipantResponseMessage a owl:Class ;
     rdfs:comment "This class is deprecated. Use ids:DescriptionResponseMessage instead. ParticipantResponseMessage follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en.
 
 ids:requestedParticipant rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
-	owl:deprecated true;
+    owl:deprecated true;
     rdfs:domain ids:ParticipantRequestMessage;
     rdfs:range ids:Participant ;
     rdfs:label "Requested Participant (Deprecated)"@en ;
@@ -428,7 +396,6 @@ ids:AppRegistrationRequestMessage a owl:Class;
 .
 
 ids:affectedDataApp rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:AppRegistrationRequestMessage ;
     rdfs:range ids:AppResource ;
     rdfs:label "affected AppResource"@en ;
@@ -445,10 +412,6 @@ ids:AppUploadMessage a owl:Class;
     rdfs:subClassOf ids:UploadMessage ;
     rdfs:label "App Upload Message"@en ;
     rdfs:comment "Message that usually follows a AppRegistrationResponseMessage and is used to upload a data app to the app store. Payload contains data app. Note that the message must refer to the prior sent, corresponding AppResource instance. The IRI of the ids:appArtifactReference must must match the IRI of the artifact which is the value for the ids:instance property. The ids:instance is specific for each representation. Therefore, if someone wants to upload multiple representations for an app, he has to state them using multiple ids:instance properties inside the AppRepresentation (and therefore inside the AppResource). Otherwise no mapping between payload and app metadata can be achieved."@en ;
-    idsm:validation [
-        idsm:forProperty ids:appArtifactReference;
-        idsm:constraint idsm:NotNull;
-    ];
 .
 
 ids:AppUploadResponseMessage a owl:Class;
@@ -458,7 +421,6 @@ ids:AppUploadResponseMessage a owl:Class;
 .
 
 ids:appArtifactReference rdf:type owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:domain ids:AppUploadMessage ;
     rdfs:range ids:Artifact ;
     rdfs:label "app artifact reference"@en ;
@@ -467,13 +429,9 @@ ids:appArtifactReference rdf:type owl:ObjectProperty ;
 
 ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "App Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
-    idsm:validation [
-                idsm:forProperty ids:affectedDataAppResource;
-                idsm:constraint idsm:NotNull;
-            ];
 .
 
 ids:AppAvailableMessage a owl:Class ;

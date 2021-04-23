@@ -5,14 +5,13 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
 
 ids:AbstractConstraint rdfs:subClassOf odrl:Constraint;
     a owl:Class;
-    idsm:abstract true ;
     rdfs:label "Abstract Constraint"@en;
     rdfs:comment "The upper class of Constraints and LogicalConstraints is solely intended as a placholder at the range of IDS Properties."@en;
 .
@@ -21,14 +20,6 @@ ids:Constraint rdfs:subClassOf ids:AbstractConstraint ;
     a owl:Class;
     rdfs:label "Constraint"@en;
     rdfs:comment "The class of Constraints that restrict a Rule."@en;
-    idsm:validation [
-        idsm:forProperty ids:leftOperand;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:operator;
-        idsm:constraint idsm:NotNull;
-    ] ;
 .
 
 ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
@@ -36,18 +27,6 @@ ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
     a owl:Class;
     rdfs:label "Logical Constraint"@en;
     rdfs:comment "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."@en;
-    idsm:validation [
-        idsm:forProperty ids:and;
-        idsm:relationType idsm:OneToMany;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:or;
-        idsm:relationType idsm:OneToMany;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:xone;
-        idsm:relationType idsm:OneToMany;
-    ] ;
 .
 
 # Properties
@@ -77,7 +56,6 @@ ids:rightOperand rdfs:subPropertyOf odrl:rightOperand;
 
 ids:rightOperandReference rdfs:subPropertyOf odrl:rightOperandReference;
     a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "rightOperandReference"@en ;
     rdfs:domain ids:Constraint;
     rdfs:range rdfs:Resource;
