@@ -87,6 +87,13 @@ ids:trustStore a owl:DatatypeProperty;
     rdfs:comment "URI of the trust store server."@en ;
 .
 
+ids:trustStoreAlias a owl:DatatypeProperty;
+	rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "trust store alias"@en ;
+    rdfs:comment "alias for the trust store."@en ;
+.
+
 ids:trustStorePassword a owl:DatatypeProperty;
     rdfs:domain ids:ConfigurationModel;
     rdfs:range xsd:string;
@@ -99,6 +106,13 @@ ids:keyStore a owl:DatatypeProperty;
     rdfs:range xsd:anyURI;
     rdfs:label "key store"@en ;
     rdfs:comment "URI of the key store server."@en ;
+.
+
+ids:keyStoreAlias a owl:DatatypeProperty;
+	rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "key store alias"@en ;
+    rdfs:comment "alias for the key store."@en ;
 .
 
 ids:keyStorePassword a owl:DatatypeProperty;
