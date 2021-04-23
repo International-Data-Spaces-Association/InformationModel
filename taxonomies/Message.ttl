@@ -36,7 +36,7 @@ ids:NotificationMessage a owl:Class ;
 
 ids:CommandMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
-    idsm:abstract true;
+
     rdfs:label "Command Message"@en ;
     rdfs:comment "Command messages are usually sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en.
 
@@ -85,7 +85,7 @@ ids:requestedElement a owl:DatatypeProperty;
 
 ids:ConnectorNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "Connector Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en;
 .
@@ -121,7 +121,7 @@ ids:affectedConnector a owl:ObjectProperty;
 # ----------------------------
 ids:ParticipantNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "Participant Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en;
 .
@@ -267,7 +267,7 @@ ids:AccessTokenResponseMessage a owl:Class ;
 
 ids:ResourceNotificationMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "Resource Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a resource."@en;
 .
@@ -436,7 +436,7 @@ ids:appArtifactReference rdf:type owl:ObjectProperty ;
 
 ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
-    idsm:abstract true ;
+
     rdfs:label "App Notification Message"@en ;
     rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
 .
