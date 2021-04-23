@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [4.1.0] 2021-04-26
+Version 4.1.0 of the IDS Information Model
+
+### Added
+
+* `ids:ConfigurationManager` can refer to the configured App Resources, Brokers, AppStores and ClearingHouses represented as catalogs.
+* `ids:AppRoute` can refer to Broker and Clearing House instances (via `ids:appRouteClearingHouse` and `ids:appRouteBroker`), which are used for publishing and logging related communication.
+* `ids:GenericEndpoint` for non-IDS endpoints.
+* Catalog sublcasses for Broker, AppStore, AppResource and ClearingHouse instances. Check [model/infrastructure/Catalog.ttl](Catalog.ttl) class for details.
+* Additional properties for Participants for identification and classification, e.g. legalName, business identifier, legal form and vat id.
+* Additional properties for `ids:DataApp` and `ids:AppRepresentation` to express supported usage policies as well as app-related runtime, configuration and deployment information.
+* Extensive additions to the SHACL shapes.
+
+
+### Changed:
+* `ids:ParticipantRequestMessage` and `ids:ParticipantResponseMessage` are deprecated and will be removed in the next release. Using `ids:DescriptionRequestMessage` and `ids:DescriptionReponseMessage` is advised.
+
+
+### Removed
+* `idsm` metamodel annotations which were used to annotate cardinality for properties.
+
 ## [4.0.0] 2020-08-04
 Version 4.0.0 of the IDS Information Model
 
