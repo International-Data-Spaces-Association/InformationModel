@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -15,16 +15,13 @@ ids:Representation
     rdfs:subClassOf ids:DescribedSemantically, ids:Asset, dcat:Distribution;# covers the generalizable parts of a Distribution
     rdfs:label "Representation"@en;
     rdfs:comment "Syntactic template of a Resource."@en;
-    idsm:validation [
-        idsm:forProperty ids:instance;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
 ids:RepresentationInstance
     a owl:Class ;
     rdfs:label "Representation instance"@en;
     rdfs:comment "A particular instance of given representation."@en ;
-    idsm:abstract true ;
+
     .
 
 ids:Value

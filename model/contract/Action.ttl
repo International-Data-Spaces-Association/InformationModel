@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -13,10 +13,7 @@ ids:Action rdfs:subClassOf odrl:Action;
     a owl:Class;
     rdfs:label "Action"@en;
     rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en;
-    idsm:validation [
-        idsm:forProperty ids:actionRefinement;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
 # Properties
 # ----------

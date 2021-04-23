@@ -8,7 +8,7 @@
 @prefix geo: <http://www.opengis.net/def/function/geosparql/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -16,7 +16,7 @@
 ids:Location a owl:Class;
     rdfs:subClassOf dct:Location;
     rdfs:subClassOf wgs84:SpatialThing;
-    idsm:abstract true;
+
     rdfs:label "Location"@en ;
     rdfs:comment "Class of all locations."@en.
 
@@ -24,14 +24,7 @@ ids:GeoPoint rdfs:subClassOf ids:Location;
     a owl:Class;
     rdfs:label "GeoPoint"@en ;
     rdfs:comment "A location identified by geo coordinates."@en;
-    idsm:validation [
-        idsm:forProperty ids:latitude;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:longitude;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:GeoFeature a owl:Class;
     rdfs:subClassOf gn:Feature;
@@ -42,7 +35,6 @@ ids:GeoFeature a owl:Class;
 ids:Geometry rdfs:subClassOf locn:Geometry;
     rdfs:subClassOf ids:Location;
     a owl:Class;
-    idsm:abstract true;
     rdfs:label "Geometry"@en ;
     rdfs:comment "Geometrical shape indicating a spatial area of interest."@en.
 
@@ -50,11 +42,7 @@ ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
     a owl:Class;
     rdfs:label "BoundingPolygon"@en;
     rdfs:comment "Defines an area of interest as a set of connected points."@en;
-    idsm:validation [
-        idsm:forProperty ids:geoPoint;
-        idsm:relationType idsm:OneToMany;
-        idsm:constraint idsm:NotEmpty;
-    ].
+.
 
 # Properties for describing spatial entities
 # -------------------------------------------

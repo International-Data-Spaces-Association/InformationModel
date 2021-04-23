@@ -3,21 +3,13 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 
 ids:Proxy a owl:Class;
     rdfs:label "Proxy"@en ;
     rdfs:comment "Holds Proxy information."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc2068> ;
-    idsm:validation [
-        idsm:forProperty ids:noProxy;
-        idsm:relationType idsm:OneToMany;
-                  ];
-    idsm:validation [
-        idsm:forProperty ids:proxyURI;
-        idsm:constraint idsm:NotNull;
-                  ];
 .
 
 ids:proxyURI a owl:DatatypeProperty;

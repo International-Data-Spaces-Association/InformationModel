@@ -1,6 +1,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,22 +16,7 @@ ids:Resource
     rdfs:label "Resource"@en ;
     rdfs:comment "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."@en;
     rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset>;
-    idsm:validation [
-        idsm:forProperty ids:resourceEndpoint;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:resourcePart;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:contractOffer;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:sample;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
     # As a single root of (a series of) content(s) Resource is the natural home for a "Data Structure Definition" (compare DQ)
     # See: https://www.w3.org/TR/vocab-data-cube#h2_dsd
@@ -74,7 +59,6 @@ ids:contractOffer
 
 ids:publisher
     a owl:ObjectProperty ;
-    idsm:referenceByUri true;
     rdfs:subPropertyOf dct:publisher ;
     rdfs:domain ids:Resource ;
     rdfs:range ids:Agent ;
@@ -84,7 +68,6 @@ ids:publisher
 ids:sovereign
     a owl:ObjectProperty ;
     rdfs:domain ids:Resource ;
-    idsm:referenceByUri true;
     rdfs:range ids:Agent ;
     rdfs:label "sovereign"@en;
     rdfs:comment "The 'owner', i.e. sovereign of the data."@en.
