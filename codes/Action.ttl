@@ -69,11 +69,13 @@ idsc:DISTRIBUTE
 idsc:GRANT_USE
     a ids:Action;
     rdfs:label "grant use"@en;
-    rdfs:comment "To grant use of a resource to another party. Does *not* imply any other usage rights."@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/grantUse> ;
+    rdfs:comment "An action to be used in the count usage policy where the idsc:COUNT left operand is used."@en ;
     odrl:includedIn idsc:USE ;
-    skos:note "This action is always evaluated at the consumer side, at the moment a third party intends to access the resource as received by the original consumer."@en ;
     .
+
+idsc:INCREMENT_COUNTER
+    a ids:Action;
+    rdfs:label "increment counter"@en;
 
 idsc:ENCRYPT
     a ids:Action ;
