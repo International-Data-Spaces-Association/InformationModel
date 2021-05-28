@@ -59,6 +59,10 @@ idsc:EVENT a ids:LeftOperand;
     rdfs:comment "The feature dimension regarding whether current events are happening. Does NOT refer 'events' as in real-time data, sensor observations, or Complex Event Processing but rather as 'World Cup 2018' or 'Hannover Trade Fair'."@en ;
 .
 
+idsc:HASH_ALGORITHM a ids:LeftOperand;
+    rdfs:label "hash algorithm"@en;
+    rdfs:comment "Indicate the hash value to be used, eg.SHA256."@en;
+.
 
 #
 idsc:STATE a ids:LeftOperand;
@@ -66,6 +70,17 @@ idsc:STATE a ids:LeftOperand;
     rdfs:comment "Specifies whether an (external) resource is true/false, active/inactive, has happened/not happened, etc. Operator must be idsc:EQUALS with RightOperands of datatype xsd:anyURI. The referenced URI should point to a (remote) resource which returns a xsd:boolean value."@en ;
 .
 
+#
+idsc:SUBSET_SPECIFICATION a ids:LeftOperand;
+    rdfs:label "subset specification"@en ;
+    rdfs:comment "Specifies which modification method is applied for data. Operator must be idsc:EQUALS with RightOperands of a jsonPath,xmlPath or rdfPath."@en ;
+.
+
+#
+idsc:REPLACE_WITH a ids:LeftOperand;
+    rdfs:label "repace with"@en ;
+    rdfs:comment "Specifies a value is replaced by a given value. Operator must be idsc:EQUALS with RightOperands of a value."@en ;
+.
 
 # space
 # -----
