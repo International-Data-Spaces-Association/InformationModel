@@ -13,18 +13,17 @@ Version 4.1.0 of the IDS Information Model
 * `ids:ConfigurationManager` can refer to the configured App Resources, Brokers, App Stores and Clearing Houses represented as catalogs.
 * `ids:AppRoute` can refer to Broker and Clearing House instances (via `ids:appRouteClearingHouse` and `ids:appRouteBroker`), which are used for publishing and logging related communication.
 * `ids:GenericEndpoint` for non-IDS endpoints.
-* Catalog subclasses for Broker, AppStore, AppResource and ClearingHouse instances. Check [model/infrastructure/Catalog.ttl](Catalog.ttl) class for details.
+* Catalog subclasses for Broker, AppStore, AppResource and ClearingHouse instances. Check the [Catalog.ttl](model/infrastructure/Catalog.ttl) class for details.
 * Additional properties for Participants for identification and classification, e.g., legal name, business identifier, legal form and VAT ID (addressing requirements to participants in Gaia-X)
 * Additional properties for `ids:DataApp` and `ids:AppRepresentation` to express supported usage policies as well as app-related runtime, configuration and deployment information.
-* Extensive additions to the SHACL shapes.
-
 
 ### Changed:
 * `ids:ParticipantRequestMessage` and `ids:ParticipantResponseMessage` are deprecated and will be removed in the next release. Using `ids:DescriptionRequestMessage` and `ids:DescriptionReponseMessage` is advised.
 
 
 ### Removed
-* `idsm` metamodel annotations which were used to annotate cardinality for properties.
+* `idsm:` metamodel annotations, which were used to annotate cardinalities of properties. The property cardinalities and restrictions are now exclusively represented via the corresponding SHACL shapes found in the [testing subdirectory](testing/)
+
 
 ## [4.0.0] 2020-08-04
 Version 4.0.0 of the IDS Information Model
