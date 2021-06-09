@@ -38,11 +38,11 @@ data1:
     # Communication
     ids:resourceEndpoint [
         a ids:ConnectorEndpoint ;
-        ids:accessURL "https://connector.aastat.gov.de/reports/Highway_accident_statistics.pdf"^^xsd:anyURI ;
+        ids:accessURL <https://connector.aastat.gov.de/reports/Highway_accident_statistics.pdf> ;
     ] ;
     ids:resourceEndpoint [
         a ids:ConnectorEndpoint ;
-        ids:accessURL "https://connector.aastat.gov.de/reports/Highway_accident_statistics.doc"^^xsd:anyURI ;
+        ids:accessURL <https://connector.aastat.gov.de/reports/Highway_accident_statistics.doc> ;
     ] ;
 
     # Commodization
@@ -66,6 +66,7 @@ data1:report_doc
 data1:offer
     a ids:ContractOffer ;
     ids:permission [
+		a ids:Permission ;
         ids:assigner part1: ;
         # individual target(s)
         ids:target data1: ;
@@ -75,8 +76,9 @@ data1:offer
             a ids:Duty ;
             ids:action idsc:COMPENSATE ;
             ids:constraint [
+				a ids:Constraint ;
                 ids:leftOperand     idsc:PAY_AMOUNT ;
-                  ids:operator      ids:EQ ;
+                  ids:operator      idsc:EQUALS ;
                   ids:rightOperand  25 ;
                   ids:unit          <http://dbpedia.org/resource/Euro>
             ]
@@ -92,3 +94,6 @@ data1:offer
             #]
         ]
     ] .
+	
+<https://www.iana.org/assignments/media-types/application/pdf> a ids:IANAMediaType .
+<https://www.iana.org/assignments/media-types/application/msword> a ids:IANAMediaType .
