@@ -49,7 +49,7 @@ idsc:DELAY a ids:LeftOperand ;
 
 idsc:DATE_TIME a ids:LeftOperand ;
     rdfs:label "date time"@en ;
-    rdfs:comment "To be used instead of idsc:POLICY_EVALUATION_TIME."@en ;
+    rdfs:comment "The date and time of exercising the action of the Rule. Right operand value must be an xsd:dateTimeStamp."@en ;
 .
 
 #
@@ -79,7 +79,7 @@ idsc:SUBSET_SPECIFICATION a ids:LeftOperand;
 #
 idsc:REPLACE_WITH a ids:LeftOperand;
     rdfs:label "repace with"@en ;
-    rdfs:comment "Specifies a value is replaced by a given value. Operator must be idsc:EQUALS with RightOperands of a value."@en ;
+    rdfs:comment "Specifies a new value for a specific field. The action must be idsc:REPLACE and the operator must be idsc:EQUALS."@en ;
 .
 
 # space
@@ -92,7 +92,7 @@ idsc:ABSOLUTE_SPATIAL_POSITION a ids:LeftOperand ;
 
 idsc:OPERAND a ids:LeftOperand ;
       rdfs:label "operand"@en ;
-      rdfs:comment "To indicate the value to be operanded for Action idsc:ADD,idsc:MULTIPLY and idsc:DIVIDE"@en ;
+      rdfs:comment "To indicate the second operand value for the Actions idsc:ADD, idsc:MULTIPLY and idsc:DIVIDE."@en ;
 .
 
 # role-based
@@ -176,7 +176,7 @@ idsc:ENDPOINT a ids:LeftOperand;
 
 idsc:APPLICATION a ids:LeftOperand;
     rdfs:label "application" ;
-    rdfs:comment "Certified Data App."@en ;
+    rdfs:comment "An application is a program or piece of software designed to fulfill a particular purpose. For example, a certified IDS App."@en ;
     .
 
 idsc:CONNECTOR a ids:LeftOperand;
