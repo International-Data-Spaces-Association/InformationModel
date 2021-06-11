@@ -24,6 +24,7 @@ with significant contributions, comments and support by (in alphabetical order):
 - Dr. Anna Kasprzik, [TIB](https://www.tib.eu/en)
 - Dr. Christoph Lange, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en) (see above)
 - Johannes Lipp, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
+- Lina Molinas Comet, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
 - Andreas W. Müller, [Schaeffler](https://www.schaeffler.de/content.schaeffler.de/en/)
 - Dr. Michael Theß, [Signal Cruncher GmbH](https://signal-cruncher.com/)
 

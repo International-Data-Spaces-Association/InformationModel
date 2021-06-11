@@ -20,7 +20,7 @@ write_to_file()
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ids:  <https://w3id.org/idsa/core/> .
+@prefix ids:  <https://w3id.org/idsa/core/> . 
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
@@ -56,7 +56,8 @@ ids:
        <https://github.com/HaydarAk> ,
        <https://github.com/jlangkau> ,
        <https://github.com/JohannesLipp> ,
-       <https://github.com/mkollenstart> ;
+       <https://github.com/mkollenstart> ,
+       <https://github.com/lcomet> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
@@ -125,6 +126,9 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 .
 <https://github.com/JohannesLipp> a dct:Agent, foaf:Person ;
     foaf:name "Johannes Lipp" ;
+.
+<https://github.com/lcomet> a dct:Agent, foaf:Person ;
+    foaf:name "Lina Molinas Comet" ;
 .
 EOF
     
