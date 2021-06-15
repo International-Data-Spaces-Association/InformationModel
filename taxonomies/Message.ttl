@@ -66,7 +66,7 @@ ids:rejectionReason a owl:ObjectProperty;
 ids:DescriptionRequestMessage a owl:Class;
     rdfs:subClassOf ids:RequestMessage ;
     rdfs:label "Description Request Message"@en ;
-    rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g. because the element was not found."@en.
+    rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g., because the element was not found."@en.
 
 ids:DescriptionResponseMessage a owl:Class ;
     rdfs:subClassOf ids:ResponseMessage ;
@@ -177,11 +177,11 @@ ids:QueryLanguage a owl:Class;
 
 ids:QueryScope a owl:Class;
     rdfs:label "Query Scope"@en ;
-    rdfs:comment "Class of scopes that may limit the space of query results, e.g. ALL, ACTIVE_ONLY."@en.
+    rdfs:comment "Class of scopes that may limit the space of query results, e.g., ALL, ACTIVE_ONLY."@en.
 
 ids:QueryTarget a owl:Class;
     rdfs:label "Query Target"@en ;
-    rdfs:comment "Class of recipients of a query message, e.g. BROKER, APPSTORE, ANY."@en.
+    rdfs:comment "Class of recipients of a query message, e.g., BROKER, APPSTORE, ANY."@en.
 
 ids:queryLanguage a owl:ObjectProperty;
     rdfs:domain ids:QueryMessage;
@@ -237,7 +237,7 @@ ids:ContractRejectionMessage a owl:Class ;
 ids:ContractSupplementMessage a owl:Class ;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Contract Supplement Message"@en;
-    rdfs:comment "Message containing supplemental information to access resources of a contract (e.g. resource access tokens)."@en.
+    rdfs:comment "Message containing supplemental information to access resources of a contract (e.g., resource access tokens)."@en.
 
 ids:contractRejectionReason a owl:DatatypeProperty;
     rdfs:label "Contract Rejection Reason"@en ;
@@ -383,7 +383,7 @@ ids:requestedParticipant rdf:type owl:ObjectProperty ;
 ids:LogMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Log Message"@en ;
-    rdfs:comment "Log Message which can be used to transfer logs e.g. to the clearing house."@en.
+    rdfs:comment "Log Message which can be used to transfer logs e.g., to the clearing house."@en.
 
 
 # App-related Messages
