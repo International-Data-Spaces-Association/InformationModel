@@ -7,6 +7,7 @@ import re
 import pandas as pd
 import zipfile
 import io
+from distutils.dir_util import copy_tree
 from datetime import datetime
 
 
@@ -30,7 +31,7 @@ def parse_arguments():
 
     return widoco_path, (jive_un, jive_pw)
 
-# Get files from the repository by release tag and build directories
+# Get files from the repository by release tag (last three releases) and build directories
 def get_files_from_repository ():
     url_api = 'https://api.github.com/repos/International-Data-Spaces-Association/InformationModel/releases'
     
@@ -41,7 +42,10 @@ def get_files_from_repository ():
     for i, version in enumerate(releases[:3]): 
         ontology_version = version[1:]
         ontology_previous_version = releases[i+1][1:]
-    
+        
+        if i == 0:
+            ontology_latest_version = releases[i][1:]
+            
         url_get_file = f'https://github.com/International-Data-Spaces-Association/InformationModel/archive/refs/tags/v{ontology_version}.zip'
 
         response_current_version = requests.get(url_get_file)
@@ -88,10 +92,10 @@ def get_files_from_repository ():
         path_index_file = path_to_version_folder + '/index.html'
         
         # Use files we got from the repository and generate documentation, update the corresponding files based on the ontology version
-        generate_documentation(ontology_version, ontology_previous_version, path_indexen_file, path_provenance_folder, path_index_file)
-        
+        generate_documentation(ontology_version, ontology_previous_version, path_indexen_file, path_provenance_folder, path_index_file, ontology_latest_version)
 
-def generate_documentation(ontology_version, ontology_previous_version, path_indexen_file, path_provenance_folder, path_index_file):
+# Run widoco and generate documentation for the last three versions of the ontology
+def generate_documentation(ontology_version, ontology_previous_version, path_indexen_file, path_provenance_folder, path_index_file, ontology_latest_version):
     update_config_information(ontology_version)
     update_version_information(ontology_version)
     update_previous_version_information(ontology_version, ontology_previous_version)
@@ -112,6 +116,20 @@ def generate_documentation(ontology_version, ontology_previous_version, path_ind
     clean_up_ontology_serialization_owl_imports(ontology_version)
     rename_index_file(path_provenance_folder, path_indexen_file, path_index_file)
     remove_ids_trailingslash('crossref-en.html', ontology_version)
+
+    # Keep documentation of the latest version of the ontology at /docs level
+    keep_latest_version(ontology_latest_version)
+    
+# Copy latest version of documentation to documentation root level
+def keep_latest_version(ontology_latest_version):
+    
+    # Path to latest version of documentation
+    source = '../../docs/'+ontology_latest_version
+
+    # Copy everything from latest version to /docs
+    docs_latest_version = '../'
+    copy_tree(source, docs_latest_version)
+        
 
 # Update date of release parameter in config file.
 def update_config_information(ontology_version):
