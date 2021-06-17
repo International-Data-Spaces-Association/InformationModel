@@ -139,7 +139,6 @@ EOF
     # search for files in selected folders (omitting metamodel/)
     for class in $(find \
                        model/* \
-                       metamodel/ \
                        taxonomies/ \
                        codes/ \
                        -maxdepth 1 -name "*.ttl")
