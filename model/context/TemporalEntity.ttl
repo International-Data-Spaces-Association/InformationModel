@@ -6,7 +6,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix greg: <http://www.w3.org/ns/time/gregorian#> .
 
 # Classes
@@ -52,7 +51,6 @@ ids:dateTime
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "date time"@en;
     rdfs:comment "Absolute date time with a defined time zone."@en;
-    idsm:example "2018-12-31T13:20:00+02:00"^^xsd:dateTimeStamp ;
     rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp> ;
     .
 
@@ -78,7 +76,6 @@ ids:hasDuration
     rdfs:domain ids:TemporalEntity;
     rdfs:range xsd:duration;
     rdfs:label "has duration"@en;
-    idsm:example "P2Y6M5DT12H35M30S"^^xsd:duration ;
     rdfs:comment "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en.
 
 
