@@ -1,0 +1,141 @@
+{
+	"@context": {
+    "ids": "https://w3id.org/idsa/core/",
+    "idsc": "https://w3id.org/idsa/code/",
+    "part1": "https://im.internationaldataspaces.org/participant/part1",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+    "@type": "ids:TextResource",
+    "@id": "https://connector.fit.fraunhofer.de/autogen/textResource/a1247d97-fa1d-4fb4-b22f-590b2f53fa6e",
+    "title": [{
+            "@value": "European highway statistics - accident report",
+            "@language": "en"
+        }
+    ],
+    "description": [{
+            "@value": "Detailed accident analysis report based on European highway statistics data 2000 - 2017.",
+            "@language": "en"
+    }],
+    "keyword": ["report", "highway", "statistics", "Europe"],
+    "publisher": {"@id": "https://www.fit.fraunhofer.de"},
+    "sovereign": {"@id": "https://www.fit.fraunhofer.de"},
+    "resourcePart": {"@id": "<another ids:Resource>"},
+    "variant": {"@id": "<another ids:Resource>"},
+    "temporalCoverage": [{
+            "@type": "ids:Interval",
+            "begin": {
+                "@type": "ids:Instant",
+                "dateTime": {
+                    "@value": "2000-01-01T12:00:00.000+02:00",
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                }
+            },
+            "end": {
+                "@type": "ids:Instant",
+                "dateTime": {
+                    "@value": "2017-12-31T12:00:00.000+02:00",
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                }
+            }
+        }
+    ],
+    "standardLicense": {
+        "@type": "ids:License",
+        "@id": "https://example.org/OTHERCOMMERCIALLICENSE"
+    },
+    "language": {
+        "@type": "ids:Language",
+        "@id": "https://w3id.org/idsa/code/EN"
+    },
+    "sample": {"@id": "<Reference to a ids:Resource with a sample of the data>"},
+    "representation": [{
+            "@type": "ids:TextRepresentation",
+            "mediaType": {
+                "@type": "ids:IANAMediaType",
+                "@id": "https://www.iana.org/assignments/media-types/application/pdf"
+            },
+            "instance": [{
+                    "@type": "ids:Artifact",
+                    "byteSize": 1923497,
+                    "fileName": "Highway_accident_statistics.pdf",
+                    "creationDate": {
+                        "@value": "2018-06-01T12:00:00.000+02:00",
+                        "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                    },
+                    "@id": "https://connector.fit.fraunhofer.de/augtogen/artifact/934e-112fe8aa050b"
+                }
+            ],
+            "@id": "https://connector.fit.fraunhofer.de/autogen/dataRepresentation/e1ff4338-5844-4d2e-934e-668ae8fa070c"
+        }
+    ],
+    "resourceEndpoint": {
+        "@type": "ids:ConnectorEndpoint",
+        "accessURL": {"@id": "https://connector.fit.fraunhofer.de/augtogen/artifact/934e-112fe8aa050b/reports/Highway_accident_statistics.pdf"}
+    },
+
+    "contractOffer": {
+        "@type": "ids:ContractOffer",
+        "provider": {"@id": "<Provider Participant URI>"},
+        "contractDocument": {"@id": "<Reference to human-readable resource of this Contract>"},
+        "permission": [{
+                "@type": "ids:Permission",
+                "action": {
+                    "@type": "ids:Action",
+                    "@id": "https://w3id.org/idsa/code/USE"
+                },
+                "assigner": {"@id": "<Assigner Participant URI>"},
+                "target": {"@id": "Reference to the PDF Artifact,     e.g. https://connector.fit.fraunhofer.de/augtogen/artifact/934e-112fe8aa050b"},
+                "constraint": {
+                    "@type": "ids:Constraint",
+                    "leftOperand": {
+                        "@type": "ids:LeftOperand",
+                        "@id": "https://w3id.org/idsa/code/POLICY_EVALUATION_TIME"
+                    },
+                    "operator": {
+                        "@type": "ids:BinaryOperator",
+                        "@id": "https://w3id.org/idsa/code/INSIDE"
+                    },
+                    "rightOperand": {
+                        "@type": "ids:Interval",
+                        "begin": {
+                            "@type": "ids:Instant",
+                            "dateTime": {
+                                "@value": "2000-01-01T12:00:00.000+02:00",
+                                "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                            }
+                        },
+                        "end": {
+                            "@type": "ids:Instant",
+                            "dateTime": {
+                                "@value": "2017-12-31T12:00:00.000+02:00",
+                                "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+                            }
+                        }
+                    }
+                },
+                "preObligation": {
+                    "@type": "ids:Duty",
+                    "action": {
+                        "@id": "https://w3id.org/idsa/code/COMPENSATE"
+                    },
+                    "constraint": {
+                        "@type": "ids:Constraint",
+                        "leftOperand": {
+                            "@type": "ids:LeftOperand",
+                            "@id": "https://w3id.org/idsa/code/PAY_AMOUNT"
+                        },
+
+                        "operator": {
+                            "@type": "ids:BinaryOperator",
+                            "@id": "https://w3id.org/idsa/code/EQ"
+                        },
+                        "rightOperand ": 100,
+                        "unit": {"@id": "http://dbpedia.org/resource/EURO"}
+                    }
+                }
+            }
+        ]
+    }
+}

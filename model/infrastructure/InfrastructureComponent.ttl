@@ -5,39 +5,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
 
 ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
     a owl:Class;
-    idsm:abstract true;
     rdfs:label "InfrastructureComponent"@en ;
     rdfs:comment "The class of all infrastructure components of the IDS."@en;
-    idsm:validation [
-        idsm:forProperty ids:maintainer;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:curator;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:inboundModelVersion;
-        idsm:constraint idsm:NotEmpty;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:outboundModelVersion;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 # Properties of InfrastructureComponent
 # -------------------------------------
 
 ids:maintainer a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
     rdfs:label "maintainer"@en;
@@ -45,7 +27,6 @@ ids:maintainer a owl:ObjectProperty;
 
 ids:curator a owl:ObjectProperty;
     rdfs:subPropertyOf dct:publisher;
-    idsm:referenceByUri true;
     rdfs:domain ids:InfrastructureComponent;
     rdfs:range ids:Participant;
     rdfs:label "curator"@en;

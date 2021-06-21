@@ -3,7 +3,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 #@prefix credential: <http://www.daml.org/services/owl-s/security/credential.owl#> .
 
 # Classes
@@ -13,10 +13,7 @@ ids:Token
     a owl:Class;
     rdfs:label "Token."@en;
     rdfs:comment "A token (e.g., for authorization) mediated as part of the message."@en ;
-    idsm:validation [
-        idsm:forProperty ids:tokenValue;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:DynamicAttributeToken
     a owl:Class;
@@ -25,10 +22,6 @@ ids:DynamicAttributeToken
     rdfs:comment "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'. The complete JWT *including* header, payload and signiture is referenced by this class and *not* only the JSON element in the payload. See ids:DatPayload for the payload definition."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ;
     rdfs:seeAlso ids:DatPayload ;
-    idsm:validation [
-        idsm:forProperty ids:tokenFormat ;
-        idsm:constraint idsm:NotNull ;
-    ] ;
     .
 
 
@@ -39,41 +32,9 @@ ids:TokenFormat a owl:Class;
 
 ids:JwtPayload a owl:Class ;
     rdfs:label "JWT Payload"@en ;
-    rdfs:comment "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g. DatPayload and DatRequestPayload."@en ;
-    idsm:abstract true ;
-    idsm:validation [
-        idsm:forProperty ids:aud;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:sub;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:nbf;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:exp;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:iat;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:scope;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:securityProfile;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:transportCertsSha256;
-        idsm:relationType idsm:OneToMany;
-        idsm:constraint idsm:NotEmpty;
-    ]; 
+    rdfs:comment "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g., DatPayload and DatRequestPayload."@en ;
+
+
     .
 
 ids:transportCertsSha256 a owl:DatatypeProperty;
@@ -88,18 +49,7 @@ ids:DatPayload
     rdfs:label "DAT Payload"@en ;
     rdfs:comment "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are either defined by RFC 7519 or by the IDS Information Model. As a direct consequence of regarding the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."@en ;
     rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ;
-    idsm:validation [
-        idsm:forProperty ids:referringConnector;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:iss;
-        idsm:constraint idsm:NotNull;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:extendedGuarantee;
-        idsm:relationType idsm:OneToMany;
-    ]
+
 .
 
 
@@ -160,7 +110,6 @@ ids:nbf a owl:DatatypeProperty;
 
 ids:referringConnector a owl:DatatypeProperty;
     rdfs:label "referringConnector"@en;
-    idsm:referenceByUri true;
     rdfs:domain ids:JwtPayload;
     rdfs:range ids:Connector; 
     rdfs:comment "The RDF connector entity as referred to by the DAT, with its URI included as the value. The value MUST be its accessible URI."@en.

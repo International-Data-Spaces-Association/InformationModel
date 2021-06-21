@@ -5,7 +5,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -13,40 +13,17 @@
 ids:Rule
     a owl:Class;
     rdfs:subClassOf ids:Described, odrl:Rule;
-    idsm:abstract true;
+
     rdfs:label "Rule"@en;
     rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en;
-    idsm:validation [
-        idsm:forProperty ids:constraint;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:assigner;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:assignee;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:action;
-        idsm:relationType idsm:OneToMany;
-        idsm:constraint idsm:NotEmpty;
-    ].
+.
 
 ids:Permission rdfs:subClassOf ids:Rule;
     rdfs:subClassOf odrl:Permission;
     a owl:Class;
     rdfs:label "Permission"@en;
     rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en;
-    idsm:validation [
-        idsm:forProperty ids:preDuty;
-        idsm:relationType idsm:OneToMany;
-    ] ;
-    idsm:validation [
-        idsm:forProperty ids:postDuty;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
 ids:Prohibition rdfs:subClassOf ids:Rule;
     rdfs:subClassOf odrl:Prohibition;
@@ -68,15 +45,15 @@ ids:action
     rdfs:subPropertyOf odrl:action;
     a owl:ObjectProperty;
     rdfs:label "action"@en;
-    rdfs:domain ids:Rule;
+    rdfs:domain [ rdf:type owl:Class ;
+			owl:unionOf ( ids:Rule ids:UsageControlObject)] ;
     rdfs:range ids:Action;
-    rdfs:comment "The operation relating to the asset for which permission is being granted."@en.
+    rdfs:comment "The operation relating to the asset / data object. "@en.
 
 ids:assignee rdfs:subPropertyOf odrl:assignee;
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
-    idsm:referenceByUri true ;
     rdfs:label "assignee"@en;
     rdfs:comment "The recipient of the policy statement."@en.
 
@@ -91,7 +68,6 @@ ids:assigner rdfs:subPropertyOf odrl:assigner;
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:Participant;
-    idsm:referenceByUri true ;
     rdfs:label "assigner"@en;
     rdfs:comment "The issuer of the policy statement."@en.
 
@@ -99,7 +75,6 @@ ids:target
     a owl:ObjectProperty;
     rdfs:domain ids:Rule;
     rdfs:range ids:Asset;
-    idsm:referenceByUri true ;
     rdfs:label "target"@en;
     rdfs:comment "The subject of the policy statement (ids:Rule)."@en.
 
@@ -107,16 +82,17 @@ ids:constraint rdfs:subPropertyOf odrl:constraint;
     a owl:ObjectProperty;
     rdfs:label "constraint"@en;
     rdfs:domain ids:Rule;
-    rdfs:range ids:Constraint;
+    rdfs:range ids:AbstractConstraint;
     rdfs:comment "The constraint to be used for a specific rule."@en.
 
 ids:assetRefinement
     a owl:ObjectProperty;
     rdfs:subPropertyOf odrl:refinement ;
     rdfs:label "content refinement"@en;
-    rdfs:domain ids:Resource;
+    rdfs:domain [ rdf:type owl:Class ;
+			owl:unionOf ( ids:Rule ids:AssetCollection)];
     rdfs:range ids:AbstractConstraint;
-    rdfs:comment "Constraint that refines a (composite) Digital Content."@en.
+    rdfs:comment "AssetRefinement define constraints that refine a (composite) Digital Content in an ids:Rule respectively the ids:AssetCollection."@en.
 
 ids:preDuty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;

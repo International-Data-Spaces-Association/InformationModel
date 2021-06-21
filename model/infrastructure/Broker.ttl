@@ -1,7 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 @prefix dct: <http://purl.org/dc/terms/> .
 
 # Classes
@@ -12,10 +12,6 @@ ids:Broker
     rdfs:subClassOf ids:Connector;
     rdfs:label "Broker"@en ;
     rdfs:comment "Broker holding an index of published data endpoints."@en;
-    idsm:validation [
-        idsm:forProperty ids:connectorCatalog;
-        idsm:relationType idsm:OneToMany;
-    ];
     .
 
 ids:connectorCatalog a owl:ObjectProperty;

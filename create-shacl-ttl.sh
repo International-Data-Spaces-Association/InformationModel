@@ -8,8 +8,11 @@ write_to_file()
     local version=$1
     
     if [[ -z "$version" ]] ; then
-        version="4.0.0"
-        echo "Warning! No version parameter supplied. Assuming version ${version}" >&2
+        echo Warning! No version parameter supplied. >&2
+		echo Add version parameter to script. >&2
+		echo Example: $'\n\t'sh create-shacl-ttl.sh 4.1.0 $'\n'>&2
+		echo Exiting >&2
+		exit 1;
     fi
     
     
@@ -28,7 +31,7 @@ write_to_file()
 @prefix cc:   <http://creativecommons.org/ns#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 EOF
 
@@ -54,10 +57,10 @@ shapes:
     dct:created "2019-10-14"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
     owl:versionInfo "${version}" ;
-    owl:versionIRI <https://github.com/IndustrialDataSpace/InformationModel/testing/${version}> ;
-    vann:preferredNamespaceUri "https://github.com/IndustrialDataSpace/InformationModel/testing/" ;
+    owl:versionIRI <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/${version}> ;
+    vann:preferredNamespaceUri "https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing" ;
     vann:preferredNamespacePrefix "shapes" ;
-    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+    rdfs:seeAlso <https://international-data-spaces-association.github.io/InformationModel/> ;
     void:vocabulary
        sh: ,
        xsd: ,
