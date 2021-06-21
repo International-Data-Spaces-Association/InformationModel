@@ -12,7 +12,7 @@
 ids:EndpointBinding
     a owl:Class ;
     rdfs:label "Endpoint binding"@en ;
-    rdfs:comment "Description of endpoints a DataApp offers."@en ;
+    rdfs:comment "Description of endpoints a DataApp offers as (API) bindings."@en ;
 .
 
 
@@ -24,7 +24,7 @@ ids:apiSpecReference:
     rdfs:domain ids:EndpointBinding ;
     rdfs:range xsd:anyURI ;
 	rdfs:label "api spec reference"@en ;
-    rdfs:comment "IRI reference to the api specification for the endpoint binding. "@en ;
+    rdfs:comment "IRI reference to the api specification for the endpoints. "@en ;
 .
 
 ids:apiSpec 
@@ -32,7 +32,7 @@ ids:apiSpec
     rdfs:domain ids:EndpointBinding ;
     rdfs:range xsd:string ;
 	rdfs:label "api spec"@en ;
-    rdfs:comment "The api specification for the endpoint binding. Can be used, if a IRI reference to a specification is not possible. Recommended is that the API specification is referenced via ids:apiSpecReference."@en ;
+    rdfs:comment "The api specification for the endpoint binding as raw data. It is recommended to use the ids:apiSpecReference property. This property should be used, when it is not possible to refer to an api specification using IRIs."@en ;
 .
 
 ids:apiSpecVersion
@@ -40,5 +40,21 @@ ids:apiSpecVersion
     rdfs:domain ids:EndpointBinding ;
     rdfs:range xsd:string ;
 	rdfs:label "api spec version"@en ;
-    rdfs:comment "The api specification version of the endpoint binding."@en ;
+    rdfs:comment "The version of the API specification."@en ;
 .
+
+ids:protocolType
+	a owl:ObjectProperty ;
+	rdfs:domain ids:EndpointBinding ;
+	rdfs:range ids:ProtocolType ;
+	rdfs:label "protocol type"@en ;
+	rdfs:comment "The protocol of the referenced API specification. Uses a controlled list of protocol types."@en ;
+.	
+
+ids:endpointReference
+	a owl:ObjectProperty ;
+	rdfs:domain ids:EndpointBinding ;
+	rdfs:range ids:EndpointReference ;
+	rdfs:label "endpoint reference"@en ;
+	rdfs:comment "Endpoint references are used to refer to subsections of API specifications. Using the ids:EndpointReference and ids:AppEndpointType classes, specific endpoints/sections of APIs can be labeled with the data app endpoint type."@en ;
+.	

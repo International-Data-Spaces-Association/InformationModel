@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
+
 <https://connector.fit.fraunhofer.de/apps/ImageAnonymizationApp/1337>
     a ids:AppResource;
     ids:title "App Title" ;
@@ -18,27 +19,38 @@
         ids:path "/apps/processor/TrafficImageAnonymization.zip"
     ];
 
-    ids:representation [
+    ids:defaultRepresentation [
         a ids:AppRepresentation ;
         ids:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
         ids:dataAppRuntimeEnvironment "Docker" ;
-        ids:dataAppInformation [
-            a ids:SmartDataApp ;
-            ids:appDocumentation "App-related human-readable documentation.";
+		ids:dataAppInformation [
+            a ids:DataApp ;
+            
+			# general app-specific information
+			ids:appDocumentation "App-related human-readable documentation.";
+			ids:dataAppType idsc:SMART_DATA_APP;
             ids:appEnvironmentVariables "$Env1 = environment variable 1, $Env2 = environment variable 2";
-            ids:appStorageConfiguration "1 Docker volume required, e.g., -v /data";
-            ids:appEndpoint [
-                a ids:AppEndpoint;
-                ids:appEndpointInformation "I am an app endpoint. I do endpoint things.";
-                ids:appEndpointDocumentation <https://app.swaggerhub.com/apis/app/1337> ;
-                ids:appEndpointType idsc:INPUT_ENDPOINT ;
-                ids:appEndPointPort 5000 ;
-                ids:path "/input";
-                ids:appEndpointMediaType <https://www.iana.org/assignments/media-types/application/json> ;
-                ids:appEndpointProtocol "HTTP/1.1";
-                ]
-            ];
-    ]
+			ids:appStorageConfiguration "1 Docker volume required, e.g., -v /data";
+			
+			# Supprted usage policies of the data app
+            ids:supportedUsagePolicies idsc:ALLOW_DATA_USAGE, idsc:SECURITY_LEVEL_RESTRICTED_POLICY;
+			
+			# Endpoint bindings
+			ids:protocolBinding [
+				a ids:EndpointBinding ;
+				ids:apiSpecReference <https://example.org/myOpenAPISpec> ;
+				ids:protocolType idsc:HTTP ;
+				ids:apiSpecVersion "0.1" ;
+				
+				# Reference to sections of the API. Contains JSON refs and the corresponding data app endpoint type.
+				ids:endpointReference [
+					a ids:EndpointReference ;
+					ids:value "#/components/schema/input";
+					ids:appEndpointType idsc:INPUT_ENDPOINT ;
+				] ;
+			];
+		]
+	]	
 .
 
 <https://www.iana.org/assignments/media-types/application/zip> a ids:IANAMediaType .

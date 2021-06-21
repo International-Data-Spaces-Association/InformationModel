@@ -64,4 +64,23 @@ shapes:EndpointBindingShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/EndpointBindingShape.ttl> (EndpointBindingShape): An ids:apiSpecVersion property must not have more than one point from an ids:EndpointBinding to an xsd:string."@en;
 		];
+		
+  sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:protocolType ;
+		sh:class ids:ProtocolType ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/EndpointBindingShape.ttl> (EndpointBindingShape): Exactly one ids:protocolType property must point from an ids:EndpointBinding to the ids:ProtocolType class."@en;
+		];
+
+  sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointReference ;
+		sh:class ids:EndpointReference ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/EndpointBindingShape.ttl> (EndpointBindingShape): At least one ids:endpointReference property must point from an ids:EndpointBinding to the ids:EndpointReference class."@en;
+		];
 .

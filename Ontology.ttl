@@ -37,7 +37,7 @@ ids:
        <https://github.com/mkollenstart> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
-    dct:modified "2021-06-17"^^xsd:date ;
+    dct:modified "2021-06-21"^^xsd:date ;
     owl:versionInfo "4.1.0" ;
     owl:versionIRI <https://w3id.org/idsa/core/4.1.0> ;
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/" ;
@@ -107,9 +107,13 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 # ----------------------------
 # Imports of class files
 ids:
+    owl:imports <model/communication/AppEndpointType.ttl> ;
     owl:imports <model/communication/AppRoute.ttl> ;
     owl:imports <model/communication/Endpoint.ttl> ;
+    owl:imports <model/communication/EndpointBinding.ttl> ;
+    owl:imports <model/communication/EndpointReference.ttl> ;
     owl:imports <model/communication/Message.ttl> ;
+    owl:imports <model/communication/ProtocolType.ttl> ;
     owl:imports <model/communication/Proxy.ttl> ;
     owl:imports <model/content/Artifact.ttl> ;
     owl:imports <model/content/ArtifactState.ttl> ;
@@ -117,6 +121,7 @@ ids:
     owl:imports <model/content/Concept.ttl> ;
     owl:imports <model/content/ContentType.ttl> ;
     owl:imports <model/content/DataApp.ttl> ;
+    owl:imports <model/content/DataAppType.ttl> ;
     owl:imports <model/content/DigitalContent.ttl> ;
     owl:imports <model/content/Language.ttl> ;
     owl:imports <model/content/MediaType.ttl> ;
@@ -174,11 +179,13 @@ ids:
     owl:imports <codes/ConnectorDeployMode.ttl> ;
     owl:imports <codes/ConnectorStatus.ttl> ;
     owl:imports <codes/ContentType.ttl> ;
+    owl:imports <codes/DataAppType.ttl> ;
     owl:imports <codes/Frequency.ttl> ;
     owl:imports <codes/KeyType.ttl> ;
     owl:imports <codes/Language.ttl> ;
     owl:imports <codes/LeftOperand.ttl> ;
     owl:imports <codes/LogLevel.ttl> ;
+    owl:imports <codes/ProtocolType.ttl> ;
     owl:imports <codes/QueryLanguage.ttl> ;
     owl:imports <codes/QueryScope.ttl> ;
     owl:imports <codes/QueryTarget.ttl> ;

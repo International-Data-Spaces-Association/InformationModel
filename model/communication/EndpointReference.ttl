@@ -12,7 +12,7 @@
 ids:EndpointReference
     a owl:Class ;
     rdfs:label "Endpoint reference"@en ;
-    rdfs:comment "Class of endpoint types a data app offers."@en ;
+    rdfs:comment "Class to reference subsections of endpoint APIs. Can be used to label sections of APIs with the corresponding data app endpoint type. See ids:AppEndpointType for list of endpoint types for data apps."@en ;
 .
 
 ids:value
@@ -20,7 +20,8 @@ ids:value
     rdfs:domain ids:EndpointReference ;
     rdfs:range xsd:string ;
 	rdfs:label "value"@en ;
-    rdfs:comment "Endpoint reference value, e.g., reference to specific sections of the endpoint binding."@en ;
+    rdfs:comment "Endpoint reference value. Sections of the APIs can be refered by e.g., JSON references."@en ;
+	rdfs:seeAlso <https://swagger.io/docs/specification/using-ref/> ;
 .
 
 ids:appEndpointType
@@ -28,5 +29,5 @@ ids:appEndpointType
     rdfs:domain ids:EndpointReference ;
     rdfs:range ids:AppEndpointType ;
     rdfs:label "App endpoint type"@en ;
-    rdfs:comment "Type of an app endpoint. Data apps have different endpoint types, e.g., for input, output or status."@en ;
+    rdfs:comment "Type of an data app endpoint. Data apps have different endpoint types, e.g., for input, output or status."@en ;
 .
