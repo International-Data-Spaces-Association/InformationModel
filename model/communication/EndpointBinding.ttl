@@ -1,0 +1,44 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:EndpointBinding
+    a owl:Class ;
+    rdfs:label "Endpoint binding"@en ;
+    rdfs:comment "Description of endpoints a DataApp offers."@en ;
+.
+
+
+# Properties
+# -------
+
+ids:apiSpecReference: 
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:EndpointBinding ;
+    rdfs:range xsd:anyURI ;
+	rdfs:label "api spec reference"@en ;
+    rdfs:comment "IRI reference to the api specification for the endpoint binding. "@en ;
+.
+
+ids:apiSpec 
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:EndpointBinding ;
+    rdfs:range xsd:string ;
+	rdfs:label "api spec"@en ;
+    rdfs:comment "The api specification for the endpoint binding. Can be used, if a IRI reference to a specification is not possible. Recommended is that the API specification is referenced via ids:apiSpecReference."@en ;
+.
+
+ids:apiSpecVersion
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:EndpointBinding ;
+    rdfs:range xsd:string ;
+	rdfs:label "api spec version"@en ;
+    rdfs:comment "The api specification version of the endpoint binding."@en ;
+.

@@ -24,7 +24,6 @@ shapes:
 shapes:EndpointShape
 	a sh:NodeShape ;
 	sh:targetClass ids:Endpoint ;
-
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:accessURL ;
@@ -107,59 +106,6 @@ shapes:ConnectorEndpointShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (ConnectorEndpointShape): An ids:accessURL property must have exactly one point from an ids:ConnectorEndpoint to an IRI."@en ;
 	]
 .
-
-
-shapes:AppEndpointShape
-	a sh:NodeShape ;
-	sh:targetClass ids:AppEndpoint ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:appEndpointType ;
-		sh:class ids:AppEndpointType ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointType property must have exactly one point from an ids:AppEndpoint to an ids:AppEndpointType."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:appEndpointPort ;
-		sh:datatype xsd:integer ;
-    sh:minInclusive 0 ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointPort property must point from an ids:AppEndpoint to an xsd:integer >= 0."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:appEndpointMediaType ;
-		sh:class ids:MediaType ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointMediaType property must not have more than one point from an ids:AppEndpoint to an ids:MediaType."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:appEndpointProtocol ;
-		sh:datatype xsd:string ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:appEndpointProtocol property must not have more than one point from an ids:AppEndpoint to an xsd:string."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:language ;
-		sh:class ids:Language ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/EndpointShape.ttl> (AppEndpointShape): An ids:language property must not have more than one point from an ids:AppEndpoint to an ids:Language."@en ;
-	] ;
-	.
 
 
 shapes:GenericEndpointShape

@@ -21,19 +21,6 @@ ids:ConnectorEndpoint
     rdfs:comment "Connector-specific endpoint exposing Artifacts."@en ;
         .
 
-ids:AppEndpoint
-    a owl:Class ;
-    rdfs:subClassOf ids:Endpoint ;
-    rdfs:label "DataApp Endpoint"@en ;
-    rdfs:comment "Description of endpoints a DataApp offers."@en ;
-.
-
-ids:AppEndpointType
-    a owl:Class ;
-    rdfs:label "App endpoint type"@en ;
-    rdfs:comment "Class of endpoint types a data app offers."@en ;
-.
-
 ids:GenericEndpoint
     a owl:Class ;
     rdfs:subClassOf ids:Endpoint ;
@@ -99,30 +86,6 @@ ids:outboundPath
     rdfs:comment "Relative path used for outbound communication via this endpoint, i.e., output messages and faults only."@en.
 
 
-ids:appEndpointType
-    a owl:ObjectProperty ;
-    rdfs:domain ids:AppEndpoint ;
-    rdfs:range ids:AppEndpointType ;
-    rdfs:label "App endpoint type"@en ;
-    rdfs:comment "Type of an app endpoint. Data apps have different endpoint types, e.g., for input, output or health status."@en ;
-.
-
-ids:appEndpointPort
-    a owl:DatatypeProperty ;
-    rdfs:domain ids:AppEndpoint ;
-    rdfs:range xsd:integer ;
-    rdfs:label "app endpoint port"@en ;
-    rdfs:comment "Port used to access the endpoint."@en ;
-.
-
-ids:appEndpointMediaType
-    a owl:ObjectProperty ;
-    rdfs:domain ids:AppEndpoint ;
-    rdfs:range ids:MediaType ;
-    rdfs:label "app endpoint media type"@en ;
-    rdfs:comment "Mediatype, such as IANA types, of the data an endpoint expects or returns ."@en ;
-.
-
 ids:genericEndpointAuthentication
 	a owl:ObjectProperty ;
 	rdfs:domain ids:GenericEndpoint ;
@@ -137,12 +100,4 @@ ids:genericEndpointConfiguration
 	rdfs:range xsd:string ;
 	rdfs:label "generic endpoint configuration"@en ;
     rdfs:comment "Endpoint-specific configuration details (e.g., contents of a config file) used for the endpoint."@en ;
-.
-
-ids:appEndpointProtocol
-    a owl:DatatypeProperty ;
-    rdfs:domain ids:AppEndpoint ;
-    rdfs:range xsd:string ;
-    rdfs:label "app endpoint protocol"@en ;
-    rdfs:comment "Protocol used to communicate with the app endpoint."@en ;
 .

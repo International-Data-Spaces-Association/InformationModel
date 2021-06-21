@@ -21,12 +21,13 @@ ids:appDocumentation
     rdfs:label "app documentation"@en ;
     rdfs:comment "text documentation of the data app"@en ;
 .
-ids:appEndpoint
+
+ids:protocolBinding
     a owl:ObjectProperty;
-    rdfs:label "app endpoint"@en ;
+    rdfs:label "protocol binding"@en ;
     rdfs:domain ids:DataApp;
-    rdfs:range ids:AppEndpoint;
-    rdfs:comment "Endpoints of a data app"@en ;
+    rdfs:range ids:EndpointBinding;
+    rdfs:comment "Endpoint protocol bindings of a data app"@en ;
 .
 
 ids:appEnvironmentVariables a owl:DatatypeProperty;
@@ -47,24 +48,12 @@ ids:supportedUsagePolicies a owl:ObjectProperty ;
 	rdfs:domain ids:DataApp ;
 	rdfs:range ids:UsagePolicyClass ;
 	rdfs:label "supported usage policies" @en;
-	rdfs:comment "IDS Usage Policies a DataApp supports"@en.
+	rdfs:comment "IDS Usage Policies a DataApp supports"@en;
+.
 	
-	
-
-ids:SystemAdapter
-    a owl:Class;
-    rdfs:subClassOf ids:DataApp;
-    rdfs:label "System Adapter"@en;
-    rdfs:comment "Data Apps that integrate sources and sinks of digital content maintained internally on Participant's premises with a Connector."@en.
-
-ids:OrchestrationApp
-    a owl:Class;
-    rdfs:subClassOf ids:DataApp;
-    rdfs:label "Orchestration App"@en;
-    rdfs:comment "Apps for orchestrating System Adapter Apps or Smart Data Apps, inside a Connector."@en.
-
-ids:SmartDataApp
-    a owl:Class;
-    rdfs:subClassOf ids:DataApp;
-    rdfs:label "Smart DataApp"@en;
-    rdfs:comment "Smart DataApps are executing any kind of necessary data processing or transformation."@en.
+ids:dataAppType a owl:ObjectProperty ;
+	rdfs:domain ids:DataApp ;
+	rdfs:range ids:DataAppType ;
+	rdfs:label "data app type"@en;
+	rdfs:comment "The category of the data app. Class ids:DataAppType contains a controlled vocabulary of categories."@en;
+.

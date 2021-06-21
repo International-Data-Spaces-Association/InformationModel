@@ -1,0 +1,32 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:EndpointReference
+    a owl:Class ;
+    rdfs:label "Endpoint reference"@en ;
+    rdfs:comment "Class of endpoint types a data app offers."@en ;
+.
+
+ids:value
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:EndpointReference ;
+    rdfs:range xsd:string ;
+	rdfs:label "value"@en ;
+    rdfs:comment "Endpoint reference value, e.g., reference to specific sections of the endpoint binding."@en ;
+.
+
+ids:appEndpointType
+    a owl:ObjectProperty ;
+    rdfs:domain ids:EndpointReference ;
+    rdfs:range ids:AppEndpointType ;
+    rdfs:label "App endpoint type"@en ;
+    rdfs:comment "Type of an app endpoint. Data apps have different endpoint types, e.g., for input, output or status."@en ;
+.
