@@ -8,8 +8,11 @@ write_to_file()
     local version=$1
     
     if [[ -z "$version" ]] ; then
-        version="4.0.0"
-        echo "Warning! No version parameter supplied. Assuming version ${version}" >&2
+        echo Warning! No version parameter supplied. >&2
+		echo Add version parameter to script. >&2
+		echo Example: $'\n\t'sh create-ontology-ttl.sh 4.1.0 $'\n'>&2
+		echo Exiting >&2
+		exit 1;
     fi
     
     
@@ -136,7 +139,6 @@ EOF
     # search for files in selected folders (omitting metamodel/)
     for class in $(find \
                        model/* \
-                       metamodel/ \
                        taxonomies/ \
                        codes/ \
                        -maxdepth 1 -name "*.ttl")
