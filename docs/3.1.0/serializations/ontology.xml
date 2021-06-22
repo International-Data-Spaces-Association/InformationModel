@@ -19,7 +19,7 @@
      xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
     <owl:Ontology rdf:about="https://w3id.org/idsa/core">
         <ns:license rdf:resource="http://www.apache.org/licenses/LICENSE-2.0"/>
-        <terms:contributor rdf:resource="_:genid-nodeid-genid-60fe7787a540401582282009773d1552-AnnaKasprzik"/>
+        <terms:contributor rdf:resource="_:genid-nodeid-genid-8e208469a9b8471eb9b431d80adf8bf6-AnnaKasprzik"/>
         <terms:contributor rdf:resource="https://github.com/HaydarAk"/>
         <terms:contributor rdf:resource="https://github.com/Maboeckmann"/>
         <terms:contributor rdf:resource="https://github.com/clange"/>
@@ -2117,7 +2117,7 @@
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/idsa/core/created">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/issued"/>
-        <rdfs:domain rdf:resource="_:genid-nodeid-node1f7tplj02x25"/>
+        <rdfs:domain rdf:resource="_:genid-nodeid-node1f8nftpr3x25"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
         <rdfs:comment xml:lang="en">The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself.</rdfs:comment>
         <rdfs:label xml:lang="en">created</rdfs:label>
@@ -2816,10 +2816,10 @@
     
 
 
-    <!-- _:genid-nodeid-node1f7tplj02x25 -->
+    <!-- _:genid-nodeid-node1f8nftpr3x25 -->
 
 
-    <owl:Class rdf:about="_:genid-nodeid-node1f7tplj02x25"/>
+    <owl:Class rdf:about="_:genid-nodeid-node1f8nftpr3x25"/>
     
 
 
@@ -3637,19 +3637,19 @@
         <metamodel:validation rdf:nodeID="genid43"/>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid38">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/hasAgent"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/hasEndpoint"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid39">
-        <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/securityProfile"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid40">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/extendedGuarantee"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid40">
+        <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/securityProfile"/>
+    </rdf:Description>
     <rdf:Description rdf:nodeID="genid41">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/hasEndpoint"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/hasAgent"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid42">
@@ -3792,11 +3792,11 @@
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid48">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/obligation"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/prohibition"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid49">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/prohibition"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/obligation"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     
@@ -4023,11 +4023,11 @@
         <metamodel:validation rdf:nodeID="genid56"/>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid55">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/description"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/title"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid56">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/title"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/description"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     
@@ -4091,35 +4091,35 @@
         <metamodel:validation rdf:nodeID="genid64"/>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid57">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/representation"/>
-        <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid58">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contentPart"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid59">
+    <rdf:Description rdf:nodeID="genid58">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/spatialCoverage"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid60">
+    <rdf:Description rdf:nodeID="genid59">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/temporalCoverage"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid61">
+    <rdf:Description rdf:nodeID="genid60">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/language"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid62">
+    <rdf:Description rdf:nodeID="genid61">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/theme"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid63">
+    <rdf:Description rdf:nodeID="genid62">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/keyword"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid64">
+    <rdf:Description rdf:nodeID="genid63">
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/contentRefinement"/>
+        <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid64">
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/representation"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     
@@ -4335,21 +4335,21 @@
         <metamodel:validation rdf:nodeID="genid74"/>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid71">
+        <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/curator"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid72">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotEmpty"/>
         <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/inboundModelVersion"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid72">
-        <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/curator"/>
-    </rdf:Description>
     <rdf:Description rdf:nodeID="genid73">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/maintainer"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/outboundModelVersion"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid74">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/outboundModelVersion"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/maintainer"/>
     </rdf:Description>
     
 
@@ -4458,19 +4458,19 @@
     </owl:Class>
     <rdf:Description rdf:nodeID="genid85">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/exp"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/aud"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid86">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/nbf"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/sub"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid87">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/sub"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/nbf"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid88">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/aud"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/exp"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid89">
         <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotNull"/>
@@ -4751,11 +4751,11 @@
         <metamodel:validation rdf:nodeID="genid109"/>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid107">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberParticipant"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberPerson"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid108">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberPerson"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/memberParticipant"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid109">
@@ -4909,11 +4909,11 @@
         <metamodel:validation rdf:nodeID="genid115"/>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid114">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/postDuty"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/preDuty"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid115">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/preDuty"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/postDuty"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     
@@ -5226,12 +5226,12 @@
         <metamodel:validation rdf:nodeID="genid131"/>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid128">
-        <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotEmpty"/>
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/action"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/assignee"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid129">
-        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/assignee"/>
+        <metamodel:constraint rdf:resource="https://w3id.org/idsa/metamodel/NotEmpty"/>
+        <metamodel:forProperty rdf:resource="https://w3id.org/idsa/core/action"/>
         <metamodel:relationType rdf:resource="https://w3id.org/idsa/metamodel/OneToMany"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid130">

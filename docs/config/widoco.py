@@ -6,7 +6,7 @@ import shutil
 import re
 import pandas as pd
 import zipfile
-import io
+import io   
 from distutils.dir_util import copy_tree
 from datetime import datetime
 
@@ -31,26 +31,31 @@ def parse_arguments():
 
     return widoco_path, (jive_un, jive_pw)
 
-# Get files from the repository by release tag (last three releases) and build directories
+# Get files from the repository by release tag (the last release) and build directories
 def get_files_from_repository ():
     url_api = 'https://api.github.com/repos/International-Data-Spaces-Association/InformationModel/releases'
     
     response = requests.get(url_api)
     
     releases = [release['name'] for release in response.json() if release['name'][0] == 'v']
+    n_releases = len(releases)
     
-    for i, version in enumerate(releases[:3]): 
+    for i, version in enumerate(releases[:1]): 
+
+        if i == n_releases - 1:
+            break
+            
         ontology_version = version[1:]
         ontology_previous_version = releases[i+1][1:]
         
         if i == 0:
             ontology_latest_version = releases[i][1:]
-            
+
         url_get_file = f'https://github.com/International-Data-Spaces-Association/InformationModel/archive/refs/tags/v{ontology_version}.zip'
 
         response_current_version = requests.get(url_get_file)
         archive = zipfile.ZipFile(io.BytesIO(response_current_version.content))
-
+        
         # Path to write all files
         root = '../../../InformationModel/'
 
@@ -63,14 +68,13 @@ def get_files_from_repository ():
             if not os.path.isdir(f'{versionfolder}/{folder}'):
                  os.mkdir(f'{versionfolder}/{folder}')
                     
+        # Copy the latest config.properties file to the version folder to update it later                
         shutil.copyfile(f'{root}/docs/config/config.properties', 
                         f'{versionfolder}/config/config.properties')
-
+        
+        
         # Loop over all members in zip achive
         for member in archive.namelist():
-            # Update these lines once the documentation version with correct config.properties is in repository. For now taking the local file in line 61(docs/config/config.properties) instead of taking it from the repo
-            #if member.endswith('docs/config/config.properties'):
-            #    filepath = f'{versionfolder}/config/config.properties'
             if member.endswith('docs/static_info/readme_addition.md'):
                 filepath = f'{versionfolder}/static_info/readme_addition.md'
             elif member.endswith('docs/static_info/references.html'):
@@ -129,7 +133,33 @@ def keep_latest_version(ontology_latest_version):
     # Copy everything from latest version to /docs
     docs_latest_version = '../'
     copy_tree(source, docs_latest_version)
+    
+    # Update images path for latest version
+    update_image_path()
+
+# Update images path for latest version
+def update_image_path():
+   # Read in the file introduction-en.html
+    with open('../sections/introduction-en.html', 'r') as file :
+        new_path_introfile = file.read()
+
+    # Replace the target string
+    new_path_introfile = new_path_introfile.replace('../../../images', '../../images')
+
+    # Write the file out again
+    with open('../sections/introduction-en.html', 'w') as file:
+        file.write(new_path_introfile)
         
+    # Read in the file description-en.html
+    with open('../sections/description-en.html', 'r') as fp :
+        new_path_descriptionfile = fp.read()
+        
+    # Replace the target string
+    new_path_descriptionfile = new_path_descriptionfile.replace('../../../images', '../../images')
+
+    # Write the file out again
+    with open('../sections/description-en.html', 'w') as fp:
+        fp.write(new_path_descriptionfile)
 
 # Update date of release parameter in config file.
 def update_config_information(ontology_version):
@@ -393,7 +423,7 @@ def replace_image_names(text, image_names):
         image_id = res.group(1)
         regex = r'https:\/\/industrialdataspace\.jiveon\.com\/servlet\/JiveServlet\/(\w*)Image\/' + image_id + \
                 r'\/(([0-9-]*)\/)?' + old_name
-        text = re.sub(regex, '../images/' + image_names[old_name], text)
+        text = re.sub(regex, '../../../images/' + image_names[old_name], text)
 
         if old_name == 'pastedImage_16.png':
             image_names[old_name] = image_names['pastedImage_16_2.png']

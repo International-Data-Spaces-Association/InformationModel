@@ -1,0 +1,2791 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "iri" : "https://w3id.org/idsa/core",
+    "version" : "2.0.1",
+    "author" : [ "http://sebastian.tramp.name", "https://github.com/cmader", "https://github.com/jpullmann" ],
+    "labels" : {
+      "en" : "IDS Information Model"
+    },
+    "comments" : {
+      "undefined" : "This ontology defines classes and properties for describing participants, infrastructure, data and services of the Industrial Dataspace."
+    },
+    "other" : {
+      "versionIRI" : [ {
+        "identifier" : "versionIRI",
+        "language" : "undefined",
+        "value" : "https://w3id.org/idsa/core/2.0.1>",
+        "type" : "label"
+      } ],
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "http://www.apache.org/licenses/LICENSE-2.0",
+        "type" : "iri"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://github.com/cmader",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://github.com/jpullmann",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://sebastian.tramp.name",
+        "type" : "iri"
+      } ],
+      "vocabulary" : [ {
+        "identifier" : "vocabulary",
+        "language" : "undefined",
+        "value" : "http://purl.org/dc/terms/",
+        "type" : "iri"
+      }, {
+        "identifier" : "vocabulary",
+        "language" : "undefined",
+        "value" : "http://xmlns.com/foaf/0.1/",
+        "type" : "iri"
+      }, {
+        "identifier" : "vocabulary",
+        "language" : "undefined",
+        "value" : "http://purl.org/vocab/vann/",
+        "type" : "iri"
+      }, {
+        "identifier" : "vocabulary",
+        "language" : "undefined",
+        "value" : "http://rdfs.org/ns/void#",
+        "type" : "iri"
+      }, {
+        "identifier" : "vocabulary",
+        "language" : "undefined",
+        "value" : "http://purl.org/vocommons/voaf#",
+        "type" : "iri"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "_:genid-nodeid-genid-c72acc46b96f420d9f5e2b508948dd3c-AnnaKasprzik",
+        "type" : "iri"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://github.com/HaydarAk",
+        "type" : "iri"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://github.com/Madmatti/",
+        "type" : "iri"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "_:genid2147483649",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "_:genid2147483648",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://github.com/sebbader",
+        "type" : "iri"
+      } ],
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/idsa/core/",
+        "type" : "iri"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "ids",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/idsa/core/",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "2.0.1",
+        "type" : "label"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://industrialdataspace.github.io/InformationModel/",
+        "type" : "iri"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "42",
+    "type" : "owl:Class"
+  }, {
+    "id" : "43",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:Class"
+  }, {
+    "id" : "54",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "owl:Class"
+  }, {
+    "id" : "60",
+    "type" : "owl:Class"
+  }, {
+    "id" : "66",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "74",
+    "type" : "owl:Class"
+  }, {
+    "id" : "75",
+    "type" : "owl:Class"
+  }, {
+    "id" : "80",
+    "type" : "owl:Class"
+  }, {
+    "id" : "82",
+    "type" : "owl:Class"
+  }, {
+    "id" : "85",
+    "type" : "owl:Class"
+  }, {
+    "id" : "86",
+    "type" : "owl:Class"
+  }, {
+    "id" : "87",
+    "type" : "owl:Class"
+  }, {
+    "id" : "88",
+    "type" : "owl:Class"
+  }, {
+    "id" : "90",
+    "type" : "owl:Class"
+  }, {
+    "id" : "76",
+    "type" : "owl:Class"
+  }, {
+    "id" : "100",
+    "type" : "owl:Class"
+  }, {
+    "id" : "102",
+    "type" : "owl:Class"
+  }, {
+    "id" : "104",
+    "type" : "owl:Class"
+  }, {
+    "id" : "107",
+    "type" : "owl:Class"
+  }, {
+    "id" : "71",
+    "type" : "owl:Class"
+  }, {
+    "id" : "78",
+    "type" : "owl:Class"
+  }, {
+    "id" : "112",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "111",
+    "type" : "owl:Class"
+  }, {
+    "id" : "122",
+    "type" : "owl:Class"
+  }, {
+    "id" : "115",
+    "type" : "owl:Class"
+  }, {
+    "id" : "130",
+    "type" : "owl:Class"
+  }, {
+    "id" : "59",
+    "type" : "owl:Class"
+  }, {
+    "id" : "132",
+    "type" : "owl:Class"
+  }, {
+    "id" : "134",
+    "type" : "owl:Class"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "143",
+    "type" : "owl:Class"
+  }, {
+    "id" : "84",
+    "type" : "owl:Class"
+  }, {
+    "id" : "147",
+    "type" : "owl:Class"
+  }, {
+    "id" : "151",
+    "type" : "owl:Class"
+  }, {
+    "id" : "136",
+    "type" : "owl:Class"
+  }, {
+    "id" : "152",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "124",
+    "type" : "owl:Class"
+  }, {
+    "id" : "157",
+    "type" : "owl:Class"
+  }, {
+    "id" : "109",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "160",
+    "type" : "owl:Class"
+  }, {
+    "id" : "163",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "165",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "162",
+    "type" : "owl:Class"
+  }, {
+    "id" : "110",
+    "type" : "owl:Class"
+  }, {
+    "id" : "178",
+    "type" : "owl:Class"
+  }, {
+    "id" : "181",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "101",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "155",
+    "type" : "owl:Class"
+  }, {
+    "id" : "123",
+    "type" : "owl:Class"
+  }, {
+    "id" : "187",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "195",
+    "type" : "owl:Class"
+  }, {
+    "id" : "196",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "197",
+    "type" : "owl:Class"
+  }, {
+    "id" : "176",
+    "type" : "owl:Class"
+  }, {
+    "id" : "204",
+    "type" : "owl:Class"
+  }, {
+    "id" : "205",
+    "type" : "owl:Class"
+  }, {
+    "id" : "206",
+    "type" : "owl:Class"
+  }, {
+    "id" : "208",
+    "type" : "owl:Class"
+  }, {
+    "id" : "175",
+    "type" : "owl:Class"
+  }, {
+    "id" : "172",
+    "type" : "owl:Class"
+  }, {
+    "id" : "212",
+    "type" : "owl:Class"
+  }, {
+    "id" : "64",
+    "type" : "owl:Class"
+  }, {
+    "id" : "215",
+    "type" : "owl:Class"
+  }, {
+    "id" : "216",
+    "type" : "owl:Class"
+  }, {
+    "id" : "97",
+    "type" : "owl:Class"
+  }, {
+    "id" : "127",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "186",
+    "type" : "owl:Class"
+  }, {
+    "id" : "169",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "65",
+    "type" : "owl:Class"
+  }, {
+    "id" : "137",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "62",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "226",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "126",
+    "type" : "owl:Class"
+  }, {
+    "id" : "89",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "230",
+    "type" : "owl:Class"
+  }, {
+    "id" : "150",
+    "type" : "owl:Class"
+  }, {
+    "id" : "45",
+    "type" : "owl:Class"
+  }, {
+    "id" : "231",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "159",
+    "type" : "owl:Class"
+  }, {
+    "id" : "118",
+    "type" : "owl:Class"
+  }, {
+    "id" : "184",
+    "type" : "owl:Class"
+  }, {
+    "id" : "236",
+    "type" : "owl:Class"
+  }, {
+    "id" : "69",
+    "type" : "owl:Class"
+  }, {
+    "id" : "67",
+    "type" : "owl:Class"
+  }, {
+    "id" : "83",
+    "type" : "owl:Class"
+  }, {
+    "id" : "58",
+    "type" : "owl:Class"
+  }, {
+    "id" : "93",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "188",
+    "type" : "owl:Class"
+  }, {
+    "id" : "223",
+    "type" : "owl:Class"
+  }, {
+    "id" : "227",
+    "type" : "owl:Class"
+  }, {
+    "id" : "125",
+    "type" : "owl:Class"
+  }, {
+    "id" : "201",
+    "type" : "owl:Class"
+  }, {
+    "id" : "170",
+    "type" : "owl:Class"
+  }, {
+    "id" : "106",
+    "type" : "owl:Class"
+  }, {
+    "id" : "177",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "96",
+    "type" : "owl:Class"
+  }, {
+    "id" : "194",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "114",
+    "type" : "owl:Class"
+  }, {
+    "id" : "117",
+    "type" : "owl:Class"
+  }, {
+    "id" : "255",
+    "type" : "owl:Class"
+  }, {
+    "id" : "256",
+    "type" : "owl:Class"
+  }, {
+    "id" : "257",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "171",
+    "type" : "owl:Class"
+  }, {
+    "id" : "72",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "owl:Class"
+  }, {
+    "id" : "191",
+    "type" : "owl:Class"
+  }, {
+    "id" : "158",
+    "type" : "owl:Class"
+  }, {
+    "id" : "129",
+    "type" : "owl:Class"
+  }, {
+    "id" : "174",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "61",
+    "type" : "owl:Class"
+  }, {
+    "id" : "211",
+    "type" : "owl:Class"
+  }, {
+    "id" : "222",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "180",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "173",
+    "type" : "owl:Class"
+  }, {
+    "id" : "272",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "140",
+    "type" : "owl:Class"
+  }, {
+    "id" : "238",
+    "type" : "owl:Class"
+  }, {
+    "id" : "81",
+    "type" : "owl:Class"
+  }, {
+    "id" : "95",
+    "type" : "owl:Class"
+  }, {
+    "id" : "98",
+    "type" : "owl:Class"
+  }, {
+    "id" : "243",
+    "type" : "owl:Class"
+  }, {
+    "id" : "220",
+    "type" : "owl:Class"
+  }, {
+    "id" : "131",
+    "type" : "owl:Class"
+  }, {
+    "id" : "141",
+    "type" : "owl:Class"
+  }, {
+    "id" : "237",
+    "type" : "owl:Class"
+  }, {
+    "id" : "240",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://w3id.org/idsa/core/DatPayload",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "6",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AuthenticationGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/AUTHENTICATION_SERVER_SIDE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "AUTHENTICATION_SERVER_SIDE",
+        "undefined" : "Authentication Serverside"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/AUTHENTICATION_MUTUAL",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "AUTHENTICATION_MUTUAL",
+        "undefined" : "Authentication Mutual"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/AUTHENTICATION_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "AUTHENTICATION_NONE",
+        "undefined" : "Authentication None"
+      }
+    } ],
+    "id" : "8",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DigitalContent",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "2" ],
+    "id" : "12",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ComponentCertification",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "20",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DynamicAttributeToken",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "25",
+    "superClasses" : [ "26" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantCertificateGrantedMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "27",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/VideoResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "29",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/InfrastructureComponent",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "32", "33", "34", "35" ],
+    "id" : "30",
+    "superClasses" : [ "31" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppAvailableMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "36",
+    "superClasses" : [ "37" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractOffer",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "38",
+    "superClasses" : [ "18" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ResourceUnavailableMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "39",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ConnectorUpdateMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "40",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://purl.org/vocommons/voaf#Vocabulary",
+    "baseIri" : "http://purl.org/vocommons/voaf",
+    "instances" : 0,
+    "id" : "42"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/UsageControlGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION",
+        "undefined" : "Usage Control Remote Compliance Verification"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/USAGE_CONTROL_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "USAGE_CONTROL_NONE",
+        "undefined" : "Usage Control None"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/USAGE_CONTROL_POLICY_ENFORCEMENT",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "USAGE_CONTROL_POLICY_ENFORCEMENT",
+        "undefined" : "Usage Control Policy Enforcement"
+      }
+    } ],
+    "id" : "43",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantCertificationLevel",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "51",
+    "superClasses" : [ "48" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ConnectorCertificateGrantedMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "54",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/RequestMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "57", "58", "59", "60", "61", "45", "62", "63", "64", "65" ],
+    "id" : "55",
+    "superClasses" : [ "56" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/InvokeOperationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "60",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "66",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/GeoPoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "16",
+    "superClasses" : [ "73" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppStore",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "74",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/TextRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "75",
+    "superClasses" : [ "76" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "80",
+    "superClasses" : [ "81" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/MediaType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "83", "84" ],
+    "id" : "82"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ConnectorUnavailableMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "85",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ResourceUpdateMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "86",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/TrustedConnector",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "87",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Endpoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "72", "89" ],
+    "id" : "88"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/IntegrityGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_REMOTE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "INTEGRITY_VERIFICATION_REMOTE",
+        "undefined" : "Integrity Protection Remote"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/INTEGRITY_PROTECTION_LOCAL",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "INTEGRITY_PROTECTION_LOCAL",
+        "undefined" : "Integrity Protection Local"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/INTEGRITY_PROTECTION_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "INTEGRITY_PROTECTION_NONE",
+        "undefined" : "Integrity Protection None"
+      }
+    } ],
+    "id" : "90",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Representation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "96", "1", "97", "81", "98", "75" ],
+    "id" : "76"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Value",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "100",
+    "superClasses" : [ "101" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Audience",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "102"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Concept",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "104"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ServiceIsolationGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_PROCESS_GROUP",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "SERVICE_ISOLATION_PROCESS_GROUP",
+        "undefined" : "Service Isolation Process Group"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_LEAST_PRIVILEGE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "SERVICE_ISOLATION_LEAST_PRIVILEGE",
+        "undefined" : "Service Isolation Least Privilege"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "SERVICE_ISOLATION_NONE",
+        "undefined" : "Service Isolation None"
+      }
+    } ],
+    "id" : "107",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DataApp",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "109", "110", "111" ],
+    "id" : "71"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Participant",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "78",
+    "superClasses" : [ "31", "95" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AudioResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "112",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Message",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "115", "67", "55" ],
+    "id" : "56"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/OrchestrationApp",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "111",
+    "superClasses" : [ "71" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ComponentCertificationLevel",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "122",
+    "superClasses" : [ "48" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/NotificationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "123", "11", "124", "125", "126", "127", "41", "28" ],
+    "id" : "115",
+    "superClasses" : [ "56" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Instant",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "130",
+    "superClasses" : [ "131" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppRegistrationRequestMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "59",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantUpdateMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "132",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/GeoFeature",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "134",
+    "superClasses" : [ "73" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AccessTokenRequestMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "57",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractRequest",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "143",
+    "superClasses" : [ "18" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/IANAMediaType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "84",
+    "superClasses" : [ "82" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Named",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "147"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ResultMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "151",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParIS",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "136",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "http://purl.org/dc/terms/Agent",
+    "baseIri" : "http://purl.org/dc/terms",
+    "instances" : 0,
+    "id" : "152"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ClearingHouse",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "34",
+    "superClasses" : [ "30" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/MessageProcessedNotificationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "124",
+    "superClasses" : [ "115" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/RejectionMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "158" ],
+    "id" : "157",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/SystemAdapter",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "109",
+    "superClasses" : [ "71" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ResourceCatalog",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "4",
+    "superClasses" : [ "159" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/TextResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "160",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ConnectorCertificateRevokedMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "163",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Described",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "69", "31", "95", "12" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Permission",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "165",
+    "superClasses" : [ "69" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/SecurityGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "170", "107", "171", "172", "90", "8", "173", "43" ],
+    "id" : "9"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Resource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "29", "174", "112", "175", "160", "176", "177" ],
+    "id" : "2",
+    "superClasses" : [ "31", "12" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/EvaluationFacility",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "162"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/SmartDataApp",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "110",
+    "superClasses" : [ "71" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AuthInfo",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "178"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppUnavailableMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "181",
+    "superClasses" : [ "37" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DescriptionRequestMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "63",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/RepresentationInstance",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "100", "46" ],
+    "id" : "101"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Certification",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "184", "20" ],
+    "id" : "21",
+    "superClasses" : [ "31" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Person",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "155",
+    "superClasses" : [ "186" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractSupplementMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "123",
+    "superClasses" : [ "115" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/UploadResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "188" ],
+    "id" : "187",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Connector",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "136", "194", "87", "117", "74" ],
+    "id" : "32",
+    "superClasses" : [ "30" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DurationEntity",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "195",
+    "superClasses" : [ "131" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Site",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "196"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Artifact",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "46",
+    "superClasses" : [ "101" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppRegistrationResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "197",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/SoftwareResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "176",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantCertificateRevokedMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "204",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Organization",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "id" : "205"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/PolicyTemplate",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "206"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantUnavailableMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "208",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DataResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "175",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AuditGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/AUDIT_LOCAL_LOGGING",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "AUDIT_LOCAL_LOGGING",
+        "undefined" : "Audit Local Logging"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/AUDIT_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "AUDIT_NONE",
+        "undefined" : "Audit None"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/AUDIT_REMOTE_TRACING",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "AUDIT_REMOTE_TRACING",
+        "undefined" : "Audit Remote Tracing"
+      }
+    } ],
+    "id" : "172",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractAgreementMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "212",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/CommandMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "64",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/OperationResultMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "215",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DescriptionResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "216",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ImageRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "97",
+    "superClasses" : [ "76" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/LogMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "127",
+    "superClasses" : [ "115" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "32", "7" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Person",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "subClasses" : [ "155" ],
+    "id" : "186"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "169"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/QueryMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "65",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantCatalog",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "137",
+    "superClasses" : [ "159" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppNotificationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "36", "220", "181" ],
+    "id" : "37",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractRequestMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "62",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContentType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "50"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractAgreement",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "226",
+    "superClasses" : [ "18" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/JwtPayload",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "6", "227" ],
+    "id" : "7"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ManagedEntity",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "30", "2", "78", "21" ],
+    "id" : "31",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractOfferMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "126",
+    "superClasses" : [ "115" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ConnectorEndpoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "89",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DAPS",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "35",
+    "superClasses" : [ "30" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantNotificationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "208", "132", "204", "27" ],
+    "id" : "28",
+    "superClasses" : [ "115" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppEndpointType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "230"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/TokenFormat",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "150"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ArtifactRequestMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "45",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AccessTokenResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "231",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/CertificationLevel",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "51", "122" ],
+    "id" : "48"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Catalog",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "137", "4", "118" ],
+    "id" : "159"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ConnectorCatalog",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "118",
+    "superClasses" : [ "159" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantCertification",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "184",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/License",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "236"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Rule",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "106", "165", "19" ],
+    "id" : "69",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "187", "157", "215", "216", "237", "238", "231", "66", "212", "151", "197" ],
+    "id" : "67",
+    "superClasses" : [ "56" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/CustomMediaType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "83",
+    "superClasses" : [ "82" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/UploadMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "114" ],
+    "id" : "58",
+    "superClasses" : [ "55" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/QueryTarget",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "93"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Contract",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "143", "38", "226" ],
+    "id" : "18"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppUploadResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "188",
+    "superClasses" : [ "187" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Language",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "223"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DatRequestPayload",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "227",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/RequestInProcessMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "125",
+    "superClasses" : [ "115" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Action",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "201"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppExecutionResources",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/APP_RESOURCES_REMOTE_VERIFICATION",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "APP_RESOURCES_REMOTE_VERIFICATION",
+        "undefined" : "App Resources Remote Verification"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/APP_RESOURCES_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "APP_RESOURCES_NONE",
+        "undefined" : "App Resources None"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/APP_RESOURCES_LOCAL_ENFORCEMENT",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "APP_RESOURCES_LOCAL_ENFORCEMENT",
+        "undefined" : "App Resources Local Enforcement"
+      }
+    } ],
+    "id" : "170",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Duty",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "106",
+    "superClasses" : [ "69" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ImageResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "177",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Prohibition",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "19",
+    "superClasses" : [ "69" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ConnectorNotificationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "85", "54", "163", "40" ],
+    "id" : "41",
+    "superClasses" : [ "115" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/VideoRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "96",
+    "superClasses" : [ "76" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/BaseConnector",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "194",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/IdentityProvider",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "33",
+    "superClasses" : [ "30" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppUploadMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "114",
+    "superClasses" : [ "58" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Broker",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "117",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Geometry",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "15" ],
+    "id" : "255",
+    "superClasses" : [ "73" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Frequency",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "attributes" : [ "equivalent" ],
+    "id" : "256"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AuthStandard",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "257"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ResourceNotificationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "37", "86", "39" ],
+    "id" : "11",
+    "superClasses" : [ "115" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/LocalDataConfidentialityGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "LOCAL_DATA_CONFIDENTIALITY_NONE",
+        "undefined" : "Local Data Confidentiality None"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION",
+        "undefined" : "Local Data Confidentiality Full Encryption"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE",
+        "undefined" : "Local Data Confidentiality Secure Erasure"
+      }
+    } ],
+    "id" : "171",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppEndpoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "72",
+    "superClasses" : [ "88" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Location",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "255", "134", "16" ],
+    "id" : "73"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/QueryLanguage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "191"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractRejectionMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "158",
+    "superClasses" : [ "157" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/LeftOperand",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "129"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "174",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Token",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "25" ],
+    "id" : "26"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ParticipantRequestMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "61",
+    "superClasses" : [ "55" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "6", "32" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "211"
+  }, {
+    "instances" : 0,
+    "union" : [ "76", "72", "12" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "222"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/SecurityProfile",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "24"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/QueryScope",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "180"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/DataRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "1",
+    "superClasses" : [ "76" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "individuals" : [ {
+      "iri" : "https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER",
+        "undefined" : "Integrity Verification Scope Kernel Core Container"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "INTEGRITY_VERIFICATION_SCOPE_KERNEL_CORE_CONTAINER_APPLICATION",
+        "undefined" : "Integrity Verification Scope Kernel Core Container Application"
+      }
+    }, {
+      "iri" : "https://w3id.org/idsa/code/INTEGRITY_VERIFICATION_SCOPE_NONE",
+      "baseIri" : "https://w3id.org/idsa/code",
+      "labels" : {
+        "IRI-based" : "INTEGRITY_VERIFICATION_SCOPE_NONE",
+        "undefined" : "Integrity Verification Scope None"
+      }
+    } ],
+    "id" : "173",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/BinaryOperator",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "272"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/BoundingPolygon",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "15",
+    "superClasses" : [ "255" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/PublicKey",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "140"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ArtifactResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "238",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/SoftwareRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "80" ],
+    "id" : "81",
+    "superClasses" : [ "76" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Agent",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "78" ],
+    "id" : "95",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AudioRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "98",
+    "superClasses" : [ "76" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/RejectionReason",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "243"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/AppDeleteMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "220",
+    "superClasses" : [ "37" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/TemporalEntity",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "subClasses" : [ "130", "195", "240" ],
+    "id" : "131"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/KeyType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "141"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/ContractResponseMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "237",
+    "superClasses" : [ "67" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/Interval",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "id" : "240",
+    "superClasses" : [ "131" ]
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "3",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "10",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "17",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "22",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "49",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "52",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "70",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "91",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "92",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "94",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "99",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "103",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "105",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "108",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "113",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "116",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "119",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "128",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "133",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "135",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "138",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "139",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "142",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "144",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "146",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "148",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "149",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "153",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "154",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "156",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "161",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "164",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "166",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "168",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "179",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "182",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "183",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "185",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "189",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "190",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "192",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "198",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "202",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "203",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "207",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "209",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "210",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "214",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "217",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "218",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "219",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "221",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "225",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "228",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "232",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "234",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "239",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "242",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "244",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "245",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "246",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "120",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "248",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "249",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "250",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "252",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "253",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "258",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "259",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "260",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "261",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "262",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "263",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "264",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "265",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "266",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "267",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "268",
+    "type" : "owl:allValuesFrom"
+  }, {
+    "id" : "269",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "270",
+    "type" : "owl:allValuesFrom"
+  }, {
+    "id" : "271",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "273",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "274",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "277",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "278",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "279",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "280",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "281",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "282",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://w3id.org/idsa/core/dataTypeSchema",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/offeredResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "superproperty" : [ "5" ],
+    "domain" : "4",
+    "attributes" : [ "object" ],
+    "id" : "3"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/affectedResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "domain" : "11",
+    "attributes" : [ "object" ],
+    "id" : "10"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/geoPoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "16",
+    "domain" : "15",
+    "attributes" : [ "object" ],
+    "id" : "14"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/prohibition",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "19",
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "17"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/securityProfile",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "24",
+    "domain" : "23",
+    "attributes" : [ "object" ],
+    "id" : "22"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/requestedArtifact",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "46",
+    "domain" : "45",
+    "attributes" : [ "object" ],
+    "id" : "44"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/certificationLevel",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "48",
+    "domain" : "21",
+    "attributes" : [ "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/contentType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "50",
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "49"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/resourcePart",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "superproperty" : [ "53" ],
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "52"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/appEndpoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "72",
+    "domain" : "71",
+    "attributes" : [ "object" ],
+    "id" : "70"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/maintainer",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "77"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/contractAnnex",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "79"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/memberParticipant",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "78",
+    "attributes" : [ "object" ],
+    "id" : "91"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/recipientScope",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "93",
+    "domain" : "65",
+    "attributes" : [ "object" ],
+    "id" : "92"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/sovereign",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "95",
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "94"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/appEndpointMediaType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "82",
+    "domain" : "72",
+    "attributes" : [ "object" ],
+    "id" : "99"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/dataAppInformation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "71",
+    "domain" : "80",
+    "attributes" : [ "object" ],
+    "id" : "103"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/obligation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "106",
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "105"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/hasAgent",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "95",
+    "domain" : "32",
+    "attributes" : [ "object" ],
+    "id" : "108"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/appArtifactReference",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "46",
+    "domain" : "114",
+    "attributes" : [ "object" ],
+    "id" : "113"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/connectorCatalog",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "118",
+    "domain" : "117",
+    "attributes" : [ "object" ],
+    "id" : "116"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/defaultRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "76",
+    "superproperty" : [ "120" ],
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "119"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/requestedParticipant",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "61",
+    "attributes" : [ "object" ],
+    "id" : "121"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/broader",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "129",
+    "domain" : "129",
+    "attributes" : [ "object" ],
+    "id" : "128"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/affectedConnector",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "32",
+    "domain" : "41",
+    "attributes" : [ "object" ],
+    "id" : "133"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/participantCatalog",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "137",
+    "domain" : "136",
+    "attributes" : [ "object" ],
+    "id" : "135"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/requestedResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "superproperty" : [ "5" ],
+    "domain" : "4",
+    "attributes" : [ "object" ],
+    "id" : "138"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/keyType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "141",
+    "domain" : "140",
+    "attributes" : [ "object" ],
+    "id" : "139"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/consumer",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "142"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/appEndpointPort",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "145",
+    "domain" : "72",
+    "attributes" : [ "datatype" ],
+    "id" : "144"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/authorizationToken",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "26",
+    "domain" : "56",
+    "attributes" : [ "object" ],
+    "id" : "146"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/sample",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "148"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/tokenFormat",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "150",
+    "domain" : "26",
+    "attributes" : [ "object" ],
+    "id" : "149"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/publicKey",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "140",
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "153"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/memberPerson",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "155",
+    "domain" : "78",
+    "attributes" : [ "object" ],
+    "id" : "154"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/physicalLocation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "73",
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "156"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/evaluationFacility",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "162",
+    "domain" : "21",
+    "attributes" : [ "object" ],
+    "id" : "161"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/instance",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "101",
+    "domain" : "76",
+    "attributes" : [ "object" ],
+    "id" : "164"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/includedCertificationLevel",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "48",
+    "superproperty" : [ "167" ],
+    "domain" : "48",
+    "attributes" : [ "object" ],
+    "id" : "166"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/appDocumentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "169",
+    "domain" : "71",
+    "attributes" : [ "datatype" ],
+    "id" : "168"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/queryScope",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "180",
+    "domain" : "65",
+    "attributes" : [ "object" ],
+    "id" : "179"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/assigner",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "69",
+    "attributes" : [ "object" ],
+    "id" : "182"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/authInfo",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "178",
+    "domain" : "32",
+    "attributes" : [ "object" ],
+    "id" : "183"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/assignee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "69",
+    "attributes" : [ "object" ],
+    "id" : "185"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/participantCertification",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "184",
+    "domain" : "78",
+    "attributes" : [ "object" ],
+    "id" : "189"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/queryLanguage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "191",
+    "domain" : "65",
+    "attributes" : [ "object" ],
+    "id" : "190"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/temporalCoverage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "131",
+    "superproperty" : [ "193" ],
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "192"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/contentPart",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "12",
+    "domain" : "12",
+    "subproperty" : [ "52" ],
+    "attributes" : [ "object" ],
+    "id" : "53"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/theme",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "104",
+    "superproperty" : [ "199" ],
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "198"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/hasEndpoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "89",
+    "domain" : "32",
+    "attributes" : [ "object" ],
+    "id" : "202"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/resourceCatalog",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "4",
+    "domain" : "32",
+    "attributes" : [ "object" ],
+    "id" : "203"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/preDuty",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "106",
+    "domain" : "165",
+    "attributes" : [ "object" ],
+    "id" : "207"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/hasDefaultEndpoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "89",
+    "domain" : "32",
+    "attributes" : [ "object" ],
+    "id" : "209"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/extendedGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "9",
+    "domain" : "211",
+    "attributes" : [ "object" ],
+    "id" : "210"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/securityGuarantee",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "9",
+    "domain" : "24",
+    "attributes" : [ "object" ],
+    "id" : "214"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/securityToken",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "25",
+    "domain" : "56",
+    "attributes" : [ "object" ],
+    "id" : "217"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/componentCertification",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "20",
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "218"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/action",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "201",
+    "domain" : "69",
+    "attributes" : [ "object" ],
+    "id" : "219"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/language",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "223",
+    "superproperty" : [ "224" ],
+    "domain" : "222",
+    "attributes" : [ "object" ],
+    "id" : "221"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/correlationMessage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "56",
+    "domain" : "56",
+    "attributes" : [ "object" ],
+    "id" : "225"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/accessURL",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "229",
+    "domain" : "88",
+    "attributes" : [ "datatype" ],
+    "id" : "228"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/spatialCoverage",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "73",
+    "superproperty" : [ "233" ],
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "232"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/publisher",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "95",
+    "superproperty" : [ "235" ],
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "234"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/begin",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "130",
+    "superproperty" : [ "241" ],
+    "domain" : "240",
+    "attributes" : [ "object" ],
+    "id" : "239"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/rejectionReason",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "243",
+    "domain" : "157",
+    "attributes" : [ "object" ],
+    "id" : "242"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/provider",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "244"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/endpointArtifact",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "46",
+    "domain" : "89",
+    "attributes" : [ "object" ],
+    "id" : "245"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/resourceEndpoint",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "89",
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "246"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/representation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "76",
+    "domain" : "12",
+    "subproperty" : [ "119" ],
+    "attributes" : [ "object" ],
+    "id" : "120"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/member",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "superproperty" : [ "5" ],
+    "domain" : "137",
+    "attributes" : [ "object" ],
+    "id" : "248"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/contractDocument",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "160",
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "249"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/end",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "130",
+    "superproperty" : [ "251" ],
+    "domain" : "240",
+    "attributes" : [ "object" ],
+    "id" : "250"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/permission",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "165",
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "252"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/includedIn",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "201",
+    "superproperty" : [ "254" ],
+    "domain" : "201",
+    "attributes" : [ "object" ],
+    "id" : "253"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/contractOffer",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "38",
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "258"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/authStandard",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "257",
+    "domain" : "178",
+    "attributes" : [ "object" ],
+    "id" : "259"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/postDuty",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "106",
+    "domain" : "165",
+    "attributes" : [ "object" ],
+    "id" : "260"
+  }, {
+    "range" : "184",
+    "domain" : "20",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "261"
+  }, {
+    "range" : "51",
+    "domain" : "122",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "262"
+  }, {
+    "range" : "143",
+    "domain" : "226",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "263"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/recipientConnector",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "32",
+    "domain" : "56",
+    "attributes" : [ "object" ],
+    "id" : "264"
+  }, {
+    "range" : "38",
+    "domain" : "226",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "265"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/transferContract",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "18",
+    "domain" : "56",
+    "attributes" : [ "object" ],
+    "id" : "266"
+  }, {
+    "range" : "143",
+    "domain" : "38",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "267"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/certificationLevel",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "51",
+    "domain" : "184",
+    "attributes" : [ "object", "allValues" ],
+    "id" : "268"
+  }, {
+    "range" : "100",
+    "domain" : "46",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "269"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/certificationLevel",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "122",
+    "domain" : "20",
+    "attributes" : [ "object", "allValues" ],
+    "id" : "270"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/affectedParticipant",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "domain" : "28",
+    "attributes" : [ "object" ],
+    "id" : "271"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/variant",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "2",
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "273"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/mediaType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "82",
+    "superproperty" : [ "275" ],
+    "domain" : "76",
+    "attributes" : [ "object" ],
+    "id" : "274"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/aud",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "102",
+    "domain" : "7",
+    "attributes" : [ "object" ],
+    "id" : "277"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/primarySite",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "196",
+    "domain" : "78",
+    "attributes" : [ "object" ],
+    "id" : "278"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/listedConnector",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "32",
+    "superproperty" : [ "5" ],
+    "domain" : "118",
+    "attributes" : [ "object" ],
+    "id" : "279"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/appEndpointType",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "230",
+    "domain" : "72",
+    "attributes" : [ "object" ],
+    "id" : "280"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/curator",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "78",
+    "superproperty" : [ "235" ],
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "281"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/affectedDataApp",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "174",
+    "domain" : "59",
+    "attributes" : [ "object" ],
+    "id" : "282"
+  } ]
+}
