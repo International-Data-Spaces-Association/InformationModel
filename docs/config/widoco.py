@@ -68,16 +68,16 @@ def get_files_from_repository ():
             if not os.path.isdir(f'{versionfolder}/{folder}'):
                  os.mkdir(f'{versionfolder}/{folder}')
                     
-        # Copy the latest config.properties file to the version folder to update it later                
+        # Copy the latest config.properties and readme_addition.md files to the version folder to update it later                
         shutil.copyfile(f'{root}/docs/config/config.properties', 
                         f'{versionfolder}/config/config.properties')
+        shutil.copyfile(f'{root}/docs/static_info/readme_addition.md', 
+                        f'{versionfolder}/static_info/readme_addition.md')
         
         
         # Loop over all members in zip achive
         for member in archive.namelist():
-            if member.endswith('docs/static_info/readme_addition.md'):
-                filepath = f'{versionfolder}/static_info/readme_addition.md'
-            elif member.endswith('docs/static_info/references.html'):
+            if member.endswith('docs/static_info/references.html'):
                 filepath = f'{versionfolder}/static_info/references.html'
             elif member.endswith(f'{ontology_version}/Ontology.ttl'):
                 filepath = f'{root}/Ontology-{ontology_version}.ttl'
