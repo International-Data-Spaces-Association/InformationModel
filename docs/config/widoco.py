@@ -144,7 +144,7 @@ def update_image_path():
         new_path_introfile = file.read()
 
     # Replace the target string
-    new_path_introfile = new_path_introfile.replace('../../../images', '../../images')
+    new_path_introfile = new_path_introfile.replace('../../images', '../images')
 
     # Write the file out again
     with open('../sections/introduction-en.html', 'w') as file:
@@ -155,7 +155,7 @@ def update_image_path():
         new_path_descriptionfile = fp.read()
         
     # Replace the target string
-    new_path_descriptionfile = new_path_descriptionfile.replace('../../../images', '../../images')
+    new_path_descriptionfile = new_path_descriptionfile.replace('../../images', '../images')
 
     # Write the file out again
     with open('../sections/description-en.html', 'w') as fp:
@@ -423,7 +423,7 @@ def replace_image_names(text, image_names):
         image_id = res.group(1)
         regex = r'https:\/\/industrialdataspace\.jiveon\.com\/servlet\/JiveServlet\/(\w*)Image\/' + image_id + \
                 r'\/(([0-9-]*)\/)?' + old_name
-        text = re.sub(regex, '../../../images/' + image_names[old_name], text)
+        text = re.sub(regex, '../../images/' + image_names[old_name], text)
 
         if old_name == 'pastedImage_16.png':
             image_names[old_name] = image_names['pastedImage_16_2.png']
