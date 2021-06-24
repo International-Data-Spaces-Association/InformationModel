@@ -1,0 +1,58 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+# Classes
+# -------
+
+ids:UsageControlEndpoint
+    a owl:Class;
+    rdfs:label "Usage policy class"@en ;
+    rdfs:comment "Defined usage control endpoint in the IDS."@en;
+	.
+
+ids:PxpEndpoint
+    a owl:Class;
+    rdfs:subClassOf ids:UsageControlEndpoint;
+    rdfs:label "pxp endpoint"@en;
+    rdfs:comment "The reference to the endpoint which operates a specific action, URI or reference to an associated PXP interface."@en;
+.
+
+ids:PipEndpoint
+    a owl:class;
+    rdfs:subClassOf ids:UsageControlEndpoint;
+    rdfs:label "pip endpoint"@en;
+    rdfs:comment "Refers to an endpoint which provides a specific piece of information (URI/reference to an associated PIP interface). "@en;
+.
+
+# Properties
+# ----------
+
+ids:pxpEndpoint
+     a owl:ObjectProperty;
+     rdfs:label "has PXP endpoint"@en;
+     rdfs:domain ids:Action;
+     rdfs:range ids:PxpEndpoint ;
+     rdfs:comment "The reference to the endpoint which operates a specific action, URI or reference to an associated PXP interface."@en
+.
+
+ids:pipEndpoint a owl:ObjectProperty;
+     rdfs:label "has PIP endpoint"@en;
+     rdfs:domain ids:Constraint;
+     rdfs:range ids:PipEndpoint ;
+     rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en
+.
+
+ids:InterfaceDescription a owl:ObjectProperty;
+     rdfs:label "pxp interface description"@en;
+     rdfs:domain ids:UsageControlEndpoint;
+     rdfs:range  xsd:anyURI;
+     rdfs:comment "The reference to a URI that provides the interface description of a usage control endpoint."@en;
+.
+
+ids:AccessURI a owl:ObjectProperty;
+     rdfs:label "pxp access URI"@en;
+     rdfs:domain ids:UsageControlEndpoint;
+     rdfs:range  xsd:anyURI;
+     rdfs:comment "The reference to a URI that expresses an exact endpoint of that usage control endpoint."@en;
+.

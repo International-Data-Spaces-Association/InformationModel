@@ -29,11 +29,6 @@ ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
     rdfs:comment "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."@en;
 .
 
-ids:PipEndpoint
-    a owl:class;
-    rdfs:label "pip endpoint"@en;
-    rdfs:comment "Refers to an endpoint which provides a specific piece of information (URI/reference to an associated PIP interface). "@en;
-.
 
 # Properties
 # ----------
@@ -74,26 +69,6 @@ ids:unit rdfs:subPropertyOf odrl:unit;
     rdfs:range xsd:anyURI ;
     rdfs:comment "The unit of measurement of a Constraint."@en.
 
-ids:pipEndpoint a owl:ObjectProperty;
-     rdfs:label "has PIP endpoint"@en;
-     rdfs:domain ids:Constraint;
-     rdfs:range ids:PipEndpoint ;
-     rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en
-.
-
-ids:pipInterfaceDescription a owl:ObjectProperty;
-     rdfs:label "pip interface description"@en;
-     rdfs:domain ids:PipEndpoint;
-     rdfs:range  xsd:anyURI;
-     rdfs:comment "The reference to a URI that provides the interface description of a PIP."@en;
-.
-
-ids:pipAccessURI a owl:ObjectProperty;
-     rdfs:label "pip access URI"@en;
-     rdfs:domain ids:PipEndpoint;
-     rdfs:range  xsd:anyURI;
-     rdfs:comment "The reference to a URI that expresses an exact endpoint of that PIP."@en;
-.
 
 ids:and rdfs:subPropertyOf odrl:and;
   a owl:ObjectProperty;
