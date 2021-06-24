@@ -58,7 +58,7 @@ idsc:DIVIDE
     a ids:Action ;
     rdfs:comment "This action modifies dividing something by something else."@en ;
     rdfs:label "divide"@en ;
-    skos:note "This action modifies dividing something by something else. The field to be modified and the given value are specified in the policy as idsc:SUBSET_SPECIFICATION and idsc:OPERAND, respectively."@en ;
+    skos:note "This action modifies dividing something by something else. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
 .
 
 idsc:DELETE
@@ -92,7 +92,7 @@ idsc:HASH
     a ids:Action ;
     rdfs:comment "This action modifies a value by replacing it with a hash of the value."@en ;
     rdfs:label "hash"@en ;
-    skos:note "This action modifies a value by replacing it with a hash of the value. The field to be modified and the hash algorithm are specified in the policy as idsc:SUBSET_SPECIFICATION and idsc:HASH_ALGORITHM (eg. SHA256), respectively."@en ;
+    skos:note "This action modifies a value by replacing it with a hash of the value. The field to be modified and the hash algorithm are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:HASH_ALGORITHM (eg. SHA256), respectively."@en ;
     .
 
 idsc:INCREMENT_COUNTER
@@ -130,7 +130,7 @@ idsc:MULTIPLY
     a ids:Action ;
     rdfs:comment "This action modifies a number by multiplying it to a given value."@en ;
     rdfs:label "multiply"@en ;
-    skos:note "This action modifies a number by multiplying it to a given value. The field to be modified and the given value are specified in the policy as idsc:SUBSET_SPECIFICATION and idsc:OPERAND, respectively."@en ;
+    skos:note "This action modifies a number by multiplying it to a given value. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
 .
 
 idsc:NEXT_POLICY
@@ -164,14 +164,14 @@ idsc:REPLACE
     a ids:Action ;
     rdfs:comment "To replace some value."@en ;
     rdfs:label "replace"@en ;
-    skos:note "This action modifies a value by replacing it with a given value. The field to be modified and the given value are specified in the policy as idsc:SUBSET_SPECIFICATION and idsc:REPLACE_WITH, respectively."@en ;
+    skos:note "This action modifies a value by replacing it with a given value. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:REPLACE_WITH, respectively."@en ;
 .
 
 idsc:SHUFFLE
     a ids:Action ;
     rdfs:comment "This action modifies a value by replacing it with an anagram of the value."@en ;
     rdfs:label "shuffle"@en ;
-    skos:note "This action modifies a value by replacing it with an anagram of the value. The field to be modified is specified in the policy as idsc:SUBSET_SPECIFICATION."@en ;
+    skos:note "This action modifies a value by replacing it with an anagram of the value. The field to be modified is specified in the policy as idsc:JSONPATH/idsc:XPATH."@en ;
 .
 
 idsc:TRACK_PROVENANCE
