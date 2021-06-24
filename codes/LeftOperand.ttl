@@ -71,9 +71,14 @@ idsc:STATE a ids:LeftOperand;
 .
 
 #
-idsc:SUBSET_SPECIFICATION a ids:LeftOperand;
-    rdfs:label "subset specification"@en ;
-    rdfs:comment "Specifies which modification method is applied for data. Operator must be idsc:EQUALS with RightOperands of a jsonPath, xmlPath or rdfPath."@en ;
+idsc:JSON_PATH a ids:LeftOperand;
+    rdfs:label "json path"@en ;
+    rdfs:comment "An expression that refers to a part of a JSON structured data."@en ;
+.
+
+idsc: XPATH a ids:LeftOperand;
+rdfs:label "xpath"@en ;
+rdfs:comment "An expression that refers to specific elements of an XML document."@en ;
 .
 
 #
