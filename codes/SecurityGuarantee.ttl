@@ -5,7 +5,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 # Security profile - value ranges
 @prefix idsc: <https://w3id.org/idsa/code/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Instances
 # ---------
@@ -211,7 +211,6 @@ idsc:TRUST_SECURITY_PROFILE
     a ids:SecurityProfile;
     rdfs:label "Trust security profile"@en;
     rdfs:comment "The Security Profile TRUST as defined by the IDS certification criteria."@en;
-    #ids:parentSecurityProfile idsc:BASE_SECURITY_PROFILE;
     ids:securityGuarantee idsc:INTEGRITY_VERIFICATION_REMOTE;
     ids:securityGuarantee idsc:AUTHENTICATION_MUTUAL;
     ids:securityGuarantee idsc:SERVICE_ISOLATION_LEAST_PRIVILEGE;

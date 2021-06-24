@@ -29,14 +29,11 @@ data2: a ids:Resource ;
         a ids:Representation ;
         ids:mediaType <https://www.iana.org/assignments/media-types/application/gzip> ;
         ids:instance data2:tar_gzip_archive ;
-        # a possible alternative:
-        # ids:packaging idsc_pack:TAR ;
-        # ids:compression idsc_pack:GZIP ;
     ] ;
     ids:resourceEndpoint [
         a ids:ConnectorEndpoint ;
         ids:endpointArtifact data2:tar_gzip_archive ;
-        ids:accessURL "https://connector.aastat.gov.de/resource/archive/EuropeanHighwayStatistics_2000_2017.tar.gz"^^xsd:anyURI ;
+        ids:accessURL <https://connector.aastat.gov.de/resource/archive/EuropeanHighwayStatistics_2000_2017.tar.gz> ;
     ] ;
 .
 
@@ -95,19 +92,18 @@ data2:
     ids:resourceEndpoint [
       a ids:ConnectorEndpoint ;
       ids:endpointArtifact data2:E1_20000101 ;
-      ids:accessURL "https://connector.aastat.gov.de/resource/content/E1_20000101.csv"^^xsd:anyURI ;
+      ids:accessURL <https://connector.aastat.gov.de/resource/content/E1_20000101.csv> ;
     ] ;
     ids:contractOffer [
         a ids:ContractOffer ;
         ids:provider part1: ;
         ids:permission [
+			a ids:Permission ;
             ids:assigner part1: ;
             ids:target data2:generic_content ; # i.e. applies to any artifact / instance of given content
             ids:action idsc:USE ;
-            # Obligation
-            ids:postDuty [
-                a ids:Duty ;
-                ids:action idsc:ATTRIBUTE ;
-            ]
         ]
     ] .
+
+<https://www.iana.org/assignments/media-types/text/csv> a ids:IANAMediaType .
+<https://www.iana.org/assignments/media-types/application/gzip> a ids:IANAMediaType .

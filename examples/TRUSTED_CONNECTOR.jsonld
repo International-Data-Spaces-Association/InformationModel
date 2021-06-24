@@ -1,52 +1,70 @@
 {
-  "@context" : "https://w3id.org/idsa/contexts/4.0.0/context.jsonld",
+   "@context": {
+    "ids": "https://w3id.org/idsa/core/",
+    "idsc": "https://w3id.org/idsa/code/",
+    "part1": "https://im.internationaldataspaces.org/participant/part1",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
   "@type" : "ids:TrustedConnector",
   "@id" : "https://connector.fit.fraunhofer.de/",
-  "title" : [ {
+  "ids:title" : [ {
     "@value" : "Fraunhofer FIT - Traffic statistics hub",
     "@language" : "en"
       } ],
-  "description" : [ {
+  "ids:description" : [ {
     "@value" : "Example Trusted Connector maintained by the Fraunhofer FIT" ,
     "@language" : "en"
     } ],
-  "maintainer" : {"@id": "https://www.fit.fraunhofer.de"},
-  "curator" :  {"@id": "https://www.fit.fraunhofer.de"},
-  "inboundModelVersion" : [ "4.0.0" ],
-  "outboundModelVersion" : "4.0.0",
-  "authInfo" : [{
+  "ids:maintainer" : {"@id": "https://www.fit.fraunhofer.de"},
+  "ids:curator" :  {"@id": "https://www.fit.fraunhofer.de"},
+  "ids:inboundModelVersion" : "4.1.0",
+  "ids:outboundModelVersion" : "4.1.0",
+  "ids:authInfo" : [{
     "@type" : "ids:AuthInfo",
-    "authService" : {
+    "ids:authService" : {
         "@id" : "https://keycloak.aastat.gov.de"
     },
-    "authStandard" : {
+    "ids:authStandard" : {
         "@id" :  "https://w3id.org/idsa/code/OAUTH2_JWT"
     }
   }],
-  "securityProfile" : {
+  "ids:securityProfile" : {
     "@id" : "https://w3id.org/idsa/code/TRUST_PLUS_SECURITY_PROFILE"
   },
-
-  "componentCertification" : [{
+	"ids:hasDefaultEndpoint": {
+      "@type": "ids:ConnectorEndpoint",
+      "ids:accessURL": {
+        "@id": "https://aastat.gov.de/broker/infrastructure"
+      },
+      "ids:endpointDocumentation": {
+        "@id": "http://IRItoSomeAPIdocumentation"
+      },
+      "ids:endpointInformation": "This is the default endpoint of the Broker.",
+      "ids:inboundPath": "/input",
+      "ids:outboundPath": "/output"
+	  },
+  "ids:componentCertification" : [{
     "@type" : "ids:ComponentCertification",
-    "certificationLevel" : {
+    "ids:certificationLevel" : {
         "@id" : "https://w3id.org/idsa/code/COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION"
         },
-    "lastValidDate" : {
+    "ids:lastValidDate" : {
         "@value": "2020-12-31T12:00:00.000+02:00",
         "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
     }
   }],
 
-  "resourceCatalog" : {
+  "ids:resourceCatalog" : {
     "@type" : "ids:ResourceCatalog",
-    "offeredResource" : [ {
+    "ids:offeredResource" : [ {
       "@type" : "ids:DataResource",
-      "representation" : [ {
+      "ids:representation" : [ {
         "@type" : "ids:DataRepresentation",
-        "instance" : [ {
+        "ids:instance" : [ {
           "@type" : "ids:Artifact",
-          "byteSize" : 0,
+          "ids:byteSize" : 0,
           "@id" : "https://connector.fit.fraunhofer.de/artifactID"
         } ],
         "@id" : "https://connector.fit.fraunhofer.de/autogen/dataRepresentation/e1ff4338-5844-4d2e-934e-668ae8fa070c"

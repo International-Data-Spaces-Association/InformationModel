@@ -3,11 +3,10 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 
 ids:UserAuthentication a owl:Class;
-    idsm:abstract true;
     rdfs:label "User Authentication"@en ;
     rdfs:comment "Holds User authentication information. Differs from ids:AuthInfo. This class refers to user authentication methods that are not intended for direct data exchange with a connector."@en ;
 .
@@ -21,7 +20,7 @@ ids:authUsername a owl:DatatypeProperty;
 
 
 ids:BasicAuthentication a owl:Class;
-    # idsm:abstract true ;
+    #  ;
     rdfs:subClassOf ids:UserAuthentication ;
     rdfs:label "User Authentication"@en ;
     rdfs:comment "Basic authentication using username / password "@en ;

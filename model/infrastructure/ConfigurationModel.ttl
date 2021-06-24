@@ -2,40 +2,12 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 
 ids:ConfigurationModel a owl:Class ;
     rdfs:label "Configuration Model"@en ;
     rdfs:comment "Configuration Model is used for Connector deployment."@en ;
-    idsm:validation [
-                     idsm:forProperty ids:configurationModelLogLevel;
-                     idsm:constraint idsm:NotNull ;
-                     ];
-   idsm:validation [
-                       idsm:forProperty ids:knownBroker;
-                       idsm:constraint idsm:OneToMany ;
-                   ];
-    idsm:validation [
-                       idsm:forProperty ids:connectorStatus;
-                       idsm:constraint idsm:NotNull ;
-                   ];
-    idsm:validation [
-                       idsm:forProperty ids:connectorDeployMode;
-                       idsm:constraint idsm:NotNull ;
-                    ];
-    idsm:validation [
-                       idsm:forProperty ids:userAuthentication;
-                       idsm:relationType idsm:OneToMany ;
-                   ];
-    idsm:validation [
-                       idsm:forProperty ids:connectorProxy;
-                       idsm:relationType idsm:OneToMany ;
-                   ];
-   idsm:validation [
-                       idsm:forProperty ids:appRoute;
-                       idsm:relationType idsm:OneToMany ;
-   ];
 .
 
 ids:userAuthentication a owl:ObjectProperty;
@@ -87,6 +59,13 @@ ids:trustStore a owl:DatatypeProperty;
     rdfs:comment "URI of the trust store server."@en ;
 .
 
+ids:trustStoreAlias a owl:DatatypeProperty;
+	rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "trust store alias"@en ;
+    rdfs:comment "alias for the trust store."@en ;
+.
+
 ids:trustStorePassword a owl:DatatypeProperty;
     rdfs:domain ids:ConfigurationModel;
     rdfs:range xsd:string;
@@ -99,6 +78,13 @@ ids:keyStore a owl:DatatypeProperty;
     rdfs:range xsd:anyURI;
     rdfs:label "key store"@en ;
     rdfs:comment "URI of the key store server."@en ;
+.
+
+ids:keyStoreAlias a owl:DatatypeProperty;
+	rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "key store alias"@en ;
+    rdfs:comment "alias for the key store."@en ;
 .
 
 ids:keyStorePassword a owl:DatatypeProperty;
@@ -125,7 +111,7 @@ ids:configuredAppStore a owl:ObjectProperty;
     rdfs:domain ids:ConfigurationModel;
     rdfs:range ids:AppStoreCatalog;
     rdfs:label "configured appstore"@en ;
-    rdfs:comment "One or more app stores to which the ids:Connector that we are configuring (cf. ids:connectorDescription) may want to talk, e.g. to retrieve apps from them."@en ;
+    rdfs:comment "One or more app stores to which the ids:Connector that we are configuring (cf. ids:connectorDescription) may want to talk, e.g., to retrieve apps from them."@en ;
 .
 
 ids:configuredAppResource a owl:ObjectProperty;

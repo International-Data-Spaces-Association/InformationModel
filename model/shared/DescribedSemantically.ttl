@@ -1,7 +1,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -15,17 +15,9 @@
 
 ids:DescribedSemantically
     a owl:Class ;
-    idsm:abstract true;
+
     rdfs:label "DescribedSemantically"@en ;
-    rdfs:comment "Entity described semantically."@en;
-#    idsm:validation [
-#        idsm:forProperty ids:shapesGraph;
-#        idsm:relationType idsm:OneToMany;
-#    ];
-#    idsm:validation [
-#        idsm:forProperty ids:domainVocabulary;
-#        idsm:relationType idsm:OneToMany;
-#    ];
+    rdfs:comment "Entity described semantically."@en ;
     .
 
 

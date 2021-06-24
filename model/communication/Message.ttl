@@ -4,43 +4,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
 
 ids:Message a owl:Class;
-    idsm:abstract true;
     rdfs:label "Message"@en ;
     rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
-    idsm:validation [
-        idsm:forProperty ids:modelVersion;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:issued;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:issuerConnector;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:recipientConnector;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:securityToken;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:senderAgent;
-        idsm:constraint idsm:NotNull;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:recipientAgent;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
     # FIPA ACL Message Structure Specification, http://www.fipa.org/specs/fipa00061/index.html
 
@@ -64,15 +36,13 @@ ids:issued
 
 ids:correlationMessage
     a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "consumer connector"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Message;
-    rdfs:comment "Correlated message, e.g. a response to a previous request."@en.
+    rdfs:comment "Correlated message, e.g., a response to a previous request."@en.
 
 ids:issuerConnector
     a owl:DatatypeProperty;
-    idsm:referenceByUri true;
     rdfs:label "issuer connector"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Connector;
@@ -80,7 +50,6 @@ ids:issuerConnector
 
 ids:recipientConnector
     a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "recipient connector"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Connector;
@@ -88,7 +57,6 @@ ids:recipientConnector
 
 ids:senderAgent
     a owl:DatatypeProperty;
-    idsm:referenceByUri true;
     rdfs:label "sender agent"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Agent;
@@ -96,7 +64,6 @@ ids:senderAgent
 
 ids:recipientAgent
     a owl:DatatypeProperty;
-    idsm:referenceByUri true;
     rdfs:label "recipient agent"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Agent;
@@ -118,7 +85,6 @@ ids:authorizationToken
 
 ids:transferContract
     a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "transferContract"@en;
     rdfs:domain ids:Message;
     rdfs:range ids:Contract;

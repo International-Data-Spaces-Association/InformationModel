@@ -2,27 +2,16 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
 
 ids:DataApp
     a owl:Class;
-    idsm:abstract true;
     rdfs:label "DataApp"@en;
     rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;
     # TODO: exposes at least one interface
-    idsm:validation [
-                        idsm:forProperty ids:appEndpoint;
-                        idsm:relationType idsm:OneToMany ;
-                        idsm:constraint idsm:NotEmpty;
-                    ];
-					
-	idsm:validation [
-                        idsm:forProperty ids:supportedUsagePolicies;
-                        idsm:relationType idsm:OneToMany ;
-                    ];
 .
 
 ids:appDocumentation
@@ -49,7 +38,7 @@ ids:appEnvironmentVariables a owl:DatatypeProperty;
 
 ids:appStorageConfiguration a owl:DatatypeProperty;
     rdfs:label "app storage configuration"@en;
-    rdfs:comment "Storage configuration of a data app. Value may differ based on the app ecosystem, e.g. a writeable path in the file system or a volume name (e.g. for containerized apps)"@en ;
+    rdfs:comment "Storage configuration of a data app. Value may differ based on the app ecosystem, e.g., a writeable path in the file system or a volume name (e.g., for containerized apps)"@en ;
     rdfs:domain ids:DataApp;
     rdfs:range xsd:string;
 .

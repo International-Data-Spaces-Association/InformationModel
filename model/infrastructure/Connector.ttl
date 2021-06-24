@@ -3,7 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -11,40 +11,10 @@
 ids:Connector
     rdfs:subClassOf ids:InfrastructureComponent;
     a owl:Class;
-    idsm:abstract true;
     rdfs:label "Connector"@en ;
     rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
 # TODO: a connector might not want to present a catalog
-#    idsm:validation [
-#        idsm:forProperty ids:catalog;
-#        idsm:constraint idsm:NotNull;
-#    ];
-    idsm:validation [
-        idsm:forProperty ids:hasEndpoint;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:extendedGuarantee ;
-        idsm:relationType idsm:OneToMany;
-    ]; 
-    idsm:validation [
-        idsm:forProperty ids:securityProfile;
-        idsm:constraint idsm:NotNull;
-    ]; 
-    idsm:validation [
-        idsm:forProperty ids:hasAgent;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:resourceCatalog;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:hasDefaultEndpoint;
-        idsm:relationType idsm:NotNull;
-    ];
-
-    .
+.
 
 ids:BaseConnector rdfs:subClassOf ids:Connector ;
     a owl:Class;
@@ -72,7 +42,7 @@ ids:hasEndpoint
     rdfs:label "has endpoint"@en ;
     rdfs:domain ids:Connector ;
     rdfs:range ids:ConnectorEndpoint;
-    rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en.
+    rdfs:comment "Reference to the Endpoints that serve the resource's content or let you exchange messages with an IDS Connector."@en.
 
 ids:securityProfile a owl:ObjectProperty;
     rdfs:domain [ rdf:type owl:Class ;
@@ -103,7 +73,6 @@ ids:resourceCatalog a owl:ObjectProperty;
     rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
 
 ids:hasAgent a owl:ObjectProperty;
-    idsm:referenceByUri true;
     rdfs:label "has Agent"@en;
     rdfs:domain ids:Connector;
     rdfs:range ids:Agent;

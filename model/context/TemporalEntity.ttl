@@ -6,7 +6,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix greg: <http://www.w3.org/ns/time/gregorian#> .
 
 # Classes
@@ -29,20 +28,14 @@ ids:Interval
     rdfs:subClassOf time:Interval, ids:TemporalEntity, dct:PeriodOfTime ;
     rdfs:label "Interval"@en ;
     rdfs:comment "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."@en;
-    idsm:validation [
-        idsm:forProperty ids:begin;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:DurationEntity
     a owl:Class;
     rdfs:subClassOf  ids:TemporalEntity;
     rdfs:label "Duration"@en ;
     rdfs:comment "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en;
-    idsm:validation [
-        idsm:forProperty ids:hasDuration ;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 ids:Frequency
     a owl:Class;
@@ -58,7 +51,6 @@ ids:dateTime
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "date time"@en;
     rdfs:comment "Absolute date time with a defined time zone."@en;
-    idsm:example "2018-12-31T13:20:00+02:00"^^xsd:dateTimeStamp ;
     rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp> ;
     .
 
@@ -84,7 +76,6 @@ ids:hasDuration
     rdfs:domain ids:TemporalEntity;
     rdfs:range xsd:duration;
     rdfs:label "has duration"@en;
-    idsm:example "P2Y6M5DT12H35M30S"^^xsd:duration ;
     rdfs:comment "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en.
 
 

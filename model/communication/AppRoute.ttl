@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -14,35 +14,6 @@ ids:AppRoute a owl:Class;
     An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between two adjacent data apps is represented by the ids:RouteStep class.
     ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.
     """@en ;
-    idsm:validation [
-        idsm:forProperty ids:routeDeployMethod;
-        idsm:constraint idsm:NotNull ;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:hasSubRoute;
-        idsm:relationType idsm:OneToMany ;
-    ];
-    idsm:validation [
-            idsm:forProperty ids:appRouteStart;
-            idsm:relationType idsm:OneToMany ;
-        ];
-    idsm:validation [
-            idsm:forProperty ids:appRouteEnd;
-            idsm:relationType idsm:OneToMany ;
-        ];
-	idsm:validation [
-		idsm:forProperty ids:appRouteOutput;
-		idsm:relationType idsm:OneToMany ;
-	];
-    idsm:validation [
-    	idsm:forProperty ids:appRouteBroker;
-    	idsm:relationType idsm:OneToMany ;
-    ];
-    idsm:validation [
-         idsm:forProperty ids:appRouteClearingHouse;
-         idsm:relationType idsm:OneToMany ;
-    ];
-
 .
 
 ids:RouteStep a owl:Class;
@@ -75,7 +46,7 @@ ids:routeConfiguration a owl:DatatypeProperty;
     rdfs:label "route configuration"@en ;
     rdfs:domain ids:AppRoute;
     rdfs:range xsd:string;
-    rdfs:comment "Configuration details (e.g. contents of a config file) used to configure the route. Should be Base64 encoded."@en ;
+    rdfs:comment "Configuration details (e.g., contents of a config file) used to configure the route. Should be Base64 encoded."@en ;
 .
 
 ids:hasSubRoute a owl:ObjectProperty;
@@ -123,7 +94,7 @@ ids:appRouteClearingHouse a owl:ObjectProperty;
     rdfs:domain ids:AppRoute;
     rdfs:range ids:ClearingHouse;
     rdfs:label "app route broker"@en ;
-    rdfs:comment """One or more ids:ClearingHouse(s) to which information of this route's  data exchange are notified.
+    rdfs:comment """One or more ids:ClearingHouse(s) to which information of this route's data exchange are notified.
 This should be a subset of clearing houses listed in the corresponding ids:ClearingHouseCatalog for a given configuration model. The Configuration Model ids:configuredClearingHouse in the ids:ConfigurationModel of which this is an ids:appRoute.
 """@en ;
 .

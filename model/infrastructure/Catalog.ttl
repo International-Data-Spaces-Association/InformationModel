@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -12,7 +12,7 @@
 ids:Catalog
     a owl:Class;
     rdfs:subClassOf dcat:Catalog;
-    idsm:abstract true;
+
     rdfs:label "Catalog"@en ;
     rdfs:comment "Class that represents (distributable) Catalogs."@en ;
     .
@@ -21,15 +21,7 @@ ids:ResourceCatalog
     a owl:Class;
     rdfs:subClassOf ids:Catalog;
     rdfs:label "Resource Catalog"@en ;
-    rdfs:comment "Class that aggregates Resources form a (distributable) Catalog."@en ;
-    idsm:validation [
-        idsm:forProperty ids:requestedResource;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:offeredResource;
-        idsm:relationType idsm:OneToMany;
-    ];
+    rdfs:comment "Class that aggregates Resources from a (distributable) Catalog."@en ;
 .
 
 ids:ParticipantCatalog
@@ -37,10 +29,6 @@ ids:ParticipantCatalog
     rdfs:subClassOf ids:Catalog;
     rdfs:label "Participant Catalog"@en ;
     rdfs:comment "Class that aggregates Participants from a (distributable) Catalog."@en ;
-    idsm:validation [
-        idsm:forProperty ids:member;
-        idsm:relationType idsm:OneToMany;
-    ];
 .
 
 ids:ConnectorCatalog
@@ -48,10 +36,6 @@ ids:ConnectorCatalog
     rdfs:subClassOf ids:Catalog;
     rdfs:label "Connector Catalog"@en ;
     rdfs:comment "Class that aggregates Connectors from a (distributable) Catalog."@en ;
-    idsm:validation [
-        idsm:forProperty ids:listedConnector;
-        idsm:relationType idsm:OneToMany;
-    ];
 .
 
 ids:BrokerCatalog
@@ -74,21 +58,13 @@ ids:AppResourceCatalog
     rdfs:subClassOf ids:Catalog;
     rdfs:label "App Resource Catalog"@en ;
     rdfs:comment "Class that aggregates App Resources from a (distributable) Catalog. May be used to list installed apps in a component."@en ;
-    idsm:validation [
-        idsm:forProperty ids:listedAppResource;
-        idsm:relationType idsm:OneToMany;
-    ];
 .
 
 ids:ClearingHouseCatalog
     rdfs:subClassOf ids:Catalog;
     a owl:Class;
     rdfs:label "Clearing House Catalog"@en ;
-    rdfs:comment "Class that aggregates AppStores from a (distributable) Catalog."@en ;
-    idsm:validation [
-        idsm:forProperty ids:listedClearingHouse;
-        idsm:relationType idsm:OneToMany;
-    ];
+    rdfs:comment "Class that aggregates Clearing Houses from a (distributable) Catalog."@en ;
 .
 
 
@@ -107,7 +83,7 @@ ids:requestedResource a owl:ObjectProperty;
     rdfs:domain ids:ResourceCatalog;
     rdfs:range ids:Resource;
     rdfs:label "requested resource"@en;
-    rdfs:comment "A Resource that is part of a resource catalog, indicating a request (of, e.g., data, software,...)."@en.
+    rdfs:comment "A Resource that is part of a resource catalog, indicating a request (of, e.g., data, software, …)."@en.
 
 ids:member a owl:ObjectProperty;
     rdfs:subPropertyOf dcat:dataset;

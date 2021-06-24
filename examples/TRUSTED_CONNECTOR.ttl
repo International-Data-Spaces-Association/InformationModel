@@ -18,18 +18,19 @@ conn1:
     ids:curator <https://www.fit.fraunhofer.de>;
 
     # Information Model of the Connector
-    ids:outboundModelVersion "4.0.0" ;
+    ids:outboundModelVersion "4.1.0" ;
 
     # Information Model version that the Connector is capable of reading/processing
-    ids:inboundModelVersion "4.0.0" ;
+    ids:inboundModelVersion "4.1.0" ;
 
-
-    # Default host of the Connector. May be used for basic infrastructure interactions, e.g., providing the self description
-  #  ids:defaultHost [
-  #      a ids:Host ;
-  #      ids:protocol idsc:HTTP2;
-  #      ids:accessUrl "https://connector.aastat.gov.de" ;
-  #      ];
+	ids:hasDefaultEndpoint [
+		   a ids:ConnectorEndpoint;
+		   ids:endpointInformation "This is the default endpoint of the Connector.";
+		   ids:endpointDocumentation <http://IRItoSomeAPIdocumentation> ;
+		   ids:accessURL <https://aastat.gov.de/connector/infrastructure> ;
+		   ids:inboundPath "/input";
+		   ids:outboundPath "/output";
+	   ];
 
     # Security and trust features
     # Holds information regarding the authentication so that connections to the Connector's data offerings can be establised.
@@ -54,6 +55,7 @@ conn1:
     # Catalog of offered and requested resources
     ids:resourceCatalog [
         a ids:ResourceCatalog;
-        ids:offeredResource "<sample_offered_DataResource>";
-        ids:requestedResource "<sample_requested_DataResource>";
+        ids:offeredResource <https://example.org/someResource> ;
     ].
+
+<https://example.org/someResource> a ids:TextResource .

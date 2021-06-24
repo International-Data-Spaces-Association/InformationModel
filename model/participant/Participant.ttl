@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -22,36 +22,13 @@ ids:Participant
     rdfs:subClassOf ids:Agent, ids:ManagedEntity, org:Organization; # foaf:Organization is implied
     rdfs:label "Participant"@en;
     rdfs:comment "Stakeholder in the International Data Spaces, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
-    idsm:validation [
-        idsm:forProperty ids:memberPerson;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:memberParticipant;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:corporateEmailAddress;
-        idsm:relationType idsm:OneToMany;
-    ];
-	idsm:validation [
-        idsm:forProperty ids:businessIdentifier;
-        idsm:relationType idsm:OneToMany;
-    ];
 .
 
 ids:Person rdfs:subClassOf foaf:Person;
     a owl:Class;
     rdfs:label "Person"@en;
     rdfs:comment "The class of persons (people)"@en;
-    idsm:validation [
-        idsm:forProperty ids:phoneNumber;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:emailAddress;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
 ids:Site a owl:Class;
     rdfs:subClassOf org:Site;
@@ -124,7 +101,7 @@ ids:vatID
 	a owl:DatatypeProperty ;
 	rdfs:domain ids:Participant ;
 	rdfs:range xsd:string ;
-	rdfs:label "vat ID"@en ;
+	rdfs:label "VAT ID"@en ;
 	rdfs:comment "The Value Added Tax ID (VAT ID) is used in the EU to clearly identify a company or entity which is liable for Value Added Tax."@en ;
 .
 
@@ -133,6 +110,7 @@ ids:legalForm
 	rdfs:domain ids:Participant ;
 	rdfs:range xsd:string ;
 	rdfs:label "legal form"@en ;
+	rdfs:seeAlso <https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list/> ;
 	rdfs:comment "Legal form of the participant. It is advisable to use an existing standard such as ISO-20275."@en ;
 .
 

@@ -39,13 +39,13 @@ The format of the commit message should be:
 
 ```
 <subject>
- 
+
 <body>
- 
+
 <footer>
 ```
 
-Where 
+Where
 - subject is a short summary of changes
 - body includes motivation for the change and contrasts with previous behavior
 - footer referencing issues, breaking changes etc.
@@ -54,16 +54,16 @@ Here is an example
 
 ```
 a short (50 chars or less) summary of changes
- 
+
 Body of the commit message, a more detailed explanatory text, if necessary.
 Wrap it to about 72 characters or so. In some contexts, the first
 line is treated as the subject of an email and the rest of the text
 as the body. The blank line separating the summary from the body is
 critical (unless you omit the body entirely); tools like rebase
 can get confused if you run the two together.
- 
+
 Further paragraphs come after blank lines.
- 
+
 - Bullet points are okay, too
 - a hyphen is used for the bullet, preceded by a single space, with blank lines in between
 ```
@@ -130,9 +130,14 @@ This enables the power of the `git describe --always --dirty` command, which out
     - Always merge your feature branch into develop using git merge --no-ff
     - BEWARE: Do not execute git config --global --add merge.ff false! Once you have this parameter as a default, it will provoke merge commits even when updating a branch (pull).
 
+### LTS branches
+  - The Long-Term-Support version of the Information Model should be provided on a separate `LTS` branch.  
+  - LTS version may only be changed via pull requests, which contain only bugfixes.
+
 #### Bugfix Branches
 
 - Same procedure as with feature branches. The only difference is the naming policy: `bugfix/bugfixName` (where bugfix name is some descriptive name for the fixed problem, 2 words most, camel case)
+- It should be checked beforehand, if the bugfix affects both Information Model versions (Normal / LTS).
 
 #### Release Branches
 
@@ -151,4 +156,3 @@ This enables the power of the `git describe --always --dirty` command, which out
     - git tag -s vX.Y.Z+1-pre
 - Note: After creating tags, you need to upload them, as well as the changed branches
     - git push --tags; git push origin master; git push origin develop
-

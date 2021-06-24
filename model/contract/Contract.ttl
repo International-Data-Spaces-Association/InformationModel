@@ -4,7 +4,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -13,20 +13,9 @@ ids:Contract
     a owl:Class;
     rdfs:subClassOf odrl:Policy;
     rdfs:label "Contract"@en ;
-    idsm:abstract true;
+
     rdfs:comment "Abstract set of rules governing the usage of a Resource."@en;
-    idsm:validation [
-        idsm:forProperty ids:permission;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:prohibition;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:obligation;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
     # Ensure the parties are set at rule level (i.e. assignee)
 
 ids:ContractAgreement
@@ -35,10 +24,6 @@ ids:ContractAgreement
     rdfs:label "Contract agreement"@en ;
     rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties."@en;
     # End is optional
-    idsm:validation [
-        idsm:forProperty ids:contractStart;
-        idsm:constraint idsm:NotNull;
-    ];
     owl:disjointWith ids:ContractRequest, ids:ContractOffer .
 
 ids:ContractRequest
@@ -79,7 +64,6 @@ ids:contractDate a owl:DatatypeProperty;
 
 # "Datengeber"
 ids:provider a owl:ObjectProperty;
-    idsm:referenceByUri true ;
     rdfs:domain ids:Contract;
     rdfs:range ids:Participant;
     rdfs:label "Provider"@en ;
@@ -87,7 +71,6 @@ ids:provider a owl:ObjectProperty;
 
 # "Datennutzer" .. oder Konsument?
 ids:consumer a owl:ObjectProperty;
-    idsm:referenceByUri true ;
     rdfs:domain ids:Contract;
     rdfs:range ids:Participant;
     rdfs:label "Consumer"@en ;

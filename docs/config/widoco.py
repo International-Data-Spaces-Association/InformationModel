@@ -7,8 +7,8 @@ import re
 from datetime import datetime
 
 
-# Get path to widoco executable jar file and jive credentials from
-# command line or bamboo variabes.
+# Get path to widoco executable jar file and Jive credentials from
+# command line or Bamboo variabes.
 def parse_arguments():
     if len(sys.argv) == 4:
         # Use command line arguments
@@ -87,7 +87,7 @@ def replace_widoco_html_output(filename, text):
 # Remove trailing slahes from html <href> and "id" values. 
 # Slashes are inserted because ids namespace contains them. 
 # They break local referencing inside html file. 
-# workaround until it's otherweise fixed.
+# workaround until it's otherwise fixed.
 
 def remove_ids_trailingslash(filename):
     newHtml = ''

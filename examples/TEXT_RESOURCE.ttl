@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
-@prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
+
 
 data1:
     a ids:TextResource ;
@@ -13,14 +13,14 @@ data1:
     ids:keyword "report", "highway", "statistics", "Europe" ;
 
     # Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ.
-    ids:publisher "<URI of the publisher IDS participant>";
-    ids:sovereign "<URI of the sovereign IDS participant>";
+    ids:publisher <https://internationaldataspaces.org/participant/someParticipant>;
+    ids:sovereign <https://internationaldataspaces.org/participant/someParticipant>;
 
     # Reference to a existing Resource included, definition of "part-whole" hierarchies.
-    ids:resourcePart "<another ids:Resource>";
+    # ids:resourcePart <https://example.org/resources/anotherResource>;
 
-    # Variant of a resource, e.g. translated version
-    ids:variant "<another ids:Resource>";
+    # Variant of a resource, e.g., translated version
+    # ids:variant <https://example.org/resources/variantResource>;
 
     # Temporal period covered by the content of the resource:     2000-01-01 to 2017-12-31
     ids:temporalCoverage [
@@ -47,8 +47,8 @@ data1:
     # Language of resource:         Englisch
     ids:language idsc:EN ;
 
-    # sample of the resource, e.g. web-retrievable or inline content
-    ids:sample "<another ids:Resource>";
+    # sample of the resource, e.g., web-retrievable or inline content
+    # ids:sample <another ids:Resource>;
 
     # Representation of resource:
     # - in Textual form     (TextRepresentation)
@@ -98,11 +98,11 @@ data1:report_doc
 
 data1:offer
     a ids:ContractOffer ;
-    ids:provider part1:JohnDoe ;
+    ids:provider <https://internationaldataspaces.org/participant/someParticipant>;
     ids:contractDocument _:contractReource;
     ids:permission [
         a ids:Permission;
-        ids:assigner part1:JohnDoe ;
+        ids:assigner <https://internationaldataspaces.org/participant/someParticipant>;
 
         # individual target(s)
         ids:target _:foo ;
@@ -138,5 +138,3 @@ _:bar
     ids:fileName "Highway_accident_statistics.doc" ;
     ids:creationDate "2018-12-15T13:20:00Z"^^xsd:dateTimeStamp; ;
 .
-
-part1:JohnDoe a ids:Participant .
