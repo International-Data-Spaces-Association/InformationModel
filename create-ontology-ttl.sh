@@ -59,7 +59,8 @@ ids:
        <https://github.com/HaydarAk> ,
        <https://github.com/jlangkau> ,
        <https://github.com/JohannesLipp> ,
-       <https://github.com/mkollenstart> ;
+       <https://github.com/mkollenstart> ,
+       <https://github.com/lcomet> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
     dct:modified "$(date +%Y-%m-%d)"^^xsd:date ;
@@ -128,6 +129,9 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 .
 <https://github.com/JohannesLipp> a dct:Agent, foaf:Person ;
     foaf:name "Johannes Lipp" ;
+.
+<https://github.com/lcomet> a dct:Agent, foaf:Person ;
+    foaf:name "Lina Molinas Comet" ;
 .
 EOF
     
