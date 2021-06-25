@@ -6,22 +6,22 @@
 # Classes
 # -------
 
-ids:UsageControlEndpoint
+ids:UsageControlComponentEndpoint
     a owl:Class;
-    rdfs:label "Usage policy class"@en ;
-    rdfs:comment "Defined usage control endpoint in the IDS."@en;
+    rdfs:label "Usage Control Component Endpoint class"@en ;
+    rdfs:comment "Defined usage control component endpoints (i.e. PIP, PXP, etc.) in the IDS."@en;
 	.
 
 ids:PxpEndpoint
     a owl:Class;
-    rdfs:subClassOf ids:UsageControlEndpoint;
+    rdfs:subClassOf ids:UsageControlComponentEndpoint;
     rdfs:label "pxp endpoint"@en;
     rdfs:comment "The reference to the endpoint which operates a specific action, URI or reference to an associated PXP interface."@en;
 .
 
 ids:PipEndpoint
     a owl:class;
-    rdfs:subClassOf ids:UsageControlEndpoint;
+    rdfs:subClassOf ids:UsageControlComponentEndpoint;
     rdfs:label "pip endpoint"@en;
     rdfs:comment "Refers to an endpoint which provides a specific piece of information (URI/reference to an associated PIP interface). "@en;
 .
@@ -29,31 +29,16 @@ ids:PipEndpoint
 # Properties
 # ----------
 
-ids:pxpEndpoint
-     a owl:ObjectProperty;
-     rdfs:label "has PXP endpoint"@en;
-     rdfs:domain ids:Action;
-     rdfs:range ids:PxpEndpoint ;
-     rdfs:comment "The reference to the endpoint which operates a specific action, URI or reference to an associated PXP interface."@en;
-.
-
-ids:pipEndpoint a owl:ObjectProperty;
-     rdfs:label "has PIP endpoint"@en;
-     rdfs:domain ids:Constraint;
-     rdfs:range ids:PipEndpoint ;
-     rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en;
-.
-
-ids:InterfaceDescription a owl:ObjectProperty;
+ids:interfaceDescription a owl:ObjectProperty;
      rdfs:label "pxp interface description"@en;
-     rdfs:domain ids:UsageControlEndpoint;
+     rdfs:domain ids:UsageControlComponentEndpoint;
      rdfs:range  xsd:anyURI;
      rdfs:comment "The reference to a URI that provides the interface description of a usage control endpoint."@en;
 .
 
-ids:AccessURI a owl:ObjectProperty;
+ids:accessURI a owl:ObjectProperty;
      rdfs:label "pxp access URI"@en;
-     rdfs:domain ids:UsageControlEndpoint;
+     rdfs:domain ids:UsageControlComponentEndpoint;
      rdfs:range  xsd:anyURI;
      rdfs:comment "The reference to a URI that expresses an exact endpoint of that usage control endpoint."@en;
 .

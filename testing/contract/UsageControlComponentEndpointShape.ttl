@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+
+
+
+shapes:UsageControlComponentEndpointShape
+	a sh:NodeShape ;
+	sh:targetClass ids:UsageControlComponentEndpoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:interfaceDescription ;
+		sh:class xsd:anyURI;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/UsageControlComponentEndpointShape.ttl> (UsageControlComponentEndpointShape): An ids:interfaceDescription property must have at least one point from an ids:UsageControlComponentEndpoint to an xsd:URI."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:accessURI ;
+		sh:class xsd:anyURI ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/UsageControlComponentEndpointShape.ttl> (UsageControlComponentEndpointShape): An ids:accessURI property must not have more than one point from an ids:UsageControlComponentEndpoint to an xsd:URIn."@en ;
+	] ;
+  
+.

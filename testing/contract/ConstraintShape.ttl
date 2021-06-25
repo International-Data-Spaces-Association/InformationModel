@@ -107,6 +107,7 @@ shapes:ConstraintShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:pipEndpoint property must point from an ids:Constraint to an xsd:anyURI."@en ;
 	] ;
+
 .
 
 
@@ -138,26 +139,3 @@ shapes:LogicalConstraintShape
 		) ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one ids:and, ids:or, or ids:xone property must point from an ids:LogicalConstraint to  ids:Constraints."@en ;
 .
-
-shapes:PipEndpointShape
-		a sh:NodeShape ;
-		sh:targetClass ids:PipEndpoint ;
-		sh:property [
-			a sh:PropertyShape ;
-			sh:path ids:pipInterfaceDescription ;
-			sh:nodeKind sh:IRI ;
-			sh:maxCount 1 ;
-			sh:minCount 1 ;
-			sh:severity sh:Violation ;
-			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PipEndpointShape): An ids:pipInterfaceDescription property must point from an ids:PipEndpoint to a unit via a URI."@en ;
-		] ;
-
-		sh:property [
-			a sh:PropertyShape ;
-			sh:path ids:pipAccessURI ;
-			sh:nodeKind sh:IRI ;
-			sh:minCount 0 ;
-			sh:severity sh:Violation ;
-			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PipEndpointShape): An ids:pipAccessURI property must point from an ids:PipEndpoint to an xsd:anyURI."@en ;
-		] ;
-	.

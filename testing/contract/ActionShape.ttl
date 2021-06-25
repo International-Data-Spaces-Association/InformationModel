@@ -33,33 +33,10 @@ shapes:ActionShape
 	] ;
 
 	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:pxpEndpoint ;
-		sh:class ids:Action ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:pxpEndpoint property must have an ids:Action to an ids:PxpEndpoint."@en ;
-	] ;
+ 		a sh:PropertyShape ;
+ 		sh:path ids:pxpEndpoint ;
+ 		sh:class ids:Action ;
+ 		sh:severity sh:Violation ;
+ 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:pxpEndpoint property must have an ids:Action to an ids:PxpEndpoint."@en ;
+ 	] ;
 .
-
-shapes:pxpEndpointShape
-		a sh:NodeShape ;
-		sh:targetClass ids:PxpEndpoint ;
-		sh:property [
-			a sh:PropertyShape ;
-			sh:path ids:pxpInterfaceDescription ;
-			sh:nodeKind sh:IRI ;
-			sh:maxCount 1 ;
-			sh:minCount 1 ;
-			sh:severity sh:Violation ;
-			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PxpEndpointShape): An ids:pxpInterfaceDescription property must point from an ids:PxpEndpoint to a unit via a URI."@en ;
-		] ;
-
-		sh:property [
-			a sh:PropertyShape ;
-			sh:path ids:pxpAccessURI ;
-			sh:nodeKind sh:IRI ;
-			sh:minCount 0 ;
-			sh:severity sh:Violation ;
-			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PxpEndpointShape): An ids:pxpAccessURI property must point from an ids:PxpEndpoint to an xsd:anyURI."@en ;
-		] ;
-	.

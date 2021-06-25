@@ -36,3 +36,11 @@ ids:includedIn
     rdfs:range ids:Action;
     rdfs:comment "The subject transitively asserts the object Action."@en ;
 .
+
+ids:pxpEndpoint
+     a owl:ObjectProperty;
+     rdfs:label "has PXP endpoint"@en;
+     rdfs:domain ids:Action;
+     rdfs:range ids:PxpEndpoint ;
+     rdfs:comment "The reference to the endpoint which operates a specific action, URI or reference to an associated PXP interface."@en;
+.
