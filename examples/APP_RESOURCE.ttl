@@ -10,51 +10,63 @@
     ids:description "Data App for something with data."@en;
     ids:keyword "Data", "processing", "bla" ;
     ids:customLicense <https://www.gnu.org/licenses/gpl-3.0-standalone.html> ;
+
+    # Set by the AppStore as part of the app publication
     ids:resourceEndpoint [
         a ids:ConnectorEndpoint ;
         ids:endpointInformation "This is the default endpoint of the FIT Connector. Used for communication and data exchange.";
         ids:endpointDocumentation <http://someAPIreferenceIRI> ;
-        ids:accessURL <https://connector.fraunhofer.de/httphost> ;
-        ids:endpointArtifact <https://connector.fit.fraunhofer.de/apps/instance/42> ;
-        ids:path "/apps/processor/TrafficImageAnonymization.zip"
+        ids:accessURL <https://connector.fraunhofer.de/httphost/> ;
+        ids:endpointArtifact <https://connector.fit.fraunhofer.de/apps/myApp> ;
     ];
 
     ids:defaultRepresentation [
         a ids:AppRepresentation ;
         ids:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
-        ids:dataAppRuntimeEnvironment "Docker" ;
-		ids:dataAppInformation [
-            a ids:DataApp ;
-            
-			# general app-specific information
-			ids:appDocumentation "App-related human-readable documentation.";
-			ids:dataAppType idsc:SMART_DATA_APP;
+
+        # Set by the AppStore
+        ids:instance <https://connector.fit.fraunhofer.de/apps/myApp> ;
+
+        ids:appRuntimeEnvironment "Docker" ;
+        ids:appInformation [
+		         a ids:App ;
+
+            # general app-specific information
+            ids:appType idsc:SMART_DATA_APP;
+            ids:appDocumentation "App-related human-readable documentation.";
+
+            ids:appContainerSpec "" ;
+            ids:appContainerSpecReference <>
+
             ids:appEnvironmentVariables "$Env1 = environment variable 1, $Env2 = environment variable 2";
-			ids:appStorageConfiguration "1 Docker volume required, e.g., -v /data";
-			
-			# Supprted usage policies of the data app
+      			ids:appStorageConfiguration "1 Docker volume required, e.g., -v /data";
+
+      			# Supprted usage policies of the data app
             ids:supportedUsagePolicies idsc:ALLOW_DATA_USAGE, idsc:SECURITY_LEVEL_RESTRICTED_POLICY;
-			
-			# Endpoint bindings
-			ids:protocolBinding [
-				a ids:EndpointBinding ;
-				ids:apiSpecReference <https://example.org/myOpenAPISpec> ;
-				ids:protocolType idsc:HTTP ;
-				ids:apiSpecVersion "0.1" ;
-				
-				# Reference to sections of the API. Contains JSON refs and the corresponding data app endpoint type.
-				ids:endpointReference [
-					a ids:EndpointReference ;
-					ids:value "#/components/schema/input";
-					ids:appEndpointType idsc:INPUT_ENDPOINT ;
-				] ;
-			];
-		]
-	]	
+
+      			# Endpoint bindings
+      			ids:protocolBinding [
+      				a ids:EndpointBinding ;
+      				ids:apiSpecReference <https://example.org/myOpenAPISpec> ;
+      				ids:protocolType idsc:HTTP ;
+      				ids:apiSpecVersion "0.1" ;
+
+      				# Reference to sections of the API. Contains JSON refs and the corresponding data app endpoint type.
+      				ids:endpointReference [
+      					a ids:EndpointReference ;
+      					ids:value "#/components/schema/input";
+      					ids:appEndpointType idsc:INPUT_ENDPOINT ;
+    				] ;
+  			];
+  		]
+  	]
 .
 
 <https://www.iana.org/assignments/media-types/application/zip> a ids:IANAMediaType .
 
 <https://www.iana.org/assignments/media-types/application/json>  a ids:IANAMediaType .
 
-<https://connector.fit.fraunhofer.de/apps/instance/42> a ids:Artifact .
+<https://connector.fit.fraunhofer.de/apps/myApp> a ids:Artifact ;
+    ids:fileName "myTemplate"@en;
+    ids:byteSize 420;
+.

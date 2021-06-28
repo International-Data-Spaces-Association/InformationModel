@@ -7,16 +7,16 @@
 # Classes
 # -------
 
-ids:DataApp
+ids:App
     a owl:Class;
-    rdfs:label "DataApp"@en;
+    rdfs:label "App"@en;
     rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;
     # TODO: exposes at least one interface
 .
 
 ids:appDocumentation
     a owl:DatatypeProperty ;
-    rdfs:domain ids:DataApp ;
+    rdfs:domain ids:App ;
     rdfs:range xsd:string ;
     rdfs:label "app documentation"@en ;
     rdfs:comment "text documentation of the data app"@en ;
@@ -25,7 +25,7 @@ ids:appDocumentation
 ids:protocolBinding
     a owl:ObjectProperty;
     rdfs:label "protocol binding"@en ;
-    rdfs:domain ids:DataApp;
+    rdfs:domain ids:App;
     rdfs:range ids:EndpointBinding;
     rdfs:comment "Endpoint protocol bindings of a data app"@en ;
 .
@@ -33,27 +33,27 @@ ids:protocolBinding
 ids:appEnvironmentVariables a owl:DatatypeProperty;
     rdfs:label "app environment variables"@en ;
     rdfs:comment "Necessary or optional environment variables of a data app."@en ;
-    rdfs:domain ids:DataApp;
+    rdfs:domain ids:App;
     rdfs:range xsd:string;
 .
 
 ids:appStorageConfiguration a owl:DatatypeProperty;
     rdfs:label "app storage configuration"@en;
     rdfs:comment "Storage configuration of a data app. Value may differ based on the app ecosystem, e.g., a writeable path in the file system or a volume name (e.g., for containerized apps)"@en ;
-    rdfs:domain ids:DataApp;
+    rdfs:domain ids:App;
     rdfs:range xsd:string;
 .
 
 ids:supportedUsagePolicies a owl:ObjectProperty ;
-	rdfs:domain ids:DataApp ;
+	rdfs:domain ids:App ;
 	rdfs:range ids:UsagePolicyClass ;
 	rdfs:label "supported usage policies" @en;
-	rdfs:comment "IDS Usage Policies a DataApp supports"@en;
+	rdfs:comment "IDS Usage Policies a App supports"@en;
 .
 	
-ids:dataAppType a owl:ObjectProperty ;
-	rdfs:domain ids:DataApp ;
-	rdfs:range ids:DataAppType ;
+ids:appType a owl:ObjectProperty ;
+	rdfs:domain ids:App ;
+	rdfs:range ids:AppType ;
 	rdfs:label "data app type"@en;
-	rdfs:comment "The category of the data app. Class ids:DataAppType contains a controlled vocabulary of categories."@en;
+	rdfs:comment "The category of the data app. Class ids:AppType contains a controlled vocabulary of categories."@en;
 .

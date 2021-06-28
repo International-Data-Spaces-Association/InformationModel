@@ -83,13 +83,13 @@ ids:AppRepresentation a owl:Class ;
     rdfs:label "App Representation"@en ;
     rdfs:comment "App representation"@en .
 
-ids:dataAppInformation a owl:ObjectProperty ;
+ids:appInformation a owl:ObjectProperty ;
     rdfs:label "data app information"@en ;
     rdfs:domain ids:AppRepresentation ; 
-    rdfs:range ids:DataApp ;
+    rdfs:range ids:App ;
     rdfs:comment "Information about the concrete data app implementation"@en .
 
-ids:dataAppRuntimeEnvironment a owl:DatatypeProperty;
+ids:appRuntimeEnvironment a owl:DatatypeProperty;
     rdfs:label "data app runtime environment"@en ;
     rdfs:domain ids:AppRepresentation ;
     rdfs:range xsd:string ;
