@@ -16,19 +16,22 @@ shapes:UsageControlComponentEndpointShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:interfaceDescription ;
-		sh:class xsd:anyURI;
+		sh:path ids:endpointDescription ;
+		sh:nodeKind sh:IRI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/UsageControlComponentEndpointShape.ttl> (UsageControlComponentEndpointShape): An ids:interfaceDescription property must have at least one point from an ids:UsageControlComponentEndpoint to an xsd:URI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/UsageControlComponentEndpointShape.ttl> (UsageControlComponentEndpointShape): An ids:endpointDescription property must have exactly one point from an ids:UsageControlComponentEndpoint to an xsd:URI."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:accessURI ;
-		sh:class xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
+		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/UsageControlComponentEndpointShape.ttl> (UsageControlComponentEndpointShape): An ids:accessURI property must not have more than one point from an ids:UsageControlComponentEndpoint to an xsd:URIn."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/UsageControlComponentEndpointShape.ttl> (UsageControlComponentEndpointShape): An ids:accessURI property must have exactly one point from an ids:UsageControlComponentEndpoint to an xsd:URI."@en ;
 	] ;
-  
+
 .
