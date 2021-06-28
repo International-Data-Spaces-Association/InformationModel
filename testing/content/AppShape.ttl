@@ -40,24 +40,6 @@ shapes:AppShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:appDocumentation property must point from an ids:App to a xsd:string."@en ;
 	];
 
-  sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:appStorageConfiguration ;
-		sh:datatype xsd:string ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:appStorageConfiguration property must not have more than one point from an ids:App to an xsd:string."@en;
-		];
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:appEnvironmentVariables ;
-		sh:datatype xsd:string ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:appEnvironmentVariables property must not have more than one point from an ids:App to an xsd:string."@en;
-		];
-
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:appType ;
@@ -78,11 +60,11 @@ shapes:AppShape
 	
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:protocolBinding ;
+		sh:path ids:endpointBinding ;
 		sh:class ids:EndpointBinding ;
 		sh:minCount 1;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:protocolBinding property must point from an ids:App to at least one ids:EndpointBinding."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:endpointBinding property must point from an ids:App to at least one ids:EndpointBinding."@en ;
 	];
 
 .

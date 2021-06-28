@@ -22,26 +22,12 @@ ids:appDocumentation
     rdfs:comment "text documentation of the data app"@en ;
 .
 
-ids:protocolBinding
+ids:endpointBinding
     a owl:ObjectProperty;
-    rdfs:label "protocol binding"@en ;
+    rdfs:label "endpoint binding"@en ;
     rdfs:domain ids:App;
     rdfs:range ids:EndpointBinding;
     rdfs:comment "Endpoint protocol bindings of a data app"@en ;
-.
-
-ids:appEnvironmentVariables a owl:DatatypeProperty;
-    rdfs:label "app environment variables"@en ;
-    rdfs:comment "Necessary or optional environment variables of a data app."@en ;
-    rdfs:domain ids:App;
-    rdfs:range xsd:string;
-.
-
-ids:appStorageConfiguration a owl:DatatypeProperty;
-    rdfs:label "app storage configuration"@en;
-    rdfs:comment "Storage configuration of a data app. Value may differ based on the app ecosystem, e.g., a writeable path in the file system or a volume name (e.g., for containerized apps)"@en ;
-    rdfs:domain ids:App;
-    rdfs:range xsd:string;
 .
 
 ids:supportedUsagePolicies a owl:ObjectProperty ;
@@ -56,4 +42,20 @@ ids:appType a owl:ObjectProperty ;
 	rdfs:range ids:AppType ;
 	rdfs:label "data app type"@en;
 	rdfs:comment "The category of the data app. Class ids:AppType contains a controlled vocabulary of categories."@en;
+.
+
+ids:appContainerSpecReference: 
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:App ;
+    rdfs:range xsd:anyURI ;
+	rdfs:label "api container spec reference"@en ;
+    rdfs:comment "Reference to the container specification of the ids:App, e.g., reference to docker build files."@en ;
+.
+
+ids:appContainerSpec
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:App ;
+    rdfs:range xsd:string ;
+	rdfs:label "api container spec"@en ;
+    rdfs:comment "The container specification of the ids:App, e.g., docker build files. It is recommended to use the ids:appContainerSpecReference property. This property should be used, when it is not possible to refer to a container specification using IRIs."@en ;
 .
