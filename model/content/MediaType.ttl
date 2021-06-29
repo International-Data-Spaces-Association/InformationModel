@@ -3,7 +3,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
 # Classes
@@ -13,9 +12,7 @@ ids:MediaType
     a owl:Class;
     rdfs:subClassOf dct:MediaType ; # *not* restricted to IANA media types
     rdfs:label "Media Type"@en ;
-    rdfs:comment "General class of media types (formerly known as MIME types)."@en ;
-    idsm:usage "ids:CustomMediaType is used only when no ids:IANAMediaType available."@en ;
-    idsm:abstract true;
+    rdfs:comment "General class of media types (formerly known as MIME types). ids:CustomMediaType is used only when no ids:IANAMediaType available."@en ;
     .
 
 ids:CustomMediaType
@@ -32,12 +29,6 @@ ids:IANAMediaType
     rdfs:seeAlso <https://www.iana.org/assignments/media-types/> ; # authoritative IANA list
     rdfs:seeAlso <http://www.sparontologies.net/mediatype/> ; # RDF description of IANA-registered media types
     rdfs:seeAlso <http://dx.doi.org/10.6084/m9.figshare.1608294> ; # downloadable archive of SPAR Media Type ontology
-    idsm:usage "Definition of an ids:IANAMediaType should define individual equivalence to corresponding SPAR-Media Type."@en ;
-    idsm:example
-"""
-    <https://w3id.org/spar/mediatype/text/csv> a ids:IANAMediaType .
-        # the retrieved representation (HTML, turtle, RDF/XML) depends on content negotiation
-""";
     .
 
 # Properties

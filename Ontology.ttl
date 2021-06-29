@@ -37,12 +37,12 @@ ids:
        <https://github.com/mkollenstart> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
-    dct:modified "2020-08-10"^^xsd:date ;
-    owl:versionInfo "4.0.0" ;
-    owl:versionIRI <https://w3id.org/idsa/core/4.0.0> ;
+    dct:modified "2021-06-17"^^xsd:date ;
+    owl:versionInfo "4.1.0" ;
+    owl:versionIRI <https://w3id.org/idsa/core/4.1.0> ;
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/" ;
     vann:preferredNamespacePrefix "ids" ;
-    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+    rdfs:seeAlso <https://international-data-spaces-association.github.io/InformationModel/> ;
     void:vocabulary
        vann: ,
        void: ,
@@ -132,6 +132,7 @@ ids:
     owl:imports <model/contract/Contract.ttl> ;
     owl:imports <model/contract/LeftOperand.ttl> ;
     owl:imports <model/contract/Rule.ttl> ;
+    owl:imports <model/contract/UsagePolicyClass.ttl> ;
     owl:imports <model/governance/Certification.ttl> ;
     owl:imports <model/governance/License.ttl> ;
     owl:imports <model/infrastructure/AppStore.ttl> ;
@@ -145,6 +146,7 @@ ids:
     owl:imports <model/infrastructure/InfrastructureComponent.ttl> ;
     owl:imports <model/infrastructure/ParIS.ttl> ;
     owl:imports <model/infrastructure/PublicKey.ttl> ;
+    owl:imports <model/participant/BusinessIdentifier.ttl> ;
     owl:imports <model/participant/Participant.ttl> ;
     owl:imports <model/security/AuthInfo.ttl> ;
     owl:imports <model/security/AuthStandard.ttl> ;
@@ -158,9 +160,6 @@ ids:
     owl:imports <model/traceability/ConnectorStatus.ttl> ;
     owl:imports <model/traceability/LogLevel.ttl> ;
     owl:imports <model/traceability/ManagedEntity.ttl> ;
-    owl:imports <metamodel/Annotation.ttl> ;
-    owl:imports <metamodel/Validation.ttl> ;
-    owl:imports <metamodel/View.ttl> ;
     owl:imports <taxonomies/Certification.ttl> ;
     owl:imports <taxonomies/Contract.ttl> ;
     owl:imports <taxonomies/Message.ttl> ;
@@ -187,4 +186,5 @@ ids:
     owl:imports <codes/RequestTemplate.ttl> ;
     owl:imports <codes/SecurityGuarantee.ttl> ;
     owl:imports <codes/TokenFormat.ttl> ;
+    owl:imports <codes/UsagePolicyClass.ttl> ;
 . 

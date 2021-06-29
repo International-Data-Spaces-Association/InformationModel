@@ -1,0 +1,76 @@
+{
+   "@context": {
+    "ids": "https://w3id.org/idsa/core/",
+    "idsc": "https://w3id.org/idsa/code/",
+    "part1": "https://im.internationaldataspaces.org/participant/part1",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type" : "ids:TrustedConnector",
+  "@id" : "https://connector.fit.fraunhofer.de/",
+  "ids:title" : [ {
+    "@value" : "Fraunhofer FIT - Traffic statistics hub",
+    "@language" : "en"
+      } ],
+  "ids:description" : [ {
+    "@value" : "Example Trusted Connector maintained by the Fraunhofer FIT" ,
+    "@language" : "en"
+    } ],
+  "ids:maintainer" : {"@id": "https://www.fit.fraunhofer.de"},
+  "ids:curator" :  {"@id": "https://www.fit.fraunhofer.de"},
+  "ids:inboundModelVersion" : "4.1.0",
+  "ids:outboundModelVersion" : "4.1.0",
+  "ids:authInfo" : [{
+    "@type" : "ids:AuthInfo",
+    "ids:authService" : {
+        "@id" : "https://keycloak.aastat.gov.de"
+    },
+    "ids:authStandard" : {
+        "@id" :  "https://w3id.org/idsa/code/OAUTH2_JWT"
+    }
+  }],
+  "ids:securityProfile" : {
+    "@id" : "https://w3id.org/idsa/code/TRUST_PLUS_SECURITY_PROFILE"
+  },
+	"ids:hasDefaultEndpoint": {
+      "@type": "ids:ConnectorEndpoint",
+      "ids:accessURL": {
+        "@id": "https://aastat.gov.de/broker/infrastructure"
+      },
+      "ids:endpointDocumentation": {
+        "@id": "http://IRItoSomeAPIdocumentation"
+      },
+      "ids:endpointInformation": "This is the default endpoint of the Broker.",
+      "ids:inboundPath": "/input",
+      "ids:outboundPath": "/output"
+	  },
+  "ids:componentCertification" : [{
+    "@type" : "ids:ComponentCertification",
+    "ids:certificationLevel" : {
+        "@id" : "https://w3id.org/idsa/code/COMPONENT_TRUSTPLUS_SECURITY_PROFILE_HIGH_ASSURANCE_EVALUATION"
+        },
+    "ids:lastValidDate" : {
+        "@value": "2020-12-31T12:00:00.000+02:00",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+    }
+  }],
+
+  "ids:resourceCatalog" : {
+    "@type" : "ids:ResourceCatalog",
+    "ids:offeredResource" : [ {
+      "@type" : "ids:DataResource",
+      "ids:representation" : [ {
+        "@type" : "ids:DataRepresentation",
+        "ids:instance" : [ {
+          "@type" : "ids:Artifact",
+          "ids:byteSize" : 0,
+          "@id" : "https://connector.fit.fraunhofer.de/artifactID"
+        } ],
+        "@id" : "https://connector.fit.fraunhofer.de/autogen/dataRepresentation/e1ff4338-5844-4d2e-934e-668ae8fa070c"
+      } ],
+      "@id" : "https://connector.fit.fraunhofer.de/autogen/dataResource/a1247d97-fa1d-4fb4-b22f-590b2f53fa6e"
+    } ],
+    "@id" : "https://connector.fit.fraunhofer.de/catalog/dafa31e1-ec72-4fa8-b1a1-53f22de508e4"
+  }
+}

@@ -3,7 +3,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -11,10 +11,7 @@
 ids:AuthInfo a owl:Class;
     rdfs:label "AuthInfo"@en ;
     rdfs:comment "Holds authentication information so that connections to the Connector's data offerings can be establised."@en;
-    idsm:validation [
-        idsm:forProperty ids:authService;
-        idsm:constraint idsm:NotNull;
-    ].
+.
 
 # Properties
 # ----------

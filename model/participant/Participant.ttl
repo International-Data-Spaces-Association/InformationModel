@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -15,39 +15,20 @@ ids:Agent
     a owl:Class;
     rdfs:subClassOf ids:Described, odrl:Party, foaf:Agent ;# odrl:Party makes it a reliable party in contracting
     rdfs:label "Agent"@en;
-    rdfs:comment "Internal or external Agent interacting with the Industrial Data Space, not necessarily an IDS Participant."@en.
+    rdfs:comment "Internal or external Agent interacting with the International Data Spaces, not necessarily an IDS Participant."@en.
 
 ids:Participant
     a owl:Class;
     rdfs:subClassOf ids:Agent, ids:ManagedEntity, org:Organization; # foaf:Organization is implied
     rdfs:label "Participant"@en;
-    rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
-    idsm:validation [
-        idsm:forProperty ids:memberPerson;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:memberParticipant;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:corporateEmailAddress;
-        idsm:relationType idsm:OneToMany;
-    ];
+    rdfs:comment "Stakeholder in the International Data Spaces, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
 .
 
 ids:Person rdfs:subClassOf foaf:Person;
     a owl:Class;
     rdfs:label "Person"@en;
     rdfs:comment "The class of persons (people)"@en;
-    idsm:validation [
-        idsm:forProperty ids:phoneNumber;
-        idsm:relationType idsm:OneToMany;
-    ];
-    idsm:validation [
-        idsm:forProperty ids:emailAddress;
-        idsm:relationType idsm:OneToMany;
-    ].
+.
 
 ids:Site a owl:Class;
     rdfs:subClassOf org:Site;
@@ -56,6 +37,14 @@ ids:Site a owl:Class;
 
 # Properties for describing a Participant
 # ---------------------------------------
+
+ids:legalName
+	a owl:DatatypeProperty ;
+	rdfs:domain ids:Participant ;
+	rdfs:range xsd:string ;
+	rdfs:label "legal name"@en;
+	rdfs:comment "The complete legal name of a Participant. Unlike the title property for the participant which refers to the commonly used name or term for the Participant, a legal name identifies a participant for legal, administrative and other official purposes."@en ;
+	.
 
 ids:primarySite rdfs:subPropertyOf org:hasPrimarySite;
     a owl:ObjectProperty;
@@ -85,14 +74,12 @@ ids:memberParticipant rdfs:subPropertyOf org:hasMember;
     rdfs:label "member participant"@en;
     rdfs:comment "Indicates that a participant has a member which is again a participant. This is useful for defining hierarchical relations in a participant's organization as well as identifying groups of participants to capture, e.g., members of a collaboration."@en.
 
-
-    ids:participantCertification
-        a owl:ObjectProperty;
-        rdfs:label "participant certification"@en;
-        rdfs:domain ids:Participant;
-        rdfs:range ids:ParticipantCertification;
-        rdfs:comment "Certification issued for the given Participant."@en.
-
+ids:participantCertification
+	a owl:ObjectProperty;
+	rdfs:label "participant certification"@en;
+	rdfs:domain ids:Participant;
+	rdfs:range ids:ParticipantCertification;
+	rdfs:comment "Certification issued for the given Participant."@en.
 
 ids:participantRefinement
     a owl:ObjectProperty;
@@ -100,6 +87,39 @@ ids:participantRefinement
     rdfs:domain ids:Participant ;
     rdfs:range ids:AbstractConstraint ;
     rdfs:comment "Conditions which needs to be satisfied that a single Participant can be seen as a member of the subject Participant. For instance, all Participants with their headquarter in Europe might be a potential consumer of GDPR-releated data."@en;
+.
+
+ids:businessIdentifier
+	a owl:ObjectProperty ;
+	rdfs:domain ids:Participant ;
+	rdfs:range ids:BusinessIdentifier ;
+	rdfs:label "has business identifier"@en;
+	rdfs:comment "Company identifiers, described via ids:BusinessIdentifier."@en ;
+	.
+	
+ids:vatID
+	a owl:DatatypeProperty ;
+	rdfs:domain ids:Participant ;
+	rdfs:range xsd:string ;
+	rdfs:label "VAT ID"@en ;
+	rdfs:comment "The Value Added Tax ID (VAT ID) is used in the EU to clearly identify a company or entity which is liable for Value Added Tax."@en ;
+.
+
+ids:legalForm
+	a owl:DatatypeProperty ;
+	rdfs:domain ids:Participant ;
+	rdfs:range xsd:string ;
+	rdfs:label "legal form"@en ;
+	rdfs:seeAlso <https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list/> ;
+	rdfs:comment "Legal form of the participant. It is advisable to use an existing standard such as ISO-20275."@en ;
+.
+
+ids:jurisdiction 
+	a owl:DatatypeProperty ;
+	rdfs:domain ids:Participant ;
+	rdfs:range xsd:string ;
+	rdfs:label "legal form"@en ;
+	rdfs:comment "jurisdiction / court which is responsible for the entity. The use of existing standards such as ISO 3166-2 is recommended."@en ;
 .
 
 

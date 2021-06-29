@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -12,27 +12,6 @@
 ids:UsageControlObject a owl:Class;
            rdfs:label "Usage Control Object"@en;
            rdfs:comment "A data element containing all relevant information for usage control engines."@en;
-           idsm:validation [
-               idsm:forProperty ids:data;
-               idsm:constraint idsm:NotNull;
-           ];
-           idsm:validation [
-               idsm:forProperty ids:contract;
-               idsm:constraint idsm:NotEmpty;
-               idsm:relationType idsm:OneToMany;
-           ] ;
-           idsm:validation [
-               idsm:forProperty ids:created;
-               idsm:constraint idsm:NotNull;
-           ] ;
-           idsm:validation [
-               idsm:forProperty ids:action ;
-               idsm:relationType idsm:OneToMany;
-           ] ;
-           idsm:validation [
-               idsm:forProperty ids:hasState;
-               idsm:relationType idsm:OneToMany;
-           ] ;
            .
 
  # Properties
@@ -81,12 +60,13 @@ ids:UsageControlObject a owl:Class;
          rdfs:comment "Last read or write access."@en ;
  .
 
- ids:action a owl:ObjectProperty;
-         rdfs:label "applied actions"@en;
-         rdfs:domain ids:UsageControlObject;
-         rdfs:range ids:Action ;
-         rdfs:comment "The sequence of executed actions on the data object. Must be an element of ids:Action."@en ;
- .
+ # united with ids:action of the ids:Rule class.
+ # ids:action a owl:ObjectProperty;
+ #        rdfs:label "applied actions"@en;
+ #        rdfs:domain ids:UsageControlObject;
+ #        rdfs:range ids:Action ;
+ #        rdfs:comment "The sequence of executed actions on the data object. Must be an element of ids:Action."@en ;
+ #.
 
  ids:hasState a owl:ObjectProperty;
          rdfs:label "has state"@en;

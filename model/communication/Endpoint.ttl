@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 
 # Classes
 # -------
@@ -12,15 +12,6 @@
 ids:Endpoint a owl:Class ;
     rdfs:label "Endpoint"@en ;
     rdfs:comment "Access point of data exchange, service interaction and service description."@en ;
-    idsm:validation [
-                        idsm:forProperty ids:endpointInformation;
-                        idsm:relationType idsm:OneToMany ;
-                    ];
-    idsm:validation [
-                        idsm:forProperty ids:endpointDocumentation;
-                        idsm:relationType idsm:OneToMany ;
-                    ];
-    
 .
 
 ids:ConnectorEndpoint
@@ -28,10 +19,6 @@ ids:ConnectorEndpoint
     rdfs:subClassOf ids:Endpoint ;
     rdfs:label "Connector Endpoint"@en ;
     rdfs:comment "Connector-specific endpoint exposing Artifacts."@en ;
-    idsm:validation [
-                        idsm:forProperty ids:accessUrl;
-                        idsm:constraint idsm:NotNull;
-                    ];
         .
 
 ids:AppEndpoint
@@ -39,10 +26,6 @@ ids:AppEndpoint
     rdfs:subClassOf ids:Endpoint ;
     rdfs:label "DataApp Endpoint"@en ;
     rdfs:comment "Description of endpoints a DataApp offers."@en ;
-    idsm:validation [
-                        idsm:forProperty ids:appEndpointType;
-                        idsm:constraint idsm:NotNull ;
-                    ];
 .
 
 ids:AppEndpointType
@@ -50,6 +33,14 @@ ids:AppEndpointType
     rdfs:label "App endpoint type"@en ;
     rdfs:comment "Class of endpoint types a data app offers."@en ;
 .
+
+ids:GenericEndpoint
+    a owl:Class ;
+    rdfs:subClassOf ids:Endpoint ;
+    rdfs:label "Generic Endpoint"@en ;
+    rdfs:comment "Generic endpoints describe non-IDS-specific endpoints, e.g., to integrate external services."@en ;
+.
+
 
 # Properties
 # -------
@@ -76,7 +67,7 @@ ids:endpointDocumentation
     rdfs:domain ids:Endpoint ;
     rdfs:range xsd:anyURI ;
     rdfs:label "endpoint documentation"@en ;
-    rdfs:comment "IRI reference to a documentation of the endpoint,  e.g., reference to an OpenAPI-based documentation."@en ;
+    rdfs:comment "IRI reference to a documentation of the endpoint, e.g., reference to an OpenAPI-based documentation."@en ;
 .
 
 ids:endpointArtifact
@@ -98,14 +89,14 @@ ids:inboundPath
     rdfs:label "inbound topic"@en;
     rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Relative path used for inbound communication via this endpoint, i.e. input messages and faults only."@en.
+    rdfs:comment "Relative path used for inbound communication via this endpoint, i.e., input messages and faults only."@en.
 
 ids:outboundPath
     a owl:DatatypeProperty;
     rdfs:label "outbound topic"@en;
     rdfs:domain ids:Endpoint;
     rdfs:range xsd:string;
-    rdfs:comment "Relative path used for outbound communication via this endpoint, i.e. output messages and faults only."@en.
+    rdfs:comment "Relative path used for outbound communication via this endpoint, i.e., output messages and faults only."@en.
 
 
 ids:appEndpointType
@@ -130,4 +121,28 @@ ids:appEndpointMediaType
     rdfs:range ids:MediaType ;
     rdfs:label "app endpoint media type"@en ;
     rdfs:comment "Mediatype, such as IANA types, of the data an endpoint expects or returns ."@en ;
+.
+
+ids:genericEndpointAuthentication
+	a owl:ObjectProperty ;
+	rdfs:domain ids:GenericEndpoint ;
+	rdfs:range ids:BasicAuthentication ;
+	rdfs:label "generic endpoint authentication"@en ;
+    rdfs:comment "Authentication credentials for generic endpoints. "@en ;
+.
+
+ids:genericEndpointConfiguration
+	a owl:DatatypeProperty ;
+	rdfs:domain ids:GenericEndpoint ;
+	rdfs:range xsd:string ;
+	rdfs:label "generic endpoint configuration"@en ;
+    rdfs:comment "Endpoint-specific configuration details (e.g., contents of a config file) used for the endpoint."@en ;
+.
+
+ids:appEndpointProtocol
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "app endpoint protocol"@en ;
+    rdfs:comment "Protocol used to communicate with the app endpoint."@en ;
 .
