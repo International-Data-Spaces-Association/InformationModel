@@ -53,7 +53,6 @@ shapes:AppShape
 		a sh:PropertyShape ;
 		sh:path ids:supportedUsagePolicies ;
 		sh:class ids:UsagePolicyClass ;
-		sh:minCount 1;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:supportedUsagePolicies property must point from an ids:App to at least one ids:UsagePolicyClass."@en ;
 	];
@@ -67,4 +66,33 @@ shapes:AppShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:endpointBinding property must point from an ids:App to at least one ids:EndpointBinding."@en ;
 	];
 
+	sh:xone (
+		[
+		sh:property [
+			a sh:PropertyShape ;
+			sh:path ids:appContainerSpec ;
+			sh:or (
+					  [
+						  sh:datatype xsd:string ;
+					  ]
+					  [
+						  sh:datatype rdf:langString ;
+					  ]
+				  );
+			sh:severity sh:Violation ;
+			sh:maxCount 1 ;
+			sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:appContainerSpec property must point from an ids:App to a xsd:string."@en ;
+			]
+		]
+		[
+		sh:property [
+				a sh:PropertyShape ;
+				sh:path ids:appContainerSpecReference ;
+				sh:nodeKind sh:IRI ;
+				sh:severity sh:Violation ;
+				sh:maxCount 1 ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AppShape.ttl> (AppShape): An ids:appContainerSpecReference property must point from an ids:App to a IRI."@en ;
+			]
+		]
+		);
 .
