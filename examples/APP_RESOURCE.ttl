@@ -23,18 +23,18 @@
     ids:defaultRepresentation [
         a ids:AppRepresentation ;
         ids:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
-
+		
         # Set by the AppStore
         ids:instance <https://connector.fit.fraunhofer.de/apps/myApp> ;
 
         ids:appRuntimeEnvironment "Docker" ;
         ids:appInformation [
 			a ids:App ;
-
+			
             # general app-specific information
             ids:appType idsc:SMART_DATA_APP;
             ids:appDocumentation "App-related human-readable documentation.";
-            ids:appContainerSpecReference <http://someIRI> ;
+            ids:appContainerSpecReference <http://some-IRI-reference> ;
 			
 			# Supprted usage policies of the data app
             ids:supportedUsagePolicies idsc:ALLOW_DATA_USAGE, idsc:SECURITY_LEVEL_RESTRICTED_POLICY;
@@ -62,6 +62,6 @@
 <https://www.iana.org/assignments/media-types/application/json>  a ids:IANAMediaType .
 
 <https://connector.fit.fraunhofer.de/apps/myApp> a ids:Artifact ;
-    ids:fileName "myTemplate"@en;
+    ids:fileName "myTemplate";
     ids:byteSize 420;
 .
