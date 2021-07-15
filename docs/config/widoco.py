@@ -97,11 +97,18 @@ def get_files_from_repository ():
         
         # Use files we got from the repository and generate documentation, update the corresponding files based on the ontology version
         generate_documentation(ontology_version, ontology_previous_version, path_indexen_file, path_provenance_folder, path_index_file, ontology_latest_version)
-
+        # Update the link to the previous version ontology to point correctly to the documentation
+        update_previous_version_information_link(ontology_version, ontology_previous_version)
+        # Keep documentation of the latest version of the ontology at /docs level
+        keep_latest_version(ontology_latest_version)
+        
+        
+        
 # Run widoco and generate documentation for the last three versions of the ontology
 def generate_documentation(ontology_version, ontology_previous_version, path_indexen_file, path_provenance_folder, path_index_file, ontology_latest_version):
     update_config_information(ontology_version)
     update_version_information(ontology_version)
+    # Update previous version information pointing to the ontology.xml file
     update_previous_version_information(ontology_version, ontology_previous_version)
     update_revision_information(ontology_version)
 
@@ -120,9 +127,6 @@ def generate_documentation(ontology_version, ontology_previous_version, path_ind
     clean_up_ontology_serialization_owl_imports(ontology_version)
     rename_index_file(path_provenance_folder, path_indexen_file, path_index_file)
     remove_ids_trailingslash('crossref-en.html', ontology_version)
-
-    # Keep documentation of the latest version of the ontology at /docs level
-    keep_latest_version(ontology_latest_version)
     
 # Copy latest version of documentation to documentation root level
 def keep_latest_version(ontology_latest_version):
@@ -197,17 +201,35 @@ def update_version_information(ontology_version):
 # Update previous version of the URI in config file.
 def update_previous_version_information(ontology_version, previous_version):
     previous_version_config = ''
-    onto_previous_version = previous_version.replace('.','')
+    onto_previous_version = previous_version
     with open('../'+ontology_version+'/config/config.properties', 'r') as fp:
         for line in fp:
             if line.startswith('previousVersionURI'):
-                previous_version_config += 'previousVersionURI=https://w3id.org/idsa/core-' + onto_previous_version + '\n'
+                previous_version_config += 'previousVersionURI=https://international-data-spaces-association.github.io/InformationModel/docs/'+ onto_previous_version +'/serializations/ontology.xml' + '\n'
+                
                 continue
 
             previous_version_config += line
             
     with open('../'+ontology_version+'/config/config.properties', 'w') as fp:
         fp.write(previous_version_config)
+    return
+
+# Update previous version of the URI in config file
+def update_previous_version_information_link(ontology_version, previous_version):
+    previous_version_config = ''
+    onto_previous_version = previous_version.replace('.','')
+    with open('../'+ontology_version+'/index.html', 'r') as fp:
+        for line in fp:
+            if line.startswith('<dd><a href="https://international-data-spaces-association.github.io/InformationModel/docs'):
+                previous_version_config += '<dd><a href="https://w3id.org/idsa/core-' + onto_previous_version + '">https://w3id.org/idsa/core-'+ onto_previous_version +'</a></dd>'+'\n'
+                continue
+
+            previous_version_config += line
+            
+    with open('../'+ontology_version+'/index.html', 'w') as fp:
+        fp.write(previous_version_config)
+        fp.truncate()
     return
 
 # Update revision number in config file.
@@ -463,7 +485,7 @@ def edit_readme(ontology_version):
 
 # Move the generated ontology files into the serialization folder.
 def move_ontology_files(ontology_version):
-    for data_format in ['.nt', '.ttl', '.xml', '.json']:
+    for data_format in ['.nt', '.ttl', '.xml', '.json', '.rdf', '.n3', '.jsonld']:
         if os.path.exists('../'+ontology_version+'/ontology' + data_format):
             shutil.move('../'+ontology_version+'/ontology' + data_format, '../'+ontology_version+'/serializations/ontology' + data_format)
 
@@ -472,7 +494,7 @@ def replace_ontology_download_link(path_indexen_file):
     with open(path_indexen_file) as fp:
         text = fp.read()
 
-    for data_format in ['.nt', '.ttl', '.xml', '.json']:
+    for data_format in ['.nt', '.ttl', '.xml', '.json', '.rdf', '.n3', '.jsonld']:
         text = text.replace('ontology' + data_format, 'serializations/' + 'ontology' + data_format)
 
     with open(path_indexen_file, 'w') as fp:
