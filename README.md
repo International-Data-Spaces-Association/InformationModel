@@ -93,7 +93,9 @@ For automated validation of the Information Model POJOs (via the builder classes
 
 - A high-level conceptual specification is given as a part of the IDS Reference Architecture Model ([current version 3.0](https://www.internationaldataspaces.org/publications/reference-architecture-model-3-0/) of 2019; see section 3.4).
 
-- [Webinar of November 2018, giving a technical overview of the Information Model](https://www.internationaldataspaces.org/wp-content/uploads/2019/07/IDS-Information-Model.pdf)
+- Webinars
+  - IDSA Tech Talk of September 2020, giving a high-level intro to version 4.0: [slides](https://www.internationaldataspaces.org/wp-content/uploads/2020/09/2020-09-03-Tech-Talk-Infomodel.pdf), [video](https://www.youtube.com/watch?v=V1WvJkaHQJ0&feature=emb_title)
+  - [Webinar of November 2018, giving a technical overview of the Information Model](https://www.internationaldataspaces.org/wp-content/uploads/2019/07/IDS-Information-Model.pdf)
 
 For members of the International Data Spaces Association only:
 - [Working document](https://industrialdataspace.jiveon.com/docs/DOC-1817), explaining
