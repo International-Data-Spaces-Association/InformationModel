@@ -57,6 +57,13 @@ ids:contractOffer
     rdfs:label "contract offer"@en;
     rdfs:comment "Reference to a Contract Offer defining the authorized use of the Resource."@en.
 
+ids:paymentModality
+    a owl:ObjectProperty;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:PaymentModality;
+    rdfs:label "payment modality"@en;
+    rdfs:comment "Various pricing modalities such as idsc:FREE, idsc:FIXED_PRICE and idsc:NEGOTIATION_BASIS can be used as a pre-selection to annotate the terms of the contract. Depending on the requirements, additional free text information can be attached."@en.
+
 ids:publisher
     a owl:ObjectProperty ;
     rdfs:subPropertyOf dct:publisher ;
