@@ -52,24 +52,7 @@ shapes:ResponseMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
-
-shapes:CommandMessageShape
-	a sh:NodeShape ;
-	sh:targetClass ids:CommandMessage ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (CommandMessageShape): An ids:CommandMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:CommandMessage)
-			}
-		""" ;
-	] .
-
+	
 
 shapes:QueryMessageShape
 	a sh:NodeShape ;
