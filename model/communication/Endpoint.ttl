@@ -41,7 +41,11 @@ ids:GenericEndpoint
     rdfs:comment "Generic endpoints describe non-IDS-specific endpoints, e.g., to integrate external services."@en ;
 .
 
-
+ids:IdsProtocolSpecification
+    a  owl:Class ;
+    rdfs:label "Protocol Specification" ;
+    rdfs:comment  "List of all defined Protocol Specifications, for instance IDS-CP or IDS over Multipart."@en ;
+.
 # Properties
 # -------
 
@@ -98,6 +102,12 @@ ids:outboundPath
     rdfs:range xsd:string;
     rdfs:comment "Relative path used for outbound communication via this endpoint, i.e., output messages and faults only."@en.
 
+ids:apiSpecifiation  a  owl:ObjectProperty  ;
+     rdfs:label "follows API specification" ;
+     rdfs:comment  "Declares which endpoint specification is supported by this IDS endpoint." ;
+     rdfs:domain  ids:Endpoint ;
+     rdfs:range   ids:IdsProtocolSpecification ;
+.
 
 ids:appEndpointType
     a owl:ObjectProperty ;
