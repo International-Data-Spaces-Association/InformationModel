@@ -127,3 +127,23 @@ shapes:SoftwareResourceShape
                     sh:message "<https://raw.githubusercontent.com/International-Software-Spaces-Association/InformationModel/master/testing/taxonomoies/ResourceShape.ttl> (SoftwareResourceShape): An ids:defaultRepresentation property must point from an ids:SoftwareResource to an ids:SoftwareRepresentation."@en ;
                 ] ;
 .
+
+shapes:AppResourceShape
+    a sh:NodeShape;
+    sh:targetClass ids:AppResource;
+    sh:property [
+                    a sh:PropertyShape ;
+                    sh:path ids:representation ;
+                    sh:class ids:AppRepresentation ;
+                    sh:severity sh:Violation ;
+                    sh:message "<https://raw.githubusercontent.com/International-Software-Spaces-Association/InformationModel/master/testing/taxonomoies/ResourceShape.ttl> (AppResourceShape): An ids:representation property must point from an ids:AppResourceShape to an ids:AppRepresentation."@en ;
+                ] ;
+
+    sh:property [
+                    a sh:PropertyShape ;
+                    sh:path ids:defaultRepresentation ;
+                    sh:class ids:ImageRepresentation ;
+                    sh:severity sh:Violation ;
+                    sh:message "<https://raw.githubusercontent.com/International-Software-Spaces-Association/InformationModel/master/testing/taxonomoies/ResourceShape.ttl> (AppResourceShape): An ids:defaultRepresentation property must point from an ids:AppResource to an ids:AppRepresentation."@en ;
+                ] ;
+.
