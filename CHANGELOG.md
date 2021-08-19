@@ -11,7 +11,7 @@ Pre-release version 4.2.0 of the IDS Information Model
 
 * Class `ids:PaymentModality` and property `ids:paymentModality` to document pricing modalities (free/ Fixed price/ negotiation basis). Property is directly attached to the `ids:Resource`.
 * Title (`ids:title`) and description (`ids:description`) properties for `ids:Representation`.
-
+* Shapes for AppResources
 
 ## [4.1.0] 2021-05-26
 Version 4.1.0 of the IDS Information Model
