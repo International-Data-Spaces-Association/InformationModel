@@ -30,10 +30,10 @@ shapes:ParticipantShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:primarySite ;
-		sh:class ids:Site ;
+		sh:class org:hasPrimarySite ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:Participant must not have more than one ids:Site linked through the ids:primarySite property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:Participant must not have more than one org:hasPrimarySite linked through the ids:primarySite property"@en ;
 	] ;
 
 	sh:property [
@@ -180,7 +180,7 @@ shapes:PersonShape
 
 shapes:SiteShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Site ;
+	sh:targetClass org:hasPrimarySite ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -188,5 +188,5 @@ shapes:SiteShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must not have more than one point from an ids:Site to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (SiteShape): An ids:siteAddress property must not have more than one point from an org:hasPrimarySite to an xsd:string."@en ;
 	] .

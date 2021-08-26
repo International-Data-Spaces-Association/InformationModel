@@ -1,5 +1,6 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix part2: <https://im.internationaldataspaces.org/participant/part2> .
 
@@ -11,7 +12,7 @@ part2:
     ids:corporateHomepage <http://app4traffic.de> ;
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275. <https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list/>
 	ids:primarySite [
-        a ids:Site ;
+        a org:hasPrimarySite ;
         ids:siteAddress "App4Traffic GmbH, Am Rheinufer 7, D-53127 Bonn" ;
     ] ;
     ids:participantCertification [

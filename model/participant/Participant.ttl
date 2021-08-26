@@ -18,11 +18,6 @@ ids:Participant
     rdfs:comment "Stakeholder in the International Data Spaces, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
 .
 
-ids:Site a owl:Class;
-    rdfs:subClassOf org:Site;
-    rdfs:label "Site"@en;
-    rdfs:comment "An office or other premise at which the organization is located"@en.
-
 # Properties for describing a Participant
 # ---------------------------------------
 
@@ -38,7 +33,7 @@ ids:primarySite rdfs:subPropertyOf org:hasPrimarySite;
     a owl:ObjectProperty;
     rdfs:label "primarySite"@en;
     rdfs:domain ids:Participant;
-    rdfs:range ids:Site;
+    rdfs:range org:hasPrimarySite;
     rdfs:comment "Indicates a primary site for the Organization, this is the default means by which an Organization can be contacted and is not necessarily the formal headquarters."@en.
 
 ids:corporateEmailAddress rdfs:subPropertyOf foaf:mbox;
@@ -163,7 +158,7 @@ ids:siteAddress
     # rdfs:subPropertyOf org:siteAddress;
     # a owl:ObjectProperty;
     a owl:DatatypeProperty ;
-    rdfs:domain ids:Site;
+    rdfs:domain org:hasPrimarySite;
     rdfs:range xsd:string;
     rdfs:label "site address"@en;
     rdfs:comment "Indicates an address for the site."@en.

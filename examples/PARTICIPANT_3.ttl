@@ -1,4 +1,5 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix part3: <https://im.internationaldataspaces.org/participant/part3> .
@@ -11,7 +12,7 @@ part3:
     ids:corporateHomepage <http://www.supercargo.de> ;
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275. <https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list/>
 	ids:primarySite [
-        a ids:Site ;
+        a org:hasPrimarySite ;
         ids:siteAddress "Supercargo Gmbh, Musterstraße 5, Köln, Deutschland" ;
     ] ;
     ids:participantCertification [
@@ -32,7 +33,7 @@ part3:ru
     # ids:industrialClassification?
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275 
 	ids:primarySite [
-        a ids:Site ;
+        a org:hasPrimarySite ;
         ids:siteAddress "Supercargo OOO, Yлица пример 120, Москва, Россия" ;
     ]
     .
@@ -46,7 +47,7 @@ part3:hk
     # ids:industrialClassification?
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275 
 	ids:primarySite [
-        a ids:Site ;
+        a org:hasPrimarySite ;
         ids:siteAddress "Sample Road 15c, Hongkong" ;
     ]
     .
