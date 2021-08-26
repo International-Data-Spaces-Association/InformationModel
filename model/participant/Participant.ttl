@@ -18,12 +18,6 @@ ids:Participant
     rdfs:comment "Stakeholder in the International Data Spaces, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en;
 .
 
-ids:Person rdfs:subClassOf foaf:Person;
-    a owl:Class;
-    rdfs:label "Person"@en;
-    rdfs:comment "The class of persons (people)"@en;
-.
-
 ids:Site a owl:Class;
     rdfs:subClassOf org:Site;
     rdfs:label "Site"@en;
@@ -123,41 +117,41 @@ ids:jurisdiction
 ids:memberPerson rdfs:subPropertyOf org:hasMember;
     a owl:ObjectProperty;
     rdfs:domain ids:Participant;
-    rdfs:range ids:Person;
+    rdfs:range foaf:Person;
     rdfs:label "memberPerson"@en;
     rdfs:comment "Indicates membership of a person to an organization."@en.
 
 ids:familyName rdfs:subPropertyOf foaf:familyName;
     a owl:DatatypeProperty;
-    rdfs:domain ids:Person;
+    rdfs:domain foaf:Person;
     rdfs:range xsd:string;
     rdfs:label "familyName"@en;
     rdfs:comment "Family name of a Person."@en.
 
 ids:givenName rdfs:subPropertyOf foaf:givenName;
     a owl:DatatypeProperty;
-    rdfs:domain ids:Person;
+    rdfs:domain foaf:Person;
     rdfs:range xsd:string;
     rdfs:label "givenName"@en;
     rdfs:comment "Given name of a Person."@en.
 
 ids:phoneNumber rdfs:subPropertyOf foaf:phone;
     a owl:DatatypeProperty;
-    rdfs:domain ids:Person;
+    rdfs:domain foaf:Person;
     rdfs:range xsd:string;
     rdfs:label "phoneNumber"@en;
     rdfs:comment "Phone number of a person."@en.
 
 ids:emailAddress rdfs:subPropertyOf foaf:mbox;
     a owl:DatatypeProperty;
-    rdfs:domain ids:Person;
+    rdfs:domain foaf:Person;
     rdfs:range xsd:string;
     rdfs:label "emailAddress"@en;
     rdfs:comment "Email contact of a person."@en.
 
 ids:homepage rdfs:subPropertyOf foaf:homepage;
     a owl:DatatypeProperty;
-    rdfs:domain ids:Person;
+    rdfs:domain foaf:Person;
     rdfs:range xsd:string;
     rdfs:label "homepage"@en;
     rdfs:comment "Website providing additional information about a person."@en.
