@@ -1,6 +1,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -58,17 +58,17 @@ shapes:DigitalContentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:representation ;
-		sh:class ids:Representation ;
+		sh:class dcat:Distribution ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:representation property must point from an ids:DigitalContent to an ids:Representation."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:representation property must point from an ids:DigitalContent to an dcat:Distribution."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:defaultRepresentation ;
-		sh:class ids:Representation ;
+		sh:class dcat:Distribution ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:defaultRepresentation property must point from an ids:DigitalContent to an ids:Representation."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): An ids:defaultRepresentation property must point from an ids:DigitalContent to an dcat:Distribution."@en ;
 	] ;
 
 	sh:property [

@@ -77,7 +77,7 @@ ids:representation
     #rdfs:subPropertyOf dcat:distribution ; # Links to non-materialized part of Distribution
     rdfs:label "representation"@en;
     rdfs:domain ids:DigitalContent;
-    rdfs:range ids:Representation;
+    rdfs:range dcat:Distribution;
     rdfs:comment "Representation of the content."@en.
 
 ids:defaultRepresentation
@@ -85,14 +85,14 @@ ids:defaultRepresentation
     rdfs:subPropertyOf ids:representation ;
     rdfs:label "Default representation"@en;
     rdfs:domain ids:DigitalContent;
-    rdfs:range ids:Representation;
+    rdfs:range dcat:Distribution;
     rdfs:comment "Default representation of the content."@en.
 
 ids:language
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:language;
     rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:DigitalContent ids:Representation ids:AppEndpoint)
+                owl:unionOf ( ids:DigitalContent dcat:Distribution ids:AppEndpoint)
               ] ;
     rdfs:range ids:Language; # does not fit the defined range of dct:language - dct:LinguisticSystem !
     rdfs:label "language"@en;
@@ -161,20 +161,20 @@ ids:created
     rdfs:subPropertyOf dct:issued;
     rdfs:domain [ owl:unionOf (
           ids:DigitalContent
-          ids:Representation
+          dcat:Distribution
           ids:UsageControlObject
           )
     ] ;
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "created"@en;
     rdfs:seeAlso dct:created ;
-    rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
+    rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
 
 ids:modified
     a owl:DatatypeProperty;
     rdfs:subPropertyOf dct:modified;
     rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:DigitalContent ids:Representation ids:UsageControlObject)
+                owl:unionOf ( ids:DigitalContent dcat:Distribution ids:UsageControlObject)
               ] ;
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "modified"@en;

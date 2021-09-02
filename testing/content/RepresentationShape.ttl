@@ -1,6 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
@@ -23,14 +24,14 @@ shapes:
 
 shapes:RepresentationShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Representation ;
+	sh:targetClass dcat:Distribution ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:instance ;
 		sh:class ids:RepresentationInstance ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:instance property must point from an ids:Representation to an ids:RepresentationInstance."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:instance property must point from a dcat:Distribution to an ids:RepresentationInstance."@en ;
 	] ;
 
 	sh:property [
@@ -39,7 +40,7 @@ shapes:RepresentationShape
 		sh:class dct:MediaType ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must not have more than one dct:MediaType linked through the ids:mediaType property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): A dcat:Distribution must not have more than one dct:MediaType linked through the ids:mediaType property"@en ;
 	] ;
 
 	sh:property [
@@ -48,7 +49,7 @@ shapes:RepresentationShape
 		sh:maxCount 1 ;
 		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must not have more than one point from an ids:Representation to a IRI containing the standard."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must not have more than one point from a dcat:Distribution to a IRI containing the standard."@en ;
 	] ;
 
 	sh:property [
@@ -57,7 +58,7 @@ shapes:RepresentationShape
 		sh:class ids:Language ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:language property must point from an ids:Representation to an ids:Language."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:language property must point from a dcat:Distribution to an ids:Language."@en ;
 	] ;
 
 	sh:property [
@@ -66,7 +67,7 @@ shapes:RepresentationShape
     sh:maxCount 1 ;
 		sh:datatype  xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must have at most one ids:modified attribute pointing to a valid xsd:dateTimeStamp or xsd:date."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An dcat:Distribution must have at most one ids:modified attribute pointing to a valid xsd:dateTimeStamp or xsd:date."@en ;
 	] ;
 
 	sh:property [
@@ -75,7 +76,7 @@ shapes:RepresentationShape
 		sh:datatype  xsd:dateTimeStamp ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must have at most one ids:created attribute pointing to a valid xsd:dateTimeStamp or xsd:date."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An dcat:Distribution must have at most one ids:created attribute pointing to a valid xsd:dateTimeStamp or xsd:date."@en ;
 	] ;
 .
 

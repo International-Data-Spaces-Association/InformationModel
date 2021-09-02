@@ -2,6 +2,7 @@
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data2: <https://aastat.gov.de/connector/conn2/data2/> .
@@ -26,7 +27,7 @@ data2: a ids:Resource ;
     # Compressed representation of an overall resource snapshot
     #
     ids:representation [
-        a ids:Representation ;
+        a dcat:Distribution ;
         ids:mediaType <https://www.iana.org/assignments/media-types/application/gzip> ;
         ids:instance data2:tar_gzip_archive ;
     ] ;

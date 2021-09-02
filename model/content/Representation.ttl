@@ -10,13 +10,6 @@
 # Classes
 # -------
 
-ids:Representation
-    a owl:Class ;
-    rdfs:subClassOf ids:Described, ids:DescribedSemantically, ids:Asset, dcat:Distribution;# covers the generalizable parts of a Distribution
-    rdfs:label "Representation"@en;
-    rdfs:comment "Syntactic template of a Resource."@en;
-.
-
 ids:RepresentationInstance
     a owl:Class ;
     rdfs:label "Representation instance"@en;
@@ -37,7 +30,7 @@ ids:Value
 
 ids:instance
     a owl:ObjectProperty ;
-    rdfs:domain ids:Representation ;
+    rdfs:domain dcat:Distribution ;
     rdfs:range ids:RepresentationInstance;
     rdfs:label "instance"@en ;
     rdfs:comment "Reference to an instance of given representation, i.e. inline value or file placeholder."@en.
@@ -46,7 +39,7 @@ ids:mediaType
     a owl:ObjectProperty ;
     # consider alternatives: dcterms:FileFormat/dcterms:MediaType etc.
     rdfs:subPropertyOf dcat:mediaType ;
-    rdfs:domain ids:Representation ;
+    rdfs:domain dcat:Distribution ;
     rdfs:range dct:MediaType ;
     rdfs:label "media type"@en ;
     rdfs:comment "Media Type of the Representation."@en.
@@ -55,7 +48,7 @@ ids:mediaType
 ids:representationStandard
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:conformsTo ;
-    rdfs:domain ids:Representation;
+    rdfs:domain dcat:Distribution;
     rdfs:range xsd:anyURI;
     rdfs:label "representation standard"@en;
     rdfs:comment "Standards document defining the given Representation (in contrast to general Resource content). The Representation is assumed to conform to that Standard."@en.
