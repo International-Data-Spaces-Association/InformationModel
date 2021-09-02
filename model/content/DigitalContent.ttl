@@ -3,6 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -35,7 +36,7 @@ ids:contentType
     a owl:ObjectProperty;
     rdfs:subPropertyOf dct:type ;
     rdfs:domain ids:DigitalContent;
-    rdfs:range ids:ContentType;
+    rdfs:range dct:DCMIType;
     rdfs:label "content type"@en;
     rdfs:comment "Detailed type, genre or interpretation of the Digital Content."@en.
 
