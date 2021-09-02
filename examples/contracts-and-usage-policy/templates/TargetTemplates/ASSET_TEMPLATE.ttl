@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
@@ -17,12 +18,12 @@
     ?AssetUri                                               # directly insert the Asset URI, if known
 | # or
     [
-        a ids:AssetCollection ;
+        a odrl:AssetCollection ;
         ids:assetSource ?DefinedCollection ;                     # reference to a well-known Collection, which is hosted at the given URI or a well-known PIP/PDP can decide whether or not a specific Artifact is in the Collection or not
     ]
 | # or
     [
-        a ids:AssetCollection ;
+        a odrl:AssetCollection ;
         ids:assetRefinement [                               # a Collection with exactly one condition to describe its members
             a ids:Constraint ;                              # Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
             ids:leftOperand ?IdscLeftOperand ;              # The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
@@ -34,7 +35,7 @@
     ]
 | # or
     [
-        a ids:AssetCollection ;
+        a odrl:AssetCollection ;
         ids:assetRefinement [
             a ids:LogicalConstraint ;                       # A Collection with more than one condition to describe its members.
             ?IdsOperand                                     # The operand to connect the constraints, for instance ?IdsOperand := ids:or

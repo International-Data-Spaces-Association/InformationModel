@@ -8,24 +8,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
-# Classes
-# -------
-
-ids:AssetCollection
-    a owl:Class;
-    rdfs:subClassOf odrl:Asset, odrl:AssetCollection ;
-    rdfs:label "Asset Collection"@en ;
-    rdfs:comment "An AssetCollection is a bracket object combining several odrl:Asset."@en;
-.
-
-
 # Properties
 # ----------
 
 ids:assetSource a owl:ObjectProperty ;
     rdfs:subPropertyOf odrl:source ;
     rdfs:label "asset source"@en ;
-    rdfs:domain ids:AssetCollection ;
+    rdfs:domain odrl:AssetCollection ;
     rdfs:range xsd:anyURI ;
     rdfs:comment "A remote link to the location (PIP) where this AssetCollection and its members are maintained."@en ;
 .
@@ -34,7 +23,7 @@ ids:assetSource a owl:ObjectProperty ;
 #ids:assetRefinement a owl:ObjectProperty ;
 #    rdfs:subPropertyOf odrl:refinement ;
 #    rdfs:label "asset refinement"@en ;
-#    rdfs:domain ids:AssetCollection ;
+#    rdfs:domain odrl:AssetCollection  ;
 #    rdfs:range ids:AbstractConstraint ;
 #    rdfs:comment "Conditions which specify whether an arbitrary odrl:Asset is a member of this AssetCollection."@en ;
 #.

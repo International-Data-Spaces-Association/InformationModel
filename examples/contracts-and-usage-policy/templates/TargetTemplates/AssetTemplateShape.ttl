@@ -4,6 +4,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
@@ -16,7 +17,7 @@ shapes:AssetTemplateShape
 			sh:nodeKind sh:IRI ; # it's an RDF URI
 		]
 		[
-			sh:class ids:AssetCollection ; # it's a simple Collection
+			sh:class odrl:AssetCollection ; # it's a simple Collection
 			sh:property [
 				sh:path         ids:assetRefinement ;
 				sh:class 				ids:Constraint ;
@@ -26,7 +27,7 @@ shapes:AssetTemplateShape
 			] ;
 		]
 		[
-			sh:class ids:AssetCollection ; # it's a Collection with LogicalConstraints
+			sh:class odrl:AssetCollection ; # it's a Collection with LogicalConstraints
 			sh:property [
 				sh:path [
 					sh:or ( ids:or ids:and ids:xone );
