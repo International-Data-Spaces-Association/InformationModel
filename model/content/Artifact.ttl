@@ -3,6 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
@@ -12,7 +13,7 @@
 
 ids:Artifact
     a owl:Class;
-    rdfs:subClassOf ids:Asset, ids:RepresentationInstance; # dcat:Distribution partial subclass of dcat:Distribution w.r.t materialization aspects
+    rdfs:subClassOf odrl:Asset, ids:RepresentationInstance; # dcat:Distribution partial subclass of dcat:Distribution w.r.t materialization aspects
     rdfs:label "Artifact"@en ;
     rdfs:comment "Instance of a Representation materialized at a partiuclar version and point in time. Possesses characteristics like file name, size, creation date etc."@en ;
     owl:disjointWith ids:Value .

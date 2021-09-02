@@ -11,20 +11,11 @@
 # Classes
 # -------
 
-ids:Asset
-    a owl:Class;
-    rdfs:subClassOf odrl:Asset ;
-    rdfs:label "Asset"@en ;
-
-    rdfs:comment "An Asset is either an ids:Resource, an dcat:Distribution, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."@en;
-.
-
-
 ids:AssetCollection
     a owl:Class;
-    rdfs:subClassOf ids:Asset, odrl:AssetCollection ;
+    rdfs:subClassOf odrl:Asset, odrl:AssetCollection ;
     rdfs:label "Asset Collection"@en ;
-    rdfs:comment "An AssetCollection is a bracket object combining several ids:Assets."@en;
+    rdfs:comment "An AssetCollection is a bracket object combining several odrl:Asset."@en;
 .
 
 
@@ -45,5 +36,5 @@ ids:assetSource a owl:ObjectProperty ;
 #    rdfs:label "asset refinement"@en ;
 #    rdfs:domain ids:AssetCollection ;
 #    rdfs:range ids:AbstractConstraint ;
-#    rdfs:comment "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."@en ;
+#    rdfs:comment "Conditions which specify whether an arbitrary odrl:Asset is a member of this AssetCollection."@en ;
 #.
