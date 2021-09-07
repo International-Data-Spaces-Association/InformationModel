@@ -11,6 +11,9 @@
 @prefix interval:        <http://reference.data.gov.uk/def/intervals/> .
 @prefix life_expectancy: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/> .
 
+@prefix time: <http://www.w3.org/2006/time#> .
+
+
 @prefix sdmx-concept:    <http://purl.org/linked-data/sdmx/2009/concept#> .
 @prefix sdmx-dimension:  <http://purl.org/linked-data/sdmx/2009/dimension#> .
 @prefix sdmx-attribute:  <http://purl.org/linked-data/sdmx/2009/attribute#> .
@@ -35,9 +38,9 @@ life_expectancy:Resource
 # Temporal period covered by the content of the resource
   ids:temporalCoverage [
                          a ids:Interval ;
-                         ids:begin [ a ids:Instant ;
+                         ids:begin [ a time:Instant ;
                                     ids:dateTime "2004-01-01T12:00:00+02:00"^^xsd:dateTimeStamp ];
-                         ids:end   [ a ids:Instant ;
+                         ids:end   [ a time:Instant ;
                                     ids:dateTime "2008-12-31T12:00:00+02:00"^^xsd:dateTimeStamp ];
                        ] ;
 

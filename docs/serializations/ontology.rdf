@@ -9013,7 +9013,7 @@
         <rdfs:label xml:lang="en">contains</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#inside"/>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalContains"/>
-        <skos:note xml:lang="en">Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -9263,7 +9263,7 @@
         <rdfs:comment xml:lang="en">If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">during</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalDuring"/>
-        <skos:note xml:lang="en">Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -11880,7 +11880,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/code/TEMPORAL_EQUALS">
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
-        <rdfs:comment xml:lang="en">If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal).</rdfs:comment>
+        <rdfs:comment xml:lang="en">If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal).</rdfs:comment>
         <rdfs:label xml:lang="en">interval equals</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalEquals"/>
         <skos:note xml:lang="en">Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved.</skos:note>
@@ -14390,7 +14390,7 @@
         <rdfs:label xml:lang="en">has Agent</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/hasDuration">
-        <rdfs:comment xml:lang="en">Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be &apos;P0Y0M0DT0H0M0S&apos;^^xsd:duration.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of time:Instant, the value must be &apos;P0Y0M0DT0H0M0S&apos;^^xsd:duration.</rdfs:comment>
         <rdfs:label xml:lang="en">has duration</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#hasDuration"/>
     </rdf:Description>

@@ -2,6 +2,7 @@
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
@@ -15,11 +16,11 @@ data1:
     ids:temporalCoverage [
         a ids:Interval ;
         ids:begin [
-            a ids:Instant ;
+            a time:Instant ;
             ids:dateTime "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ];
         ids:end   [
-            a ids:Instant ;
+            a time:Instant;
             ids:dateTime "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ] ;
     ] ;

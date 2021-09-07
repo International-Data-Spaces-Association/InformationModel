@@ -5503,7 +5503,7 @@ owl:Class rdf:type owl:Class .
                                       rdfs:label "contains"@en ;
                                       rdfs:seeAlso <https://www.w3.org/TR/owl-time/#inside> ,
                                                    <https://www.w3.org/TR/owl-time/#intervalContains> ;
-                                      <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+                                      <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
 
 
 ###  https://w3id.org/idsa/code/CONTINUOUS
@@ -5669,7 +5669,7 @@ owl:Class rdf:type owl:Class .
                                     rdfs:comment "If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
                                     rdfs:label "during"@en ;
                                     rdfs:seeAlso <https://www.w3.org/TR/owl-time/#intervalDuring> ;
-                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
 
 
 ###  https://w3id.org/idsa/code/DV
@@ -7334,7 +7334,7 @@ owl:Class rdf:type owl:Class .
 ###  https://w3id.org/idsa/code/TEMPORAL_EQUALS
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> rdf:type owl:NamedIndividual ,
                                                       <https://w3id.org/idsa/core/BinaryOperator> ;
-                                             rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."@en ;
+                                             rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal)."@en ;
                                              rdfs:label "interval equals"@en ;
                                              rdfs:seeAlso <https://www.w3.org/TR/owl-time/#intervalEquals> ;
                                              <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved."@en .
@@ -9022,7 +9022,7 @@ _:AnnaKasprzik rdf:type <http://purl.org/dc/terms/Agent> ,
                                       rdfs:label "has Agent"@en .
 
 
-<https://w3id.org/idsa/core/hasDuration> rdfs:comment "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en ;
+<https://w3id.org/idsa/core/hasDuration> rdfs:comment "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of time:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en ;
                                          rdfs:label "has duration"@en ;
                                          rdfs:seeAlso <http://www.w3.org/2006/time#hasDuration> .
 

@@ -4,6 +4,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+
 
 
 data1:
@@ -26,11 +28,11 @@ data1:
     ids:temporalCoverage [
         a ids:Interval ;
         ids:begin [
-            a ids:Instant;
+            a time:Instant;
             ids:dateTime "2000-12-01T13:20:00Z"^^xsd:dateTimeStamp;
         ] ;
         ids:end   [
-            a ids:Instant;
+            a time:Instant;
             ids:dateTime "2002-12-31T13:20:00Z"^^xsd:dateTimeStamp;
         ] ;
     ] ;

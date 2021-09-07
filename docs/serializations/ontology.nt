@@ -4888,7 +4888,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#label> "contains"@en .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#inside> .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalContains> .
-<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
 # 
 # https://w3id.org/idsa/code/CONTINUOUS
 <https://w3id.org/idsa/code/CONTINUOUS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
@@ -5024,7 +5024,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/2000/01/rdf-schema#label> "during"@en .
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalDuring> .
-<https://w3id.org/idsa/code/DURING> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+<https://w3id.org/idsa/code/DURING> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
 # 
 # https://w3id.org/idsa/code/DV
 <https://w3id.org/idsa/code/DV> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -6271,7 +6271,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/TEMPORAL_EQUALS
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."@en .
+<https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal)."@en .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#label> "interval equals"@en .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalEquals> .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved."@en .
@@ -7568,7 +7568,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/hasAgent> <http://www.w3.org/2000/01/rdf-schema#comment> "The Agents for which this Connector may initiate and receive Messages."@en .
 <https://w3id.org/idsa/core/hasAgent> <http://www.w3.org/2000/01/rdf-schema#label> "has Agent"@en .
 # 
-<https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en .
+<https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of time:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en .
 <https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#label> "has duration"@en .
 <https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/2006/time#hasDuration> .
 # 

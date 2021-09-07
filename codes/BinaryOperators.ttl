@@ -127,7 +127,7 @@ idsc:CONTAINS a ids:BinaryOperator;
     rdfs:seeAlso time:inside, time:intervalContains;
     rdfs:label "contains"@en ;
     rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
-    skos:note "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
+    skos:note "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
     .
 
 
@@ -144,14 +144,14 @@ idsc:DURING
 	rdfs:seeAlso time:intervalDuring;
 	rdfs:label "during"@en;
 	rdfs:comment "If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
-    skos:note "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
+    skos:note "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
     .
 
 idsc:TEMPORAL_EQUALS
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:intervalEquals;
 	rdfs:label "interval equals"@en;
-	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."@en ;
+	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal)."@en ;
     skos:note "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved."@en ;
     .
 
