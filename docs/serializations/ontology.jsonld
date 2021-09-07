@@ -3452,7 +3452,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."
+    "@value" : "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/CONTINUOUS",
@@ -3733,7 +3733,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."
+    "@value" : "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/DV",
@@ -3941,7 +3941,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/FINISHES",
@@ -3961,7 +3961,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/FJ",
@@ -5162,14 +5162,14 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/OVERLAPS",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/BinaryOperator" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "If an ids:Interval T1 overlapps another ids:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."
+    "@value" : "If an time:Interval T1 overlapps another time:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -5180,7 +5180,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/PA",
@@ -5887,7 +5887,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of ids:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."
+    "@value" : "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of time:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/STARTS",
@@ -5905,7 +5905,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an ids:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"
+    "@value" : "Compares an instance of time:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not a time:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/STATE",
@@ -8071,7 +8071,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."
+    "@value" : "A relative temporal entity of a certain length. Different to time:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to a time:Interval."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",

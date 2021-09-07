@@ -51,7 +51,7 @@ shapes:InstantShape
 
 shapes:IntervalShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Interval ;
+	sh:targetClass time:Interval ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -60,7 +60,7 @@ shapes:IntervalShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an ids:Interval to exactly one time:Instant."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:begin property must point from an time:Interval to exactly one time:Instant."@en ;
 	] ;
 
 	sh:property [
@@ -69,7 +69,7 @@ shapes:IntervalShape
 		sh:class time:Instant ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must not have more than one point from an ids:Interval to an time:Instant."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/TemporalEntityShape.ttl> (IntervalShape): An ids:end property must not have more than one point from an time:Interval to an time:Instant."@en ;
 	] .
 
 

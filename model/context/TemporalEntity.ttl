@@ -17,19 +17,11 @@ ids:TemporalEntity
     rdfs:label "TemporalEntity"@en ;
     rdfs:comment "A temporal interval, instant or a relative duration."@en.
 
-
-ids:Interval
-    a owl:Class;
-    rdfs:subClassOf time:Interval, ids:TemporalEntity, dct:PeriodOfTime ;
-    rdfs:label "Interval"@en ;
-    rdfs:comment "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."@en;
-.
-
 ids:DurationEntity
     a owl:Class;
     rdfs:subClassOf  ids:TemporalEntity;
     rdfs:label "Duration"@en ;
-    rdfs:comment "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en;
+    rdfs:comment "A relative temporal entity of a certain length. Different to time:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an time:Interval."@en;
 .
 
 ids:Frequency
@@ -52,7 +44,7 @@ ids:dateTime
 ids:begin
     a owl:ObjectProperty ;
     rdfs:subPropertyOf time:hasBeginning;
-    rdfs:domain ids:Interval;
+    rdfs:domain time:Interval;
     rdfs:range time:Instant;
     rdfs:label "beginning"@en;
     rdfs:comment "Beginning of an Interval."@en.
@@ -60,7 +52,7 @@ ids:begin
 ids:end
     a owl:ObjectProperty ;
     rdfs:subPropertyOf time:hasEnd;
-    rdfs:domain ids:Interval;
+    rdfs:domain time:Interval;
     rdfs:range time:Instant;
     rdfs:label "end"@en;
     rdfs:comment "End of an Interval."@en.

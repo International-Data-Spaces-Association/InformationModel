@@ -9013,7 +9013,7 @@
         <rdfs:label xml:lang="en">contains</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#inside"/>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalContains"/>
-        <skos:note xml:lang="en">Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -9263,7 +9263,7 @@
         <rdfs:comment xml:lang="en">If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">during</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalDuring"/>
-        <skos:note xml:lang="en">Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -9498,7 +9498,7 @@
         <rdfs:comment xml:lang="en">If an interval T1 is finished by another interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">finished by</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalFinishedBy"/>
-        <skos:note xml:lang="en">Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -9512,7 +9512,7 @@
         <rdfs:label xml:lang="en">finishes</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/idsa/core/intervalIn"/>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalFinishes"/>
-        <skos:note xml:lang="en">Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -10920,7 +10920,7 @@
         <rdfs:comment xml:lang="en">If a interval T1 is overlapped another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">overlapped by</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalOverlappedBy"/>
-        <skos:note xml:lang="en">Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -10930,10 +10930,10 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/code/OVERLAPS">
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
-        <rdfs:comment xml:lang="en">If an ids:Interval T1 overlapps another ids:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="en">If an time:Interval T1 overlapps another time:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">overlaps</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalOverlaps"/>
-        <skos:note xml:lang="en">Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -11718,7 +11718,7 @@
         <rdfs:comment xml:lang="en">If a TemporalEntity T1 is started by another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">started by</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalStartedBy"/>
-        <skos:note xml:lang="en">Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of ids:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of time:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -11731,7 +11731,7 @@
         <rdfs:comment xml:lang="en">If an interval T1 starts with a TemporalEntity T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">starts</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalStarts"/>
-        <skos:note xml:lang="en">Compares an instance of ids:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an ids:Interval as then the end of T1 can never be idsc:BEFORE the end of T2</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an time:Interval as then the end of T1 can never be idsc:BEFORE the end of T2</skos:note>
     </owl:NamedIndividual>
     
 
@@ -14136,7 +14136,7 @@
         <rdfs:seeAlso rdf:resource="https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl"/>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/DurationEntity">
-        <rdfs:comment xml:lang="en">A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A relative temporal entity of a certain length. Different to time:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an time:Interval.</rdfs:comment>
         <rdfs:label xml:lang="en">Duration</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/DynamicAttributeToken">
