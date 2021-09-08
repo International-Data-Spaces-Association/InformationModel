@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -36,7 +37,7 @@
     [
         a ids:Participant ;
         ids:participantRefinement [
-            a ids:LogicalConstraint ;                       # A Collection with more than one condition to describe its members.
+            a odrl:LogicalConstraint ;                       # A Collection with more than one condition to describe its members.
             ?IdsOperand                                     # The operand to connect the constraints, for instance ?IdsOperand := idsc:OR
                 ( # '(' is used as an RDF List operator here
                     (                                       # LogicalConstraints allow the expression of alternatives. For instance, we can select which have "role":"ADMIN" OR "role":"MANAGER"
