@@ -25,17 +25,17 @@ shapes:
 
 shapes:AbstractConstraintShape
 	a sh:NodeShape ;
-	sh:targetClass ids:AbstractConstraint ;
+	sh:targetClass odrl:Constraint ;
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (AbstractConstraintShape): An ids:AbstractConstraint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (AbstractConstraintShape): An odrl:Constraint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
 			WHERE {
 				?this rdf:type ?type .
-				FILTER (?type = ids:AbstractConstraint)
+				FILTER (?type = odrl:Constraint)
 			}
 		""" ;
 	] ;

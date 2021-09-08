@@ -89,16 +89,16 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:assetRefinement ;
-		sh:class ids:AbstractConstraint ;
+		sh:class odrl:Constraint ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:assetRefinement must not have more than one point from an ids:Rule to an ids:AbstractConstraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:assetRefinement must not have more than one point from an ids:Rule to an odrl:Constraint."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:constraint ;
-		sh:class ids:AbstractConstraint ;
+		sh:class odrl:Constraint ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:constraint property must point from an ids:Rule to an ids:Constraint or ids:LogicalConstraint."@en ;
 	] .

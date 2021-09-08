@@ -10,19 +10,13 @@
 # Classes
 # -------
 
-ids:AbstractConstraint rdfs:subClassOf odrl:Constraint;
-    a owl:Class;
-    rdfs:label "Abstract Constraint"@en;
-    rdfs:comment "The upper class of Constraints and LogicalConstraints is solely intended as a placholder at the range of IDS Properties."@en;
-.
-
-ids:Constraint rdfs:subClassOf ids:AbstractConstraint ;
+ids:Constraint rdfs:subClassOf odrl:Constraint;
     a owl:Class;
     rdfs:label "Constraint"@en;
     rdfs:comment "The class of Constraints that restrict a Rule."@en;
 .
 
-ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
+ids:LogicalConstraint rdfs:subClassOf odrl:Constraint ;
     rdfs:subClassOf odrl:LogicalConstraint;
     a owl:Class;
     rdfs:label "Logical Constraint"@en;
