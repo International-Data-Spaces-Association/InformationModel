@@ -1,6 +1,8 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
 
 <http://echo.ids.isst.fraunhofer.de/>
   a <https://w3id.org/idsa/core/BaseConnector>, <https://w3id.org/idsa/core/Host> ;
@@ -21,7 +23,7 @@
   a ids:Resource ;
   ids:description "Echo Service for the IDS-LAB."@en ;
   ids:resourceEndpoint <https://w3id.org/idsa/autogen/staticEndpoint/ebbb6e33-516b-4cf4-91ab-55dac3568902> ;
-  ids:title "Echo Service"@en .
+  dct:title "Echo Service"@en .
 
 <https://w3id.org/idsa/autogen/staticEndpoint/ebbb6e33-516b-4cf4-91ab-55dac3568902>
   a ids:StaticEndpoint ;

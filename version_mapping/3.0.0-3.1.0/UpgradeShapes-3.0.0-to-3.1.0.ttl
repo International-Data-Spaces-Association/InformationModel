@@ -4,6 +4,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
 
@@ -206,14 +207,14 @@ ids:DescribedUpgradeShape
 			$this ids:description ?newDescription .
 			idsm:VersionUpgrade ids:description ?oldDescription.
 			
-			$this ids:title ?newTitle .
-			idsm:VersionUpgrade ids:title ?oldTitle.
+			$this dct:title ?newTitle .
+			idsm:VersionUpgrade dct:title ?oldTitle.
 		}
 		WHERE {
 			OPTIONAL {$this ids:description ?oldDescription .}
 			BIND(STRDT(STR(?oldDescription), xsd:string) AS ?newDescription)
 			
-			OPTIONAL {$this ids:title ?oldTitle .}
+			OPTIONAL {$this dct:title ?oldTitle .}
 			BIND(STRDT(STR(?oldTitle), xsd:string) AS ?newTitle)
 		}
 		""" ;
