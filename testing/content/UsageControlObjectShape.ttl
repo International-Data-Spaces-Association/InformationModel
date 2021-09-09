@@ -7,6 +7,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 shapes:
 	a owl:Ontology ;
@@ -83,9 +84,9 @@ shapes:UsageControlObjectShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:action ;
-		sh:class ids:Action ;
+		sh:class odrl:Action ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:action property must point from an ids:UsageControlObject to an ids:Action."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:action property must point from an ids:UsageControlObject to an odrl:Action."@en ;
 	] ;
 
 	sh:property [

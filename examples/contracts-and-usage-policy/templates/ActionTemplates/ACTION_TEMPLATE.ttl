@@ -18,7 +18,7 @@
     ?ActionUri                                              # directly insert the Action URI and nothing else
 | # or
     [
-        a ids:Action ;
+        a odrl:Action ;
         ids:includedIn ?ActionUri ;                         # The general Action, which is further constrained. For instance a idsc:WRITE is only possible if an attribute "color" is equals to "blue".
         ids:actionRefinement [                              # a Collection with exactly one condition to describe its members
             a ids:Constraint ;                              # Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
@@ -31,7 +31,7 @@
     ]
 | # or
     [
-        a ids:Action ;
+        a odrl:Action ;
         ids:includedIn ?ActionUri ;
         ids:actionRefinement [
             a odrl:LogicalConstraint ;                       # A Collection with more than one condition to describe its members.
