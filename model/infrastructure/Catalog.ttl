@@ -9,31 +9,23 @@
 # Classes
 # -------
 
-ids:Catalog
-    a owl:Class;
-    rdfs:subClassOf dcat:Catalog;
-
-    rdfs:label "Catalog"@en ;
-    rdfs:comment "Class that represents (distributable) Catalogs."@en ;
-    .
-
 ids:ResourceCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog;
     rdfs:label "Resource Catalog"@en ;
     rdfs:comment "Class that aggregates Resources from a (distributable) Catalog."@en ;
 .
 
 ids:ParticipantCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog;
     rdfs:label "Participant Catalog"@en ;
     rdfs:comment "Class that aggregates Participants from a (distributable) Catalog."@en ;
 .
 
 ids:ConnectorCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog;
     rdfs:label "Connector Catalog"@en ;
     rdfs:comment "Class that aggregates Connectors from a (distributable) Catalog."@en ;
 .
@@ -55,13 +47,13 @@ ids:AppStoreCatalog
 # TODO: Align with ResourceCatalog
 ids:AppResourceCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog;
     rdfs:label "App Resource Catalog"@en ;
     rdfs:comment "Class that aggregates App Resources from a (distributable) Catalog. May be used to list installed apps in a component."@en ;
 .
 
 ids:ClearingHouseCatalog
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog;
     a owl:Class;
     rdfs:label "Clearing House Catalog"@en ;
     rdfs:comment "Class that aggregates Clearing Houses from a (distributable) Catalog."@en ;
