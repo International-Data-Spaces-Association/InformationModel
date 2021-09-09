@@ -204,14 +204,14 @@ ids:DescribedUpgradeShape
 		prefix idsm: <https://w3id.org/idsa/metamodel/>
 
 		CONSTRUCT {
-			$this ids:description ?newDescription .
-			idsm:VersionUpgrade ids:description ?oldDescription.
+			$this dct:description ?newDescription .
+			idsm:VersionUpgrade dct:description ?oldDescription.
 			
 			$this dct:title ?newTitle .
 			idsm:VersionUpgrade dct:title ?oldTitle.
 		}
 		WHERE {
-			OPTIONAL {$this ids:description ?oldDescription .}
+			OPTIONAL {$this dct:description ?oldDescription .}
 			BIND(STRDT(STR(?oldDescription), xsd:string) AS ?newDescription)
 			
 			OPTIONAL {$this dct:title ?oldTitle .}
