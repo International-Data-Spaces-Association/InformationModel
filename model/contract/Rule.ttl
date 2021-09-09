@@ -6,17 +6,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
-
-# Classes
-# -------
-
-ids:Duty rdfs:subClassOf odrl:Rule;
-    rdfs:subClassOf odrl:Duty;
-    a owl:Class;
-    rdfs:label "Duty"@en;
-    rdfs:comment "The class of Duties as defined in the ODRL ontology."@en.
-
-
 # Properties
 # ----------
 
@@ -71,12 +60,12 @@ ids:preDuty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;
     rdfs:label "pre-duty"@en;
     rdfs:domain odrl:Permission;
-    rdfs:range ids:Duty;
+    rdfs:range odrl:Duty;
     rdfs:comment "A Duty imposed by the Rule, which must be executed before the Rule."@en.
 
 ids:postDuty rdfs:subPropertyOf odrl:duty;
     a owl:ObjectProperty;
     rdfs:label "post-duty"@en;
     rdfs:domain odrl:Permission;
-    rdfs:range ids:Duty;
+    rdfs:range odrl:Duty;
     rdfs:comment "A Duty imposed by the Rule, which must be executed after the Rule."@en.
