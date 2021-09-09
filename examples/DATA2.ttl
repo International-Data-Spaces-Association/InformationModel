@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data2: <https://aastat.gov.de/connector/conn2/data2/> .
@@ -100,7 +101,7 @@ data2:
         a ids:ContractOffer ;
         ids:provider part1: ;
         ids:permission [
-			a ids:Permission ;
+			a odrl:Permission ;
             ids:assigner part1: ;
             ids:target data2:generic_content ; # i.e. applies to any artifact / instance of given content
             ids:action idsc:USE ;

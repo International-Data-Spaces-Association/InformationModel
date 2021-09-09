@@ -3,6 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
@@ -69,7 +70,7 @@ data1:report_doc
 data1:offer
     a ids:ContractOffer ;
     ids:permission [
-		a ids:Permission ;
+		a odrl:Permission ;
         ids:assigner part1: ;
         # individual target(s)
         ids:target data1: ;

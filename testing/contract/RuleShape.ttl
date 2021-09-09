@@ -106,14 +106,14 @@ shapes:RuleShape
 
 shapes:PermissionShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Permission ;
+	sh:targetClass odrl:Permission ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:preDuty ;
 		sh:class ids:Duty ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:preDuty property must point from an ids:Permission to an ids:Duty."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:preDuty property must point from an odrl:Permission to an ids:Duty."@en ;
 	] ;
 
 	sh:property [
@@ -121,7 +121,7 @@ shapes:PermissionShape
 		sh:path ids:postDuty ;
 		sh:class ids:Duty ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:postDuty property must point from an ids:Permission to an ids:Duty."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:postDuty property must point from an odrl:Permission to an ids:Duty."@en ;
 	] .
 
 

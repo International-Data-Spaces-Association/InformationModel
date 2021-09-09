@@ -5,6 +5,8 @@
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
 
 
 
@@ -103,7 +105,7 @@ data1:offer
     ids:provider <https://internationaldataspaces.org/participant/someParticipant>;
     ids:contractDocument _:contractReource;
     ids:permission [
-        a ids:Permission;
+        a odrl:Permission;
         ids:assigner <https://internationaldataspaces.org/participant/someParticipant>;
 
         # individual target(s)

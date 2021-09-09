@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -25,7 +26,7 @@ idsc:SPATIAL_OFFER_TEMPLATE a ids:SpatialOffer ;
        ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
     )
     ids:permission [
-        a ids:Permission ;
+        a odrl:Permission ;
         (
           (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
         | # or

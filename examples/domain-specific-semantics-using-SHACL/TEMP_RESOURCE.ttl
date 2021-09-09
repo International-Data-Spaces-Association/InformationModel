@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix conn1: <https://aastat.gov.de/connector/conn1/> .
 @prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
 
@@ -71,7 +72,7 @@ sample_Data:
         # Users have permission to "use" the json artifact in the time range between 2019-09-01T00:00:00 and 2019-10-01T00:00:00
         # with the duty / obligation to pay 100 Euros.
         ids:permission [
-            a ids:Permission ;
+            a odrl:Permission ;
 
             # Specify permission
             ids:action idsc:USE ;
