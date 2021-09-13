@@ -426,8 +426,8 @@ xsd:duration rdf:type rdfs:Datatype .
                                                rdfs:range <https://w3id.org/idsa/core/Connector> .
 
 
-###  https://w3id.org/idsa/core/affectedDataApp
-<https://w3id.org/idsa/core/affectedDataApp> rdf:type owl:ObjectProperty ;
+###  https://w3id.org/idsa/core/affectedApp
+<https://w3id.org/idsa/core/affectedApp> rdf:type owl:ObjectProperty ;
                                              rdfs:domain <https://w3id.org/idsa/core/AppRegistrationRequestMessage> ;
                                              rdfs:range <https://w3id.org/idsa/core/AppResource> .
 
@@ -458,7 +458,7 @@ xsd:duration rdf:type rdfs:Datatype .
 
 ###  https://w3id.org/idsa/core/appEndpoint
 <https://w3id.org/idsa/core/appEndpoint> rdf:type owl:ObjectProperty ;
-                                         rdfs:domain <https://w3id.org/idsa/core/DataApp> ;
+                                         rdfs:domain <https://w3id.org/idsa/core/App> ;
                                          rdfs:range <https://w3id.org/idsa/core/AppEndpoint> ;
                                          rdfs:comment "Endpoints of a data app"@en ;
                                          rdfs:label "app endpoint"@en .
@@ -735,7 +735,7 @@ xsd:duration rdf:type rdfs:Datatype .
 ###  https://w3id.org/idsa/core/dataAppInformation
 <https://w3id.org/idsa/core/dataAppInformation> rdf:type owl:ObjectProperty ;
                                                 rdfs:domain <https://w3id.org/idsa/core/AppRepresentation> ;
-                                                rdfs:range <https://w3id.org/idsa/core/DataApp> ;
+                                                rdfs:range <https://w3id.org/idsa/core/App> ;
                                                 rdfs:comment "Information about the concrete data app implementation"@en ;
                                                 rdfs:label "data app information"@en .
 
@@ -1472,7 +1472,7 @@ xsd:duration rdf:type rdfs:Datatype .
 
 ###  https://w3id.org/idsa/core/appDocumentation
 <https://w3id.org/idsa/core/appDocumentation> rdf:type owl:DatatypeProperty ;
-                                              rdfs:domain <https://w3id.org/idsa/core/DataApp> ;
+                                              rdfs:domain <https://w3id.org/idsa/core/App> ;
                                               rdfs:range xsd:string ;
                                               rdfs:comment "text documentation of the data app"@en ;
                                               rdfs:label "app documentation"@en .
@@ -2906,8 +2906,8 @@ owl:Class rdf:type owl:Class .
                                                rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> .
 
 
-###  https://w3id.org/idsa/core/DataApp
-<https://w3id.org/idsa/core/DataApp> rdf:type owl:Class .
+###  https://w3id.org/idsa/core/App
+<https://w3id.org/idsa/core/App> rdf:type owl:Class .
 
 
 ###  https://w3id.org/idsa/core/DataRepresentation
@@ -3392,7 +3392,7 @@ owl:Class rdf:type owl:Class .
 
 ###  https://w3id.org/idsa/core/OrchestrationApp
 <https://w3id.org/idsa/core/OrchestrationApp> rdf:type owl:Class ;
-                                              rdfs:subClassOf <https://w3id.org/idsa/core/DataApp> ;
+                                              rdfs:subClassOf <https://w3id.org/idsa/core/App> ;
                                               rdfs:comment "Apps for orchestrating System Adapter Apps or Smart Data Apps, inside a Connector."@en ;
                                               rdfs:label "Orchestration App"@en .
 
@@ -3755,11 +3755,11 @@ owl:Class rdf:type owl:Class .
                                   rdfs:label "Site"@en .
 
 
-###  https://w3id.org/idsa/core/SmartDataApp
-<https://w3id.org/idsa/core/SmartDataApp> rdf:type owl:Class ;
-                                          rdfs:subClassOf <https://w3id.org/idsa/core/DataApp> ;
-                                          rdfs:comment "Smart DataApps are executing any kind of necessary data processing or transformation."@en ;
-                                          rdfs:label "Smart DataApp"@en .
+###  https://w3id.org/idsa/core/SmartApp
+<https://w3id.org/idsa/core/SmartApp> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/idsa/core/App> ;
+                                          rdfs:comment "Smart Apps are executing any kind of necessary data processing or transformation."@en ;
+                                          rdfs:label "Smart App"@en .
 
 
 ###  https://w3id.org/idsa/core/SoftwareRepresentation
@@ -3820,7 +3820,7 @@ owl:Class rdf:type owl:Class .
 
 ###  https://w3id.org/idsa/core/SystemAdapter
 <https://w3id.org/idsa/core/SystemAdapter> rdf:type owl:Class ;
-                                           rdfs:subClassOf <https://w3id.org/idsa/core/DataApp> ;
+                                           rdfs:subClassOf <https://w3id.org/idsa/core/App> ;
                                            rdfs:comment "Data Apps that integrate sources and sinks of digital content maintained internally on Participant's premises with a Connector."@en ;
                                            rdfs:label "System Adapter"@en .
 
@@ -7724,7 +7724,7 @@ _:genid51 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
                                                     <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
 _:genid52 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedDataAppResource> .
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedAppResource> .
 
 
 ###  https://w3id.org/idsa/core/AppRoute
@@ -7958,8 +7958,8 @@ _:genid85 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/extendedGuarantee> .
 
 
-###  https://w3id.org/idsa/core/DataApp
-<https://w3id.org/idsa/core/DataApp> rdf:type owl:NamedIndividual ;
+###  https://w3id.org/idsa/core/App
+<https://w3id.org/idsa/core/App> rdf:type owl:NamedIndividual ;
                                      <https://w3id.org/idsa/metamodel/validation> _:genid86 ;
                                      <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
@@ -8462,8 +8462,8 @@ _:genid161 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
                                                <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
 
 
-###  https://w3id.org/idsa/core/affectedDataApp
-<https://w3id.org/idsa/core/affectedDataApp> rdf:type owl:NamedIndividual ;
+###  https://w3id.org/idsa/core/affectedApp
+<https://w3id.org/idsa/core/affectedApp> rdf:type owl:NamedIndividual ;
                                              <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean .
 
 
@@ -8643,11 +8643,11 @@ _:AnnaKasprzik rdf:type <http://purl.org/dc/terms/Agent> ,
                                     rdfs:label "Action"@en .
 
 
-<https://w3id.org/idsa/core/AppEndpoint> rdfs:comment "Description of endpoints a DataApp offers."@en ;
-                                         rdfs:label "DataApp Endpoint"@en .
+<https://w3id.org/idsa/core/AppEndpoint> rdfs:comment "Description of endpoints a App offers."@en ;
+                                         rdfs:label "App Endpoint"@en .
 
 
-<https://w3id.org/idsa/core/AppNotificationMessage> rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en ;
+<https://w3id.org/idsa/core/AppNotificationMessage> rdfs:comment "Superclass of all messages, indicating a change of a App. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en ;
                                                     rdfs:label "App Notification Message"@en .
 
 
@@ -8746,8 +8746,8 @@ _:AnnaKasprzik rdf:type <http://purl.org/dc/terms/Agent> ,
                                         rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> .
 
 
-<https://w3id.org/idsa/core/DataApp> rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en ;
-                                     rdfs:label "DataApp"@en .
+<https://w3id.org/idsa/core/App> rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en ;
+                                     rdfs:label "App"@en .
 
 
 <https://w3id.org/idsa/core/Described> rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en ;
@@ -8937,7 +8937,7 @@ _:AnnaKasprzik rdf:type <http://purl.org/dc/terms/Agent> ,
                                                rdfs:label "affected Connector"@en .
 
 
-<https://w3id.org/idsa/core/affectedDataApp> rdfs:comment "The affected data app that is referenced in the App-related messages. "@en ;
+<https://w3id.org/idsa/core/affectedApp> rdfs:comment "The affected data app that is referenced in the App-related messages. "@en ;
                                              rdfs:label "affected AppResource"@en .
 
 

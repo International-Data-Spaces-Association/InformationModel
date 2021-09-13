@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:App
+    a owl:Class;
+    rdfs:label "App"@en;
+    rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;
+    # TODO: exposes at least one interface
+.
+
+ids:appDocumentation
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:App ;
+    rdfs:range xsd:string ;
+    rdfs:label "app documentation"@en ;
+    rdfs:comment "text documentation of the data app"@en ;
+.
+
+ids:endpointBinding
+    a owl:ObjectProperty;
+    rdfs:label "endpoint binding"@en ;
+    rdfs:domain ids:App;
+    rdfs:range ids:EndpointBinding;
+    rdfs:comment "Endpoint protocol bindings of a data app"@en ;
+.
+
+ids:supportedUsagePolicies a owl:ObjectProperty ;
+	rdfs:domain ids:App ;
+	rdfs:range ids:UsagePolicyClass ;
+	rdfs:label "supported usage policies" @en;
+	rdfs:comment "IDS Usage Policies a App supports"@en;
+.
+	
+ids:appType a owl:ObjectProperty ;
+	rdfs:domain ids:App ;
+	rdfs:range ids:AppType ;
+	rdfs:label "data app type"@en;
+	rdfs:comment "The category of the data app. Class ids:AppType contains a controlled vocabulary of categories."@en;
+.
+
+ids:appContainerSpecReference: 
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:App ;
+    rdfs:range xsd:anyURI ;
+	rdfs:label "api container spec reference"@en ;
+    rdfs:comment "Reference to the container specification of the ids:App, e.g., reference to docker build files."@en ;
+.
+
+ids:appContainerSpec
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:App ;
+    rdfs:range xsd:string ;
+	rdfs:label "api container spec"@en ;
+    rdfs:comment "The container specification of the ids:App, e.g., docker build files. It is recommended to use the ids:appContainerSpecReference property. This property should be used, when it is not possible to refer to a container specification using IRIs."@en ;
+.

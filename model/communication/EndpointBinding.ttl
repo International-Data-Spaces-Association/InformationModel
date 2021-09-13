@@ -1,0 +1,60 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:EndpointBinding
+    a owl:Class ;
+    rdfs:label "Endpoint binding"@en ;
+    rdfs:comment "Description of endpoints a App offers as (API) bindings."@en ;
+.
+
+
+# Properties
+# -------
+
+ids:apiSpecReference
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:EndpointBinding ;
+    rdfs:range xsd:anyURI ;
+	rdfs:label "api spec reference"@en ;
+    rdfs:comment "IRI reference to the api specification for the endpoints. "@en ;
+.
+
+ids:apiSpec 
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:EndpointBinding ;
+    rdfs:range xsd:string ;
+	rdfs:label "api spec"@en ;
+    rdfs:comment "The api specification for the endpoint binding as raw data. It is recommended to use the ids:apiSpecReference property. This property should be used, when it is not possible to refer to an api specification using IRIs."@en ;
+.
+
+ids:apiSpecVersion
+    a owl:DatatypeProperty ;
+    rdfs:domain ids:EndpointBinding ;
+    rdfs:range xsd:string ;
+	rdfs:label "api spec version"@en ;
+    rdfs:comment "The version of the API specification."@en ;
+.
+
+ids:protocolType
+	a owl:ObjectProperty ;
+	rdfs:domain ids:EndpointBinding ;
+	rdfs:range ids:ProtocolType ;
+	rdfs:label "protocol type"@en ;
+	rdfs:comment "The protocol of the referenced API specification. Uses a controlled list of protocol types."@en ;
+.	
+
+ids:endpointReference
+	a owl:ObjectProperty ;
+	rdfs:domain ids:EndpointBinding ;
+	rdfs:range ids:EndpointReference ;
+	rdfs:label "endpoint reference"@en ;
+	rdfs:comment "Endpoint references are used to refer to subsections of API specifications. Using the ids:EndpointReference and ids:AppEndpointType classes, specific endpoints/sections of APIs can be labeled with the data app endpoint type."@en ;
+.	

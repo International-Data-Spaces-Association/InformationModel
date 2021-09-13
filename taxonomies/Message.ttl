@@ -395,7 +395,7 @@ ids:AppRegistrationRequestMessage a owl:Class;
     rdfs:comment "Message that asks for registration or update of a data app to the App Store. Payload contains app-related metadata (instance of class ids:AppResource). Message header may contain an app identifier parameter of a prior registered data app. If the app identifier is supplied, the message should be interpreted as a registration for an app update. Otherwise this message is used to register a new app. "@en ;
 .
 
-ids:affectedDataApp rdf:type owl:ObjectProperty ;
+ids:affectedApp rdf:type owl:ObjectProperty ;
     rdfs:domain ids:AppRegistrationRequestMessage ;
     rdfs:range ids:AppResource ;
     rdfs:label "affected AppResource"@en ;
@@ -429,9 +429,8 @@ ids:appArtifactReference rdf:type owl:ObjectProperty ;
 
 ids:AppNotificationMessage a owl:Class;
     rdfs:subClassOf ids:ResourceNotificationMessage ;
-
     rdfs:label "App Notification Message"@en ;
-    rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
+    rdfs:comment "Superclass of all messages, indicating a change of a App. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en;
 .
 
 ids:AppAvailableMessage a owl:Class ;

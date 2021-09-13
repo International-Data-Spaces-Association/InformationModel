@@ -77,7 +77,7 @@ ids:appRouteOutput a owl:ObjectProperty;
     rdfs:comment """ids:Resource that corresponds to the output of an app route.
 Rationale: whereas an ids:Endpoint can have an ids:endpointArtifact, it is additionally important that the data flow inside the ids:Connector / ids:ConfigurationModel is aware of the ids:ContractOffer (a property of ids:Resource!) associated with the data coming into the Connector or going out of the Connector.
 Use: Whenever properties of this Resource change, it may make sense to notify the ids:broker(s) configured for this AppRoute.
-Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the output resource of one step serves immediately as the input that is processed by the subsequent step(s).  An ids:SystemAdapter typically does not change the ids:Resource, but might rather make it available in a different ids:Representation.  An ids:SmartDataApp might replate its input(s) by an entirely different (e.g., fused) resource.
+Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the output resource of one step serves immediately as the input that is processed by the subsequent step(s).  An ids:SystemAdapter typically does not change the ids:Resource, but might rather make it available in a different ids:Representation.  An ids:SmartApp might replate its input(s) by an entirely different (e.g., fused) resource.
 """@en ;
 .
 
@@ -99,11 +99,11 @@ This should be a subset of clearing houses listed in the corresponding ids:Clear
 """@en ;
 .
 
-ids:requiredDataApp a owl:ObjectProperty;
+ids:requiredApp a owl:ObjectProperty;
     rdfs:domain ids:RouteStep;
     rdfs:range ids:AppRepresentation;
-    rdfs:label "requiredDataApp"@en;
-    rdfs:comment """Refers to the concrete app representation (ids:AppRepresentation) for a data app (ids:DataApp) which is deployed in the Connector maintained by the Configuration Model and
+    rdfs:label "requiredApp"@en;
+    rdfs:comment """Refers to the concrete app representation (ids:AppRepresentation) for a data app (ids:App) which is deployed in the Connector maintained by the Configuration Model and
     whoose endpoint (ids:AppEndpoint) is used in this ids:RouteStep. The referred app representation should be part of the catalog of AppResources in the
     corresponding Configuration Model (cf. ids:configuredAppResource property in class ids:ConfigurationModel).
     """@en ;

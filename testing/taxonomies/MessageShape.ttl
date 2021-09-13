@@ -340,12 +340,12 @@ shapes:AppUpdateRequestMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:affectedDataApp ;
+		sh:path ids:affectedApp ;
 		sh:nodeKind sh:IRI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUpdateRequestMessageShape): An ids:AppUpdateRequestMessage must point to zero or one IRI reference to an ids:AppResource linked through the ids:affectedDataApp property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUpdateRequestMessageShape): An ids:AppUpdateRequestMessage must point to zero or one IRI reference to an ids:AppResource linked through the ids:affectedApp property"@en ;
 	] .
 
 
@@ -383,12 +383,12 @@ shapes:AppRegistrationRequestMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:affectedDataApp ;
+		sh:path ids:affectedApp ;
 		sh:nodeKind sh:IRI ;
   	sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppRegistrationRequestMessageShape): An ids:AppRegistrationRequestMessage must have zero or one IRI reference to an ids:AppResource linked through the ids:affectedDataApp property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppRegistrationRequestMessageShape): An ids:AppRegistrationRequestMessage must have zero or one IRI reference to an ids:AppResource linked through the ids:affectedApp property"@en ;
 	] ;
 .
 
