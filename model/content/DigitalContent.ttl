@@ -88,15 +88,6 @@ ids:defaultRepresentation
     rdfs:range dcat:Distribution;
     rdfs:comment "Default representation of the content."@en.
 
-ids:accrualPeriodicity # consider irregular updates as well
-    a owl:DatatypeProperty;
-    rdfs:subPropertyOf dct:accrualPeriodicity ;
-    rdfs:label "Accrual periodicity"@en;
-    rdfs:comment "The regular period with which items are added to a collection."@en ;
-    rdfs:domain ids:DigitalContent;
-    rdfs:range ids:Frequency;
-    .
-
 ids:contentStandard
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:conformsTo ;
