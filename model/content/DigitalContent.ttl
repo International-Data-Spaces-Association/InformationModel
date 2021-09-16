@@ -88,14 +88,6 @@ ids:defaultRepresentation
     rdfs:range dcat:Distribution;
     rdfs:comment "Default representation of the content."@en.
 
-ids:temporalCoverage
-    a owl:ObjectProperty;
-    rdfs:subPropertyOf dct:temporal;
-    rdfs:label "temporal coverage"@en;
-    rdfs:domain ids:DigitalContent;
-    rdfs:range ids:TemporalEntity;
-    rdfs:comment "Temporal period or instance covered by the content."@en.
-
 ids:temporalResolution
     a owl:DatatypeProperty ;
     rdfs:subPropertyOf dcat:temporalResolution ;
@@ -141,7 +133,7 @@ ids:created
     rdfs:range xsd:dateTimeStamp;
     rdfs:label "created"@en;
     rdfs:seeAlso dct:created ;
-    rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
+    rdfs:comment "The date of the creation of the Digital Content. In contrast to the dct:temporal, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
 
 ids:modified
     a owl:DatatypeProperty;
