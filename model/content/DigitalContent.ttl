@@ -96,20 +96,6 @@ ids:contentStandard
     rdfs:label "content standard"@en;
     rdfs:comment "IRI containing document, which defines the standard for the given Digital Content. The content is assumed to conform to that Standard."@en.
 
-ids:created
-    a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dct:issued;
-    rdfs:domain [ owl:unionOf (
-          ids:DigitalContent
-          dcat:Distribution
-          ids:UsageControlObject
-          )
-    ] ;
-    rdfs:range xsd:dateTimeStamp;
-    rdfs:label "created"@en;
-    rdfs:seeAlso dct:created ;
-    rdfs:comment "The date of the creation of the Digital Content. In contrast to the dct:temporal, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
-
 ids:modified
     a owl:DatatypeProperty;
     rdfs:subPropertyOf dct:modified;
