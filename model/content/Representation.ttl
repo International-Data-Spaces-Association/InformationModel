@@ -35,14 +35,6 @@ ids:instance
     rdfs:label "instance"@en ;
     rdfs:comment "Reference to an instance of given representation, i.e. inline value or file placeholder."@en.
 
-ids:mediaType
-    a owl:ObjectProperty ;
-    # consider alternatives: dcterms:FileFormat/dcterms:MediaType etc.
-    rdfs:subPropertyOf dcat:mediaType ;
-    rdfs:domain dcat:Distribution ;
-    rdfs:range dct:MediaType ;
-    rdfs:label "media type"@en ;
-    rdfs:comment "Media Type of the Representation."@en.
 
 # Standard followed at representation level, i.e. it governs the serialization of an abstract content like RDF/XML, Turtle for RDF
 ids:representationStandard
