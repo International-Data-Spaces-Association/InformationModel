@@ -3,6 +3,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
 
 <https://connector.fit.fraunhofer.de/apps/ImageAnonymizationApp/1337>
     a ids:AppResource;
@@ -21,7 +23,7 @@
 
     ids:representation [
         a ids:AppRepresentation ;
-        ids:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
+        dcat:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
         ids:dataAppDistributionService <https://example.com> ;
         ids:dataAppRuntimeEnvironment "Docker" ;
         ids:dataAppInformation [

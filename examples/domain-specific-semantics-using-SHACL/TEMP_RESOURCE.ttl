@@ -9,6 +9,7 @@
 @prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 
 
@@ -52,7 +53,7 @@ sample_Data:
 
     ids:representation [
         a ids:DataRepresentation ;
-        ids:mediaType idsc:APPLICATION_JSON;
+        dcat:mediaType idsc:APPLICATION_JSON;
         ids:instance sample_Data:tempdata_file ;
     ] ;
 

@@ -7,6 +7,7 @@
 @prefix interval: <http://reference.data.gov.uk/def/intervals/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix life_expectancy: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/> .
 @prefix life_expectancy-geo: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/Geo/> .
 
@@ -55,7 +56,7 @@ life_expectancy:Resource
 # Representation of resource: Reference to an "instance" (Excel file below)
   ids:representation [
                        a ids:DataRepresentation ;
-                       ids:mediaType <https://www.iana.org/assignments/media-types/application/vnd.ms-excel>;
+                       dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.ms-excel>;
                        ids:instance life_expectancy:ExcelFile ;
                      ] ;
 .
