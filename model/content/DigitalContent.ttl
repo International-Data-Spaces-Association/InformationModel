@@ -95,14 +95,3 @@ ids:contentStandard
     rdfs:range xsd:anyURI;
     rdfs:label "content standard"@en;
     rdfs:comment "IRI containing document, which defines the standard for the given Digital Content. The content is assumed to conform to that Standard."@en.
-
-ids:modified
-    a owl:DatatypeProperty;
-    rdfs:subPropertyOf dct:modified;
-    rdfs:domain [ rdf:type owl:Class ;
-                owl:unionOf ( ids:DigitalContent dcat:Distribution ids:UsageControlObject)
-              ] ;
-    rdfs:range xsd:dateTimeStamp;
-    rdfs:label "modified"@en;
-    rdfs:seeAlso dct:modified ;
-    rdfs:comment "The date/time this Digital Content has been changed the last time. Only one 'modified' attribute is usually needed."@en.
