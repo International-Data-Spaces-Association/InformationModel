@@ -169,11 +169,11 @@ ids:ArtifactUpgradeShape
 		prefix idsm: <https://w3id.org/idsa/metamodel/>
 
 		CONSTRUCT {
-			$this ids:creationDate ?newCreationDate .
-			idsm:VersionUpgrade ids:creationDate ?oldCreationDate.
+			$this dct:created ?newCreationDate .
+			idsm:VersionUpgrade dct:created ?oldCreationDate.
 		}
 		WHERE {
-			OPTIONAL {$this ids:creationDate ?oldCreationDate .}
+			OPTIONAL {$this dct:created ?oldCreationDate .}
 			
 			BIND(if(regex(?oldCreationDate, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
 				oldCreationDate,
