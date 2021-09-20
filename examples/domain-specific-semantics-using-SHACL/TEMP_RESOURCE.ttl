@@ -90,7 +90,7 @@ sample_Data:
             # time interval restricted usage constraict
             ids:constraint [
                 a ids:Constraint ;
-                ids:leftOperand idsc:now;
+                odrl:leftOperand idsc:now;
                 ids:operator idsc:IN_TIME_INTERVAL ;
                 ids:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
                 ] ;
@@ -99,7 +99,7 @@ sample_Data:
             ids:preDuty [
                 ids:action idsc:COMPENSATE ;
                 ids:constraint [
-                    ids:leftOperand idsc:payAmount ;
+                    odrl:leftOperand idsc:payAmount ;
                       ids:operator ids:EQ ;
                       ids:rightOperand 100 ;
                       ids:unit <http://dbpedia.org/resource/Euro>;

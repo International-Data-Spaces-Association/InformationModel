@@ -27,7 +27,7 @@ idsc:SPATIAL_AGREEMENT_TEMPLATE a ids:SpatialAgreement ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [
             a ids:Constraint ;
-            ids:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
+            odrl:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
             ids:operator ?spatialOperator ;                 # the spatial comparison operator, for instance idsc:INSIDE
             ids:rightOperand (
               ?area ;                                       # a URI of a named area, for instance http://dbpedia.org/resource/Europe

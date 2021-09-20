@@ -39,7 +39,7 @@ idsc:N_TIMES_USAGE_REQUEST_TEMPLATE a ids:NotMoreThanNRequest ;
         ids:action idsc:ACTION_TEMPLATE ;
         ids:constraint [
             a ids:Constraint ;
-            ids:leftOperand idsc:COUNT ;
+            odrl:leftOperand idsc:COUNT ;
             ids:operator idsc:LTEQ ;
             ids:rightOperand ?n ;                           # Do not execute the Action more than ?n times.
             ids:pipEndpoint ?pipUri ;                       # the PIP that counts the access events

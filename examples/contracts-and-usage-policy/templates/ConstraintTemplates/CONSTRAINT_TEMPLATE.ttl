@@ -17,7 +17,7 @@
 (
     [
         a ids:Constraint ;                                  # Constraint
-        ids:leftOperand ?IdscLeftOperand ;                  # The feature of interest, for instance ?IdscLeftOperand := idsc:PAY_AMOUNT
+        odrl:leftOperand ?IdscLeftOperand ;                  # The feature of interest, for instance ?IdscLeftOperand := idsc:PAY_AMOUNT
         ids:operator ?IdscBinaryOperator ;                  # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:EQ
         ids:rightOperand ?Value ;                           # The value expression all members of this collection have to share, for instance ?Value := "5"
         ( ids:pipEndpoint ?AttributeLocation ; )?       # A URI or path expression to the target attribute, ?AttributeLocation := <https://bank.com/bankaccount>
@@ -30,7 +30,7 @@
             ( # '(' is used as an RDF List operator here
                 (                                       # LogicalConstraints allow the expression of alternatives. For instance, we can select all combine "idsc:PAY_AMOUNT":"5€" OR "idsc:PAY_AMOUNT":"4$"
                     a ids:Constraint ;
-                    ids:leftOperand ?IdscLeftOperand ;
+                    odrl:leftOperand ?IdscLeftOperand ;
                     ids:operator ?IdsBinaryOperator ;
                     ids:rightOperand ?Value ;
                     ( ids:pipEndpoint ?AttributeLocation ; )?

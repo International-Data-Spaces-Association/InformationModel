@@ -83,21 +83,12 @@ data1:offer
             ids:action idsc:COMPENSATE ;
             ids:constraint [
 				a ids:Constraint ;
-                ids:leftOperand     idsc:PAY_AMOUNT ;
+                odrl:leftOperand     idsc:PAY_AMOUNT ;
                   ids:operator      idsc:EQUALS ;
                   ids:rightOperand  25 ;
                   ids:unit          <http://dbpedia.org/resource/Euro>
             ]
-            # original ODRL construct does not fit model transformation because of indirect action-reference via rdf:value
-            #ids:action [
-            #    rdf:value idsc_action:COMPENSATE ;
-            #    ids:refinement  [
-            #        ids:leftOperand     ids:payAmount ;
-            #          ids:operator      ids:eq ;
-            #          ids:rightOperand  25 ;
-            #          ids:unit          <http://dbpedia.org/resource/Euro>
-            #    ]
-            #]
+         
         ]
     ] .
 	

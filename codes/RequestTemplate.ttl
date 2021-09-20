@@ -6,6 +6,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 
 # Instances
@@ -29,7 +30,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 		"ids:permission": {
 			"ids:action": "[ids:use|ids:read|...]" ,
 			["ids:constraint" : {    
-					 "ids:leftOperand" : "<Attribute URI>",
+					 "odrl:leftOperand" : "<Attribute URI>",
 					 "ids:operator" : "[ids:eq|ids:lt|ids:gt]",
 					 "ids:rightOperand" : "[<Value URI>|<Value Literal>]"
 			 } [,]]*
@@ -49,7 +50,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 			[ids:permission [
 				ids:action ids:[use|read|...] ;
 				ids:constraint [
-					ids:leftOperand <Attribute URI> ;
+					odrl:leftOperand <Attribute URI> ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [<Value URI>|<Value Literal>]
 				]
