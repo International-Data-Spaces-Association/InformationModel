@@ -26,13 +26,6 @@ ids:rightOperand rdfs:subPropertyOf odrl:rightOperand;
     rdfs:range rdfs:Resource;
     rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an ids:Constraint."@en.
 
-ids:unit rdfs:subPropertyOf odrl:unit;
-    a owl:ObjectProperty;
-    rdfs:label "unit"@en;
-    rdfs:domain ids:Constraint;
-    rdfs:range xsd:anyURI ;
-    rdfs:comment "The unit of measurement of a Constraint."@en.
-
 ids:pipEndpoint a owl:ObjectProperty;
      rdfs:label "has PIP endpoint"@en;
      rdfs:domain ids:Constraint;

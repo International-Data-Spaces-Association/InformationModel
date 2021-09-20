@@ -26,7 +26,7 @@
             odrl:operator ?IdscBinaryOperator ;              # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
             ids:rightOperand ?Value ;                       # The value expression all members of this collection have to share, for instance ?Value := "blue"
             ( ids:pipEndpoint ?AttributeLocation ; )?   # A URI or path expression to the target attribute, ?AttributeLocation := "//color"
-            ( ids:unit ?Unit ; )?                           # A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
+            ( odrl:unit ?Unit ; )?                           # A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
         ]
     ]
 | # or
@@ -43,7 +43,7 @@
                         odrl:operator ?IdsBinaryOperator ;
                         ids:rightOperand ?Value ;
                         ( ids:pipEndpoint ?AttributeLocation ; )?
-                        ( ids:unit ?Unit ; )?
+                        ( odrl:unit ?Unit ; )?
                     ){2,} # at least two constraints
                 ) # ')' is used as an RDF List operator here
         ]

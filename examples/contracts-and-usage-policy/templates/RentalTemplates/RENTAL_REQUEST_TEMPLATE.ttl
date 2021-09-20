@@ -63,7 +63,7 @@ idsc:RENTAL_REQUEST_TEMPLATE a ids:RentalRequest ;
                     odrl:leftOperand idsc:PAY_AMOUNT ;
                     odrl:operator idsc:EQ ;
                     ids:rightOperand "?fee"^^xsd:double ;   # pay the ?fee
-                    ids:unit ?currency ;
+                    odrl:unit ?currency ;
                     ( ids:pipEndpoint ?pipUri ; )?
                 ]
             ] ;
