@@ -30,17 +30,6 @@ ids:Frequency
     rdfs:label "Frequency"@en ;
     rdfs:comment "Class of all frequencies."@en.
 
-ids:dateTime
-    a owl:DatatypeProperty;
-    rdfs:subPropertyOf time:inXSDDateTimeStamp;#  time-zone is mandatory
-    rdfs:domain time:Instant;
-    #rdfs:range xsd:dateTime;
-    rdfs:range xsd:dateTimeStamp;
-    rdfs:label "date time"@en;
-    rdfs:comment "Absolute date time with a defined time zone."@en;
-    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#dateTimeStamp> ;
-    .
-
 ids:begin
     a owl:ObjectProperty ;
     rdfs:subPropertyOf time:hasBeginning;
