@@ -115,7 +115,7 @@ shapes:LogicalConstraintShape
 		sh:targetClass odrl:LogicalConstraint ;
 		sh:xone (
 	    [
-		    sh:path ids:and ;
+		    sh:path odrl:and ;
         sh:minCount 1 ;
         #sh:maxCount 1 ;
 				sh:class ids:Constraint ;
@@ -136,5 +136,5 @@ shapes:LogicalConstraintShape
         sh:severity sh:Violation ;
 	    ]
 		) ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one ids:and, ids:or, or ids:xone property must point from an odrl:LogicalConstraint to ids:Constraints."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one odrl:and, ids:or, or ids:xone property must point from an odrl:LogicalConstraint to ids:Constraints."@en ;
 .

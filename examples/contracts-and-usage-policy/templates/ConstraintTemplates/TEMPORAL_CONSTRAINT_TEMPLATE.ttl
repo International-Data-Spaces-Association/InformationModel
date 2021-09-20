@@ -37,7 +37,7 @@
 | # or
     (
         a odrl:LogicalConstraint ;                                               # A Collection with more than one condition to describe its members.
-        ids:and                                                                 # Both Constraints have to be satisfied.
+        odrl:and                                                                 # Both Constraints have to be satisfied.
             ( # '(' is used as an RDF List operator here                        # LogicalConstraints allow the expression of complex constraints. For instance, we can restrict the policy to be only valid in 2020.
               [
                   a ids:TemporalConstraint ;                                    # A TemporalConstraint, for instance current time > January 1st 2020
