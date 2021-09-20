@@ -27,14 +27,6 @@ ids:modelVersion
     rdfs:range xsd:string;
     rdfs:comment "Version of the Information Model against which the Message should be interpreted."@en.
 
-ids:issued
-    rdfs:subPropertyOf dct:issued;
-    a owl:DatatypeProperty;
-    rdfs:label "issued"@en;
-    rdfs:domain ids:Message;
-    rdfs:range xsd:dateTimeStamp;
-    rdfs:comment "Date (as xsd:dateTimeStamp) of issuing the Message."@en.
-
 ids:correlationMessage
     a owl:ObjectProperty;
     rdfs:label "consumer connector"@en;

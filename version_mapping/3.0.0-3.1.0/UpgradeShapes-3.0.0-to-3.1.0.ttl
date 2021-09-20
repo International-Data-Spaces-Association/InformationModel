@@ -132,15 +132,15 @@ ids:MessageUpgradeShape
 			$this ids:contractRejectionReason ?newContractRejectionReason .
 			idsm:VersionUpgrade ids:contractRejectionReason ?oldContractRejectionReason.
 			
-			$this ids:issued ?newIssued .
-			idsm:VersionUpgrade ids:issued ?oldIssued.
+			$this dct:issued ?newIssued .
+			idsm:VersionUpgrade dct:issued ?oldIssued.
 		}
 		WHERE {
 			OPTIONAL {$this ids:contractRejectionReason ?oldContractRejectionReason .}
 			BIND(STRDT(STR(?oldContractRejectionReason), xsd:string) AS ?newContractRejectionReason)
 			
 			
-			OPTIONAL {$this ids:issued ?oldIssued .}
+			OPTIONAL {$this dct:issued ?oldIssued .}
 			BIND(if(regex(?oldIssued, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
 				oldIssued,
 				STRDT(CONCAT(STR(?oldIssued),"Z"), xsd:dateTimeStamp )
