@@ -41,7 +41,7 @@ idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
         ids:constraint [
             a ids:Constraint ;
             odrl:leftOperand idsc:STATE ;
-            ids:operator idsc:NOT ;
+            odrl:operator idsc:NOT ;
             ids:rightOperand ?terminationState ;            # An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
             ( ids:pipEndpoint ?pipUri ; )?                  # The location where to find this state.
         ] ;
@@ -61,7 +61,7 @@ idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
                 ids:actionRefinement [
                     a ids:Constraint ;
                     odrl:leftOperand idsc:PAY_AMOUNT ;
-                    ids:operator idsc:EQ ;
+                    odrl:operator idsc:EQ ;
                     ids:rightOperand "?fee"^^xsd:double ;   # pay the ?fee
                     ids:unit ?currency ;
                     ( ids:pipEndpoint ?pipUri ; )?
@@ -70,7 +70,7 @@ idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
             ids:constraint [
                 a ids:Constraint ;
                 odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;
-                ids:operator idsc:AFTER ;
+                odrl:operator idsc:AFTER ;
                 ids:rightOperand ?duration ;                # for a certain usage ?duration
             ]
         ] ;

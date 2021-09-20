@@ -31,7 +31,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 			"ids:action": "[ids:use|ids:read|...]" ,
 			["ids:constraint" : {    
 					 "odrl:leftOperand" : "<Attribute URI>",
-					 "ids:operator" : "[ids:eq|ids:lt|ids:gt]",
+					 "odrl:operator" : "[ids:eq|ids:lt|ids:gt]",
 					 "ids:rightOperand" : "[<Value URI>|<Value Literal>]"
 			 } [,]]*
 		} }"""^^xsd:string ;
@@ -51,7 +51,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 				ids:action ids:[use|read|...] ;
 				ids:constraint [
 					odrl:leftOperand <Attribute URI> ;
-					ids:operator [ids:eq|ids:lt|ids:gt] ;
+					odrl:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [<Value URI>|<Value Literal>]
 				]
 			] ;]*

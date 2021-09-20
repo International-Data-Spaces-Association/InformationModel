@@ -27,7 +27,7 @@
         ids:assetRefinement [                               # a Collection with exactly one condition to describe its members
             a ids:Constraint ;                              # Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
             odrl:leftOperand ?IdscLeftOperand ;              # The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
-            ids:operator ?IdscBinaryOperator ;              # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
+            odrl:operator ?IdscBinaryOperator ;              # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
             ids:rightOperand ?Value ;                       # The value expression all members of this collection have to share, for instance ?Value := "blue"
             ( ids:pipEndpoint ?AttributeLocation ; )?       # A URI or path expression to the target attribute, ?AttributeLocation := "//color"
             ( ids:unit ?Unit ; )?                           # A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
@@ -43,7 +43,7 @@
                     (                                       # LogicalConstraints allow the expression of alternatives. For instance, we can select which have "color":"blue" OR "color":"green"
                         a ids:Constraint ;
                         odrl:leftOperand ?IdscLeftOperand ;
-                        ids:operator ?IdsBinaryOperator ;
+                        odrl:operator ?IdsBinaryOperator ;
                         ids:rightOperand ?Value ;
                         ( ids:pipEndpoint ?AttributeLocation ; )?
                         ( ids:unit ?Unit ; )?
