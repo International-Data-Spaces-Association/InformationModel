@@ -32,12 +32,3 @@ ids:pipEndpoint a owl:ObjectProperty;
      rdfs:range xsd:anyURI ;
      rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en
 .
-
-ids:xone rdfs:subPropertyOf odrl:xone;
-  a owl:ObjectProperty;
-  rdfs:label "exclusive or"@en ;
-  rdfs:domain odrl:LogicalConstraint;
-  #rdfs:range rdf:List;
-  rdfs:range ids:Constraint;
-  rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of odrl:and, odrl:or, or ids:xone can be used for a specific odrl:LogicalConstraint!"@en ;
-.
