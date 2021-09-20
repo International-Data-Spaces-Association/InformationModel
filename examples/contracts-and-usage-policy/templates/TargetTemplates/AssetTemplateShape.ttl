@@ -30,7 +30,7 @@ shapes:AssetTemplateShape
 			sh:class odrl:AssetCollection ; # it's a Collection with LogicalConstraints
 			sh:property [
 				sh:path [
-					sh:or ( ids:or odrl:and ids:xone );
+					sh:or ( odrl:or odrl:and ids:xone );
 				];
 				sh:minInclusive 2 ;
 				sh:class odrl:LogicalConstraint ;
