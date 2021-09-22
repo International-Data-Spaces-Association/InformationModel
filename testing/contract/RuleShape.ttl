@@ -50,7 +50,7 @@ shapes:RuleShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:assignee ;
+		sh:path odrl:assignee ;
 		sh:or (
       [ sh:nodeKind sh:IRI ; ]
 			[ sh:class ids:Participant ; ]
@@ -58,7 +58,7 @@ shapes:RuleShape
 		sh:minCount 0 ;
 		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:Rule must have at maximum one ids:Participant linked through the ids:assignee property."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:Rule must have at maximum one ids:Participant linked through the odrl:assignee property."@en ;
 	] ;
 
 	sh:property [
