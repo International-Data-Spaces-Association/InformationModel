@@ -27,7 +27,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 		"target": "[<Representation URI>|<Artifact URI>]",
 		"ids:provider": "<Provider Participant URI>",
 		"ids:consumer": "<Consumer Participant URI>", 
-		"ids:permission": {
+		"odrl:permission": {
 			"ids:action": "[ids:use|ids:read|...]" ,
 			["odrl:constraint" : {    
 					 "odrl:leftOperand" : "<Attribute URI>",
@@ -47,7 +47,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 			ids:target [<Representation URI>|<Artifact URI>] ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
-			[ids:permission [
+			[odrl:permission[
 				ids:action ids:[use|read|...] ;
 				odrl:constraint [
 					odrl:leftOperand <Attribute URI> ;
