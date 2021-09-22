@@ -38,7 +38,7 @@ idsc:SPATIAL_REQUEST_TEMPLATE a ids:SpatialRequest ;
         )
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
-        ids:constraint [
+        odrl:constraint [
             a ids:Constraint ;
             odrl:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
             odrl:operator ?spatialOperator ;                 # the spatial comparison operator, for instance idsc:INSIDE
@@ -61,7 +61,7 @@ idsc:SPATIAL_REQUEST_TEMPLATE a ids:SpatialRequest ;
               ] ;
             )
         ] ;
-        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
     ]

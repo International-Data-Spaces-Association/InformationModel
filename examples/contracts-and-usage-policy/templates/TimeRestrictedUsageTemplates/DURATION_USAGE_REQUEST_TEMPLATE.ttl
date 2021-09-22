@@ -38,13 +38,13 @@ idsc:DURATION_REQUEST_TEMPLATE a ids:DurationRequest ;
         )
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
-        ids:constraint [
+        odrl:constraint [
             a ids:Constraint ;
             odrl:leftOperand idsc:ELAPSED_TIME ;
             ids:operator idsc:SHORTER_EQ ;
             ids:rightOperand ?duration ;                    # for a certain usage ?duration
         ] ;
-        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
     ]

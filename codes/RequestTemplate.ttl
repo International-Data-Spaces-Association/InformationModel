@@ -29,7 +29,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 		"ids:consumer": "<Consumer Participant URI>", 
 		"ids:permission": {
 			"ids:action": "[ids:use|ids:read|...]" ,
-			["ids:constraint" : {    
+			["odrl:constraint" : {    
 					 "odrl:leftOperand" : "<Attribute URI>",
 					 "odrl:operator" : "[ids:eq|ids:lt|ids:gt]",
 					 "ids:rightOperand" : "[<Value URI>|<Value Literal>]"
@@ -49,7 +49,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 			ids:provider <Provider Participant URI>
 			[ids:permission [
 				ids:action ids:[use|read|...] ;
-				ids:constraint [
+				odrl:constraint [
 					odrl:leftOperand <Attribute URI> ;
 					odrl:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [<Value URI>|<Value Literal>]

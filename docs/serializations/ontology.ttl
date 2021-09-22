@@ -4,6 +4,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
 @base <https://w3id.org/idsa/core> .
 
 <https://w3id.org/idsa/core> rdf:type owl:Ontology ;
@@ -6957,7 +6959,7 @@ owl:Class rdf:type owl:Class .
 			ids:provider <Provider Participant URI>
 			[ids:permission [
 				ids:action ids:[use|read|...] ;
-				ids:constraint [
+				odrl:constraint [
 					ids:leftOperand <Attribute URI> ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [<Value URI>|<Value Literal>]
@@ -6974,7 +6976,7 @@ owl:Class rdf:type owl:Class .
 		\"ids:consumer\": \"<Consumer Participant URI>\",
 		\"ids:permission\": {
 			\"ids:action\": \"[ids:use|ids:read|...]\" ,
-			[\"ids:constraint\" : {
+			[\"odrl:constraint\" : {
 					 \"ids:leftOperand\" : \"<Attribute URI>\",
 					 \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",
 					 \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"

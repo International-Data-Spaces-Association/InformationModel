@@ -11303,7 +11303,7 @@
 			ids:provider &lt;Provider Participant URI&gt;
 			[ids:permission [
 				ids:action ids:[use|read|...] ;
-				ids:constraint [
+				odrl:constraint [
 					ids:leftOperand &lt;Attribute URI&gt; ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [&lt;Value URI&gt;|&lt;Value Literal&gt;]
@@ -11320,7 +11320,7 @@
 		&quot;ids:consumer&quot;: &quot;&lt;Consumer Participant URI&gt;&quot;, 
 		&quot;ids:permission&quot;: {
 			&quot;ids:action&quot;: &quot;[ids:use|ids:read|...]&quot; ,
-			[&quot;ids:constraint&quot; : {    
+			[&quot;odrl:constraint&quot; : {    
 					 &quot;ids:leftOperand&quot; : &quot;&lt;Attribute URI&gt;&quot;,
 					 &quot;ids:operator&quot; : &quot;[ids:eq|ids:lt|ids:gt]&quot;,
 					 &quot;ids:rightOperand&quot; : &quot;[&lt;Value URI&gt;|&lt;Value Literal&gt;]&quot;

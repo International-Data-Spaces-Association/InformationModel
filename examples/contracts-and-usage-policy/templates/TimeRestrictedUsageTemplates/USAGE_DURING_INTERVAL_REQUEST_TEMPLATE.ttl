@@ -38,17 +38,17 @@ idsc:USAGE_DURING_INTERVAL_REQUEST_TEMPLATE a ids:IntervalUsageRequest ;
         )
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
-        ids:constraint [
+        odrl:constraint [
 					odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:AFTER ;
 					ids:rightOperand "?startDateTime"^^xsd:dateTimeStamp ; # ?startDateTime < ?endDateTime
 				] ;
-				ids:constraint [
+				odrl:constraint [
 					odrl:leftOperand ids:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:BEFORE ;
 					ids:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
 				] ;
-        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ]

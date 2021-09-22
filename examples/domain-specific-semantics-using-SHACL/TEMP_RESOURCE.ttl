@@ -88,7 +88,7 @@ sample_Data:
             ids:target sample_Data:tempdata_file ;
 
             # time interval restricted usage constraict
-            ids:constraint [
+            odrl:constraint [
                 a ids:Constraint ;
                 odrl:leftOperand idsc:now;
                 ids:operator idsc:IN_TIME_INTERVAL ;
@@ -98,7 +98,7 @@ sample_Data:
             # Obligation / Duty
             ids:preDuty [
                 ids:action idsc:COMPENSATE ;
-                ids:constraint [
+                odrl:constraint [
                     odrl:leftOperand idsc:payAmount ;
                       ids:operator ids:EQ ;
                       ids:rightOperand 100 ;

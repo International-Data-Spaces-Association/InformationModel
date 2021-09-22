@@ -38,7 +38,7 @@ idsc:SWAP_REQUEST_TEMPLATE a ids:SwapRequest ;
         )
         ids:target idsc:ASSET_TEMPLATE ;                   # the Provider's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;
-        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ] ;
@@ -54,7 +54,7 @@ idsc:SWAP_REQUEST_TEMPLATE a ids:SwapRequest ;
         )
         ids:target idsc:ASSET_TEMPLATE ;                   # the Consumer's Data Asset
         ids:action idsc:ACTION_TEMPLATE ;
-        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more Obligations which have to be fulfilled after the Usage event
     ] ;
