@@ -28,11 +28,11 @@ idsc:SECURITY_LEVEL_OFFER_TEMPLATE a ids:SecurityOffer ;
     ids:permission [
         a odrl:Permission ;
         (
-          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
         | # or
           (odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         | # or
-          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
            odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         )
         ids:target idsc:ASSET_TEMPLATE ;

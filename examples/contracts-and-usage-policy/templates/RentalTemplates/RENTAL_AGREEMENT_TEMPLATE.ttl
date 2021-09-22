@@ -22,7 +22,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
     ids:consumer idsc:PARTICIPANT_TEMPLATE ;
     ids:permission [
         a odrl:Permission ;
-        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
+        odrl:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         odrl:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
@@ -35,7 +35,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
         ] ;
         ids:preDuty [
             a odrl:Duty ;
-            ids:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
+            odrl:assigner idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:provider
             odrl:assignee idsc:PARTICIPANT_TEMPLATE ;        # same value as ids:consumer
             ids:action [
                 a odrl:Action ;
