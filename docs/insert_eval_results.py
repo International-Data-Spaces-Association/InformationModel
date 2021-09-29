@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup as Soup
 
 eval_line = ["""
-<dt>Evaluation:</dt><dd><a href="OOPSEvaluation/OOPSeval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="OOPS Evaluation" /></a></dd>
+<dt>Evaluation:</dt><dd><a href="OOPSevaluation/OOPSeval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="OOPS Evaluation" /></a></dd>
 """]
 html_result_lines = []
 with open("index.html") as html_file:
