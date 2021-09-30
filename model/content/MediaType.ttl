@@ -8,6 +8,13 @@
 # Classes
 # -------
 
+ids:MediaType
+    a owl:Class;
+    rdfs:subClassOf dct:MediaType ; # *not* restricted to IANA media types
+    rdfs:label "Media Type"@en ;
+    rdfs:comment "General class of media types (formerly known as MIME types). ids:CustomMediaType is used only when no ids:IANAMediaType available."@en ;
+    .
+
 ids:CustomMediaType
     a owl:Class ;
     rdfs:subClassOf dct:MediaType;
@@ -26,16 +33,6 @@ ids:IANAMediaType
 
 # Properties
 # ----------
-
-#ids:magicNumber
-#    a owl:DatatypeProperty ;
-#    rdfs:label "magic number"@en ;
-#    rdfs:label "file signature"@en ;
-#    rdfs:domain dct:MediaType ;
-#    rdfs:range xsd:string ;
-#    rdfs:comment "Alphanumeric sequence (located within a file) used to identify the file format."@en ;
-#    rdfs:seeAlso <https://en.wikipedia.org/wiki/File_format#Magic_number> ;
-#    .
 
 ids:filenameExtension
     # similar to <http://dbpedia.org/property/extension>, but does not contain dot separator
