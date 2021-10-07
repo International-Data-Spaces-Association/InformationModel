@@ -1,7 +1,17 @@
-## Checklist for releases:
+## Type of change
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Formatting / Refactoring / Other change (non-breaking, non-functional changes)
+- [ ] Release
+
+## Checklist:
+- [ ] Provide complete validation shapes for the new ontology terms; remove shapes for the old ones
+
+### Checklist for releases:
 
 #### Before a release:
-- [ ] Provide complete validation shapes for the new ontology terms; remove shapes for the old ones
 - [ ] Update changelogs
 - [ ] Rerun ontology creation script (`create-ontology-ttl.sh`) with the version number of the release. E.g., `create-ontology-ttl.sh 4.2.0`
 - [ ] Update and validate the examples against the latest ontology version and SHACL shapes
