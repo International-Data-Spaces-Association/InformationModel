@@ -1,6 +1,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -103,7 +103,7 @@ shapes:UsageControlObjectShape
 		sh:datatype xsd:anyURI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:requester property must not have more than one point from an ids:UsageControlObject to an ids:TemporalEntity."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/UsageControlObjectShape.ttl> (UsageControlObjectShape): An ids:requester property must not have more than one point from an ids:UsageControlObject to a time:TemporalEntity."@en ;
 	] ;
 
 	sh:property [

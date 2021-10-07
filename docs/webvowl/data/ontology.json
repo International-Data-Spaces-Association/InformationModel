@@ -9515,7 +9515,7 @@
         } ]
       },
       "comment" : {
-        "en" : "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity."
+        "en" : "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand time:TemporalEntity."
       },
       "labels" : {
         "IRI-based" : "POLICY_EVALUATION_TIME",
@@ -11653,7 +11653,7 @@
         "note" : [ {
           "identifier" : "note",
           "language" : "en",
-          "value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration.",
+          "value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration.",
           "type" : "label"
         } ]
       },
@@ -11826,7 +11826,7 @@
         } ]
       },
       "comment" : {
-        "en" : "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."
+        "en" : "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."
       },
       "labels" : {
         "IRI-based" : "AFTER",
@@ -11948,7 +11948,7 @@
         } ]
       },
       "comment" : {
-        "en" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."
+        "en" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."
       },
       "labels" : {
         "IRI-based" : "CONTAINS",
@@ -12017,7 +12017,7 @@
         "note" : [ {
           "identifier" : "note",
           "language" : "en",
-          "value" : "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal.",
+          "value" : "Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal.",
           "type" : "label"
         } ],
         "seeAlso" : [ {
@@ -12028,7 +12028,7 @@
         } ]
       },
       "comment" : {
-        "en" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."
+        "en" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."
       },
       "labels" : {
         "IRI-based" : "TEMPORAL_DISJOINT",
@@ -12041,7 +12041,7 @@
         "note" : [ {
           "identifier" : "note",
           "language" : "en",
-          "value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration.",
+          "value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration.",
           "type" : "label"
         } ]
       },
@@ -12125,7 +12125,7 @@
         "note" : [ {
           "identifier" : "note",
           "language" : "en",
-          "value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration.",
+          "value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration.",
           "type" : "label"
         } ]
       },
@@ -12394,7 +12394,7 @@
         "note" : [ {
           "identifier" : "note",
           "language" : "en",
-          "value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration.",
+          "value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration.",
           "type" : "label"
         } ]
       },
@@ -12412,7 +12412,8 @@
         "note" : [ {
           "identifier" : "note",
           "language" : "en",
-          "value" : "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity.",
+          "value" : "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity.",
+          "value" : "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity.",
           "type" : "label"
         } ],
         "seeAlso" : [ {
@@ -12436,7 +12437,7 @@
         "note" : [ {
           "identifier" : "note",
           "language" : "en",
-          "value" : "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp.",
+          "value" : "Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp.",
           "type" : "label"
         } ],
         "seeAlso" : [ {
@@ -12447,7 +12448,7 @@
         } ]
       },
       "comment" : {
-        "en" : "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."
+        "en" : "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."
       },
       "labels" : {
         "IRI-based" : "BEFORE",

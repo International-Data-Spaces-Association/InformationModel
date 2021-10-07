@@ -7,6 +7,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 
 shapes:
 	a owl:Ontology ;
@@ -123,9 +124,9 @@ shapes:DigitalContentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:temporal ;
-		sh:class ids:TemporalEntity ;
+		sh:class time:TemporalEntity ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): A dct:temporal property must point from an ids:DigitalContent to an ids:TemporalEntity."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/DigitalContentShape.ttl> (DigitalContentShape): A dct:temporal property must point from an ids:DigitalContent to a time:TemporalEntity."@en ;
 	] ;
 
 	sh:property [

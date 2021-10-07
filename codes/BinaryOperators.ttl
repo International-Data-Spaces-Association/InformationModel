@@ -111,22 +111,22 @@ idsc:MATCHES a ids:BinaryOperator;
 idsc:AFTER a ids:BinaryOperator;
     rdfs:seeAlso time:after;
     rdfs:label "after"@en ;
-    rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
+    rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en ;
     .
 
 idsc:BEFORE
     a ids:BinaryOperator ;
     rdfs:seeAlso time:before ;
 	rdfs:label "before"@en;
-    skos:note "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp."@en ;
-    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
+    skos:note "Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp."@en ;
+    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en ;
     .
 
 
 idsc:CONTAINS a ids:BinaryOperator;
     rdfs:seeAlso time:inside, time:intervalContains;
     rdfs:label "contains"@en ;
-    rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
+    rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
     skos:note "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."@en ;
     .
 
@@ -135,8 +135,8 @@ idsc:TEMPORAL_DISJOINT
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:intervalDisjoint;
 	rdfs:label "disjoint"@en;
-	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en;
-    skos:note "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal."@en ;
+	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en;
+    skos:note "Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal."@en ;
     .
 
 idsc:DURING
@@ -225,28 +225,28 @@ idsc:DURATION_EQ
 	rdfs:seeAlso time:hasTemporalDuration;
 	rdfs:label "has same duration"@en;
 	rdfs:comment "If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."@en ;
+    skos:note "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity."@en ;
     .
 
 idsc:LONGER
 	a ids:BinaryOperator ;
     rdfs:label "longer"@en ;
 	rdfs:comment "If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 idsc:LONGER_EQ
 	a ids:BinaryOperator ;
     rdfs:label "longer or equals"@en ;
 	rdfs:comment "If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 idsc:SHORTER_EQ
 	a ids:BinaryOperator ;
     rdfs:label "shorter or equals"@en ;
 	rdfs:comment "If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 
@@ -254,7 +254,7 @@ idsc:SHORTER
 	a ids:BinaryOperator ;
     rdfs:label "shorter"@en ;
 	rdfs:comment "If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 

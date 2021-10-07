@@ -8339,7 +8339,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/code/AFTER">
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
-        <rdfs:comment xml:lang="en">If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an time:TemporalEntity.</rdfs:comment>
         <rdfs:label xml:lang="en">after</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#after"/>
     </owl:NamedIndividual>
@@ -8671,10 +8671,10 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/code/BEFORE">
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
-        <rdfs:comment xml:lang="en">If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an time:TemporalEntity.</rdfs:comment>
         <rdfs:label xml:lang="en">before</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#before"/>
-        <skos:note xml:lang="en">Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -9009,7 +9009,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/code/CONTAINS">
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
-        <rdfs:comment xml:lang="en">If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself.</rdfs:comment>
+        <rdfs:comment xml:lang="en">If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself.</rdfs:comment>
         <rdfs:label xml:lang="en">contains</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#inside"/>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalContains"/>
@@ -9250,7 +9250,7 @@
         <rdfs:comment xml:lang="en">If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration &apos;P0Y0M0DT0H0M0S&apos;^^xsd:duration and therefore have always the same duration.</rdfs:comment>
         <rdfs:label xml:lang="en">has same duration</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#hasTemporalDuration"/>
-        <skos:note xml:lang="en">Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -10338,7 +10338,7 @@
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
         <rdfs:comment xml:lang="en">If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration &apos;P0Y0M0DT0H0M0S&apos;^^xsd:duration and therefore have always the same duration.</rdfs:comment>
         <rdfs:label xml:lang="en">longer</rdfs:label>
-        <skos:note xml:lang="en">Compares an instance of ids:TemporalEntity with an instance of xsd:duration.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:TemporalEntity with an instance of xsd:duration.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -10350,7 +10350,7 @@
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
         <rdfs:comment xml:lang="en">If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration &apos;P0Y0M0DT0H0M0S&apos;^^xsd:duration and therefore have always the same duration.</rdfs:comment>
         <rdfs:label xml:lang="en">longer or equals</rdfs:label>
-        <skos:note xml:lang="en">Compares an instance of ids:TemporalEntity with an instance of xsd:duration.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:TemporalEntity with an instance of xsd:duration.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -11083,7 +11083,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/code/POLICY_EVALUATION_TIME">
         <rdf:type rdf:resource="https://w3id.org/idsa/core/LeftOperand"/>
-        <rdfs:comment xml:lang="en">The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand time:TemporalEntity.</rdfs:comment>
         <rdfs:label xml:lang="en">policy evaluation time</rdfs:label>
         <skos:broader rdf:resource="http://www.w3.org/ns/odrl/2/dateTime"/>
     </owl:NamedIndividual>
@@ -11523,7 +11523,7 @@
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
         <rdfs:comment xml:lang="en">If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration &apos;P0Y0M0DT0H0M0S&apos;^^xsd:duration and therefore have always the same duration.</rdfs:comment>
         <rdfs:label xml:lang="en">shorter</rdfs:label>
-        <skos:note xml:lang="en">Compares an instance of ids:TemporalEntity with an instance of xsd:duration.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:TemporalEntity with an instance of xsd:duration.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -11535,7 +11535,7 @@
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
         <rdfs:comment xml:lang="en">If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration &apos;P0Y0M0DT0H0M0S&apos;^^xsd:duration and therefore have always the same duration.</rdfs:comment>
         <rdfs:label xml:lang="en">shorter or equals</rdfs:label>
-        <skos:note xml:lang="en">Compares an instance of ids:TemporalEntity with an instance of xsd:duration.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:TemporalEntity with an instance of xsd:duration.</skos:note>
     </owl:NamedIndividual>
     
 
@@ -11867,10 +11867,10 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/idsa/code/TEMPORAL_DISJOINT">
         <rdf:type rdf:resource="https://w3id.org/idsa/core/BinaryOperator"/>
-        <rdfs:comment xml:lang="en">If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2.</rdfs:comment>
+        <rdfs:comment xml:lang="en">If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2.</rdfs:comment>
         <rdfs:label xml:lang="en">disjoint</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/owl-time/#intervalDisjoint"/>
-        <skos:note xml:lang="en">Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal.</skos:note>
+        <skos:note xml:lang="en">Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal.</skos:note>
     </owl:NamedIndividual>
     
 

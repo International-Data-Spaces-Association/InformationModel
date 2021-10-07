@@ -4549,7 +4549,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/AFTER
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en .
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#label> "after"@en .
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#after> .
 # 
@@ -4711,10 +4711,10 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/BEFORE
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en .
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#label> "before"@en .
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#before> .
-<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp."@en .
+<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp."@en .
 # 
 # https://w3id.org/idsa/code/BG
 <https://w3id.org/idsa/code/BG> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -4884,7 +4884,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/CONTAINS
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en .
+<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#label> "contains"@en .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#inside> .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalContains> .
@@ -5016,7 +5016,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2000/01/rdf-schema#label> "has same duration"@en .
 <https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#hasTemporalDuration> .
-<https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity."@en .
 # 
 # https://w3id.org/idsa/code/DURING
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -5515,14 +5515,14 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/LONGER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2000/01/rdf-schema#label> "longer"@en .
-<https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/LONGER_EQ
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2000/01/rdf-schema#comment> "If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2000/01/rdf-schema#label> "longer or equals"@en .
-<https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/LT
 <https://w3id.org/idsa/code/LT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
@@ -5887,7 +5887,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/POLICY_EVALUATION_TIME
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/LeftOperand> .
-<https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2000/01/rdf-schema#comment> "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2000/01/rdf-schema#comment> "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand time:TemporalEntity."@en .
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2000/01/rdf-schema#label> "policy evaluation time"@en .
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/ns/odrl/2/dateTime> .
 # 
@@ -6094,14 +6094,14 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2000/01/rdf-schema#label> "shorter"@en .
-<https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/SHORTER_EQ
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2000/01/rdf-schema#label> "shorter or equals"@en .
-<https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/SI
 <https://w3id.org/idsa/code/SI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -6263,10 +6263,10 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/TEMPORAL_DISJOINT
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en .
+<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en .
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#label> "disjoint"@en .
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalDisjoint> .
-<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal."@en .
+<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal."@en .
 # 
 # https://w3id.org/idsa/code/TEMPORAL_EQUALS
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
