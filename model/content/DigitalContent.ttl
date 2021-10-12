@@ -47,30 +47,6 @@ ids:contentPart
     rdfs:range ids:DigitalContent;
     rdfs:comment "Reference to a Digital Content (physically or logically) included, definition of part-whole hierarchies."@en .
 
-ids:standardLicense
-    a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dct:licence ;
-    rdfs:domain ids:Resource ;
-    rdfs:range xsd:anyURI;
-    rdfs:seeAlso <https://www.wikidata.org/wiki/Q79719>;
-    rdfs:label "Standard License"@en;
-    rdfs:comment """
-    Reference to a well-known License regulating the general usage of the Resource.
-    Check wikidata license documentation for an extensive list of licenses.
-    License IRI should refer to the direct of link for a given standard license,
-    e.g., MIT license (https://www.wikidata.org/wiki/Q334661). The label of the resolved wikidata license IRI can be used to
-    present the license in human-readable form.
-    """@en.
-
-
-ids:customLicense
-    a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dct:licence ;
-    rdfs:domain ids:Resource ;
-    rdfs:range xsd:anyURI;
-    rdfs:label "Custom License"@en;
-    rdfs:comment "URL reference to a custom license regulating the general usage of the Resource."@en.
-
 
 ids:representation
     a owl:ObjectProperty;
