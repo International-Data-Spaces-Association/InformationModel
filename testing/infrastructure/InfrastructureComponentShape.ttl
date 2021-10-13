@@ -27,7 +27,10 @@ shapes:InfrastructureComponentShape
   sh:property [
   	a sh:PropertyShape ;
   	sh:path ids:maintainer ;
-  	sh:nodeKind sh:IRI ;
+		sh:or (
+	    [ sh:class ids:Participant ; ]
+	    [ sh:nodeKind sh:IRI ; ]
+		) ;
     sh:minCount 1 ;
   	sh:severity sh:Violation ;
   	sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/InfrastructureComponentShape.ttl> (InfrastructureComponentShape): An ids:maintainer property must have at least one point from an ids:InfrastructureComponent to an ids:Participant."@en ;
@@ -36,7 +39,10 @@ shapes:InfrastructureComponentShape
   sh:property [
     a sh:PropertyShape ;
     sh:path ids:curator ;
-    sh:nodeKind sh:IRI ;
+		sh:or (
+	    [ sh:class ids:Participant ; ]
+	    [ sh:nodeKind sh:IRI ; ]
+		) ;
     sh:minCount 1 ;
     sh:severity sh:Violation ;
     sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/InfrastructureComponentShape.ttl> (InfrastructureComponentShape): An ids:curator property must have at least one point from an ids:InfrastructureComponent to an ids:Participant."@en ;
