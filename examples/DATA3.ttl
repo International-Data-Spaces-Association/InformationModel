@@ -1,0 +1,85 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix conn3: <https://aastat.gov.de/connector/conn3/> .
+@prefix data3: <https://aastat.gov.de/connector/conn3/data3/> .
+@prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
+
+data3:
+    a ids:TextResource ;
+    ids:title "European highway statistics - traffic report"@en ;
+    ids:description "Detailed traffic analysis report based on European highway statistics data 2000 - 2017."@en;
+    ids:keyword "report", "highway", "statistics", "Europe" ;
+    ids:temporalCoverage [
+        a ids:Interval ;
+        ids:begin [
+            a ids:Instant ;
+            ids:dateTime "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        ];
+        ids:end   [
+            a ids:Instant ;
+            ids:dateTime "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        ] ;
+    ] ;
+    ids:language idsc:EN ;
+    ids:representation [
+        a ids:TextRepresentation ;
+        ids:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
+        ids:instance data3:report_pdf ;
+    ] ;
+    ids:representation [
+        a ids:TextRepresentation ;
+        ids:mediaType <https://www.iana.org/assignments/media-types/application/msword> ;
+        ids:instance data3:report_doc ;
+    ] ;
+
+    # Communication
+    ids:resourceEndpoint [
+        a ids:ConnectorEndpoint ;
+        ids:endpointArtifact data3:report_pdf ;
+        ids:accessURL <https://connector.aastat.gov.de/reports/Highway_traffic_statistics.pdf> ;
+    ] ;
+    ids:resourceEndpoint [
+        a ids:ConnectorEndpoint ;
+        ids:endpointArtifact data3:report_doc ;
+        ids:accessURL <https://connector.aastat.gov.de/reports/Highway_traffic_statistics.doc> ;
+    ] ;
+
+    # Commodization
+    ids:contractOffer data3:offer .
+
+    # Identifiable materialization(s) - no blank nodes
+data3:report_pdf
+    a ids:Artifact ;
+    ids:byteSize "1923497"^^xsd:integer ;
+    ids:fileName "Highway_traffic_statistics.pdf" ;
+    ids:creationDate "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+    .
+
+data3:report_doc
+    a ids:Artifact ;
+    ids:byteSize "28923491"^^xsd:integer ;
+    ids:fileName "Highway_traffic_statistics.doc" ;
+    ids:creationDate "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+    .
+
+data3:offer
+    a ids:ContractOffer ;
+    ids:permission [
+		a ids:Permission ;
+        ids:assigner part1: ;
+        # individual target(s)
+        ids:target data3: ;
+        ids:action idsc:USE ;
+        ids:constraint [
+				    a ids:Constraint ;
+            ids:leftOperand   idsc:SECURITY_LEVEL ;
+            ids:operator      idsc:GTEQ ;
+            ids:rightOperand  idsc:TRUST_SECURITY_PROFILE
+        ]
+    ] .
+
+<https://www.iana.org/assignments/media-types/application/pdf> a ids:IANAMediaType .
+<https://www.iana.org/assignments/media-types/application/msword> a ids:IANAMediaType .
