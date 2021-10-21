@@ -9,7 +9,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix time: <https://www.w3.org/TR/owl-time/#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix schema: <https://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
@@ -58,14 +58,12 @@ dcat:Distribution
 odrl:Asset
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept;
     rdfs:label "Asset"@en ;
     rdfs:comment "An Asset is either an ids:Resource, an dcat:Distribution, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."@en .
 
 odrl:AssetCollection
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept;
     rdfs:label "Asset Collection"@en ;
     rdfs:comment "An AssetCollection is a bracket object combining several odrl:Asset."@en .
 
@@ -92,56 +90,48 @@ schema:Event
 odrl:Constraint
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept ;
     rdfs:label "Constraint"@en ;
-    rdfs:comment "The upper class of Constraints and LogicalConstraints is solely intended as a placholder at the range of IDS Properties."@en .
+    rdfs:comment "The class of Constraints that restrict a Rule. Also, the upper class of Constraints and LogicalConstraints is solely intended as a placholder at the range of IDS Properties."@en .
 
 odrl:LogicalConstraint
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept ;
     rdfs:label "Logical Constraint"@en ;
     rdfs:comment "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."@en .
 
 odrl:LeftOperand
     a rdfs:Class ;
-    a owl:Class ;
-    a skos:Concept ;
+    a owl:Class ; 
     rdfs:label "Left Operand"@en ;
     rdfs:comment "Instances of the LeftOperand class are used as the leftOperand of a Constraint."@en .
 
 odrl:Rule
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept ;
     rdfs:label "Rule"@en ;
     rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en .
 
 odrl:Permission
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept ;
     rdfs:label "Permission"@en ;
     rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en .
 
 odrl:Prohibition
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept ;
     rdfs:label "Prohibition"@en ;
     rdfs:comment "The class of Prohibitions as defined in the ODRL ontology."@en .
 
 odrl:Duty
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept ; ;
     rdfs:label "Duty"@en ;
     rdfs:comment "The class of Duties as defined in the ODRL ontology."@en .
 
 odrl:Action
     a rdfs:Class ;
     a owl:Class ;
-    a skos:Concept ;
     rdfs:label "Action"@en ;
     rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en .
 
@@ -294,20 +284,17 @@ time:hasEnd
 
 odrl:leftOperand
     a rdf:Property ;
-    a skos:Concept ;
     rdfs:label "Has Left Operand"@en ;
     rdfs:comment "The left operand in a constraint expression."@en .
 
 odrl:operator
     a rdf:Property ; 
     a owl:ObjectProperty ; 
-    a skos:Concept ;
     rdfs:label "Has Operator"@en ;
     rdfs:comment "The operator function applied to operands of a Constraint"@en .
 
 odrl:rightOperandReference
     a rdf:Property ; 
-    a skos:Concept ;
     rdfs:label "Has Right Operand Reference"@en ;
     rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an odrl:Constraint."@en .
 
@@ -319,70 +306,60 @@ odrl:unit
 odrl:and
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "And"@en ;
     rdfs:comment "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of ids:and, ids:or, or ids:xone can be used for a specific odrl:LogicalConstraint!"@en .
 
 odrl:or
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Or"@en ;
     rdfs:comment "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of odrl:and, ids:or, or ids:xone can be used for a specific odrl:LogicalConstraint!"@en .
 
 odrl:xone
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Only One"@en ;
     rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of odrl:and, odrl:or, or ids:xone can be used for a specific odrl:LogicalConstraint!"@en .
 
 odrl:assignee
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Assignee"@en ;
     rdfs:comment "The recipient of the policy statement."@en .
 
 odrl:assigner
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Assigner"@en ;
     rdfs:comment "The issuer of the policy statement."@en .
 
 odrl:constraint
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Has Constraint"@en;
     rdfs:comment "The constraint to be used for a specific rule."@en .
 
 odrl:refinement
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Refinement"@en ;
     rdfs:comment "Refinement defines constraints that refine a (composite) Digital Content in an odrl:Rule respectively the odrl:AssetCollection."@en .
 
 odrl:permission
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Has Permission"@en ;
     rdfs:comment "A Permission granted by the Contract."@en .
 
 odrl:prohibition
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Has Prohibition"@en ;
     rdfs:comment "A Prohibition imposed by the Contract."@en .
 
 odrl:obligation
     a rdf:Property ; 
     a owl:ObjectProperty ;
-    a skos:Concept ;
     rdfs:label "Obligation"@en ;
     rdfs:comment "A Duty imposed by the Contract."@en .
 
@@ -390,7 +367,6 @@ odrl:includedIn
     a rdf:Property ;
     a owl:ObjectProperty ;
     a owl:TransitiveProperty ;
-    a skos:Concept ;
     rdfs:label "Included In"@en ;
     rdfs:comment "The subject transitively asserts the object Action."@en .
 
