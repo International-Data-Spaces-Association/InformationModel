@@ -38,7 +38,7 @@ idsc:N_TIMES_USAGE_REQUEST_TEMPLATE a ids:NotMoreThanNRequest ;
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
-            a ids:Constraint ;
+            a odrl:Constraint ;
             odrl:leftOperand idsc:COUNT ;
             odrl:operator idsc:LTEQ ;
             ids:rightOperand ?n ;                           # Do not execute the Action more than ?n times.

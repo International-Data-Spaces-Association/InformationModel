@@ -7,28 +7,19 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 
 
-# Classes
-# -------
-
-ids:Constraint rdfs:subClassOf odrl:Constraint;
-    a owl:Class;
-    rdfs:label "Constraint"@en;
-    rdfs:comment "The class of Constraints that restrict a Rule."@en;
-.
-
 # Properties
 # ----------
 
 ids:rightOperand rdfs:subPropertyOf odrl:rightOperand;
     a owl:ObjectProperty;
     rdfs:label "rightOperand"@en ;
-    rdfs:domain ids:Constraint;
+    rdfs:domain odrl:Constraint;
     rdfs:range rdfs:Resource;
-    rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an ids:Constraint."@en.
+    rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en.
 
 ids:pipEndpoint a owl:ObjectProperty;
      rdfs:label "has PIP endpoint"@en;
-     rdfs:domain ids:Constraint;
+     rdfs:domain odrl:Constraint;
      rdfs:range xsd:anyURI ;
      rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en
 .

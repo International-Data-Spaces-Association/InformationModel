@@ -39,14 +39,14 @@ idsc:ROLEBASED_RESTRICTED_USAGE_OFFER_TEMPLATE a ids:RolebasedOffer ;
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
-            a ids:Constraint ;
+            a odrl:Constraint ;
             odrl:leftOperand idsc:USER ;
             odrl:operator idsc:MEMBER_OF ;
             odrl:rightOperandReference ?ParticipantOrganizationUri ; #  the role below is only valid inside the defining organization, so both aspects need to be checked.
             ids:pipEndpoint ?pipUri ;                       # A reference to a Policy Information Point endpoint (might be only locally accessible), which knows about the memberships. For instance the LDAP service.
         ] ;
         odrl:constraint [
-            a ids:Constraint ;
+            a odrl:Constraint ;
             odrl:leftOperand idsc:USER ;
             odrl:operator idsc:HAS_MEMBERSHIP ;
             odrl:rightOperandReference ?RoleURI ;          # the role below is only valid inside the defining organization, so both aspects need to be checked.

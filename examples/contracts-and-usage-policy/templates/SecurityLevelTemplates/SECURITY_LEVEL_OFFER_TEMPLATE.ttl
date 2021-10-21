@@ -41,19 +41,19 @@ idsc:SECURITY_LEVEL_OFFER_TEMPLATE a ids:SecurityOffer ;
             a odrl:LogicalConstraint ;
             odrl:or ( # '(' is used as an RDF List operator here
             ([
-                a ids:Constraint ;
+                a odrl:Constraint ;
                 odrl:leftOperand idsc:SECURITY_LEVEL ;
                 odrl:operator idsc:SAME_AS ;
                 odrl:rightOperandReference idsc:BASE_SECURITY_PROFILE ;
             ])?
             ([
-                a ids:Constraint ;
+                a odrl:Constraint ;
                 odrl:leftOperand idsc:SECURITY_LEVEL ;
                 odrl:operator idsc:SAME_AS ;
                 odrl:rightOperandReference idsc:TRUST_SECURITY_PROFILE ;         # in case BASE is selected, TRUST must also always be included
             ])?
             [
-                a ids:Constraint ;
+                a odrl:Constraint ;
                 odrl:leftOperand idsc:SECURITY_LEVEL ;
                 odrl:operator idsc:SAME_AS ;
                 odrl:rightOperandReference idsc:TRUST_PLUS_SECURITY_PROFILE ;    # TRUST+ is always included

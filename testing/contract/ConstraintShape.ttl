@@ -44,7 +44,7 @@ shapes:AbstractConstraintShape
 
 shapes:ConstraintShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Constraint ;
+	sh:targetClass odrl:Constraint ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -53,7 +53,7 @@ shapes:ConstraintShape
 		sh:minCount 1 ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one odrl:LeftOperand linked through the odrl:leftOperand property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An odrl:Constraint must have  exactly one odrl:LeftOperand linked through the odrl:leftOperand property"@en ;
 	] ;
 
 	sh:property [
@@ -63,7 +63,7 @@ shapes:ConstraintShape
 		sh:minCount 1 ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:Constraint must have  exactly one ids:BinaryOperator linked through the odrl:operator property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An odrl:Constraint must have  exactly one ids:BinaryOperator linked through the odrl:operator property"@en ;
 	] ;
 
 	sh:xone (
@@ -96,7 +96,7 @@ shapes:ConstraintShape
 		sh:nodeKind sh:IRI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An odrl:unit property must point from an ids:Constraint to a unit via a URI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An odrl:unit property must point from an odrl:Constraint to a unit via a URI."@en ;
 	] ;
 
 	sh:property [
@@ -105,7 +105,7 @@ shapes:ConstraintShape
 		sh:nodeKind sh:IRI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:pipEndpoint property must point from an ids:Constraint to an xsd:anyURI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (ConstraintShape): An ids:pipEndpoint property must point from an odrl:Constraint to an xsd:anyURI."@en ;
 	] ;
 .
 
@@ -118,23 +118,23 @@ shapes:LogicalConstraintShape
 		    sh:path odrl:and ;
         sh:minCount 1 ;
         #sh:maxCount 1 ;
-				sh:class ids:Constraint ;
+				sh:class odrl:Constraint ;
         sh:severity sh:Violation ;
 	    ]
 	    [
 		    sh:path odrl:or ;
         sh:minCount 1 ;
         #sh:maxCount 1 ;
-				sh:class ids:Constraint ;
+				sh:class odrl:Constraint ;
         sh:severity sh:Violation ;
 	    ]
 	    [
 		    sh:path odrl:xone ;
         sh:minCount 1 ;
         #sh:maxCount 1 ;
-				sh:class ids:Constraint ;
+				sh:class odrl:Constraint ;
         sh:severity sh:Violation ;
 	    ]
 		) ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one odrl:and, odrl:or, or odrl:xone property must point from an odrl:LogicalConstraint to ids:Constraints."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (LogicalConstraintShape): Exactly one odrl:and, odrl:or, or odrl:xone property must point from an odrl:LogicalConstraint to odrl:Constraint."@en ;
 .

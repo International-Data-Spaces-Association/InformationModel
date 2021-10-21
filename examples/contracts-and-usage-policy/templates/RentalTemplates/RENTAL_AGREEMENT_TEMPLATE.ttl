@@ -27,7 +27,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
         ids:target idsc:ASSET_TEMPLATE ;
         ids:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
-            a ids:Constraint ;
+            a odrl:Constraint ;
             odrl:leftOperand idsc:STATE ;
             odrl:operator idsc:NOT ;
             ids:rightOperand ?terminationState ;            # An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
@@ -41,7 +41,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
                 a odrl:Action ;
                 odrl:includedIn idsc:COMPENSATE ;
                 ids:actionRefinement [
-                    a ids:Constraint ;
+                    a odrl:Constraint ;
                     odrl:leftOperand idsc:PAY_AMOUNT ;
                     odrl:operator idsc:EQ ;
                     ids:rightOperand "?fee"^^xsd:double ;   # pay the ?fee
@@ -50,7 +50,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
                 ]
             ] ;
             odrl:constraint [
-                a ids:Constraint ;
+                a odrl:Constraint ;
                 odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;
                 odrl:operator idsc:AFTER ;
                 ids:rightOperand ?duration ;                # for a certain usage ?duration

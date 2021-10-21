@@ -16,7 +16,7 @@
 
 (
     [
-        a ids:Constraint ;                                  # Constraint
+        a odrl:Constraint ;                                  # Constraint
         odrl:leftOperand ?IdscLeftOperand ;                  # The feature of interest, for instance ?IdscLeftOperand := idsc:PAY_AMOUNT
         ids:operator ?IdscBinaryOperator ;                  # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:EQ
         ids:rightOperand ?Value ;                           # The value expression all members of this collection have to share, for instance ?Value := "5"
@@ -29,7 +29,7 @@
         ?IdsOperand                                     # The operand to connect the constraints, for instance ?IdsOperand := idsc:OR
             ( # '(' is used as an RDF List operator here
                 (                                       # LogicalConstraints allow the expression of alternatives. For instance, we can select all combine "idsc:PAY_AMOUNT":"5€" OR "idsc:PAY_AMOUNT":"4$"
-                    a ids:Constraint ;
+                    a odrl:Constraint ;
                     odrl:leftOperand ?IdscLeftOperand ;
                     ids:operator ?IdsBinaryOperator ;
                     ids:rightOperand ?Value ;
