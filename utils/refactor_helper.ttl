@@ -20,6 +20,8 @@
 
 foaf:Agent 
     a owl:Class ;
+    rdfs:subClassOf ids:Described ;
+    rdfs:subClassOf odrl:Party ;
     rdfs:label "Agent"@en ;
     rdfs:comment "Internal or external Agent interacting with the International Data Spaces, not necessarily an IDS Participant."@en .
 
@@ -56,6 +58,9 @@ dct:MediaType
 dcat:Distribution
     a rdfs:Class ;
     a owl:Class ;
+    rdfs:subClassOf ids:Described ;
+    rdfs:subClassOf ids:DescribedSemantically ;
+    rdfs:subClassOf odrl:Asset ;
     rdfs:label "Distribution"@en ;
     rdfs:comment "Syntactic template of a Resource."@en .
 
@@ -68,6 +73,7 @@ odrl:Asset
 odrl:AssetCollection
     a rdfs:Class ;
     a owl:Class ;
+    rdfs:subClassOf odrl:Asset ;
     rdfs:label "Asset Collection"@en ;
     rdfs:comment "An AssetCollection is a bracket object combining several odrl:Asset."@en .
 
@@ -78,11 +84,14 @@ dct:License
 
 time:Instant
     a owl:Class ;
+    rdfs:subClassOf time:TemporalEntity ;
     rdfs:label "Instant"@en ;
     rdfs:comment "A defined point in time with zero duration."@en .
 
 time:Interval 
     a owl:Class ;
+    rdfs:subClassOf time:TemporalEntity ;
+    rdfs:subClassOf dct:PeriodOfTime ;
     rdfs:label "Interval"@en ;
     rdfs:comment "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."@en .
 
@@ -112,24 +121,28 @@ odrl:LeftOperand
 odrl:Rule
     a rdfs:Class ;
     a owl:Class ;
+    rdfs:subClassOf ids:Described ;
     rdfs:label "Rule"@en ;
     rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en .
 
 odrl:Permission
     a rdfs:Class ;
     a owl:Class ;
+    rdfs:subClassOf odrl:Rule ;
     rdfs:label "Permission"@en ;
     rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en .
 
 odrl:Prohibition
     a rdfs:Class ;
     a owl:Class ;
+    rdfs:subClassOf odrl:Rule ;
     rdfs:label "Prohibition"@en ;
     rdfs:comment "The class of Prohibitions as defined in the ODRL ontology."@en .
 
 odrl:Duty
     a rdfs:Class ;
     a owl:Class ;
+    rdfs:subClassOf odrl:Rule ;
     rdfs:label "Duty"@en ;
     rdfs:comment "The class of Duties as defined in the ODRL ontology."@en .
 
