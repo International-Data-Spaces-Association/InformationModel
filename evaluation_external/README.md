@@ -17,20 +17,21 @@ Our approach for identifying possible redundant definitions was to search in fil
 Once we found these results, we listed each class and property by file, the relation (subClassOf or subPropertyOf), and the external class or property which is referring to. Then, for the evaluation (r, pr, nr) as aforementioned, we analyzed the internal definition, for example which other additional information was introduced by it, and we determined the use of that internal definition in the related files in the models, validations, and testing files. Based on the performed evaluation, we made the decisions to keep the class or property, or remove it. Then we proceeded to the concrete implementation of changes as described in the next section.
 
 We describe some examples here:
-The ids:Agent is defined as an extension of the odrl:Party, indeed ids:Agent is defined as a subClassOf odrl:Party. We took the following notes: "It is not clear why ids:Agent needs to be defined as a subclass of two external classes. Based on the information on the ODRL vocabulary, foaf:Agent needs to be used to describe further details of the party. Additionally to odlr:Party and foaf:Agent, it is defined as a subclass of ids:Described. And adds only rdfs:label and rdfs:comment. It is used in Participant.ttl to define ids:Participant, and to define range for ids:publisher, and ids:sovereign in Resource.ttl, ids:senderAgent and ids:recipientAgent in Message.ttl, and ids:hasAgent in Connector.ttl". Based on those evaluation notes, we decided the definition in the IDS Information Model was redundant, and decided to remove the ids:Agent and replaced it by foaf:Agent
+
+- The ids:Agent is defined as an extension of the odrl:Party, indeed ids:Agent is defined as a subClassOf odrl:Party. We took the following notes: "It is not clear why ids:Agent needs to be defined as a subclass of two external classes. Based on the information on the ODRL vocabulary, foaf:Agent needs to be used to describe further details of the party. Additionally to odlr:Party and foaf:Agent, it is defined as a subclass of ids:Described. And adds only rdfs:label and rdfs:comment. It is used in Participant.ttl to define ids:Participant, and to define range for ids:publisher, and ids:sovereign in Resource.ttl, ids:senderAgent and ids:recipientAgent in Message.ttl, and ids:hasAgent in Connector.ttl". Based on those evaluation notes, we decided the definition in the IDS Information Model was redundant, and decided to remove the ids:Agent and replaced it by foaf:Agent
 
 
-The ids:contentType is defined as a subPropertyOf dct:type, and it adds rdfs:domain (ids:DigitalContent), and rdfs:range (ids:ContentType). We decided that this definition was probably redundant, but we decided to keep it, as it is more specific than dct:type.
+- The ids:contentType is defined as a subPropertyOf dct:type, and it adds rdfs:domain (ids:DigitalContent), and rdfs:range (ids:ContentType). We decided that this definition was probably redundant, but we decided to keep it, as it is more specific than dct:type.
 
 
-The ids:includedCertificationLevel is defined as a subPropertyOf dct:isPartOf. It adds rdfs:label, rdfs:comment, rdfs:seeAlso, rdfs:domain (ids:CertificationLevel), and range (ids:CertificationLevel). We noticed that it is only used in codes and in validations.
+- The ids:includedCertificationLevel is defined as a subPropertyOf dct:isPartOf. It adds rdfs:label, rdfs:comment, rdfs:seeAlso, rdfs:domain (ids:CertificationLevel), and range (ids:CertificationLevel). We noticed that it is only used in codes and in validations.
 In codes, it is used to define idsc:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM, idsc:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM, and others. And it is used to define validations in CertificationShape.ttl. 
 
 ## Implementation 
-For the implementation of the first given example, we modified the following files in the model: Message.ttl, Resource.ttl, Connector.ttl, Participant.ttl, were we added @prefix foaf: <http://xmlns.com/foaf/0.1/>, and replace ids:Agent by foaf:Agent. Moreover, we removed the definition of ids:Agent in Participant.ttl. 
+- For the implementation of the first given example, we modified the following files in the model: Message.ttl, Resource.ttl, Connector.ttl, Participant.ttl, were we added @prefix foaf: <http://xmlns.com/foaf/0.1/>, and replace ids:Agent by foaf:Agent. Moreover, we removed the definition of ids:Agent in Participant.ttl. 
 In the testing files, only sh:message was modified and the commented code referencing ids:Agent was removed in MessageShape.ttl, ResourceShape.ttl, and ConnectorShape.ttl. 
-For the second example, as the internal definition was more specific, no changes were implemented.
-Lastly, for the third example, We decided to keep it, and therefore no changes were implemented.
+- For the second example, as the internal definition was more specific, no changes were implemented.
+- Lastly, for the third example, We decided to keep it, and therefore no changes were implemented.
 
 Here we list the issues related to the evaluation and implementation of changes.
 
