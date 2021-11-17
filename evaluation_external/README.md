@@ -35,7 +35,7 @@ Lastly, for the third example, We decided to keep it, and therefore no changes w
 Here we list the issues related to the evaluation and implementation of changes.
 
 The initial requirement was the following:
-[Issue #413 - Remove redundant class/property definitions whenever external concepts can be used directly]
+[Issue #413 - Remove redundant class/property definitions whenever external concepts can be used directly](https://github.com/International-Data-Spaces-Association/InformationModel/issues/413)
 
 For that, first we evaluated the redundant, possible redundant, and non-redundant classes and properties, based on the following issue:
 
