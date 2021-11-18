@@ -38,6 +38,12 @@ idsc:AGGREGATE_BY_PROVIDER
     skos:note "This action is always evaluated at the provider side."@en ;
 .
 
+idsc:ADD
+    a ids:Action ;
+    rdfs:comment "This action modifies a number by adding a given value to it."@en ;
+    rdfs:label "add"@en ;
+    skos:note "This action modifies a number by adding a given value to it. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
+.
 
 idsc:COMPENSATE
     a ids:Action;
@@ -47,6 +53,13 @@ idsc:COMPENSATE
     odrl:includedIn idsc:USE ;
     skos:note "This action must be evaluated both at the consumer and provider side. A compensation might be required before access is granted (provider-side), or each time the usage action is performed (consumer-side)."@en ;
     .
+
+idsc:DIVIDE
+    a ids:Action ;
+    rdfs:comment "This action modifies dividing something by something else."@en ;
+    rdfs:label "divide"@en ;
+    skos:note "This action modifies dividing something by something else. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
+.
 
 idsc:DELETE
     a ids:Action;
@@ -75,6 +88,19 @@ idsc:GRANT_USE
     skos:note "This action is always evaluated at the consumer side, at the moment a third party intends to access the resource as received by the original consumer."@en ;
     .
 
+idsc:HASH
+    a ids:Action ;
+    rdfs:comment "This action modifies a value by replacing it with a hash of the value."@en ;
+    rdfs:label "hash"@en ;
+    skos:note "This action modifies a value by replacing it with a hash of the value. The field to be modified and the hash algorithm are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:HASH_ALGORITHM (eg. SHA256), respectively."@en ;
+    .
+
+idsc:INCREMENT_COUNTER
+    a ids:Action;
+    rdfs:label "increment counter"@en;
+    rdfs:comment "An action to be used in the count usage policy where the idsc:COUNT left operand is used."@en ;
+    .
+
 idsc:ENCRYPT
     a ids:Action ;
     rdfs:comment "The data artifact or parts of it are encrypted and can not be read by neither the ids:DataConsumer nor any other third party. The encryption algorithm might be specified by a constraint."@en ;
@@ -99,6 +125,13 @@ idsc:MODIFY
     odrl:includedIn idsc:WRITE ;
     skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;
     .
+
+idsc:MULTIPLY
+    a ids:Action ;
+    rdfs:comment "This action modifies a number by multiplying it to a given value."@en ;
+    rdfs:label "multiply"@en ;
+    skos:note "This action modifies a number by multiplying it to a given value. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
+.
 
 idsc:NEXT_POLICY
     a ids:Action ;
@@ -126,6 +159,20 @@ idsc:READ
     odrl:includedIn idsc:MODIFY ;
     skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;
     .
+
+idsc:REPLACE
+    a ids:Action ;
+    rdfs:comment "To replace some value."@en ;
+    rdfs:label "replace"@en ;
+    skos:note "This action modifies a value by replacing it with a given value. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:REPLACE_WITH, respectively."@en ;
+.
+
+idsc:SHUFFLE
+    a ids:Action ;
+    rdfs:comment "This action modifies a value by replacing it with an anagram of the value."@en ;
+    rdfs:label "shuffle"@en ;
+    skos:note "This action modifies a value by replacing it with an anagram of the value. The field to be modified is specified in the policy as idsc:JSONPATH/idsc:XPATH."@en ;
+.
 
 idsc:TRACK_PROVENANCE
     a ids:Action ;
