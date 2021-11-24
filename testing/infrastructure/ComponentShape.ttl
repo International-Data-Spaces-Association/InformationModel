@@ -43,7 +43,16 @@ shapes:InfrastructureComponentShape
 		a sh:PropertyShape ;
 		sh:path ids:maintainer ;
 		#sh:class ids:Participant ;
-		sh:nodeKind sh:IRI ;
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Participant ;
+			sh:order 2;
+		]
+		);
     sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -53,6 +62,16 @@ shapes:InfrastructureComponentShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:curator ;
+        sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Participant ;
+			sh:order 2;
+		]
+		);
 		#sh:class ids:Participant ;
 		sh:nodeKind sh:IRI ;
     sh:minCount 1 ;
