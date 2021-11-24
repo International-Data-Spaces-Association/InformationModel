@@ -51,11 +51,16 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:assignee ;
-		#sh:or (
-    #  [
-		 sh:nodeKind sh:IRI ;# ]
-		#	[ sh:class ids:Participant ; #]
-    #);
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Participant ;
+			sh:order 2;
+		]
+		);
 		sh:minCount 0 ;
 		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -65,11 +70,16 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:assigner ;
-		#sh:or (
-    #  [
-		 sh:nodeKind sh:IRI ;# ]
-		#	[ sh:class ids:Participant ; #]
-    #);
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Participant ;
+			sh:order 2;
+		]
+		);
 		sh:minCount 0 ;
 		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -79,11 +89,16 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:target ;
-		#sh:or (
-    #  [
-		 sh:nodeKind sh:IRI ;# ]
-		#	[ sh:class ids:Participant ; #]
-    #);
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Asset ;
+			sh:order 2;
+		]
+		);
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must not have more than one point from an ids:Rule to an ids:Asset."@en ;
