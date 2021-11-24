@@ -61,7 +61,16 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-    sh:nodeKind sh:IRI ;
+        sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Message  ;
+			sh:order 2;
+		]
+		);
 		#sh:class ids:Message ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -71,7 +80,16 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:issuerConnector ;
-		sh:nodeKind sh:IRI ;
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Connector  ;
+			sh:order 2;
+		]
+		);
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
     #sh:class ids:Connector ;
 		sh:minCount 1 ;
@@ -83,7 +101,16 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:recipientConnector ;
-		sh:nodeKind sh:IRI ;
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Connector  ;
+			sh:order 2;
+		]
+		);
     #sh:class ids:Connector ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
@@ -93,7 +120,16 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:senderAgent ;
-		sh:nodeKind sh:IRI ;
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Agent  ;
+			sh:order 2;
+		]
+		);
 		#sh:class ids:Agent ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
@@ -105,7 +141,16 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:recipientAgent ;
-		sh:nodeKind sh:IRI ;
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Agent  ;
+			sh:order 2;
+		]
+		);
 		#sh:class ids:Agent ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
@@ -134,7 +179,16 @@ shapes:MessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:transferContract ;
-		sh:nodeKind sh:IRI ;
+		sh:or (
+		[
+			sh:nodeKind sh:IRI ;
+			sh:order 1;
+		]
+		[ 
+			sh:class ids:Contract  ;
+			sh:order 2;
+		]
+		);
 		sh:maxCount 1 ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
