@@ -15,6 +15,7 @@ ids:Action rdfs:subClassOf odrl:Action;
     rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en;
 .
 
+
 # Properties
 # ----------
 
@@ -34,4 +35,12 @@ ids:includedIn
     rdfs:domain ids:Action;
     rdfs:range ids:Action;
     rdfs:comment "The subject transitively asserts the object Action."@en ;
+.
+
+ids:pxpEndpoint
+     a owl:ObjectProperty;
+     rdfs:label "has PXP endpoint"@en;
+     rdfs:domain ids:Action;
+     rdfs:range ids:PXP ;
+     rdfs:comment "The reference to the PXP which operates a specific action, URI or reference to an associated PXP interface."@en;
 .

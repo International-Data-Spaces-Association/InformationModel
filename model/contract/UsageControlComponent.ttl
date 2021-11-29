@@ -1,0 +1,44 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+ids:UsageControlComponent
+    a owl:Class;
+    rdfs:label "Usage Control Component"@en ;
+    rdfs:comment "Defined usage control component (i.e. PIP, PXP, etc.) in the IDS."@en;
+	.
+
+ids:PXP
+    a owl:Class;
+    rdfs:subClassOf ids:UsageControlComponent;
+    rdfs:label "policy execution point"@en;
+    rdfs:comment "The reference to the PXP that operates a specific action, URI or reference to an associated PXP interface."@en;
+.
+
+ids:PIP
+    a owl:Class;
+    rdfs:subClassOf ids:UsageControlComponent;
+    rdfs:label "policy information point"@en;
+    rdfs:comment "Refers to the PIP that provides a specific piece of information (URI/reference to an associated PIP interface). "@en;
+.
+
+# Properties
+# ----------
+
+ids:interfaceDescription a owl:ObjectProperty;
+     rdfs:label "interface description"@en;
+     rdfs:domain ids:UsageControlComponent;
+     rdfs:range  xsd:anyURI;
+     rdfs:comment "The reference to a URI that provides the interface description of a usage control endpoint."@en;
+.
+
+ids:endpointURI a owl:ObjectProperty;
+     rdfs:label "endpoint URI"@en;
+     rdfs:domain ids:UsageControlComponent;
+     rdfs:range  xsd:anyURI;
+     rdfs:comment "The reference to a URI that expresses an exact endpoint of that usage control endpoint."@en;
+.

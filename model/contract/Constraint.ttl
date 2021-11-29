@@ -29,6 +29,7 @@ ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
     rdfs:comment "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."@en;
 .
 
+
 # Properties
 # ----------
 
@@ -68,12 +69,6 @@ ids:unit rdfs:subPropertyOf odrl:unit;
     rdfs:range xsd:anyURI ;
     rdfs:comment "The unit of measurement of a Constraint."@en.
 
-ids:pipEndpoint a owl:ObjectProperty;
-     rdfs:label "has PIP endpoint"@en;
-     rdfs:domain ids:Constraint;
-     rdfs:range xsd:anyURI ;
-     rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en
-.
 
 ids:and rdfs:subPropertyOf odrl:and;
   a owl:ObjectProperty;
@@ -100,4 +95,11 @@ ids:xone rdfs:subPropertyOf odrl:xone;
   #rdfs:range rdf:List;
   rdfs:range ids:Constraint;
   rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
+.
+
+ids:pipEndpoint a owl:ObjectProperty;
+     rdfs:label "has PIP endpoint"@en;
+     rdfs:domain ids:Constraint;
+     rdfs:range ids:PIP ;
+     rdfs:comment "The reference to the PIP which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en;
 .
