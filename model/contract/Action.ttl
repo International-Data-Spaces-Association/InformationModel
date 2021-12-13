@@ -19,28 +19,28 @@ ids:Action rdfs:subClassOf odrl:Action;
 # Properties
 # ----------
 
-ids:actionRefinement
-    a owl:ObjectProperty;
+#ids:actionRefinement
+#    a owl:ObjectProperty;
     # rdfs:subPropertyOf odrl:refinement ;
-    rdfs:label "action refinement"@en;
-    rdfs:domain ids:Action;
-    rdfs:range ids:Constraint;
-    rdfs:comment "Constraint that refines an Action."@en ;
-.
+#    rdfs:label "action refinement"@en;
+#    rdfs:domain ids:Action;
+#    rdfs:range ids:Constraint;
+#    rdfs:comment "Constraint that refines an Action."@en ;
+#.
 
-ids:includedIn
-    a owl:ObjectProperty;
-    rdfs:subPropertyOf odrl:includedIn ;
-    rdfs:label "is included in"@en;
-    rdfs:domain ids:Action;
-    rdfs:range ids:Action;
-    rdfs:comment "The subject transitively asserts the object Action."@en ;
-.
+#ids:includedIn
+#    a owl:ObjectProperty;
+#    rdfs:subPropertyOf odrl:includedIn ;
+#    rdfs:label "is included in"@en;
+#    rdfs:domain ids:Action;
+#    rdfs:range ids:Action;
+#    rdfs:comment "The subject transitively asserts the object Action."@en ;
+#.
 
-ids:pxpEndpoint
-     a owl:ObjectProperty;
-     rdfs:label "has PXP endpoint"@en;
-     rdfs:domain ids:Action;
-     rdfs:range ids:PXP ;
-     rdfs:comment "The reference to the PXP which operates a specific action, URI or reference to an associated PXP interface."@en;
-.
+#ids:pxpEndpoint
+#     a owl:ObjectProperty;
+#     rdfs:label "has PXP endpoint"@en;
+#     rdfs:domain ids:Action;
+#     rdfs:range ids:PXP ;
+#     rdfs:comment "The reference to the PXP which operates a specific action, URI or reference to an associated PXP interface."@en;
+#.
