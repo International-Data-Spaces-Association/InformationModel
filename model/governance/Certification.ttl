@@ -30,14 +30,14 @@ ids:CertificationLevel
 # Properties
 # ----------
 
-#ids:includedCertificationLevel
-#    a owl:ObjectProperty;
-#    rdfs:subPropertyOf dct:isPartOf ;
-#    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-includedIn> ;
-#    rdfs:label "included certification level"@en;
-#    rdfs:domain ids:CertificationLevel;
-#    rdfs:range ids:CertificationLevel;
-#    rdfs:comment "Certification Level transitively implied by given Certification Level of same root type."@en.
+ids:includedCertificationLevel
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:isPartOf ;
+    rdfs:seeAlso <https://www.w3.org/TR/odrl-vocab/#term-includedIn> ;
+    rdfs:label "included certification level"@en;
+    rdfs:domain ids:CertificationLevel;
+    rdfs:range ids:CertificationLevel;
+    rdfs:comment "Certification Level transitively implied by given Certification Level of same root type."@en.
 
 ids:certificationLevel
     a owl:ObjectProperty;
@@ -58,3 +58,4 @@ ids:evaluationFacility a owl:ObjectProperty;
     rdfs:domain ids:Certification;
     rdfs:range ids:EvaluationFacility;
     rdfs:comment "Evaluation Facility that performed and issued given Certification"@en.
+
