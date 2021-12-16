@@ -45,8 +45,12 @@ shapes:ResourceCatalogShape
 	sh:targetClass ids:ResourceCatalog ;
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:offeredResources ;
-		sh:class ids:Resource ;
+		sh:path ids:offeredResource ;
+		#sh:or (
+	   # [
+			sh:class ids:Resource ; #]
+	   # [ sh:nodeKind sh:IRI ; ]
+		#) ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ResourceCatalog): An ids:offeredResource property must point from an ids:ResourceCatalog to an ids:Resource."@en ;
 	] ;
@@ -54,7 +58,11 @@ shapes:ResourceCatalogShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:requestedResource ;
-		sh:class ids:Resource ;
+	#	sh:or (
+	   # [
+			sh:class ids:Resource ;# ]
+	 #   [ sh:nodeKind sh:IRI ; ]
+	#	) ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ResourceCatalog): An ids:requestedResource property must point from an ids:ResourceCatalog to an ids:Resource."@en ;
 	] ;
@@ -67,7 +75,11 @@ shapes:ParticipantCatalogShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:member ;
-		sh:class ids:Participant ;
+		#sh:or (
+	  # [
+		sh:class ids:Participant ;# ]
+	  #  [ sh:nodeKind sh:IRI ; ]
+		#) ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ParticipantCatalog): An ids:member property must point from an ids:ParticipantCatalog to an ids:Participant."@en ;
 	] ;

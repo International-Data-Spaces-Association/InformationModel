@@ -51,10 +51,11 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path odrl:assignee ;
-		sh:or (
-      [ sh:nodeKind sh:IRI ; ]
-			[ sh:class ids:Participant ; ]
-    );
+		#sh:or (
+    #  [
+		 sh:nodeKind sh:IRI ;# ]
+		#	[ sh:class ids:Participant ; #]
+    #);
 		sh:minCount 0 ;
 		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -64,10 +65,11 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path odrl:assigner ;
-		sh:or (
-      [ sh:nodeKind sh:IRI ; ]
-			[ sh:class ids:Participant ; ]
-    );
+		#sh:or (
+    #  [
+		 sh:nodeKind sh:IRI ;# ]
+		#	[ sh:class ids:Participant ; #]
+    #);
 		sh:minCount 0 ;
 		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -77,10 +79,11 @@ shapes:RuleShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:target ;
-		sh:or (
-      [ sh:nodeKind sh:IRI ; ]
-			[ sh:class odrl:Asset ; ]
-    );
+		#sh:or (
+    #  [
+		 sh:nodeKind sh:IRI ;# ]
+		#	[ sh:class ids:Participant ; #]
+    #);
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must not have more than one point from an odrl:Rule to an odrl:Asset."@en ;

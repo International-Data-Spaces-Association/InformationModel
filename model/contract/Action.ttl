@@ -16,3 +16,11 @@ ids:actionRefinement
     rdfs:range odrl:Constraint;
     rdfs:comment "Constraint that refines an Action."@en ;
 .
+
+ids:pxpEndpoint
+     a owl:ObjectProperty;
+     rdfs:label "has PXP endpoint"@en;
+     rdfs:domain odrl:Action;
+     rdfs:range ids:PXP ;
+     rdfs:comment "The reference to the PXP which operates a specific action, URI or reference to an associated PXP interface."@en;
+.
