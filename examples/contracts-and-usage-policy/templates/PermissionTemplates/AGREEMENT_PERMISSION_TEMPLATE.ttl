@@ -5,18 +5,19 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
 # Template
 # --------
 
-idsc:AGREEMENT_PERMISSION_TEMPLATE a ids:Permission ;
-    ids:assigner idsc:PARTICIPANT_TEMPLATE ;
-    ids:assignee idsc:PARTICIPANT_TEMPLATE ;
+idsc:AGREEMENT_PERMISSION_TEMPLATE a odrl:Permission ;
+    odrl:assigner idsc:PARTICIPANT_TEMPLATE ;
+    odrl:assignee idsc:PARTICIPANT_TEMPLATE ;
     ids:target idsc:ASSET_TEMPLATE ;                    # A Permission has a target Asset.
     ids:action idsc:ACTION_TEMPLATE ;
-    [ ids:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints
+    [ odrl:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints
     [ ids:preDuty idsc:OBLIGATION_TEMPLATE ; ]*   # zero or more Obligations which need to be fulfilled before the Usage event
     [ ids:postDuty idsc:OBLIGATION_TEMPLATE ; ]*  # zero or more Obligations which have to be fulfilled after the Usage event
 .

@@ -42,7 +42,7 @@ shapes:DescribedShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:title ;
+		sh:path dct:title ;
     sh:or (
             [
                 sh:datatype xsd:string ;
@@ -52,12 +52,12 @@ shapes:DescribedShape
             ]
             );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:title property must point from an ids:Described to either a xsd:string or a rdf:langString with a language code."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): A dct:title property must point from an ids:Described to either a xsd:string or a rdf:langString with a language code."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:description ;
+		sh:path dct:description ;
 		sh:or (
             [
                 sh:datatype xsd:string ;
@@ -67,6 +67,6 @@ shapes:DescribedShape
             ]
             );
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): An ids:description property must point from an ids:Described to either a xsd:string or a rdf:langString with a language code"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/shared/DescribedShape.ttl> (DescribedShape): A dct:description property must point from an ids:Described to either a xsd:string or a rdf:langString with a language code"@en ;
 	] ;
  .
