@@ -1,6 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -11,7 +12,7 @@
 
 ids:DataRepresentation
     a owl:Class ;
-    rdfs:subClassOf ids:Representation ;
+    rdfs:subClassOf dcat:Distribution ;
     rdfs:label "Data representation"@en ;
     rdfs:comment "Physical representation of (structured) data."@en .
 
@@ -30,12 +31,12 @@ ids:dataTypeSchema a owl:ObjectProperty ;
     rdfs:comment "Indicates the data type schema of the Representation."@en .
 
 ids:TextRepresentation a owl:Class ;
-    rdfs:subClassOf ids:Representation ;
+    rdfs:subClassOf dcat:Distribution ;
     rdfs:label "Text representation"@en ;
     rdfs:comment "Representation of a textual content."@en .
 
 ids:AudioRepresentation a owl:Class ;
-    rdfs:subClassOf ids:Representation ;
+    rdfs:subClassOf dcat:Distribution ;
     rdfs:label "Audio Representation"@en ;
     rdfs:comment "Audio representation"@en .
 
@@ -46,7 +47,7 @@ ids:samplingRate a owl:DatatypeProperty ;
     rdfs:comment "Audio sampling rate."@en .
 
 ids:ImageRepresentation a owl:Class ;
-    rdfs:subClassOf ids:Representation ;
+    rdfs:subClassOf dcat:Distribution ;
     rdfs:label "Image Representation"@en ;
     rdfs:comment "Image representation"@en .
 
@@ -63,7 +64,7 @@ ids:height a owl:DatatypeProperty ;
     rdfs:comment "Height of the visible frame."@en .
 
 ids:VideoRepresentation a owl:Class ;
-    rdfs:subClassOf ids:Representation ;
+    rdfs:subClassOf dcat:Distribution ;
     rdfs:label "Video Representation"@en ;
     rdfs:comment "Video representation"@en .
 
@@ -74,7 +75,7 @@ ids:frameRate a owl:DatatypeProperty ;
     rdfs:comment "Video frame rate, as frames/second."@en .
 
 ids:SoftwareRepresentation a owl:Class ;
-    rdfs:subClassOf ids:Representation ;
+    rdfs:subClassOf dcat:Distribution ;
     rdfs:label "Software Representation"@en ;
     rdfs:comment "Software representation"@en .
 

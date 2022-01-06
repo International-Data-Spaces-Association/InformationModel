@@ -2,6 +2,10 @@
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data2: <https://aastat.gov.de/connector/conn2/data2/> .
@@ -16,18 +20,15 @@ data2: a ids:Resource ;
     # - download, i.e. non-interactive access - no interface definition needed
     # - plain, historical data, free of charge
     #
-    ids:title "European highway statistics"@en ;
-    ids:description "Data collection about usage statistics of European highways"@en;
-    ids:keyword "highway", "statistics", "Europe";
-
-    # the collection is extended once per month
-    # ids:accrualPeriodicity "P1M"^^xsd:duration ;
+    dct:title "European highway statistics"@en ;
+    dct:description "Data collection about usage statistics of European highways"@en;
+    dcat:keyword "highway", "statistics", "Europe";
 
     # Compressed representation of an overall resource snapshot
     #
     ids:representation [
-        a ids:Representation ;
-        ids:mediaType <https://www.iana.org/assignments/media-types/application/gzip> ;
+        a dcat:Distribution ;
+        dcat:mediaType <https://www.iana.org/assignments/media-types/application/gzip> ;
         ids:instance data2:tar_gzip_archive ;
     ] ;
     ids:resourceEndpoint [
@@ -41,7 +42,7 @@ data2:tar_gzip_archive # Overall resource archive
     a ids:Artifact ;
     ids:byteSize "2123178072"^^xsd:integer ;
     ids:fileName "EuropeanHighwayStatistics_2000_2017.tar.gz" ;
-    ids:creationDate "2018-10-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+    dct:created "2018-10-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
 .
 
 
@@ -51,21 +52,21 @@ data2:generic_content
     a ids:DataResource ;
 
     # general coverage of the entire dataset
-    ids:temporalCoverage [
+    dct:temporal [
         a ids:Interval ;
-        ids:begin [
-            a ids:Instant ;
-            ids:dateTime "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        time:hasBeginning [
+            a time:Instant ;
+            time:inXSDDateTimeStamp "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ];
-        ids:end   [
-            a ids:Instant ;
-            ids:dateTime "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        time:hasEnd   [
+            a time:Instant ;
+            time:inXSDDateTimeStamp "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ] ;
     ] ;
 
     ids:representation [
         a ids:DataRepresentation ;
-        ids:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+        dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
         ids:instance
             data2:E1_20000101,
             # imagine plenty of artifacts here ...
@@ -97,9 +98,9 @@ data2:
     ids:contractOffer [
         a ids:ContractOffer ;
         ids:provider part1: ;
-        ids:permission [
-			a ids:Permission ;
-            ids:assigner part1: ;
+        odrl:permission[
+			a odrl:Permission ;
+            odrl:assigner part1: ;
             ids:target data2:generic_content ; # i.e. applies to any artifact / instance of given content
             ids:action idsc:USE ;
         ]
