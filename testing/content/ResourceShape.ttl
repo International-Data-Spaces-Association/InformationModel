@@ -70,8 +70,8 @@ shapes:ResourceShape
 		sh:path ids:publisher ;
 		#sh:class ids:Agent ;
 		sh:or (
-	    [ sh:class ids:Agent ; ]
-	    [ sh:nodeKind sh:IRI ; ]
+	    [ sh:class ids:Agent ; sh:order 1 ; ]
+	    [ sh:nodeKind sh:IRI ; sh:order 2 ; ]
 		) ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -83,8 +83,8 @@ shapes:ResourceShape
 		sh:path ids:sovereign ;
 		#sh:class ids:Agent ;
 		sh:or (
-	    [ sh:class ids:Agent ; ]
-	    [ sh:nodeKind sh:IRI ; ]
+	    [ sh:class ids:Agent ; sh:order 1 ; ]
+	    [ sh:nodeKind sh:IRI ; sh:order 2 ; ]
 		) ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
