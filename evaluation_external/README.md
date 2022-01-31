@@ -68,7 +68,7 @@ Link: [Dedicated helper file](https://github.com/International-Data-Spaces-Assoc
 
 We summarize the results of our evaluations as follows:
 
-<img src="https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/statistics.png" width="50" height="50">
+<img src="https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/statistics.png" width="100" height="100">
 
 ## Appendix
 [List and evaluation of every usage of external classes and properties](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/List%20and%20evaluation%20of%20every%20usage%20of%20external%20classes%20and%20properties.pdf)
