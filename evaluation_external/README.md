@@ -69,5 +69,7 @@ Link: [Dedicated helper file](https://github.com/International-Data-Spaces-Assoc
 ## Appendix
 [List and evaluation of every usage of external classes and properties](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/List%20and%20evaluation%20of%20every%20usage%20of%20external%20classes%20and%20properties.pdf)
 
+[Detailed information of updates made to SHACL shapes] (https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/Detailed%20information%20of%20updates%20-%20ExtendSHACLshapes.pdf)
+
 
 
