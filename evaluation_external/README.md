@@ -73,6 +73,18 @@ We summarize the results of our evaluations as follows:
 
 <img src="https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/statistics.png" width="60%" height="50%">
 
+## Hand on manual
+
+To use the IDS Information Model, the steps to consider are the following:
+
+1. Decide what to model.
+2. Use the IDS Information Model.
+3. Extend the IDS Model with the local definitions.
+
+To illustrate the above mentioned steps we consider an example as follows:
+
+
+
 ## Appendix
 [List and evaluation of every usage of external classes and properties](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/List%20and%20evaluation%20of%20every%20usage%20of%20external%20classes%20and%20properties.pdf)
 
