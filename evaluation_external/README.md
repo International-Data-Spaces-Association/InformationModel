@@ -8,7 +8,7 @@ Moreover, based on the performed analysis, we understood that a better approach 
 Our main goal was to effectively identify and remove all redundant definitions of classes and properties, and directly use the external definitions from the respective existent ontologies.
 
 ## Methodology
-First, we created a new branch >"refactorIDSModel-enhancement" by clonating the "develop" branch.
+First, we created a new branch "refactorIDSModel-enhancement" by clonating the "develop" branch.
 After that, we created a list of every external class and property used in the IDS Information Model and evaluated if the use of the property or class was redundant. For that, we considered the following definitions:
 Redundant (r): the internal definition of a class or property not adding any additional information to the already external definition.
 Possibly Redundant (pr):  the internal definition of a class or property which redundancy is not clear because it adds some level of specificity.
@@ -61,10 +61,14 @@ Link: [Revised infomodel](https://github.com/International-Data-Spaces-Associati
 Link: [Dedicated helper file](https://github.com/International-Data-Spaces-Association/InformationModel/blob/refactorIDSModel-enhancement/utils/refactor_helper.ttl)
 
 - 103 definitions were evaluated, from which 36 were Classes and 67 were Properties.
-- We detected 56 probably redundant (pr) cases, 41 redundant (r) cases, and 6 non redundant (nr) cases.
+- We detected 57 probably redundant (pr) cases, 40 redundant (r) cases, and 6 non redundant (nr) cases.
 - In 30 cases we made no changes, from which 6 correspond to non redundant (nr) cases and 24 correspond to probably redundant (pr) cases.
 - In 72 cases we made changes by removing the local definitions and replacing them by their external definitions, they all correspond to redundant (r) and probably redundant (pr) cases.
 - 1 case is pending, and corresponds to the property >"ids:rightOperand"
+
+We summarize the results of our evaluations as follows:
+
+
 
 ## Appendix
 [List and evaluation of every usage of external classes and properties](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/List%20and%20evaluation%20of%20every%20usage%20of%20external%20classes%20and%20properties.pdf)
