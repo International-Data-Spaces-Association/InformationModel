@@ -4,25 +4,27 @@
     "idsc": "https://w3id.org/idsa/code/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
       "@id": "http://foo.bar",
       "@type": "ids:AppResource",
-      "ids:customLicense": {
+      "dct:licence": {
         "@id": "https://www.gnu.org/licenses/gpl-3.0-standalone.html"
       },
-      "ids:description": {
+      "dct:description": {
         "@language": "en",
         "@value": "AppResource 2."
       },
-      "ids:keyword": [
+      "dcat:keyword": [
         "bla",
         "Data",
         "processing"
       ],
-      "ids:title": "App Title"
+      "dct:title": "App Title"
     },
     {
       "@id": "_:ub61bL21C25",
@@ -42,7 +44,7 @@
       "ids:curator": {
         "@id": "http://fit.fraunhofer.de/participant/bar"
       },
-      "ids:description": "IDS AppStore self-description",
+      "dct:description": "IDS AppStore self-description",
       "ids:hasDefaultEndpoint": {
         "@id": "_:ub61bL13C28"
       },
@@ -57,27 +59,27 @@
       "ids:securityProfile": {
         "@id": "idsc:BASE_SECURITY_PROFILE"
       },
-      "ids:title": "AppStore"
+      "dct:title": "AppStore"
     },
     {
       "@id": "http://appIdentifier_2",
       "@type": "ids:AppResource",
-      "ids:customLicense": {
+      "dct:licence": {
         "@id": "https://www.gnu.org/licenses/gpl-3.0-standalone.html"
       },
-      "ids:description": {
+      "dct:description": {
         "@language": "en",
         "@value": "AppResource 1"
       },
     "ids:securityProfile": {
       "@id": "idsc:BASE_SECURITY_PROFILE"
     },
-    "ids:keyword": [
+    "dcat:keyword": [
         "bla",
         "Data",
         "processing"
       ],
-      "ids:title": "App 1 Title"
+      "dct:title": "App 1 Title"
     },
     {
       "@id": "_:ub61bL13C28",

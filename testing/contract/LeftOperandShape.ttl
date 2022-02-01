@@ -25,14 +25,14 @@ shapes:
 
 shapes:LeftOperandShape
 	a sh:NodeShape ;
-	sh:targetClass ids:LeftOperand ;
+	sh:targetClass odrl:LeftOperand ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:broader ;
-		sh:class ids:LeftOperand ;
+		sh:class odrl:LeftOperand ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/LeftOperandShape.ttl> (LeftOperandShape): An ids:broader must not have more than one point from an ids:LeftOperand to an ids:LeftOperand."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/LeftOperandShape.ttl> (LeftOperandShape): An ids:broader must not have more than one point from an odrl:LeftOperand to an odrl:LeftOperand."@en ;
 	] ;
 .

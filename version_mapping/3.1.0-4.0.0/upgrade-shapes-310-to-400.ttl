@@ -3,6 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
@@ -39,7 +40,7 @@ ids:BaseConnectorUpgradeShape
 
 ids:CatalogUpgradeShape1
 	a sh:NodeShape ;
-	sh:targetClass ids:Catalog ;
+	sh:targetClass dcat:Catalog ;
 	sh:rule [
 		a sh:SPARQLRule ;
 		sh:prefixes ids: ;
@@ -60,13 +61,13 @@ ids:CatalogUpgradeShape1
 		}
 		WHERE {$this rdf:type ids:catalog .}
 		""" ;
-			sh:condition ids:Catalog ;    # Rules only apply if the input matches the respective shape
+			sh:condition dcat:Catalog ;    # Rules only apply if the input matches the respective shape
 	] ;
 .
 
 ids:CatalogUpgradeShape2
 	a sh:NodeShape ;
-	sh:targetClass ids:Catalog ;
+	sh:targetClass dcat:Catalog ;
 	sh:rule [
 		a sh:SPARQLRule ;
 		sh:prefixes ids: ;
@@ -87,13 +88,13 @@ ids:CatalogUpgradeShape2
 		}
 		WHERE {$this ids:offer $offeredResources .}
 		""" ;
-			sh:condition ids:Catalog ;    # Rules only apply if the input matches the respective shape
+			sh:condition dcat:Catalog ;    # Rules only apply if the input matches the respective shape
 	] ;
 .
 
 ids:CatalogUpgradeShape3
 	a sh:NodeShape ;
-	sh:targetClass ids:Catalog ;
+	sh:targetClass dcat:Catalog ;
 	sh:rule [
 		a sh:SPARQLRule ;
 		sh:prefixes ids: ;
@@ -114,7 +115,7 @@ ids:CatalogUpgradeShape3
 		}
 		WHERE {$this ids:request $requestedResources .}
 		""" ;
-			sh:condition ids:Catalog ;    # Rules only apply if the input matches the respective shape
+			sh:condition dcat:Catalog ;    # Rules only apply if the input matches the respective shape
 	] ;
 .
 

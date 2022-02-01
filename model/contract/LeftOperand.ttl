@@ -7,14 +7,6 @@
 
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-# Classes
-# -------
-
-ids:LeftOperand rdfs:subClassOf odrl:LeftOperand;
-    a owl:Class;
-    rdfs:label "LeftOperand"@en;
-    rdfs:comment "Instances of the LeftOperand class are used as the leftOperand of a Constraint."@en.
-
 
 # Properties
 # ----------
@@ -23,7 +15,7 @@ ids:broader
     skos:broader odrl:includedIn ;
     rdfs:seeAlso <http://www.w3.org/2004/02/skos/core#broader> ;
     rdfs:label "broader LeftOperand"@en;
-    rdfs:domain ids:LeftOperand;
-    rdfs:range ids:LeftOperand;
+    rdfs:domain odrl:LeftOperand;
+    rdfs:range odrl:LeftOperand;
     rdfs:comment "This LeftOperand is transitively included in the object LeftOperand."@en ;
 .

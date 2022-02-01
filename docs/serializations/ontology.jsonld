@@ -2817,7 +2817,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/BinaryOperator" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."
+    "@value" : "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3111,7 +3111,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/BinaryOperator" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."
+    "@value" : "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3122,7 +3122,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp."
+    "@value" : "Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/BG",
@@ -3439,7 +3439,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/BinaryOperator" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."
+    "@value" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3452,7 +3452,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."
+    "@value" : "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/CONTINUOUS",
@@ -3715,7 +3715,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."
+    "@value" : "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/DURING",
@@ -3733,7 +3733,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."
+    "@value" : "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/DV",
@@ -3941,7 +3941,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/FINISHES",
@@ -3961,7 +3961,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/FJ",
@@ -4624,7 +4624,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."
+    "@value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/LONGER_EQ",
@@ -4639,7 +4639,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."
+    "@value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/LT",
@@ -5162,14 +5162,14 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/OVERLAPS",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/BinaryOperator" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "If an ids:Interval T1 overlapps another ids:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."
+    "@value" : "If an time:Interval T1 overlapps another time:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -5180,7 +5180,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."
+    "@value" : "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/PA",
@@ -5309,7 +5309,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/LeftOperand" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity."
+    "@value" : "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand time:TemporalEntity."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -5507,9 +5507,9 @@
     "@language" : "en",
     "@value" : "The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] \r\n\t\tits [<Representation URI>|<Artifact URI>].\r\n\t\tOptional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].\r\n\t\tOptional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."
   }, {
-    "@value" : "@prefix ids: <https://w3id.org/idsa/core/> .\r\n\t\t@prefix idsc: <https://w3id.org/idsa/code/> .\r\n\t\t@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\r\n\t\t@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\r\n\t\t@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\r\n\r\n\t\t[<contract URI>| [] ] a ids:ContractRequest ;\r\n\t\t\tids:uid <contract ID> ;\r\n\t\t\tids:refersTo idsc:RequestTemplate ;\r\n\t\t\tids:target [<Representation URI>|<Artifact URI>] ;\r\n\t\t\tids:consumer <Consumer Participant URI> ;\r\n\t\t\tids:provider <Provider Participant URI>\r\n\t\t\t[ids:permission [\r\n\t\t\t\tids:action ids:[use|read|...] ;\r\n\t\t\t\tids:constraint [\r\n\t\t\t\t\tids:leftOperand <Attribute URI> ;\r\n\t\t\t\t\tids:operator [ids:eq|ids:lt|ids:gt] ;\r\n\t\t\t\t\tids:rightOperand [<Value URI>|<Value Literal>]\r\n\t\t\t\t]\r\n\t\t\t] ;]*\r\n\t\t."
+    "@value" : "@prefix ids: <https://w3id.org/idsa/core/> .\r\n\t\t@prefix idsc: <https://w3id.org/idsa/code/> .\r\n\t\t@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\r\n\t\t@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\r\n\t\t@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\r\n\r\n\t\t[<contract URI>| [] ] a ids:ContractRequest ;\r\n\t\t\tids:uid <contract ID> ;\r\n\t\t\tids:refersTo idsc:RequestTemplate ;\r\n\t\t\tids:target [<Representation URI>|<Artifact URI>] ;\r\n\t\t\tids:consumer <Consumer Participant URI> ;\r\n\t\t\tids:provider <Provider Participant URI>\r\n\t\t\t[ids:permission [\r\n\t\t\t\tids:action ids:[use|read|...] ;\r\n\t\t\t\todrl:Constraint [\r\n\t\t\t\t\tids:leftOperand <Attribute URI> ;\r\n\t\t\t\t\tids:operator [ids:eq|ids:lt|ids:gt] ;\r\n\t\t\t\t\tids:rightOperand [<Value URI>|<Value Literal>]\r\n\t\t\t\t]\r\n\t\t\t] ;]*\r\n\t\t."
   }, {
-    "@value" : "{ \r\n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\r\n\t\t\"@type\": \"ContractRequest\", \r\n\t\t\"uid\": \"<contract ID>\", \r\n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\r\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\r\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\r\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \r\n\t\t\"ids:permission\": {\r\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\r\n\t\t\t[\"ids:constraint\" : {    \r\n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\r\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\r\n\t\t\t\t\t \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\r\n\t\t\t } [,]]*\r\n\t\t} }"
+    "@value" : "{ \r\n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\r\n\t\t\"@type\": \"ContractRequest\", \r\n\t\t\"uid\": \"<contract ID>\", \r\n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\r\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\r\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\r\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \r\n\t\t\"ids:permission\": {\r\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\r\n\t\t\t[\"odrl:Constraint\" : {    \r\n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\r\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\r\n\t\t\t\t\t \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\r\n\t\t\t } [,]]*\r\n\t\t} }"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/SA",
@@ -5708,7 +5708,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."
+    "@value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/SHORTER_EQ",
@@ -5723,7 +5723,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."
+    "@value" : "Compares an instance of time:TemporalEntity with an instance of xsd:duration."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/SI",
@@ -5887,7 +5887,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of ids:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."
+    "@value" : "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of time:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/STARTS",
@@ -5905,7 +5905,7 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an ids:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"
+    "@value" : "Compares an instance of time:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not a time:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/STATE",
@@ -6018,7 +6018,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/BinaryOperator" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."
+    "@value" : "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -6029,14 +6029,14 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal."
+    "@value" : "Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal."
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/TEMPORAL_EQUALS",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/core/BinaryOperator" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."
+    "@value" : "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -6954,7 +6954,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "An Asset is either an ids:Resource, an ids:Representation, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."
+    "@value" : "An Asset is either an ids:Resource, an dcat:Distribution, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -6972,7 +6972,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "An AssetCollection is a bracket object combining several ids:Assets."
+    "@value" : "An AssetCollection is a bracket object combining several odrl:Asset."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -8071,7 +8071,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."
+    "@value" : "A relative temporal entity of a certain length. Different to time:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to a time:Interval."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -10263,7 +10263,7 @@
     "@value" : "The operation relating to the asset for which permission is being granted."
   }, {
     "@language" : "en",
-    "@value" : "The sequence of executed actions on the data object. Must be an element of ids:Action."
+    "@value" : "The sequence of executed actions on the data object. Must be an element of odrl:Action."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/Rule"
@@ -10389,7 +10389,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"
+    "@value" : "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/LogicalConstraint"
@@ -10561,7 +10561,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."
+    "@value" : "Conditions which specify whether an arbitrary odrl:Asset is a member of this AssetCollection."
   }, {
     "@language" : "en",
     "@value" : "Constraint that refines a (composite) Digital Content."
@@ -11302,7 +11302,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."
+    "@value" : "The date of the creation of the Digital Content. In contrast to the dct:temporal, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "_:genid-nodeid-node1eg0mg14fx31"
@@ -11835,7 +11835,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."
+    "@value" : "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of time:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/TemporalEntity"
@@ -12606,7 +12606,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"
+    "@value" : "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/LogicalConstraint"
@@ -13316,7 +13316,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."
+    "@value" : "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/Constraint"
@@ -13336,7 +13336,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."
+    "@value" : "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/Constraint"
@@ -13691,7 +13691,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The subject of the policy statement (ids:Rule)."
+    "@value" : "The subject of the policy statement (odrl:Rule)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/Rule"
@@ -14010,7 +14010,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"
+    "@value" : "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/LogicalConstraint"

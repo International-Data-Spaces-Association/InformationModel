@@ -1,6 +1,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
 
@@ -19,7 +20,7 @@ _:uc_object a ids:UsageControlObject ;
 .
 
 
-<http://some-pip/path-to-collection> a ids:AssetCollection ;
+<http://some-pip/path-to-collection> a odrl:AssetCollection ;
     # alternative b) --> description
     #ids:hasMember "Every resource with 'some' and 'resource' in their URI are member of this collection."@en ;
 .
