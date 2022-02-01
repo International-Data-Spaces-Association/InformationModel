@@ -32,6 +32,7 @@ In codes, it is used to define `idsc:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM`,
 
 <details><summary>Implementation</summary>
 <p>
+    
 - For the implementation of the first given example, we modified the following files in the model: *Message.ttl*, *Resource.ttl*, *Connector.ttl*, *Participant.ttl*, were we added `@prefix foaf: <http://xmlns.com/foaf/0.1/>`, and replace `ids:Agent` by `foaf:Agent`. Moreover, we removed the definition of `ids:Agent` in *Participant.ttl*. 
 In the testing files, only `sh:message` was modified and the commented code referencing `ids:Agent` was removed in *MessageShape.ttl*, *ResourceShape.ttl*, and *ConnectorShape.ttl*. 
 - For the second example, as the internal definition was more specific, no changes were implemented.
