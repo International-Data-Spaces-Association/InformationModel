@@ -17,7 +17,21 @@
             "@type": "ids:Duty",
             "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer
-            "ids:action": { "@id": "idsc:LOG" }
+            "ids:action": { 
+				"@id": "idsc:LOG",
+				"ids:actionRefinement": [{   
+					"@type":"ids:Constraint",
+					"leftOperand": { "@id": "idsc:SYSTEM_DEVICE"},  
+					"operator": { "@id": "idsc:DEFINES_AS"},   
+					"rightOperand": { "@value": "https//example.com/logging_system_device", "@type": "xsd:anyURI"} 
+				},{    
+					"@type":"ids:Constraint",  
+					"ids:leftOperand": { "@id": "idsc:LOG_LEVEL"},  
+					"ids:operator": { "@id": "idsc:DEFINES_AS"},  
+					"ids:rightOperand": { "@value": ["idsc:LOG_ON_ALLOW", "idsc:LOG_ON_DENY"] }
+				  }] 
+			}, 
+        	"ids:PXPEndpoint": { "@id": "https//example.com/pxp/log" }
         }
         (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
         (, "ids:preDuty": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more Obligations which need to be fulfilled before the Usage event
