@@ -7,7 +7,9 @@ Moreover, based on the performed analysis, we understood that a better approach 
 ## Goal
 Our main goal was to effectively identify and remove all redundant definitions of classes and properties, and directly use the external definitions from the respective existent ontologies.
 
-## Methodology
+<details><summary>Methodology</summary>
+<p>
+    
 First, we created a new branch **"refactorIDSModel-enhancement"** by clonating the *"develop"* branch.
 After that, we created a list of every external class and property used in the IDS Information Model and evaluated if the use of the property or class was redundant. For that, we considered the following definitions:
 
@@ -29,6 +31,9 @@ We describe some examples here:
 
 - The `ids:includedCertificationLevel` is defined as a `subPropertyOf` `dct:isPartOf`. It adds `rdfs:label`, `rdfs:comment`, `rdfs:seeAlso`, `rdfs:domain` (ids:CertificationLevel), and `rdfs:range` (ids:CertificationLevel). We noticed that it is only used in codes and in validations.
 In codes, it is used to define `idsc:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM`, `idsc:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM`, and others. And it is used to define validations in *CertificationShape.ttl*. 
+
+</p>
+</details>
 
 <details><summary>Implementation</summary>
 <p>
@@ -140,12 +145,19 @@ ids:contractOffer
 .
 
 ```
+
+Here the prefix `ids` is defined locally in the **IDS Information** model by `@prefix ids: <https://w3id.org/idsa/core/> .`
+
+We can observe that an `ids:Resource` has a label (`rdfs:label`) and a comment (`rdfs:comment`). Also by the properties we can see that a `ids:resourcePart` is in the domain of an `ids:Resource`, meaning that any resource with this property is an instance of a Resource. A similar situation is given for the properties `ids:resourceEndpoint` and `ids:contractOffer`. Moreover, there are other properties defined in the domain of a Resource, but we will omit them here for the sake of the example.
+
+Now we consider the validations already included in the **IDS Information model** as follows:
+
+
+
+
+
 </p>
 </details>
-
-Here the prefix `ids` is defined locally in the IDS Information model by `@prefix ids: <https://w3id.org/idsa/core/> .`
-
-We can observe that an `ids:Resource` has a label (`rdfs:label`) and a comment (`rdfs:comment`). Also by the properties we can see that a `ids:resourcePart` is in the domain of an `ids:Resource`, meaning that any resource with this property is an instance of a Resource. A similar situation is given for the properties `ids:resourceEndpoint` and `ids:contractOffer`.
 
 ## Appendix
 [List and evaluation of every usage of external classes and properties](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/List%20and%20evaluation%20of%20every%20usage%20of%20external%20classes%20and%20properties.pdf)
