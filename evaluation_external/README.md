@@ -17,7 +17,7 @@ After that, we created a list of every external class and property used in the I
 
 Our approach for identifying possible redundant definitions was to search in files by using regular expressions: `subClassOf(?!ids)`, and `subPropertyOf(?!ids)`. We traversed all the results and ignored copies of ontologies. Moreover, we focused on the *.ttl* files included in the different model definitions, for example **communication**, or **content**.
 
-Once we found these results, we listed each class and property by file, the relation (`subClassOf or subPropertyOf`), and the external class or property which is referring to. Then, for the evaluation (r, pr, nr) as aforementioned, we analyzed the internal definition, for example which other additional information was introduced by it, and we determined the use of that internal definition in the related files in the models, validations, and testing files. Based on the performed evaluation, we made the decisions to keep the class or property, or remove it. Then we proceeded to the concrete implementation of changes as described in the next section.
+Once we found these results, we listed each class and property by file, the relation (`subClassOf or subPropertyOf`), and the external class or property which is referring to. Then, for the evaluation (**r**, **pr**, **nr**) as aforementioned, we analyzed the internal definition, for example which other additional information was introduced by it, and we determined the use of that internal definition in the related files in the models, validations, and testing files. Based on the performed evaluation, we made the decisions to keep the class or property, or remove it. Then we proceeded to the concrete implementation of changes as described in the next section.
 
 We describe some examples here:
 
@@ -73,17 +73,66 @@ We summarize the results of our evaluations as follows:
 
 <img src="https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/statistics.png" width="60%" height="50%">
 
-## Hand on manual
+<details><summary>## Hand on manual</summary>
+<p>
 
 To use the IDS Information Model, the steps to consider are the following:
 
 1. Decide what to model.
-2. Use the IDS Information Model.
-3. Extend the IDS Model with the local definitions.
+2. Use the IDS Information Model as a basis for describing the different components.
+3. Extend the IDS Model with the local definitions and restrictions.
 
 To illustrate the above mentioned steps we consider an example as follows:
 
+Consider you want to model a general **Resource** which can be later defined more specifically. The first step would be to consider the class definition and which properties are already considered in the **IDS Information Model** (available in *../model/content/Resource.ttl*):
 
+```
+# Class Definition
+ids:Resource
+    a owl:Class;
+    rdfs:subClassOf ids:DescribedSemantically, ids:DigitalContent, # e.g., Collection Resource contains sub-resources but also has an own Representation
+        ids:ManagedEntity, odrl:Asset ;
+    rdfs:label "Resource"@en ;
+    rdfs:comment "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."@en;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset>;
+
+```
+
+```
+# Properties definition
+
+ids:resourcePart a owl:ObjectProperty;
+    rdfs:subPropertyOf ids:contentPart;
+    rdfs:label "resource part"@en;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:Resource;
+    rdfs:comment "Reference to a Resource (physically or logically) included, definition of part-whole hierarchies."@en .
+
+ids:resourceEndpoint
+    a owl:ObjectProperty;
+    rdfs:label "resource endpoint"@en;
+    rdfs:domain ids:Resource ;
+    rdfs:range ids:ConnectorEndpoint;
+    rdfs:comment "Reference to the Endpoints that serve the resource's content or let you exchange messages with an IDS Connector."@en.
+
+ids:contractOffer
+    a owl:ObjectProperty;
+    rdfs:domain ids:Resource;
+    rdfs:range ids:ContractOffer;
+    rdfs:label "contract offer"@en;
+    rdfs:comment "Reference to a Contract Offer defining the authorized use of the Resource."@en.
+    
+.
+.
+.
+
+```
+</p>
+</details>
+
+Here the prefix `ids` is defined locally in the IDS Information model by `@prefix ids: <https://w3id.org/idsa/core/> .`
+
+We can observe that an `ids:Resource` has a label (`rdfs:label`) and a comment (`rdfs:comment`). Also by the properties we can see that a `ids:resourcePart` is in the domain of an `ids:Resource`, meaning that any resource with this property is an instance of a Resource. A similar situation is given for the properties `ids:resourceEndpoint` and `ids:contractOffer`.
 
 ## Appendix
 [List and evaluation of every usage of external classes and properties](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/List%20and%20evaluation%20of%20every%20usage%20of%20external%20classes%20and%20properties.pdf)
