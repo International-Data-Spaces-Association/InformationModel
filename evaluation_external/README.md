@@ -102,7 +102,9 @@ To use the IDS Information Model, the steps to consider are the following:
 
 To illustrate the above mentioned steps we consider an example as follows:
 
-Consider you want to model a general **Resource** which can be later defined more specifically. The first step would be to consider the class definition and which properties are already considered in the **IDS Information Model** (available in *../model/content/Resource.ttl*):
+1. Consider you want to model a general **Resource** which can be later defined more specifically.
+
+2. The first step would be to consider the class definition and the properties which are already considered in the **IDS Information Model** (available in *../model/content/Resource.ttl*), here a snipped:
 
 ```
 # Class Definition
@@ -150,7 +152,40 @@ Here the prefix `ids` is defined locally in the **IDS Information** model by `@p
 
 We can observe that an `ids:Resource` has a label (`rdfs:label`) and a comment (`rdfs:comment`). Also by the properties we can see that a `ids:resourcePart` is in the domain of an `ids:Resource`, meaning that any resource with this property is an instance of a Resource. A similar situation is given for the properties `ids:resourceEndpoint` and `ids:contractOffer`. Moreover, there are other properties defined in the domain of a Resource, but we will omit them here for the sake of the example.
 
-Now we consider the validations already included in the **IDS Information model** as follows:
+Now we consider the validations already included in the **IDS Information model** (available in *../testing/content/ResourceShape.ttl*), here a snipped:
+
+```
+shapes:ResourceShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Resource ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:resourcePart ;
+		sh:class ids:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:resourcePart property must point from an ids:Resource to an ids:Resource."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:resourceEndpoint ;
+		sh:class ids:ConnectorEndpoint ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:resourceEndpoint property must point from an ids:Resource to an ids:ConnectorEndpoint."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:contractOffer ;
+		sh:class ids:ContractOffer ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:Resource must have at least one ids:ContractOffer linked through the ids:contractOffer property"@en ;
+	] ;
+
+```
+
+
 
 
 
