@@ -30,13 +30,18 @@ We describe some examples here:
 - The `ids:includedCertificationLevel` is defined as a `subPropertyOf` `dct:isPartOf`. It adds `rdfs:label`, `rdfs:comment`, `rdfs:seeAlso`, `rdfs:domain` (ids:CertificationLevel), and `rdfs:range` (ids:CertificationLevel). We noticed that it is only used in codes and in validations.
 In codes, it is used to define `idsc:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM`, `idsc:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM`, and others. And it is used to define validations in *CertificationShape.ttl*. 
 
-## Implementation 
+<details><summary>Implementation</summary>
+<p>
 - For the implementation of the first given example, we modified the following files in the model: *Message.ttl*, *Resource.ttl*, *Connector.ttl*, *Participant.ttl*, were we added `@prefix foaf: <http://xmlns.com/foaf/0.1/>`, and replace `ids:Agent` by `foaf:Agent`. Moreover, we removed the definition of `ids:Agent` in *Participant.ttl*. 
 In the testing files, only `sh:message` was modified and the commented code referencing `ids:Agent` was removed in *MessageShape.ttl*, *ResourceShape.ttl*, and *ConnectorShape.ttl*. 
 - For the second example, as the internal definition was more specific, no changes were implemented.
 - Lastly, for the third example, We decided to keep it, and therefore no changes were implemented.
 
-### Issues
+</p>
+</details>
+
+<details><summary>Issues</summary>
+<p>
 
 Here we list the issues related to the evaluation and implementation of changes.
 
@@ -52,8 +57,12 @@ Here we list the issues related to the evaluation and implementation of changes.
 - Moreover, we included a helper file to support the CodeGen tool. It can be found under the issue: 
 [Issue #490 - Refactor identified refactoring options for the IDS information model](https://github.com/International-Data-Spaces-Association/InformationModel/issues/490)
 
+</p>
+</details>
 
-## Impact 
+<details><summary>Impact</summary>
+<p>
+
 After making the aforementioned evaluation and changes, the results are the following:
 
 - SHACL shapes were revised, in which obsolete IDS classes and properties have been replaced by directly using those from external ontologies. 
@@ -73,7 +82,10 @@ We summarize the results of our evaluations as follows:
 
 <img src="https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/evaluation_external/statistics.png" width="60%" height="50%">
 
-<details><summary>## Hand on manual</summary>
+</p>
+</details>
+
+<details><summary>Hand on manual</summary>
 <p>
 
 To use the IDS Information Model, the steps to consider are the following:
