@@ -12,7 +12,7 @@
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
         "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "ids:action": (idsc:ACTION_TEMPLATE),
+        "odrl:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
@@ -38,8 +38,8 @@
             "@type": "ids:Duty",
             "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer
-            "ids:action": {
-                "@type": "ids:Action",
+            "odrl:action": {
+                "@type": "odrl:Action",
                 "ids:includedIn": { "@id": "idsc:DELETE" },
                 "ids:actionRefinement": {
                     "@type": "ids:Constraint",

@@ -76,11 +76,11 @@ data1:offer
         odrl:assigner part1: ;
         # individual target(s)
         ids:target data1: ;
-        ids:action idsc:USE ;
+        odrl:action idsc:USE ;
         # Obligation
         ids:preDuty [
             a odrl:Duty ;
-            ids:action idsc:COMPENSATE ;
+            odrl:action idsc:COMPENSATE ;
             odrl:constraint [
 				a odrl:Constraint ;
                 odrl:leftOperand     idsc:PAY_AMOUNT ;
