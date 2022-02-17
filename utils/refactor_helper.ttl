@@ -52,8 +52,7 @@ dct:DCMIType
 dct:MediaType
     a owl:Class ;
     rdfs:label "Media Type"@en ; 
-    rdfs:comment "General class of media types (formerly known as MIME types).  is used only when no ids:IANAMediaType available."@en .
-
+    rdfs:comment "General class of media types (formerly known as MIME types). It is used only when no ids:IANAMediaType available."@en .
 
 dcat:Distribution
     a rdfs:Class ;
@@ -198,7 +197,7 @@ foaf:mbox
     a owl:ObjectProperty ;   
     a owl:InverseFunctionalProperty ;
     rdfs:label "personal mailbox"@en ;
-    rdfs:domain ids:Participant;
+    rdfs:domain [ owl:unionOf (ids:Participant foaf:Person) ];
     rdfs:range xsd:string;
     rdfs:comment "Email address for contacting the participant on a general level."@en .
 
@@ -206,7 +205,7 @@ foaf:homepage
     a owl:ObjectProperty ;  
     a owl:InverseFunctionalProperty ;
     rdfs:label "homepage"@en ;
-    rdfs:domain ids:Participant;
+    rdfs:domain [ owl:unionOf (ids:Participant foaf:Person) ];
     rdfs:range xsd:anyURI;
     rdfs:comment "General official homepage of the participant."@en .
 
