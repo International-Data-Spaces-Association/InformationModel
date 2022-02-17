@@ -13,7 +13,7 @@
       | "idsc:FINISHES" | "idsc:MEETS" | "idsc:MET_BY" | "idsc:OVERLAPS"
       | "idsc:OVERLAPPED_BY" | "idsc:STARTS" | "idsc:STARTED_BY")               // The comaprison operator, for instance idsc:AFTER
     },
-    "ids:rightOperand": {
+    "odrl:rightOperand": {
       "@id": "?Value",                                                          // The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
       "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
     }
@@ -27,7 +27,7 @@
       ("idsc:SHORTER" | "idsc:SHORTER_EQ" | "idsc:LONGER" | "idsc:LONGER_EQ"
       | "idsc:DURATION_EQ")                                                     // The comaprison operator, for instance idsc:SHORTER
     },
-    "ids:rightOperand": {
+    "odrl:rightOperand": {
       "@id": "?Value",                                                          // The value expression, for instance ?Value := "P0Y0M0DT0H10M0S"
       "@type": "http://www.w3.org/2001/XMLSchema#duration"
     }
@@ -42,7 +42,7 @@
           "@type": "ids:TemporalConstraint",                                    // A TemporalConstraint, for instance current time > January 1st 2020
           "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },          // The current time, usually the system time.
           "odrl:operator": { "@id": "idsc:AFTER" },
-          "ids:rightOperand": {
+          "odrl:rightOperand": {
             "@id": "?Value",                                                    // The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
             "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
           }
@@ -52,7 +52,7 @@
           "@type": "ids:TemporalConstraint",                                    // A TemporalConstraint, for instance current time < January 1st 2021
           "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },          // The current time, usually the system time.
           "odrl:operator": { "@id": "idsc:BEFORE" },
-          "ids:rightOperand": {
+          "odrl:rightOperand": {
             "@id": "?Value",                                                    // The value expression, for instance ?Value := "2020-12-12T23:59:59.999+02:00"
             "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
           }

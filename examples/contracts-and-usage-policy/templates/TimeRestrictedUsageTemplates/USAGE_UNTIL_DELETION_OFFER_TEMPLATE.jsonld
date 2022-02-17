@@ -30,7 +30,7 @@
             "@type:" "ids:Constraint",
             "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
             "odrl:operator": { "@id": "idsc:AFTER" },
-            "ids:rightOperand": {
+            "odrl:rightOperand": {
                 "@value": "?startDateTime",                   // ?startDateTime < ?endDateTime
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
             }
@@ -40,7 +40,7 @@
             "@type:" "ids:Constraint",
             "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
             "odrl:operator": { "@id": "idsc:BEFORE" },
-            "ids:rightOperand": {
+            "odrl:rightOperand": {
                 "@value": "?endDateTime",
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
             }
@@ -63,7 +63,7 @@
                     "@type": "ids:Constraint",
                     "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
                     "odrl:operator": { "@id": "idsc:TEMPORAL_EQUALS" },
-                    "ids:rightOperand": {
+                    "odrl:rightOperand": {
                         "@value": "?endDateTime",                   // when the interval is over
                         "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
                     }

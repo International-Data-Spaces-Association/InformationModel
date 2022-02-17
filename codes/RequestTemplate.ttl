@@ -32,7 +32,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 			["odrl:constraint" : {    
 					 "odrl:leftOperand" : "<Attribute URI>",
 					 "odrl:operator" : "[ids:eq|ids:lt|ids:gt]",
-					 "ids:rightOperand" : "[<Value URI>|<Value Literal>]"
+					 "odrl:rightOperand" : "[<Value URI>|<Value Literal>]"
 			 } [,]]*
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
@@ -52,7 +52,7 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 				odrl:constraint [
 					odrl:leftOperand <Attribute URI> ;
 					odrl:operator [ids:eq|ids:lt|ids:gt] ;
-					ids:rightOperand [<Value URI>|<Value Literal>]
+					odrl:rightOperand [<Value URI>|<Value Literal>]
 				]
 			] ;]*
 		."""^^xsd:string 

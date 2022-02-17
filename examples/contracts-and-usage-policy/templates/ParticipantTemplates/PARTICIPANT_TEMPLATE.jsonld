@@ -18,7 +18,7 @@
         "@type": "ids:Constraint",                                  // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
         "odrl:leftOperand": { "@id": "?IdscLeftOperand" },           // The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
         "odrl:operator": { "@id": "?IdscBinaryOperator" },           // The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
-        "ids:rightOperand": { "@id": "?Value" }                     // The value expression all members of this collection have to share, for instance ?Value := "blue"
+        "odrl:rightOperand": { "@id": "?Value" }                     // The value expression all members of this collection have to share, for instance ?Value := "blue"
         (, "ids:pipEndpoint": { "@id": "?AttributeLocation"} )?     // A URI or path expression to the target attribute, ?AttributeLocation := "//color"
         (, "ids:unit": { "@id": "?Unit" } )?                        // A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
       }
@@ -37,7 +37,7 @@
                 "@type": "ids:Constraint",
                 "odrl:leftOperand": { "@id": "?IdscLeftOperand" },
                 "odrl:operator": { "@id": "?IdsBinaryOperator" },
-                "ids:rightOperand": { "@id": "?Value" }
+                "odrl:rightOperand": { "@id": "?Value" }
                 (, "ids:pipEndpoint": { "@id": "?AttributeLocation" } )?
                 (, "ids:unit": { "@id": "?Unit" } )?
               }

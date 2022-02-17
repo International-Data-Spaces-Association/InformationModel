@@ -50,11 +50,11 @@ shapes:ConstraintShape
     [
 			sh:property [
 				a sh:PropertyShape ;
-	    	sh:path ids:rightOperand ;
+	    	sh:path odrl:rightOperand ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ConstraintShape.ttl> (ConstraintShape): Exactly one ids:rightOperand property must point from an ids::Constraint to Literals or rdfs:Resources. Note that ids:rightOperand and odrl:rightOperandReference cannot be used in the same statement."@en ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ConstraintShape.ttl> (ConstraintShape): Exactly one odrl:rightOperand property must point from an ids::Constraint to Literals or rdfs:Resources. Note that odrl:rightOperand and odrl:rightOperandReference cannot be used in the same statement."@en ;
 			]
 		]
     [
@@ -65,7 +65,7 @@ shapes:ConstraintShape
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ConstraintShape.ttl> (ConstraintShape): Exactly one odrl:rightOperandReference property must point from an ids::Constraint to an IRI. Note that ids:rightOperand and odrl:rightOperandReference cannot be used in the same statement."@en ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ConstraintShape.ttl> (ConstraintShape): Exactly one odrl:rightOperandReference property must point from an ids::Constraint to an IRI. Note that odrl:rightOperand and odrl:rightOperandReference cannot be used in the same statement."@en ;
 			]
 		]
 	) ;
