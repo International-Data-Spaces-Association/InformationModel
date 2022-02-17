@@ -151,6 +151,14 @@ odrl:Action
     rdfs:label "Action"@en ;
     rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en .
 
+odrl:action
+    a owl:ObjectProperty;
+    rdfs:label "action"@en;
+    rdfs:domain [ rdf:type owl:Class ;
+                  owl:unionOf ( odrl:Rule ids:UsageControlObject)] ;
+    rdfs:range odrl:Action;
+    rdfs:comment "The operation relating to the asset / data object. "@en.
+
 dcat:Catalog
     a rdfs:Class ;
     a owl:Class ;
