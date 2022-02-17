@@ -22,26 +22,6 @@ shapes:
 		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
 	] .
 
-
-shapes:AbstractConstraintShape
-	a sh:NodeShape ;
-	sh:targetClass odrl:Constraint ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ContractShape.ttl> (AbstractConstraintShape): An odrl:Constraint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = odrl:Constraint)
-			}
-		""" ;
-	] ;
-.
-
-
 shapes:ConstraintShape
 	a sh:NodeShape ;
 	sh:targetClass odrl:Constraint ;
