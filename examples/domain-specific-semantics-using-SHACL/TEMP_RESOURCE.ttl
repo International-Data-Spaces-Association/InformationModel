@@ -92,7 +92,7 @@ sample_Data:
                 a odrl:Constraint ;
                 odrl:leftOperand idsc:now;
                 ids:operator idsc:IN_TIME_INTERVAL ;
-                ids:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
+                odrl:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
                 ] ;
 
             # Obligation / Duty
@@ -101,7 +101,7 @@ sample_Data:
                 odrl:constraint [
                     odrl:leftOperand idsc:payAmount ;
                       ids:operator ids:EQ ;
-                      ids:rightOperand 100 ;
+                      odrl:rightOperand 100 ;
                       odrl:unit <http://dbpedia.org/resource/Euro>;
                 ]
             ]

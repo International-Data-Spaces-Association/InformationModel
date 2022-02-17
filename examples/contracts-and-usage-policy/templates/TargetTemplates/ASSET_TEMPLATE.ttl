@@ -28,7 +28,7 @@
             a odrl:Constraint ;                              # Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
             odrl:leftOperand ?IdscLeftOperand ;              # The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
             odrl:operator ?IdscBinaryOperator ;              # The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
-            ids:rightOperand ?Value ;                       # The value expression all members of this collection have to share, for instance ?Value := "blue"
+            odrl:rightOperand ?Value ;                       # The value expression all members of this collection have to share, for instance ?Value := "blue"
             ( ids:pipEndpoint ?AttributeLocation ; )?       # A URI or path expression to the target attribute, ?AttributeLocation := "//color"
             ( odrl:unit ?Unit ; )?                           # A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
         ]
@@ -44,7 +44,7 @@
                         a odrl:Constraint ;
                         odrl:leftOperand ?IdscLeftOperand ;
                         odrl:operator ?IdsBinaryOperator ;
-                        ids:rightOperand ?Value ;
+                        odrl:rightOperand ?Value ;
                         ( ids:pipEndpoint ?AttributeLocation ; )?
                         ( odrl:unit ?Unit ; )?
                     ){2,} # at least two constraints

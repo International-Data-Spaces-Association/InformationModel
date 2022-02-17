@@ -42,7 +42,7 @@ idsc:SPATIAL_REQUEST_TEMPLATE a ids:SpatialRequest ;
             a odrl:Constraint ;
             odrl:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
             odrl:operator ?spatialOperator ;                 # the spatial comparison operator, for instance idsc:INSIDE
-            ids:rightOperand (
+            odrl:rightOperand (
               ?area ;                                       # a URI of a named area, for instance http://dbpedia.org/resource/Europe
             | # or
               [
