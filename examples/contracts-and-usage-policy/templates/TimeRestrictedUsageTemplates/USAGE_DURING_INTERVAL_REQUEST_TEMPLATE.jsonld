@@ -28,8 +28,8 @@
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
-            "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-            "ids:operator": { "@id": "idsc:AFTER" },
+            "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+            "odrl:operator": { "@id": "idsc:AFTER" },
             "ids:rightOperand": {
                 "@value": "?startDateTime",                   // ?startDateTime < ?endDateTime
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
@@ -38,8 +38,8 @@
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
-            "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-            "ids:operator": { "@id": "idsc:BEFORE" },
+            "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+            "odrl:operator": { "@id": "idsc:BEFORE" },
             "ids:rightOperand": {
                 "@value": "?endDateTime",
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"

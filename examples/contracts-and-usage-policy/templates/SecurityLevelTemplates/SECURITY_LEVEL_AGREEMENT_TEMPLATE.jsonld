@@ -19,20 +19,20 @@
             "ids:or": { "@list": [
                 ({
                   "@type:" "ids:Constraint",
-                  "ids:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
-                  "ids:operator": { "@id": "idsc:SAME_AS" },
+                  "odrl:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
+                  "odrl:operator": { "@id": "idsc:SAME_AS" },
                   "ids:rightOperandReference": { "@id": "idsc:BASE_SECURITY_PROFILE" }
                 },)?
                 ({
                   "@type:" "ids:Constraint",
-                  "ids:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
-                  "ids:operator": { "@id": "idsc:SAME_AS" },
+                  "odrl:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
+                  "odrl:operator": { "@id": "idsc:SAME_AS" },
                   "ids:rightOperandReference": { "@id": "idsc:TRUST_SECURITY_PROFILE" }     // in case BASE is selected, TRUST must also always be included
                 },)?
                 {
                   "@type:" "ids:Constraint",
-                  "ids:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
-                  "ids:operator": { "@id": "idsc:SAME_AS" },
+                  "odrl:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
+                  "odrl:operator": { "@id": "idsc:SAME_AS" },
                   "ids:rightOperandReference": { "@id": "idsc:TRUST_PLUS_SECURITY_PROFILE" } // TRUST+ is always included
                 }
               ]}

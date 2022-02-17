@@ -6,8 +6,8 @@
 (
   {
     "@type": "ids:TemporalConstraint",                                          // A TemporalConstraint, for instance current time > January 1st 2020
-    "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },                // The current time, usually the system time.
-    "ids:operator": { "@id":
+    "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },                // The current time, usually the system time.
+    "odrl:operator": { "@id":
       ("idsc:AFTER" | "idsc:BEFORE" | "idsc:CONTAINS" | "idsc:TEMPORAL_DISJOINT"
       | "idsc:DURING" | "idsc:TEMPORAL_EQUALS" | "idsc:FINISHED_BY"
       | "idsc:FINISHES" | "idsc:MEETS" | "idsc:MET_BY" | "idsc:OVERLAPS"
@@ -22,8 +22,8 @@
 | // or
   {
     "@type": "ids:TemporalConstraint",                                          // A TemporalConstraint, for instance usage time < 10 minutes
-    "ids:leftOperand": { "@id": "idsc:ELAPSED_TIME" },                          // The overall usage time of the asset, must be provided by the usage enforcement engine or the IDS Connector.
-    "ids:operator": { "@id":
+    "odrl:leftOperand": { "@id": "idsc:ELAPSED_TIME" },                          // The overall usage time of the asset, must be provided by the usage enforcement engine or the IDS Connector.
+    "odrl:operator": { "@id":
       ("idsc:SHORTER" | "idsc:SHORTER_EQ" | "idsc:LONGER" | "idsc:LONGER_EQ"
       | "idsc:DURATION_EQ")                                                     // The comaprison operator, for instance idsc:SHORTER
     },
@@ -40,8 +40,8 @@
       "@list": [                                                                // LogicalConstraints allow the expression of complex constraints. For instance, we can restrict the policy to be only valid in 2020.
         {
           "@type": "ids:TemporalConstraint",                                    // A TemporalConstraint, for instance current time > January 1st 2020
-          "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },          // The current time, usually the system time.
-          "ids:operator": { "@id": "idsc:AFTER" },
+          "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },          // The current time, usually the system time.
+          "odrl:operator": { "@id": "idsc:AFTER" },
           "ids:rightOperand": {
             "@id": "?Value",                                                    // The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
             "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
@@ -50,8 +50,8 @@
         },
         {
           "@type": "ids:TemporalConstraint",                                    // A TemporalConstraint, for instance current time < January 1st 2021
-          "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },          // The current time, usually the system time.
-          "ids:operator": { "@id": "idsc:BEFORE" },
+          "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },          // The current time, usually the system time.
+          "odrl:operator": { "@id": "idsc:BEFORE" },
           "ids:rightOperand": {
             "@id": "?Value",                                                    // The value expression, for instance ?Value := "2020-12-12T23:59:59.999+02:00"
             "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"

@@ -27,11 +27,11 @@
         "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": {
             "@type": "ids:Constraint",
-            "ids:leftOperand": {
+            "odrl:leftOperand": {
               "@id": "?EventURI",                                 // The identifier of this event, for instance http://dbpedia.org/resource/Category:FIFA_World_Cup_tournaments
               "ids:broader" : "idsc:EVENT"
             },
-            "ids:operator": { "@id": "idsc:EQUALS" },             // if pipReturnValue == true --> Constraint is staisfied
+            "odrl:operator": { "@id": "idsc:EQUALS" },             // if pipReturnValue == true --> Constraint is staisfied
             "ids:rightOperand": {
                 "@value": "true",
                 "@type": "http://www.w3.org/2001/XMLSchema#:boolean"
