@@ -1,6 +1,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix conn3: <https://aastat.gov.de/connector/conn3/> .
@@ -72,12 +73,12 @@ data3:offer
         ids:assigner part1: ;
         # individual target(s)
         ids:target data3: ;
-        ids:action idsc:USE ;
+        odrl:action idsc:USE ;
         ids:constraint [
 				    a ids:Constraint ;
-            ids:leftOperand   idsc:SECURITY_LEVEL ;
-            ids:operator      idsc:GTEQ ;
-            ids:rightOperand  idsc:TRUST_SECURITY_PROFILE
+            odrl:leftOperand   idsc:SECURITY_LEVEL ;
+            odrl:operator      idsc:GTEQ ;
+            odrl:rightOperand  idsc:TRUST_SECURITY_PROFILE
         ]
     ] .
 

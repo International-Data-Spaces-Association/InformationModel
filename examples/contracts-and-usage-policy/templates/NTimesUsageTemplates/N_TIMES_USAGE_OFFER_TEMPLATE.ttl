@@ -36,12 +36,12 @@ idsc:N_TIMES_USAGE_OFFER_TEMPLATE a ids:NotMoreThanNOffer ;
            odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         )
         ids:target idsc:ASSET_TEMPLATE ;
-        ids:action idsc:ACTION_TEMPLATE ;
+        odrl:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
             a odrl:Constraint ;
             odrl:leftOperand idsc:COUNT ;
             odrl:operator idsc:LTEQ ;
-            ids:rightOperand ?n ;                           # Do not execute the Action more than ?n times.
+            odrl:rightOperand ?n ;                           # Do not execute the Action more than ?n times.
             ids:pipEndpoint ?pipUri ;                       # the PIP that counts the access events
         ] ;
         ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints

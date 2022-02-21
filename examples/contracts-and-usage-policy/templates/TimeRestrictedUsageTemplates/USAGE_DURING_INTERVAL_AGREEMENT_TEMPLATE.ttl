@@ -25,16 +25,16 @@ idsc:USAGE_DURING_INTERVAL_AGREEMENT_TEMPLATE a ids:IntervalUsageAgreement ;
         odrl:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
         odrl:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
         ids:target idsc:ASSET_TEMPLATE ;
-        ids:action idsc:ACTION_TEMPLATE ;
+        odrl:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
 					odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:AFTER ;
-					ids:rightOperand "?startDateTime"^^xsd:dateTimeStamp ; # ?startDateTime < ?endDateTime
+					odrl:rightOperand "?startDateTime"^^xsd:dateTimeStamp ; # ?startDateTime < ?endDateTime
 				] ;
 				odrl:constraint [
 					odrl:leftOperand ids:POLICY_EVALUATION_TIME ;
 					ids:operator idsc:BEFORE ;
-					ids:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
+					odrl:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
 				] ;
         ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event

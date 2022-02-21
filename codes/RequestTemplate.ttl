@@ -28,11 +28,11 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 		"ids:provider": "<Provider Participant URI>",
 		"ids:consumer": "<Consumer Participant URI>", 
 		"odrl:permission": {
-			"ids:action": "[ids:use|ids:read|...]" ,
+			"odrl:action": "[ids:use|ids:read|...]" ,
 			["odrl:constraint" : {    
 					 "odrl:leftOperand" : "<Attribute URI>",
 					 "odrl:operator" : "[ids:eq|ids:lt|ids:gt]",
-					 "ids:rightOperand" : "[<Value URI>|<Value Literal>]"
+					 "odrl:rightOperand" : "[<Value URI>|<Value Literal>]"
 			 } [,]]*
 		} }"""^^xsd:string ;
 	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
@@ -48,11 +48,11 @@ idsc:RequestTemplate a ids:PolicyTemplate ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
 			[odrl:permission[
-				ids:action ids:[use|read|...] ;
+				odrl:action ids:[use|read|...] ;
 				odrl:constraint [
 					odrl:leftOperand <Attribute URI> ;
 					odrl:operator [ids:eq|ids:lt|ids:gt] ;
-					ids:rightOperand [<Value URI>|<Value Literal>]
+					odrl:rightOperand [<Value URI>|<Value Literal>]
 				]
 			] ;]*
 		."""^^xsd:string 

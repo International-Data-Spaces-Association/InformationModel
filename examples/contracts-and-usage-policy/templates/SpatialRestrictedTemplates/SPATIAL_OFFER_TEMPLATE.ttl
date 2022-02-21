@@ -36,12 +36,12 @@ idsc:SPATIAL_OFFER_TEMPLATE a ids:SpatialOffer ;
            odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         )
         ids:target idsc:ASSET_TEMPLATE ;
-        ids:action idsc:ACTION_TEMPLATE ;
+        odrl:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
             a odrl:Constraint ;
             odrl:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
             odrl:operator ?spatialOperator ;                 # the spatial comparison operator, for instance idsc:INSIDE
-            ids:rightOperand (
+            odrl:rightOperand (
               ?area ;                                       # a URI of a named area, for instance http://dbpedia.org/resource/Europe
             | # or
               [

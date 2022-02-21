@@ -114,16 +114,16 @@ data1:offer
 
         # individual target(s)
         ids:target _:foo ;
-        ids:action idsc:USE ;
+        odrl:action idsc:USE ;
         # Obligation
         ids:preDuty [
             a odrl:Duty;
-            ids:action idsc:COMPENSATE ;
+            odrl:action idsc:COMPENSATE ;
             odrl:constraint [
                a odrl:Constraint;
                 odrl:leftOperand     idsc:PAY_AMOUNT ;
                   odrl:operator      idsc:EQ ;
-                  ids:rightOperand  25 ;
+                  odrl:rightOperand  25 ;
                   odrl:unit         <http://dbpedia.org/resource/Euro>
             ]
         ]

@@ -47,7 +47,7 @@ idsc:DELAY a odrl:LeftOperand ;
     rdfs:comment "Delay the action. Use idsc:DURATION_EQ, idsc:LONGER, idsc:LONGER_EQ, idsc:SHORTER_EQ, or idsc:SHORTER with datatype xsd:duration."@en ;
 .
 
-idsc:DATE_TIME a ids:LeftOperand ;
+idsc:DATE_TIME a odrl:LeftOperand ;
     rdfs:label "date time"@en ;
     rdfs:comment "The date and time of exercising the action of the Rule. Right operand value must be an xsd:dateTimeStamp."@en ;
 .
@@ -59,7 +59,7 @@ idsc:EVENT a odrl:LeftOperand;
     rdfs:comment "The feature dimension regarding whether current events are happening. Does NOT refer 'events' as in real-time data, sensor observations, or Complex Event Processing but rather as 'World Cup 2018' or 'Hannover Trade Fair'."@en ;
 .
 
-idsc:HASH_ALGORITHM a ids:LeftOperand;
+idsc:HASH_ALGORITHM a odrl:LeftOperand;
     rdfs:label "hash algorithm"@en;
     rdfs:comment "Indicate the hash value to be used, eg.SHA256."@en;
 .
@@ -71,18 +71,18 @@ idsc:STATE a odrl:LeftOperand;
 .
 
 #
-idsc:JSON_PATH a ids:LeftOperand;
+idsc:JSON_PATH a odrl:LeftOperand;
     rdfs:label "json path"@en ;
     rdfs:comment "An expression that refers to a part of a JSON structured data."@en ;
 .
 
-idsc:XPATH a ids:LeftOperand;
+idsc:XPATH a odrl:LeftOperand;
     rdfs:label "xpath"@en ;
     rdfs:comment "An expression that refers to specific elements of an XML document."@en ;
 .
 
 #
-idsc:REPLACE_WITH a ids:LeftOperand;
+idsc:REPLACE_WITH a odrl:LeftOperand;
     rdfs:label "repace with"@en ;
     rdfs:comment "Specifies a new value for a specific field. The action must be idsc:REPLACE and the operator must be idsc:EQUALS."@en ;
 .
@@ -95,7 +95,7 @@ idsc:ABSOLUTE_SPATIAL_POSITION a odrl:LeftOperand ;
     rdfs:comment "The current geospatial position of the *consuming connector*. In case the connector only appears as a virtual entity, the physical location of the hosting server is referenced. Allowed operators are idsc:in. No other spatial operators (close to, north of, etc.) are currently allowed."@en ;
 .
 
-idsc:OPERAND a ids:LeftOperand ;
+idsc:OPERAND a odrl:LeftOperand ;
       rdfs:label "operand"@en ;
       rdfs:comment "To indicate the second operand value for the Actions idsc:ADD, idsc:MULTIPLY and idsc:DIVIDE."@en ;
 .
@@ -107,12 +107,12 @@ idsc:USER a odrl:LeftOperand ;
     rdfs:comment "The user of a system at the *consuming connector* requesting access to a resource. Recommended usage for checking whether the user's role is sufficient for his/her desired action. Allowed operators are idsc:MEMBER_OF, idsc:HAS_MEMBERSHIP, idsc:HAS_SITE with a RightOperand referencing a (set of) acceptable organisations (ids:Participant),memberships, sites. Preferred behaviour is that the RightOperand dereferences to an endpoint hosting the required role information."@en ;
 .
 
-idsc:ROLE a ids:LeftOperand ;
+idsc:ROLE a odrl:LeftOperand ;
     rdfs:label "role"@en ;
     rdfs:comment "As end user role, not the IDS participant type."@en ;
 .
 
-idsc:RECIPIENT a ids:LeftOperand ;
+idsc:RECIPIENT a odrl:LeftOperand ;
     rdfs:label "recipient"@en ;
     rdfs:comment "For example, the recipient of the notify/inform action."@en ;
 .
@@ -125,13 +125,13 @@ idsc:PURPOSE a odrl:LeftOperand;
 .
 
 #
-idsc:TARGET_POLICY a ids:LeftOperand;
+idsc:TARGET_POLICY a odrl:LeftOperand;
     rdfs:label "target policy"@en ;
     rdfs:comment "In order to attach/address a policy to a contract. "@en ;
 .
 
 #
-idsc:ARTIFACT_STATE a ids:LeftOperand;
+idsc:ARTIFACT_STATE a odrl:LeftOperand;
     rdfs:label "artifact state"@en ;
     rdfs:comment "Suggested values exist in the Information Model : idsc:ANONYMIZED, idsc:PSEUDONYMIZED, idsc:ENCRYPTED, idsc:COMBINED. "@en ;
 .
@@ -167,7 +167,7 @@ idsc:SYSTEM a odrl:LeftOperand;
     rdfs:comment "Execution system or execution environment that is used to access the asset under consideration, usually an IDS Connector. The regarded data object should correspond to the IDS Connector class and its attributes. Must be used together with idsc:SAME_AS, idsc:NOT, idsc:HAS_STATE, idsc:IN, idsc:COVERED_BY idsc:INSIDE, idsc:SPATIAL_EQUALS, idsc:DISJOINT, or idsc:INSIDE_NETWORK operators. RightOperandReference must be a URI identifying the target system(s)."@en ;
     .
 
-idsc:SYSTEM_DEVICE a ids:LeftOperand;
+idsc:SYSTEM_DEVICE a odrl:LeftOperand;
     rdfs:label "system device" ;
     rdfs:comment "The ODRL definitions is “An identified computing system or computing device used for exercising the action of the Rule.” "@en ;
     .
@@ -179,22 +179,22 @@ idsc:ENDPOINT a odrl:LeftOperand;
     rdfs:comment "Remote target for an action or information provider (PIP). Must be used together with idsc:IS or idsc:IN operators. RightOperand must be a xsd:anyURI or an URL which should point to an actually deployed endpoint. An example is a refinement of idsc:NOTIFY where idsc:REMOTE points to a Clearing House."@en ;
     .
 
-idsc:APPLICATION a ids:LeftOperand;
+idsc:APPLICATION a odrl:LeftOperand;
     rdfs:label "application" ;
     rdfs:comment "An application is a program or piece of software designed to fulfill a particular purpose. For example, a certified IDS App."@en ;
     .
 
-idsc:CONNECTOR a ids:LeftOperand;
+idsc:CONNECTOR a odrl:LeftOperand;
     rdfs:label "connector" ;
     rdfs:comment "Accepts an IDS connector URI."@en ;
     .
 
-idsc:LOG_LEVEL a ids:LeftOperand;
+idsc:LOG_LEVEL a odrl:LeftOperand;
     rdfs:label "log level" ;
     rdfs:comment "Accepted values: ON_DENY, ON_ALLOW, ON_DUTY_EXERCISED, ON_ACTION_OPERATED."@en ;
     .
 
-idsc:NOTIFICATION_LEVEL a ids:LeftOperand;
+idsc:NOTIFICATION_LEVEL a odrl:LeftOperand;
     rdfs:label "notification level" ;
     rdfs:comment "Similar to the idsc:LOG_LEVEL."@en ;
     .
