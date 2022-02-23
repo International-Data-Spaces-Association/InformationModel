@@ -2,6 +2,8 @@
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
 
 # Participant URI is resolved by Identity Manager
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
@@ -12,8 +14,8 @@
 conn2:
     a ids:TrustedConnector ;
     # General properties
-    ids:title "EU Traffic statistics hub" ;
-    ids:description "Example Trusted Connector maintained by PART1" ;
+    dct:title "EU Traffic statistics hub" ;
+    dct:description "Example Trusted Connector maintained by PART1" ;
     ids:maintainer part1: ; # Participant ~ service provider PART1
     ids:curator part1: ; # Content manager
     ids:physicalLocation <http://sws.geonames.org/3247450/> ; #Datacenter located in Bonn
@@ -52,13 +54,13 @@ conn2:certification
     .
 
 conn2:data1 a ids:Resource;
-            ids:title "some Resource";
+            dct:title "some Resource";
 .
 
 conn2:data2 a ids:Resource;
-            ids:title "another Resource";
+            dct:title "another Resource";
 .
 
 conn2:data3 a ids:Resource;
-            ids:title "yet another Resource";
+            dct:title "yet another Resource";
 .

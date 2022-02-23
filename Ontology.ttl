@@ -34,13 +34,13 @@ ids:
        <https://github.com/HaydarAk> ,
        <https://github.com/jlangkau> ,
        <https://github.com/JohannesLipp> ,
-       <https://github.com/lcomet> ,
-       <https://github.com/mkollenstart> ;
+       <https://github.com/mkollenstart> ,
+       <https://github.com/lcomet> ;
     dct:publisher ids:IDSA ;
     dct:created "2017-09-26"^^xsd:date ;
-    dct:modified "2021-06-17"^^xsd:date ;
-    owl:versionInfo "4.1.0" ;
-    owl:versionIRI <https://w3id.org/idsa/core/4.1.0> ;
+    dct:modified "2021-10-07"^^xsd:date ;
+    owl:versionInfo "4.2.0" ;
+    owl:versionIRI <https://w3id.org/idsa/core/4.2.0> ;
     vann:preferredNamespaceUri "https://w3id.org/idsa/core/" ;
     vann:preferredNamespacePrefix "ids" ;
     rdfs:seeAlso <https://international-data-spaces-association.github.io/InformationModel/> ;
@@ -102,12 +102,16 @@ _:AnnaKasprzik a dct:Agent, foaf:Person ;
 <https://github.com/mkollenstart> a dct:Agent, foaf:Person ;
     foaf:name "Maarten Kollenstart" ;
 .
+<https://github.com/JohannesLipp> a dct:Agent, foaf:Person ;
+    foaf:name "Johannes Theissen-Lipp" ;
+.
 <https://github.com/lcomet> a dct:Agent, foaf:Person ;
-                                  foaf:name "Lina Molinas Comet" ;
+    foaf:name "Lina Molinas Comet" ;
 .
 # ----------------------------
 # Imports of class files
 ids:
+    owl:imports <model/adms.ttl> ;
     owl:imports <model/communication/AppRoute.ttl> ;
     owl:imports <model/communication/Endpoint.ttl> ;
     owl:imports <model/communication/Message.ttl> ;
@@ -121,6 +125,7 @@ ids:
     owl:imports <model/content/DigitalContent.ttl> ;
     owl:imports <model/content/Language.ttl> ;
     owl:imports <model/content/MediaType.ttl> ;
+    owl:imports <model/content/PaymentModalities.ttl> ;
     owl:imports <model/content/Representation.ttl> ;
     owl:imports <model/content/Resource.ttl> ;
     owl:imports <model/content/UsageControlObject.ttl> ;
@@ -180,6 +185,8 @@ ids:
     owl:imports <codes/Language.ttl> ;
     owl:imports <codes/LeftOperand.ttl> ;
     owl:imports <codes/LogLevel.ttl> ;
+    owl:imports <codes/Mediatype.ttl> ;
+    owl:imports <codes/PaymentModality.ttl> ;
     owl:imports <codes/QueryLanguage.ttl> ;
     owl:imports <codes/QueryScope.ttl> ;
     owl:imports <codes/QueryTarget.ttl> ;
