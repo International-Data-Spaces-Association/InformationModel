@@ -65,9 +65,10 @@ ids:rejectionReason a owl:ObjectProperty;
 
 ids:callbackURL a owl:DatatypeProperty;
     rdfs:label "callback URL"@en;
-    rdfs:comment "A callback URL must be provided by the initiating connector."@en;
-    rdfs:domain ids:ResponseMessage;
+    rdfs:comment "A callback URL must be provided in a request message and a notification message. "@en;
+    rdfs:domain [ owl:unionOf (ids:RequestMessage ids:NotificationMessage )];
     rdfs:range xsd:anyURI.
+
 
 # Self-Description
 # -----------------

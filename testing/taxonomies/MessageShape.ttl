@@ -35,7 +35,35 @@ shapes:DescriptionRequestMessage
 	] .
 
 
+shapes:RequestMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:RequestMessage ;
 
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:callbackURL ;
+		sh:datatype xsd:anyURI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RequestMessageShape): An ids:RequestMessage must have exactly one URI reference to an call back URL linked through the ids:callbackURL property"@en ;
+	] .
+
+
+shapes:NotificationMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:NotificationMessage ;
+ ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:callbackURL ;
+		sh:datatype xsd:anyURI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (NotificationMessageShape): An ids:NotificationMessage must have exactly one URI reference to an call back URL linked through the ids:callbackURL property"@en ;
+	] .
 
 shapes:ResponseMessageShape
 	a sh:NodeShape ;
@@ -52,7 +80,7 @@ shapes:ResponseMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
-	
+
 
 shapes:QueryMessageShape
 	a sh:NodeShape ;
@@ -313,7 +341,7 @@ shapes:ArtifactRequestMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ArtifactRequestMessageShape): An ids:ArtifactRequestMessage must have exactly one IRI reference to an ids:Artifact linked through the ids:requestedArtifact property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (Artifactshapes:requestmessageShapeShape): An ids:ArtifactRequestMessage must have exactly one IRI reference to an ids:Artifact linked through the ids:requestedArtifact property"@en ;
 	] .
 
 
