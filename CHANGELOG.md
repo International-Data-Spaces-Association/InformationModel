@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [4.2.0-Pre-release] 2021-07-23
+## [4.2.0] 2021-09-30
 Pre-release version 4.2.0 of the IDS Information Model
 
 ### Added

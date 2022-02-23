@@ -2,13 +2,16 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
 
 <https://connector.fit.fraunhofer.de/apps/ImageAnonymizationApp/1337>
     a ids:AppResource;
-    ids:title "App Title" ;
-    ids:description "Data App for something with data."@en;
-    ids:keyword "Data", "processing", "bla" ;
-    ids:customLicense <https://www.gnu.org/licenses/gpl-3.0-standalone.html> ;
+    dct:title "App Title" ;
+    dct:description "Data App for something with data."@en;
+    dcat:keyword "Data", "processing", "bla" ;
+    dct:licence <https://www.gnu.org/licenses/gpl-3.0-standalone.html> ;
     ids:resourceEndpoint [
         a ids:ConnectorEndpoint ;
         ids:endpointInformation "This is the default endpoint of the FIT Connector. Used for communication and data exchange.";
@@ -20,7 +23,7 @@
 
     ids:representation [
         a ids:AppRepresentation ;
-        ids:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
+        dcat:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
         ids:dataAppDistributionService <https://example.com> ;
         ids:dataAppRuntimeEnvironment "Docker" ;
         ids:dataAppInformation [

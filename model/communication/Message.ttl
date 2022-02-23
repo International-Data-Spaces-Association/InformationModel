@@ -2,6 +2,7 @@
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
@@ -25,14 +26,6 @@ ids:modelVersion
     rdfs:domain ids:Message;
     rdfs:range xsd:string;
     rdfs:comment "Version of the Information Model against which the Message should be interpreted."@en.
-
-ids:issued
-    rdfs:subPropertyOf dct:issued;
-    a owl:DatatypeProperty;
-    rdfs:label "issued"@en;
-    rdfs:domain ids:Message;
-    rdfs:range xsd:dateTimeStamp;
-    rdfs:comment "Date (as xsd:dateTimeStamp) of issuing the Message."@en.
 
 ids:correlationMessage
     a owl:ObjectProperty;
@@ -59,14 +52,14 @@ ids:senderAgent
     a owl:DatatypeProperty;
     rdfs:label "sender agent"@en;
     rdfs:domain ids:Message;
-    rdfs:range ids:Agent;
+    rdfs:range foaf:Agent;
     rdfs:comment "The Agent which initiated the Message."@en.
 
 ids:recipientAgent
     a owl:DatatypeProperty;
     rdfs:label "recipient agent"@en;
     rdfs:domain ids:Message;
-    rdfs:range ids:Agent;
+    rdfs:range foaf:Agent;
     rdfs:comment "The Agent for which the Mesaage is intended."@en.
 
 ids:securityToken

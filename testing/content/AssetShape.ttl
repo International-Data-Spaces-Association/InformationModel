@@ -3,6 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
@@ -24,17 +25,17 @@ shapes:
 
 shapes:AssetShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Asset ;
+	sh:targetClass odrl:Asset ;
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetShape): An ids:Asset is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetShape): An odrl:Asset is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
 			WHERE {
 				?this rdf:type ?type .
-				FILTER (?type = ids:Asset)
+				FILTER (?type = odrl:Asset)
 			}
 		""" ;
 	] ;
@@ -43,7 +44,7 @@ shapes:AssetShape
 
 shapes:AssetCollectionShape
 	a sh:NodeShape ;
-	sh:targetClass ids:AssetCollection ;
+	sh:targetClass odrl:AssetCollection ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -51,15 +52,15 @@ shapes:AssetCollectionShape
 		sh:nodeKind sh:IRI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetSource property must not have more than one point from an ids:AssetCollection to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetSource property must not have more than one point from an odrl:AssetCollection to an IRI."@en ;
 	] ;
 	
 	sh:property [
 		 a sh:PropertyShape ;
-		 sh:path ids:assetRefinement ;
-		 sh:class ids:AbstractConstraint ;
+		 sh:path odrl:refinement ;
+		 sh:class odrl:Constraint ;
 		 sh:maxCount 1 ;
 		 sh:severity sh:Violation ;
-		 sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An ids:assetRefinement property must not have more than one point from an ids:AssetCollection to an ids:Constraint or ids:LogicalConstraint."@en ;
+		 sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/AssetShape.ttl> (AssetCollectionShape): An odrl:refinement property must not have more than one point from an odrl:AssetCollection to an odrl:Constraint or odrl:LogicalConstraint."@en ;
 	 ] ;
 .

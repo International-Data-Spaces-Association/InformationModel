@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -13,9 +14,9 @@
 
 # The OBLIGATION_TEMPLATE is a RegEx-like representation of the possible forms, which can be inserted at the Obligation position in an IDS Usage Control Template.
 
-idsc:OBLIGATION_TEMPLATE a ids:Duty ;
-    ids:assigner idsc:PARTICIPANT_TEMPLATE ;
-    ids:assignee idsc:PARTICIPANT_TEMPLATE ;
-    ids:action idsc:ACTION_TEMPLATE ;
-    [ ids:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints
+idsc:OBLIGATION_TEMPLATE a odrl:Duty ;
+    odrl:assigner idsc:PARTICIPANT_TEMPLATE ;
+    odrl:assignee idsc:PARTICIPANT_TEMPLATE ;
+    odrl:action idsc:ACTION_TEMPLATE ;
+    [ odrl:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints
 .
