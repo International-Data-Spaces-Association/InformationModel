@@ -69,7 +69,7 @@ shapes:ParticipantShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An ids:participantCertification property must not have more than one point from an ids:Participant to an ids:ParticipantCertification."@en ;
 	];
-	
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:businessIdentifier ;
@@ -84,11 +84,11 @@ shapes:ParticipantShape
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
 		#TODO for major release: Enforce property
-		#sh:minCount 1 ; 
+		#sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one VAT number as xsd:string linked through the ids:vatID property."@en ;
 	];
-	
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:jurisdiction ;
@@ -171,7 +171,7 @@ shapes:PersonShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path foaf:homepage ;
-		sh:datatype xsd:string ;
+    sh:datatype xsd:anyURI ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (PersonShape): An foaf:homepage property must not have more than one point from an foaf:Person to an xsd:string."@en ;
