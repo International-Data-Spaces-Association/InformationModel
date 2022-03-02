@@ -3,6 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
 
 @prefix conn3: <https://aastat.gov.de/connector/conn3/> .
 @prefix data3: <https://aastat.gov.de/connector/conn3/data3/> .
@@ -46,6 +47,13 @@ data3:
         a ids:ConnectorEndpoint ;
         ids:endpointArtifact data3:report_doc ;
         ids:accessURL <https://connector.aastat.gov.de/reports/Highway_traffic_statistics.doc> ;
+    ] ;
+
+    # Data Quality
+    dqv:hasQualityMeasurement [
+        a dqv:QualityMeasurement ;
+        dqv:isMeasurementOf idsc:downloadURLAvailabilityMetric ;
+        dqv:value "true"^^xsd:boolean ;
     ] ;
 
     # Commodization

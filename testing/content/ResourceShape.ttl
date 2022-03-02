@@ -7,6 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
 
 shapes:
 	a owl:Ontology ;
@@ -104,6 +105,14 @@ shapes:ResourceShape
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:variant property must not have more than one point from an ids:Resource to an ids:Resource."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dqv:hasQualityMeasurement ;
+		sh:class dqv:QualityMeasurement ;		
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): A dqv:hasQualityMeasurement property must point from an ids:Resource to a dqv:QualityMeasurement."@en ;
 	] ;
 
 .
