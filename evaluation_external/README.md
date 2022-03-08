@@ -8,27 +8,27 @@ Software engineers and other users might directly jump to the **hands-on manual*
 
 ## Goal
 
-Our goal was to effectively identify and remove all redundant definitions of classes and properties, and directly use the external definitions from the respective existent ontologies.
+Our goal was to effectively identify and remove all redundant definitions of classes and properties, and directly use external definitions from existent ontologies.
 
 <details><summary>Methodology</summary>
 <p>
 
 First, we created a new branch from the *"develop"* branch. After that, we created a list of every external class and property used in the IDS Information Model and evaluated if the use of the property or class was redundant. For that, we considered the following definitions:
 
-- **Redundant (r)** the internal definition of a class or property not adding any additional information to the already external definition.
-- **Partially Redundant (pr)**  the internal definition of a class or property which redundancy is not clear because it adds some level of specificity.
-- **Non-redundant (nr)**: the internal definition of a class or property adding new information or more specificity, such as domain and range or further constraints.
+- **Redundant (r)** The internal definition of a class or property does not add any additional information to the already external definition.
+- **Partially Redundant (pr)**  The internal definition of a class or property adds some level of specificity.
+- **Non-redundant (nr)**: The internal definition of a class or property adds new information or more specificity, such as domain and range or further constraints.
 
 Our approach for identifying possible redundant definitions was to search in files by using regular expressions: `subClassOf(?!ids)`, and `subPropertyOf(?!ids)`. We traversed all the results and ignored copies of ontologies. Moreover, we focused on the *.ttl* files included in the different model definitions, for example **communication**, or **content**.
 
-Once we found these results, we listed each class and property by file, the relation (`subClassOf or subPropertyOf`), and the external class or property which is referring to. Then, for the evaluation (**r**, **pr**, **nr**) as aforementioned, we analyzed the internal definition, for example which other additional information was introduced by it, and we determined the use of that internal definition in the related files in the models, validations, and testing files. Based on the performed evaluation, we made the decisions to keep the class or property, or remove it. Then we proceeded to the concrete implementation of changes as described in the next section.
+Once we found these results, we listed each class and property by file, the relation (`subClassOf or subPropertyOf`), and the external class or property it refers to.  For the aforementioned evaluation (**r**, **pr**, **nr**), we analyzed the internal definition, for example, which other additional information was introduced by it. We then determined the use of that internal definition in the related files in the models, validations, and testing files. Based on the performed evaluation, we made the decisions to keep the class or property, or remove it and proceeded to the concrete implementation of changes as described in the next section.
 
 We describe some examples here:
 
-- The `ids:Agent` is defined as an extension of the `odrl:Party`, indeed `ids:Agent` is defined as a `subClassOf odrl:Party`. We took the following notes: *"It is not clear why ids:Agent needs to be defined as a subclass of two external classes. Based on the information on the **ODRL vocabulary**, `foaf:Agent` needs to be used to describe further details of the party. Additionally to `odlr:Party` and `foaf:Agent`, it is defined as a subclass of `ids:Described`. And adds only `rdfs:label` and `rdfs:comment`. It is used in *Participant.ttl* to define `ids:Participant`, and to define range for `ids:publisher`, and `ids:sovereign` in *Resource.ttl*, `ids:senderAgent` and `ids:recipientAgent` in *Message.ttl*, and `ids:hasAgent` in *Connector.ttl"*. Based on those evaluation notes, we decided the definition in the IDS Information Model was **Redundant (r)**, and decided to remove the `ids:Agent` and replaced it by `foaf:Agent`.
+- The `ids:Agent` is defined as an extension of the `odrl:Party`, indeed `ids:Agent` is defined as a `subClassOf odrl:Party`. We took the following notes: "It is not clear why ids:Agent needs to be defined as a subclass of two external classes. Based on the information on the **ODRL vocabulary**, `foaf:Agent` needs to be used to describe further details of the party. Additionally to `odlr:Party` and `foaf:Agent`, it is defined as a subclass of `ids:Described` and adds only `rdfs:label` and `rdfs:comment`. It is used in *Participant.ttl* to define `ids:Participant`, and to define range for `ids:publisher`, and `ids:sovereign` in *Resource.ttl*, `ids:senderAgent` and `ids:recipientAgent` in *Message.ttl*, and `ids:hasAgent` in *Connector.ttl"*. Based on those evaluation notes, we decided the definition in the IDS Information Model was **Redundant (r)**, removed the `ids:Agent` and replaced it by `foaf:Agent`.
 
 
-- The `ids:contentType` is defined as a `subPropertyOf` `dct:type`, and it adds `rdfs:domain` (ids:DigitalContent), and `rdfs:range` (ids:ContentType). We decided that this definition was **Partially Redundant**, but we decided to keep it, as it is more specific than `dct:type`.
+- The `ids:contentType` is defined as a `subPropertyOf` `dct:type`, and it adds `rdfs:domain` (ids:DigitalContent), and `rdfs:range` (ids:ContentType). We decided that this definition was **Partially Redundant (pr)**, but we decided to keep it, as it is more specific than `dct:type`.
 
 
 - The `ids:includedCertificationLevel` is defined as a `subPropertyOf` `dct:isPartOf`. It adds `rdfs:label`, `rdfs:comment`, `rdfs:seeAlso`, `rdfs:domain` (ids:CertificationLevel), and `rdfs:range` (ids:CertificationLevel). We noticed that it is only used in codes and in validations. In codes, it is used to define `idsc:PARTICIPANT_ENTRY_LEVEL_MANAGEMENT_SYSTEM`, `idsc:PARTICIPANT_MEMBER_LEVEL_MANAGEMENT_SYSTEM`, and others. And it is used to define validations in *CertificationShape.ttl*.
@@ -39,7 +39,7 @@ We describe some examples here:
 <details><summary>Implementation</summary>
 <p>
 
-- For the implementation of the first given example, we modified the following files in the model: *Message.ttl*, *Resource.ttl*, *Connector.ttl*, *Participant.ttl*, were we added `@prefix foaf: <http://xmlns.com/foaf/0.1/>`, and replace `ids:Agent` by `foaf:Agent`. Moreover, we removed the definition of `ids:Agent` in *Participant.ttl*. In the testing files, only `sh:message` was modified and the commented code referencing `ids:Agent` was removed in *MessageShape.ttl*, *ResourceShape.ttl*, and *ConnectorShape.ttl*.
+- For the implementation of the first given example, we modified the following files in the model: *Message.ttl*, *Resource.ttl*, *Connector.ttl*, *Participant.ttl*. We added `@prefix foaf: <http://xmlns.com/foaf/0.1/>` to each of those files, and replaced `ids:Agent` by `foaf:Agent`. Moreover, we removed the definition of `ids:Agent` in *Participant.ttl*. In the testing files, only `sh:message` was modified and the commented code referencing `ids:Agent` was removed in *MessageShape.ttl*, *ResourceShape.ttl*, and *ConnectorShape.ttl*.
 - For the second example, as the internal definition was more specific, no changes were implemented.
 - Lastly, for the third example, We decided to keep it, and therefore no changes were implemented.
 
@@ -75,9 +75,9 @@ After making the aforementioned evaluation and changes, the results are the foll
 - The IDS infomodel has been improved. Link: [Revised infomodel](https://github.com/International-Data-Spaces-Association/InformationModel/pull/504/commits)
 - A dedicated helper file, which compensates for the copies deleted from the infomodel and thus makes them available to the CodeGen environment, has been developed. This contains a minimal set of all the resources needed to keep code generation stable and reliable. Link: [Dedicated helper file](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/utils/refactor_helper.ttl)
 
-- 103 definitions were evaluated, from which 36 were Classes and 67 were Properties.
+- 103 definitions were evaluated, from which 36 were classes and 67 were properties.
 - We detected 57 **Probably Redundant (pr)** cases, 40 **Redundant (r)** cases, and 6 **Non Redundant (nr)** cases.
-- In 30 cases we made no changes, from which 6 correspond to **Non Redundant (nr)** cases and 24 correspond to ** Partially Redundant (pr)** cases.
+- In 30 cases we made no changes, from which 6 correspond to **Non Redundant (nr)** cases and 24 correspond to **Partially Redundant (pr)** cases.
 - In 72 cases we made changes by removing the local definitions and replacing them by their external definitions, they all correspond to **Redundant (r)** and **Partially Redundant (pr)** cases.
 - 1 case is pending, and corresponds to the property **"ids:rightOperand"**
 
@@ -103,7 +103,8 @@ To illustrate the above-mentioned steps we consider an example as follows:
 
 1. Consider you want to model a general **Resource** which can be later defined more specifically.
 
-2. The first step would be to consider the class definition and the properties which are already considered in the **IDS Information Model** (available in *../model/content/Resource.ttl*), here a snipped:
+2. The first step would be to consider the class definition and properties already defined in the **IDS Information Model** (available in *../model/content/Resource.ttl*).
+See also the following snippet:
 
 ```
 # Class Definition
@@ -155,9 +156,10 @@ ids:sovereign
 
 The prefix `ids` is defined locally in the **IDS Information model** by `@prefix ids: <https://w3id.org/idsa/core/> .`
 
-We can observe that an `ids:Resource` has a label (`rdfs:label`) and a comment (`rdfs:comment`). Also by the properties we can see that a `ids:resourcePart` is in the domain of an `ids:Resource`, meaning that any resource with this property is an instance of a Resource. A similar situation is given for the properties `ids:resourceEndpoint` and `ids:contractOffer`. Moreover, there are other properties defined in the domain of a Resource, but we will omit them here for the sake of the example.
+We can observe that an `ids:Resource` has a label (`rdfs:label`) and a comment (`rdfs:comment`). From the properties we know that an `ids:resourcePart` is in the domain of an `ids:Resource`, meaning that any resource with this property is an instance of a Resource. The same reasoning can be applied to the properties `ids:resourceEndpoint` and `ids:contractOffer`. Further properties are defined in the domain of a Resource, but will be omitted in this example.
 
-Now we consider the validations already included in the **IDS Information model** (available in *../testing/content/ResourceShape.ttl*), here a snipped:
+Now we consider the validations already included in the **IDS Information model** (available in *../testing/content/ResourceShape.ttl*).
+See also the following snippet:
 
 ```
 shapes:ResourceShape
@@ -210,9 +212,9 @@ shapes:ResourceShape
 
 In the validations, more specifically in `ids:resourcePart` we observe that the resource part must belong to the class `ids:Resource`, the same applies for `ids:contractOffer`. However, both of them are not mandatory.
 
-Additionally, we see that the property `dct:publisher` is not mandatory but if that information is included, the `ids:Resource` can have at most 1 `dct:publisher`, and the same applies for `ids:sovereing`.
+Additionally, we see that the property `dct:publisher` is not mandatory but if that information is included, the `ids:Resource` can have at most 1 `dct:publisher`, and the same applies for `ids:sovereign`.
 
-Let's say now we want to model a new resource, with a new prefix ap15 by `@prefix ap15: <http://fit.fraunhofer.de/ap15/> .` as follows:
+Now, let's say we want to model resource, with a new prefix ap15 (`@prefix ap15: <http://fit.fraunhofer.de/ap15/> .`) as follows:
 
 ```
 ap15:Ressource1
@@ -245,7 +247,8 @@ Here we included the additional properties `dct:title`, `dct:description`, `dcat
 
 Moreover, we included the properties `ap15:serialNumber` and `ap15:operator`, which are local definitions corresponding to the above mentioned prefix `@prefix ap15: <http://fit.fraunhofer.de/ap15/> .`.
 
-Now let's say we want to include further validations for those additional properties, then we create a new file containing the validations as SHACL shapes, as follows:
+Now, let's say we want to include further validations for those additional properties, 
+We create a new file containing the validations as SHACL shapes, as follows:
 
 ```
 shapes:ResourceShape a sh:NodeShape;
@@ -278,11 +281,11 @@ shapes:ResourceShape a sh:NodeShape;
 
 ```
 
-Now we see that the properties `dct:title`, `dct:description`, `dct:issued`, and `ap15@serialNumber` are mandatory, as the shapes indicates that the value for the `sh:minCount` is 1.
+Now, we see that the properties `dct:title`, `dct:description`, `dct:issued`, and `ap15@serialNumber` are mandatory, as indicated by the `sh:minCount` shape constraints which are set to 1.
 
 Another possibility is to use the existent definitions in the **IDS Information model** and we want to tighten the restrictions, for example for the properties `dcat:mediaType`, `ids:representationStandard `, and `ids:instsance`.
 
-Here the snipped of the definition in the **IDS Information model** (available in *../model/content/Representation.ttl*):
+Here the snippet of the definition in the **IDS Information model** (available in *../model/content/Representation.ttl*):
 
 ```
 ids:instance
@@ -302,7 +305,7 @@ ids:representationStandard
 
 ```
 
-and the restrictions defined also in the **IDS Information model** as:
+and the following restrictions defined in the **IDS Information model**:
 
 ```
 shapes:RepresentationShape
@@ -357,7 +360,7 @@ shapes:RepresentationShape a sh:NodeShape;
                            ].
 ```
 
-As a result we change the three mentioned properties as mandatory, because we restricted their `sh:minCount` to 1. Moreover, we indicated in our local extension of the model, that the Resource can have at most 1 `dcat:mediaType` as part of its representation.
+As a result we change the three mentioned properties to mandatory, because we restricted their `sh:minCount` to 1. Moreover, we indicated in our local extension of the model, that the Resource can have at most 1 `dcat:mediaType` as part of its representation.
 
 </p>
 </details>
