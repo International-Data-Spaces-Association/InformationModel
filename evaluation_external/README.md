@@ -283,7 +283,7 @@ shapes:ResourceShape a sh:NodeShape;
 
 Now, we see that the properties `dct:title`, `dct:description`, `dct:issued`, and `ap15@serialNumber` are mandatory, as indicated by the `sh:minCount` shape constraints which are set to 1.
 
-Another possibility is to use the existent definitions in the **IDS Information model** and we want to tighten the restrictions, for example for the properties `dcat:mediaType`, `ids:representationStandard `, and `ids:instsance`.
+Another possibility is to take existing definitions from the **IDS Information model** and tighten their restrictions, for example for the properties `dcat:mediaType`, `ids:representationStandard `, and `ids:instsance`.
 
 Here the snippet of the definition in the **IDS Information model** (available in *../model/content/Representation.ttl*):
 
