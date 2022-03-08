@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In the IDS Information Model we re-used many classes and properties initially defined in other external ontologies. However, we identified possible redundant local definitions of classes and properties. Therefore, we decided to analyze those definitions and determine suitability of their local definition. Moreover, based on the performed analysis, we understood that a better approach would be to remove those redundant definitions and directly use the external properties in our SHACL shapes instead.
+In the IDS Information Model we reused many classes and properties initially defined in other external ontologies. However, we identified possible redundant local definitions of classes and properties. Therefore, we decided to analyze those definitions and determine suitability of their local definition. After the performed analysis, we decided to remove those redundant definitions and directly use the external properties in our SHACL shapes instead.
 
 Software engineers and other users might directly jump to the **hands-on manual** presented below.
 
