@@ -18,13 +18,13 @@ shapes:
 	] ;
 
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+		sh:prefix "skos" ;
+		sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
 	] .
 
 
 shapes:ConceptShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass skos:Concept ;
 
 	sh:sparql [
@@ -39,4 +39,3 @@ shapes:ConceptShape
 			}
 		""" ;
 	] .
-
