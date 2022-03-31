@@ -44,7 +44,7 @@ shapes:ResponseMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
         #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
@@ -136,7 +136,7 @@ shapes:ConnectorNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedConnector ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     #sh:class ids:Connector ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
@@ -181,7 +181,7 @@ shapes:ParticipantNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedParticipant ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
     #sh:class ids:Participant ;
     sh:minCount 1;
@@ -232,7 +232,7 @@ shapes:ResourceNotificationMessageShape
 		a sh:PropertyShape ;
 		sh:path ids:affectedResource ;
     #sh:class ids:Resource ;
-    sh:nodeKind sh:IRI ;
+    sh:datatype xsd:anyURI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -274,7 +274,7 @@ shapes:RequestInProcessMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
@@ -291,7 +291,7 @@ shapes:MessageProcessedNotificationShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:correlationMessage ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     #sh:class ids:Message ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
@@ -307,7 +307,7 @@ shapes:ArtifactRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:requestedArtifact ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     #sh:class ids:Artifact ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
@@ -325,7 +325,7 @@ shapes:ParticipantRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:requestedParticipant ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     #sh:class ids:Participant ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
@@ -341,7 +341,7 @@ shapes:AppUpdateRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedDataApp ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -369,7 +369,7 @@ shapes:AppNotificationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedResource ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
@@ -384,7 +384,7 @@ shapes:AppRegistrationRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:affectedDataApp ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
   	sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -399,7 +399,7 @@ shapes:AppUploadMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:appArtifactReference ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
   	sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
