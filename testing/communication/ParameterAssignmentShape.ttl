@@ -19,33 +19,3 @@ shapes:
 		sh:prefix "ids" ;
 		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
 	] .
-
-
-shapes:ParameterAssignmentShape
-	a sh:NodeShape ; 
-	sh:targetClass ids:ParameterAssignment ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:parameter ;
-		sh:datatype xsd:anyURI ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ParameterAssignmentShape.ttl> (ParameterAssignmentShape): An ids:parameter property must point from an ids:ParameterAssignment to an ids:Parameter."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:parameterValue ;
-		sh:class ids:Value ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ParameterAssignmentShape.ttl> (ParameterAssignmentShape): An ids:parameterValue property must point from an ids:ParameterAssignment to an ids:Value."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:parameterArtifact ;
-		sh:class ids:Artifact ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/ParameterAssignmentShape.ttl> (ParameterAssignmentShape): An ids:parameterArtifact property must point from an ids:ParameterAssignment to an ids:Artifact."@en ;
-	] .
-
