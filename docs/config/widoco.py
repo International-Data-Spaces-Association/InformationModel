@@ -127,6 +127,7 @@ def generate_documentation(ontology_version, ontology_previous_version, path_ind
     clean_up_ontology_serialization_owl_imports(ontology_version)
     rename_index_file(path_provenance_folder, path_indexen_file, path_index_file)
     remove_ids_trailingslash('crossref-en.html', ontology_version)
+    remove_ids_trailingslash('overview-en.html', ontology_version)
     
 # Copy latest version of documentation to documentation root level
 def keep_latest_version(ontology_latest_version):
