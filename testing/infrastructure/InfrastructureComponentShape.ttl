@@ -29,7 +29,7 @@ shapes:InfrastructureComponentShape
   	sh:path ids:maintainer ;
 		sh:or (
 	    [ sh:class ids:Participant ; sh:order 2 ; ]
-	    [	sh:datatype xsd:anyURI ; sh:order 1 ; ]
+	    [	sh:nodeKind sh:IRI ; sh:order 1 ; ]
 		) ;
   	sh:maxCount 1 ;
   	sh:severity sh:Violation ;
@@ -41,7 +41,7 @@ shapes:InfrastructureComponentShape
     sh:path ids:curator ;
 		sh:or (
 	    [ sh:class ids:Participant ; sh:order 2 ; ]
-	    [ sh:datatype xsd:anyURI ; sh:order 1 ; ]
+	    [ sh:nodeKind sh:IRI ; sh:order 1 ; ]
 		) ;
     sh:minCount 1 ;
   	sh:maxCount 1 ;

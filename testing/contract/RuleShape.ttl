@@ -53,7 +53,7 @@ shapes:RuleShape
 		sh:path odrl:assignee ;
 		#sh:or (
     #  [
-		 sh:datatype xsd:anyURI ;# ]
+		 sh:nodeKind sh:IRI ;# ]
 		#	[ sh:class ids:Participant ; #]
     #);
 		sh:minCount 0 ;
@@ -67,7 +67,7 @@ shapes:RuleShape
 		sh:path odrl:assigner ;
 		#sh:or (
     #  [
-		 sh:datatype xsd:anyURI ;# ]
+		 sh:nodeKind sh:IRI ;# ]
 		#	[ sh:class ids:Participant ; #]
     #);
 		sh:minCount 0 ;
@@ -81,7 +81,7 @@ shapes:RuleShape
 		sh:path ids:target ;
 		#sh:or (
     #  [
-		 sh:datatype xsd:anyURI ;# ]
+		 sh:nodeKind sh:IRI ;# ]
 		#	[ sh:class ids:Participant ; #]
     #);
 		sh:maxCount 1 ;
