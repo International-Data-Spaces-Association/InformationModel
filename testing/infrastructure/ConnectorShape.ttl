@@ -58,7 +58,7 @@ shapes:ConnectorShape
     sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:hasAgent ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/ConnectorShape.ttl> (ConnectorShape): The ids:hasAgents property must point from an ids:Connector to a list of Agends using an IRI."@en ;

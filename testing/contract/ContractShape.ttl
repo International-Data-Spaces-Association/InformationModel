@@ -68,7 +68,7 @@ shapes:ContractShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:provider ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
     #sh:class ids:Participant ;
 		sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:maxCount 1 ;
@@ -79,7 +79,7 @@ shapes:ContractShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:consumer ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
 		# sh:minCount 1 ;
 		sh:maxCount 1 ;
 	  #sh:class ids:Participant ;

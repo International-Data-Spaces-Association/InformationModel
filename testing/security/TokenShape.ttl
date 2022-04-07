@@ -115,7 +115,7 @@ shapes:JwtPayloadShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:referringConnector ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
     #sh:class ids:Connector ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
@@ -170,7 +170,7 @@ shapes:DatPayloadShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:referringConnector  ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
 		sh:severity sh:Violation ;
