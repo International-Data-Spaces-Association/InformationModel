@@ -175,10 +175,6 @@ ids:QueryLanguage a owl:Class;
     rdfs:label "QueryLanguage"@en ;
     rdfs:comment "Class of query languages in which query strings may be formalized."@en.
 
-ids:QueryScope a owl:Class;
-    rdfs:label "Query Scope"@en ;
-    rdfs:comment "Class of scopes that may limit the space of query results, e.g., ALL, ACTIVE_ONLY."@en.
-
 ids:QueryTarget a owl:Class;
     rdfs:label "Query Target"@en ;
     rdfs:comment "Class of recipients of a query message, e.g., BROKER, APPSTORE, ANY."@en.
@@ -188,12 +184,6 @@ ids:queryLanguage a owl:ObjectProperty;
     rdfs:range ids:QueryLanguage;
     rdfs:label "queryLanguage"@en;
     rdfs:comment "This property specifies the language of the query."@en.
-
-ids:queryScope a owl:ObjectProperty;
-    rdfs:label "queryScope"@en;
-    rdfs:domain ids:QueryMessage;
-    rdfs:range ids:QueryScope;
-    rdfs:comment "Refers to the scope property of a query message, see ids:QueryScope."@en.
 
 ids:recipientScope a owl:ObjectProperty;
     rdfs:label "recipient scope"@en;
