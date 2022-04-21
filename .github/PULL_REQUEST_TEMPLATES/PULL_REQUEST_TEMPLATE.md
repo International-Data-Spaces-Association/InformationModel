@@ -12,6 +12,7 @@
 ### Checklist for releases:
 
 #### Before a release:
+- [ ] Ensure that the respective [GitHub milestone](https://github.com/International-Data-Spaces-Association/InformationModel/milestones) has no more open issues (i.e., close these or move these to subsequent milestones)
 - [ ] Update changelogs
 - [ ] Rerun ontology creation script (`create-ontology-ttl.sh`) with the version number of the release. E.g., `create-ontology-ttl.sh 4.2.0`
 - [ ] Update and validate the examples against the latest ontology version and SHACL shapes
