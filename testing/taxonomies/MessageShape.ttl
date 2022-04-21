@@ -52,7 +52,7 @@ shapes:ResponseMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
-	
+
 
 shapes:QueryMessageShape
 	a sh:NodeShape ;
@@ -239,23 +239,13 @@ shapes:InvokeOperationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:operationReference ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one IRI reference to a ids:Operation linked through the ids:operationReference property"@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:operationParameterization ;
-		sh:datatype ids:ParameterAssignment ;
-		sh:minCount 1 ;
-    sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ;
-	] .
+	]  .
 
 
 shapes:RequestInProcessMessageShape
