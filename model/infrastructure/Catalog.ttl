@@ -19,7 +19,7 @@ ids:ResourceCatalog
 
 ids:ParticipantCatalog
     a owl:Class;
-    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "Participant Catalog"@en ;
     rdfs:comment "Class that aggregates Participants from a (distributable) Catalog."@en ;
 .
@@ -33,14 +33,14 @@ ids:ConnectorCatalog
 
 ids:BrokerCatalog
     a owl:Class;
-    rdfs:subClassOf ids:ConnectorCatalog, ids:Described;
+    rdfs:subClassOf ids:ConnectorCatalog, ids:Described ;
     rdfs:label "Broker Catalog"@en ;
     rdfs:comment "Class that aggregates Brokers from a (distributable) Catalog."@en ;
 .
 
 ids:AppStoreCatalog
     a owl:Class;
-    rdfs:subClassOf ids:ConnectorCatalog, ids:Described;
+    rdfs:subClassOf ids:ConnectorCatalog, ids:Described ;
     rdfs:label "AppStore Catalog"@en ;
     rdfs:comment "Class that aggregates AppStores from a (distributable) Catalog."@en ;
 .
@@ -48,14 +48,14 @@ ids:AppStoreCatalog
 # TODO: Align with ResourceCatalog
 ids:AppResourceCatalog
     a owl:Class;
-    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described;
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "App Resource Catalog"@en ;
     rdfs:comment "Class that aggregates App Resources from a (distributable) Catalog. May be used to list installed apps in a component."@en ;
 .
 
 ids:ClearingHouseCatalog
     a owl:Class;
-    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described;
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "Clearing House Catalog"@en ;
     rdfs:comment "Class that aggregates Clearing Houses from a (distributable) Catalog."@en ;
 .
