@@ -60,6 +60,16 @@ ids:rejectionReason a owl:ObjectProperty;
     rdfs:label "rejectionReason"@en;
     rdfs:comment "Specifies the reason of the rejection."@en.
 
+# CallBack Address
+# ------------
+
+ids:callbackAddress a owl:DatatypeProperty;
+    rdfs:label "callback address"@en;
+    rdfs:comment "A callback address must be provided in a request message and a notification message. "@en;
+    rdfs:domain [ owl:unionOf (ids:RequestMessage ids:NotificationMessage )];
+    rdfs:range xsd:anyURI.
+
+
 # Self-Description
 # -----------------
 
