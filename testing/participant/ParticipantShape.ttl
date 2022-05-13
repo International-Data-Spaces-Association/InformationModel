@@ -105,10 +105,9 @@ shapes:ParticipantShape
 		sh:path ids:legalForm ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		#TODO for major release: Enforce property
-		sh:minCount 1 ;
+		sh:minCount 0 ;
 		sh:maxCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have exactly one legal form as xsd:string linked through the ids:legalForm property."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/ParticipantShape.ttl> (ParticipantShape): An idsParticipant must have zero or one legal form as xsd:string linked through the ids:legalForm property."@en ;
 	];
 
 	sh:property [
