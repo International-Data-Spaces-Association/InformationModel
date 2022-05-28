@@ -4,11 +4,17 @@ import sys
 import os
 import shutil
 import re
-from datetime import datetime
+import zipfile
+import io
+from distutils.dir_util import copy_tree
+
+root = '../../../documentationIDSModel'
+copies = f'{root}/copies'
+version_folder = copies + '/{ontology_version}/InformationModel-{ontology_version}'
 
 
-# Get path to widoco executable jar file and Jive credentials from
-# command line or Bamboo variabes.
+# Get path to widoco executable jar file and jive credentials from
+# command line or bamboo variabes.
 def parse_arguments():
     if len(sys.argv) == 4:
         # Use command line arguments
@@ -28,30 +34,180 @@ def parse_arguments():
     return widoco_path, (jive_un, jive_pw)
 
 
+# Get files from the repository by release tag (the last release) and build directories
+def get_files_from_repository():
+    url_api = 'https://api.github.com/repos/International-Data-Spaces-Association/InformationModel/releases'
+
+    response = requests.get(url_api)
+
+    releases = [release['name'] for release in response.json() if release['name'][0] == 'v']
+    release_dates = {release['name'][1:]: release['published_at'][:10] for release in response.json() if release['name'][0] == 'v'}
+    n_releases = len(releases)
+
+    ontology_latest_version = releases[0][1:]
+
+    for i, version in enumerate(releases[:1]):
+
+        if i == n_releases - 1:
+            break
+
+        ontology_version = version[1:]
+        ontology_previous_version = releases[i + 1][1:]
+
+        url_get_file = f'https://github.com/International-Data-Spaces-Association/InformationModel/archive/refs/tags/v{ontology_version}.zip'
+
+        response_current_version = requests.get(url_get_file)
+        archive = zipfile.ZipFile(io.BytesIO(response_current_version.content))
+
+        archive.extractall(copies + f'/{ontology_version}')
+
+        # Use files we got from the repository and generate documentation, update the corresponding files based on the ontology version
+        generate_documentation(ontology_version,ontology_previous_version, ontology_latest_version, release_dates)
+        # Update the link to the previous version ontology to point correctly to the documentation
+        update_previous_version_information_link(ontology_version, ontology_previous_version)
+        # Copy docs to main docs folder
+        copy_docs(ontology_version)
+
+    # Keep documentation of the latest version of the ontology at /docs level
+    keep_latest_version(ontology_latest_version)
+
+
+# Run widoco and generate documentation for the last three versions of the ontology
+def generate_documentation(ontology_version, ontology_previous_version, ontology_latest_version, release_dates):
+    update_config_information(ontology_version, ontology_latest_version, ontology_previous_version, release_dates)
+
+    # Widoco documentation tool execution
+    run_widoco(widoco_path, ontology_version)
+
+    # Modify and update generated files
+    edit_readme(ontology_version)
+    move_ontology_files(ontology_version)
+    replace_ontology_download_link(ontology_version)
+    #currently getting 401 error while trying to retrieve docs. To investigate with IDSA people
+    #insert_jive_information(jive_credentials, ontology_version)
+    insert_references(ontology_version)
+
+    # Correction of unwanted behavior from widoco.jar
+    adjust_namespaces(ontology_version)
+    clean_up_ontology_serialization_owl_imports(ontology_version)
+    clean_up_webvowl_json(ontology_version)
+    rename_index_file(ontology_version)
+    remove_ids_trailingslash('crossref-en.html', ontology_version)
+    remove_ids_trailingslash('overview-en.html', ontology_version)
+
+
+def clean_up_webvowl_json(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    with open(f'{vf}/docs/webvowl/data/ontology.json', 'r+') as fp:
+        content = fp.read()
+        new_content = re.sub(r'https://w3id.org/idsa/core-.*/model/security/Token\.ttl',
+                             'https://w3id.org/idsa/core',
+                             content)
+        fp.seek(0)
+        fp.write(new_content)
+        fp.truncate()
+
+
+def copy_docs(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    # Path to version of documentation
+    source = f'{vf}/docs'
+    copy_tree(source, f'../{ontology_version}')
+
+
+# Copy latest version of documentation to documentation root level
+def keep_latest_version(ontology_latest_version):
+    vf = version_folder.format(ontology_version=ontology_latest_version)
+    # Path to latest version of documentation
+    source = f'{vf}/docs'
+
+    # Copy everything from latest version docs to /docs except, however from config only properties
+    for file in set(os.listdir(f'{vf}/docs/config')).difference({'config.properties'}):
+        os.remove(f'{vf}/docs/config/{file}')
+    copy_tree(source, f'..')
+
+    # Update images path for latest version
+    update_image_path()
+
+
+# Update images path for latest version
+def update_image_path():
+    # Read in the file introduction-en.html
+    with open('../sections/introduction-en.html', 'r') as file:
+        new_path_introfile = file.read()
+
+    # Replace the target string
+    new_path_introfile = new_path_introfile.replace('../../images', '../images')
+
+    # Write the file out again
+    with open('../sections/introduction-en.html', 'w') as file:
+        file.write(new_path_introfile)
+
+    # Read in the file description-en.html
+    with open('../sections/description-en.html', 'r') as fp:
+        new_path_descriptionfile = fp.read()
+
+    # Replace the target string
+    new_path_descriptionfile = new_path_descriptionfile.replace('../../images', '../images')
+
+    # Write the file out again
+    with open('../sections/description-en.html', 'w') as fp:
+        fp.write(new_path_descriptionfile)
+
+
 # Update date of release parameter in config file.
-def update_config_information():
+def update_config_information(ontology_version, ontology_latest_version, ontology_previous_version, release_dates):
+    vf = version_folder.format(ontology_version=ontology_version)
     new_config = ''
-    today = datetime.today().strftime('%Y-%m-%d')
-    with open('./config.properties', 'r') as fp:
+    with open(f'{vf}/docs/config/config.properties', 'r+') as fp:
         for line in fp:
             if line.startswith('dateOfRelease'):
-                new_config += 'dateOfRelease=' + today + '\n'
-                continue
+                line = 'dateOfRelease=' + release_dates[ontology_version] + '\n'
+            elif line.startswith('thisVersionURI'):
+                line = 'thisVersionURI=' + f'https://w3id.org/idsa/core-{ontology_version.replace(".", "")}' + '\n'
+            elif line.startswith('latestVersionURI'):
+                line = 'latestVersionURI=' + f'https://w3id.org/idsa/core-{ontology_latest_version.replace(".", "")}' + '\n'
+            elif line.startswith('previousVersionURI'):
+                line = 'previousVersionURI=' + f'https://w3id.org/idsa/core-{ontology_previous_version.replace(".", "")}' + '\n'
+            elif line.startswith('ontologyRevisionNumber'):
+                line = 'ontologyRevisionNumber=' + ontology_version + '\n'
 
             new_config += line
 
-    with open('./config.properties', 'w') as fp:
+        fp.seek(0)
         fp.write(new_config)
+        fp.truncate()
 
+
+# Update previous version of the URI in config file
+def update_previous_version_information_link(ontology_version, ontology_previous_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    previous_version_config = ''
+    onto_previous_version = ontology_previous_version.replace('.', '')
+    with open(f'{vf}/docs/index.html', 'r') as fp:
+        for line in fp:
+            if line.startswith(
+                    '<dd><a href="https://international-data-spaces-association.github.io/InformationModel/docs'):
+                previous_version_config += '<dd><a href="https://w3id.org/idsa/core-' + onto_previous_version + '">https://w3id.org/idsa/core-' + onto_previous_version + '</a></dd>' + '\n'
+                continue
+
+            previous_version_config += line
+
+    with open(f'{vf}/docs/index.html', 'w') as fp:
+        fp.write(previous_version_config)
+        fp.truncate()
     return
 
 
 # Execute the widoco documentation process.
-def run_widoco(widoco_path):
+def run_widoco(widoco_path, ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    ontoFile = f'{vf}/Ontology.ttl'
+    outFolder = f'{vf}/docs'
     subprocess.run(['java', '-jar', widoco_path,
-                    '-ontFile', '../../Ontology.ttl',
-                    '-outFolder', '../../docs',
-                    '-confFile', './config.properties',
+                    '-ontFile', ontoFile,
+                    '-outFolder', outFolder,
+                    '-confFile', f'{vf}/docs/config/config.properties',
                     '-webVowl',
                     '-oops',
                     '-rewriteAll',
@@ -61,11 +217,12 @@ def run_widoco(widoco_path):
 
 # Replace placeholder information in the auto-generated html files with
 # a given text or html string.
-def replace_widoco_html_output(filename, text):
+def replace_widoco_html_output(filename, text, ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
     newHtml = ''
     skipLines = False
     inserted = False
-    with open('../sections/' + filename) as fp:
+    with open(f'{vf}/docs/sections/' + filename, 'r') as fp:
         for line in fp:
             if line.startswith('<span class="markdown">'):
                 skipLines = True
@@ -79,42 +236,45 @@ def replace_widoco_html_output(filename, text):
             else:
                 newHtml += line.strip()
 
-    with open('../sections/' + filename, 'w') as fp:
+    with open(f'{vf}/docs/sections/' + filename, 'w') as fp:
         fp.write(newHtml)
         fp.close()
     return
 
-# Remove trailing slahes from html <href> and "id" values. 
-# Slashes are inserted because ids namespace contains them. 
-# They break local referencing inside html file. 
-# workaround until it's otherwise fixed.
 
-def remove_ids_trailingslash(filename):
+# Remove trailing slahes from html <href> and "id" values.
+# Slashes are inserted because ids namespace contains them.
+# They break local referencing inside html file.
+# workaround until it's otherweise fixed.
+
+def remove_ids_trailingslash(filename, ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
     newHtml = ''
-    with open('../sections/'+filename, encoding="utf-8") as fp:
+    with open(f'{vf}/docs/sections/' + filename, encoding="utf-8") as fp:
         for line in fp:
             if '<div class="entity" id="/' in line:
-                newHtml+=line.replace('<div class="entity" id="/','<div class="entity" id="')
+                newHtml += line.replace('<div class="entity" id="/', '<div class="entity" id="')
             elif '<a href="#/' in line:
-                newHtml+=line.replace('<a href="#/','<a href="#')
+                newHtml += line.replace('<a href="#/', '<a href="#')
             else:
-                newHtml+=line
-                
-    with open('../sections/'+filename, 'w', encoding="utf-8") as fp:
+                newHtml += line
+
+    with open(f'{vf}/docs/sections/' + filename, 'w', encoding="utf-8") as fp:
         fp.write(newHtml)
         fp.close()
     return
 
+
 # Download information from jive and insert into the widoco output.
-def insert_jive_information(jive_credentials):
+def insert_jive_information(jive_credentials, ontology_version):
     intro, description = get_jive_information(jive_credentials)
     image_names = get_image_names()
 
     intro = replace_image_names(intro, image_names)
-    replace_widoco_html_output('introduction-en.html', intro)
+    replace_widoco_html_output('introduction-en.html', intro, ontology_version)
 
     description = replace_image_names(description, image_names)
-    replace_widoco_html_output('description-en.html', description)
+    replace_widoco_html_output('description-en.html', description, ontology_version)
 
     return
 
@@ -240,7 +400,7 @@ def replace_image_names(text, image_names):
         image_id = res.group(1)
         regex = r'https:\/\/industrialdataspace\.jiveon\.com\/servlet\/JiveServlet\/(\w*)Image\/' + image_id + \
                 r'\/(([0-9-]*)\/)?' + old_name
-        text = re.sub(regex, '../images/' + image_names[old_name], text)
+        text = re.sub(regex, '../../images/' + image_names[old_name], text)
 
         if old_name == 'pastedImage_16.png':
             image_names[old_name] = image_names['pastedImage_16_2.png']
@@ -259,109 +419,103 @@ def replace_image_names(text, image_names):
 
 
 # Replace the placeholder for additional references.
-def insert_references():
-    with open('../static_info/references.html', 'r') as fp:
+def insert_references(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    with open(f'{vf}/docs/static_info/references.html', 'r') as fp:
         ref_text = fp.read()
 
-    replace_widoco_html_output('references-en.html', ref_text)
+    replace_widoco_html_output('references-en.html', ref_text, ontology_version)
 
 
 # Add a description how to use this script to the widoco readme.
-def edit_readme():
-    with open('../static_info/readme_addition.md', 'r') as fp:
+def edit_readme(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    with open(f'{vf}/docs/static_info/readme_addition.md', 'r') as fp:
         additional_text = fp.read()
 
-    with open('../readme.md', 'r') as fp:
+    with open(f'{vf}/docs/readme.md', 'r') as fp:
         text = fp.read()
 
-    with open('../readme.md', 'w') as fp:
+    with open(f'{vf}/docs/readme.md', 'w') as fp:
         fp.write(additional_text)
         fp.write(text)
 
 
 # Move the generated ontology files into the serialization folder.
-def move_ontology_files():
-    for data_format in ['.nt', '.ttl', '.xml', '.json']:
-        if os.path.exists('../ontology' + data_format):
-            shutil.move('../ontology' + data_format, '../serializations/ontology' + data_format)
+def move_ontology_files(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    for data_format in ['.nt', '.ttl', '.xml', '.json', '.rdf', '.n3', '.jsonld']:
+        if os.path.exists(f'{vf}/docs/ontology' + data_format):
+            shutil.move(f'{vf}/docs/ontology' + data_format, f'{vf}/docs/serializations/ontology' + data_format)
 
 
-# Change the download links for the ontologies to the serialization folder.
-def replace_ontology_download_link():
-    with open('../index-en.html') as fp:
+def replace_ontology_download_link(ontology_version):
+    vp = version_folder.format(ontology_version=ontology_version)
+    with open(f'{vp}/docs/index-en.html', 'r+') as fp:
         text = fp.read()
 
-    for data_format in ['.nt', '.ttl', '.xml', '.json']:
-        text = text.replace('ontology' + data_format, 'serializations/' + 'ontology' + data_format)
+        for data_format in ['.nt', '.ttl', '.xml', '.json', '.rdf', '.n3', '.jsonld']:
+            text = text.replace('ontology' + data_format, 'serializations/' + 'ontology' + data_format)
 
-    with open('../index-en.html', 'w') as fp:
+        fp.seek(0)
         fp.write(text)
-        fp.close()
+        fp.truncate()
 
 
 # Delete the local references from "ontology.json".
-def clean_up_json_ontology_owl_imports():
+def clean_up_json_ontology_owl_imports(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
     regex_owl_import = r'"http:\/\/www\.w3\.org\/2002\/07\/owl#imports" : \[ (\{\s*"@id" : "file:.*\s*\},?\s)*\],'
     regex_ontology_refs = r'file\:[\w\/\.\:]*'
     new_ref = 'https://w3id.org/idsa/core'
 
-    with open('../serializations/ontology.json', 'r', encoding="latin-1") as fp:
+    with open(f'{vf}/docs/serializations/ontology.json', 'r', encoding="latin-1") as fp:
         new_content = fp.read()
 
     new_content = re.sub(regex_owl_import, '', new_content)
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.json', 'w', encoding="latin-1") as fp:
+    with open(f'{vf}/docs/serializations/ontology.json', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
-        fp.close()
 
 
 # Delete the local references from "ontology.nt".
-def clean_up_nt_ontology_owl_imports():
-    regex_owl_import = r'<file\:[\w\/\.\:]*> <http:\/\/www\.w3\.org\/2002\/07\/owl#imports>'
-    regex_ontology_refs = r'file\:[\w\/\.\:]*'
+def clean_up_nt_ontology_owl_imports(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
     new_ref = 'https://w3id.org/idsa/core'
 
-    new_content = ''
-    with open('../serializations/ontology.nt', 'r', encoding="latin-1") as fp:
-        for line in fp.readlines():
-            res = re.search(regex_owl_import, line)
-            if res:
-                continue
-            new_content += line
-
-    new_content = re.sub(regex_ontology_refs, new_ref, new_content)
-
-    with open('../serializations/ontology.nt', 'w', encoding="latin-1") as fp:
+    with open(f'{vf}/docs/serializations/ontology.nt', 'r+', encoding="latin-1") as fp:
+        content = fp.read()
+        new_content = re.sub(r'<file.*Token\.ttl', '<' + new_ref, content)
+        fp.seek(0)
         fp.write(new_content)
-        fp.close()
+        fp.truncate()
 
 
 # Delete the local references from "ontology.ttl".
-def clean_up_ttl_ontology_owl_imports():
-    regex_owl_imports = r'owl\:imports\s(<file:.*\.ttl>\s[,;]\n\s*)*'
-    regex_ontology_refs = r'file\:[\w\/\.\:#]*'
+def clean_up_ttl_ontology_owl_imports(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
     new_ref = 'https://w3id.org/idsa/core'
 
-    with open('../serializations/ontology.ttl', 'r', encoding="latin-1") as fp:
-        new_content = fp.read()
-
-    new_content = re.sub(regex_owl_imports, '', new_content)
-    new_content = re.sub(regex_ontology_refs, new_ref, new_content)
-
-    with open('../serializations/ontology.ttl', 'w', encoding="latin-1") as fp:
+    # <https://w3id.org/idsa/core> rdf:type owl:Ontology ;
+    with open(f'{vf}/docs/serializations/ontology.ttl', 'r+', encoding="latin-1") as fp:
+        content = fp.read()
+        new_content = re.sub(r'<file:/.*#>', '<' + new_ref + '>', content)
+        new_content = re.sub(r'<file:/.*Token\.ttl>', '<' + new_ref + '>', new_content)
+        fp.seek(0)
         fp.write(new_content)
-        fp.close()
+        fp.truncate()
 
 
 # Delete the local references from "ontology.xml".
-def clean_up_xml_ontology_owl_imports():
+def clean_up_xml_ontology_owl_imports(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
     regex_owl_imports = r'<owl\:imports\srdf\:resource="file\:.*\.ttl"\/>'
     regex_ontology_refs = r'file\:[\w\/\.\:#]*'
     new_ref = 'https://w3id.org/idsa/core'
 
     new_content = ''
-    with open('../serializations/ontology.xml', 'r', encoding="latin-1") as fp:
+    with open(f'{vf}/docs/serializations/ontology.xml', 'r', encoding="latin-1") as fp:
         for line in fp.readlines():
             res = re.search(regex_owl_imports, line)
             if res:
@@ -370,67 +524,64 @@ def clean_up_xml_ontology_owl_imports():
 
     new_content = re.sub(regex_ontology_refs, new_ref, new_content)
 
-    with open('../serializations/ontology.xml', 'w', encoding="latin-1") as fp:
+    with open(f'{vf}/docs/serializations/ontology.xml', 'w', encoding="latin-1") as fp:
         fp.write(new_content)
-        fp.close()
 
 
-def clean_up_webvowl_ontology():
+def clean_up_webvowl_ontology(ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
     regex_ontology_ref = r'file\:[\w\/\.\:#]*'
     new_ref = 'https://w3id.org/idsa/core'
 
-    with open('../webvowl/data/ontology.json', 'r') as fp:
+    with open(f'{vf}/docs/webvowl/data/ontology.json', 'r') as fp:
         new_content = fp.read()
 
     new_content = re.sub(regex_ontology_ref, new_ref, new_content)
 
-    with open('../webvowl/data/ontology.json', 'w') as fp:
+    with open(f'{vf}/docs/webvowl/data/ontology.json', 'w') as fp:
         fp.write(new_content)
-        fp.close()
 
 
 # Some local references are included to the generated serializations.
 # This starts the clean up for all formats.
-def clean_up_ontology_serialization_owl_imports():
-    clean_up_json_ontology_owl_imports()
-    clean_up_nt_ontology_owl_imports()
-    clean_up_ttl_ontology_owl_imports()
-    clean_up_xml_ontology_owl_imports()
-    clean_up_webvowl_ontology()
+def clean_up_ontology_serialization_owl_imports(ontology_version):
+    clean_up_json_ontology_owl_imports(ontology_version)
+    clean_up_nt_ontology_owl_imports(ontology_version)
+    clean_up_ttl_ontology_owl_imports(ontology_version)
+    clean_up_xml_ontology_owl_imports(ontology_version)
+    clean_up_webvowl_ontology(ontology_version)
 
 
 # Renames widoco output file "index-en.html" to "index.html".
 # Only "index.html" gets displayed correctly with github pages.
-def rename_index_file():
+def rename_index_file(ontology_version):
+    vp = version_folder.format(ontology_version=ontology_version)
+
     # Replace reference in index-en.html itself
-    with open('../index-en.html') as fp:
+    with open(f'{vp}/docs/index-en.html', 'r+') as fp:
         text = fp.read()
-
-    text = re.sub('index-en.html', 'index.html', text)
-
-    with open('../index-en.html', 'w') as fp:
+        text = re.sub('index-en.html', 'index.html', text)
+        fp.seek(0)
         fp.write(text)
-        fp.close()
+        fp.truncate()
 
     # Replace reference in provenance-en.html
-    with open('../provenance/provenance-en.html') as fp:
+    with open(f'{vp}/docs/provenance/provenance-en.html', 'r+') as fp:
         text = fp.read()
-
-    text = re.sub('index-en.html', 'index.html', text)
-
-    with open('../provenance/provenance-en.html', 'w') as fp:
+        text = re.sub('index-en.html', 'index.html', text)
+        fp.seek(0)
         fp.write(text)
-        fp.close()
+        fp.truncate()
 
     # Finally rename the index-en.html file
-    if os.path.exists('../index.html'):
-        os.remove('../index.html')
-    os.rename('../index-en.html', '../index.html')
-
+    if os.path.exists(f'{vp}/docs/index.html'):
+        os.remove(f'{vp}/docs/index.html')
+    os.rename(f'{vp}/docs/index-en.html', f'{vp}/docs/index.html')
 
 # Executes the renaming or deletion of incorrect namespaces.
-def rename_namespace(old_ns, uri, new_ns):
-    with open('../sections/introduction-en.html') as fp:
+def rename_namespace(old_ns, uri, new_ns, ontology_version):
+    vf = version_folder.format(ontology_version=ontology_version)
+    with open(f'{vf}/docs/sections/introduction-en.html') as fp:
         text = fp.read()
 
     regex = r'<tr><td><b>%s</b></td><td>&lt;%s&gt;</td></tr>' % (old_ns, uri)
@@ -441,16 +592,15 @@ def rename_namespace(old_ns, uri, new_ns):
 
     text = re.sub(regex, new_line, text)
 
-    with open('../sections/introduction-en.html', 'w') as fp:
+    with open(f'{vf}/docs/sections/introduction-en.html', 'w') as fp:
         fp.write(text)
-        fp.close()
 
 
 # Define all namespaces which are not wanted to be added to the namespaces.
 # Most of them come from "rdfs:seeAlso"-links or the additional references.
 # Additionally defines some incorrectly named namespaces and starts the
 # substitution process.
-def adjust_namespaces():
+def adjust_namespaces(ontology_version):
     # Entry format for the list:
     # ('<old_namespace>', '<namespace_uri>', '<new_namespace>|-delete')
     namespaces_to_adjust = [
@@ -492,26 +642,11 @@ def adjust_namespaces():
     ]
 
     for ns in namespaces_to_adjust:
-        rename_namespace(ns[0], ns[1], ns[2])
+        rename_namespace(ns[0], ns[1], ns[2], ontology_version)
 
 
 if __name__ == '__main__':
     # Preparation
     widoco_path, jive_credentials = parse_arguments()
-    update_config_information()
-
-    # Widoco documentation tool execution
-    run_widoco(widoco_path)
-
-    # Modify and update generated files
-    edit_readme()
-    move_ontology_files()
-    replace_ontology_download_link()
-    insert_jive_information(jive_credentials)
-    insert_references()
-
-    # Correction of unwanted behavior from widoco.jar
-    adjust_namespaces()
-    clean_up_ontology_serialization_owl_imports()
-    rename_index_file()
-    remove_ids_trailingslash('crossref-en.html')
+    # Get files by tag from repository and then run widoco documentation process
+    get_files_from_repository()
