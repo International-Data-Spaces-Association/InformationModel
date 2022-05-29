@@ -14,7 +14,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/aud"
+    "@id" : "https://w3id.org/idsa/core/nbf"
   } ]
 }, {
   "@id" : "_:genid101",
@@ -22,7 +22,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/sub"
+    "@id" : "https://w3id.org/idsa/core/exp"
   } ]
 }, {
   "@id" : "_:genid102",
@@ -30,7 +30,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/nbf"
+    "@id" : "https://w3id.org/idsa/core/aud"
   } ]
 }, {
   "@id" : "_:genid103",
@@ -38,7 +38,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/exp"
+    "@id" : "https://w3id.org/idsa/core/sub"
   } ]
 }, {
   "@id" : "_:genid104",
@@ -98,26 +98,10 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/issued"
-  } ]
-}, {
-  "@id" : "_:genid114",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/modelVersion"
-  } ]
-}, {
-  "@id" : "_:genid115",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
     "@id" : "https://w3id.org/idsa/core/issuerConnector"
   } ]
 }, {
-  "@id" : "_:genid116",
+  "@id" : "_:genid114",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
     "@id" : "https://w3id.org/idsa/core/recipientConnector"
   } ],
@@ -125,7 +109,15 @@
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
-  "@id" : "_:genid117",
+  "@id" : "_:genid115",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/issued"
+  } ]
+}, {
+  "@id" : "_:genid116",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
@@ -133,12 +125,20 @@
     "@id" : "https://w3id.org/idsa/core/securityToken"
   } ]
 }, {
-  "@id" : "_:genid118",
+  "@id" : "_:genid117",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
     "@id" : "https://w3id.org/idsa/core/senderAgent"
+  } ]
+}, {
+  "@id" : "_:genid118",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/modelVersion"
   } ]
 }, {
   "@id" : "_:genid119",
@@ -238,6 +238,14 @@
 }, {
   "@id" : "_:genid129",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/paramGroupingOperator"
+  } ]
+}, {
+  "@id" : "_:genid130",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
@@ -247,31 +255,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
-  "@id" : "_:genid130",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/paramGroupingOperator"
-  } ]
-}, {
   "@id" : "_:genid131",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/industrialClassification"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid132",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/memberPerson"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid133",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
     "@id" : "https://w3id.org/idsa/core/memberParticipant"
   } ],
@@ -279,9 +263,25 @@
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
-  "@id" : "_:genid134",
+  "@id" : "_:genid132",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
     "@id" : "https://w3id.org/idsa/core/corporateEmailAddress"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid133",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/industrialClassification"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid134",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/memberPerson"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -402,7 +402,7 @@
 }, {
   "@id" : "_:genid149",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/action"
+    "@id" : "https://w3id.org/idsa/core/constraint"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -420,7 +420,7 @@
 }, {
   "@id" : "_:genid150",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/constraint"
+    "@id" : "https://w3id.org/idsa/core/assigner"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -428,7 +428,7 @@
 }, {
   "@id" : "_:genid151",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/assigner"
+    "@id" : "https://w3id.org/idsa/core/assignee"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -436,7 +436,7 @@
 }, {
   "@id" : "_:genid152",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/assignee"
+    "@id" : "https://w3id.org/idsa/core/action"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -578,7 +578,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/startedBy"
+    "@id" : "https://w3id.org/idsa/core/startedAt"
   } ]
 }, {
   "@id" : "_:genid23",
@@ -594,7 +594,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/startedAt"
+    "@id" : "https://w3id.org/idsa/core/startedBy"
   } ]
 }, {
   "@id" : "_:genid25",
@@ -1148,7 +1148,7 @@
     "@id" : "http://www.apache.org/licenses/LICENSE-2.0"
   } ],
   "http://purl.org/dc/terms/contributor" : [ {
-    "@id" : "file:/Users/linamolinascomet/Documents/documentationIDSModel/copies/3.1.0/InformationModel-3.1.0/codes/UsageAgreementNUsagesTemplate.ttl_:genid-nodeid-genid-5443203d173e4dbbbc9a3c3cd516f099-AnnaKasprzik"
+    "@id" : "file:/Users/linamolinascomet/Documents/documentationIDSModel/copies/3.1.0/InformationModel-3.1.0/codes/UsageAgreementNUsagesTemplate.ttl_:genid-nodeid-genid-8d9b115a237b47abaa77cc1739e1caff-AnnaKasprzik"
   }, {
     "@id" : "https://github.com/HaydarAk"
   }, {
