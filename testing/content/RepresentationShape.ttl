@@ -4,9 +4,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
 
 shapes:
 	a owl:Ontology ;
@@ -22,7 +22,7 @@ shapes:
 
 
 shapes:RepresentationShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:Representation ;
 
 	sh:property [
@@ -45,41 +45,43 @@ shapes:RepresentationShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:representationStandard ;
+		sh:maxCount 1 ;
 		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must point from an ids:Representation to a IRI containing the standard."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:representationStandard property must not have more than one point from an ids:Representation to a IRI containing the standard."@en ;
 	] ;
-    
-    sh:property [
+
+	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:created ;
-		sh:datatype xsd:dateTimeStamp ;
-        sh:maxCount 1 ;
+		sh:path ids:language ;
+		sh:class ids:Language ;
+		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must have at most one ids:created attribute pointing to a valid xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:language property must point from an ids:Representation to an ids:Language."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:modified ;
-        sh:maxCount 1 ;
-		sh:datatype xsd:dateTimeStamp ;
+    sh:maxCount 1 ;
+		sh:datatype  xsd:dateTimeStamp ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape):An ids:Representation must have at most one ids:modified attribute pointing to a valid xsd:dateTimeStamp."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must have at most one ids:modified attribute pointing to a valid xsd:dateTimeStamp or xsd:date."@en ;
 	] ;
 
-    sh:property [
+	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:language ;
-		sh:class ids:Language ;
+		sh:path ids:created ;
+		sh:datatype  xsd:dateTimeStamp ;
+    sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:language property must point from an ids:Representation to an ids:Language."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): An ids:Representation must have at most one ids:created attribute pointing to a valid xsd:dateTimeStamp or xsd:date."@en ;
 	] ;
 .
 
 
 shapes:RepresentationInstanceShape
-	a sh:NodeShape ; 
+	a sh:NodeShape ;
 	sh:targetClass ids:RepresentationInstance ;
 
 	sh:sparql [
@@ -94,4 +96,3 @@ shapes:RepresentationInstanceShape
 			}
 		""" ;
 	] .
-

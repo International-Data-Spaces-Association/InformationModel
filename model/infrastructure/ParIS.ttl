@@ -1,7 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 @prefix dct: <http://purl.org/dc/terms/> .
 
 # Classes
@@ -12,10 +12,6 @@ ids:ParIS
     rdfs:subClassOf ids:Connector;
     rdfs:label "Participant Information Service"@en ;
     rdfs:comment "The Participant Information Service (ParIS) provides metadata and relevant information about participants (humans and organizations) in the International Data Spaces."@en ;
-    idsm:validation [
-        idsm:forProperty ids:participantCatalog;
-        idsm:relationType idsm:OneToMany;
-    ];
     .
     
 

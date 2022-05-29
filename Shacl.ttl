@@ -11,7 +11,7 @@
 @prefix cc:   <http://creativecommons.org/ns#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing> .
 
 # Description of this ontology module
 # ----------------------------
@@ -30,12 +30,12 @@ shapes:
        <https://github.com/HaydarAk> ;
     dct:publisher ids:IDSA ;
     dct:created "2019-10-14"^^xsd:date ;
-    dct:modified "2020-08-10"^^xsd:date ;
-    owl:versionInfo "4.0.0" ;
-    owl:versionIRI <https://github.com/IndustrialDataSpace/InformationModel/testing/4.0.0> ;
-    vann:preferredNamespaceUri "https://github.com/IndustrialDataSpace/InformationModel/testing/" ;
+    dct:modified "2021-06-17"^^xsd:date ;
+    owl:versionInfo "4.1.0" ;
+    owl:versionIRI <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/4.1.0> ;
+    vann:preferredNamespaceUri "https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing" ;
     vann:preferredNamespacePrefix "shapes" ;
-    rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+    rdfs:seeAlso <https://international-data-spaces-association.github.io/InformationModel/> ;
     void:vocabulary
        sh: ,
        xsd: ,
@@ -67,43 +67,49 @@ ids:IDSA
 # Imports of class files
 shapes:
     owl:imports <testing/communication/ApiDocumentTypeShape.ttl> ;
+    owl:imports <testing/communication/AppRouteShape.ttl> ;
     owl:imports <testing/communication/EndpointShape.ttl> ;
     owl:imports <testing/communication/HostShape.ttl> ;
     owl:imports <testing/communication/InterfaceShape.ttl> ;
     owl:imports <testing/communication/MessageExchangePatternShape.ttl> ;
     owl:imports <testing/communication/MessageShape.ttl> ;
     owl:imports <testing/communication/OperationBindingShape.ttl> ;
-    owl:imports <testing/communication/OperationShape.ttl> ;
     owl:imports <testing/communication/ParameterAssignmentShape.ttl> ;
     owl:imports <testing/communication/ParameterGroupShape.ttl> ;
     owl:imports <testing/communication/ParameterShape.ttl> ;
+    owl:imports <testing/communication/ProxyShape.ttl> ;
     owl:imports <testing/content/ArtifactShape.ttl> ;
     owl:imports <testing/content/AssetShape.ttl> ;
     owl:imports <testing/content/ConceptShape.ttl> ;
     owl:imports <testing/content/DataAppShape.ttl> ;
-    owl:imports <testing/content/DigitalContentShape.ttl> ;
     owl:imports <testing/content/MediaTypeShape.ttl> ;
     owl:imports <testing/content/RepresentationShape.ttl> ;
     owl:imports <testing/content/ResourceShape.ttl> ;
+    owl:imports <testing/content/UsageControlObjectShape.ttl> ;
     owl:imports <testing/context/SpatialEntityShape.ttl> ;
     owl:imports <testing/context/TemporalEntityShape.ttl> ;
     owl:imports <testing/contract/ActionShape.ttl> ;
     owl:imports <testing/contract/ConstraintShape.ttl> ;
     owl:imports <testing/contract/ContractShape.ttl> ;
+    owl:imports <testing/contract/LeftOperandShape.ttl> ;
     owl:imports <testing/contract/PricingModelShape.ttl> ;
     owl:imports <testing/contract/RuleShape.ttl> ;
     owl:imports <testing/governance/CertificationShape.ttl> ;
     owl:imports <testing/infrastructure/BrokerShape.ttl> ;
     owl:imports <testing/infrastructure/CatalogShape.ttl> ;
     owl:imports <testing/infrastructure/ComponentShape.ttl> ;
+    owl:imports <testing/infrastructure/ConfigurationModelShape.ttl> ;
     owl:imports <testing/infrastructure/ConnectorShape.ttl> ;
+    owl:imports <testing/infrastructure/InfrastructureComponentShape.ttl> ;
     owl:imports <testing/infrastructure/ParISSHape.ttl> ;
     owl:imports <testing/infrastructure/PublicKeyShape.ttl> ;
+    owl:imports <testing/participant/BusinessIdentifierShape.ttl> ;
     owl:imports <testing/participant/IndustrialClassificationShape.ttl> ;
     owl:imports <testing/participant/ParticipantShape.ttl> ;
     owl:imports <testing/security/AuthInfoShape.ttl> ;
     owl:imports <testing/security/SecurityProfileShape.ttl> ;
     owl:imports <testing/security/TokenShape.ttl> ;
+    owl:imports <testing/security/UserAuthentificationShape.ttl> ;
     owl:imports <testing/shacl/abox-shapes.ttl> ;
     owl:imports <testing/shacl/tbox-shapes.ttl> ;
     owl:imports <testing/shared/DescribedSemanticallyShape.ttl> ;

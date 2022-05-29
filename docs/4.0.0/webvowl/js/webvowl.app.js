@@ -1,5 +1,9457 @@
-webvowl.app=function(e){function t(o){if(n[o])return n[o].exports;var i=n[o]={exports:{},id:o,loaded:!1};return e[o].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}({0:function(e,t,n){n(319),n(321),e.exports=n(322)},6:function(e,t){e.exports=d3},91:function(e,t,n){function o(e){return null==e?void 0===e?s:l:d&&d in Object(e)?r(e):a(e)}var i=n(92),r=n(95),a=n(96),l="[object Null]",s="[object Undefined]",d=i?i.toStringTag:void 0;e.exports=o},92:function(e,t,n){var o=n(93),i=o.Symbol;e.exports=i},93:function(e,t,n){var o=n(94),i="object"==typeof self&&self&&self.Object===Object&&self,r=o||i||Function("return this")();e.exports=r},94:function(e,t){(function(t){var n="object"==typeof t&&t&&t.Object===Object&&t;e.exports=n}).call(t,function(){return this}())},95:function(e,t,n){function o(e){var t=a.call(e,s),n=e[s];try{e[s]=void 0;var o=!0}catch(e){}var i=l.call(e);return o&&(t?e[s]=n:delete e[s]),i}var i=n(92),r=Object.prototype,a=r.hasOwnProperty,l=r.toString,s=i?i.toStringTag:void 0;e.exports=o},96:function(e,t){function n(e){return i.call(e)}var o=Object.prototype,i=o.toString;e.exports=n},103:function(e,t,n){function o(e){return"symbol"==typeof e||r(e)&&i(e)==a}var i=n(91),r=n(104),a="[object Symbol]";e.exports=o},104:function(e,t){function n(e){return null!=e&&"object"==typeof e}e.exports=n},112:function(e,t){var n=Array.isArray;e.exports=n},154:function(e,t){function n(e,t){for(var n=-1,o=null==e?0:e.length,i=Array(o);++n<o;)i[n]=t(e[n],n,e);return i}e.exports=n},219:function(e,t,n){function o(e){return null==e?"":i(e)}var i=n(220);e.exports=o},220:function(e,t,n){function o(e){if("string"==typeof e)return e;if(a(e))return r(e,o)+"";if(l(e))return c?c.call(e):"";var t=e+"";return"0"==t&&1/e==-s?"-0":t}var i=n(92),r=n(154),a=n(112),l=n(103),s=1/0,d=i?i.prototype:void 0,c=d?d.toString:void 0;e.exports=o},319:function(e,t){},321:function(e,t,n){(function(t){function n(){var e,t,n=-1,o=/(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/.test(navigator.userAgent);if(o)return n=parseInt("12");var i=/Trident.*rv[ :]*11\./.test(navigator.userAgent);return i?n=parseInt("11"):("Microsoft Internet Explorer"===navigator.appName?(e=navigator.userAgent,t=new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})"),null!==t.exec(e)&&(n=parseFloat(RegExp.$1))):"Netscape"===navigator.appName&&(e=navigator.userAgent,t=new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})"),null!==t.exec(e)&&(n=parseFloat(RegExp.$1))),n)}function o(){var e=n();if(console.log("Browser Version ="+e),e>0&&e<=11&&(t.select("#browserCheck").classed("hidden",!1),t.select("#killWarning").classed("hidden",!0),t.select("#optionsArea").classed("hidden",!0),t.select("#logo").classed("hidden",!0)),12==e){t.select("#logo").classed("hidden",!1),t.select("#browserCheck").classed("hidden",!1);var o=t.select("#killWarning");o.on("click",function(){console.log("hide the warning please"),t.select("#browserCheck").classed("hidden",!0),t.select("#logo").style("padding","10px")})}else t.select("#logo").classed("hidden",!1),t.select("#browserCheck").classed("hidden",!0)}e.exports=o,o()}).call(t,n(6))},322:function(e,t,n){(function(t){String.prototype.replaceAll=function(e,t){var n=this;return n.split(e).join(t)},e.exports=function(){function e(e,n,i){if(t.select("#reloadCachedOntology").classed("hidden",!0),b.reset(),d.options().navigationMenu().hideAllMenus(),void 0===e&&void 0===n||0===e.length)return void O.notValidJsonFile();d.editorMode();var r;if(e){var a;try{r=JSON.parse(e),a=!0}catch(e){a=!1}if(a===!1)return void O.notValidJsonFile();if(!n){var s=r.header?r.header.title:void 0,u=p.textInLanguage(s);n=u?u:i}}var h=0;void 0!==r.class&&(h=r.class.length);var g=!1;if(location.hash.indexOf("#new_ontology")!==-1&&(g=!0,l++,t.select("#empty").node().href="#opts=editorMode=true;#new_ontology"+l),0===h&&d.editorMode()===!1&&g===!1)O.emptyGraphContentError();else{O.validJsonFile(),y.setCachedOntology(n,e),f.setJsonText(e),c.data(r),d.options().loadingModule().setPercentMode(),g===!0&&d.editorMode(!0),d.load(),L.updateOntologyInformation(r,z),f.setFilename(n),d.updateZoomSliderValueFromOutside(),o();var v=t.select("#editorModeModuleCheckbox").node().checked;d.editorMode(v)}}function o(){var e=t.select(u),n=e.select("svg"),o=window.innerHeight-40,a=window.innerWidth-.22*window.innerWidth;"0"===L.getSidebarVisibility()&&(o=window.innerHeight-40,a=window.innerWidth),F.updateLayout(),t.select("#blockGraphInteractions").style("width",window.innerWidth+"px"),t.select("#blockGraphInteractions").style("height",window.innerHeight+"px"),t.select("#WarningErrorMessagesContainer").style("width",a+"px"),t.select("#WarningErrorMessagesContainer").style("height",o+"px"),t.select("#WarningErrorMessages").style("max-height",o-12+"px"),e.style("height",o+"px"),n.attr("width",a).attr("height",o),c.width(a).height(o),d.updateStyle(),r()===!0?(d.isEditorMode()===!0&&(t.select("#modeOfOperationString").node().innerHTML="touch able device detected"),d.setTouchDevice(!0)):(d.isEditorMode()===!0&&(t.select("#modeOfOperationString").node().innerHTML="point & click device detected"),d.setTouchDevice(!1)),t.select("#loadingInfo-container").style("height",.5*(o-80)+"px"),O.checkForScreenSize(),i();var l=t.select("#browserCheck");if(l.classed("hidden")===!1){var s=10+l.node().getBoundingClientRect().height;t.select("#logo").style("padding",s+"px 10px")}else t.select("#logo").style("padding","10px");var p=t.select("#menuElementContainer").node(),f=p.scrollWidth-p.clientWidth,h=t.select("#scrollLeftButton"),g=t.select("#scrollRightButton");f>0?(g.classed("hidden",!1),h.classed("hidden",!1),k.updateScrollButtonVisibility()):(g.classed("hidden",!0),h.classed("hidden",!0)),_.updateElementWidth()}function i(){var e=window.innerHeight-40,n=e,o=e-30,i=150;if(n<150)return t.select("#zoomSliderParagraph").classed("hidden",!0),t.select("#zoomOutButton").classed("hidden",!0),t.select("#zoomInButton").classed("hidden",!0),void t.select("#centerGraphButton").classed("hidden",!0);t.select("#zoomSliderParagraph").classed("hidden",!1),t.select("#zoomOutButton").classed("hidden",!1),t.select("#zoomInButton").classed("hidden",!1),t.select("#centerGraphButton").classed("hidden",!1);var r=o-20,a=r-20;if(n<280)return t.select("#zoomSliderParagraph").classed("hidden",!0),t.select("#zoomOutButton").style("top",o+"px"),t.select("#zoomInButton").style("top",r+"px"),void t.select("#centerGraphButton").style("top",a+"px");var l=o-i;r=l-20,a=r-20,t.select("#zoomSliderParagraph").classed("hidden",!1),t.select("#zoomOutButton").style("top",o+"px"),t.select("#zoomInButton").style("top",r+"px"),t.select("#centerGraphButton").style("top",a+"px"),t.select("#zoomSliderParagraph").style("top",l+"px")}function r(){try{return document.createEvent("TouchEvent"),!0}catch(e){return!1}}function a(){var e,t,n=-1,o=/(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/.test(navigator.userAgent);if(o)return n=parseInt("12");var i=/Trident.*rv[ :]*11\./.test(navigator.userAgent);return i?n=parseInt("11"):("Microsoft Internet Explorer"===navigator.appName?(e=navigator.userAgent,t=new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})"),null!==t.exec(e)&&(n=parseFloat(RegExp.$1))):"Netscape"===navigator.appName&&(e=navigator.userAgent,t=new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})"),null!==t.exec(e)&&(n=parseFloat(RegExp.$1))),n)}var l=1,s={},d=webvowl.graph(),c=d.graphOptions(),p=webvowl.util.languageTools(),u="#graph",f=n(323)(d),h=n(325)(d),g=n(326)(d),v=n(327)(d),m=n(328)(d),y=n(329)(d),b=n(333)(d),x=n(334)(d),w=n(335)(d),k=n(336)(d),C=n(337)(d),L=n(338)(d),M=n(339)(d),_=n(340)(d),E=n(341)(d),O=n(342)(d),S=n(343)(d),F=n(344)(d),I=webvowl.modules.colorExternalsSwitch(d),T=webvowl.modules.compactNotationSwitch(d),A=webvowl.modules.datatypeFilter(),P=webvowl.modules.disjointFilter(),B=webvowl.modules.focuser(d),D=webvowl.modules.emptyLiteralFilter(),R=webvowl.modules.nodeDegreeFilter(h),W=webvowl.modules.nodeScalingSwitch(d),N=webvowl.modules.objectPropertyFilter(),H=webvowl.modules.pickAndPin(),j=webvowl.modules.selectionDetailsDisplayer(L.updateSelectionInformation),z=webvowl.modules.statistics(),V=webvowl.modules.subclassFilter(),U=webvowl.modules.setOperatorFilter();return s.getOptions=function(){return webvowl.opts},s.getGraph=function(){return webvowl.gr},s.initialize=function(){window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame||function(e){return setTimeout(e,1e3/60)},window.cancelAnimationFrame=window.cancelAnimationFrame||window.mozCancelAnimationFrame||function(e){clearTimeout(e)},c.graphContainerSelector(u),c.selectionModules().push(B),c.selectionModules().push(j),c.selectionModules().push(H),c.filterModules().push(D),c.filterModules().push(z),c.filterModules().push(R),c.filterModules().push(A),c.filterModules().push(N),c.filterModules().push(V),c.filterModules().push(P),c.filterModules().push(U),c.filterModules().push(W),c.filterModules().push(T),c.filterModules().push(I),t.select(window).on("resize",o),f.setup(),g.setup(),h.setup(A,N,V,P,U,R),v.setup(H,W,T,I),b.setup(),L.setup(),O.setup(),M.setup(),_.setup(),m.setup();var n=a();if(n>0&&n<=11)console.log("Agent version "+n),console.log("This agent is not supported"),t.select("#browserCheck").classed("hidden",!1),t.select("#killWarning").classed("hidden",!0),t.select("#optionsArea").classed("hidden",!0),t.select("#logo").classed("hidden",!0);else{t.select("#logo").classed("hidden",!1),12===n?(t.select("#browserCheck").classed("hidden",!1),t.select("#killWarning").classed("hidden",!1)):t.select("#browserCheck").classed("hidden",!0),x.setup([g,h,v,B,j,b]),w.setup(),k.setup(),C.setup(),c.literalFilter(D),c.nodeDegreeFilter(R),c.loadingModule(O),c.filterMenu(h),c.modeMenu(v),c.gravityMenu(g),c.pausedMenu(b),c.pickAndPinModule(H),c.resetMenu(x),c.searchMenu(w),c.ontologyMenu(y),c.navigationMenu(k),c.sidebar(L),c.leftSidebar(M),c.editSidebar(_),c.exportMenu(f),c.graphObject(d),c.zoomSlider(C),c.warningModule(S),c.directInputModule(F),c.datatypeFilter(A),c.objectPropertyFilter(N),c.subclassFilter(V),c.setOperatorFilter(U),c.disjointPropertyFilter(P),c.focuserModule(B),c.colorExternalsModule(I),c.compactNotationModule(T),y.setup(e),E.setup(),M.showSidebar(0),M.hideCollapseButton(!0),d.start();var i=t.select("#modeOfOperationString");i.style("font-size","0.6em"),i.style("font-style","italic"),o();var r,l=d.options().width(),s=d.options().height();r=Math.min(l,s)/1e3;var p=!0;p===!1&&d.setForceTickFunctionWithFPS(),d.setDefaultZoom(r),t.selectAll(".debugOption").classed("hidden",p);var G=t.select("body");if(t.select(document).on("keydown",function(e){8===t.event.keyCode&&t.event.target===G.node()&&t.event.preventDefault(),t.event.ctrlKey&&t.event.shiftKey&&68===t.event.keyCode&&(d.options().executeHiddenDebugFeatuers(),t.event.preventDefault())}),t.select("#maxLabelWidthSliderOption")){var q=!d.options().dynamicLabelWidth();t.select("#maxLabelWidthSlider").node().disabled=q,t.select("#maxLabelWidthvalueLabel").classed("disabledLabelForSlider",q),t.select("#maxLabelWidthDescriptionLabel").classed("disabledLabelForSlider",q)}t.select("#blockGraphInteractions").style("position","absolute").style("top","0").style("background-color","#bdbdbd").style("opacity","0.5").style("pointer-events","auto").style("width",d.options().width()+"px").style("height",d.options().height()+"px").on("click",function(){t.event.preventDefault(),t.event.stopPropagation()}).on("dblclick",function(){t.event.preventDefault(),t.event.stopPropagation()}),t.select("#direct-text-input").on("click",function(){F.setDirectInputMode()}),t.select("#blockGraphInteractions").node().draggable=!1,c.prefixModule(webvowl.util.prefixTools(d)),o(),L.updateOntologyInformation(void 0,z),O.parseUrlAndLoadOntology(),c.debugMenu(m),m.updateSettings(),t.select("#reloadSvgIcon").on("click",function(){return t.select("#reloadSvgIcon").node().disabled===!0?void d.options().ontologyMenu().clearCachedVersion():(t.select("#reloadCachedOntology").classed("hidden",!0),void d.options().ontologyMenu().reloadCachedOntology())}),webvowl.opts=c,webvowl.gr=d}},s}}).call(t,n(6))},323:function(e,t,n){(function(t){e.exports=function(e){function o(){var n=M.requestExport(),o=M.resultingTTL_Content();if(console.log("Exporter was successful: "+n),n){var i="NewOntology",r="data:text/json;charset=utf-8,"+encodeURIComponent(o);x.attr("href",r).attr("download",i+".ttl")}else console.log("ShowWarning!"),e.options().warningModule().showExporterWarning(),console.log("Stay on the page! "+window.location.href),x.attr("href",window.location.href),t.event.preventDefault()}function i(){t.select("#exportedUrl").node().focus(),t.select("#exportedUrl").node().select(),document.execCommand("copy"),e.options().navigationMenu().hideAllMenus(),t.event.preventDefault()}function r(e,t){var n=0,o="opts=";for(var i in e)if(e.hasOwnProperty(i)){var r=e[i],a=t[i];r!==a&&(o+=i+"="+a+";",n++)}return o+="",0===n?"":o}function a(){e.options().navigationMenu().hideAllMenus();var n,o,i,r=t.select(e.options().graphContainerSelector()).select("svg");s(),u(),n=r.attr("version",1.1).attr("xmlns","http://www.w3.org/2000/svg").node().parentNode.innerHTML,n="<!-- Created with WebVOWL (version "+webvowl.version+"), http://vowl.visualdataweb.org -->\n"+n,o=l(n),i="data:image/svg+xml;base64,"+btoa(o),m.attr("href",i).attr("download",y+".svg"),f(),h(),e.lazyRefresh()}function l(e){var t,n,o,i=[],r=e.length;for(t=0;t<r;t++)n=e.charAt(t),o=n.charCodeAt(0),o<128?i.push(n):i.push("&#"+o+";");return i.join("")}function s(){d(".text",[{name:"font-family",value:"Helvetica, Arial, sans-serif"},{name:"font-size",value:"12px"}]),d(".subtext",[{name:"font-size",value:"9px"}]),d(".text.instance-count",[{name:"fill",value:"#666"}]),d(".external + text .instance-count",[{name:"fill",value:"#aaa"}]),d(".cardinality",[{name:"font-size",value:"10px"}]),d(".text, .embedded",[{name:"pointer-events",value:"none"}]),d(".class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty",[{name:"fill",value:"#acf"}]),d(".label .datatype, .datatypeproperty",[{name:"fill",value:"#9c6"}]),d(".rdf, .rdfproperty",[{name:"fill",value:"#c9c"}]),d(".literal, .node .datatype",[{name:"fill",value:"#fc3"}]),d(".deprecated, .deprecatedproperty",[{name:"fill",value:"#ccc"}]),d(".external, .externalproperty",[{name:"fill",value:"#36c"}]),d("path, .nofill",[{name:"fill",value:"none"}]),d("marker path",[{name:"fill",value:"#000"}]),d(".class, path, line, .fineline",[{name:"stroke",value:"#000"}]),d(".white, .subclass, .subclassproperty, .external + text",[{name:"fill",value:"#fff"}]),d(".class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused",[{name:"fill",value:"#f00"},{name:"cursor",value:"pointer"}]),d(".focused, path.hovered",[{name:"stroke",value:"#f00"}]),d(".indirect-highlighting, .feature:hover",[{name:"fill",value:"#f90"}]),d(".values-from",[{name:"stroke",value:"#69c"}]),d(".symbol, .values-from.filled",[{name:"fill",value:"#69c"}]),d(".class, path, line",[{name:"stroke-width",value:"2"}]),d(".fineline",[{name:"stroke-width",value:"1"}]),d(".dashed, .anonymous",[{name:"stroke-dasharray",value:"8"}]),d(".dotted",[{name:"stroke-dasharray",value:"3"}]),d("rect.focused, circle.focused",[{name:"stroke-width",value:"4px"}]),d(".nostroke",[{name:"stroke",value:"none"}]),d("marker path",[{name:"stroke-dasharray",value:"100"}])}function d(e,n){var o=t.selectAll(e);o.empty()||n.forEach(function(e){o.each(function(){var n=t.select(this);c(n,e.name)||n.style(e.name,e.value)})})}function c(e,t){return"fill"===t&&p(e)}function p(e){var t=e.datum();return void 0!==t&&(t.backgroundColor&&!!t.backgroundColor())}function u(){t.selectAll(".hidden-in-export").style("display","none")}function f(){t.selectAll(".text, .subtext, .text.instance-count, .external + text .instance-count, .cardinality, .text, .embedded, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, path, .nofill, .symbol, .values-from.filled, marker path, .class, path, line, .fineline, .white, .subclass, .subclassproperty, .external + text, .class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused, .focused, path.hovered, .indirect-highlighting, .feature:hover, .values-from, .class, path, line, .fineline, .dashed, .anonymous, .dotted, rect.focused, circle.focused, .nostroke, marker path").each(function(){var e=t.select(this),n=e.node().style;for(var o in n)if(n.hasOwnProperty(o)){if(c(e,o))continue;e.style(o,null)}e.datum&&void 0!==e.datum()&&e.datum().type&&"rdfs:subClassOf"===e.datum().type()&&e.style("fill",null)});for(var e=t.select("#menuElementContainer").node(),n=e.children,o=n.length,i=0;i<o;i++){var r=n[i].id;t.select("#"+r).select("path").style("stroke-width","0"),t.select("#"+r).select("path").style("fill","#fff")}t.select("#magnifyingGlass").style("stroke-width","0"),t.select("#magnifyingGlass").style("fill","#666")}function h(){t.selectAll(".hidden-in-export").style("display",null)}function g(){if(e.options().navigationMenu().hideAllMenus(),!C)return alert("No graph data available."),void t.event.preventDefault();var n=L.createJSON_exportObject(),o=JSON.stringify(n,null,"  "),i="data:text/json;charset=utf-8,"+encodeURIComponent(o),r=y;r.endsWith(".json")||(r+=".json"),b.attr("href",i).attr("download",r)}function v(){var n=(e.scaleFactor(),e.translation(),e.getBoundingBoxForTex()),o=" %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";o+=" %        Generated with the experimental alpha version of the TeX exporter of WebVOWL (version 1.1.3) %%% \n",o+=" %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n",o+=" %   The content can be used as import in other TeX documents. \n",o+=" %   Parent document has to use the following packages   \n",o+=" %   \\usepackage{tikz}  \n",o+=" %   \\usepackage{helvet}  \n",o+=" %   \\usetikzlibrary{decorations.markings,decorations.shapes,decorations,arrows,automata,backgrounds,petri,shapes.geometric}  \n",o+=" %   \\usepackage{xcolor}  \n\n",o+=" %%%%%%%%%%%%%%% Example Parent Document %%%%%%%%%%%%%%%%%%%%%%%\n",o+=" %\\documentclass{article} \n",o+=" %\\usepackage{tikz} \n",o+=" %\\usepackage{helvet} \n",o+=" %\\usetikzlibrary{decorations.markings,decorations.shapes,decorations,arrows,automata,backgrounds,petri,shapes.geometric} \n",o+=" %\\usepackage{xcolor} \n\n",o+=" %\\begin{document} \n",o+=" %\\section{Example} \n",o+=" %  This is an example. \n",o+=" %  \\begin{figure} \n",o+=" %    \\input{<THIS_FILE_NAME>} % << tex file name for the graph \n",o+=" %    \\caption{A generated graph with TKIZ using alpha version of the TeX exporter of WebVOWL (version 1.1.3) } \n",o+=" %  \\end{figure} \n",o+=" %\\end{document} \n",o+=" %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n";var i=o+"\\definecolor{imageBGCOLOR}{HTML}{FFFFFF} \n\\definecolor{owlClassColor}{HTML}{AACCFF}\n\\definecolor{owlObjectPropertyColor}{HTML}{AACCFF}\n\\definecolor{owlExternalClassColor}{HTML}{AACCFF}\n\\definecolor{owlDatatypePropertyColor}{HTML}{99CC66}\n\\definecolor{owlDatatypeColor}{HTML}{FFCC33}\n\\definecolor{owlThingColor}{HTML}{FFFFFF}\n\\definecolor{valuesFrom}{HTML}{6699CC}\n\\definecolor{rdfPropertyColor}{HTML}{CC99CC}\n\\definecolor{unionColor}{HTML}{6699cc}\n\\begin{center} \n\\resizebox{\\linewidth}{!}{\n\\begin{tikzpicture}[framed]\n\\clip ("+n[0]+"pt , "+n[1]+"pt ) rectangle ("+n[2]+"pt , "+n[3]+"pt);\n\\tikzstyle{dashed}=[dash pattern=on 4pt off 4pt] \n\\tikzstyle{dotted}=[dash pattern=on 2pt off 2pt] \n\\fontfamily{sans-serif}{\\fontsize{12}{12}\\selectfont}\n \n";if(i+="\\tikzset{triangleBlack/.style = {fill=black, draw=black, line width=1pt,scale=0.7,regular polygon, regular polygon sides=3} }\n",i+="\\tikzset{triangleWhite/.style = {fill=white, draw=black, line width=1pt,scale=0.7,regular polygon, regular polygon sides=3} }\n",i+="\\tikzset{triangleBlue/.style  = {fill=valuesFrom, draw=valuesFrom, line width=1pt,scale=0.7,regular polygon, regular polygon sides=3} }\n",i+="\\tikzset{Diamond/.style = {fill=white, draw=black, line width=2pt,scale=1.2,regular polygon, regular polygon sides=4} }\n",i+="\\tikzset{Literal/.style={rectangle,align=center,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nblack, draw=black, dashed, line width=1pt, fill=owlDatatypeColor, minimum width=80pt,\nminimum height = 20pt}}\n\n",i+="\\tikzset{Datatype/.style={rectangle,align=center,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nblack, draw=black, line width=1pt, fill=owlDatatypeColor, minimum width=80pt,\nminimum height = 20pt}}\n\n",i+="\\tikzset{owlClass/.style={circle, inner sep=0mm,align=center, \nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nblack, draw=black, line width=1pt, fill=owlClassColor, minimum size=101pt}}\n\n",i+="\\tikzset{anonymousClass/.style={circle, inner sep=0mm,align=center, \nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nblack, dashed, draw=black, line width=1pt, fill=owlClassColor, minimum size=101pt}}\n\n",i+="\\tikzset{owlThing/.style={circle, inner sep=0mm,align=center,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nblack, dashed, draw=black, line width=1pt, fill=owlThingColor, minimum size=62pt}}\n\n",i+="\\tikzset{owlObjectProperty/.style={rectangle,align=center,\ninner sep=0mm,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nfill=owlObjectPropertyColor, minimum width=80pt,\nminimum height = 25pt}}\n\n",i+="\\tikzset{rdfProperty/.style={rectangle,align=center,\ninner sep=0mm,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nfill=rdfPropertyColor, minimum width=80pt,\nminimum height = 25pt}}\n\n",i+="\\tikzset{owlDatatypeProperty/.style={rectangle,align=center,\nfill=owlDatatypePropertyColor, minimum width=80pt,\ninner sep=0mm,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nminimum height = 25pt}}\n\n",i+="\\tikzset{rdfsSubClassOf/.style={rectangle,align=center,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\ninner sep=0mm,\nfill=imageBGCOLOR, minimum width=80pt,\nminimum height = 25pt}}\n\n",i+="\\tikzset{unionOf/.style={circle, inner sep=0mm,align=center,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nblack, draw=black, line width=1pt, fill=unionColor, minimum size=25pt}}\n\n",i+="\\tikzset{disjointWith/.style={circle, inner sep=0mm,align=center,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\nblack, draw=black, line width=1pt, fill=unionColor, minimum size=20pt}}\n\n",i+="\\tikzset{owlEquivalentClass/.style={circle,align=center,\nfont={\\fontsize{12pt}{12}\\selectfont \\sffamily },\ninner sep=0mm,\nblack, solid, draw=black, line width=3pt, fill=owlExternalClassColor, minimum size=101pt,\npostaction = {draw,line width=1pt, white}}}\n\n",e.options().navigationMenu().hideAllMenus(),!C)return alert("No graph data available."),void t.event.preventDefault();var r,a=0,l=e.graphNodeElements(),s=e.graphLabelElements(),d=e.graphLinkElements();for(a=0;a<d.length;a++){var c,p,u,f,h,g,v,m,b,x,k,L,M,_,E,O,S=d[a],F=S.property(),I="black",T="",A="",P="triangleBlack",B=",line width=2pt";F.linkType&&("dotted"===F.linkType()&&(T=", dotted ",P="triangleWhite"),"dashed"===F.linkType()&&(T=", dashed "),"values-from"===F.linkType()&&(I="valuesFrom"));var D,R,W,N,H,j,z;if(1!==S.layers().length||S.loops())S.isLoop()?(A=", tension=3",M=e.math().calculateLoopPoints(S),k=M[0],x=M[1],L=M[2]):(x=S.label(),k=e.math().calculateIntersection(x,S.domain(),1),L=e.math().calculateIntersection(x,S.range(),1)),c=k.x,p=-k.y,u=x.x,f=-x.y,h=L.x,g=-L.y;else{v=e.math().calculateIntersection(S.range(),S.domain(),1),m=e.math().calculateIntersection(S.domain(),S.range(),1),b=e.math().calculateCenter(v,m),c=v.x,p=-v.y,u=b.x,f=-b.y,h=m.x,g=-m.y,k=v,x=b,L=m;var V=h-u,U=g-f;_=Math.sqrt(V*V+U*U),V/=_,U/=_,E=Math.atan2(U,V)*(180/Math.PI),H=V,j=U}if(i+="\\draw ["+I+T+B+A+"] plot [smooth] coordinates {("+c+"pt, "+p+"pt) ("+u+"pt, "+f+"pt)  ("+h+"pt, "+g+"pt)};\n",void 0!==S.property().markerElement()){"owl:someValuesFrom"!==S.property().type()&&"owl:allValuesFrom"!==S.property().type()||(P="triangleBlue"),z=S.pathObj(),O=Math.floor(z.node().getTotalLength());var G=z.node().getPointAtLength(O-4),q=z.node().getPointAtLength(O),$=z.node().getPointAtLength(O-6);"setOperatorProperty"===S.property().type()&&(G=z.node().getPointAtLength(4),q=z.node().getPointAtLength(0),$=z.node().getPointAtLength(8),P="Diamond"),D=G.x,R=G.y,W=q.x,N=q.y,H=W-D,j=N-R,_=Math.sqrt(H*H+j*j),H/=_,j/=_,E=-1*Math.atan2(j,H)*(180/Math.PI),E-=90,"setOperatorProperty"===S.property().type()&&(E-=45),h=$.x,g=$.y,1!==S.layers().length||S.loops()?(g*=-1,i+="\\node["+P+", rotate="+E+"] at ("+h+"pt, "+g+"pt)   (marker"+a+") {};\n "):(g*=-1,i+="\\node["+P+", rotate="+E+"] at ("+h+"pt, "+g+"pt)   (single_marker"+a+") {};\n ");var Z=S.property().generateCardinalityText();if(Z&&Z.length>0){var J=z.node().getPointAtLength(O-18),Y=J.x-10*j,X=J.y+10*H;X*=-1;var K="black";Z.indexOf("A")>-1&&(Z="$\\forall$"),Z.indexOf("E")>-1&&(Z="$\\exists$"),i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily },text="+K+"] at ("+Y+"pt, "+X+"pt)   (cardinalityText"+a+") {"+Z+"};\n "}if(S.property().inverse()){z=S.pathObj(),O=Math.floor(z.node().getTotalLength());var Q=z.node().getPointAtLength(4),ee=z.node().getPointAtLength(0),te=z.node().getPointAtLength(6);D=Q.x,R=Q.y,W=ee.x,N=ee.y,H=W-D,j=N-R,_=Math.sqrt(H*H+j*j),H/=_,j/=_,E=-1*Math.atan2(j,H)*(180/Math.PI),E-=90,h=te.x,g=te.y,1!==S.layers().length||S.loops()?(g*=-1,i+="\\node["+P+", rotate="+E+"] at ("+h+"pt, "+g+"pt)   (INV_marker"+a+") {};\n "):(g*=-1,i+="\\node["+P+", rotate="+E+"] at ("+h+"pt, "+g+"pt)   (INV_single_marker"+a+") {};\n ")}}}for(l.each(function(e){u=e.x,f=-e.y,r=e.labelForCurrentLanguage(),void 0===r&&(r="");var t="owlClass";"owl:Thing"!==e.type()&&"owl:Nothing"!==e.type()||(t="owlThing"),"owl:equivalentClass"===e.type()&&(t="owlEquivalentClass");var n="";if(e.textBlock){var o=e.textBlock()._textBlock().style("fill");"rgb(0, 0, 0)"===o&&(n=", text=black"),"rgb(255, 255, 255)"===o&&(n=", text=white");var l=e.textBlock()._textBlock().node().children;if(l[0]){r=l[0].innerHTML,e.individuals()&&e.individuals().length===parseInt(l[0].innerHTML)&&(r="{\\color{gray} "+l[0].innerHTML+" }");for(var s=1;s<l.length;s++)r+=e.individuals()&&e.individuals().length===parseInt(l[s].innerHTML)?"\\\\ {\\color{gray} "+l[s].innerHTML+" }":"\\\\ {\\small "+l[s].innerHTML+" }"}}"rdfs:Literal"===e.type()&&(t="Literal"),"rdfs:Datatype"===e.type()&&(t="Datatype"),e.attributes().indexOf("anonymous")!==-1&&(t="anonymousClass"),"owl:unionOf"!==e.type()&&"owl:complementOf"!==e.type()&&"owl:disjointUnionOf"!==e.type()&&"owl:intersectionOf"!==e.type()||(t="owlClass");var d="",c="";if("rdfs:Literal"===e.type()||"rdfs:Datatype"===e.type()){var p=e.width();c=",minimum width="+p+"pt"}else c=",minimum size="+2*e.actualRadius()+"pt";if(e.backgroundColor()){var h=e.backgroundColor();h.toUpperCase(),h=h.slice(1,h.length),i+="\\definecolor{Node"+a+"_COLOR}{HTML}{"+h+"} \n ",d=", fill=Node"+a+"_COLOR "}e.attributes().indexOf("deprecated")>-1&&(i+="\\definecolor{Node"+a+"_COLOR}{HTML}{CCCCCC} \n ",d=", fill=Node"+a+"_COLOR ");var g=u-7,v=u+7,m=f+20;"owl:unionOf"===e.type()&&"owl:disjointUnionOf"===e.type()||(i+="\\node["+t+" "+c+" "+d+" "+n+"] at ("+u+"pt, "+f+"pt)   (Node"+a+") {"+r.replaceAll("_","\\_ ")+"};\n"),"owl:unionOf"===e.type()&&(i+="\\node["+t+" "+c+" "+d+" "+n+"] at ("+u+"pt, "+f+"pt)   (Node"+a+") {};\n",i+="\\node[unionOf   , text=black] at ("+g+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[unionOf   , text=black] at ("+v+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[unionOf ,fill=none   , text=black] at ("+g+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[text=black] at ("+u+"pt, "+f+"pt)  (unionText13) {$\\mathbf{\\cup}$};\n",i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }"+n+"] at ("+u+"pt, "+m+"pt)   (Node_text"+a+") {"+r.replaceAll("_","\\_ ")+"};\n"),"owl:disjointUnionOf"===e.type()&&(i+="\\node["+t+" "+c+" "+d+" "+n+"] at ("+u+"pt, "+f+"pt)   (Node"+a+") {};\n",i+="\\node[unionOf   , text=black] at ("+g+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[unionOf   , text=black] at ("+v+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[unionOf ,fill=none   , text=black] at ("+g+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }"+n+"] at ("+u+"pt, "+f+"pt)  (disjointUnoinText"+a+") {1};\n",i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }"+n+"] at ("+u+"pt, "+m+"pt)   (Node_text"+a+") {"+r.replaceAll("_","\\_ ")+"};\n"),"owl:complementOf"===e.type()&&(i+="\\node["+t+" "+c+" "+d+" "+n+"] at ("+u+"pt, "+f+"pt)   (Node"+a+") {};\n",i+="\\node[unionOf   , text=black] at ("+u+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[font={\\fontsize{18pt}{18}\\selectfont \\sffamily }"+n+"] at ("+u+"pt, "+f+"pt)  (unionText13) {$\\neg$};\n",i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }"+n+"] at ("+u+"pt, "+m+"pt)   (Node_text"+a+") {"+r.replaceAll("_","\\_ ")+"};\n"),"owl:intersectionOf"===e.type()&&(i+="\\node["+t+" "+c+" "+d+" "+n+"] at ("+u+"pt, "+f+"pt)   (Node"+a+") {};\n",i+="\\node[unionOf   , text=black] at ("+g+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[unionOf   , text=black] at ("+v+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[unionOf ,fill=none   , text=black] at ("+g+"pt, "+f+"pt)   (SymbolNode"+a+") {};\n",i+="\\filldraw[even odd rule,fill=owlClassColor,line width=1pt] ("+g+"pt, "+f+"pt) circle (12.5pt)  ("+v+"pt, "+f+"pt) circle (12.5pt);\n ",i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }"+n+"] at ("+u+"pt, "+f+"pt)  (intersectionText"+a+") {$\\cap$};\n",i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }"+n+"] at ("+u+"pt, "+m+"pt)   (Node_text"+a+") {"+r.replaceAll("_","\\_ ")+"};\n"),a++}),a=0;a<s.length;a++){var ne=s[a].property(),oe=s[a].x,ie=-s[a].y;r=ne.labelForCurrentLanguage(),void 0===r&&(r="");var re="";if(ne.textBlock&&ne.textBlock()){var ae=ne.textBlock()._textBlock().style("fill");"rgb(0, 0, 0)"===ae&&(re=", text=black"),"rgb(255, 255, 255)"===ae&&(re=", text=white");var le=ne.textBlock()._textBlock().node().children;if(le[0]){r=le[0].innerHTML;for(var se=1;se<le.length;se++){var de=le[se].innerHTML;r+=de.indexOf("(")>-1?"\\\\ {\\small "+le[se].innerHTML+" }":"\\\\ "+le[se].innerHTML}}}if("setOperatorProperty"!==ne.type()){var ce="owlObjectProperty";"owl:DatatypeProperty"===ne.type()&&(ce="owlDatatypeProperty"),"rdfs:subClassOf"===ne.type()&&(ce="rdfsSubClassOf"),"rdf:Property"===ne.type()&&(ce="rdfProperty");var pe="";if(ne.backgroundColor()){var ue=ne.backgroundColor();ue.toUpperCase(),ue=ue.slice(1,ue.length),i+="\\definecolor{property"+a+"_COLOR}{HTML}{"+ue+"} \n ",pe=", fill=property"+a+"_COLOR "}ne.attributes().indexOf("deprecated")>-1&&(i+="\\definecolor{property"+a+"_COLOR}{HTML}{CCCCCC} \n ",pe=", fill=property"+a+"_COLOR ");var fe="",he=ne.textWidth();if(fe=",minimum width="+he+"pt","owl:disjointWith"!==ne.type())if(ne.inverse()){var ge=ne.inverse(),ve=ge.labelForCurrentLanguage();void 0===ve&&(ve="");var me="";if(ge.textBlock&&ge.textBlock()){var ye=ge.textBlock()._textBlock().style("fill");"rgb(0, 0, 0)"===ye&&(me=", text=black"),"rgb(255, 255, 255)"===ye&&(me=", text=white");var be=ge.textBlock()._textBlock().node().children;if(be[0]){ve=be[0].innerHTML;for(var xe=1;xe<be.length;xe++){var we=be[xe].innerHTML;ve+=we.indexOf("(")>-1?"\\\\ {\\small "+be[xe].innerHTML+" }":"\\\\ "+be[xe].innerHTML;
-}}}var ke="owlObjectProperty",Ce="";if(ge.backgroundColor()){var Le=ge.backgroundColor();Le.toUpperCase(),Le=Le.slice(1,Le.length),i+="\\definecolor{inv_property"+a+"_COLOR}{HTML}{"+Le+"} \n ",Ce=", fill=inv_property"+a+"_COLOR "}ge.attributes().indexOf("deprecated")>-1&&(i+="\\definecolor{inv_property"+a+"_COLOR}{HTML}{CCCCCC} \n ",Ce=", fill=inv_property"+a+"_COLOR ");var Me="",_e=ge.textWidth(),Ee=ie-14,Oe=ie+14;Me=",minimum width="+_e+"pt",i+="% Createing Inverse Property \n",i+="\\node["+ke+" "+Me+" "+Ce+" "+me+"] at ("+oe+"pt, "+Ee+"pt)   (property"+a+") {"+ve.replaceAll("_","\\_ ")+"};\n",i+="% "+ke+" vs "+ce+"\n",i+="% "+Me+" vs "+fe+"\n",i+="% "+Ce+" vs "+pe+"\n",i+="% "+me+" vs "+re+"\n",i+="\\node["+ce+" "+fe+" "+pe+" "+re+"] at ("+oe+"pt, "+Oe+"pt)   (property"+a+") {"+r.replaceAll("_","\\_ ")+"};\n"}else i+="\\node["+ce+" "+fe+" "+pe+" "+re+"] at ("+oe+"pt, "+ie+"pt)   (property"+a+") {"+r.replaceAll("_","\\_ ")+"};\n";else{var Se=oe-12,Fe=oe+12,Ie=ie-20;i+="\\node["+ce+" "+fe+" "+pe+" "+re+"] at ("+oe+"pt, "+ie+"pt)   (Node"+a+") {};\n",i+="\\node[disjointWith , text=black] at ("+Se+"pt, "+ie+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[disjointWith , text=black] at ("+Fe+"pt, "+ie+"pt)   (SymbolNode"+a+") {};\n",i+="\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }"+re+"] at ("+oe+"pt, "+Ie+"pt)   (Node_text"+a+") {",e.options().compactNotation()===!1&&(i+="(disjoint)"),i+="};\n"}}}i+="\\end{tikzpicture}\n}\n \\end{center}\n";var Te="data:text/json;charset=utf-8,"+encodeURIComponent(i);w.attr("href",Te).attr("download",y+".tex")}var m,y,b,x,w,k,C,L={},M=n(324)(e);String.prototype.replaceAll=function(e,t){var n=this;return n.split(e).join(t)},L.setup=function(){m=t.select("#exportSvg").on("click",a),b=t.select("#exportJson").on("click",g),k=t.select("#copyBt").on("click",i),w=t.select("#exportTex").on("click",v),x=t.select("#exportTurtle").on("click",o);var n=t.select("#m_export");n.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries(),L.exportAsUrl()})},L.setFilename=function(e){y=e||"export"},L.setJsonText=function(e){C=e},L.exportAsUrl=function(){var n={};n.sidebar=e.options().sidebar().getSidebarVisibility();var o=e.options().filterMenu().getDefaultDegreeValue(),i=e.options().filterMenu().getDegreeSliderValue();parseInt(o)===parseInt(i)?n.doc=-1:n.doc=i,n.cd=e.options().classDistance(),n.dd=e.options().datatypeDistance(),e.editorMode()===!0?n.editorMode="true":n.editorMode="false",n.filter_datatypes=String(e.options().filterMenu().getCheckBoxValue("datatypeFilterCheckbox")),n.filter_sco=String(e.options().filterMenu().getCheckBoxValue("subclassFilterCheckbox")),n.filter_disjoint=String(e.options().filterMenu().getCheckBoxValue("disjointFilterCheckbox")),n.filter_setOperator=String(e.options().filterMenu().getCheckBoxValue("setoperatorFilterCheckbox")),n.filter_objectProperties=String(e.options().filterMenu().getCheckBoxValue("objectPropertyFilterCheckbox")),n.mode_dynamic=String(e.options().dynamicLabelWidth()),n.mode_scaling=String(e.options().modeMenu().getCheckBoxValue("nodescalingModuleCheckbox")),n.mode_compact=String(e.options().modeMenu().getCheckBoxValue("compactnotationModuleCheckbox")),n.mode_colorExt=String(e.options().modeMenu().getCheckBoxValue("colorexternalsModuleCheckbox")),n.mode_multiColor=String(e.options().modeMenu().colorModeState()),n.mode_pnp=String(e.options().modeMenu().getCheckBoxValue("pickandpinModuleCheckbox")),n.debugFeatures=String(!e.options().getHideDebugFeatures()),n.rect=0;var a,l=e.options().initialConfig(),s=r(l,n),d=String(location);if(0===s.length){var c=location.hash;d=d.split(c)[0];var p=c.lastIndexOf("#");if(p===-1)return a=t.select("#exportedUrl").node(),a.value=String(location),void(a.title=String(location));var u=c.slice(p,c.length);return a=t.select("#exportedUrl").node(),a.value=d+u,void(a.title=d+u)}var f,h=(d.match(/#/g)||[]).length;if(void 0!==h&&0!==h||(f=d+"#"+s),h>0){var g,v=d.split("#");for(v[1].indexOf("opts=")>=0?(v[1]=s,f=v[0]):(f=v[0]+"#",f+=s),g=1;g<v.length;g++)v[g].length>0&&(f+="#"+v[g])}a=t.select("#exportedUrl").node(),a.value=f,a.title=f},L.createJSON_exportObject=function(){var t,n,o,i=e.getUnfilteredData(),r=e.options().data()._comment,a=e.options().getGeneralMetaObject(),l=e.options().data().header;a.iri&&a.iri!==l.iri&&(l.iri=a.iri),a.title&&a.title!==l.title&&(l.title=a.title),a.version&&a.version!==l.version&&(l.version=a.version),a.author&&a.author!==l.author&&(l.author=a.author),a.description&&a.description!==l.description&&(l.description=a.description);var s={};s._comment=r,s.header=l,s.namespace=e.options().data().namespace,void 0===s.namespace&&(s.namespace=[]);var d=i.nodes,c=d.length,p=[],u=[];for(t=0;t<c;t++){var f={},h={};if(f.id=d[t].id(),f.type=d[t].type(),p.push(f),h.id=d[t].id(),h.iri=d[t].iri(),h.baseIri=d[t].baseIri(),h.label=d[t].label(),d[t].attributes().length>0&&(h.attributes=d[t].attributes()),d[t].comment()&&(h.comment=d[t].comment()),d[t].annotations()&&(h.annotations=d[t].annotations()),d[t].description()&&(h.description=d[t].description()),d[t].individuals().length>0){var g=[],v=d[t].individuals();for(n=0;n<v.length;n++){var m={};m.iri=v[n].iri(),m.baseIri=v[n].baseIri(),m.labels=v[n].label(),v[n].annotations()&&(m.annotations=v[n].annotations()),v[n].description()&&(m.description=v[n].description()),v[n].comment()&&(m.comment=v[n].comment()),g.push(m)}h.individuals=g}var y=void 0;if(d[t].equivalents().length>0){y=[];var b=d[t].equivalents();for(n=0;n<b.length;n++){var x={},w={};if(x.id=b[n].id(),y.push(b[n].id()),x.type=b[n].type(),p.push(x),w.id=b[n].id(),w.iri=b[n].iri(),w.baseIri=b[n].baseIri(),w.label=b[n].label(),b[n].attributes().length>0&&(w.attributes=b[n].attributes()),b[n].comment()&&(w.comment=b[n].comment()),b[n].individuals().length>0&&(w.individuals=b[n].individuals()),b[n].annotations()&&(w.annotations=b[n].annotations()),b[n].description()&&(w.description=b[n].description()),b[n].individuals().length>0){var k=[],C=b[t].individuals();for(o=0;o<C.length;o++){var L={};L.iri=C[o].iri(),L.baseIri=C[o].baseIri(),L.labels=C[o].label(),C[o].annotations()&&(L.annotations=C[o].annotations()),C[o].description()&&(L.description=C[o].description()),C[o].comment()&&(L.comment=C[o].comment()),k.push(L)}w.individuals=k}u.push(w)}}y&&y.length>0&&(h.equivalent=y),u.push(h)}var M=i.properties,_=M.length,E=[],O=[];for(t=0;t<_;t++){var S={},F={};if(S.id=M[t].id(),S.type=M[t].type(),E.push(S),F.id=M[t].id(),F.iri=M[t].iri(),F.baseIri=M[t].baseIri(),F.label=M[t].label(),M[t].attributes().length>0&&(F.attributes=M[t].attributes()),M[t].comment()&&(F.comment=M[t].comment()),M[t].annotations()&&(F.annotations=M[t].annotations()),M[t].maxCardinality()&&(F.maxCardinality=M[t].maxCardinality()),M[t].minCardinality()&&(F.minCardinality=M[t].minCardinality()),M[t].cardinality()&&(F.cardinality=M[t].cardinality()),M[t].description()&&(F.description=M[t].description()),F.domain=M[t].domain().id(),F.range=M[t].range().id(),M[t].subproperties()){var I=M[t].subproperties(),T=[];for(n=0;n<I.length;n++)I[n].id&&T.push(I[n].id());F.subproperty=T}if(M[t].superproperties()){var A=M[t].superproperties(),P=[];for(n=0;n<A.length;n++)A[n].id&&P.push(A[n].id());F.superproperty=P}M[t].inverse()&&M[t].inverse().id&&(F.inverse=M[t].inverse().id()),O.push(F)}s.class=p,s.classAttribute=u,s.property=E,s.propertyAttribute=O;var B=e.graphNodeElements(),D=e.graphLabelElements(),R=s._comment,W=" [Additional Information added by WebVOWL Exporter Version: 1.1.4]";R.indexOf(W)===-1&&(s._comment=R+" [Additional Information added by WebVOWL Exporter Version: 1.1.4]");var N=s.classAttribute,H=s.propertyAttribute;for(t=0;t<N.length;t++){var j=N[t];delete j.pos,delete j.pinned}var z;for(t=0;t<H.length;t++)z=H[t],delete z.pos,delete z.pinned;for(B.each(function(e){var n=e.id();for(t=0;t<N.length;t++){var o=N[t];if(o.id===n){o.pos=[parseFloat(e.x.toFixed(2)),parseFloat(e.y.toFixed(2))],e.pinned()&&(o.pinned=!0);break}}}),n=0;n<D.length;n++){var V=D[n].property();for(t=0;t<H.length;t++)if(z=H[t],z.id===V.id()){z.pos=[parseFloat(D[n].x.toFixed(2)),parseFloat(D[n].y.toFixed(2))],D[n].pinned()&&(z.pinned=!0);break}}s.settings={};var U=e.scaleFactor(),G=e.paused(),q=[parseFloat(e.translation()[0].toFixed(2)),parseFloat(e.translation()[1].toFixed(2))];s.settings.global={},s.settings.global.zoom=U.toFixed(2),s.settings.global.translation=q,s.settings.global.paused=G;var $,Z,J,Y=e.options().classDistance(),X=e.options().datatypeDistance();s.settings.gravity={},s.settings.gravity.classDistance=Y,s.settings.gravity.datatypeDistance=X;var K=e.options().filterMenu(),Q=K.getCheckBoxContainer(),ee=[];for(t=0;t<Q.length;t++)$=Q[t].checkbox.attr("id"),Z=Q[t].checkbox.property("checked"),J={},J.id=$,J.checked=Z,ee.push(J);var te=K.getDegreeSliderValue();s.settings.filter={},s.settings.filter.checkBox=ee,s.settings.filter.degreeSliderValue=te;var ne=e.options().modeMenu(),oe=ne.getCheckBoxContainer(),ie=[];for(t=0;t<oe.length;t++)$=oe[t].attr("id"),Z=oe[t].property("checked"),J={},J.id=$,J.checked=Z,ie.push(J);var re=ne.colorModeState();s.settings.modes={},s.settings.modes.checkBox=ie,s.settings.modes.colorSwitchState=re;var ae={};return ae._comment=s._comment,ae.header=s.header,ae.namespace=s.namespace,ae.metrics=s.metrics,ae.settings=s.settings,ae.class=s.class,ae.classAttribute=s.classAttribute,ae.property=s.property,ae.propertyAttribute=s.propertyAttribute,ae};t.svg.line().x(function(e){return e.x}).y(function(e){return e.y}).interpolate("cardinal"),t.svg.line().x(function(e){return e.x}).y(function(e){return e.y}).interpolate("cardinal").tension(-1);return L}}).call(t,n(6))},324:function(e,t){e.exports=function(e){function t(){var t,n=e.getUnfilteredData().nodes,o=e.getUnfilteredData().properties;for(t=0;t<n.length;t++){var i=C.getPrefixRepresentationForFullURI(n[t].iri());C.validURL(i)===!0?n[t].prefixRepresentation="<"+i+">":n[t].prefixRepresentation=i}for(t=0;t<o.length;t++){var r=C.getPrefixRepresentationForFullURI(o[t].iri());C.validURL(r)===!0?o[t].prefixRepresentation="<"+r+">":o[t].prefixRepresentation=r}}function n(){if(0!==y.length){x+="###  Property Definitions (Number of Property) "+y.length+" ###\r\n";for(var e=0;e<y.length;e++){x+="#  --------------------------- Property "+e+"------------------------- \r\n";var t=a(y[e]);if(x+=t,t.indexOf("WHYEMPTYNAME")!==-1)return!1}return!0}}function o(){if(0!==m.length){x+="###  Class Definitions (Number of Classes) "+m.length+" ###\r\n";for(var e=0;e<m.length;e++){x+="#  --------------------------- Class  "+e+"------------------------- \r\n";var t=r(m[e]);if(x+=t,t.indexOf("WHYEMPTYNAME")!==-1)return!1}return!0}}function i(e,t){var n=e.attributes();return n.indexOf(t)>=0}function r(t){var n=t.prefixRepresentation,o="rdf:type",r=t.type();"owl:equivalentClass"===t.type()&&(r="owl:Class"),"owl:disjointUnionOf"===t.type()&&(r="owl:Class"),"owl:unionOf"===t.type()&&(r="owl:Class");var a=[],s=[];if(t.union())for(var d=t.union(),c=0;c<d.length;c++){var p=w[d[c]];s.push(p)}if(t.disjointUnion())for(var u=t.disjointUnion(),f=0;f<u.length;f++){var h=w[u[f]];a.push(h)}var g=n+" "+o+" "+r;i(t,"deprecated")===!0&&(g+=", owl:DeprecatedProperty");var m=l(n);g+="; \r\n";for(var y=0;y<t.equivalents().length;y++){var b=C.getPrefixRepresentationForFullURI(t.equivalents()[y].iri()),x="";x=C.validURL(b)===!0?"<"+b+">":b,g+=m+" owl:equivalentClass "+x+" ;\r\n"}if(t.commentForCurrentLanguage()&&(g+=m+' rdfs:comment "'+t.commentForCurrentLanguage()+'" ;\r\n'),t.annotations()){var k=t.annotations();for(var L in k)if(k.hasOwnProperty(L)){var M=k[L],_=M[0],E=_.identifier,O=_.value;"isDefinedBy"===E&&(g+=m+" rdfs:isDefinedBy <"+O+"> ;\r\n"),"term_status"===E&&(g+=m+' vs:term_status "'+O+'" ;\r\n')}}if(a.length>0){g+=m+" owl:disjointUnionOf (";for(var S=0;S<a.length;S++){var F=C.getPrefixRepresentationForFullURI(a[S].iri()),I="";I=C.validURL(F)===!0?"<"+F+">":F,g+=m+m+I+" \n"}g+=") ;\r\n"}if(s.length>0){g+=m+" rdfs:subClassOf [ rdf:type owl:Class ; \r\n",g+=m+m+" owl:unionOf ( ";for(var T=0;T<s.length;T++)if(s[T]&&s[T].iri()){var A=C.getPrefixRepresentationForFullURI(s[T].iri()),P="";P=C.validURL(A)===!0?"<"+A+">":A,g+=m+m+m+P+" \n"}g+=") ;\r\n"}var B,D=e.getUnfilteredData().properties,R=[];for(B=0;B<D.length;B++)D[B].domain()!==t||"rdfs:subClassOf"!==D[B].type()&&"owl:allValuesFrom"!==D[B].type()&&"owl:someValuesFrom"!==D[B].type()||R.push(D[B]),D[B].domain()===t&&"owl:disjointWith"===D[B].type()&&R.push(D[B]);for(B=0;B<R.length;B++)"owl:someValuesFrom"!==R[B].type()?"owl:allValuesFrom"!==R[B].type()?"owl:Thing"!==R[B].range().type()&&(g+=m+" "+R[B].prefixRepresentation+" "+R[B].range().prefixRepresentation+" ;\r\n"):(g+=m+" rdfs:subClassOf [ rdf:type owl:Restriction ; \r\n",g+=m+"                   owl:onProperty "+R[B].prefixRepresentation+";\r\n","owl:Thing"!==R[B].range().type()&&(g+=m+"                   owl:allValuesFrom "+R[B].range().prefixRepresentation+"\r\n"),g+=m+"                 ];\r\n"):(g+=m+" rdfs:subClassOf [ rdf:type owl:Restriction ; \r\n",g+=m+"                   owl:onProperty "+R[B].prefixRepresentation+";\r\n","owl:Thing"!==R[B].range().type()&&(g+=m+"                   owl:someValuesFrom "+R[B].range().prefixRepresentation+"\r\n"),g+=m+"                 ];\r\n");return g+=v(m,t.label(),"rdfs:label",!0)}function a(e){var t=e.prefixRepresentation;if(0===t.length){console.log("THIS SHOULD NOT HAPPEN");var n=C.getPrefixRepresentationForFullURI(e.iri());console.log("FOUND "+n)}var o="rdf:type",r=e.type(),a=t+" "+o+" "+r;i(e,"deprecated")===!0&&(a+=", owl:DeprecatedProperty"),i(e,"functional")===!0&&(a+=", owl:FunctionalProperty"),i(e,"inverse functional")===!0&&(a+=", owl:InverseFunctionalProperty"),i(e,"symmetric")===!0&&(a+=", owl:SymmetricProperty"),i(e,"transitive")===!0&&(a+=", owl:TransitiveProperty");var s=l(t);e.inverse()&&(a+="; \r\n",a+=s+" owl:inverseOf "+e.inverse().prefixRepresentation);var d=!1,c=e.domain(),p=e.range();if(a+=" ;\r\n",e.commentForCurrentLanguage()&&(a+=s+' rdfs:comment "'+e.commentForCurrentLanguage()+'" ;\r\n'),e.superproperties())for(var u=e.superproperties(),f=0;f<u.length;f++){var h=u[f];a+=s+"rdfs:subPropertyOf "+h.prefixRepresentation+";\r\n"}if(e.annotations()){var g=e.annotations();for(var m in g)if(g.hasOwnProperty(m)){var y=g[m],b=y[0],x=b.identifier,w=b.value;"isDefinedBy"===x&&(a+=s+" rdfs:isDefinedBy <"+w+"> ;\r\n"),"term_status"===x&&(a+=s+' vs:term_status "'+w+'" ;\r\n')}}if("owl:Thing"===c.type()&&"owl:Thing"===p.type()&&"object"!=typeof e.label()&&0===e.label().length&&(d=!0),d===!0){var k=a.substring(0,a.length-2);return a=k+" . \r\n"}var L;if("owl:Thing"===c.type()&&"owl:Thing"===p.type())L=v(s,e.label(),"rdfs:label",!0),a+=L;else{L=v(s,e.label(),"rdfs:label"),a+=L,"owl:Thing"!==c.type()&&(a+=s+" rdfs:domain "+c.prefixRepresentation+";\r\n"),"owl:Thing"!==p.type()&&(a+=s+" rdfs:range "+p.prefixRepresentation+";\r\n");var M=a,_=M.lastIndexOf(";");a=M.substring(0,_)+" . \r\n"}return a}function l(e){return void 0===e?"WHYEMPTYNAME?":new Array(e.length+1).join(" ")}function s(){x+="#################################################################\r\n",x+="###  Generated with the experimental alpha version of the TTL exporter of WebVOWL (version 1.1.3)  http://visualdataweb.de/webvowl/   ###\r\n",x+="#################################################################\r\n\r\n"}function d(){var t=e.options().getGeneralMetaObjectProperty("iri"),n=e.options().prefixList(),o=[];o.push("@prefix : \t\t<"+t+"> .");for(var i in n)n.hasOwnProperty(i)&&o.push("@prefix "+i+": \t\t<"+n[i]+"> .");o.push("@base \t\t\t<"+t+"> .\r\n");for(var r=0;r<o.length;r++)x+=o[r]+"\r\n"}function c(){var t=e.options().getGeneralMetaObjectProperty("iri"),n=l("<"+t+">");x+="<"+t+"> rdf:type owl:Ontology ;\r\n"+p(n)+u(n)+h(n)+f(n);var o=x,i=o.lastIndexOf(";");x=o.substring(0,i)+" . \r\n"}function p(e){return g(e,"title","dc:title")}function u(e){return g(e,"description","dc:description")}function f(t){var n=e.options().getGeneralMetaObjectProperty("author");if(n){if("object"!=typeof n){if(0===n.length)return"";var o=t+' dc:creator "'+n+'";\r\n';return o}for(var i=t+' dc:creator "',r=0;r<n.length-1;r++)i+=n[r]+", ";return i+=n[n.length-1]+'";\r\n'}return""}function h(t){var n=e.options().getGeneralMetaObjectProperty("version");return n?"object"!=typeof n&&0===n.length?"":g(t,"version","owl:versionInfo"):""}function g(t,n,o,i){var r=e.options().getGeneralMetaObjectProperty(n);if("object"==typeof r){var a=[];for(var l in r)if(r.hasOwnProperty(l)){var s=r[l];"undefined"===l?a.push(t+" "+o+' "'+s+'"@en; \r\n'):a.push(t+" "+o+' "'+s+'"@'+l+"; \r\n")}for(var d="",c=0;c<a.length;c++)d+=a[c];if(i&&i===!0){var p=d,u=p.lastIndexOf(";");return p.substring(0,u)+". \r\n"}return d}if(i&&i===!0){var f=t+" "+o+' "'+r+'"@en; \r\n',h=f.lastIndexOf(";");return f.substring(0,h)+" . \r\n"}return t+" "+o+' "'+r+'"@en;\r\n'}function v(e,t,n,o){var i=t;if("object"==typeof i){var r=[];for(var a in i)if(i.hasOwnProperty(a)){var l=i[a];"undefined"===a?r.push(e+" "+n+' "'+l+'"@en; \r\n'):r.push(e+" "+n+' "'+l+'"@'+a+"; \r\n")}for(var s="",d=0;d<r.length;d++)s+=r[d];if(o&&o===!0){var c=s,p=c.lastIndexOf(";");return c.substring(0,p)+" . \r\n"}return s}if(o&&o===!0){var u=e+" "+n+' "'+i+'"@en; \r\n',f=u.lastIndexOf(";");return u.substring(0,f)+" . \r\n"}return e+" "+n+' "'+i+'"@en; \r\n'}var m,y,b={},x="",w={},k={},C=webvowl.util.prefixTools(e);return b.requestExport=function(){C.updatePrefixModel(),x="",m=e.getClassDataForTtlExport();var i;for(i=0;i<m.length;i++)w[m[i].id()]=m[i];for(y=e.getPropertyDataForTtlExport(),i=0;i<y.length;i++)k[y[i].id()]=y[i];s(),d(),c(),x+="#################################################################\r\n\r\n",t();var r=n(),a=o();return m=null,y=null,w={},k={},r!==!1&&a!==!1},b.resultingTTL_Content=function(){return x},b}},325:function(e,t,n){(function(t){e.exports=function(e){function n(n,o,i,r){var a,l;a=t.select(r).append("div").classed("checkboxContainer",!0),l=a.append("input").classed("filterCheckbox",!0).attr("id",o+"FilterCheckbox").attr("type","checkbox").property("checked",n.enabled()),c.push({checkbox:l,defaultState:n.enabled()}),l.on("click",function(t){var o=l.property("checked");n.enabled(o),t!==!0&&e.update()}),a.append("label").attr("for",o+"FilterCheckbox").text(i)}function o(t,n){t.setMaxDegreeSetter(function(e){s.attr("max",e),r(s,Math.min(e,s.property("value")))}),t.setDegreeGetter(function(){return s.property("value")}),t.setDegreeSetter(function(e){r(s,e)});var o,a;o=n.append("div").classed("distanceSliderContainer",!0),s=o.append("input").attr("id","nodeDegreeDistanceSlider").attr("type","range").attr("min",0).attr("step",1),o.append("label").classed("description",!0).attr("for","nodeDegreeDistanceSlider").text("Degree of collapsing"),a=o.append("label").classed("value",!0).attr("for","nodeDegreeDistanceSlider").text(0),s.on("change",function(t){t!==!0&&(e.update(),l=s.property("value"))}),s.on("input",function(){var e=s.property("value");a.text(e)}),s.on("wheel",i),s.on("focusout",function(){s.property("value")!==l&&e.update()})}function i(){var n,o=t.event;o.deltaY<0&&(n=1),o.deltaY>0&&(n=-1);var i=parseInt(s.attr("max")),r=parseInt(s.property("value")),a=r+n;r!==a&&a>=0&&a<=i&&(s.property("value",a),s.on("input")(),e.update()),t.event.preventDefault()}function r(e,t){e.property("value",t).on("input")()}function a(){p.node().addEventListener("animationend",function(){p.classed("buttonPulse",!1),p.classed("filterMenuButtonHighlight",!0)})}var l,s,d={},c=[],p=(t.select("#m_filter"),t.select("#c_filter a")),u=t.select("#nodeDegreeFilteringOption"),f=0;return d.setDefaultDegreeValue=function(e){f=e},d.getDefaultDegreeValue=function(){return f},d.getGraphObject=function(){return e},d.getCheckBoxContainer=function(){return c},d.getDegreeSliderValue=function(){return s.property("value")},d.setup=function(t,i,r,l,s,c){p.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries()}),p.on("mouseleave",function(){d.highlightForDegreeSlider(!1)}),n(t,"datatype","Datatype properties","#datatypeFilteringOption"),n(i,"objectProperty","Object properties","#objectPropertyFilteringOption"),n(r,"subclass","Solitary subclasses","#subclassFilteringOption"),n(l,"disjoint","Class disjointness","#disjointFilteringOption"),n(s,"setoperator","Set operators","#setOperatorFilteringOption"),o(c,u),a()},d.reset=function(){c.forEach(function(e){var t=e.checkbox,n=e.defaultState,o=t.property("checked");o!==n&&(t.property("checked",n),t.on("click")())}),r(s,0),s.on("change")()},d.killButtonAnimation=function(){p.classed("buttonPulse",!1),p.classed("filterMenuButtonHighlight",!1)},d.highlightForDegreeSlider=function(e){if(arguments.length||(e=!0),p.classed("highlighted",e),u.classed("highlighted",e),p.classed("buttonPulse")===!0&&e===!0){p.classed("buttonPulse",!1);var t=setTimeout(function(){p.classed("buttonPulse",e),clearTimeout(t)},100)}else p.classed("buttonPulse",e),p.classed("filterMenuButtonHighlight",e)},d.setCheckBoxValue=function(e,t){for(var n=0;n<c.length;n++){var o=c[n].checkbox.attr("id");if(o===e){c[n].checkbox.property("checked",t);break}}},d.getCheckBoxValue=function(e){for(var t=0;t<c.length;t++){var n=c[t].checkbox.attr("id");if(n===e)return c[t].checkbox.property("checked")}},d.setDegreeSliderValue=function(e){s.property("value",e)},d.getDegreeSliderValue=function(){return s.property("value")},d.updateSettings=function(){var e=!0,t=s.property("value");t>0?d.highlightForDegreeSlider(!0):d.highlightForDegreeSlider(!1),c.forEach(function(t){var n=t.checkbox;n.on("click")(e)}),s.on("input")(),s.on("change")()},d}}).call(t,n(6))},326:function(e,t,n){(function(t){e.exports=function(e){function n(n,i,a,l){var s,d,c=l();s=t.select(n).append("div").datum({distanceFunction:l}).classed("distanceSliderContainer",!0);var p=s.append("input").attr("id",i+"DistanceSlider").attr("type","range").attr("min",10).attr("max",600).attr("value",l()).attr("step",10);s.append("label").classed("description",!0).attr("for",i+"DistanceSlider").text(a),d=s.append("label").classed("value",!0).attr("for",i+"DistanceSlider").text(l()),r.push(p),p.on("focusout",function(){e.updateStyle()}),p.on("input",function(){var t=p.property("value");l(t),o(c),d.text(t),e.updateStyle()}),p.on("wheel",function(){var e,n=t.event;n.deltaY<0&&(e=10),n.deltaY>0&&(e=-10);var o=parseInt(p.property("value")),i=o+e;i!==o&&(p.property("value",i),l(i),p.on("input")()),t.event.preventDefault()})}function o(e){var t=Math.max(a.classDistance(),a.datatypeDistance()),n=t/e,o=l*n;a.charge(o)}var i={},r=[],a=e.graphOptions(),l=a.charge();return i.setup=function(){var o=t.select("#m_gravity");o.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries()}),n("#classSliderOption","class","Class distance",a.classDistance),n("#datatypeSliderOption","datatype","Datatype distance",a.datatypeDistance)},i.reset=function(){r.forEach(function(e){e.property("value",function(e){return e.distanceFunction()}),e.on("input")()})},i}}).call(t,n(6))},327:function(e,t,n){(function(t){e.exports=function(e){function n(n,o,i,r,a){var l=t.select(i).append("div").classed("checkboxContainer",!0),s=l.append("input").classed("moduleCheckbox",!0).attr("id",n+"ModuleCheckbox").attr("type","checkbox").property("checked",r());s.on("click",function(n){var o=s.property("checked");r(o),t.select("#maxLabelWidthSlider").node().disabled=!o,t.select("#maxLabelWidthvalueLabel").classed("disabledLabelForSlider",!o),t.select("#maxLabelWidthDescriptionLabel").classed("disabledLabelForSlider",!o),a>0&&e.animateDynamicLabelWidth()}),l.append("label").attr("for",n+"ModuleCheckbox").text(o),"editorMode"===n&&l.append("label").attr("style","font-size:10px;padding-top:3px").text("(experimental)"),d=s}function o(n,o,i,r){var a=t.select(i).append("div").classed("checkboxContainer",!0),l=a.append("input").classed("moduleCheckbox",!0).attr("id",n+"ModuleCheckbox").attr("type","checkbox").property("checked",r());l.on("click",function(t){var n=l.property("checked");r(n),n===!0&&e.showEditorHintIfNeeded()}),a.append("label").attr("for",n+"ModuleCheckbox").text(o),"editorMode"===n&&a.append("label").attr("style","font-size:10px;padding-top:3px").text(" (experimental)")}function i(n,o,i,r,a){var l,s;return l=t.select(r).append("div").classed("checkboxContainer",!0).datum({module:n,defaultState:n.enabled()}),s=l.append("input").classed("moduleCheckbox",!0).attr("id",o+"ModuleCheckbox").attr("type","checkbox").property("checked",n.enabled()),f.push(s),s.on("click",function(t,n){var o=s.property("checked");t.module.enabled(o),a&&n!==!0&&(e.executeColorExternalsModule(),e.executeCompactNotationModule(),e.lazyRefresh())}),l.append("label").attr("for",o+"ModuleCheckbox").text(i),l}function r(t,n){var o=t.append("button").datum({active:!1}).classed("color-mode-switch",!0);return a(o,n),o.on("click",function(t){var i=o.datum();i.active=!i.active,a(o,n),n.enabled()&&t!==!0&&(e.executeColorExternalsModule(),e.lazyRefresh())}),o}function a(e,t){var n=e.datum().active,o=l(n);e.classed("active",n).text(o.text),t&&t.colorModeType(o.type)}function l(e){return e?p:c}var s,d,c={text:"Multicolor",type:"same"},p={text:"Multicolor",type:"gradient"},u={},f=[];return u.colorModeState=function(e){return arguments.length?(s.datum().active=e,u):s.datum().active},u.setDynamicLabelWidth=function(e){d.property("checked",e)},u.getCheckBoxContainer=function(){return f},u.colorModeSwitch=function(){return s},u.setup=function(a,l,d,c){var p=t.select("#m_modes");p.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries()}),n("labelWidth","Dynamic label width","#dynamicLabelWidth",e.options().dynamicLabelWidth,1),o("editorMode","Editing ","#editMode",e.editorMode),i(a,"pickandpin","Pick & pin","#pickAndPinOption",!1),i(l,"nodescaling","Node scaling","#nodeScalingOption",!0),i(d,"compactnotation","Compact notation","#compactNotationOption",!0);var u=i(c,"colorexternals","Color externals","#colorExternalsOption",!0);s=r(u,c)},u.reset=function(){f.forEach(function(e){var t=e.datum().defaultState,n=e.property("checked");n!==t&&(e.property("checked",t),e.on("click")(e.datum())),e.datum().module.reset()}),s.datum().active=!0,s.on("click")()},u.setCheckBoxValue=function(e,t){for(var n=0;n<f.length;n++){var o=f[n].attr("id");if(o===e){f[n].property("checked",t);break}}},u.getCheckBoxValue=function(e){for(var t=0;t<f.length;t++){var n=f[t].attr("id");if(n===e)return f[t].property("checked")}},u.setColorSwitchState=function(e){u.colorModeState(!e)},u.setColorSwitchStateUsingURL=function(e){u.colorModeState(!e),s.on("click")(!0)},u.updateSettingsUsingURL=function(){var e=!0;f.forEach(function(t){t.on("click")(t.datum(),e)})},u.updateSettings=function(){var e=!0;f.forEach(function(t){t.on("click")(t.datum(),e)}),s.on("click")(e)},u}}).call(t,n(6))},328:function(e,t,n){(function(t){e.exports=function(e){function n(e,n,o,i,a){var l=t.select(o).append("div").classed("checkboxContainer",!0),s=l.append("input").classed("moduleCheckbox",!0).attr("id",e+"ConfigCheckbox").attr("type","checkbox").property("checked",i());return s.on("click",function(e){var t=s.property("checked");i(t),a(t,e)}),r.push(s),l.append("label").attr("for",e+"ConfigCheckbox").text(n),s}var o,i={},r=[],a=!1;return i.setup=function(){var i=t.select("#debugMenuHref");i.on("mouseover",function(){if(a===!1){var n=e.options().searchMenu();n.hideSearchEntries(),o.on("click")(!0),e.editorMode()===!1?(t.select("#useAccuracyHelper").style("color","#979797"),t.select("#useAccuracyHelper").style("pointer-events","none"),t.select("#showDraggerObject").style("color","#979797"),t.select("#showDraggerObject").style("pointer-events","none")):(t.select("#useAccuracyHelper").style("color","#2980b9"),t.select("#useAccuracyHelper").style("pointer-events","auto")),a=!0}}),i.on("mouseout",function(){a=!1}),o=n("useAccuracyHelper","Use accuracy helper","#useAccuracyHelper",e.options().useAccuracyHelper,function(n,o){n?(t.select("#showDraggerObject").style("color","#2980b9"),t.select("#showDraggerObject").style("pointer-events","auto")):(t.select("#showDraggerObject").style("color","#979797"),t.select("#showDraggerObject").style("pointer-events","none"),t.select("#showDraggerObjectConfigCheckbox").node().checked=!1),o!==!0&&(e.lazyRefresh(),e.updateDraggerElements())}),n("showDraggerObject","Show accuracy helper","#showDraggerObject",e.options().showDraggerObject,function(t,n){n!==!0&&(e.lazyRefresh(),e.updateDraggerElements())}),n("showFPS_Statistics","Show rendering statistics","#showFPS_Statistics",e.options().showRenderingStatistic,function(n,o){e.options().getHideDebugFeatures()===!1?t.select("#FPS_Statistics").classed("hidden",!n):t.select("#FPS_Statistics").classed("hidden",!0)}),n("showModeOfOperation","Show input modality","#showModeOfOperation",e.options().showInputModality,function(n){e.options().getHideDebugFeatures()===!1?t.select("#modeOfOperationString").classed("hidden",!n):t.select("#modeOfOperationString").classed("hidden",!0)})},i.setCheckBoxValue=function(e,t){for(var n=0;n<r.length;n++){var o=r[n].attr("id");if(o===e){r[n].property("checked",t);break}}},i.getCheckBoxValue=function(e){for(var t=0;t<r.length;t++){var n=r[t].attr("id");if(n===e)return r[t].property("checked")}},i.updateSettings=function(){t.selectAll(".debugOption").classed("hidden",e.options().getHideDebugFeatures());var n=!0;r.forEach(function(e){e.on("click")(n)}),e.editorMode()===!1?(t.select("#useAccuracyHelper").style("color","#979797"),t.select("#useAccuracyHelper").style("pointer-events","none"),t.select("#showDraggerObject").style("color","#979797"),t.select("#showDraggerObject").style("pointer-events","none")):(t.select("#useAccuracyHelper").style("color","#2980b9"),t.select("#useAccuracyHelper").style("pointer-events","auto"))},i}}).call(t,n(6))},329:function(e,t,n){(function(t){n(330);e.exports=function(e){function n(){t.select(window).on("hashchange",function(){var e=t.event.oldURL,n=t.event.newURL;if(e!==n){if(n===e+"#")return;o(),E.parseUrlAndLoadOntology()}}),o()}function o(){t.selectAll("#menuElementContainer > li > a").attr("href",location.hash||"#")}function i(e){var n=t.select("#bulletPoint_container"),o=n.append("div");o.node().innerHTML=e,E.scrollDownDetails()}function r(e){var n=t.select("#bulletPoint_container"),o=n.node().getElementsByTagName("LI"),i=o.length-1;if(i>=0){var r=o[i].innerHTML;o[i].innerHTML=r+e}E.scrollDownDetails()}function a(e){var n=t.select("#bulletPoint_container"),o=n.append("li");o.node().innerHTML=e,t.select("#currentLoadingStep").node().innerHTML=e,E.scrollDownDetails()}function l(){var e=t.select("#iri-converter-button"),n=t.select("#iri-converter-input");n.on("input",function(){x();var t=""===n.property("value");e.attr("disabled",t||void 0)}).on("click",function(){x()}),t.select("#iri-converter-form").on("submit",function(){for(var e=n.property("value"),o=e.replace(/%20/g," ");o.beginsWith(" ");)o=o.substr(1,o.length);for(;o.endsWith(" ");)o=o.substr(0,o.length-1);e=o;var i=e.toLowerCase();return i.endsWith(".json")?(location.hash="url="+e,n.property("value",""),n.on("input")()):(location.hash="iri="+e,n.property("value",""),n.on("input")()),t.event.preventDefault(),!1})}function s(){var n=t.select("#file-converter-input"),o=t.select("#file-converter-label"),i=t.select("#file-converter-button");n.on("change",function(){var t=n.property("files");t.length<=0?(o.text("Select ontology file"),i.property("disabled",!0)):(o.text(t[0].name),L=t[0].name,i.property("disabled",!1),i.node().click(),e.options().navigationMenu().hideAllMenus())}),i.on("click",function(){var e=n.property("files")[0];if(!e)return!1;var t="file="+e.name;location.hash==="#"+t?E.parseUrlAndLoadOntology():location.hash=t})}function d(e){var n=t.select("#o2vConverterContainer");if(!n.node()){var o=t.select("#bulletPoint_container"),i=o.append("div");n=i.append("ul"),n.attr("id","o2vConverterContainer"),n.style("margin-left","-25px")}for(var r=n.node().children,a=r.length,l=0;l<a;l++)r[0].remove();
-for(var s,d=e.split("* "),c=0;c<d.length;c++){var p=d[c];p.length>0&&(s=n.append("li"),s.attr("type","disc"),s.node().innerHTML=p.replace(/\n/g,"<br>"))}s&&(s.node().innerHTML+="<br>"),E.scrollDownDetails()}function c(e,n){t.xhr("loadingStatus?sessionId="+_,"application/text",function(t,o){t&&(console.log("ontologyMenu getLoadingStatusOnceCallBacked throws error"),console.log("---------Error -----------"),console.log(t),console.log("---------Request -----------"),console.log(o)),d(o.responseText),e(n)})}function p(){t.xhr("loadingStatus?sessionId="+_,"application/text",function(e,t){e&&(console.log("ontologyMenu getLoadingStatusTimeLooped throws error"),console.log("---------Error -----------"),console.log(e),console.log("---------Request -----------"),console.log(t)),T===!1&&(d(t.responseText),u())})}function u(){clearTimeout(M),T===!1&&(M=setTimeout(function(){p()},1e3))}function f(e){t.xhr("loadingStatus","application/text",function(t,n){void 0!==n?d(n.responseText+"<br>"+e):i(e)})}function h(e){var t=e[2];return t!==_?(console.log("The conversion process for file:"+e[1]+" has been canceled!"),void S.conversionFinished(t)):(E.loadFromOWL2VOWL(e[0],e[1]),void S.conversionFinished())}function g(e){var t=e[2];return t!==_?void console.log("The conversion process for file:"+e[1]+" has been canceled!"):void E.loadFromOWL2VOWL(e[0],e[1])}function v(t){var n=t[0],o=t[1],r=t[2];return r!==_?(console.log("This thread has been canceled!!"),void S.conversionFinished(r)):(f('<br><span style=\'color:red\'> Failed to convert the file.</span>  Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target="_blank"href="http://visualdataweb.de/validator/">OWL Validator</a>'),null!==n&&500===n.status&&i("<span style='color:red'>Could not find ontology  at the URL</span>"),o&&0===o.responseText.length&&i("<span style='color:red'>Received empty graph</span>"),e.handleOnLoadingError(),void S.conversionFinished())}function m(t){var n=t[0],o=t[1],r=t[2];return r!==_?(console.log("This thread has been canceled!!"),void S.conversionFinished(r)):(f('<br><span style=\'color:red\'> Failed to convert the file.</span>  Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target="_blank"href="http://visualdataweb.de/validator/">OWL Validator</a>'),null!==n&&500===n.status&&i("<span style='color:red'>Could not find ontology  at the URL</span>"),o&&0===o.responseText.length&&i("<span style='color:red'>Received empty graph</span>"),e.handleOnLoadingError(),void S.conversionFinished())}function y(e,t,n){T=!1,u();var o=new FormData;o.append("ontology",e),o.append("sessionId",n);var i=new XMLHttpRequest;i.open("POST","convert",!0),i.onload=function(){clearTimeout(M),T=!0,c(b,[i,t,n])},u(),i.send(o)}function b(t){var n=t[0],o=t[1],i=t[2];return i!==_?(console.log("The conversion process for file:"+o+" has been canceled!"),void S.conversionFinished(i)):void(200===n.status?(E.loadFromOWL2VOWL(n.responseText,o),S.conversionFinished()):(f('Failed to convert the file. Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target="_blank"href="http://visualdataweb.de/validator/">OWL Validator</a>'),e.handleOnLoadingError(),S.conversionFinished()))}function x(){function e(){n.style("display",void 0),clearTimeout(C),t.select(window).on("click",void 0).on("keydown",void 0),n.on("mouseover",void 0)}var n=t.select("#select .toolTipMenu");n.on("click",function(){t.event.stopPropagation()}).on("keydown",function(){t.event.stopPropagation()}),n.style("display","block"),clearTimeout(C),C=setTimeout(function(){e()},3e3),t.select(window).on("click",function(){e()}).on("keydown",function(){e()}),n.on("mouseover",function(){e()})}function w(){t.select("#layoutLoadingProgressBarContainer").classed("hidden",!1),F.classed("hidden",!1),I.classed("hidden",!1)}function k(){F.classed("hidden",!0)}var C,L,M,_,E,O,S={},F=t.select("#loading-info"),I=t.select("#loading-progress"),T=!1,A=!1,P={},B="";return String.prototype.beginsWith=function(e){return 0===this.indexOf(e)},S.getLoadingFunction=function(){return O},S.clearCachedVersion=function(){P[B]&&(P[B]=void 0)},S.reloadCachedOntology=function(){S.clearCachedVersion(),e.clearGraphData(),E.parseUrlAndLoadOntology(!1)},S.cachedOntology=function(n){if(B=n,P[n]){var o=String(location.hash);t.select("#reloadSvgIcon").node().disabled=!1,e.showReloadButtonAfterLayoutOptimization(!0),o.indexOf("#file")>-1?(t.select("#reloadSvgIcon").node().disabled=!0,t.select("#reloadCachedOntology").node().title="reloading original version not possible, please reload the file",t.select("#reloadSvgIcon").classed("disabledReloadElement",!0),t.select("#svgStringText").style("fill","gray"),t.select("#svgStringText").classed("noselect",!0)):(t.select("#reloadCachedOntology").node().title="generate new visualization and overwrite cached ontology",t.select("#reloadSvgIcon").classed("disabledReloadElement",!1),t.select("#svgStringText").style("fill","black"),t.select("#svgStringText").classed("noselect",!0))}else e.showReloadButtonAfterLayoutOptimization(!1);return P[n]},S.setCachedOntology=function(e,t){P[e]=t,B=e},S.getErrorStatus=function(){return A},S.setup=function(o){O=o,E=e.options().loadingModule();var i=t.select("#m_select");i.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries()}),l(),s();var r=t.select("#error-description-button").datum({open:!1});r.on("click",function(e){var n=t.select("#error-description-container"),o=t.select(this);e.open=!e.open;var i=e.open;i?o.text("Hide error details"):o.text("Show error details"),n.classed("hidden",!i)}),n(),E.setOntologyMenu(S)},S.stopLoadingTimer=function(){T=!0,clearTimeout(M)},S.setIriText=function(e){t.select("#iri-converter-input").node().value=e,t.select("#iri-converter-button").attr("disabled",!1),t.select("#iri-converter-form").on("submit")()},S.clearDetailInformation=function(){for(var e=t.select("#bulletPoint_container"),n=e.node().children,o=n.length,i=0;i<o;i++)n[0].remove()},S.append_message=function(e){i(e)},S.append_message_toLastBulletPoint=function(e){r(e)},S.append_bulletPoint=function(e){a(e)},S.setLoadingStatusInfo=function(e){d(e)},S.setConversionID=function(e){_=e},S.callbackLoad_Ontology_FromIRI=function(e){var n=e[0],o=e[1],i=e[2];T=!1,u(),t.xhr(n,"application/json",function(e,t){var n=!e;(null!==e&&500===e.status||t&&0===t.responseText.length)&&(clearTimeout(M),T=!0,c(m,[e,t,i]));var r;n&&(clearTimeout(M),T=!0,r=t.responseText,c(h,[r,o,i]))})},S.callbackLoad_Ontology_From_DirectInput=function(e,t){var n=e,o=t[1];T=!1,u();var i=new FormData;i.append("input",n),i.append("sessionId",o);var r=new XMLHttpRequest;r.open("POST","directInput",!0),r.onload=function(){clearTimeout(M),T=!0,c(b,[r,n,o])},u(),r.send(i)},S.getConversionId=function(){return _},S.callbackLoad_JSON_FromURL=function(e){var n=e[0],o=e[1],i=e[2];T=!1,u(),t.xhr(n,"application/json",function(e,t){var n=!e;if((null!==e&&500===e.status||t&&0===t.responseText.length)&&(clearTimeout(M),T=!0,n=!1,console.log(t),console.log(t.responseText.length),c(v,[e,t,i])),n){clearTimeout(M),T=!0;var r=t.responseText;c(g,[r,o,i])}})},S.callbackLoadFromOntology=function(e,t,n){y(e,t,n)},S.conversionFinished=function(e){var n=_;e&&(n=e),t.xhr("conversionDone?sessionId="+n,"application/text",function(e,t){e&&(console.log("ontologyMenu conversionFinished throws error"),console.log("---------Error -----------"),console.log(e),console.log("---------Request -----------"),console.log(t))})},S.showLoadingStatus=function(e){e===!0?w():k()},S}}).call(t,n(6))},330:function(e,t,n){function o(e){return e=i(e),e&&l.test(e)?e.replace(a,r):e}var i=n(219),r=n(331),a=/&(?:amp|lt|gt|quot|#39);/g,l=RegExp(a.source);e.exports=o},331:function(e,t,n){var o=n(332),i={"&amp;":"&","&lt;":"<","&gt;":">","&quot;":'"',"&#39;":"'"},r=o(i);e.exports=r},332:function(e,t){function n(e){return function(t){return null==e?void 0:e[t]}}e.exports=n},333:function(e,t,n){(function(t){e.exports=function(e){function n(){o(),i()}function o(){r.classed("paused",function(e){return e.paused})}function i(){r.datum().paused?r.text("Resume"):r.text("Pause")}var r,a={};return a.setup=function(){var o=t.select("#pauseOption");o.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries()}),r=t.select("#pause-button").datum({paused:!1}).on("click",function(t){e.paused(!t.paused),t.paused=!t.paused,n(),r.classed("highlighted",t.paused)}),n()},a.setPauseValue=function(t){r.datum().paused=t,e.paused(t),r.classed("highlighted",t),n()},a.reset=function(){a.setPauseValue(!1)},a}}).call(t,n(6))},334:function(e,t,n){(function(t){e.exports=function(e){function n(){e.resetSearchHighlight(),e.options().searchMenu().clearText(),r.classDistance(a.classDistance()),r.datatypeDistance(a.datatypeDistance()),r.charge(a.charge()),r.gravity(a.gravity()),r.linkStrength(a.linkStrength()),e.reset(),o.forEach(function(e){e.reset()}),e.updateStyle()}var o,i={},r=e.graphOptions(),a=webvowl.options();return i.setup=function(i){o=i,t.select("#reset-button").on("click",n);var r=t.select("#resetOption");r.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries()})},i}}).call(t,n(6))},335:function(e,t,n){(function(t){e.exports=function(e){function n(){b=e.getUpdateDictionary(),M=!1,k=[],C=[];var t,n=[],o=[];for(t=0;t<b.length;t++){var i=b[t].labelForCurrentLanguage();if(n.push(b[t].id()),o.push(i),b[t].equivalents&&b[t].equivalents().length>0)for(var r=b[t].equivalentsString(),a=r.split(", "),l=0;l<a.length;l++)n.push(b[t].id()),o.push(a[l])}m=[],y=[];var s,d,c=-1;for(t=0;t<o.length;t++)if(0!==t)if(s=o[t],d=n[t],c=m.indexOf(s),c===-1){m.push(o[t]),y.push([]);var p=y.length;y[p-1].push(d)}else y[c].push(d);else m.push(o[t]),y.push([]),y[0].push(n[t]);for(t=0;t<m.length;t++){for(var u=m[t],f=y[t],h="[ ",g=0;g<f.length;g++)h+=f[g].toString(),h+=", ";h=h.substring(0,h.length-2),h+=" ]",k.push(u),C.push(u)}}function o(){a(),w.showSearchEntries()}function i(){_?w.hideSearchEntries():w.showSearchEntries()}function r(e){var t=/^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;return t.test(e)}function a(){return 0===v.node().value.length?void d():void f()}function l(){M&&n();var o,i=F.node().children,a=i.length,l=0,s=-1;for(o=0;o<a;o++){var d=i[o].getAttribute("class");"dbEntrySelected"===d&&(s=o)}if(13===t.event.keyCode)if(s>=0&&s<a)i[s].onclick(),w.hideSearchEntries();else if(0===a){x=v.node().value;for(var c=x.replace(/%20/g," ");c.beginsWith(" ");)c=c.substr(1,c.length);for(;c.endsWith(" ");)c=c.substr(0,c.length-1);var p=c.replace(/ /g,"%20"),u=r(p);if(u){var f=e.options().ontologyMenu();f.setIriText(p),v.node().value=""}else console.log(p+" is not a valid URL!")}38===t.event.keyCode&&(l=-1,w.showSearchEntries()),40===t.event.keyCode&&(l=1,w.showSearchEntries());var h=s+l;h!==s&&(h<0&&s<=0&&i[0].setAttribute("class","dbEntrySelected"),h>=a&&i[s].setAttribute("class","dbEntrySelected"),h>=0&&h<a&&(i[h].setAttribute("class","dbEntrySelected"),s>=0&&i[s].setAttribute("class","dbEntry")))}function s(){for(var e=F.node().children,t=e.length,n=0;n<t;n++)e[0].remove();E=[],O=[]}function d(){x=v.node().value;var e,t,n=x.toLowerCase();for(e=0;e<k.length;e++){var o=k[e];void 0!==o&&(t=k[e].toLowerCase(),t.indexOf(n)>-1&&(E.push(k[e]),O.push(e)))}}function c(e,n){n||(n="text");var o=t.select("body").append("div").attr("class",n).attr("id","width-test").attr("style","position:absolute; float:left; white-space:nowrap; visibility:hidden;").text(e),i=document.getElementById("width-test").offsetWidth;return o.remove(),i}function p(e){for(var t,n,o,i=250,r="dbEntry",a=e;;){if(t=c(a,r),t<=i)break;if(n=t/i,o=Math.floor(a.length/n),a.length===o)break;a=a.substring(0,o)}return e.length>a.length?e.substring(0,a.length-6):e}function u(){var n,o,i,r=E,a=[],l=[],s=v.node().value.toLowerCase();for(n=E.length,n>L&&(n=L),o=0;o<n;o++){for(var d=1e6,c=1e6,u=-1,f=0;f<r.length;f++){i=r[f].toLowerCase();var h=i.indexOf(s),m=i.length;h>-1&&h<=d&&m<=c&&(u=f,d=h,c=m)}a.push(r[u]),l.push(O[u]),r[u]=""}n=E.length,n>L&&(n=L);var b=0;for(o=0;o<n;o++){var x=document.createElement("li");x.setAttribute("elementID",l[o]),x.onclick=g(l[o]),x.setAttribute("class","dbEntry");var w=y[l[o]],k=w.length,C=p(a[o]),M=w[0],_=!0,S=e.getNodeMapForSearch(),I=k;if(k>1)for(var T=0;T<k;T++)void 0===S[w[T]]&&I--;for(var A=0;A<k;A++)M!==w[A]&&(_=!1);C!==a[o]?(k>1&&_===!1?k!==I&&(C+="... ("+I+"/"+k+")"):C+="...",x.title=a[o]):k>1&&_===!1&&(C+=k!==I?" ("+I+"/"+k+")":" ("+k+")");var P=t.select(x);1===k||_===!0?void 0===S[w[0]]&&(P.style("color","#979797"),x.title=a[o]+"\nElement is filtered out.",x.onclick=function(){},t.select(x).style("cursor","default"),b++):(I<1?(P.style("color","#979797"),x.onclick=function(){},x.title=a[o]+"\nAll elements are filtered out.",t.select(x).style("cursor","default"),b++):P.style("color",""),I<k&&I>1&&(x.title=a[o]+"\n"+I+"/"+k+" elements are visible.")),P.node().innerHTML=C,F.node().appendChild(x)}}function f(){s(),d(),u()}function h(){return S.classed("highlighted",!1),S.node().title="Nothing to locate",M&&n(),e.resetSearchHighlight(),0===k.length?void console.log("dictionary is empty"):(x=v.node().value,s(),0!==x.length&&(d(),u()),void w.showSearchEntries())}function g(t){return function(){var n=t,o=y[n],i=C[n];v.node().value=i,e.resetSearchHighlight(),e.highLightNodes(o),S.node().title="Locate search term",i!==x&&f(),w.hideSearchEntries()}}var v,m,y,b,x,w={},k=[],C=[],L=6,M=!0,_=!1,E=[],O=[],S=t.select("#locateSearchResult"),F=(t.select("#c_search"),t.select("#m_search"));return String.prototype.beginsWith=function(e){return 0===this.indexOf(e)},w.requestDictionaryUpdate=function(){M=!0;for(var e=F.node().children,t=e.length,n=0;n<t;n++)e[0].remove();v.node().value=""},w.setup=function(){k=[],v=t.select("#search-input-text"),v.on("input",h),v.on("keydown",l),v.on("click",i),v.on("mouseover",o),S.on("click",function(){e.locateSearchResult()}),S.on("mouseover",function(){w.hideSearchEntries()})},w.hideSearchEntries=function(){F.style("display","none"),_=!1},w.showSearchEntries=function(){F.style("display","block"),_=!0},w.getSearchString=function(){return v.node().value},w.clearText=function(){v.node().value="",S.classed("highlighted",!1),S.node().title="Nothing to locate";for(var e=F.node().children,t=e.length,n=0;n<t;n++)e[0].remove()},w}}).call(t,n(6))},336:function(e,t,n){(function(t){e.exports=function(e){function n(){cancelAnimationFrame(m),cancelAnimationFrame(y)}function o(){return f+=5,x.scrollLeft=f,b.updateScrollButtonVisibility(),f>=h?void n():void(y=requestAnimationFrame(o))}function i(){return f-=5,x.scrollLeft=f,b.updateScrollButtonVisibility(),f<=0?void n():void(y=requestAnimationFrame(i))}function r(){M=[],_=[];var e,r=[],c=[],p=x.children,u=p.length;for(e=0;e<u;e++)r.push(p[e].id.slice(2));var h=w.children;for(u=h.length,e=0;e<u;e++)c.push(h[e].id.slice(2));for(u=p.length,e=0;e<u;e++)M[e]="c_"+r[e],c.indexOf(r[e])>-1?_[e]="m_"+r[e]:_[e]=void 0,t.select("#"+M[e]).on("mouseover",a),t.select("#"+M[e]).on("mouseout",l),t.select("#"+M[e]).on("click",s),t.select("#"+M[e]).on("touchstart",d);t.select("#menuElementContainer").on("wheel",function(){var e,n=t.event;n.deltaY<0&&(e=20),n.deltaY>0&&(e=-20),x.scrollLeft+=e,b.hideAllMenus(),b.updateScrollButtonVisibility()}),t.select("#scrollRightButton").on("mousedown",function(){f=x.scrollLeft,b.hideAllMenus(),y=requestAnimationFrame(o)}).on("touchstart",function(){f=x.scrollLeft,b.hideAllMenus(),y=requestAnimationFrame(o)}).on("mouseup",n).on("touchend",n).on("touchcancel",n),t.select("#scrollLeftButton").on("mousedown",function(){f=x.scrollLeft,b.hideAllMenus(),m=requestAnimationFrame(i)}).on("touchstart",function(){f=x.scrollLeft,b.hideAllMenus(),m=requestAnimationFrame(i)}).on("mouseup",n).on("touchend",n).on("touchcancel",n),t.select("#menuElementContainer").on("scroll",function(){b.updateScrollButtonVisibility(),b.hideAllMenus()})}function a(){b.hideAllMenus(),L||p(this.id)}function l(){c(this.id)}function s(){var e=_[M.indexOf(this.id)];if(e){var n=t.select("#"+e);n&&("block"===n.style("display")?n.style("display","none"):p(this.id))}}function d(){L=!0}function c(e){v=t.select("#"+e),"c_search"!==e&&(t.select("#"+e).select("path").style("stroke-width","0"),t.select("#"+e).select("path").style("fill","#fff"))}function p(n){v=t.select("#"+n).node();var o=_[M.indexOf(n)];o&&("c_search"!==n&&(t.select("#"+n).select("path").style("stroke-width","0"),t.select("#"+n).select("path").style("fill","#bdc3c7")),g=t.select("#"+o),g.style("display","block"),"m_export"===o&&e.options().exportMenu().exportAsUrl(),u())}function u(){if(v){var e=v.offsetLeft,t=x.scrollLeft,n=e-t,o=Math.max(0,n),i=x.getBoundingClientRect().width,r=g.node().getBoundingClientRect().width;o+r>i&&(o=i-r),o=Math.max(0,o),g.style("left",o+"px")}}var f,h,g,v,m,y,b={},x=t.select("#menuElementContainer").node(),w=t.select("#menuContainer").node(),k=t.select("#scrollLeftButton"),C=t.select("#scrollRightButton"),L=!1,M=[],_=[];return b.hideAllMenus=function(){t.selectAll(".toolTipMenu").style("display","none")},b.updateScrollButtonVisibility=function(){h=x.scrollWidth-x.clientWidth-2,0===x.scrollLeft?k.classed("hidden",!0):k.classed("hidden",!1),x.scrollLeft>h?C.classed("hidden",!0):C.classed("hidden",!1)},b.setup=function(){r(),t.select("#graph").on("mouseover",function(){b.hideAllMenus()}),t.select("#generalDetails").on("mouseover",function(){b.hideAllMenus()})},b}}).call(t,n(6))},337:function(e,t,n){(function(t){e.exports=function(e){function n(){cancelAnimationFrame(a),cancelAnimationFrame(l)}function o(){s*=.98,s<p&&(s=p),e.setSliderZoom(s),a=requestAnimationFrame(o)}function i(){s*=1.02,s>u&&(s=u),e.setSliderZoom(s),l=requestAnimationFrame(i)}var r,a,l,s,d,c={},p=e.options().minMagnification(),u=e.options().maxMagnification(),f=!0,h=e.options().width(),g=e.options().height();return r=Math.min(h,g)/1e3,c.setup=function(){d=t.select("#zoomSliderParagraph").append("input").datum({}).attr("id","zoomSliderElement").attr("type","range").attr("value",r).attr("min",p).attr("max",u).attr("step",(u-p)/40).attr("title","zoom factor").on("input",function(){c.zooming()}),t.select("#zoomOutButton").on("mousedown",function(){e.options().navigationMenu().hideAllMenus(),s=e.scaleFactor(),a=requestAnimationFrame(o)}).on("touchstart",function(){e.options().navigationMenu().hideAllMenus(),s=e.scaleFactor(),a=requestAnimationFrame(o)}).on("mouseup",n).on("touchend",n).on("touchcancel",n).attr("title","zoom out"),t.select("#zoomInButton").on("mousedown",function(){e.options().navigationMenu().hideAllMenus(),s=e.scaleFactor(),l=requestAnimationFrame(i)}).on("touchstart",function(){e.options().navigationMenu().hideAllMenus(),s=e.scaleFactor(),l=requestAnimationFrame(i)}).on("mouseup",n).on("touchend",n).on("touchcancel",n).attr("title","zoom in"),t.select("#centerGraphButton").on("click",function(){e.options().navigationMenu().hideAllMenus(),e.forceRelocationEvent()}).attr("title","center graph")},c.showSlider=function(e){return arguments.length?(t.select("#zoomSlider").classed("hidden",!e),void(f=e)):f},c.zooming=function(){e.options().navigationMenu().hideAllMenus();var t=d.property("value");d.attr("value",t),e.setSliderZoom(t)},c.updateZoomSliderValue=function(e){d&&(d.attr("value",e),d.property("value",e))},c}}).call(t,n(6))},338:function(e,t,n){(function(t){e.exports=function(e){function n(){function e(e){e.classed("hidden",!0)}function n(e){e.classed("hidden",!1)}var o=t.selectAll(".accordion-trigger");e(t.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div")),o.on("click",function(){var o=t.select(this),i=t.selectAll(".accordion-trigger-active");o.classed("accordion-trigger-active")?(e(t.select(o.node().nextElementSibling)),o.classed("accordion-trigger-active",!1)):(e(t.selectAll(".accordion-trigger-active + div")),i.classed("accordion-trigger-active",!1),n(t.select(o.node().nextElementSibling)),o.classed("accordion-trigger-active",!0))})}function o(n){n=n||[],n.sort(function(e,t){return e===webvowl.util.constants().LANG_IRIBASED?-1:t===webvowl.util.constants().LANG_IRIBASED?1:e===webvowl.util.constants().LANG_UNDEFINED?-1:t===webvowl.util.constants().LANG_UNDEFINED?1:e.localeCompare(t)});var o=t.select("#language").on("change",function(){e.language(t.event.target.value),r(),C.updateSelectionInformation(k)});o.selectAll("option").remove(),o.selectAll("option").data(n).enter().append("option").attr("value",function(e){return e}).text(function(e){return e}),i(o,n,"en")||i(o,n,webvowl.util.constants().LANG_UNDEFINED)||i(o,n,webvowl.util.constants().LANG_IRIBASED)}function i(t,n,o){var i=n.indexOf(o);return i>=0&&(t.property("selectedIndex",i),e.language(o),!0)}function r(){var n=L.textInLanguage(w.title,e.language());t.select("#title").text(n||"No title available"),t.select("#about").attr("href",w.iri).attr("target","_blank").text(w.iri),t.select("#version").text(w.version||"--");var o=w.author;"string"==typeof o?t.select("#authors").text(o):o instanceof Array?t.select("#authors").text(o.join(", ")):t.select("#authors").text("--");var i=L.textInLanguage(w.description,e.language());t.select("#description").text(i||"No description available.")}function a(e,n){e=e||{},t.select("#classCount").text(e.classCount||n.classCount()),t.select("#objectPropertyCount").text(e.objectPropertyCount||n.objectPropertyCount()),t.select("#datatypePropertyCount").text(e.datatypePropertyCount||n.datatypePropertyCount()),t.select("#individualCount").text(e.totalIndividualCount||n.totalIndividualCount()),t.select("#nodeCount").text(n.nodeCount()),t.select("#edgeCount").text(n.edgeCount())}function l(e){var n=t.select("#ontology-metadata");n.selectAll("*").remove(),s(n,e),n.selectAll(".annotation").size()<=0&&n.append("p").text("No annotations available.")}function s(e,n){n=n||{};var o=[];for(var i in n)n.hasOwnProperty(i)&&o.push(n[i][0]);e.selectAll(".annotation").remove(),e.selectAll(".annotation").data(o).enter().append("p").classed("annotation",!0).classed("statisticDetails",!0).text(function(e){return e.identifier+":"}).append("span").each(function(e){h(t.select(this),e.value,"iri"===e.type?e.value:void 0)})}function d(){c(!1,!1,!0)}function c(e,n,o){t.select("#classSelectionInformation").classed("hidden",!e),t.select("#propertySelectionInformation").classed("hidden",!n),t.select("#noSelectionInformation").classed("hidden",!o)}function p(e){u(),f(t.select("#propname"),e.labelForCurrentLanguage(),e.iri()),t.select("#typeProp").text(e.type()),void 0!==e.inverse()?(t.select("#inverse").classed("hidden",!1),f(t.select("#inverse span"),e.inverse().labelForCurrentLanguage(),e.inverse().iri())):t.select("#inverse").classed("hidden",!0);var n=t.select("#propEquivUri");b(n,e.equivalents()),b(t.select("#subproperties"),e.subproperties()),b(t.select("#superproperties"),e.superproperties()),void 0!==e.minCardinality()?(t.select("#infoCardinality").classed("hidden",!0),t.select("#minCardinality").classed("hidden",!1),t.select("#minCardinality span").text(e.minCardinality()),t.select("#maxCardinality").classed("hidden",!1),void 0!==e.maxCardinality()?t.select("#maxCardinality span").text(e.maxCardinality()):t.select("#maxCardinality span").text("*")):void 0!==e.cardinality()?(t.select("#minCardinality").classed("hidden",!0),t.select("#maxCardinality").classed("hidden",!0),t.select("#infoCardinality").classed("hidden",!1),t.select("#infoCardinality span").text(e.cardinality())):(t.select("#infoCardinality").classed("hidden",!0),t.select("#minCardinality").classed("hidden",!0),t.select("#maxCardinality").classed("hidden",!0)),f(t.select("#domain"),e.domain().labelForCurrentLanguage(),e.domain().iri()),f(t.select("#range"),e.range().labelForCurrentLanguage(),e.range().iri()),g(e.attributes(),t.select("#propAttributes")),x(t.select("#propDescription"),e.descriptionForCurrentLanguage()),x(t.select("#propComment"),e.commentForCurrentLanguage()),s(t.select("#propertySelectionInformation"),e.annotations())}function u(){c(!1,!0,!1)}function f(e,n,o){var i=t.select(e.node().parentNode);n?(e.selectAll("*").remove(),h(e,n,o),i.classed("hidden",!1)):i.classed("hidden",!0)}function h(e,t,n){var o;o=n?e.append("a").attr("href",n).attr("title",n).attr("target","_blank"):e.append("span"),o.text(t)}function g(e,n){var o=t.select(n.node().parentNode);e&&e.length>0&&(v("object",e),v("datatype",e),v("rdf",e)),e&&e.length>0?(n.text(e.join(", ")),o.classed("hidden",!1)):o.classed("hidden",!0)}function v(e,t){var n=t.indexOf(e);n>-1&&t.splice(n,1)}function m(e){y(),f(t.select("#name"),e.labelForCurrentLanguage(),e.iri());var n=t.select("#classEquivUri");b(n,e.equivalents()),t.select("#typeNode").text(e.type()),b(t.select("#individuals"),e.individuals());var o=t.select("#disjointNodes"),i=t.select(o.node().parentNode);void 0!==e.disjointWith()?(o.selectAll("*").remove(),e.disjointWith().forEach(function(e,t){t>0&&o.append("span").text(", "),h(o,e.labelForCurrentLanguage(),e.iri())}),i.classed("hidden",!1)):i.classed("hidden",!0),g(e.attributes(),t.select("#classAttributes")),x(t.select("#nodeDescription"),e.descriptionForCurrentLanguage()),x(t.select("#nodeComment"),e.commentForCurrentLanguage()),s(t.select("#classSelectionInformation"),e.annotations())}function y(){c(!0,!1,!1)}function b(e,n){var o=t.select(e.node().parentNode);n&&n.length?(e.selectAll("*").remove(),n.forEach(function(t,n){n>0&&e.append("span").text(", "),h(e,t.labelForCurrentLanguage(),t.iri())}),o.classed("hidden",!1)):o.classed("hidden",!0)}function x(e,n){var o=t.select(e.node().parentNode),i=!!n;n&&e.text(n),o.classed("hidden",!i)}var w,k,C={},L=webvowl.util.languageTools(),M=webvowl.util.elementTools(),_=1,E=t.select("#detailsArea"),O=t.select("#canvasArea"),S=t.select("#swipeBarContainer"),F=t.select("#sidebarExpandButton");return C.clearOntologyInformation=function(){t.select("#title").text("No title available"),t.select("#about").attr("href","#").attr("target","_blank").text("not given"),t.select("#version").text("--"),t.select("#authors").text("--"),t.select("#description").text("No description available.");var e=t.select("#ontology-metadata");e.selectAll("*").remove(),t.select("#classCount").text("0"),t.select("#objectPropertyCount").text("0"),t.select("#datatypePropertyCount").text("0"),t.select("#individualCount").text("0"),t.select("#nodeCount").text("0"),t.select("#edgeCount").text("0");var n=t.select("#selection-details-trigger").classed("accordion-trigger-active");n&&t.select("#selection-details-trigger").node().click(),d()},C.updateOntologyInformation=function(e,t){e=e||{},w=e.header||{},r(),a(void 0,t),l(w.other),C.updateSelectionInformation(void 0),o(w.languages)},C.updateSelectionInformation=function(e){if(k=e,!t.event||!t.event.defaultPrevented){var n=t.select("#selection-details-trigger").classed("accordion-trigger-active");if(e&&!n)t.select("#selection-details-trigger").node().click();else if(!e&&n)return void d();M.isProperty(e)?p(e):M.isNode(e)&&m(e)}},C.showSidebar=function(n,o){1===n&&(_=!0,F.node().innerHTML=">",E.classed("hidden",!0),o===!0?(E.classed("hidden",!_),O.style("width","78%"),O.style("-webkit-animation-name","none"),S.style("width","78%"),S.style("-webkit-animation-name","none"),t.select("#WarningErrorMessagesContainer").style("width","78%"),t.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","none")):(O.style("width","78%"),O.style("-webkit-animation-name","sbCollapseAnimation"),O.style("-webkit-animation-duration","0.5s"),S.style("width","78%"),S.style("-webkit-animation-name","sbCollapseAnimation"),S.style("-webkit-animation-duration","0.5s"),t.select("#WarningErrorMessagesContainer").style("width","78%"),t.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","warn_ExpandRightBarAnimation"),t.select("#WarningErrorMessagesContainer").style("-webkit-animation-duration","0.5s")),e.options().width(window.innerWidth-.22*window.innerWidth),e.options().navigationMenu().updateScrollButtonVisibility()),0===n&&(_=!1,E.classed("hidden",!0),F.node().innerHTML="<",o===!0?(O.style("width","100%"),O.style("-webkit-animation-name","none"),S.style("width","100%"),S.style("-webkit-animation-name","none"),t.select("#WarningErrorMessagesContainer").style("width","100%"),t.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","none")):(O.style("width","100%"),O.style("-webkit-animation-name","sbExpandAnimation"),O.style("-webkit-animation-duration","0.5s"),S.style("width","100%"),S.style("-webkit-animation-name","sbExpandAnimation"),S.style("-webkit-animation-duration","0.5s"),t.select("#WarningErrorMessagesContainer").style("width","100%"),t.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","warn_CollapseRightBarAnimation"),t.select("#WarningErrorMessagesContainer").style("-webkit-animation-duration","0.5s")),e.options().width(window.innerWidth),e.updateCanvasContainerSize(),e.options().navigationMenu().updateScrollButtonVisibility())},C.isSidebarVisible=function(){return _},C.updateSideBarVis=function(e){var t=C.getSidebarVisibility();C.showSidebar(parseInt(t),e)},C.getSidebarVisibility=function(){var e=E.classed("hidden");return e===!1?String(1):e===!0?String(0):void 0},C.initSideBarAnimation=function(){O.node().addEventListener("animationend",function(){E.classed("hidden",!_),e.updateCanvasContainerSize(),e.options().navigationMenu().updateScrollButtonVisibility()})},C.setup=function(){n(),C.initSideBarAnimation(),F.on("click",function(){e.options().navigationMenu().hideAllMenus();var t=parseInt(C.getSidebarVisibility());1===t?C.showSidebar(0):C.showSidebar(1)})},C.updateShowedInformation=function(){var n=e.editorMode();t.select("#generalDetails").classed("hidden",n),t.select("#generalDetailsEdit").classed("hidden",!n),e.options().editSidebar().updateGeneralOntologyInfo(),e.options().sidebar().updateGeneralOntologyInfo()},C.updateGeneralOntologyInfo=function(){var n=e.options().getGeneralMetaObject(),o=e&&e.language?e.language():null;n.hasOwnProperty("title")&&("object"==typeof n.title?t.select("#title").node().value=L.textInLanguage(n.title,o):t.select("#title").node().innerHTML=n.title),n.hasOwnProperty("iri")&&(t.select("#about").node().innerHTML=n.iri),n.hasOwnProperty("iri")&&(t.select("#about").node().href=n.iri),n.hasOwnProperty("version")&&(t.select("#version").node().innerHTML=n.version),n.hasOwnProperty("author")&&(t.select("#authors").node().innerHTML=n.author),n.hasOwnProperty("description")&&("object"==typeof n.description?t.select("#description").node().innerHTML=L.textInLanguage(n.description,o):t.select("#description").node().innerHTML=n.description)},C}}).call(t,n(6))},339:function(e,t,n){(function(t){e.exports=function(e){function n(e){for(var t=0;t<e.length;t++)e[t].classed("defaultSelected",!1)}function o(e){t.select(e).classed("defaultSelected",!0)}function i(e,n){var o="";"defaultClass"===n&&(o="Class: "),"defaultDatatype"===n&&(o="Datatype: "),"defaultProperty"===n&&(o="Property: "),t.select("#"+n).node().innerHTML=o+e.innerHTML,t.select("#"+n).node().title=e.innerHTML}function r(){n(v),o(this),i(this,"defaultClass")}function a(){n(m),o(this),i(this,"defaultDatatype")}function l(){n(y),o(this),i(this,"defaultProperty")}function s(){var n,i=t.select("#classContainer"),s=t.select("#datatypeContainer"),d=t.select("#propertyContainer"),c="owl:Class",p="rdfs:Literal",u="owl:objectProperty",f=e.options().supportedClasses(),h=e.options().supportedDatatypes(),g=e.options().supportedProperties();for(n=0;n<f.length;n++){var b;b=i.append("div"),b.classed("containerForDefaultSelection",!0),b.classed("noselect",!0),b.node().id="selectedClass"+f[n],b.node().innerHTML=f[n],f[n]===c&&o(b.node()),b.on("click",r),v.push(b)}for(n=0;n<h.length;n++){var x=s.append("div");x.classed("containerForDefaultSelection",!0),
-x.classed("noselect",!0),x.node().id="selectedDatatype"+h[n],x.node().innerHTML=h[n],h[n]===p&&o(x.node()),x.on("click",a),m.push(x)}for(n=0;n<g.length;n++){var w=d.append("div");w.classed("containerForDefaultSelection",!0),w.classed("noselect",!0),w.node().id="selectedClass"+g[n],w.node().innerHTML=g[n],w.on("click",l),g[n]===u&&o(w.node()),y.push(w)}}function d(){function e(e){e.classed("hidden",!0)}function n(e){e.classed("hidden",!1)}var o=t.selectAll(".accordion-trigger");o.on("click",function(){var o=t.select(this);o.classed("accordion-trigger-active")?(e(t.select(o.node().nextElementSibling)),o.classed("accordion-trigger-active",!1)):(n(t.select(o.node().nextElementSibling)),o.classed("accordion-trigger-active",!0))})}var c={},p=(webvowl.util.languageTools(),webvowl.util.elementTools(),t.select("#leftSideBarCollapseButton")),u=0,f=0,h=t.select("#leftSideBarContent"),g=t.select("#containerForLeftSideBar"),v=[],m=[],y=[];return c.setup=function(){d(),c.initSideBarAnimation(),p.on("click",function(){e.options().navigationMenu().hideAllMenus();var t=parseInt(c.getSidebarVisibility());0===t?c.showSidebar(1):c.showSidebar(0),f=t}),s(),t.select("#WarningErrorMessages").node().addEventListener("animationend",function(){t.select("#WarningErrorMessages").style("-webkit-animation-name","none")})},c.hideCollapseButton=function(e){g.classed("hidden",e)},c.isSidebarVisible=function(){return u},c.updateSideBarVis=function(e){var t=c.getSidebarVisibility();c.showSidebar(parseInt(t),e)},c.initSideBarAnimation=function(){g.node().addEventListener("animationend",function(){h.classed("hidden",!u),u===!0?(g.style("width","200px"),h.classed("hidden",!1),t.select("#leftSideBarCollapseButton").style("left","200px"),t.select("#leftSideBarCollapseButton").classed("hidden",!1),t.select("#WarningErrorMessages").style("left","100px")):(g.style("width","0px"),t.select("#leftSideBarCollapseButton").style("left","0px"),t.select("#WarningErrorMessages").style("left","0px"),t.select("#leftSideBarCollapseButton").classed("hidden",!1)),e.updateCanvasContainerSize(),e.options().navigationMenu().updateScrollButtonVisibility()})},c.showSidebar=function(n,o){var i=t.select("#leftSideBarCollapseButton");return o===!0?(u=0===f,h.classed("hidden",!u),g.style("-webkit-animation-name","none"),t.select("#WarningErrorMessages").style("-webkit-animation-name","none"),u===!0?(g.style("width","200px"),h.classed("hidden",!1),t.select("#leftSideBarCollapseButton").style("left","200px"),t.select("#leftSideBarCollapseButton").classed("hidden",!1),t.select("#WarningErrorMessages").style("left","100px"),i.node().innerHTML="<"):(g.style("width","0px"),t.select("#WarningErrorMessages").style("left","0px"),t.select("#leftSideBarCollapseButton").style("left","0px"),t.select("#leftSideBarCollapseButton").classed("hidden",!1),i.node().innerHTML=">"),e.updateCanvasContainerSize(),void e.options().navigationMenu().updateScrollButtonVisibility()):(t.select("#leftSideBarCollapseButton").classed("hidden",!0),1===n&&(u=!0,i.node().innerHTML="<",g.style("-webkit-animation-name","l_sbExpandAnimation"),g.style("-webkit-animation-duration","0.5s"),t.select("#WarningErrorMessages").style("-webkit-animation-name","warn_ExpandLeftBarAnimation"),t.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s")),void(0===n&&(u=!1,h.classed("hidden",!0),i.node().innerHTML=">",g.style("-webkit-animation-name","l_sbCollapseAnimation"),g.style("-webkit-animation-duration","0.5s"),t.select("#WarningErrorMessages").style("-webkit-animation-name","warn_CollapseLeftBarAnimation"),t.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s"),t.select("#WarningErrorMessages").style("left","0"))))},c.getSidebarVisibility=function(){var e=h.classed("hidden");return e===!1?String(1):e===!0?String(0):void 0},c}}).call(t,n(6))},340:function(e,t,n){(function(t){e.exports=function(e){function n(){for(var e=t.select("#typeEditor_datatype").node(),n=["undefined","xsd:boolean","xsd:double","xsd:integer","xsd:string"],o=0;o<n.length;o++){var i=document.createElement("option");i.innerHTML=n[o],e.appendChild(i)}}function o(e,n){var o=t.select("#del_pathFor_"+n),i=t.select("#del_rectFor_"+n);e===!1?(o.node().style="stroke: #f00;",i.style("cursor","auto")):(o.node().style="stroke: #ff972d;",i.style("cursor","pointer"))}function i(e,n,o){var i=t.select("#pathFor_"+n),r=t.select("#rectFor_"+n);e===!1?(o?i.node().style="fill: #fff; stroke : #fff; stroke-width : 1px":i.node().style=" stroke : #fff; stroke-width : 1px",r.style("cursor","auto")):(o?i.node().style="fill: #ff972d; stroke : #ff972d; stroke-width : 1px":i.node().style="stroke : #ff972d; stroke-width : 1px",r.style("cursor","pointer"))}function r(){var e=t.select("#addPrefixButton");e.on("click",function(){if(T===!1){var e="emptyPrefixEntry",n=t.select("#prefixURL_Container"),r=n.append("div");r.classed("prefixIRIElements",!0),r.node().id="prefixContainerFor_"+e;var a=r.append("div");a.style("position","absolute"),a.node().id="containerFor_"+e;var d=a.append("svg");d.style("width","14px"),d.style("height","20px"),d.classed("noselect",!0),d.node().id="editButtonFor_"+e,d.node().elementStyle="save",d.node().selectorName=e;var c=d.append("g"),p=c.append("rect"),u=c.append("path");c.node().id="iconFor_"+e,u.node().id="pathFor_"+e,p.node().id="rectFor_"+e,c.node().selectorName=e,u.node().selectorName=e,p.node().selectorName=e,a.node().title="Save new prefix and IRI",u.classed("editPrefixIcon"),u.style("stroke","#fff"),u.style("stroke-width","1px"),u.style("fill","#fff"),p.attr("width","14px"),p.attr("height","14px"),p.style("fill","#18202A"),p.attr("transform","matrix(1,0,0,1,-3,4)"),d.selectAll("g").on("mouseover",function(){i(!0,this.selectorName,!0)}),d.selectAll("g").on("mouseout",function(){i(!1,this.selectorName,!0)}),u.attr("d","M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"),u.attr("transform","matrix(0.45,0,0,0.45,0,5)");var f=r.append("input");f.classed("prefixInput",!0),f.node().type="text",f.node().id="prefixInputFor_"+e,f.node().autocomplete="off",f.node().value="",f.style("margin-left","14px");var h=r.append("input");h.classed("prefixURL",!0),h.node().type="text",h.node().id="prefixURLFor_"+e,h.node().autocomplete="off",h.node().value="",f.node().disabled=!1,h.node().disabled=!1,T=!0;var g=r.append("div");g.style("float","right");var v=g.append("svg");v.node().id="deleteButtonFor_"+e,g.node().title="Delete prefix and IRI",v.style("width","10px"),v.style("height","20px");var m=v.append("g"),y=m.append("rect"),b=m.append("path");m.node().id="del_iconFor_"+e,b.node().id="del_pathFor_"+e,y.node().id="del_rectFor_"+e,m.node().selectorName=e,b.node().selectorName=e,y.node().selectorName=e,b.style("stroke","#f00"),y.attr("width","10px"),y.attr("height","14px"),y.style("fill","#18202A"),y.attr("transform","matrix(1,0,0,1,-3,4)"),b.attr("d","M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"),b.attr("transform","matrix(0.45,0,0,0.45,0,5)"),v.selectAll("g").on("mouseover",function(){o(!0,this.selectorName)}),v.selectAll("g").on("mouseout",function(){o(!1,this.selectorName)}),d.on("click",s),v.on("click",l),O.updateElementWidth(),f.node().focus(),_=e,E="",t.select("#addPrefixButton").node().innerHTML="Save Prefix"}else t.select("#editButtonFor_emptyPrefixEntry").on("click")(t.select("#editButtonFor_emptyPrefixEntry").node())})}function a(){if(e.isEditorMode()!==!1){var n=t.select("#prefixURL_Container"),o=e.options().prefixList();for(var i in o)if(o.hasOwnProperty(i)){var r=n.append("div");r.classed("prefixIRIElements",!0),r.node().id="prefixContainerFor_"+i;var a=r.append("div");a.style("position","absolute"),a.node().id="containerFor_"+i;var d=a.append("svg");d.style("width","14px"),d.style("height","20px"),d.classed("noselect",!0),d.node().id="editButtonFor_"+i,a.node().title="Edit prefix and IRI",d.node().elementStyle="save",d.node().selectorName=i,d.node().id="editButtonFor_"+i,d.node().elementStyle="edit";var c=d.append("g"),p=c.append("rect"),u=c.append("path");c.node().id="iconFor_"+i,u.node().id="pathFor_"+i,p.node().id="rectFor_"+i,c.node().selectorName=i,u.node().selectorName=i,p.node().selectorName=i,u.classed("editPrefixIcon"),u.style("stroke","#fff"),u.style("stroke-width","1px"),p.attr("width","14px"),p.attr("height","14px"),p.style("fill","#18202A"),p.attr("transform","matrix(1,0,0,1,-3,4)"),d.selectAll("g").on("mouseover",function(){var e=this,n=!1,o=!0,i=t.select("#pathFor_"+e.selectorName),r=t.select("#rectFor_"+e.selectorName);o===!1?(n?i.node().style="fill: #fff; stroke : #fff; stroke-width : 1px":i.node().style=" stroke : #fff; stroke-width : 1px",r.style("cursor","auto")):(n?i.node().style="fill: #ff972d; stroke : #ff972d; stroke-width : 1px":i.node().style="stroke : #ff972d; stroke-width : 1px",r.style("cursor","pointer"))}),d.selectAll("g").on("mouseout",function(){var e=this,n=!1,o=!1,i=t.select("#pathFor_"+e.selectorName),r=t.select("#rectFor_"+e.selectorName);o===!1?(n?i.node().style="fill: #fff; stroke : #fff; stroke-width : 1px":i.node().style=" stroke : #fff; stroke-width : 1px",r.style("cursor","auto")):(n?i.node().style="fill: #ff972d; stroke : #ff972d; stroke-width : 1px":i.node().style="stroke : #ff972d; stroke-width : 1px",r.style("cursor","pointer"))}),u.attr("d","M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"),u.attr("transform","matrix(-0.45,0,0,0.45,10,5)");var f=r.append("input");f.classed("prefixInput",!0),f.node().type="text",f.node().id="prefixInputFor_"+i,f.node().autocomplete="off",f.node().value=i,f.style("margin-left","14px");var h=r.append("input");h.classed("prefixURL",!0),h.node().type="text",h.node().id="prefixURLFor_"+i,h.node().autocomplete="off",h.node().value=o[i],h.node().title=o[i],f.node().disabled=!0,h.node().disabled=!0;var g=r.append("div");g.style("float","right");var v=g.append("svg");v.node().id="deleteButtonFor_"+i,g.node().title="Delete prefix and IRI",v.style("width","10px"),v.style("height","20px");var m=v.append("g"),y=m.append("rect"),b=m.append("path");m.node().id="del_iconFor_"+i,b.node().id="del_pathFor_"+i,y.node().id="del_rectFor_"+i,m.node().selectorName=i,b.node().selectorName=i,y.node().selectorName=i,b.style("stroke","#f00"),y.attr("width","10px"),y.attr("height","14px"),y.style("fill","#18202A"),y.attr("transform","matrix(1,0,0,1,-3,4)"),b.attr("d","M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"),b.attr("transform","matrix(0.45,0,0,0.45,0,5)"),v.selectAll("g").on("mouseover",function(){var e=this,n=!0,o=t.select("#del_pathFor_"+e.selectorName),i=t.select("#del_rectFor_"+e.selectorName);n===!1?(o.node().style="stroke: #f00;",i.style("cursor","auto")):(o.node().style="stroke: #ff972d;",i.style("cursor","pointer"))}),v.selectAll("g").on("mouseout",function(){var e=this,n=!1,o=t.select("#del_pathFor_"+e.selectorName),i=t.select("#del_rectFor_"+e.selectorName);n===!1?(o.node().style="stroke: #f00;",i.style("cursor","auto")):(o.node().style="stroke: #ff972d;",i.style("cursor","pointer"))}),d.on("click",s),v.on("click",l),"rdf"!==i&&"rdfs"!==i&&"xsd"!==i&&"dc"!==i&&"owl"!==i||(a.classed("hidden",!0),g.classed("hidden",!0))}I.updatePrefixModel()}}function l(){if(this.disabled!==!0){t.select("#addPrefixButton").node().innerHTML="Add Prefix";var n=this.id.split("_")[1];t.select("#prefixContainerFor_"+n).remove(),e.options().removePrefix(n),T=!1,I.updatePrefixModel()}}function s(n){var o=this;if(n&&(o=n),o.disabled!==!0){var r=o.id.split("_")[1],a=o.elementStyle;if("edit"===a){t.select("#prefixInputFor_"+r).node().disabled=!1,t.select("#prefixURLFor_"+r).node().disabled=!1,o.elementStyle="save",_=t.select("#prefixInputFor_"+r).node().value,E=t.select("#prefixURLFor_"+r).node().value,T=!0,t.select("#containerFor_"+r).node()&&(t.select("#containerFor_"+r).node().title="Save new prefix and IRI");var l=t.select(o);l.selectAll("g").on("mouseover",function(){i(!0,o.selectorName,!0)}),l.selectAll("g").on("mouseout",function(){i(!1,o.selectorName,!0)});var s=t.select("#pathFor_"+o.selectorName);s.attr("d","M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"),s.attr("transform","matrix(0.45,0,0,0.45,0,5)"),i(!0,o.selectorName,!0)}if("save"===a){var d=t.select("#prefixURLFor_"+r).node().value,c=t.select("#prefixInputFor_"+r).node().value;if(e.options().updatePrefix(_,c,E,d)===!0){t.select("#prefixInputFor_"+c).node().disabled=!0,t.select("#prefixURLFor_"+c).node().disabled=!0,t.select("#addPrefixButton").node().innerHTML="Add Prefix",t.select("#containerFor_"+r).node()&&(t.select("#containerFor_"+r).node().title="Edit prefix and IRI"),o.elementStyle="edit",T=!1,I.updatePrefixModel();var p=t.select(o);p.selectAll("g").on("mouseover",function(){i(!0,o.selectorName,!1)}),p.selectAll("g").on("mouseout",function(){i(!1,o.selectorName,!1)});var u=t.select("#pathFor_"+o.selectorName);u.attr("d","M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"),u.attr("transform","matrix(-0.45,0,0,0.45,10,5)"),i(!0,o.selectorName,!1)}}}}function d(e){var n=t.select("#typeEditor_datatype").node(),o=n.value,i=o.split(":")[1];"undefined"!==n.value?(t.select("#element_iriEditor").node().disabled=!0,t.select("#element_labelEditor").node().disabled=!0):(i="undefined",t.select("#element_iriEditor").node().disabled=!1,t.select("#element_labelEditor").node().disabled=!1),e.label(i),e.dType(o),e.iri("http://www.w3.org/2001/XMLSchema#"+i),e.baseIri("http://www.w3.org/2001/XMLSchema#"),e.redrawLabelText(),t.select("#element_iriEditor").node().value=I.getPrefixRepresentationForFullURI(e.iri()),t.select("#element_iriEditor").node().title=e.iri(),t.select("#element_labelEditor").node().value=e.labelForCurrentLanguage()}function c(e,t){return t.indexOf(e)===-1}function p(t){if(e.options().getGeneralMetaObject().iri){var n=e.options().getGeneralMetaObject().iri+t.id();return t.iri()===n}return!1}function u(n){var o=t.select("#element_iriEditor").node().value,i=e.options().getGeneralMetaObjectProperty("iri");if(h(o)===!1){var r=o.split(":");if(console.log("Tokens"),console.log(r),console.log("---------------"),2===r.length){var a=r[0],l=r[1];if(a.length>0){var s=e.options().prefixList()[a];if(void 0===s)return console.log("ERROR __________________"),e.options().warningModule().showWarning("Invalid Element IRI","Could not resolve prefix '"+s+"'","Restoring previous IRI for Element"+n.iri(),1,!1),void(t.select("#element_iriEditor").node().value=n.iri());if(0===l.length)return e.options().warningModule().showWarning("Invalid Element IRI","Input IRI is EMPTY","Restoring previous IRI for Element"+n.iri(),1,!1),console.log("NO INPUT PROVIDED"),void(t.select("#element_iriEditor").node().value=n.iri());o=s+l}else o=i+l}else{if(0===o.length)return console.log("NO INPUT PROVIDED"),void(t.select("#element_iriEditor").node().value=n.iri());console.log("Tryig to use the input!"),o=i+o}}return o}function f(n){var o,i=u(n),r=e.options().getGeneralMetaObjectProperty("iri");if(F.isNode(n)){if(o=e.checkIfIriClassAlreadyExist(i),o!==!1)return e.options().warningModule().showWarning("Already seen this class","Input IRI: "+i+" for element: "+n.labelForCurrentLanguage()+" already been set","Restoring previous IRI for Element : "+n.iri(),2,!1,o),void O.updateSelectionInformation(n);n.iri(i)}return F.isProperty(n)===!0&&(o=O.checkProperIriChange(n,i),o!==!1)?(e.options().warningModule().showWarning("Already seen this property","Input IRI: "+i+" for element: "+n.labelForCurrentLanguage()+" already been set","Restoring previous IRI for Element : "+n.iri(),1,!1,o),void O.updateSelectionInformation(n)):(n.iri(i),c(r,i)===!0?(b(n,"external"),n.backgroundColor("#36C"),n.redrawElement(),n.redrawLabelText()):(x(n,"external"),n.backgroundColor(void 0),n.redrawElement(),n.redrawLabelText()),n.focused()&&(e.options().focuserModule().handle(n,!0),e.options().focuserModule().handle(n,!0)),t.select("#element_iriEditor").node().value=I.getPrefixRepresentationForFullURI(i),void O.updateSelectionInformation(n))}function h(e){var t=/^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;return t.test(e)}function g(e){e.label(t.select("#element_labelEditor").node().value),e.redrawLabelText()}function v(e){M=e;var n,o=t.select("#property_characteristics_Selection"),i=o.node().children;if(i)for(var r=i.length,a=0;a<r;a++)o.node().removeChild(i[0]);if(e.attributes().indexOf("external")>-1){var l=o.append("span");l.classed("spanForCharSelection",!0),l.node().innerHTML="external"}var s,d;if(F.isNode(e)===!0){var c=["deprecated"];for(n=0;n<c.length;n++)s=o.append("div").classed("checkboxContainer",!0).style("padding-top","2px"),d=s.append("input").classed("filterCheckbox",!0).attr("id","CharacteristicsCheckbox"+n).attr("type","checkbox").attr("characteristics",c[n]).property("checked",m(e,c[n])),s.append("label").attr("for","CharacteristicsCheckbox"+n).text(c[n]),d.on("click",y)}else{var p=["deprecated","inverse functional","functional","transitive"];for(F.isDatatypeProperty(e)===!0&&(p=["deprecated","functional"]),n=0;n<p.length;n++)s=o.append("div").classed("checkboxContainer",!0).style("padding-top","2px"),d=s.append("input").classed("filterCheckbox",!0).attr("id","CharacteristicsCheckbox"+n).attr("type","checkbox").attr("characteristics",p[n]).property("checked",m(e,p[n])),s.append("label").attr("for","CharacteristicsCheckbox"+n).text(p[n]),d.on("click",y)}}function m(e,t){return e.attributes().indexOf(t)>=0}function y(){var e=this.checked,t=this.getAttribute("characteristics");e===!0?b(M,t):x(M,t),M.redrawElement(),M.focused(!1),M.toggleFocus()}function b(e,t){if(e.attributes().indexOf(t)===-1){var n=e.attributes();n.push(t),e.attributes(n)}if(e.indications().indexOf(t)===-1){var o=e.indications();o.push(t),e.indications(o)}var i;if(e.visualAttributes().indexOf(t)===-1&&(i=e.visualAttributes(),i.push(t),e.visualAttributes(i)),m(e,"external")&&m(e,"deprecated")){i=e.visualAttributes();var r=i.indexOf("external");r>-1&&i.splice(r,1),e.visualAttributes(i)}}function x(e,t){var n=e.attributes(),o=e.indications(),i=e.visualAttributes(),r=n.indexOf(t);r>=0&&n.splice(r,1);var a=o.indexOf(t);a>-1&&o.splice(a,1);var l=i.indexOf(t);l>-1&&i.splice(l,1),e.attributes(n),e.indications(o),e.visualAttributes(i),"deprecated"===t&&("owl:Class"===e.type()&&e.styleClass("class"),"owl:DatatypeProperty"===e.type()&&e.styleClass("datatypeproperty"),"owl:ObjectProperty"===e.type()&&e.styleClass("objectproperty"),"owl:disjointWith"===e.type()&&e.styleClass("disjointwith"))}function w(e){return"owl:Thing"!==e.type()&&"rdfs:subClassOf"!==e.type()&&"rdfs:Literal"!==e.type()&&"rdfs:Datatype"!==e.type()&&"rdfs:disjointWith"!==e.type()}function k(t){F.isNode(t)&&e.changeNodeType(t)===!1&&(F.isDatatype(t)===!0,O.updateSelectionInformation(t)),F.isProperty(t)&&e.changePropertyType(t)===!1&&O.updateSelectionInformation(t)}function C(e){var t=[];return F.isProperty(e)?("owl:DatatypeProperty"===e.type()?t.push("owl:DatatypeProperty"):(t.push("owl:ObjectProperty"),e.domain()!==e.range()&&t.push("rdfs:subClassOf"),t.push("owl:disjointWith"),t.push("owl:allValuesFrom"),t.push("owl:someValuesFrom")),t):("rect"===e.renderType()?(t.push("rdfs:Literal"),t.push("rdfs:Datatype")):(t.push("owl:Class"),t.push("owl:Thing")),t)}function L(){function e(e){e.classed("hidden",!0)}function n(e){e.classed("hidden",!1)}var o=t.selectAll(".accordion-trigger");o.on("click",function(){var o=t.select(this);o.classed("accordion-trigger-active")?(e(t.select(o.node().nextElementSibling)),o.classed("accordion-trigger-active",!1)):(n(t.select(o.node().nextElementSibling)),o.classed("accordion-trigger-active",!0)),O.updateElementWidth()})}var M,_,E,O={},S=webvowl.util.languageTools(),F=webvowl.util.elementTools(),I=webvowl.util.prefixTools(e),T=!1;return O.clearMetaObjectValue=function(){t.select("#titleEditor").node().value="",t.select("#iriEditor").node().value="",t.select("#versionEditor").node().value="",t.select("#authorsEditor").node().value="",t.select("#descriptionEditor").node().value=""},O.updatePrefixUi=function(){O.updateElementWidth();for(var e=t.select("#prefixURL_Container");e.node().firstChild;)e.node().removeChild(e.node().firstChild);a()},O.setup=function(){L(),a(),r(),n(),t.select("#titleEditor").on("change",function(){e.options().addOrUpdateGeneralObjectEntry("title",t.select("#titleEditor").node().value)}).on("keydown",function(){t.event.stopPropagation(),13===t.event.keyCode&&(t.event.preventDefault(),e.options().addOrUpdateGeneralObjectEntry("title",t.select("#titleEditor").node().value))}),t.select("#iriEditor").on("change",function(){e.options().addOrUpdateGeneralObjectEntry("iri",t.select("#iriEditor").node().value)===!1&&(t.select("#iriEditor").node().value=e.options().getGeneralMetaObjectProperty("iri"))}).on("keydown",function(){t.event.stopPropagation(),13===t.event.keyCode&&(t.event.preventDefault(),e.options().addOrUpdateGeneralObjectEntry("iri",t.select("#iriEditor").node().value)===!1&&(t.select("#iriEditor").node().value=e.options().getGeneralMetaObjectProperty("iri")))}),t.select("#versionEditor").on("change",function(){e.options().addOrUpdateGeneralObjectEntry("version",t.select("#versionEditor").node().value)}).on("keydown",function(){t.event.stopPropagation(),13===t.event.keyCode&&(t.event.preventDefault(),e.options().addOrUpdateGeneralObjectEntry("version",t.select("#versionEditor").node().value))}),t.select("#authorsEditor").on("change",function(){e.options().addOrUpdateGeneralObjectEntry("author",t.select("#authorsEditor").node().value)}).on("keydown",function(){t.event.stopPropagation(),13===t.event.keyCode&&(t.event.preventDefault(),e.options().addOrUpdateGeneralObjectEntry("author",t.select("#authorsEditor").node().value))}),t.select("#descriptionEditor").on("change",function(){e.options().addOrUpdateGeneralObjectEntry("description",t.select("#descriptionEditor").node().value)}),O.updateElementWidth()},O.updateEditDeleteButtonIds=function(e,n){t.select("#prefixInputFor_"+e).node().id="prefixInputFor_"+n,t.select("#prefixURLFor_"+e).node().id="prefixURLFor_"+n,t.select("#deleteButtonFor_"+e).node().id="deleteButtonFor_"+n,t.select("#editButtonFor_"+e).node().id="editButtonFor_"+n,t.select("#prefixContainerFor_"+e).node().id="prefixContainerFor_"+n},O.checkForExistingURL=function(t){var n,o=e.getUnfilteredData().properties;for(n=0;n<o.length;n++)if(o[n].iri()===t)return!0;return!1},O.checkProperIriChange=function(t,n){if(console.log("Element changed Label"),console.log("Testing URL "+n),"rdfs:subClassOf"===t.type()||"owl:disjointWith"===t.type())console.log("ignore this for now, already handled in the type and domain range changer");else{var o,i=e.getUnfilteredData().properties;for(o=0;o<i.length;o++)if(i[o]!==t&&i[o].iri()===n)return i[o]}return!1},O.updateSelectionInformation=function(n){if(void 0===n)t.select("#selectedElementProperties").classed("hidden",!0),t.select("#selectedElementPropertiesEmptyHint").classed("hidden",!1),M=null,O.updateElementWidth();else{t.select("#selectedElementProperties").classed("hidden",!1),t.select("#selectedElementPropertiesEmptyHint").classed("hidden",!0),t.select("#typeEditForm_datatype").classed("hidden",!0),t.select("#element_iriEditor").node().value=n.iri(),t.select("#element_labelEditor").node().value=n.labelForCurrentLanguage(),t.select("#element_iriEditor").node().title=n.iri(),t.select("#element_iriEditor").on("change",function(){var o=n.iri(),i=e.options().prefixModule().getPrefixRepresentationForFullURI(o);return i===t.select("#element_iriEditor").node().value?void console.log("Iri is identical, nothing has changed!"):void f(n)}).on("keydown",function(){t.event.stopPropagation(),13===t.event.keyCode&&(t.event.preventDefault(),console.log("IRI CHANGED Via ENTER pressed"),f(n),t.select("#element_iriEditor").node().title=n.iri())});var o=p(n);if(t.select("#element_labelEditor").on("change",function(){var t;console.log("Element changed Label");var o=u(n);if(n.iri()!==o){if(F.isProperty(n)===!0&&(t=O.checkProperIriChange(n,o),t!==!1))return e.options().warningModule().showWarning("Already seen this property","Input IRI: "+o+" for element: "+n.labelForCurrentLanguage()+" already been set","Continuing with duplicate property!",1,!1,t),void O.updateSelectionInformation(n);if(F.isNode(n)===!0&&(t=e.checkIfIriClassAlreadyExist(o),t!==!1))return e.options().warningModule().showWarning("Already seen this Class","Input IRI: "+o+" for element: "+n.labelForCurrentLanguage()+" already been set","Restoring previous IRI for Element : "+n.iri(),2,!1,t),void O.updateSelectionInformation(n);n.iri(o)}g(n),O.updateSelectionInformation(n)}).on("keydown",function(){if(t.event.stopPropagation(),13===t.event.keyCode){t.event.preventDefault();var o;console.log("Element changed Label");var i=u(n);if(n.iri()!==i){if(F.isProperty(n)===!0&&(o=O.checkProperIriChange(n,i),o!==!1))return e.options().warningModule().showWarning("Already seen this property","Input IRI: "+i+" for element: "+n.labelForCurrentLanguage()+" already been set","Continuing with duplicate property!",1,!1,o),void O.updateSelectionInformation(n);if(F.isNode(n)===!0&&(o=e.checkIfIriClassAlreadyExist(i),o!==!1))return e.options().warningModule().showWarning("Already seen this Class","Input IRI: "+i+" for element: "+n.labelForCurrentLanguage()+" already been set","Restoring previous IRI for Element : "+n.iri(),2,!1,o),void O.updateSelectionInformation(n);n.iri(i)}g(n)}}).on("keyup",function(){if(o){var e=t.select("#element_labelEditor").node().value,i=e.replaceAll(" ","_"),r=n.baseIri()+i;t.select("#element_iriEditor").node().title=n.iri(),t.select("#element_iriEditor").node().value=I.getPrefixRepresentationForFullURI(r)}}),t.select("#element_iriEditor").node().disabled=!1,t.select("#element_labelEditor").node().disabled=!1,"rdfs:subClassOf"===n.type()&&(t.select("#element_iriEditor").node().value="http://www.w3.org/2000/01/rdf-schema#subClassOf",t.select("#element_iriEditor").node().title="http://www.w3.org/2000/01/rdf-schema#subClassOf",t.select("#element_labelEditor").node().value="Subclass of",t.select("#element_iriEditor").node().disabled=!0,t.select("#element_labelEditor").node().disabled=!0),"owl:Thing"===n.type()&&(t.select("#element_iriEditor").node().value="http://www.w3.org/2002/07/owl#Thing",t.select("#element_iriEditor").node().title="http://www.w3.org/2002/07/owl#Thing",t.select("#element_labelEditor").node().value="Thing",t.select("#element_iriEditor").node().disabled=!0,t.select("#element_labelEditor").node().disabled=!0),"owl:disjointWith"===n.type()&&(t.select("#element_iriEditor").node().value="http://www.w3.org/2002/07/owl#disjointWith",t.select("#element_iriEditor").node().title="http://www.w3.org/2002/07/owl#disjointWith",t.select("#element_iriEditor").node().disabled=!0,t.select("#element_labelEditor").node().disabled=!0),"rdfs:Literal"===n.type()&&(t.select("#element_iriEditor").node().value="http://www.w3.org/2000/01/rdf-schema#Literal",t.select("#element_iriEditor").node().title="http://www.w3.org/2000/01/rdf-schema#Literal",t.select("#element_iriEditor").node().disabled=!0,t.select("#element_labelEditor").node().disabled=!0,n.iri("http://www.w3.org/2000/01/rdf-schema#Literal")),"rdfs:Datatype"===n.type()){var i=t.select("#typeEditor_datatype");t.select("#typeEditForm_datatype").classed("hidden",!1),n.iri("http://www.w3.org/2000/01/rdf-schema#Datatype"),t.select("#element_iriEditor").node().value="http://www.w3.org/2000/01/rdf-schema#Datatype",t.select("#element_iriEditor").node().title="http://www.w3.org/2000/01/rdf-schema#Datatype",t.select("#element_iriEditor").node().disabled=!0,t.select("#element_labelEditor").node().disabled=!0,i.node().value=n.dType(),"undefined"===i.node().value&&(t.select("#element_iriEditor").node().disabled=!0,t.select("#element_labelEditor").node().disabled=!1),i.on("change",function(){d(n)})}var r,a=t.select("#typeEditor").node(),l=a.children,s=l.length,c=C(n);for(r=0;r<s;r++)a.removeChild(l[0]);for(r=0;r<c.length;r++){var h=document.createElement("option");h.innerHTML=c[r],a.appendChild(h)}a.value=n.type(),t.select("#typeEditor").on("change",function(){k(n)});var m=w(n);t.select("#property_characteristics_Container").classed("hidden",!m),m===!0&&v(n);var y=t.select("#element_iriEditor").node().value;t.select("#element_iriEditor").node().value=I.getPrefixRepresentationForFullURI(y),t.select("#element_iriEditor").node().title=y,O.updateElementWidth()}},O.updateGeneralOntologyInfo=function(){var n=e&&e.language?e.language():null,o=e.options().getGeneralMetaObject();o.hasOwnProperty("title")&&("object"==typeof o.title?t.select("#titleEditor").node().value=S.textInLanguage(o.title,n):t.select("#titleEditor").node().value=o.title),o.hasOwnProperty("iri")&&(t.select("#iriEditor").node().value=o.iri),o.hasOwnProperty("version")&&(t.select("#versionEditor").node().value=o.version),o.hasOwnProperty("author")&&(t.select("#authorsEditor").node().value=o.author),o.hasOwnProperty("description")?"object"==typeof o.description?t.select("#descriptionEditor").node().value=S.textInLanguage(o.description,n):t.select("#descriptionEditor").node().value=o.description:t.select("#descriptionEditor").node().value="No Description"},O.updateElementWidth=function(){var e=window.innerHeight-40,n=t.select("#logo").node().getBoundingClientRect().height+5,o=e-n;t.select("#containerForLeftSideBar").style("top",n+"px"),t.select("#leftSideBarCollapseButton").style("top",n+"px"),t.select("#containerForLeftSideBar").style("height",o+"px");var i=t.select("#generalDetailsEdit").node().getBoundingClientRect().width;i+=10;var r=t.select("#titleEditor-label").node().getBoundingClientRect().width+20,a=t.select("#iriEditor-label").node().getBoundingClientRect().width+20,l=t.select("#versionEditor-label").node().getBoundingClientRect().width+20,s=t.select("#authorsEditor-label").node().getBoundingClientRect().width+20,d=0;d=Math.max(d,r),d=Math.max(d,a),d=Math.max(d,l),d=Math.max(d,s);var c=i-d-10;t.select("#titleEditor").style("width",c+"px"),t.select("#iriEditor").style("width",c+"px"),t.select("#versionEditor").style("width",c+"px"),t.select("#authorsEditor").style("width",c+"px");var p=t.select("#element_iriEditor-label").node().getBoundingClientRect().width+20,u=t.select("#element_labelEditor-label").node().getBoundingClientRect().width+20,f=t.select("#typeEditor-label").node().getBoundingClientRect().width+20,h=t.select("#typeEditor_datatype-label").node().getBoundingClientRect().width+20;d=0,d=Math.max(d,p),d=Math.max(d,u),d=Math.max(d,f),d=Math.max(d,h);var g=i-d-10;t.select("#element_iriEditor").style("width",g+"px"),t.select("#element_labelEditor").style("width",g+"px"),t.select("#typeEditor").style("width",g+4+"px"),t.select("#typeEditor_datatype").style("width",g+4+"px");var v=t.select("#containerForPrefixURL").node().getBoundingClientRect().width;if(0!==v){var m=t.selectAll(".prefixInput");if(m.node()){var y=t.selectAll(".prefixInput").node().getBoundingClientRect().width;t.selectAll(".prefixURL").style("width",v-y-45+"px")}}},O}}).call(t,n(6))},341:function(e,t,n){(function(t){e.exports=function(e){function n(n,o,i,r){var a,l;a=t.select(n).append("div").classed("distanceSliderContainer",!0);var s=a.append("input").attr("id",o+"Slider").attr("type","range").attr("min",20).attr("max",600).attr("value",r()).attr("step",10);a.append("label").classed("description",!0).attr("for",o+"Slider").attr("id",o+"DescriptionLabel").text(i),l=a.append("label").classed("value",!0).attr("for",o+"Slider").attr("id",o+"valueLabel").text(r()),s.on("input",function(){var t=s.property("value");
-r(t),l.text(t),e.options().dynamicLabelWidth()===!0&&e.animateDynamicLabelWidth()}),s.on("wheel",function(){if(s.node().disabled!==!0){var e,n=t.event;n.deltaY<0&&(e=10),n.deltaY>0&&(e=-10);var o=parseInt(s.property("value")),i=o+e;i!==o&&(s.property("value",i),r(i),s.on("input")()),t.event.preventDefault()}})}function o(n,o,i,a,l){var s=t.select(i).append("div").classed("checkboxContainer",!0),d=s.append("input").classed("moduleCheckbox",!0).attr("id",n+"ConfigCheckbox").attr("type","checkbox").property("checked",a());d.on("click",function(t){var n=d.property("checked");a(n),t!==!0&&(1===l&&e.lazyRefresh(),2===l&&e.update(),3===l&&e.updateDraggerElements())}),r.push(d),s.append("label").attr("for",n+"ConfigCheckbox").text(o)}var i={},r=[];return i.setup=function(){var i=t.select("#m_modes");i.on("mouseover",function(){var t=e.options().searchMenu();t.hideSearchEntries()}),o("showZoomSlider","Zoom controls","#zoomSliderOption",e.options().zoomSlider().showSlider,0),n("#maxLabelWidthSliderOption","maxLabelWidth","Max label width",e.options().maxLabelWidth)},i.setCheckBoxValue=function(e,t){for(var n=0;n<r.length;n++){var o=r[n].attr("id");if(o===e){r[n].property("checked",t);break}}},i.getCheckBoxValue=function(e){for(var t=0;t<r.length;t++){var n=r[t].attr("id");if(n===e)return r[t].property("checked")}},i.updateSettings=function(){var e=!0;r.forEach(function(t){t.on("click")(e)})},i}}).call(t,n(6))},342:function(e,t,n){(function(t){e.exports=function(e){function n(e,n){t.xhr("serverTimeStamp","application/text",function(t,i){t?(f.append_bulletPoint("Could not establish connection to OWL2VOWL service"),o(e,n)):(u=i.responseText,f.setConversionID(u),n.push(u),e(n))})}function o(e,t){f.append_message_toLastBulletPoint("<br>Trying to convert with other communication protocol."),e(t)}function i(e){f.append_message_toLastBulletPoint("<br>Trying to convert with other communication protocol.");var t=e[0],n=e[1],o=new FormData;o.append("ontology",t);var i=new XMLHttpRequest;i.open("POST","convert",!0);var r="";i.onload=function(){200===i.status&&(r=i.responseText,f.setCachedOntology(n,r),h=n,L=!0,f.append_message_toLastBulletPoint("<br>Success, <span style='color:yellow'>but you are using a deprecated OWL2VOWL service!<span>"),s(r))},i.onreadystatechange=function(){4===i.readyState&&0===i.status&&(f.append_message_toLastBulletPoint("<br>Old protocol also failed to establish connection to OWL2VOWL service!"),O.setErrorMode(),f.append_bulletPoint("Failed to load ontology"),f.append_message_toLastBulletPoint("<br><span style='color:red'>Could not connect to OWL2VOWL service </span>"),O.showErrorDetailsMessage())},i.send(o)}function r(e,n){t.xhr("serverTimeStamp","application/text",function(t,o){O.setBusyMode(),t?(f.append_bulletPoint("Could not establish connection to OWL2VOWL service"),O.setErrorMode(),f.append_bulletPoint("Failed to load ontology"),f.append_message_toLastBulletPoint("<br><span style='color:red'>Could not connect to OWL2VOWL service </span>"),O.showErrorDetailsMessage()):(u=o.responseText,f.setConversionID(u),n[0]=n[0]+"&sessionId="+u,n.push(u),e(n))})}function a(e,n){t.xhr("serverTimeStamp","application/text",function(t,o){t?(f.append_bulletPoint("Could not establish connection to OWL2VOWL service"),i(n)):(u=o.responseText,f.setConversionID(u),console.log("Request Session ID:"+u),e(n[0],n[1],u))})}function l(n){var o;n.indexOf("new_ontology")!==-1&&(O.hideLoadingIndicator(),e.showEditorHintIfNeeded(),o="./data/new_ontology.json"),C=!1;var i="";if(f.cachedOntology(n))f.append_bulletPoint("Loading already cached ontology: "+n),i=f.cachedOntology(n),C=!0,O.showLoadingIndicator(),s(i);else{var r="./data/"+n+".json";o&&(r=o),t.xhr(r,"application/json",function(t,o){var r=!t;r?(i=o.responseText,s(i)):(f.append_bulletPoint("Failed to load: "+n),f.append_message_toLastBulletPoint(" <span style='color: red'>ERROR STATUS:</span> "+t.status),e.handleOnLoadingError(),O.setErrorMode())})}}function s(e){f.append_bulletPoint("Reading ontology graph ... ");var t=f.getLoadingFunction();t(e,h,"noAlternativeNameYet")}function d(e){var t=(e.match(/#/g)||[]).length,n=[];if(t>0)for(var o=e.split("#"),i=1;i<o.length;i++)0===o[i].length?n[n.length-1]=n[n.length-1]+"#":n.push(o[i]);return n}function c(t){function n(){e.options().setOptionsFromURL(e.options().defaultConfig(),!1)}function o(t){for(var n=!1,o=e.options().defaultConfig(),i=0;i<t.length;i++){var r=t[i].split("=");"editorMode"===r[0]&&(n=!0),o[r[0]]=r[1]}e.options().setOptionsFromURL(o,n)}function i(e){if(e[0].indexOf(a)>=0){var t=e[0].length,i=e[0].substr(5,t-6),r=i.split(";");o(r)}else h=e[0],n()}function r(e){if(e[0].indexOf(a)>=0){var t=e[0].length,i=e[0].substr(5,t-6),r=i.split(";");o(r)}else n();h=e[1]}var a="opts=";switch(t.length){case 0:n();break;case 1:i(t);break;case 2:r(t);break;default:console.log("To many input parameters , loading default config"),n(),h="ERROR_TO_MANY_INPUT_PARAMETERS"}}function p(e){var t="iri=",n="url=",o="file=",i=-1;return i=e.substr(0,o.length)===o?v:e.substr(0,n.length)===n?m:e.substr(0,t.length)===t?y:g}var u,f,h,g=0,v=1,m=2,y=3,b=0,x=1,w=2,k=1,C=!1,L=!1,M=!1,_=!0,E="ontology",O={},S=t.select("#loading-info"),F=t.select("#loadingInfo-container"),I=t.select("#show-loadingInfo-button"),T=t.select("#loadingIndicator_closeButton");return O.checkForScreenSize=function(){var n=e.options().width(),o=e.options().height();n<270?t.select("#loading-info").classed("hidden",!0):_===!0?t.select("#loading-info").classed("hidden",!1):t.select("#loading-info").classed("hidden",!0),o<150?t.select("#loadingInfo_msgBox").classed("hidden",!0):t.select("#loadingInfo_msgBox").classed("hidden",!1),o<80?(t.select("#progressBarContext").classed("hidden",!0),t.select("#layoutLoadingProgressBarContainer").style("height","20px")):(t.select("#progressBarContext").classed("hidden",!1),t.select("#layoutLoadingProgressBarContainer").style("height","50px"))},O.getProgressBarMode=function(){return k},O.successfullyLoadedOntology=function(){return C},O.missingImportsWarning=function(){return L},O.setOntologyMenu=function(e){f=e},O.showErrorDetailsMessage=function(){O.showLoadingIndicator(),O.expandDetails(),t.select("#loadingIndicator_closeButton").classed("hidden",!0),O.scrollDownDetails()},O.showWarningDetailsMessage=function(){t.select("#currentLoadingStep").style("color","#ff0"),O.showLoadingIndicator(),O.expandDetails(),t.select("#loadingIndicator_closeButton").classed("hidden",!1),O.scrollDownDetails()},O.scrollDownDetails=function(){var e=t.select("#loadingInfo-container").node();e.scrollTop=e.scrollHeight},O.hideLoadingIndicator=function(){t.select("#loading-info").classed("hidden",!0),_=!1},O.showLoadingIndicator=function(){t.select("#loading-info").classed("hidden",!1),_=!0},O.setup=function(){F.classed("hidden",!M),I.on("click",function(){M=!M,F.classed("hidden",!M),I.classed("accordion-trigger-active",M)}),T.on("click",function(){S.classed("hidden",!0)}),O.setBusyMode()},O.updateSize=function(){M=!F.classed("hidden"),F.classed("hidden",!M),I.classed("accordion-trigger-active",M)},O.getDetailsState=function(){return M},O.expandDetails=function(){M=!0,F.classed("hidden",!M),I.classed("accordion-trigger-active",M)},O.collapseDetails=function(){M=!1,F.classed("hidden",!M),I.classed("accordion-trigger-active",M)},O.setBusyMode=function(){t.select("#currentLoadingStep").style("color","#fff"),t.select("#progressBarValue").node().innherHTML="",t.select("#progressBarValue").style("width","20%"),t.select("#progressBarValue").classed("busyProgressBar",!0),k=x},O.setSuccessful=function(){t.select("#currentLoadingStep").style("color","#0f0")},O.setErrorMode=function(){t.select("#currentLoadingStep").style("color","#f00"),t.select("#progressBarValue").style("width","0%"),t.select("#progressBarValue").classed("busyProgressBar",!1),t.select("#progressBarValue").node().innherHTML="",k=b},O.setPercentMode=function(){t.select("#currentLoadingStep").style("color","#fff"),t.select("#progressBarValue").classed("busyProgressBar",!1),t.select("#progressBarValue").node().innherHTML="0%",t.select("#progressBarValue").style("width","0%"),k=w},O.setPercentValue=function(e){t.select("#progressBarValue").node().innherHTML=e},O.emptyGraphContentError=function(){e.clearGraphData(),f.append_message_toLastBulletPoint("<span style='color:red;'>failed</span>"),f.append_message_toLastBulletPoint('<br><span style="color:red;">Error: Received empty graph</span>'),C=!1,e.handleOnLoadingError(),O.setErrorMode()},O.isThreadCanceled=function(){},O.initializeLoader=function(n){if(n===!0&&null!==e.getCachedJsonObj()){var o=JSON.stringify(e.getCachedJsonObj()),i=h;f.setCachedOntology(i,o)}u=-1e4,f.setConversionID(u),f.stopLoadingTimer(),e.clearGraphData(),O.setBusyMode(),O.showLoadingIndicator(),O.collapseDetails(),L=!1,t.select("#loadingIndicator_closeButton").classed("hidden",!0),f.clearDetailInformation()},O.parseUrlAndLoadOntology=function(n){var o=!0;n===!1&&(o=!1),e.clearAllGraphData(),O.initializeLoader(o);var i=String(location),r=d(i);h=E,c(r);var a=p(h);switch(t.select("#progressBarValue").node().innerHTML=" ",a){case 0:O.from_presetOntology(h);break;case 1:O.from_FileUpload(h);break;case 2:O.from_JSON_URL(h);break;case 3:O.from_IRI_URL(h);break;default:console.log("Could not identify loading method , or not IMPLEMENTED YET")}},O.from_JSON_URL=function(e){var t=decodeURIComponent(e.slice("url=".length));h=t;var o="";f.cachedOntology(t)?(f.append_bulletPoint("Loading already cached ontology: "+t),o=f.cachedOntology(t),C=!0,s(o)):(f.append_message("Retrieving ontology from JSON URL "+t),n(f.callbackLoad_JSON_FromURL,["read?json="+t,t]))},O.requestServerTimeStampForDirectInput=function(e,n){t.xhr("serverTimeStamp","application/text",function(o,i){o?(f.append_bulletPoint("Could not establish connection to OWL2VOWL service"),O.setErrorMode(),f.append_message_toLastBulletPoint("<br><span style='color:red'>Could not connect to OWL2VOWL service </span>"),O.showErrorDetailsMessage(),t.select("#progressBarValue").style("width","0%"),t.select("#progressBarValue").classed("busyProgressBar",!1),t.select("#progressBarValue").text("0%")):(u=i.responseText,f.setConversionID(u),e(n,["conversionID"+u,u]))})},O.from_IRI_URL=function(e){var t=decodeURIComponent(e.slice("iri=".length));h=t;var n="";if(f.cachedOntology(t))f.append_bulletPoint("Loading already cached ontology: "+t),n=f.cachedOntology(t),C=!0,s(n);else{var o=encodeURIComponent(t);f.append_bulletPoint("Retrieving ontology from IRI: "+t),r(f.callbackLoad_Ontology_FromIRI,["convert?iri="+o,t])}},O.from_FileUpload=function(n){O.setBusyMode();var o=decodeURIComponent(n.slice("file=".length));h=o;var i="";if(f.cachedOntology(o))f.append_bulletPoint("Loading already cached ontology: "+o),i=f.cachedOntology(o),C=!0,s(i);else{f.append_bulletPoint("Retrieving ontology from file: "+o);var r=t.select("#file-converter-input").property("files")[0];if(!r||o&&o!==r.name)return f.append_message_toLastBulletPoint('<br><span style="color:red;">No cached version of "'+o+'" was found.</span><br>Please reupload the file.'),O.setErrorMode(),t.select("#progressBarValue").classed("busyProgressBar",!1),void e.handleOnLoadingError();if(o=r.name,o.match(/\.json$/)){f.setConversionID(-1e4);var l=new FileReader;l.readAsText(r),l.onload=function(){i=l.result,h=o,s(i)}}else{var d=[r,o];a(f.callbackLoadFromOntology,d)}}},O.directInput=function(e){f.clearDetailInformation(),s(e)},O.loadFromOWL2VOWL=function(e,n){C=!1;var o=t.select("#bulletPoint_container").node().innerHTML;o.indexOf("(with warnings)")!==-1&&(L=!0),f.cachedOntology(e)?(f.append_bulletPoint("Loading already cached ontology: "+n),s(e)):s(e)},O.from_presetOntology=function(e){f.append_bulletPoint("Retrieving ontology: "+e),l(e)},O.notValidJsonFile=function(){e.clearGraphData(),f.append_message_toLastBulletPoint(" <span style='color:red;'>failed</span>"),f.append_message_toLastBulletPoint("<br><span style='color:red;'>Error: Received empty graph</span>"),C=!1,e.handleOnLoadingError()},O.validJsonFile=function(){f.append_message_toLastBulletPoint("done"),C=!0},O}}).call(t,n(6))},343:function(e,t,n){(function(t){e.exports=function(e){function n(){for(var e=document.styleSheets[1].cssRules,t=0;t<e.length;t++){var n=e[t];"msg_CollapseAnimation"===n.name&&(p=t)}}var o,i,r={},a=t.select("#WarningErrorMessages"),l=[],s=[],d=[],c=-1;a.style("display","inline-block");var p=0;return n(),r.addMessageBox=function(){c++;var e=t.select("#WarningErrorMessages").append("div");e.node().id="messageContainerId_"+c;var n=e.append("div");return n.node().id="messageContextId_"+c,n.style("top","0"),e.style("position","relative"),e.style("width","100%"),l.push(e),s.push(n),e.node().addEventListener("animationend",function(){var e=this.id,n=e.split("_")[1],o=t.select("#"+e);o.classed("hidden",!d[n]),d[n]||(o.remove(),s[n]=null,l[n]=null)}),d[c]=!0,c},r.createMessageContext=function(e){var t=s[e],n=l[e],o=t.append("div");o.node().innerHTML="",i=e,o.node().innerHTML+="Editing mode activated.<br>You can now modify an existing ontology or create a new one via the <em>ontology</em> menu.<br>You can save any ontology using the <em>export</em> menu (and exporting it as TTL file).",o.style("padding","5px"),o.style("line-height","1.2em"),o.style("font-size","1.2em");var a=t.append("ul");a.append("li").node().innerHTML="Create a class with <b>double click / tap</b> on empty canvas area.",a.append("li").node().innerHTML="Edit names with <b>double click / tap</b> on element.</li>",a.append("li").node().innerHTML="Selection of default constructors is provided in the left sidebar.",a.append("li").node().innerHTML="Additional editing functionality is provided in the right sidebar.";var d=t.append("label");d.node().id="killWarningErrorMessages_"+e,d.node().innerHTML="Got It",d.on("click",r.closeMessage),n.classed("hidden",!1),n.style("-webkit-animation-name","warn_ExpandAnimation"),n.style("-webkit-animation-duration","0.5s")},r.showMessage=function(e){var t=l[e];t.classed("hidden",!1),t.style("-webkit-animation-name","warn_ExpandAnimation"),t.style("-webkit-animation-duration","0.5s")},r.closeMessage=function(e){var n;if(void 0===e){var o=this.id;n=o.split("_")[1]}else n=e;e&&e.indexOf("_")!==-1&&(n=e.split("_")[1]),d[n]=!1;var i=l[n];i.style("-webkit-animation-name","warn_CollapseAnimation"),i.style("-webkit-animation-duration","0.5s");for(var r=i.node().getBoundingClientRect().height,a=i.node().parentNode,s=[],c=a.children,u=c.length,f=i.node().id,h=!1,g=0;g<u;g++)h===!0&&s.push(c[g].id),f===c[g].id&&(h=!0);for(var v=0;v<s.length;v++){var m=t.select("#"+s[v]),y=document.styleSheets[1].cssRules[p];y.deleteRule("0%"),y.deleteRule("100%"),y.appendRule("0%   {top: 0;}"),y.appendRule("100% {top: -"+r+"px;"),m.style("-webkit-animation-name","msg_CollapseAnimation"),m.style("-webkit-animation-duration","0.5s"),m.node().addEventListener("animationend",function(){var e=t.select(this);e.style("-webkit-animation-name",""),e.style("-webkit-animation-duration","")})}},r.closeFilterHint=function(){l[o]&&(l[o].classed("hidden",!0),l[o].remove(),l[o]=null,s[o]=null,d[o]=!1)},r.showEditorHint=function(){var e=r.addMessageBox();r.createMessageContext(e)},r.responseWarning=function(n,o,i,a,c,p){var u=r.addMessageBox(),f=s[u],h=l[u];d[u]=!0,t.select("#blockGraphInteractions").classed("hidden",!1);var g=.5*e.options().width();if(n.length>0){var v=f.append("div");v.style("padding","5px");var m=v.append("div");m.style("display","inline-flex"),m.node().innerHTML="<b>Warning:</b>",m.style("padding-right","3px");var y=v.append("div");y.style("display","inline-flex"),y.style("max-width",g+"px"),y.node().innerHTML=n}if(o.length>0){var b=f.append("div");b.style("padding","5px");var x=b.append("div");x.style("display","inline-flex"),x.style("padding-right","3px"),x.node().innerHTML="<b>Reason:</b>";var w=b.append("div");w.style("display","inline-flex"),w.style("max-width",g+"px"),w.node().innerHTML=o}if(i.length>0){var k=f.append("div");k.style("padding","5px");var C=k.append("div");C.style("display","inline-flex"),C.style("padding-right","8px"),C.node().innerHTML="<b>Action:</b>";var L=k.append("div");L.style("display","inline-flex"),L.style("max-width",g+"px"),L.node().innerHTML=i}var M=f.append("label");M.node().id="killWarningErrorMessages_"+u,M.node().innerHTML="Continue",M.on("click",function(){r.closeMessage(this.id),t.select("#blockGraphInteractions").classed("hidden",!0),a(c[0],c[1],c[2],c[3])}),f.append("span").node().innerHTML="|";var _=f.append("label");_.node().id="cancelButton_"+u,_.node().innerHTML="Cancel",_.on("click",function(){r.closeMessage(this.id),t.select("#blockGraphInteractions").classed("hidden",!0)}),h.classed("hidden",!1),h.style("-webkit-animation-name","warn_ExpandAnimation"),h.style("-webkit-animation-duration","0.5s")},r.showFilterHint=function(){var e=r.addMessageBox(),t=s[e],n=l[e];d[e]=!0,o=e;var i=t.append("div");i.node().innerHTML="Collapsing filter activated.<br>The number of visualized elements has been automatically reduced.<br>Use the degree of collapsing slider in the <em>filter</em> menu to adjust the visualization.<br><br><em>Note:</em> A performance decrease could be experienced with a growing amount of visual elements in the graph.",i.style("padding","5px"),i.style("line-height","1.2em"),i.style("font-size","1.2em");var a=t.append("label");a.node().id="killFilterMessages_"+e,a.node().innerHTML="Got It",a.on("click",r.closeMessage),n.classed("hidden",!1),n.style("-webkit-animation-name","warn_ExpandAnimation"),n.style("-webkit-animation-duration","0.5s")},r.showWarning=function(t,n,o,i,a,c){var p=r.addMessageBox(),u=s[p],f=l[p];d[p]=!0;var h=.5*e.options().width();if(t.length>0){var g=u.append("div");g.style("padding","5px");var v=g.append("div");v.style("display","inline-flex"),v.node().innerHTML="<b>Warning:</b>",v.style("padding-right","3px");var m=g.append("div");m.style("display","inline-flex"),m.style("max-width",h+"px"),m.node().innerHTML=t}if(n.length>0){var y=u.append("div");y.style("padding","5px");var b=y.append("div");b.style("display","inline-flex"),b.style("padding-right","3px"),b.node().innerHTML="<b>Reason:</b>";var x=y.append("div");x.style("display","inline-flex"),x.style("max-width",h+"px"),x.node().innerHTML=n}if(o.length>0){var w=u.append("div");w.style("padding","5px");var k=w.append("div");k.style("display","inline-flex"),k.style("padding-right","8px"),k.node().innerHTML="<b>Action:</b>";var C=w.append("div");C.style("display","inline-flex"),C.style("max-width",h+"px"),C.node().innerHTML=o}var L;if(1===i&&(L=u.append("label"),L.node().id="killWarningErrorMessages_"+p,L.node().innerHTML="Got It",L.on("click",r.closeMessage)),2===i){L=u.append("label"),L.node().id="killWarningErrorMessages_"+p,L.node().innerHTML="Got It",L.on("click",r.closeMessage),u.append("span").node().innerHTML="|";var M=u.append("label");M.node().id="zoomElementThing_"+p,M.node().innerHTML="Zoom to element ",M.on("click",function(){e.zoomToElementInGraph(c)}),u.append("span").node().innerHTML="|";var _=u.append("label");_.node().id="showElementThing_"+p,_.node().innerHTML="Indicate element",_.on("click",function(){c.halo()===!1?(c.drawHalo(),e.updatePulseIds([c.id()])):(c.removeHalo(),c.drawHalo(),e.updatePulseIds([c.id()]))})}f.classed("hidden",!1),f.style("-webkit-animation-name","warn_ExpandAnimation"),f.style("-webkit-animation-duration","0.5s"),f.classed("hidden",!1)},r}}).call(t,n(6))},344:function(e,t,n){(function(t){e.exports=function(e){var n={},o=t.select("#DirectInputContent");o.style("top","0"),o.style("position","absolute");var i=t.select("#directInputTextArea"),r=!1;return o.style("border","1px solid black"),o.style("padding","5px"),o.style("background","#fff"),n.handleDirectUpload=function(){var o,r=i.node().value;try{o=JSON.parse(r),e.options().loadingModule().directInput(r),o.class.length>0&&n.setDirectInputMode(!1)}catch(n){try{e.options().loadingModule().initializeLoader(),e.options().loadingModule().requestServerTimeStampForDirectInput(e.options().ontologyMenu().callbackLoad_Ontology_From_DirectInput,r)}catch(e){console.log("Error "+e),t.select("#Error_onLoad").classed("hidden",!1),t.select("#Error_onLoad").node().innerHTML="Failed to convert the input!"}}},n.handleCloseButton=function(){n.setDirectInputMode(!1)},n.updateLayout=function(){var t=e.options().width(),n=e.options().height();i.style("width",.4*t+"px"),i.style("height",.7*n+"px")},n.setDirectInputMode=function(e){r=e?e:!r,n.updateLayout(),t.select("#Error_onLoad").classed("hidden",!0),o.classed("hidden",!r)},t.select("#directUploadBtn").on("click",n.handleDirectUpload),t.select("#close_directUploadBtn").on("click",n.handleCloseButton),n}}).call(t,n(6))}});
+webvowl.app =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+	__webpack_require__(319);
+	__webpack_require__(321);
+
+	module.exports = __webpack_require__(322);
+
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+	module.exports = d3;
+
+/***/ }),
+
+/***/ 91:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(92),
+	    getRawTag = __webpack_require__(95),
+	    objectToString = __webpack_require__(96);
+
+	/** `Object#toString` result references. */
+	var nullTag = '[object Null]',
+	    undefinedTag = '[object Undefined]';
+
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+	/**
+	 * The base implementation of `getTag` without fallbacks for buggy environments.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the `toStringTag`.
+	 */
+	function baseGetTag(value) {
+	  if (value == null) {
+	    return value === undefined ? undefinedTag : nullTag;
+	  }
+	  return (symToStringTag && symToStringTag in Object(value))
+	    ? getRawTag(value)
+	    : objectToString(value);
+	}
+
+	module.exports = baseGetTag;
+
+
+/***/ }),
+
+/***/ 92:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var root = __webpack_require__(93);
+
+	/** Built-in value references. */
+	var Symbol = root.Symbol;
+
+	module.exports = Symbol;
+
+
+/***/ }),
+
+/***/ 93:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var freeGlobal = __webpack_require__(94);
+
+	/** Detect free variable `self`. */
+	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+
+	module.exports = root;
+
+
+/***/ }),
+
+/***/ 94:
+/***/ (function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
+	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+	module.exports = freeGlobal;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ }),
+
+/***/ 95:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(92);
+
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+	/**
+	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the raw `toStringTag`.
+	 */
+	function getRawTag(value) {
+	  var isOwn = hasOwnProperty.call(value, symToStringTag),
+	      tag = value[symToStringTag];
+
+	  try {
+	    value[symToStringTag] = undefined;
+	    var unmasked = true;
+	  } catch (e) {}
+
+	  var result = nativeObjectToString.call(value);
+	  if (unmasked) {
+	    if (isOwn) {
+	      value[symToStringTag] = tag;
+	    } else {
+	      delete value[symToStringTag];
+	    }
+	  }
+	  return result;
+	}
+
+	module.exports = getRawTag;
+
+
+/***/ }),
+
+/***/ 96:
+/***/ (function(module, exports) {
+
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+
+	/**
+	 * Converts `value` to a string using `Object.prototype.toString`.
+	 *
+	 * @private
+	 * @param {*} value The value to convert.
+	 * @returns {string} Returns the converted string.
+	 */
+	function objectToString(value) {
+	  return nativeObjectToString.call(value);
+	}
+
+	module.exports = objectToString;
+
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseGetTag = __webpack_require__(91),
+	    isObjectLike = __webpack_require__(104);
+
+	/** `Object#toString` result references. */
+	var symbolTag = '[object Symbol]';
+
+	/**
+	 * Checks if `value` is classified as a `Symbol` primitive or object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+	 * @example
+	 *
+	 * _.isSymbol(Symbol.iterator);
+	 * // => true
+	 *
+	 * _.isSymbol('abc');
+	 * // => false
+	 */
+	function isSymbol(value) {
+	  return typeof value == 'symbol' ||
+	    (isObjectLike(value) && baseGetTag(value) == symbolTag);
+	}
+
+	module.exports = isSymbol;
+
+
+/***/ }),
+
+/***/ 104:
+/***/ (function(module, exports) {
+
+	/**
+	 * Checks if `value` is object-like. A value is object-like if it's not `null`
+	 * and has a `typeof` result of "object".
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+	 * @example
+	 *
+	 * _.isObjectLike({});
+	 * // => true
+	 *
+	 * _.isObjectLike([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isObjectLike(_.noop);
+	 * // => false
+	 *
+	 * _.isObjectLike(null);
+	 * // => false
+	 */
+	function isObjectLike(value) {
+	  return value != null && typeof value == 'object';
+	}
+
+	module.exports = isObjectLike;
+
+
+/***/ }),
+
+/***/ 112:
+/***/ (function(module, exports) {
+
+	/**
+	 * Checks if `value` is classified as an `Array` object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.1.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+	 * @example
+	 *
+	 * _.isArray([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isArray(document.body.children);
+	 * // => false
+	 *
+	 * _.isArray('abc');
+	 * // => false
+	 *
+	 * _.isArray(_.noop);
+	 * // => false
+	 */
+	var isArray = Array.isArray;
+
+	module.exports = isArray;
+
+
+/***/ }),
+
+/***/ 154:
+/***/ (function(module, exports) {
+
+	/**
+	 * A specialized version of `_.map` for arrays without support for iteratee
+	 * shorthands.
+	 *
+	 * @private
+	 * @param {Array} [array] The array to iterate over.
+	 * @param {Function} iteratee The function invoked per iteration.
+	 * @returns {Array} Returns the new mapped array.
+	 */
+	function arrayMap(array, iteratee) {
+	  var index = -1,
+	      length = array == null ? 0 : array.length,
+	      result = Array(length);
+
+	  while (++index < length) {
+	    result[index] = iteratee(array[index], index, array);
+	  }
+	  return result;
+	}
+
+	module.exports = arrayMap;
+
+
+/***/ }),
+
+/***/ 219:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseToString = __webpack_require__(220);
+
+	/**
+	 * Converts `value` to a string. An empty string is returned for `null`
+	 * and `undefined` values. The sign of `-0` is preserved.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to convert.
+	 * @returns {string} Returns the converted string.
+	 * @example
+	 *
+	 * _.toString(null);
+	 * // => ''
+	 *
+	 * _.toString(-0);
+	 * // => '-0'
+	 *
+	 * _.toString([1, 2, 3]);
+	 * // => '1,2,3'
+	 */
+	function toString(value) {
+	  return value == null ? '' : baseToString(value);
+	}
+
+	module.exports = toString;
+
+
+/***/ }),
+
+/***/ 220:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(92),
+	    arrayMap = __webpack_require__(154),
+	    isArray = __webpack_require__(112),
+	    isSymbol = __webpack_require__(103);
+
+	/** Used as references for various `Number` constants. */
+	var INFINITY = 1 / 0;
+
+	/** Used to convert symbols to primitives and strings. */
+	var symbolProto = Symbol ? Symbol.prototype : undefined,
+	    symbolToString = symbolProto ? symbolProto.toString : undefined;
+
+	/**
+	 * The base implementation of `_.toString` which doesn't convert nullish
+	 * values to empty strings.
+	 *
+	 * @private
+	 * @param {*} value The value to process.
+	 * @returns {string} Returns the string.
+	 */
+	function baseToString(value) {
+	  // Exit early for strings to avoid a performance hit in some environments.
+	  if (typeof value == 'string') {
+	    return value;
+	  }
+	  if (isArray(value)) {
+	    // Recursively convert values (susceptible to call stack limits).
+	    return arrayMap(value, baseToString) + '';
+	  }
+	  if (isSymbol(value)) {
+	    return symbolToString ? symbolToString.call(value) : '';
+	  }
+	  var result = (value + '');
+	  return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
+	}
+
+	module.exports = baseToString;
+
+
+/***/ }),
+
+/***/ 319:
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 321:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/* Taken from here: http://stackoverflow.com/a/17907562 */
+	function getInternetExplorerVersion(){
+	  var ua,
+	    re,
+	    rv = -1;
+	  
+	  // check for edge
+	  var isEdge = /(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/.test(navigator.userAgent);
+	  if ( isEdge ) {
+	    rv = parseInt("12");
+	    return rv;
+	  }
+	  
+	  var isIE11 = /Trident.*rv[ :]*11\./.test(navigator.userAgent);
+	  if ( isIE11 ) {
+	    rv = parseInt("11");
+	    return rv;
+	  }
+	  if ( navigator.appName === "Microsoft Internet Explorer" ) {
+	    ua = navigator.userAgent;
+	    re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+	    if ( re.exec(ua) !== null ) {
+	      rv = parseFloat(RegExp.$1);
+	    }
+	  } else if ( navigator.appName === "Netscape" ) {
+	    ua = navigator.userAgent;
+	    re = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+	    if ( re.exec(ua) !== null ) {
+	      rv = parseFloat(RegExp.$1);
+	    }
+	  }
+	  return rv;
+	}
+
+	function showBrowserWarningIfRequired(){
+	  var version = getInternetExplorerVersion();
+	  console.log("Browser Version =" + version);
+	  if ( version > 0 && version <= 11 ) {
+	    d3.select("#browserCheck").classed("hidden", false);
+	    d3.select("#killWarning").classed("hidden", true);
+	    d3.select("#optionsArea").classed("hidden", true);
+	    d3.select("#logo").classed("hidden", true);
+	  }
+	  if ( version == 12 ) {
+	    d3.select("#logo").classed("hidden", false);
+	    d3.select("#browserCheck").classed("hidden", false);
+	    // connect the button;
+	    var pb_kill = d3.select("#killWarning");
+	    pb_kill.on("click", function (){
+	      console.log("hide the warning please");
+	      d3.select("#browserCheck").classed("hidden", true);
+	      d3.select("#logo").style("padding", "10px");
+	    });
+	  }
+	  else {
+	    d3.select("#logo").classed("hidden", false);
+	    d3.select("#browserCheck").classed("hidden", true);
+	  }
+	  
+	}
+
+	module.exports = showBrowserWarningIfRequired;
+	showBrowserWarningIfRequired();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 322:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {String.prototype.replaceAll = function ( search, replacement ){
+	  var target = this;
+	  return target.split(search).join(replacement);
+	};
+	module.exports = function (){
+	  var newOntologyCounter = 1;
+	  var app = {},
+	    graph = webvowl.graph(),
+	    options = graph.graphOptions(),
+	    languageTools = webvowl.util.languageTools(),
+	    GRAPH_SELECTOR = "#graph",
+	    // Modules for the webvowl app
+	    exportMenu = __webpack_require__(323)(graph),
+	    filterMenu = __webpack_require__(325)(graph),
+	    gravityMenu = __webpack_require__(326)(graph),
+	    modeMenu = __webpack_require__(327)(graph),
+	    debugMenu = __webpack_require__(328)(graph),
+	    ontologyMenu = __webpack_require__(329)(graph),
+	    pauseMenu = __webpack_require__(333)(graph),
+	    resetMenu = __webpack_require__(334)(graph),
+	    searchMenu = __webpack_require__(335)(graph),
+	    navigationMenu = __webpack_require__(336)(graph),
+	    zoomSlider = __webpack_require__(337)(graph),
+	    sidebar = __webpack_require__(338)(graph),
+	    leftSidebar = __webpack_require__(339)(graph),
+	    editSidebar = __webpack_require__(340)(graph),
+	    configMenu = __webpack_require__(341)(graph),
+	    loadingModule = __webpack_require__(342)(graph),
+	    warningModule = __webpack_require__(343)(graph),
+	    directInputMod = __webpack_require__(344)(graph),
+	    
+	    
+	    // Graph modules
+	    colorExternalsSwitch = webvowl.modules.colorExternalsSwitch(graph),
+	    compactNotationSwitch = webvowl.modules.compactNotationSwitch(graph),
+	    datatypeFilter = webvowl.modules.datatypeFilter(),
+	    disjointFilter = webvowl.modules.disjointFilter(),
+	    focuser = webvowl.modules.focuser(graph),
+	    emptyLiteralFilter = webvowl.modules.emptyLiteralFilter(),
+	    nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(filterMenu),
+	    nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
+	    objectPropertyFilter = webvowl.modules.objectPropertyFilter(),
+	    pickAndPin = webvowl.modules.pickAndPin(),
+	    selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
+	    statistics = webvowl.modules.statistics(),
+	    subclassFilter = webvowl.modules.subclassFilter(),
+	    setOperatorFilter = webvowl.modules.setOperatorFilter();
+	  
+	  
+	  app.getOptions = function (){
+	    return webvowl.opts;
+	  };
+	  app.getGraph = function (){
+	    return webvowl.gr;
+	  };
+	  // app.afterInitializationCallback=undefined;
+	  
+	  
+	  var executeFileDrop = false;
+	  var wasMessageToShow = false;
+	  var firstTime = false;
+	  
+	  function addFileDropEvents( selector ){
+	    var node = d3.select(selector);
+	    
+	    node.node().ondragover = function ( e ){
+	      e.preventDefault();
+
+	      d3.select("#dragDropContainer").classed("hidden", false);
+	      // get svg size
+	      var w = graph.options().width();
+	      var h = graph.options().height();
+	      
+	      // get event position; (using clientX and clientY);
+	      var cx = e.clientX;
+	      var cy = e.clientY;
+	      
+	      if ( firstTime === false ) {
+	        var state = d3.select("#loading-info").classed("hidden");
+	        wasMessageToShow = !state;
+	        firstTime = true;
+	        d3.select("#loading-info").classed("hidden", true); // hide it so it does not conflict with drop event
+	        var bb=d3.select("#drag_msg").node().getBoundingClientRect();
+	        var hs = bb.height;
+	        var ws = bb.width;
+	        
+	        var icon_scale=Math.min(hs,ws);
+	        icon_scale/=100;
+	        
+	        d3.select("#drag_icon_group").attr("transform", "translate ( " + 0.25 * ws + " " + 0.25 * hs + ")");
+	        d3.select("#drag_icon").attr("transform","matrix ("+icon_scale+",0,0,"+icon_scale+",0,0)");
+	        d3.select("#drag_icon_drop").attr("transform","matrix ("+icon_scale+",0,0,"+icon_scale+",0,0)");
+	      }
+	      
+	      
+	      if ( (cx > 0.25 * w && cx < 0.75 * w) && (cy > 0.25 * h && cy < 0.75 * h) ) {
+	        
+	        d3.select("#drag_msg_text").node().innerHTML = "Drop it here.";
+	        d3.select("#drag_msg").style("background-color", "#67bc0f");
+	        d3.select("#drag_msg").style("color", "#000000");
+	        executeFileDrop = true;
+	        // d3.select("#drag_svg").transition()
+	        //   .duration(100)
+	        //   // .attr("-webkit-transform", "rotate(90)")
+	        //   // .attr("-moz-transform",    "rotate(90)")
+	        //   // .attr("-o-transform",      "rotate(90)")
+	        //   .attr("transform",         "rotate(90)");
+	  
+	        d3.select("#drag_icon").classed("hidden",true);
+	        d3.select("#drag_icon_drop").classed("hidden",false);
+	  
+	  
+	      } else {
+	        d3.select("#drag_msg_text").node().innerHTML = "Drag ontology file here.";
+	        d3.select("#drag_msg").style("background-color", "#fefefe");
+	        d3.select("#drag_msg").style("color", "#000000");
+	        executeFileDrop = false;
+	  
+	        d3.select("#drag_icon").classed("hidden",false);
+	        d3.select("#drag_icon_drop").classed("hidden",true);
+	        
+	        
+	        // d3.select("#drag_svg").transition()
+	        //   .duration(100)
+	        //   // .attr("-webkit-transform", "rotate(0)")
+	        //   // .attr("-moz-transform",    "rotate(0)")
+	        //   // .attr("-o-transform",      "rotate(0)")
+	        //   .attr("transform",         "rotate(0)");
+	        //
+	      }
+	      
+	    };
+	    node.node().ondrop = function ( ev ){
+	      ev.preventDefault();
+	      firstTime = false;
+	      if ( executeFileDrop ) {
+	        if ( ev.dataTransfer.items ) {
+	          if ( ev.dataTransfer.items.length === 1 ) {
+	            if ( ev.dataTransfer.items[0].kind === 'file' ) {
+	              var file = ev.dataTransfer.items[0].getAsFile();
+	              graph.options().loadingModule().fromFileDrop(file.name, file);
+	            }
+	          }
+	          else {
+	            //  >> WARNING not multiple file uploaded;
+	            graph.options().warningModule().showMultiFileUploadWarning();
+	          }
+	        }
+	      }
+	      d3.select("#dragDropContainer").classed("hidden", true);
+	    };
+	    
+	    node.node().ondragleave = function ( e ){
+	      var w = graph.options().width();
+	      var h = graph.options().height();
+	      
+	      // get event position; (using clientX and clientY);
+	      var cx = e.clientX;
+	      var cy = e.clientY;
+	      
+	      var hidden = false;
+	      firstTime = false;
+	      
+	      if ( cx < 0.1 * w || cx > 0.9 * w ) hidden = true;
+	      if ( cy < 0.1 * h || cy > 0.9 * h ) hidden = true;
+	      d3.select("#dragDropContainer").classed("hidden", hidden);
+	      
+	      d3.select("#loading-info").classed("hidden", !wasMessageToShow); // show it again
+	      // check if it should be visible
+	      var should_show=graph.options().loadingModule().getMessageVisibilityStatus();
+	      if (should_show===false){
+	        d3.select("#loading-info").classed("hidden", true); // hide it
+	      }
+	    };
+	    
+	  }
+	  
+	  
+	  app.initialize = function (){
+	    addFileDropEvents(GRAPH_SELECTOR);
+	    
+	    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function ( f ){
+	        return setTimeout(f, 1000 / 60);
+	      }; // simulate calling code 60
+	    window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || function ( requestID ){
+	        clearTimeout(requestID);
+	      }; //fall back
+	    
+	    options.graphContainerSelector(GRAPH_SELECTOR);
+	    options.selectionModules().push(focuser);
+	    options.selectionModules().push(selectionDetailDisplayer);
+	    options.selectionModules().push(pickAndPin);
+	    
+	    options.filterModules().push(emptyLiteralFilter);
+	    options.filterModules().push(statistics);
+	    
+	    options.filterModules().push(nodeDegreeFilter);
+	    options.filterModules().push(datatypeFilter);
+	    options.filterModules().push(objectPropertyFilter);
+	    options.filterModules().push(subclassFilter);
+	    options.filterModules().push(disjointFilter);
+	    options.filterModules().push(setOperatorFilter);
+	    options.filterModules().push(nodeScalingSwitch);
+	    options.filterModules().push(compactNotationSwitch);
+	    options.filterModules().push(colorExternalsSwitch);
+	    
+	    d3.select(window).on("resize", adjustSize);
+	    
+	    exportMenu.setup();
+	    gravityMenu.setup();
+	    filterMenu.setup(datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
+	    modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch, colorExternalsSwitch);
+	    pauseMenu.setup();
+	    sidebar.setup();
+	    loadingModule.setup();
+	    leftSidebar.setup();
+	    editSidebar.setup();
+	    debugMenu.setup();
+	    var agentVersion = getInternetExplorerVersion();
+	    if ( agentVersion > 0 && agentVersion <= 11 ) {
+	      console.log("Agent version " + agentVersion);
+	      console.log("This agent is not supported");
+	      d3.select("#browserCheck").classed("hidden", false);
+	      d3.select("#killWarning").classed("hidden", true);
+	      d3.select("#optionsArea").classed("hidden", true);
+	      d3.select("#logo").classed("hidden", true);
+	    } else {
+	      d3.select("#logo").classed("hidden", false);
+	      if ( agentVersion === 12 ) {
+	        // allow Mircosoft Edge Browser but with warning
+	        d3.select("#browserCheck").classed("hidden", false);
+	        d3.select("#killWarning").classed("hidden", false);
+	      } else {
+	        d3.select("#browserCheck").classed("hidden", true);
+	      }
+	      
+	      resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
+	      searchMenu.setup();
+	      navigationMenu.setup();
+	      zoomSlider.setup();
+	      
+	      // give the options the pointer to the some menus for import and export
+	      options.literalFilter(emptyLiteralFilter);
+	      options.nodeDegreeFilter(nodeDegreeFilter);
+	      options.loadingModule(loadingModule);
+	      options.filterMenu(filterMenu);
+	      options.modeMenu(modeMenu);
+	      options.gravityMenu(gravityMenu);
+	      options.pausedMenu(pauseMenu);
+	      options.pickAndPinModule(pickAndPin);
+	      options.resetMenu(resetMenu);
+	      options.searchMenu(searchMenu);
+	      options.ontologyMenu(ontologyMenu);
+	      options.navigationMenu(navigationMenu);
+	      options.sidebar(sidebar);
+	      options.leftSidebar(leftSidebar);
+	      options.editSidebar(editSidebar);
+	      options.exportMenu(exportMenu);
+	      options.graphObject(graph);
+	      options.zoomSlider(zoomSlider);
+	      options.warningModule(warningModule);
+	      options.directInputModule(directInputMod);
+	      options.datatypeFilter(datatypeFilter);
+	      options.objectPropertyFilter(objectPropertyFilter);
+	      options.subclassFilter(subclassFilter);
+	      options.setOperatorFilter(setOperatorFilter);
+	      options.disjointPropertyFilter(disjointFilter);
+	      options.focuserModule(focuser);
+	      options.colorExternalsModule(colorExternalsSwitch);
+	      options.compactNotationModule(compactNotationSwitch);
+	      
+	      ontologyMenu.setup(loadOntologyFromText);
+	      configMenu.setup();
+	      
+	      leftSidebar.showSidebar(0);
+	      leftSidebar.hideCollapseButton(true);
+	      
+	      
+	      graph.start();
+	      
+	      var modeOp = d3.select("#modeOfOperationString");
+	      modeOp.style("font-size", "0.6em");
+	      modeOp.style("font-style", "italic");
+	      
+	      adjustSize();
+	      var defZoom;
+	      var w = graph.options().width();
+	      var h = graph.options().height();
+	      defZoom = Math.min(w, h) / 1000;
+	      
+	      var hideDebugOptions = true;
+	      if ( hideDebugOptions === false ) {
+	        graph.setForceTickFunctionWithFPS();
+	      }
+	      
+	      graph.setDefaultZoom(defZoom);
+	      d3.selectAll(".debugOption").classed("hidden", hideDebugOptions);
+	      
+	      // prevent backspace reloading event
+	      var htmlBody = d3.select("body");
+	      d3.select(document).on("keydown", function ( e ){
+	        if ( d3.event.keyCode === 8 && d3.event.target === htmlBody.node() ) {
+	          // we could add here an alert
+	          d3.event.preventDefault();
+	        }
+	        // using ctrl+Shift+d as debug option
+	        if ( d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode === 68 ) {
+	          graph.options().executeHiddenDebugFeatuers();
+	          d3.event.preventDefault();
+	        }
+	      });
+	      if ( d3.select("#maxLabelWidthSliderOption") ) {
+	        var setValue = !graph.options().dynamicLabelWidth();
+	        d3.select("#maxLabelWidthSlider").node().disabled = setValue;
+	        d3.select("#maxLabelWidthvalueLabel").classed("disabledLabelForSlider", setValue);
+	        d3.select("#maxLabelWidthDescriptionLabel").classed("disabledLabelForSlider", setValue);
+	      }
+	      
+	      d3.select("#blockGraphInteractions").style("position", "absolute")
+	        .style("top", "0")
+	        .style("background-color", "#bdbdbd")
+	        .style("opacity", "0.5")
+	        .style("pointer-events", "auto")
+	        .style("width", graph.options().width() + "px")
+	        .style("height", graph.options().height() + "px")
+	        .on("click", function (){
+	          d3.event.preventDefault();
+	          d3.event.stopPropagation();
+	        })
+	        .on("dblclick", function (){
+	          d3.event.preventDefault();
+	          d3.event.stopPropagation();
+	        });
+	      
+	      d3.select("#direct-text-input").on("click", function (){
+	        directInputMod.setDirectInputMode();
+	      });
+	      d3.select("#blockGraphInteractions").node().draggable = false;
+	      options.prefixModule(webvowl.util.prefixTools(graph));
+	      adjustSize();
+	      sidebar.updateOntologyInformation(undefined, statistics);
+	      loadingModule.parseUrlAndLoadOntology(); // loads automatically the ontology provided by the parameters
+	      options.debugMenu(debugMenu);
+	      debugMenu.updateSettings();
+	      
+	      // connect the reloadCachedVersionButton
+	      d3.select("#reloadSvgIcon").on("click", function (){
+	        if ( d3.select("#reloadSvgIcon").node().disabled === true ) {
+	          graph.options().ontologyMenu().clearCachedVersion();
+	          return;
+	        }
+	        d3.select("#reloadCachedOntology").classed("hidden", true);
+	        graph.options().ontologyMenu().reloadCachedOntology();
+	        
+	      });
+	      // add the initialized objects
+	      webvowl.opts = options;
+	      webvowl.gr = graph;
+	      
+	    }
+	  };
+	  
+	  
+	  function loadOntologyFromText( jsonText, filename, alternativeFilename ){
+	    d3.select("#reloadCachedOntology").classed("hidden", true);
+	    pauseMenu.reset();
+	    graph.options().navigationMenu().hideAllMenus();
+	    
+	    if ( (jsonText === undefined && filename === undefined) || (jsonText.length === 0) ) {
+	      loadingModule.notValidJsonFile();
+	      return;
+	    }
+	    graph.editorMode(); // updates the checkbox
+	    var data;
+	    if ( jsonText ) {
+	      // validate JSON FILE
+	      var validJSON;
+	      try {
+	        data = JSON.parse(jsonText);
+	        validJSON = true;
+	      } catch ( e ) {
+	        validJSON = false;
+	      }
+	      if ( validJSON === false ) {
+	        // the server output is not a valid json file
+	        loadingModule.notValidJsonFile();
+	        return;
+	      }
+	      
+	      if ( !filename ) {
+	        // First look if an ontology title exists, otherwise take the alternative filename
+	        var ontologyNames = data.header ? data.header.title : undefined;
+	        var ontologyName = languageTools.textInLanguage(ontologyNames);
+	        
+	        if ( ontologyName ) {
+	          filename = ontologyName;
+	        } else {
+	          filename = alternativeFilename;
+	        }
+	      }
+	    }
+	    
+	    
+	    // check if we have graph data
+	    var classCount = 0;
+	    if ( data.class !== undefined ) {
+	      classCount = data.class.length;
+	    }
+	    
+	    var loadEmptyOntologyForEditing = false;
+	    if ( location.hash.indexOf("#new_ontology") !== -1 ) {
+	      loadEmptyOntologyForEditing = true;
+	      newOntologyCounter++;
+	      d3.select("#empty").node().href = "#opts=editorMode=true;#new_ontology" + newOntologyCounter;
+	    }
+	    if ( classCount === 0 && graph.editorMode() === false && loadEmptyOntologyForEditing === false ) {
+	      // generate message for the user;
+	      loadingModule.emptyGraphContentError();
+	    } else {
+	      loadingModule.validJsonFile();
+	      ontologyMenu.setCachedOntology(filename, jsonText);
+	      exportMenu.setJsonText(jsonText);
+	      options.data(data);
+	      graph.options().loadingModule().setPercentMode();
+	      if ( loadEmptyOntologyForEditing === true ) {
+	        graph.editorMode(true);
+	        
+	      }
+	      graph.load();
+	      sidebar.updateOntologyInformation(data, statistics);
+	      exportMenu.setFilename(filename);
+	      graph.updateZoomSliderValueFromOutside();
+	      adjustSize();
+	      
+	      var flagOfCheckBox = d3.select("#editorModeModuleCheckbox").node().checked;
+	      graph.editorMode(flagOfCheckBox);// update gui
+	      
+	    }
+	  }
+	  
+	  function adjustSize(){
+	    var graphContainer = d3.select(GRAPH_SELECTOR),
+	      svg = graphContainer.select("svg"),
+	      height = window.innerHeight - 40,
+	      width = window.innerWidth - (window.innerWidth * 0.22);
+	    
+	    if ( sidebar.getSidebarVisibility() === "0" ) {
+	      height = window.innerHeight - 40;
+	      width = window.innerWidth;
+	    }
+	    
+	    directInputMod.updateLayout();
+	    d3.select("#blockGraphInteractions").style("width", window.innerWidth + "px");
+	    d3.select("#blockGraphInteractions").style("height", window.innerHeight + "px");
+	    
+	    d3.select("#WarningErrorMessagesContainer").style("width", width + "px");
+	    d3.select("#WarningErrorMessagesContainer").style("height", height + "px");
+	    
+	    d3.select("#WarningErrorMessages").style("max-height", (height - 12) + "px");
+	    
+	    graphContainer.style("height", height + "px");
+	    svg.attr("width", width)
+	      .attr("height", height);
+	    
+	    options.width(width)
+	      .height(height);
+	    
+	    graph.updateStyle();
+	    
+	    if ( isTouchDevice() === true ) {
+	      if ( graph.isEditorMode() === true )
+	        d3.select("#modeOfOperationString").node().innerHTML = "touch able device detected";
+	      graph.setTouchDevice(true);
+	      
+	    } else {
+	      if ( graph.isEditorMode() === true )
+	        d3.select("#modeOfOperationString").node().innerHTML = "point & click device detected";
+	      graph.setTouchDevice(false);
+	    }
+	    
+	    d3.select("#loadingInfo-container").style("height", 0.5 * (height - 80) + "px");
+	    loadingModule.checkForScreenSize();
+	    
+	    adjustSliderSize();
+	    // update also the padding options of loading and the logo positions;
+	    var warningDiv = d3.select("#browserCheck");
+	    if ( warningDiv.classed("hidden") === false ) {
+	      var offset = 10 + warningDiv.node().getBoundingClientRect().height;
+	      d3.select("#logo").style("padding", offset + "px 10px");
+	    } else {
+	      // remove the dynamic padding from the logo element;
+	      d3.select("#logo").style("padding", "10px");
+	    }
+	    
+	    // scrollbar tests;
+	    var element = d3.select("#menuElementContainer").node();
+	    var maxScrollLeft = element.scrollWidth - element.clientWidth;
+	    var leftButton = d3.select("#scrollLeftButton");
+	    var rightButton = d3.select("#scrollRightButton");
+	    if ( maxScrollLeft > 0 ) {
+	      // show both and then check how far is bar;
+	      rightButton.classed("hidden", false);
+	      leftButton.classed("hidden", false);
+	      navigationMenu.updateScrollButtonVisibility();
+	    } else {
+	      // hide both;
+	      rightButton.classed("hidden", true);
+	      leftButton.classed("hidden", true);
+	    }
+	    
+	    // adjust height of the leftSidebar element;
+	    editSidebar.updateElementWidth();
+	    
+	    
+	    var hs = d3.select("#drag_msg").node().getBoundingClientRect().height;
+	    var ws = d3.select("#drag_msg").node().getBoundingClientRect().width;
+	    d3.select("#drag_icon_group").attr("transform", "translate ( " + 0.25 * ws + " " + 0.25 * hs + ")");
+	    
+	  }
+	  
+	  function adjustSliderSize(){
+	    // TODO: refactor and put this into the slider it self
+	    var height = window.innerHeight - 40;
+	    var fullHeight = height;
+	    var zoomOutPos = height - 30;
+	    var sliderHeight = 150;
+	    
+	    // assuming DOM elements are generated in the index.html
+	    // todo: refactor for independent usage of graph and app
+	    if ( fullHeight < 150 ) {
+	      // hide the slider button;
+	      d3.select("#zoomSliderParagraph").classed("hidden", true);
+	      d3.select("#zoomOutButton").classed("hidden", true);
+	      d3.select("#zoomInButton").classed("hidden", true);
+	      d3.select("#centerGraphButton").classed("hidden", true);
+	      return;
+	    }
+	    d3.select("#zoomSliderParagraph").classed("hidden", false);
+	    d3.select("#zoomOutButton").classed("hidden", false);
+	    d3.select("#zoomInButton").classed("hidden", false);
+	    d3.select("#centerGraphButton").classed("hidden", false);
+	    
+	    var zoomInPos = zoomOutPos - 20;
+	    var centerPos = zoomInPos - 20;
+	    if ( fullHeight < 280 ) {
+	      // hide the slider button;
+	      d3.select("#zoomSliderParagraph").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
+	      d3.select("#zoomOutButton").style("top", zoomOutPos + "px");
+	      d3.select("#zoomInButton").style("top", zoomInPos + "px");
+	      d3.select("#centerGraphButton").style("top", centerPos + "px");
+	      return;
+	    }
+	    
+	    var sliderPos = zoomOutPos - sliderHeight;
+	    zoomInPos = sliderPos - 20;
+	    centerPos = zoomInPos - 20;
+	    d3.select("#zoomSliderParagraph").classed("hidden", false);
+	    d3.select("#zoomOutButton").style("top", zoomOutPos + "px");
+	    d3.select("#zoomInButton").style("top", zoomInPos + "px");
+	    d3.select("#centerGraphButton").style("top", centerPos + "px");
+	    d3.select("#zoomSliderParagraph").style("top", sliderPos + "px");
+	  }
+	  
+	  function isTouchDevice(){
+	    try {
+	      document.createEvent("TouchEvent");
+	      return true;
+	    } catch ( e ) {
+	      return false;
+	    }
+	  }
+	  
+	  
+	  function getInternetExplorerVersion(){
+	    var ua,
+	      re,
+	      rv = -1;
+	    
+	    // check for edge
+	    var isEdge = /(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/.test(navigator.userAgent);
+	    if ( isEdge ) {
+	      rv = parseInt("12");
+	      return rv;
+	    }
+	    
+	    var isIE11 = /Trident.*rv[ :]*11\./.test(navigator.userAgent);
+	    if ( isIE11 ) {
+	      rv = parseInt("11");
+	      return rv;
+	    }
+	    if ( navigator.appName === "Microsoft Internet Explorer" ) {
+	      ua = navigator.userAgent;
+	      re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+	      if ( re.exec(ua) !== null ) {
+	        rv = parseFloat(RegExp.$1);
+	      }
+	    } else if ( navigator.appName === "Netscape" ) {
+	      ua = navigator.userAgent;
+	      re = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+	      if ( re.exec(ua) !== null ) {
+	        rv = parseFloat(RegExp.$1);
+	      }
+	    }
+	    return rv;
+	  }
+	  
+	  return app;
+	}
+	;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 323:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for the export button.
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var exportMenu = {},
+	    exportSvgButton,
+	    exportFilename,
+	    exportJsonButton,
+	    exportTurtleButton,
+	    exportTexButton,
+	    copyButton,
+	    exportableJsonText;
+	  
+	  var exportTTLModule = __webpack_require__(324)(graph);
+	  
+	  
+	  String.prototype.replaceAll = function ( search, replacement ){
+	    var target = this;
+	    return target.split(search).join(replacement);
+	  };
+	  
+	  
+	  /**
+	   * Adds the export button to the website.
+	   */
+	  exportMenu.setup = function (){
+	    exportSvgButton = d3.select("#exportSvg")
+	      .on("click", exportSvg);
+	    exportJsonButton = d3.select("#exportJson")
+	      .on("click", exportJson);
+	    
+	    copyButton = d3.select("#copyBt")
+	      .on("click", copyUrl);
+	    
+	    exportTexButton = d3.select("#exportTex")
+	      .on("click", exportTex);
+	    
+	    exportTurtleButton = d3.select("#exportTurtle")
+	      .on("click", exportTurtle);
+	    
+	    var menuEntry = d3.select("#m_export");
+	    menuEntry.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	      exportMenu.exportAsUrl();
+	    });
+	  };
+	  function exportTurtle(){
+	    var success = exportTTLModule.requestExport();
+	    var result = exportTTLModule.resultingTTL_Content();
+	    var ontoTitle = "NewOntology";
+	    console.log("Exporter was successful: " + success);
+	    if ( success ) {
+	      // console.log("The result is : " + result);
+	      // var ontoTitle=graph.options().getGeneralMetaObjectProperty('title');
+	      // if (ontoTitle===undefined || ontoTitle.length===0)
+	      // 	ontoTitle="NewOntology";
+	      // else{
+	      // 	// language object -.-
+	      //    ontoTitle.replace(" ","_")
+	      // }
+	      
+	      // TODO: show TEXT in warning module?
+	      
+	      
+	      // // write the data
+	      var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(result);
+	      
+	      exportTurtleButton.attr("href", dataURI)
+	        .attr("download", ontoTitle + ".ttl");
+	      
+	      // okay restore old href?
+	      //  exportTurtleButton.attr("href", oldHref);
+	    } else {
+	      console.log("ShowWarning!");
+	      graph.options().warningModule().showExporterWarning();
+	      console.log("Stay on the page! " + window.location.href);
+	      exportTurtleButton.attr("href", window.location.href);
+	      d3.event.preventDefault(); // prevent the href to be called ( reloads the page otherwise )
+	    }
+	  }
+	  
+	  exportMenu.setFilename = function ( filename ){
+	    exportFilename = filename || "export";
+	  };
+	  
+	  exportMenu.setJsonText = function ( jsonText ){
+	    exportableJsonText = jsonText;
+	  };
+	  
+	  function copyUrl(){
+	    d3.select("#exportedUrl").node().focus();
+	    d3.select("#exportedUrl").node().select();
+	    document.execCommand("copy");
+	    graph.options().navigationMenu().hideAllMenus();
+	    d3.event.preventDefault(); // prevent the href to be called ( reloads the page otherwise )
+	  }
+	  
+	  function prepareOptionString( defOpts, currOpts ){
+	    var setOptions = 0;
+	    var optsString = "opts=";
+	    
+	    for ( var name in defOpts ) {
+	      // define key and value ;
+	      if ( defOpts.hasOwnProperty(name) ) {// for travis warning
+	        var def_value = defOpts[name];
+	        var cur_value = currOpts[name];
+	        if ( def_value !== cur_value ) {
+	          optsString += name + "=" + cur_value + ";";
+	          setOptions++;
+	        }
+	      }
+	    }
+	    optsString += "";
+	    if ( setOptions === 0 ) {
+	      return "";
+	    }
+	    return optsString;
+	  }
+	  
+	  exportMenu.exportAsUrl = function (){
+	    var currObj = {};
+	    currObj.sidebar = graph.options().sidebar().getSidebarVisibility();
+	    
+	    // identify default value given by ontology;
+	    var defOntValue = graph.options().filterMenu().getDefaultDegreeValue();
+	    var currentValue = graph.options().filterMenu().getDegreeSliderValue();
+	    if ( parseInt(defOntValue) === parseInt(currentValue) ) {
+	      currObj.doc = -1;
+	    } else {
+	      currObj.doc = currentValue;
+	    }
+	    
+	    currObj.cd = graph.options().classDistance();
+	    currObj.dd = graph.options().datatypeDistance();
+	    if ( graph.editorMode() === true ) {
+	      currObj.editorMode = "true";
+	    } else {
+	      currObj.editorMode = "false";
+	    }
+	    currObj.filter_datatypes = String(graph.options().filterMenu().getCheckBoxValue("datatypeFilterCheckbox"));
+	    currObj.filter_sco = String(graph.options().filterMenu().getCheckBoxValue("subclassFilterCheckbox"));
+	    currObj.filter_disjoint = String(graph.options().filterMenu().getCheckBoxValue("disjointFilterCheckbox"));
+	    currObj.filter_setOperator = String(graph.options().filterMenu().getCheckBoxValue("setoperatorFilterCheckbox"));
+	    currObj.filter_objectProperties = String(graph.options().filterMenu().getCheckBoxValue("objectPropertyFilterCheckbox"));
+	    currObj.mode_dynamic = String(graph.options().dynamicLabelWidth());
+	    currObj.mode_scaling = String(graph.options().modeMenu().getCheckBoxValue("nodescalingModuleCheckbox"));
+	    currObj.mode_compact = String(graph.options().modeMenu().getCheckBoxValue("compactnotationModuleCheckbox"));
+	    currObj.mode_colorExt = String(graph.options().modeMenu().getCheckBoxValue("colorexternalsModuleCheckbox"));
+	    currObj.mode_multiColor = String(graph.options().modeMenu().colorModeState());
+	    currObj.mode_pnp = String(graph.options().modeMenu().getCheckBoxValue("pickandpinModuleCheckbox"));
+	    currObj.debugFeatures = String(!graph.options().getHideDebugFeatures());
+	    currObj.rect = 0;
+	    
+	    var defObj = graph.options().initialConfig();
+	    var optsString = prepareOptionString(defObj, currObj);
+	    var urlString = String(location);
+	    var htmlElement;
+	    // when everything is default then there is nothing to write
+	    if ( optsString.length === 0 ) {
+	      // building up parameter list;
+	      
+	      // remove the all options form location
+	      var hashCode = location.hash;
+	      urlString = urlString.split(hashCode)[0];
+	      
+	      var lPos = hashCode.lastIndexOf("#");
+	      if ( lPos === -1 ) {
+	        htmlElement = d3.select("#exportedUrl").node();
+	        htmlElement.value = String(location);
+	        htmlElement.title = String(location);
+	        return;  // nothing to change in the location String
+	      }
+	      var newURL = hashCode.slice(lPos, hashCode.length);
+	      htmlElement = d3.select("#exportedUrl").node();
+	      htmlElement.value = urlString + newURL;
+	      htmlElement.title = urlString + newURL;
+	      return;
+	    }
+	    
+	    // generate the options string;
+	    var numParameters = (urlString.match(/#/g) || []).length;
+	    var newUrlString;
+	    if ( numParameters === undefined || numParameters === 0 ) {
+	      newUrlString = urlString + "#" + optsString;
+	    }
+	    if ( numParameters > 0 ) {
+	      var tokens = urlString.split("#");
+	      var i;
+	      if ( tokens[1].indexOf("opts=") >= 0 ) {
+	        tokens[1] = optsString;
+	        newUrlString = tokens[0];
+	      } else {
+	        newUrlString = tokens[0] + "#";
+	        newUrlString += optsString;
+	      }
+	      // append parameters
+	      for ( i = 1; i < tokens.length; i++ ) {
+	        if ( tokens[i].length > 0 ) {
+	          newUrlString += "#" + tokens[i];
+	        }
+	      }
+	    }
+	    // building up parameter list;
+	    htmlElement = d3.select("#exportedUrl").node();
+	    htmlElement.value = newUrlString;
+	    htmlElement.title = newUrlString;
+	    
+	  };
+	  
+	  function exportSvg(){
+	    graph.options().navigationMenu().hideAllMenus();
+	    // Get the d3js SVG element
+	    var graphSvg = d3.select(graph.options().graphContainerSelector()).select("svg"),
+	      graphSvgCode,
+	      escapedGraphSvgCode,
+	      dataURI;
+	    
+	    // inline the styles, so that the exported svg code contains the css rules
+	    inlineVowlStyles();
+	    hideNonExportableElements();
+	    
+	    graphSvgCode = graphSvg.attr("version", 1.1)
+	      .attr("xmlns", "http://www.w3.org/2000/svg")
+	      .node().parentNode.innerHTML;
+	    
+	    // Insert the reference to VOWL
+	    graphSvgCode = "<!-- Created with WebVOWL (version " + webvowl.version + ")" +
+	      ", http://vowl.visualdataweb.org -->\n" + graphSvgCode;
+	    
+	    escapedGraphSvgCode = escapeUnicodeCharacters(graphSvgCode);
+	    //btoa(); Creates a base-64 encoded ASCII string from a "string" of binary data.
+	    dataURI = "data:image/svg+xml;base64," + btoa(escapedGraphSvgCode);
+	    
+	    
+	    exportSvgButton.attr("href", dataURI)
+	      .attr("download", exportFilename + ".svg");
+	    
+	    // remove graphic styles for interaction to go back to normal
+	    removeVowlInlineStyles();
+	    showNonExportableElements();
+	    graph.lazyRefresh();
+	  }
+	  
+	  function escapeUnicodeCharacters( text ){
+	    var textSnippets = [],
+	      i, textLength = text.length,
+	      character,
+	      charCode;
+	    
+	    for ( i = 0; i < textLength; i++ ) {
+	      character = text.charAt(i);
+	      charCode = character.charCodeAt(0);
+	      
+	      if ( charCode < 128 ) {
+	        textSnippets.push(character);
+	      } else {
+	        textSnippets.push("&#" + charCode + ";");
+	      }
+	    }
+	    
+	    return textSnippets.join("");
+	  }
+	  
+	  function inlineVowlStyles(){
+	    setStyleSensitively(".text", [{ name: "font-family", value: "Helvetica, Arial, sans-serif" }, {
+	      name: "font-size",
+	      value: "12px"
+	    }]);
+	    setStyleSensitively(".subtext", [{ name: "font-size", value: "9px" }]);
+	    setStyleSensitively(".text.instance-count", [{ name: "fill", value: "#666" }]);
+	    setStyleSensitively(".external + text .instance-count", [{ name: "fill", value: "#aaa" }]);
+	    setStyleSensitively(".cardinality", [{ name: "font-size", value: "10px" }]);
+	    setStyleSensitively(".text, .embedded", [{ name: "pointer-events", value: "none" }]);
+	    setStyleSensitively(".class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty", [{
+	      name: "fill",
+	      value: "#acf"
+	    }]);
+	    setStyleSensitively(".label .datatype, .datatypeproperty", [{ name: "fill", value: "#9c6" }]);
+	    setStyleSensitively(".rdf, .rdfproperty", [{ name: "fill", value: "#c9c" }]);
+	    setStyleSensitively(".literal, .node .datatype", [{ name: "fill", value: "#fc3" }]);
+	    setStyleSensitively(".deprecated, .deprecatedproperty", [{ name: "fill", value: "#ccc" }]);
+	    setStyleSensitively(".external, .externalproperty", [{ name: "fill", value: "#36c" }]);
+	    setStyleSensitively("path, .nofill", [{ name: "fill", value: "none" }]);
+	    setStyleSensitively("marker path", [{ name: "fill", value: "#000" }]);
+	    setStyleSensitively(".class, path, line, .fineline", [{ name: "stroke", value: "#000" }]);
+	    setStyleSensitively(".white, .subclass, .subclassproperty, .external + text", [{ name: "fill", value: "#fff" }]);
+	    setStyleSensitively(".class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused", [{
+	      name: "fill",
+	      value: "#f00"
+	    }, { name: "cursor", value: "pointer" }]);
+	    setStyleSensitively(".focused, path.hovered", [{ name: "stroke", value: "#f00" }]);
+	    setStyleSensitively(".indirect-highlighting, .feature:hover", [{ name: "fill", value: "#f90" }]);
+	    setStyleSensitively(".values-from", [{ name: "stroke", value: "#69c" }]);
+	    setStyleSensitively(".symbol, .values-from.filled", [{ name: "fill", value: "#69c" }]);
+	    setStyleSensitively(".class, path, line", [{ name: "stroke-width", value: "2" }]);
+	    setStyleSensitively(".fineline", [{ name: "stroke-width", value: "1" }]);
+	    setStyleSensitively(".dashed, .anonymous", [{ name: "stroke-dasharray", value: "8" }]);
+	    setStyleSensitively(".dotted", [{ name: "stroke-dasharray", value: "3" }]);
+	    setStyleSensitively("rect.focused, circle.focused", [{ name: "stroke-width", value: "4px" }]);
+	    setStyleSensitively(".nostroke", [{ name: "stroke", value: "none" }]);
+	    setStyleSensitively("marker path", [{ name: "stroke-dasharray", value: "100" }]);
+	  }
+	  
+	  function setStyleSensitively( selector, styles ){
+	    var elements = d3.selectAll(selector);
+	    if ( elements.empty() ) {
+	      return;
+	    }
+	    
+	    styles.forEach(function ( style ){
+	      elements.each(function (){
+	        var element = d3.select(this);
+	        if ( !shouldntChangeInlineCss(element, style.name) ) {
+	          element.style(style.name, style.value);
+	        }
+	      });
+	    });
+	  }
+	  
+	  function shouldntChangeInlineCss( element, style ){
+	    return style === "fill" && hasBackgroundColorSet(element);
+	  }
+	  
+	  function hasBackgroundColorSet( element ){
+	    var data = element.datum();
+	    if ( data === undefined ) {
+	      return false;
+	    }
+	    return data.backgroundColor && !!data.backgroundColor();
+	  }
+	  
+	  /**
+	   * For example the pin of the pick&pin module should be invisible in the exported graphic.
+	   */
+	  function hideNonExportableElements(){
+	    d3.selectAll(".hidden-in-export").style("display", "none");
+	  }
+	  
+	  function removeVowlInlineStyles(){
+	    d3.selectAll(".text, .subtext, .text.instance-count, .external + text .instance-count, .cardinality, .text, .embedded, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, path, .nofill, .symbol, .values-from.filled, marker path, .class, path, line, .fineline, .white, .subclass, .subclassproperty, .external + text, .class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused, .focused, path.hovered, .indirect-highlighting, .feature:hover, .values-from, .class, path, line, .fineline, .dashed, .anonymous, .dotted, rect.focused, circle.focused, .nostroke, marker path")
+	      .each(function (){
+	        var element = d3.select(this);
+	        
+	        var inlineStyles = element.node().style;
+	        for ( var styleName in inlineStyles ) {
+	          if ( inlineStyles.hasOwnProperty(styleName) ) {
+	            if ( shouldntChangeInlineCss(element, styleName) ) {
+	              continue;
+	            }
+	            element.style(styleName, null);
+	          }
+	        }
+	        
+	        if ( element.datum && element.datum() !== undefined && element.datum().type ) {
+	          if ( element.datum().type() === "rdfs:subClassOf" ) {
+	            element.style("fill", null);
+	          }
+	        }
+	      });
+	    
+	    // repair svg icons in the menu;
+	    var scrollContainer = d3.select("#menuElementContainer").node();
+	    var controlElements = scrollContainer.children;
+	    var numEntries = controlElements.length;
+	    
+	    for ( var i = 0; i < numEntries; i++ ) {
+	      var currentMenu = controlElements[i].id;
+	      d3.select("#" + currentMenu).select("path").style("stroke-width", "0");
+	      d3.select("#" + currentMenu).select("path").style("fill", "#fff");
+	    }
+	    
+	    d3.select("#magnifyingGlass").style("stroke-width", "0");
+	    d3.select("#magnifyingGlass").style("fill", "#666");
+	    
+	  }
+	  
+	  function showNonExportableElements(){
+	    d3.selectAll(".hidden-in-export").style("display", null);
+	  }
+	  
+	  exportMenu.createJSON_exportObject = function (){
+	    var i, j, k; // an index variable for the for-loops
+	    
+	    /** get data for exporter **/
+	      if (!graph.options().data()) {return {};} // return an empty json object
+	      // extract onotology information;
+	    var unfilteredData = graph.getUnfilteredData();
+	    var ontologyComment = graph.options().data()._comment;
+	    var metaObj = graph.options().getGeneralMetaObject();
+	    var header = graph.options().data().header;
+	    
+	    if ( metaObj.iri && metaObj.iri !== header.iri ) {
+	      header.iri = metaObj.iri;
+	    }
+	    if ( metaObj.title && metaObj.title !== header.title ) {
+	      header.title = metaObj.title;
+	    }
+	    if ( metaObj.version && metaObj.version !== header.version ) {
+	      header.version = metaObj.version;
+	    }
+	    if ( metaObj.author && metaObj.author !== header.author ) {
+	      header.author = metaObj.author;
+	    }
+	    if ( metaObj.description && metaObj.description !== header.description ) {
+	      header.description = metaObj.description;
+	    }
+	    
+	    
+	    var exportText = {};
+	    exportText._comment = ontologyComment;
+	    exportText.header = header;
+	    exportText.namespace = graph.options().data().namespace;
+	    if ( exportText.namespace === undefined ) {
+	      exportText.namespace = []; // just an empty namespace array
+	    }
+	    // we do have now the unfiltered data which needs to be transfered to class/classAttribute and property/propertyAttribute
+	    
+	    
+	    // var classAttributeString='classAttribute:[ \n';
+	    var nodes = unfilteredData.nodes;
+	    var nLen = nodes.length; // hope for compiler unroll
+	    var classObjects = [];
+	    var classAttributeObjects = [];
+	    for ( i = 0; i < nLen; i++ ) {
+	      var classObj = {};
+	      var classAttr = {};
+	      classObj.id = nodes[i].id();
+	      classObj.type = nodes[i].type();
+	      classObjects.push(classObj);
+	      
+	      // define the attributes object
+	      classAttr.id = nodes[i].id();
+	      classAttr.iri = nodes[i].iri();
+	      classAttr.baseIri = nodes[i].baseIri();
+	      classAttr.label = nodes[i].label();
+	      
+	      if ( nodes[i].attributes().length > 0 ) {
+	        classAttr.attributes = nodes[i].attributes();
+	      }
+	      if ( nodes[i].comment() ) {
+	        classAttr.comment = nodes[i].comment();
+	      }
+	      if ( nodes[i].annotations() ) {
+	        classAttr.annotations = nodes[i].annotations();
+	      }
+	      if ( nodes[i].description() ) {
+	        classAttr.description = nodes[i].description();
+	      }
+	      
+	      
+	      if ( nodes[i].individuals().length > 0 ) {
+	        var classIndividualElements = [];
+	        var nIndividuals = nodes[i].individuals();
+	        for ( j = 0; j < nIndividuals.length; j++ ) {
+	          var indObj = {};
+	          indObj.iri = nIndividuals[j].iri();
+	          indObj.baseIri = nIndividuals[j].baseIri();
+	          indObj.labels = nIndividuals[j].label();
+	          if ( nIndividuals[j].annotations() ) {
+	            indObj.annotations = nIndividuals[j].annotations();
+	          }
+	          if ( nIndividuals[j].description() ) {
+	            indObj.description = nIndividuals[j].description();
+	          }
+	          if ( nIndividuals[j].comment() ) {
+	            indObj.comment = nIndividuals[j].comment();
+	          }
+	          classIndividualElements.push(indObj);
+	        }
+	        classAttr.individuals = classIndividualElements;
+	      }
+	      
+	      var equalsForAttributes = undefined;
+	      if ( nodes[i].equivalents().length > 0 ) {
+	        equalsForAttributes = [];
+	        var equals = nodes[i].equivalents();
+	        for ( j = 0; j < equals.length; j++ ) {
+	          var eqObj = {};
+	          var eqAttr = {};
+	          eqObj.id = equals[j].id();
+	          equalsForAttributes.push(equals[j].id());
+	          eqObj.type = equals[j].type();
+	          classObjects.push(eqObj);
+	          
+	          eqAttr.id = equals[j].id();
+	          eqAttr.iri = equals[j].iri();
+	          eqAttr.baseIri = equals[j].baseIri();
+	          eqAttr.label = equals[j].label();
+	          
+	          if ( equals[j].attributes().length > 0 ) {
+	            eqAttr.attributes = equals[j].attributes();
+	          }
+	          if ( equals[j].comment() ) {
+	            eqAttr.comment = equals[j].comment();
+	          }
+	          if ( equals[j].individuals().length > 0 ) {
+	            eqAttr.individuals = equals[j].individuals();
+	          }
+	          if ( equals[j].annotations() ) {
+	            eqAttr.annotations = equals[j].annotations();
+	          }
+	          if ( equals[j].description() ) {
+	            eqAttr.description = equals[j].description();
+	          }
+	          
+	          if ( equals[j].individuals().length > 0 ) {
+	            var e_classIndividualElements = [];
+	            var e_nIndividuals = equals[i].individuals();
+	            for ( k = 0; k < e_nIndividuals.length; k++ ) {
+	              var e_indObj = {};
+	              e_indObj.iri = e_nIndividuals[k].iri();
+	              e_indObj.baseIri = e_nIndividuals[k].baseIri();
+	              e_indObj.labels = e_nIndividuals[k].label();
+	              
+	              if ( e_nIndividuals[k].annotations() ) {
+	                e_indObj.annotations = e_nIndividuals[k].annotations();
+	              }
+	              if ( e_nIndividuals[k].description() ) {
+	                e_indObj.description = e_nIndividuals[k].description();
+	              }
+	              if ( e_nIndividuals[k].comment() ) {
+	                e_indObj.comment = e_nIndividuals[k].comment();
+	              }
+	              e_classIndividualElements.push(e_indObj);
+	            }
+	            eqAttr.individuals = e_classIndividualElements;
+	          }
+	          
+	          classAttributeObjects.push(eqAttr);
+	        }
+	      }
+	      if ( equalsForAttributes && equalsForAttributes.length > 0 ) {
+	        classAttr.equivalent = equalsForAttributes;
+	      }
+	      
+	      // classAttr.subClasses=nodes[i].subClasses(); // not needed
+	      // classAttr.instances=nodes[i].instances();
+	      
+	      //
+	      // .complement(element.complement)
+	      // .disjointUnion(element.disjointUnion)
+	      // .description(element.description)
+	      // .equivalents(element.equivalent)
+	      // .intersection(element.intersection)
+	      // .type(element.type) Ignore, because we predefined it
+	      // .union(element.union)
+	      classAttributeObjects.push(classAttr);
+	    }
+	    
+	    /** -- properties -- **/
+	    var properties = unfilteredData.properties;
+	    var pLen = properties.length; // hope for compiler unroll
+	    var propertyObjects = [];
+	    var propertyAttributeObjects = [];
+	    
+	    for ( i = 0; i < pLen; i++ ) {
+	      var pObj = {};
+	      var pAttr = {};
+	      pObj.id = properties[i].id();
+	      pObj.type = properties[i].type();
+	      propertyObjects.push(pObj);
+	      
+	      // // define the attributes object
+	      pAttr.id = properties[i].id();
+	      pAttr.iri = properties[i].iri();
+	      pAttr.baseIri = properties[i].baseIri();
+	      pAttr.label = properties[i].label();
+	      
+	      if ( properties[i].attributes().length > 0 ) {
+	        pAttr.attributes = properties[i].attributes();
+	      }
+	      if ( properties[i].comment() ) {
+	        pAttr.comment = properties[i].comment();
+	      }
+	      
+	      if ( properties[i].annotations() ) {
+	        pAttr.annotations = properties[i].annotations();
+	      }
+	      if ( properties[i].maxCardinality() ) {
+	        pAttr.maxCardinality = properties[i].maxCardinality();
+	      }
+	      if ( properties[i].minCardinality() ) {
+	        pAttr.minCardinality = properties[i].minCardinality();
+	      }
+	      if ( properties[i].cardinality() ) {
+	        pAttr.cardinality = properties[i].cardinality();
+	      }
+	      if ( properties[i].description() ) {
+	        pAttr.description = properties[i].description();
+	      }
+	      
+	      pAttr.domain = properties[i].domain().id();
+	      pAttr.range = properties[i].range().id();
+	      // sub properties;
+	      if ( properties[i].subproperties() ) {
+	        var subProps = properties[i].subproperties();
+	        var subPropsIdArray = [];
+	        for ( j = 0; j < subProps.length; j++ ) {
+	          if ( subProps[j].id )
+	            subPropsIdArray.push(subProps[j].id());
+	        }
+	        pAttr.subproperty = subPropsIdArray;
+	      }
+	      
+	      // super properties
+	      if ( properties[i].superproperties() ) {
+	        var superProps = properties[i].superproperties();
+	        var superPropsIdArray = [];
+	        for ( j = 0; j < superProps.length; j++ ) {
+	          if ( superProps[j].id )
+	            superPropsIdArray.push(superProps[j].id());
+	        }
+	        pAttr.superproperty = superPropsIdArray;
+	      }
+	      
+	      // check for inverse element
+	      if ( properties[i].inverse() ) {
+	        if ( properties[i].inverse().id )
+	          pAttr.inverse = properties[i].inverse().id();
+	      }
+	      propertyAttributeObjects.push(pAttr);
+	    }
+	    
+	    exportText.class = classObjects;
+	    exportText.classAttribute = classAttributeObjects;
+	    exportText.property = propertyObjects;
+	    exportText.propertyAttribute = propertyAttributeObjects;
+	    
+	    
+	    var nodeElements = graph.graphNodeElements();  // get visible nodes
+	    var propElements = graph.graphLabelElements(); // get visible labels
+	    // var jsonObj = JSON.parse(exportableJsonText);	   // reparse the original input json
+	    
+	    /** modify comment **/
+	    var comment = exportText._comment;
+	    var additionalString = " [Additional Information added by WebVOWL Exporter Version: " + "1.1.7" + "]";
+	    // adding new string to comment only if it does not exist
+	    if ( comment.indexOf(additionalString) === -1 ) {
+	      exportText._comment = comment + " [Additional Information added by WebVOWL Exporter Version: " + "1.1.7" + "]";
+	    }
+	    
+	    var classAttribute = exportText.classAttribute;
+	    var propAttribute = exportText.propertyAttribute;
+	    /**  remove previously stored variables **/
+	    for ( i = 0; i < classAttribute.length; i++ ) {
+	      var classObj_del = classAttribute[i];
+	      delete classObj_del.pos;
+	      delete classObj_del.pinned;
+	    }
+	    var propertyObj;
+	    for ( i = 0; i < propAttribute.length; i++ ) {
+	      propertyObj = propAttribute[i];
+	      delete propertyObj.pos;
+	      delete propertyObj.pinned;
+	    }
+	    /**  add new variables to jsonObj  **/
+	    // class attribute variables
+	    nodeElements.each(function ( node ){
+	      var nodeId = node.id();
+	      for ( i = 0; i < classAttribute.length; i++ ) {
+	        var classObj = classAttribute[i];
+	        if ( classObj.id === nodeId ) {
+	          // store relative positions
+	          classObj.pos = [parseFloat(node.x.toFixed(2)), parseFloat(node.y.toFixed(2))];
+	          if ( node.pinned() )
+	            classObj.pinned = true;
+	          break;
+	        }
+	      }
+	    });
+	    // property attribute variables
+	    for ( j = 0; j < propElements.length; j++ ) {
+	      var correspondingProp = propElements[j].property();
+	      for ( i = 0; i < propAttribute.length; i++ ) {
+	        propertyObj = propAttribute[i];
+	        if ( propertyObj.id === correspondingProp.id() ) {
+	          propertyObj.pos = [parseFloat(propElements[j].x.toFixed(2)), parseFloat(propElements[j].y.toFixed(2))];
+	          if ( propElements[j].pinned() )
+	            propertyObj.pinned = true;
+	          break;
+	        }
+	      }
+	    }
+	    /** create the variable for settings and set their values **/
+	    exportText.settings = {};
+	    
+	    // Global Settings
+	    var zoom = graph.scaleFactor();
+	    var paused = graph.paused();
+	    var translation = [parseFloat(graph.translation()[0].toFixed(2)), parseFloat(graph.translation()[1].toFixed(2))];
+	    exportText.settings.global = {};
+	    exportText.settings.global.zoom = zoom.toFixed(2);
+	    exportText.settings.global.translation = translation;
+	    exportText.settings.global.paused = paused;
+	    
+	    // shared variable declaration
+	    var cb_text;
+	    var isEnabled;
+	    var cb_obj;
+	    
+	    // Gravity Settings
+	    var classDistance = graph.options().classDistance();
+	    var datatypeDistance = graph.options().datatypeDistance();
+	    exportText.settings.gravity = {};
+	    exportText.settings.gravity.classDistance = classDistance;
+	    exportText.settings.gravity.datatypeDistance = datatypeDistance;
+	    
+	    // Filter Settings
+	    var fMenu = graph.options().filterMenu();
+	    var fContainer = fMenu.getCheckBoxContainer();
+	    var cbCont = [];
+	    for ( i = 0; i < fContainer.length; i++ ) {
+	      cb_text = fContainer[i].checkbox.attr("id");
+	      isEnabled = fContainer[i].checkbox.property("checked");
+	      cb_obj = {};
+	      cb_obj.id = cb_text;
+	      cb_obj.checked = isEnabled;
+	      cbCont.push(cb_obj);
+	    }
+	    var degreeSliderVal = fMenu.getDegreeSliderValue();
+	    exportText.settings.filter = {};
+	    exportText.settings.filter.checkBox = cbCont;
+	    exportText.settings.filter.degreeSliderValue = degreeSliderVal;
+	    
+	    // Modes Settings
+	    var mMenu = graph.options().modeMenu();
+	    var mContainer = mMenu.getCheckBoxContainer();
+	    var cb_modes = [];
+	    for ( i = 0; i < mContainer.length; i++ ) {
+	      cb_text = mContainer[i].attr("id");
+	      isEnabled = mContainer[i].property("checked");
+	      cb_obj = {};
+	      cb_obj.id = cb_text;
+	      cb_obj.checked = isEnabled;
+	      cb_modes.push(cb_obj);
+	    }
+	    var colorSwitchState = mMenu.colorModeState();
+	    exportText.settings.modes = {};
+	    exportText.settings.modes.checkBox = cb_modes;
+	    exportText.settings.modes.colorSwitchState = colorSwitchState;
+	    
+	    var exportObj = {};
+	    // todo: [ ] find better way for ordering the objects
+	    // hack for ordering of objects, so settings is after metrics
+	    exportObj._comment = exportText._comment;
+	    exportObj.header = exportText.header;
+	    exportObj.namespace = exportText.namespace;
+	    exportObj.metrics = exportText.metrics;
+	    exportObj.settings = exportText.settings;
+	    exportObj.class = exportText.class;
+	    exportObj.classAttribute = exportText.classAttribute;
+	    exportObj.property = exportText.property;
+	    exportObj.propertyAttribute = exportText.propertyAttribute;
+	    
+	    return exportObj;
+	  };
+	  
+	  function exportJson(){
+	    graph.options().navigationMenu().hideAllMenus();
+	    /**  check if there is data **/
+	    if ( !exportableJsonText ) {
+	      alert("No graph data available.");
+	      // Stop the redirection to the path of the href attribute
+	      d3.event.preventDefault();
+	      return;
+	    }
+	    
+	    var exportObj = exportMenu.createJSON_exportObject();
+	    
+	    // make a string again;
+	    var exportText = JSON.stringify(exportObj, null, '  ');
+	    // write the data
+	    var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(exportText);
+	    var jsonExportFileName = exportFilename;
+	    
+	    if ( !jsonExportFileName.endsWith(".json") )
+	      jsonExportFileName += ".json";
+	    exportJsonButton.attr("href", dataURI)
+	      .attr("download", jsonExportFileName);
+	  }
+	  
+	  var curveFunction = d3.svg.line()
+	    .x(function ( d ){
+	      return d.x;
+	    })
+	    .y(function ( d ){
+	      return d.y;
+	    })
+	    .interpolate("cardinal");
+	  var loopFunction = d3.svg.line()
+	    .x(function ( d ){
+	      return d.x;
+	    })
+	    .y(function ( d ){
+	      return d.y;
+	    })
+	    .interpolate("cardinal")
+	    .tension(-1);
+	  
+	  function exportTex(){
+	    var zoom = graph.scaleFactor();
+	    var grTranslate = graph.translation();
+	    var bbox = graph.getBoundingBoxForTex();
+	    var comment = " %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
+	    comment += " %        Generated with the experimental alpha version of the TeX exporter of WebVOWL (version 1.1.3) %%% \n";
+	    comment += " %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n";
+	    comment += " %   The content can be used as import in other TeX documents. \n";
+	    comment += " %   Parent document has to use the following packages   \n";
+	    comment += " %   \\usepackage{tikz}  \n";
+	    comment += " %   \\usepackage{helvet}  \n";
+	    comment += " %   \\usetikzlibrary{decorations.markings,decorations.shapes,decorations,arrows,automata,backgrounds,petri,shapes.geometric}  \n";
+	    comment += " %   \\usepackage{xcolor}  \n\n";
+	    comment += " %%%%%%%%%%%%%%% Example Parent Document %%%%%%%%%%%%%%%%%%%%%%%\n";
+	    comment += " %\\documentclass{article} \n";
+	    comment += " %\\usepackage{tikz} \n";
+	    comment += " %\\usepackage{helvet} \n";
+	    comment += " %\\usetikzlibrary{decorations.markings,decorations.shapes,decorations,arrows,automata,backgrounds,petri,shapes.geometric} \n";
+	    comment += " %\\usepackage{xcolor} \n\n";
+	    comment += " %\\begin{document} \n";
+	    comment += " %\\section{Example} \n";
+	    comment += " %  This is an example. \n";
+	    comment += " %  \\begin{figure} \n";
+	    comment += " %    \\input{<THIS_FILE_NAME>} % << tex file name for the graph \n";
+	    comment += " %    \\caption{A generated graph with TKIZ using alpha version of the TeX exporter of WebVOWL (version 1.1.3) } \n";
+	    comment += " %  \\end{figure} \n";
+	    comment += " %\\end{document} \n";
+	    comment += " %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n";
+	    
+	    
+	    var texString = comment + "\\definecolor{imageBGCOLOR}{HTML}{FFFFFF} \n" +
+	      "\\definecolor{owlClassColor}{HTML}{AACCFF}\n" +
+	      "\\definecolor{owlObjectPropertyColor}{HTML}{AACCFF}\n" +
+	      "\\definecolor{owlExternalClassColor}{HTML}{AACCFF}\n" +
+	      "\\definecolor{owlDatatypePropertyColor}{HTML}{99CC66}\n" +
+	      "\\definecolor{owlDatatypeColor}{HTML}{FFCC33}\n" +
+	      "\\definecolor{owlThingColor}{HTML}{FFFFFF}\n" +
+	      "\\definecolor{valuesFrom}{HTML}{6699CC}\n" +
+	      "\\definecolor{rdfPropertyColor}{HTML}{CC99CC}\n" +
+	      "\\definecolor{unionColor}{HTML}{6699cc}\n" +
+	      "\\begin{center} \n" +
+	      "\\resizebox{\\linewidth}{!}{\n" +
+	      
+	      "\\begin{tikzpicture}[framed]\n" +
+	      "\\clip (" + bbox[0] + "pt , " + bbox[1] + "pt ) rectangle (" + bbox[2] + "pt , " + bbox[3] + "pt);\n" +
+	      "\\tikzstyle{dashed}=[dash pattern=on 4pt off 4pt] \n" +
+	      "\\tikzstyle{dotted}=[dash pattern=on 2pt off 2pt] \n" +
+	      "\\fontfamily{sans-serif}{\\fontsize{12}{12}\\selectfont}\n \n";
+	    
+	    
+	    texString += "\\tikzset{triangleBlack/.style = {fill=black, draw=black, line width=1pt,scale=0.7,regular polygon, regular polygon sides=3} }\n";
+	    texString += "\\tikzset{triangleWhite/.style = {fill=white, draw=black, line width=1pt,scale=0.7,regular polygon, regular polygon sides=3} }\n";
+	    texString += "\\tikzset{triangleBlue/.style  = {fill=valuesFrom, draw=valuesFrom, line width=1pt,scale=0.7,regular polygon, regular polygon sides=3} }\n";
+	    
+	    texString += "\\tikzset{Diamond/.style = {fill=white, draw=black, line width=2pt,scale=1.2,regular polygon, regular polygon sides=4} }\n";
+	    
+	    
+	    texString += "\\tikzset{Literal/.style={rectangle,align=center,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "black, draw=black, dashed, line width=1pt, fill=owlDatatypeColor, minimum width=80pt,\n" +
+	      "minimum height = 20pt}}\n\n";
+	    
+	    texString += "\\tikzset{Datatype/.style={rectangle,align=center,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "black, draw=black, line width=1pt, fill=owlDatatypeColor, minimum width=80pt,\n" +
+	      "minimum height = 20pt}}\n\n";
+	    
+	    
+	    texString += "\\tikzset{owlClass/.style={circle, inner sep=0mm,align=center, \n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "black, draw=black, line width=1pt, fill=owlClassColor, minimum size=101pt}}\n\n";
+	    
+	    texString += "\\tikzset{anonymousClass/.style={circle, inner sep=0mm,align=center, \n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "black, dashed, draw=black, line width=1pt, fill=owlClassColor, minimum size=101pt}}\n\n";
+	    
+	    
+	    texString += "\\tikzset{owlThing/.style={circle, inner sep=0mm,align=center,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "black, dashed, draw=black, line width=1pt, fill=owlThingColor, minimum size=62pt}}\n\n";
+	    
+	    
+	    texString += "\\tikzset{owlObjectProperty/.style={rectangle,align=center,\n" +
+	      "inner sep=0mm,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "fill=owlObjectPropertyColor, minimum width=80pt,\n" +
+	      "minimum height = 25pt}}\n\n";
+	    
+	    texString += "\\tikzset{rdfProperty/.style={rectangle,align=center,\n" +
+	      "inner sep=0mm,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "fill=rdfPropertyColor, minimum width=80pt,\n" +
+	      "minimum height = 25pt}}\n\n";
+	    
+	    
+	    texString += "\\tikzset{owlDatatypeProperty/.style={rectangle,align=center,\n" +
+	      "fill=owlDatatypePropertyColor, minimum width=80pt,\n" +
+	      "inner sep=0mm,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "minimum height = 25pt}}\n\n";
+	    
+	    texString += "\\tikzset{rdfsSubClassOf/.style={rectangle,align=center,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "inner sep=0mm,\n" +
+	      "fill=imageBGCOLOR, minimum width=80pt,\n" +
+	      "minimum height = 25pt}}\n\n";
+	    
+	    texString += "\\tikzset{unionOf/.style={circle, inner sep=0mm,align=center,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "black, draw=black, line width=1pt, fill=unionColor, minimum size=25pt}}\n\n";
+	    
+	    texString += "\\tikzset{disjointWith/.style={circle, inner sep=0mm,align=center,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "black, draw=black, line width=1pt, fill=unionColor, minimum size=20pt}}\n\n";
+	    
+	    
+	    texString += "\\tikzset{owlEquivalentClass/.style={circle,align=center,\n" +
+	      "font={\\fontsize{12pt}{12}\\selectfont \\sffamily },\n" +
+	      "inner sep=0mm,\n" +
+	      "black, solid, draw=black, line width=3pt, fill=owlExternalClassColor, minimum size=101pt,\n" +
+	      "postaction = {draw,line width=1pt, white}}}\n\n";
+	    
+	    // draw a bounding box;
+	    
+	    // get bbox coordinates;
+	    
+	    
+	    graph.options().navigationMenu().hideAllMenus();
+	    /**  check if there is data **/
+	    if ( !exportableJsonText ) {
+	      alert("No graph data available.");
+	      // Stop the redirection to the path of the href attribute
+	      d3.event.preventDefault();
+	      return;
+	    }
+	    
+	    var i = 0, identifier;
+	    
+	    /** get data for exporter **/
+	    var nodeElements = graph.graphNodeElements();  // get visible nodes
+	    var propElements = graph.graphLabelElements(); // get visible labels
+	    var links = graph.graphLinkElements();
+	    
+	    // export only nodes;
+	    // draw Links;
+	    for ( i = 0; i < links.length; i++ ) {
+	      var link = links[i];
+	      // console.log("\n****************\nInverstigating Link for property "+link.property().labelForCurrentLanguage());
+	      
+	      var prop = link.property();
+	      var dx, dy, px, py, rx, ry;
+	      var colorStr = "black";
+	      var linkDomainIntersection;
+	      var linkRangeIntersection;
+	      var center;
+	      var linkStyle = "";
+	      var isLoop = "";
+	      var curvePoint;
+	      var pathStart;
+	      var pathEnd;
+	      var controlPoints;
+	      var len;
+	      var ahAngle;
+	      var pathLen;
+	      var markerOffset = 7;
+	      
+	      var arrowType = "triangleBlack";
+	      var linkWidth = ",line width=2pt";
+	      if ( prop.linkType ) {
+	        if ( prop.linkType() === "dotted" ) {
+	          //stroke-dasharray: 3;
+	          linkStyle = ", dotted ";
+	          arrowType = "triangleWhite";
+	        }
+	        if ( prop.linkType() === "dashed" ) {
+	          //stroke-dasharray: 3;
+	          linkStyle = ", dashed ";
+	        }
+	        
+	        if ( prop.linkType() === "values-from" ) {
+	          colorStr = "valuesFrom";
+	        }
+	        
+	      }
+	      
+	      var startX, startY, endX, endY, normX, normY, lg;
+	      
+	      if ( link.layers().length === 1 && !link.loops() ) {
+	        
+	        linkDomainIntersection = graph.math().calculateIntersection(link.range(), link.domain(), 1);
+	        linkRangeIntersection = graph.math().calculateIntersection(link.domain(), link.range(), 1);
+	        center = graph.math().calculateCenter(linkDomainIntersection, linkRangeIntersection);
+	        dx = linkDomainIntersection.x;
+	        dy = -linkDomainIntersection.y;
+	        px = center.x;
+	        py = -center.y;
+	        rx = linkRangeIntersection.x;
+	        ry = -linkRangeIntersection.y;
+	        
+	        
+	        pathStart = linkDomainIntersection;
+	        curvePoint = center;
+	        pathEnd = linkRangeIntersection;
+	        
+	        var nx = rx - px;
+	        var ny = ry - py;
+	        
+	        // normalize ;
+	        len = Math.sqrt(nx * nx + ny * ny);
+	        
+	        nx = nx / len;
+	        ny = ny / len;
+	        
+	        ahAngle = Math.atan2(ny, nx) * (180 / Math.PI);
+	        normX = nx;
+	        normY = ny;
+	      }
+	      else {
+	        if ( link.isLoop() ) {
+	          isLoop = ", tension=3";
+	          controlPoints = graph.math().calculateLoopPoints(link);
+	          pathStart = controlPoints[0];
+	          curvePoint = controlPoints[1];
+	          pathEnd = controlPoints[2];
+	        } else {
+	          curvePoint = link.label();
+	          pathStart = graph.math().calculateIntersection(curvePoint, link.domain(), 1);
+	          pathEnd = graph.math().calculateIntersection(curvePoint, link.range(), 1);
+	        }
+	        dx = pathStart.x;
+	        dy = -pathStart.y;
+	        px = curvePoint.x;
+	        py = -curvePoint.y;
+	        rx = pathEnd.x;
+	        ry = -pathEnd.y;
+	      }
+	      
+	      texString += "\\draw [" + colorStr + linkStyle + linkWidth + isLoop + "] plot [smooth] coordinates {(" +
+	        dx + "pt, " + dy + "pt) (" + px + "pt, " + py + "pt)  (" + rx + "pt, " + ry + "pt)};\n";
+	      
+	      
+	      if ( link.property().markerElement() === undefined ) continue;
+	      
+	      // add arrow head;
+	      
+	      
+	      if ( link.property().type() === "owl:someValuesFrom" || link.property().type() === "owl:allValuesFrom" ) {
+	        arrowType = "triangleBlue";
+	      }
+	      
+	      lg = link.pathObj();
+	      pathLen = Math.floor(lg.node().getTotalLength());
+	      var p1 = lg.node().getPointAtLength(pathLen - 4);
+	      var p2 = lg.node().getPointAtLength(pathLen);
+	      var markerCenter = lg.node().getPointAtLength(pathLen - 6);
+	      
+	      if ( link.property().type() === "setOperatorProperty" ) {
+	        p1 = lg.node().getPointAtLength(4);
+	        p2 = lg.node().getPointAtLength(0);
+	        markerCenter = lg.node().getPointAtLength(8);
+	        arrowType = "Diamond";
+	      }
+	      
+	      startX = p1.x;
+	      startY = p1.y;
+	      endX = p2.x;
+	      endY = p2.y;
+	      normX = endX - startX;
+	      normY = endY - startY;
+	      len = Math.sqrt(normX * normX + normY * normY);
+	      normX = normX / len;
+	      normY = normY / len;
+	      
+	      ahAngle = -1.0 * Math.atan2(normY, normX) * (180 / Math.PI);
+	      ahAngle -= 90;
+	      if ( link.property().type() === "setOperatorProperty" ) {
+	        ahAngle -= 45;
+	      }
+	      // console.log(link.property().labelForCurrentLanguage()+ ": "+normX+ " "+normY +"  "+ahAngle);
+	      rx = markerCenter.x;
+	      ry = markerCenter.y;
+	      if ( link.layers().length === 1 && !link.loops() ) {
+	        // markerOffset=-1*m
+	        ry = -1 * ry;
+	        texString += "\\node[" + arrowType + ", rotate=" + ahAngle + "] at (" + rx + "pt, " + ry + "pt)   (single_marker" + i + ") {};\n ";
+	      } else {
+	        ry = -1 * ry;
+	        texString += "\\node[" + arrowType + ", rotate=" + ahAngle + "] at (" + rx + "pt, " + ry + "pt)   (marker" + i + ") {};\n ";
+	      }
+	      
+	      // if   (link.isLoop()){
+	      //    rotAngle=-10+angle * (180 / Math.PI);
+	      // }
+	      
+	      // add cardinality;
+	      var cardinalityText = link.property().generateCardinalityText();
+	      if ( cardinalityText && cardinalityText.length > 0 ) {
+	        var cardinalityCenter = lg.node().getPointAtLength(pathLen - 18);
+	        var cx = cardinalityCenter.x - (10 * normY);
+	        var cy = cardinalityCenter.y + (10 * normX); // using orthonormal y Coordinate
+	        cy *= -1.0;
+	        var textColor = "black";
+	        if ( cardinalityText.indexOf("A") > -1 ) {
+	          cardinalityText = "$\\forall$";
+	        }
+	        if ( cardinalityText.indexOf("E") > -1 ) {
+	          cardinalityText = "$\\exists$";
+	        }
+	        
+	        
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily },text=" + textColor + "] at (" + cx + "pt, " + cy + "pt)   (cardinalityText" + i + ") {" + cardinalityText + "};\n ";
+	      }
+	      
+	      
+	      if ( link.property().inverse() ) {
+	        lg = link.pathObj();
+	        pathLen = Math.floor(lg.node().getTotalLength());
+	        var p1_inv = lg.node().getPointAtLength(4);
+	        var p2_inv = lg.node().getPointAtLength(0);
+	        var markerCenter_inv = lg.node().getPointAtLength(6);
+	        startX = p1_inv.x;
+	        startY = p1_inv.y;
+	        endX = p2_inv.x;
+	        endY = p2_inv.y;
+	        normX = endX - startX;
+	        normY = endY - startY;
+	        len = Math.sqrt(normX * normX + normY * normY);
+	        normX = normX / len;
+	        normY = normY / len;
+	        
+	        ahAngle = -1.0 * Math.atan2(normY, normX) * (180 / Math.PI);
+	        ahAngle -= 90;
+	        //   console.log("INV>>\n "+link.property().inverse().labelForCurrentLanguage()+ ": "+normX+ " "+normY +"  "+ahAngle);
+	        rx = markerCenter_inv.x;
+	        ry = markerCenter_inv.y;
+	        if ( link.layers().length === 1 && !link.loops() ) {
+	          // markerOffset=-1*m
+	          ry = -1 * ry;
+	          texString += "\\node[" + arrowType + ", rotate=" + ahAngle + "] at (" + rx + "pt, " + ry + "pt)   (INV_single_marker" + i + ") {};\n ";
+	        } else {
+	          ry = -1 * ry;
+	          texString += "\\node[" + arrowType + ", rotate=" + ahAngle + "] at (" + rx + "pt, " + ry + "pt)   (INV_marker" + i + ") {};\n ";
+	        }
+	      }
+	      
+	      
+	    }
+	    
+	    
+	    nodeElements.each(function ( node ){
+	      
+	      px = node.x;
+	      py = -node.y;
+	      identifier = node.labelForCurrentLanguage();
+	      // console.log("Writing : "+ identifier);
+	      if ( identifier === undefined ) identifier = "";
+	      var qType = "owlClass";
+	      if ( node.type() === "owl:Thing" || node.type() === "owl:Nothing" )
+	        qType = "owlThing";
+	      
+	      if ( node.type() === "owl:equivalentClass" ) {
+	        qType = "owlEquivalentClass";
+	      }
+	      var textColorStr = "";
+	      if ( node.textBlock ) {
+	        var txtColor = node.textBlock()._textBlock().style("fill");
+	        if ( txtColor === "rgb(0, 0, 0)" ) {
+	          textColorStr = ", text=black";
+	        }
+	        if ( txtColor === "rgb(255, 255, 255)" ) {
+	          textColorStr = ", text=white";
+	        }
+	        
+	        
+	        var tspans = node.textBlock()._textBlock().node().children;
+	        if ( tspans[0] ) {
+	          identifier = tspans[0].innerHTML;
+	          if ( node.individuals() && node.individuals().length === parseInt(tspans[0].innerHTML) ) {
+	            identifier = "{\\color{gray} " + tspans[0].innerHTML + " }";
+	          }
+	          for ( var t = 1; t < tspans.length; t++ ) {
+	            if ( node.individuals() && node.individuals().length === parseInt(tspans[t].innerHTML) ) {
+	              identifier += "\\\\ {\\color{gray} " + tspans[t].innerHTML + " }";
+	            } else {
+	              identifier += "\\\\ {\\small " + tspans[t].innerHTML + " }";
+	            }
+	          }
+	        }
+	      }
+	      if ( node.type() === "rdfs:Literal" ) {
+	        qType = "Literal";
+	      }
+	      if ( node.type() === "rdfs:Datatype" ) {
+	        qType = "Datatype";
+	      }
+	      if ( node.attributes().indexOf("anonymous") !== -1 ) {
+	        qType = "anonymousClass";
+	      }
+	      
+	      
+	      if ( node.type() === "owl:unionOf" || node.type() === "owl:complementOf" || node.type() === "owl:disjointUnionOf" || node.type() === "owl:intersectionOf" )
+	        qType = "owlClass";
+	      
+	      var bgColorStr = "";
+	      var widthString = "";
+	      
+	      if ( node.type() === "rdfs:Literal" || node.type() === "rdfs:Datatype" ) {
+	        var width = node.width();
+	        widthString = ",minimum width=" + width + "pt";
+	      }
+	      else {
+	        widthString = ",minimum size=" + 2 * node.actualRadius() + "pt";
+	        
+	      }
+	      if ( node.backgroundColor() ) {
+	        var bgColor = node.backgroundColor();
+	        bgColor.toUpperCase();
+	        bgColor = bgColor.slice(1, bgColor.length);
+	        texString += "\\definecolor{Node" + i + "_COLOR}{HTML}{" + bgColor + "} \n ";
+	        bgColorStr = ", fill=Node" + i + "_COLOR ";
+	      }
+	      if ( node.attributes().indexOf("deprecated") > -1 ) {
+	        texString += "\\definecolor{Node" + i + "_COLOR}{HTML}{CCCCCC} \n ";
+	        bgColorStr = ", fill=Node" + i + "_COLOR ";
+	      }
+	      
+	      var leftPos = px - 7;
+	      var rightPos = px + 7;
+	      var txtOffset = py + 20;
+	      if ( node.type() !== "owl:unionOf" || node.type() !== "owl:disjointUnionOf" ) {
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + px + "pt, " + py + "pt)   (Node" + i + ") {" + identifier.replaceAll("_", "\\_ ") + "};\n";
+	      }
+	      if ( node.type() === "owl:unionOf" ) {
+	        // add symbol to it;
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + px + "pt, " + py + "pt)   (Node" + i + ") {};\n";
+	        texString += "\\node[unionOf   , text=black] at (" + leftPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[unionOf   , text=black] at (" + rightPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[unionOf ,fill=none   , text=black] at (" + leftPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[text=black] at (" + px + "pt, " + py + "pt)  (unionText13) {$\\mathbf{\\cup}$};\n";
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + txtOffset + "pt)   (Node_text" + i + ") {" + identifier.replaceAll("_", "\\_ ") + "};\n";
+	      }
+	      // OWL DISJOINT UNION OF
+	      if ( node.type() === "owl:disjointUnionOf" ) {
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + px + "pt, " + py + "pt)   (Node" + i + ") {};\n";
+	        texString += "\\node[unionOf   , text=black] at (" + leftPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[unionOf   , text=black] at (" + rightPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[unionOf ,fill=none   , text=black] at (" + leftPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + py + "pt)  (disjointUnoinText" + i + ") {1};\n";
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + txtOffset + "pt)   (Node_text" + i + ") {" + identifier.replaceAll("_", "\\_ ") + "};\n";
+	      }
+	      // OWL COMPLEMENT OF
+	      if ( node.type() === "owl:complementOf" ) {
+	        // add symbol to it;
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + px + "pt, " + py + "pt)   (Node" + i + ") {};\n";
+	        texString += "\\node[unionOf   , text=black] at (" + px + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[font={\\fontsize{18pt}{18}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + py + "pt)  (unionText13) {$\\neg$};\n";
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + txtOffset + "pt)   (Node_text" + i + ") {" + identifier.replaceAll("_", "\\_ ") + "};\n";
+	      }
+	      // OWL INTERSECTION OF
+	      if ( node.type() === "owl:intersectionOf" ) {
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + px + "pt, " + py + "pt)   (Node" + i + ") {};\n";
+	        texString += "\\node[unionOf   , text=black] at (" + leftPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[unionOf   , text=black] at (" + rightPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[unionOf ,fill=none   , text=black] at (" + leftPos + "pt, " + py + "pt)   (SymbolNode" + i + ") {};\n";
+	        
+	        // add now the outer colors;
+	        texString += "\\filldraw[even odd rule,fill=owlClassColor,line width=1pt] (" + leftPos + "pt, " + py + "pt) circle (12.5pt)  (" + rightPos + "pt, " + py + "pt) circle (12.5pt);\n ";
+	        
+	        // add texts
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + py + "pt)  (intersectionText" + i + ") {$\\cap$};\n";
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + txtOffset + "pt)   (Node_text" + i + ") {" + identifier.replaceAll("_", "\\_ ") + "};\n";
+	        
+	      }
+	      
+	      
+	      i++;
+	      
+	    });
+	    for ( i = 0; i < propElements.length; i++ ) {
+	      var correspondingProp = propElements[i].property();
+	      var p_px = propElements[i].x;
+	      var p_py = -propElements[i].y;
+	      identifier = correspondingProp.labelForCurrentLanguage();
+	      if ( identifier === undefined ) identifier = "";
+	      var textColorStr = "";
+	      if ( correspondingProp.textBlock && correspondingProp.textBlock() ) {
+	        var txtColor = correspondingProp.textBlock()._textBlock().style("fill");
+	        //  console.log("PropertyTextColor="+txtColor);
+	        if ( txtColor === "rgb(0, 0, 0)" ) {
+	          textColorStr = ", text=black";
+	        }
+	        if ( txtColor === "rgb(255, 255, 255)" ) {
+	          textColorStr = ", text=white";
+	        }
+	        var tspans = correspondingProp.textBlock()._textBlock().node().children;
+	        
+	        // identifier=node.textBlock()._textBlock().text();
+	        // console.log(tspans);
+	        if ( tspans[0] ) {
+	          identifier = tspans[0].innerHTML;
+	          
+	          for ( var t = 1; t < tspans.length; t++ ) {
+	            var spanText = tspans[t].innerHTML;
+	            if ( spanText.indexOf("(") > -1 ) {
+	              identifier += "\\\\ {\\small " + tspans[t].innerHTML + " }";
+	            }
+	            else {
+	              identifier += "\\\\ " + tspans[t].innerHTML;
+	            }
+	          }
+	        }
+	        else {
+	        }
+	      }
+	      if ( correspondingProp.type() === "setOperatorProperty" ) {
+	        continue; // this property does not have a label
+	      }
+	      var qType = "owlObjectProperty";
+	      if ( correspondingProp.type() === "owl:DatatypeProperty" ) {
+	        qType = "owlDatatypeProperty";
+	      }
+	      if ( correspondingProp.type() === "rdfs:subClassOf" ) {
+	        qType = "rdfsSubClassOf";
+	      }
+	      if ( correspondingProp.type() === "rdf:Property" ) {
+	        qType = "rdfProperty";
+	      }
+	      
+	      
+	      var bgColorStr = "";
+	      if ( correspondingProp.backgroundColor() ) {
+	        // console.log("Found backGround color");
+	        var bgColor = correspondingProp.backgroundColor();
+	        //console.log(bgColor);
+	        bgColor.toUpperCase();
+	        bgColor = bgColor.slice(1, bgColor.length);
+	        texString += "\\definecolor{property" + i + "_COLOR}{HTML}{" + bgColor + "} \n ";
+	        bgColorStr = ", fill=property" + i + "_COLOR ";
+	      }
+	      if ( correspondingProp.attributes().indexOf("deprecated") > -1 ) {
+	        texString += "\\definecolor{property" + i + "_COLOR}{HTML}{CCCCCC} \n ";
+	        bgColorStr = ", fill=property" + i + "_COLOR ";
+	      }
+	      
+	      var widthString = "";
+	      var width = correspondingProp.textWidth();
+	      widthString = ",minimum width=" + width + "pt";
+	      
+	      
+	      // OWL INTERSECTION OF
+	      if ( correspondingProp.type() === "owl:disjointWith" ) {
+	        var leftPos = p_px - 12;
+	        var rightPos = p_px + 12;
+	        var txtOffset = p_py - 20;
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + p_px + "pt, " + p_py + "pt)   (Node" + i + ") {};\n";
+	        texString += "\\node[disjointWith , text=black] at (" + leftPos + "pt, " + p_py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[disjointWith , text=black] at (" + rightPos + "pt, " + p_py + "pt)   (SymbolNode" + i + ") {};\n";
+	        texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + p_px + "pt, " + txtOffset + "pt)   (Node_text" + i + ") {";
+	        if ( graph.options().compactNotation() === false ) {
+	          texString += "(disjoint)";
+	        }
+	        texString += "};\n";
+	        continue;
+	      }
+	      
+	      
+	      if ( correspondingProp.inverse() ) {
+	        var inv_correspondingProp = correspondingProp.inverse();
+	        // create the rendering element for the inverse property;
+	        var inv_identifier = inv_correspondingProp.labelForCurrentLanguage();
+	        if ( inv_identifier === undefined ) inv_identifier = "";
+	        var inv_textColorStr = "";
+	        //console.log(inv_correspondingProp);
+	        //console.log(inv_correspondingProp.textBlock());
+	        
+	        if ( inv_correspondingProp.textBlock && inv_correspondingProp.textBlock() ) {
+	          
+	          var inv_txtColor = inv_correspondingProp.textBlock()._textBlock().style("fill");
+	          //  console.log("PropertyTextColor="+inv_txtColor);
+	          if ( inv_txtColor === "rgb(0, 0, 0)" ) {
+	            inv_textColorStr = ", text=black";
+	          }
+	          if ( inv_txtColor === "rgb(255, 255, 255)" ) {
+	            inv_textColorStr = ", text=white";
+	          }
+	          var inv_tspans = inv_correspondingProp.textBlock()._textBlock().node().children;
+	          
+	          // identifier=node.textBlock()._textBlock().text();
+	          //  console.log(inv_tspans);
+	          if ( inv_tspans[0] ) {
+	            inv_identifier = inv_tspans[0].innerHTML;
+	            
+	            for ( var inv_t = 1; inv_t < inv_tspans.length; inv_t++ ) {
+	              var ispanText = inv_tspans[inv_t].innerHTML;
+	              if ( ispanText.indexOf("(") > -1 ) {
+	                inv_identifier += "\\\\ {\\small " + inv_tspans[inv_t].innerHTML + " }";
+	              } else {
+	                inv_identifier += "\\\\ " + inv_tspans[inv_t].innerHTML;
+	              }
+	            }
+	          }
+	        }
+	        var inv_qType = "owlObjectProperty";
+	        var inv_bgColorStr = "";
+	        
+	        if ( inv_correspondingProp.backgroundColor() ) {
+	          //  console.log("Found backGround color");
+	          var inv_bgColor = inv_correspondingProp.backgroundColor();
+	          //   console.log(inv_bgColor);
+	          inv_bgColor.toUpperCase();
+	          inv_bgColor = inv_bgColor.slice(1, inv_bgColor.length);
+	          texString += "\\definecolor{inv_property" + i + "_COLOR}{HTML}{" + inv_bgColor + "} \n ";
+	          inv_bgColorStr = ", fill=inv_property" + i + "_COLOR ";
+	        }
+	        if ( inv_correspondingProp.attributes().indexOf("deprecated") > -1 ) {
+	          texString += "\\definecolor{inv_property" + i + "_COLOR}{HTML}{CCCCCC} \n ";
+	          inv_bgColorStr = ", fill=inv_property" + i + "_COLOR ";
+	        }
+	        
+	        var inv_widthString = "";
+	        var inv_width = inv_correspondingProp.textWidth();
+	        
+	        var pOY1 = p_py - 14;
+	        var pOY2 = p_py + 14;
+	        inv_widthString = ",minimum width=" + inv_width + "pt";
+	        texString += "% Createing Inverse Property \n";
+	        texString += "\\node[" + inv_qType + " " + inv_widthString + " " + inv_bgColorStr + " " + inv_textColorStr + "] at (" + p_px + "pt, " + pOY1 + "pt)   (property" + i + ") {" + inv_identifier.replaceAll("_", "\\_ ") + "};\n";
+	        texString += "% " + inv_qType + " vs " + qType + "\n";
+	        texString += "% " + inv_widthString + " vs " + widthString + "\n";
+	        texString += "% " + inv_bgColorStr + " vs " + bgColorStr + "\n";
+	        texString += "% " + inv_textColorStr + " vs " + textColorStr + "\n";
+	        
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + p_px + "pt, " + pOY2 + "pt)   (property" + i + ") {" + identifier.replaceAll("_", "\\_ ") + "};\n";
+	        
+	      } else {
+	        texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + p_px + "pt, " + p_py + "pt)   (property" + i + ") {" + identifier.replaceAll("_", "\\_ ") + "};\n";
+	      }
+	    }
+	    
+	    texString += "\\end{tikzpicture}\n}\n \\end{center}\n";
+	    
+	    //   console.log("Tex Output\n"+ texString);
+	    var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(texString);
+	    exportTexButton.attr("href", dataURI)
+	      .attr("download", exportFilename + ".tex");
+	    
+	    
+	  }
+	  
+	  function calculateRadian( angle ){
+	    angle = angle % 360;
+	    if ( angle < 0 ) {
+	      angle = angle + 360;
+	    }
+	    return (Math.PI * angle) / 180;
+	  }
+	  
+	  function calculateAngle( radian ){
+	    return radian * (180 / Math.PI);
+	  }
+	  
+	  return exportMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 324:
+/***/ (function(module, exports) {
+
+	/**
+	 * Contains the logic for the export button.
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  var exportTTLModule = {};
+	  var resultingTTLContent = "";
+	  var currentNodes;
+	  var currentProperties;
+	  var currentAxioms;
+	  var Map_ID2Node = {};
+	  var Map_ID2Prop = {};
+	  var prefixModule = webvowl.util.prefixTools(graph);
+	  
+	  exportTTLModule.requestExport = function (){
+	    prefixModule.updatePrefixModel();
+	    resultingTTLContent = "";
+	    currentNodes = graph.getClassDataForTtlExport();
+	    var i;
+	    for ( i = 0; i < currentNodes.length; i++ ) {
+	      Map_ID2Node[currentNodes[i].id()] = currentNodes[i];
+	    }
+	    currentProperties = graph.getPropertyDataForTtlExport();
+	    
+	    for ( i = 0; i < currentProperties.length; i++ ) {
+	      Map_ID2Prop[currentProperties[i].id()] = currentProperties[i];
+	    }
+	    
+	    
+	    prepareHeader();
+	    preparePrefixList();
+	    prepareOntologyDef();
+	    resultingTTLContent += "#################################################################\r\n\r\n";
+	    preparePrefixRepresentation();
+	    var property_success = exportProperties();
+	    var class_success = exportClasses();
+	    currentNodes = null;
+	    currentProperties = null;
+	    Map_ID2Node = {};
+	    Map_ID2Prop = {};
+	    if ( property_success === false || class_success === false )
+	      return false;
+	    return true;
+	    
+	  };
+	  
+	  function preparePrefixRepresentation(){
+	    var i;
+	    var allNodes = graph.getUnfilteredData().nodes;
+	    var allProps = graph.getUnfilteredData().properties;
+	    for ( i = 0; i < allNodes.length; i++ ) {
+	      var nodeIRI = prefixModule.getPrefixRepresentationForFullURI(allNodes[i].iri());
+	      if ( prefixModule.validURL(nodeIRI) === true )
+	        allNodes[i].prefixRepresentation = "<" + nodeIRI + ">";
+	      else
+	        allNodes[i].prefixRepresentation = nodeIRI;
+	    }
+	    for ( i = 0; i < allProps.length; i++ ) {
+	      var propIRI = prefixModule.getPrefixRepresentationForFullURI(allProps[i].iri());
+	      if ( prefixModule.validURL(propIRI) === true )
+	        allProps[i].prefixRepresentation = "<" + propIRI + ">";
+	      else
+	        allProps[i].prefixRepresentation = propIRI;
+	    }
+	  }
+	  
+	  function exportProperties(){
+	    if ( currentProperties.length === 0 ) return; // we dont need to write that
+	    resultingTTLContent += "###  Property Definitions (Number of Property) " + currentProperties.length + " ###\r\n";
+	    for ( var i = 0; i < currentProperties.length; i++ ) {
+	      
+	      resultingTTLContent += "#  --------------------------- Property " + i + "------------------------- \r\n";
+	      var addedElement = extractPropertyDescription(currentProperties[i]);
+	      resultingTTLContent += addedElement;
+	      //@ workaround for not supported elements
+	      if ( addedElement.indexOf("WHYEMPTYNAME") !== -1 ) {
+	        return false;
+	      }
+	    }
+	    return true;
+	  }
+	  
+	  
+	  function exportClasses(){
+	    if ( currentNodes.length === 0 ) return; // we dont need to write that
+	    resultingTTLContent += "###  Class Definitions (Number of Classes) " + currentNodes.length + " ###\r\n";
+	    for ( var i = 0; i < currentNodes.length; i++ ) {
+	      // check for node type here and return false
+	      resultingTTLContent += "#  --------------------------- Class  " + i + "------------------------- \r\n";
+	      var addedElement = extractClassDescription(currentNodes[i]);
+	      resultingTTLContent += addedElement;
+	      
+	      if ( addedElement.indexOf("WHYEMPTYNAME") !== -1 ) {
+	        return false;
+	      }
+	    }
+	    return true;
+	  }
+	  
+	  function getPresentAttribute( selectedElement, element ){
+	    var attr = selectedElement.attributes();
+	    return (attr.indexOf(element) >= 0);
+	  }
+	  
+	  function extractClassDescription( node ){
+	    var subject = node.prefixRepresentation;
+	    var predicate = "rdf:type";
+	    var object = node.type();
+	    if ( node.type() === "owl:equivalentClass" )
+	      object = "owl:Class";
+	    if ( node.type() === "owl:disjointUnionOf" )
+	      object = "owl:Class";
+	    if ( node.type() === "owl:unionOf" )
+	      object = "owl:Class";
+	    var arrayOfNodes = [];
+	    var arrayOfUnionNodes = [];
+	    
+	    if ( node.union() ) {
+	      var union = node.union();
+	      for ( var u = 0; u < union.length; u++ ) {
+	        var u_node = Map_ID2Node[union[u]];
+	        arrayOfUnionNodes.push(u_node);
+	      }
+	    }
+	    
+	    if ( node.disjointUnion() ) {
+	      var distUnion = node.disjointUnion();
+	      for ( var du = 0; du < distUnion.length; du++ ) {
+	        var du_node = Map_ID2Node[distUnion[du]];
+	        arrayOfNodes.push(du_node);
+	      }
+	    }
+	    
+	    var objectDef = subject + " " + predicate + " " + object;
+	    if ( getPresentAttribute(node, "deprecated") === true ) {
+	      objectDef += ", owl:DeprecatedProperty";
+	    }
+	    // equivalent class handeled using type itself!
+	    
+	    // check for equivalent classes;
+	    var indent = getIndent(subject);
+	    objectDef += "; \r\n";
+	    for ( var e = 0; e < node.equivalents().length; e++ ) {
+	      var eqIRI = prefixModule.getPrefixRepresentationForFullURI(node.equivalents()[e].iri());
+	      var eqNode_prefRepresentation = "";
+	      if ( prefixModule.validURL(eqIRI) === true )
+	        eqNode_prefRepresentation = "<" + eqIRI + ">";
+	      else
+	        eqNode_prefRepresentation = eqIRI;
+	      objectDef += indent + " owl:equivalentClass " + eqNode_prefRepresentation + " ;\r\n";
+	    }
+	    
+	    // if (getPresentAttribute(node,"equivalent")===true){
+	    //     objectDef+=", owl:EquivalentClass";
+	    // }
+	    
+	    // add Comments
+	    
+	    if ( node.commentForCurrentLanguage() ) {
+	      
+	      objectDef += indent + " rdfs:comment \"" + node.commentForCurrentLanguage() + "\" ;\r\n";
+	    }
+	    
+	    if ( node.annotations() ) {
+	      var annotations = node.annotations();
+	      for ( var an in annotations ) {
+	        if ( annotations.hasOwnProperty(an) ) {
+	          var anArrayObj = annotations[an];
+	          var anObj = anArrayObj[0];
+	          var an_ident = anObj.identifier;
+	          var an_val = anObj.value;
+	          
+	          if ( an_ident === "isDefinedBy" ) {
+	            objectDef += indent + " rdfs:isDefinedBy <" + an_val + "> ;\r\n";
+	          }
+	          if ( an_ident === "term_status" ) {
+	            objectDef += indent + " vs:term_status \"" + an_val + "\" ;\r\n";
+	          }
+	        }
+	      }
+	    }
+	    
+	    
+	    if ( arrayOfNodes.length > 0 ) {
+	      // add disjoint unionOf
+	      objectDef += indent + " owl:disjointUnionOf (";
+	      for ( var duE = 0; duE < arrayOfNodes.length; duE++ ) {
+	        var duIri = prefixModule.getPrefixRepresentationForFullURI(arrayOfNodes[duE].iri());
+	        var duNode_prefRepresentation = "";
+	        if ( prefixModule.validURL(duIri) === true )
+	          duNode_prefRepresentation = "<" + duIri + ">";
+	        else
+	          duNode_prefRepresentation = duIri;
+	        objectDef += indent + indent + duNode_prefRepresentation + " \n";
+	      }
+	      objectDef += ") ;\r\n";
+	    }
+	    
+	    if ( arrayOfUnionNodes.length > 0 ) {
+	      // add disjoint unionOf
+	      objectDef += indent + " rdfs:subClassOf [ rdf:type owl:Class ; \r\n";
+	      objectDef += indent + indent + " owl:unionOf ( ";
+	      
+	      for ( var uE = 0; uE < arrayOfUnionNodes.length; uE++ ) {
+	        
+	        if ( arrayOfUnionNodes[uE] && arrayOfUnionNodes[uE].iri() ) {
+	          var uIri = prefixModule.getPrefixRepresentationForFullURI(arrayOfUnionNodes[uE].iri());
+	          var uNode_prefRepresentation = "";
+	          if ( prefixModule.validURL(uIri) === true )
+	            uNode_prefRepresentation = "<" + uIri + ">";
+	          else
+	            uNode_prefRepresentation = uIri;
+	          objectDef += indent + indent + indent + uNode_prefRepresentation + " \n";
+	        }
+	      }
+	      objectDef += ") ;\r\n";
+	      
+	      
+	    }
+	    
+	    
+	    var allProps = graph.getUnfilteredData().properties;
+	    var myProperties = [];
+	    var i;
+	    for ( i = 0; i < allProps.length; i++ ) {
+	      if ( allProps[i].domain() === node &&
+	        (   allProps[i].type() === "rdfs:subClassOf" ||
+	        allProps[i].type() === "owl:allValuesFrom" ||
+	        allProps[i].type() === "owl:someValuesFrom")
+	      ) {
+	        myProperties.push(allProps[i]);
+	      }
+	      // special case disjoint with>> both domain and range get that property
+	      if ( (allProps[i].domain() === node) &&
+	        allProps[i].type() === "owl:disjointWith" ) {
+	        myProperties.push(allProps[i]);
+	      }
+	      
+	    }
+	    for ( i = 0; i < myProperties.length; i++ ) {
+	      // depending on the property we have to do some things;
+	      
+	      // special case
+	      if ( myProperties[i].type() === "owl:someValuesFrom" ) {
+	        objectDef += indent + " rdfs:subClassOf [ rdf:type owl:Restriction ; \r\n";
+	        objectDef += indent + "                   owl:onProperty " + myProperties[i].prefixRepresentation + ";\r\n";
+	        if ( myProperties[i].range().type() !== "owl:Thing" ) {
+	          objectDef += indent + "                   owl:someValuesFrom " + myProperties[i].range().prefixRepresentation + "\r\n";
+	        }
+	        objectDef += indent + "                 ];\r\n";
+	        continue;
+	      }
+	      
+	      if ( myProperties[i].type() === "owl:allValuesFrom" ) {
+	        objectDef += indent + " rdfs:subClassOf [ rdf:type owl:Restriction ; \r\n";
+	        objectDef += indent + "                   owl:onProperty " + myProperties[i].prefixRepresentation + ";\r\n";
+	        if ( myProperties[i].range().type() !== "owl:Thing" ) {
+	          objectDef += indent + "                   owl:allValuesFrom " + myProperties[i].range().prefixRepresentation + "\r\n";
+	        }
+	        objectDef += indent + "                 ];\r\n";
+	        continue;
+	      }
+	      
+	      if ( myProperties[i].range().type() !== "owl:Thing" ) {
+	        objectDef += indent + " " + myProperties[i].prefixRepresentation +
+	          " " + myProperties[i].range().prefixRepresentation + " ;\r\n";
+	        
+	        
+	      }
+	    }
+	    
+	    
+	    objectDef += general_Label_languageExtractor(indent, node.label(), "rdfs:label", true);
+	    return objectDef;
+	    
+	  }
+	  
+	  function extractPropertyDescription( property ){
+	    var subject = property.prefixRepresentation;
+	    if ( subject.length === 0 ) {
+	      console.log("THIS SHOULD NOT HAPPEN");
+	      var propIRI = prefixModule.getPrefixRepresentationForFullURI(property.iri());
+	      console.log("FOUND " + propIRI);
+	      
+	      
+	    }
+	    var predicate = "rdf:type";
+	    var object = property.type();
+	    
+	    var objectDef = subject + " " + predicate + " " + object;
+	    if ( getPresentAttribute(property, "deprecated") === true ) {
+	      objectDef += ", owl:DeprecatedProperty";
+	    }
+	    if ( getPresentAttribute(property, "functional") === true ) {
+	      objectDef += ", owl:FunctionalProperty";
+	    }
+	    if ( getPresentAttribute(property, "inverse functional") === true ) {
+	      objectDef += ", owl:InverseFunctionalProperty";
+	    }
+	    if ( getPresentAttribute(property, "symmetric") === true ) {
+	      objectDef += ", owl:SymmetricProperty";
+	    }
+	    if ( getPresentAttribute(property, "transitive") === true ) {
+	      objectDef += ", owl:TransitiveProperty";
+	    }
+	    var indent = getIndent(subject);
+	    
+	    if ( property.inverse() ) {
+	      objectDef += "; \r\n";
+	      objectDef += indent + " owl:inverseOf " + property.inverse().prefixRepresentation;
+	    }
+	    
+	    // check for domain and range;
+	    
+	    
+	    var closeStatement = false;
+	    var domain = property.domain();
+	    var range = property.range();
+	    
+	    
+	    objectDef += " ;\r\n";
+	    
+	    
+	    if ( property.commentForCurrentLanguage() ) {
+	      
+	      objectDef += indent + " rdfs:comment \"" + property.commentForCurrentLanguage() + "\" ;\r\n";
+	    }
+	    
+	    if ( property.superproperties() ) {
+	      var superProps = property.superproperties();
+	      for ( var sP = 0; sP < superProps.length; sP++ ) {
+	        var sPelement = superProps[sP];
+	        objectDef += indent + "rdfs:subPropertyOf " + sPelement.prefixRepresentation + ";\r\n";
+	      }
+	      // for (var an in annotations){
+	      //     if (annotations.hasOwnProperty(an)){
+	      //         var anArrayObj=annotations[an];
+	      //         var anObj=anArrayObj[0];
+	      //         var an_ident=anObj.identifier;
+	      //         var an_val=anObj.value;
+	      //         console.log(an_ident + " "+ an_val);
+	      //
+	      //         if (an_ident==="isDefinedBy"){
+	      //             objectDef+=indent+" rdfs:isDefinedBy <"+an_val+"> ;\r\n";
+	      //         }
+	      //         if (an_ident==="term_status"){
+	      //             objectDef+=indent+" vs:term_status \""+an_val+"\" ;\r\n";
+	      //         }
+	      //     }
+	      // }
+	      
+	    }
+	    
+	    if ( property.annotations() ) {
+	      var annotations = property.annotations();
+	      for ( var an in annotations ) {
+	        if ( annotations.hasOwnProperty(an) ) {
+	          var anArrayObj = annotations[an];
+	          var anObj = anArrayObj[0];
+	          var an_ident = anObj.identifier;
+	          var an_val = anObj.value;
+	          
+	          if ( an_ident === "isDefinedBy" ) {
+	            objectDef += indent + " rdfs:isDefinedBy <" + an_val + "> ;\r\n";
+	          }
+	          if ( an_ident === "term_status" ) {
+	            objectDef += indent + " vs:term_status \"" + an_val + "\" ;\r\n";
+	          }
+	        }
+	      }
+	    }
+	    
+	    
+	    if ( domain.type() === "owl:Thing" && range.type() === "owl:Thing" ) {
+	      // we do not write domain and range
+	      if ( typeof property.label() !== "object" && property.label().length === 0 ) {
+	        closeStatement = true;
+	      }
+	    }
+	    
+	    
+	    if ( closeStatement === true ) {
+	      var uobjectDef = objectDef.substring(0, objectDef.length - 2);
+	      objectDef = uobjectDef + " . \r\n";
+	      return objectDef;
+	    }
+	    // objectDef+="; \r\n";
+	    var labelDescription;
+	    
+	    
+	    if ( domain.type() === "owl:Thing" && range.type() === "owl:Thing" ) {
+	      labelDescription = general_Label_languageExtractor(indent, property.label(), "rdfs:label", true);
+	      objectDef += labelDescription;
+	    }
+	    else {
+	      // do not close the statement;
+	      labelDescription = general_Label_languageExtractor(indent, property.label(), "rdfs:label");
+	      objectDef += labelDescription;
+	      if ( domain.type() !== "owl:Thing" ) {
+	        objectDef += indent + " rdfs:domain " + domain.prefixRepresentation + ";\r\n";
+	      }
+	      if ( range.type() !== "owl:Thing" ) {
+	        objectDef += indent + " rdfs:range " + range.prefixRepresentation + ";\r\n";
+	      }
+	      
+	      // close statement now;
+	      
+	      var s_needUpdate = objectDef;
+	      var s_lastPtr = s_needUpdate.lastIndexOf(";");
+	      objectDef = s_needUpdate.substring(0, s_lastPtr) + " . \r\n";
+	    }
+	    
+	    return objectDef;
+	    
+	  }
+	  
+	  
+	  exportTTLModule.resultingTTL_Content = function (){
+	    return resultingTTLContent;
+	  };
+	  
+	  function getIndent( name ){
+	    if ( name === undefined ) {
+	      return "WHYEMPTYNAME?";
+	    }
+	    return new Array(name.length + 1).join(" ");
+	  }
+	  
+	  function prepareHeader(){
+	    resultingTTLContent += "#################################################################\r\n";
+	    resultingTTLContent += "###  Generated with the experimental alpha version of the TTL exporter of WebVOWL (version 1.1.7) " +
+	      " http://visualdataweb.de/webvowl/   ###\r\n";
+	    resultingTTLContent += "#################################################################\r\n\r\n";
+	    
+	  }
+	  
+	  function preparePrefixList(){
+	    var ontoIri = graph.options().getGeneralMetaObjectProperty('iri');
+	    var prefixList = graph.options().prefixList();
+	    var prefixDef = [];
+	    prefixDef.push('@prefix : \t\t<' + ontoIri + '> .');
+	    for ( var name in prefixList ) {
+	      if ( prefixList.hasOwnProperty(name) ) {
+	        prefixDef.push('@prefix ' + name + ': \t\t<' + prefixList[name] + '> .');
+	      }
+	    }
+	    prefixDef.push('@base \t\t\t<' + ontoIri + '> .\r\n');
+	    
+	    for ( var i = 0; i < prefixDef.length; i++ ) {
+	      resultingTTLContent += prefixDef[i] + '\r\n';
+	    }
+	  }
+	  
+	  function prepareOntologyDef(){
+	    var ontoIri = graph.options().getGeneralMetaObjectProperty('iri');
+	    var indent = getIndent('<' + ontoIri + '>');
+	    resultingTTLContent += '<' + ontoIri + '> rdf:type owl:Ontology ;\r\n' +
+	      getOntologyTitle(indent) +
+	      getOntologyDescription(indent) +
+	      getOntologyVersion(indent) +
+	      getOntologyAuthor(indent);
+	    
+	    // close the statement;
+	    var s_needUpdate = resultingTTLContent;
+	    var s_lastPtr = s_needUpdate.lastIndexOf(";");
+	    resultingTTLContent = s_needUpdate.substring(0, s_lastPtr) + " . \r\n";
+	  }
+	  
+	  function getOntologyTitle( indent ){
+	    return general_languageExtractor(indent, "title", "dc:title");
+	  }
+	  
+	  function getOntologyDescription( indent ){
+	    return general_languageExtractor(indent, "description", "dc:description");
+	  }
+	  
+	  function getOntologyAuthor( indent ){
+	    var languageElement = graph.options().getGeneralMetaObjectProperty('author');
+	    if ( languageElement ) {
+	      if ( typeof languageElement !== "object" ) {
+	        if ( languageElement.length === 0 )
+	          return ""; // an empty string
+	        var aString = indent + " dc:creator " + '"' + languageElement + '";\r\n';
+	        return aString;
+	      }
+	      // we assume this thing is an array;
+	      var authorString = indent + " dc:creator " + '"';
+	      for ( var i = 0; i < languageElement.length - 1; i++ ) {
+	        authorString += languageElement[i] + ", ";
+	      }
+	      authorString += languageElement[languageElement.length - 1] + '";\r\n';
+	      return authorString;
+	    } else {
+	      return ""; // an empty string
+	    }
+	  }
+	  
+	  function getOntologyVersion( indent ){
+	    var languageElement = graph.options().getGeneralMetaObjectProperty('version');
+	    if ( languageElement ) {
+	      if ( typeof languageElement !== "object" ) {
+	        if ( languageElement.length === 0 )
+	          return ""; // an empty string
+	      }
+	      return general_languageExtractor(indent, "version", "owl:versionInfo");
+	    } else return ""; // an empty string
+	  }
+	  
+	  function general_languageExtractor( indent, metaObjectDescription, annotationDescription, endStatement ){
+	    var languageElement = graph.options().getGeneralMetaObjectProperty(metaObjectDescription);
+	    
+	    if ( typeof languageElement === 'object' ) {
+	      
+	      var resultingLanguages = [];
+	      for ( var name in languageElement ) {
+	        if ( languageElement.hasOwnProperty(name) ) {
+	          var content = languageElement[name];
+	          if ( name === "undefined" ) {
+	            resultingLanguages.push(indent + " " + annotationDescription + ' "' + content + '"@en; \r\n');
+	          }
+	          else {
+	            resultingLanguages.push(indent + " " + annotationDescription + ' "' + content + '"@' + name + '; \r\n');
+	          }
+	        }
+	      }
+	      // create resulting titles;
+	      
+	      var resultingString = "";
+	      for ( var i = 0; i < resultingLanguages.length; i++ ) {
+	        resultingString += resultingLanguages[i];
+	      }
+	      if ( endStatement && endStatement === true ) {
+	        var needUpdate = resultingString;
+	        var lastPtr = needUpdate.lastIndexOf(";");
+	        return needUpdate.substring(0, lastPtr) + ". \r\n";
+	      } else {
+	        return resultingString;
+	      }
+	      
+	    } else {
+	      if ( endStatement && endStatement === true ) {
+	        var s_needUpdate = indent + " " + annotationDescription + ' "' + languageElement + '"@en; \r\n';
+	        var s_lastPtr = s_needUpdate.lastIndexOf(";");
+	        return s_needUpdate.substring(0, s_lastPtr) + " . \r\n";
+	      }
+	      return indent + " " + annotationDescription + ' "' + languageElement + '"@en;\r\n';
+	    }
+	  }
+	  
+	  function general_Label_languageExtractor( indent, label, annotationDescription, endStatement ){
+	    var languageElement = label;
+	    
+	    if ( typeof languageElement === 'object' ) {
+	      var resultingLanguages = [];
+	      for ( var name in languageElement ) {
+	        if ( languageElement.hasOwnProperty(name) ) {
+	          var content = languageElement[name];
+	          if ( name === "undefined" ) {
+	            resultingLanguages.push(indent + " " + annotationDescription + ' "' + content + '"@en; \r\n');
+	          }
+	          else {
+	            resultingLanguages.push(indent + " " + annotationDescription + ' "' + content + '"@' + name + '; \r\n');
+	          }
+	        }
+	      }
+	      // create resulting titles;
+	      var resultingString = "";
+	      for ( var i = 0; i < resultingLanguages.length; i++ ) {
+	        resultingString += resultingLanguages[i];
+	      }
+	      if ( endStatement && endStatement === true ) {
+	        var needUpdate = resultingString;
+	        var lastPtr = needUpdate.lastIndexOf(";");
+	        return needUpdate.substring(0, lastPtr) + " . \r\n";
+	      } else {
+	        return resultingString;
+	      }
+	      
+	    } else {
+	      if ( endStatement && endStatement === true ) {
+	        var s_needUpdate = indent + " " + annotationDescription + ' "' + languageElement + '"@en; \r\n';
+	        var s_lastPtr = s_needUpdate.lastIndexOf(";");
+	        return s_needUpdate.substring(0, s_lastPtr) + " . \r\n";
+	      }
+	      return indent + " " + annotationDescription + ' "' + languageElement + '"@en; \r\n';
+	    }
+	  }
+	  
+	  return exportTTLModule;
+	};
+
+
+/***/ }),
+
+/***/ 325:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for connecting the filters with the website.
+	 *
+	 * @param graph required for calling a refresh after a filter change
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var filterMenu = {},
+	    checkboxData = [],
+	    menuElement = d3.select("#m_filter"),
+	    menuControl = d3.select("#c_filter a"),
+	    nodeDegreeContainer = d3.select("#nodeDegreeFilteringOption"),
+	    graphDegreeLevel,
+	    defaultDegreeValue = 0,
+	    degreeSlider;
+	  
+	  filterMenu.setDefaultDegreeValue = function ( val ){
+	    defaultDegreeValue = val;
+	  };
+	  filterMenu.getDefaultDegreeValue = function (){
+	    return defaultDegreeValue;
+	  };
+	  
+	  filterMenu.getGraphObject = function (){
+	    return graph;
+	  };
+	  /** some getter function  **/
+	  filterMenu.getCheckBoxContainer = function (){
+	    return checkboxData;
+	  };
+	  
+	  filterMenu.getDegreeSliderValue = function (){
+	    return degreeSlider.property("value");
+	  };
+	  /**
+	   * Connects the website with graph filters.
+	   * @param datatypeFilter filter for all datatypes
+	   * @param objectPropertyFilter filter for all object properties
+	   * @param subclassFilter filter for all subclasses
+	   * @param disjointFilter filter for all disjoint with properties
+	   * @param setOperatorFilter filter for all set operators with properties
+	   * @param nodeDegreeFilter filters nodes by their degree
+	   */
+	  filterMenu.setup = function ( datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter ){
+	    // TODO: is this here really necessarry? << new menu visualization style?
+	    menuControl.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	    });
+	    menuControl.on("mouseleave", function (){
+	      filterMenu.highlightForDegreeSlider(false);
+	    });
+	    
+	    addFilterItem(datatypeFilter, "datatype", "Datatype properties", "#datatypeFilteringOption");
+	    addFilterItem(objectPropertyFilter, "objectProperty", "Object properties", "#objectPropertyFilteringOption");
+	    addFilterItem(subclassFilter, "subclass", "Solitary subclasses", "#subclassFilteringOption");
+	    addFilterItem(disjointFilter, "disjoint", "Class disjointness", "#disjointFilteringOption");
+	    addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
+	    
+	    addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
+	    addAnimationFinishedListener();
+	  };
+	  
+	  
+	  function addFilterItem( filter, identifier, pluralNameOfFilteredItems, selector ){
+	    var filterContainer,
+	      filterCheckbox;
+	    
+	    filterContainer = d3.select(selector)
+	      .append("div")
+	      .classed("checkboxContainer", true);
+	    
+	    filterCheckbox = filterContainer.append("input")
+	      .classed("filterCheckbox", true)
+	      .attr("id", identifier + "FilterCheckbox")
+	      .attr("type", "checkbox")
+	      .property("checked", filter.enabled());
+	    
+	    // Store for easier resetting
+	    checkboxData.push({ checkbox: filterCheckbox, defaultState: filter.enabled() });
+	    
+	    filterCheckbox.on("click", function ( silent ){
+	      // There might be no parameters passed because of a manual
+	      // invocation when resetting the filters
+	      var isEnabled = filterCheckbox.property("checked");
+	      filter.enabled(isEnabled);
+	      if ( silent !== true ) {
+	        // updating graph when silent is false or the parameter is not given.
+	        graph.update();
+	      }
+	    });
+	    
+	    filterContainer.append("label")
+	      .attr("for", identifier + "FilterCheckbox")
+	      .text(pluralNameOfFilteredItems);
+	  }
+	  
+	  function addNodeDegreeFilter( nodeDegreeFilter, container ){
+	    nodeDegreeFilter.setMaxDegreeSetter(function ( maxDegree ){
+	      degreeSlider.attr("max", maxDegree);
+	      setSliderValue(degreeSlider, Math.min(maxDegree, degreeSlider.property("value")));
+	    });
+	    
+	    nodeDegreeFilter.setDegreeGetter(function (){
+	      return degreeSlider.property("value");
+	    });
+	    
+	    nodeDegreeFilter.setDegreeSetter(function ( value ){
+	      setSliderValue(degreeSlider, value);
+	    });
+	    
+	    var sliderContainer,
+	      sliderValueLabel;
+	    
+	    sliderContainer = container.append("div")
+	      .classed("distanceSliderContainer", true);
+	    
+	    degreeSlider = sliderContainer.append("input")
+	      .attr("id", "nodeDegreeDistanceSlider")
+	      .attr("type", "range")
+	      .attr("min", 0)
+	      .attr("step", 1);
+	    
+	    sliderContainer.append("label")
+	      .classed("description", true)
+	      .attr("for", "nodeDegreeDistanceSlider")
+	      .text("Degree of collapsing");
+	    
+	    sliderValueLabel = sliderContainer.append("label")
+	      .classed("value", true)
+	      .attr("for", "nodeDegreeDistanceSlider")
+	      .text(0);
+	    
+	    
+	    degreeSlider.on("change", function ( silent ){
+	      if ( silent !== true ) {
+	        graph.update();
+	        graphDegreeLevel = degreeSlider.property("value");
+	      }
+	    });
+	    
+	    
+	    degreeSlider.on("input", function (){
+	      var degree = degreeSlider.property("value");
+	      sliderValueLabel.text(degree);
+	    });
+	    
+	    
+	    // adding wheel events
+	    degreeSlider.on("wheel", handleWheelEvent);
+	    degreeSlider.on("focusout", function (){
+	      if ( degreeSlider.property("value") !== graphDegreeLevel ) {
+	        graph.update();
+	      }
+	    });
+	  }
+	  
+	  function handleWheelEvent(){
+	    var wheelEvent = d3.event;
+	    
+	    var offset;
+	    if ( wheelEvent.deltaY < 0 ) offset = 1;
+	    if ( wheelEvent.deltaY > 0 ) offset = -1;
+	    var maxDeg = parseInt(degreeSlider.attr("max"));
+	    var oldVal = parseInt(degreeSlider.property("value"));
+	    var newSliderValue = oldVal + offset;
+	    if ( oldVal !== newSliderValue && (newSliderValue >= 0 && newSliderValue <= maxDeg) ) {
+	      // only update when they are different [reducing redundant updates]
+	      // set the new value and emit an update signal
+	      degreeSlider.property("value", newSliderValue);
+	      degreeSlider.on("input")();// <<-- sets the text value
+	      graph.update();
+	    }
+	    d3.event.preventDefault();
+	  }
+	  
+	  function setSliderValue( slider, value ){
+	    slider.property("value", value).on("input")();
+	  }
+	  
+	  /**
+	   * Resets the filters (and also filtered elements) to their default.
+	   */
+	  filterMenu.reset = function (){
+	    checkboxData.forEach(function ( checkboxData ){
+	      var checkbox = checkboxData.checkbox,
+	        enabledByDefault = checkboxData.defaultState,
+	        isChecked = checkbox.property("checked");
+	      
+	      if ( isChecked !== enabledByDefault ) {
+	        checkbox.property("checked", enabledByDefault);
+	        // Call onclick event handlers programmatically
+	        checkbox.on("click")();
+	      }
+	    });
+	    
+	    setSliderValue(degreeSlider, 0);
+	    degreeSlider.on("change")();
+	  };
+	  
+	  function addAnimationFinishedListener(){
+	    menuControl.node().addEventListener("animationend", function (){
+	      menuControl.classed("buttonPulse", false);
+	      menuControl.classed("filterMenuButtonHighlight", true);
+	      
+	    });
+	  }
+	  
+	  filterMenu.killButtonAnimation = function (){
+	    menuControl.classed("buttonPulse", false);
+	    menuControl.classed("filterMenuButtonHighlight", false);
+	  };
+	  
+	  
+	  filterMenu.highlightForDegreeSlider = function ( enable ){
+	    if ( !arguments.length ) {
+	      enable = true;
+	    }
+	    menuControl.classed("highlighted", enable);
+	    nodeDegreeContainer.classed("highlighted", enable);
+	    // pulse button handling
+	    if ( menuControl.classed("buttonPulse") === true && enable === true ) {
+	      menuControl.classed("buttonPulse", false);
+	      var timer = setTimeout(function (){
+	        menuControl.classed("buttonPulse", enable);
+	        clearTimeout(timer);
+	        // after the time is done, remove the pulse but stay highlighted
+	      }, 100);
+	    } else {
+	      menuControl.classed("buttonPulse", enable);
+	      menuControl.classed("filterMenuButtonHighlight", enable);
+	    }
+	  };
+	  
+	  
+	  /** importer functions **/
+	  // setting manually the values of the filter
+	  // no update of the gui settings, these are updated in updateSettings
+	  filterMenu.setCheckBoxValue = function ( id, checked ){
+	    for ( var i = 0; i < checkboxData.length; i++ ) {
+	      var cbdId = checkboxData[i].checkbox.attr("id");
+	      if ( cbdId === id ) {
+	        checkboxData[i].checkbox.property("checked", checked);
+	        break;
+	      }
+	    }
+	  };
+	  
+	  filterMenu.getCheckBoxValue = function ( id ){
+	    for ( var i = 0; i < checkboxData.length; i++ ) {
+	      var cbdId = checkboxData[i].checkbox.attr("id");
+	      if ( cbdId === id ) {
+	        return checkboxData[i].checkbox.property("checked");
+	        
+	      }
+	    }
+	  };
+	  // set the value of the slider
+	  filterMenu.setDegreeSliderValue = function ( val ){
+	    degreeSlider.property("value", val);
+	  };
+	  
+	  filterMenu.getDegreeSliderValue = function (){
+	    return degreeSlider.property("value");
+	  };
+	  
+	  // update the gui without invoking graph update (calling silent onclick function)
+	  filterMenu.updateSettings = function (){
+	    var silent = true;
+	    var sliderValue = degreeSlider.property("value");
+	    if ( sliderValue > 0 ) {
+	      filterMenu.highlightForDegreeSlider(true);
+	    } else {
+	      filterMenu.highlightForDegreeSlider(false);
+	    }
+	    checkboxData.forEach(function ( checkboxData ){
+	      var checkbox = checkboxData.checkbox;
+	      checkbox.on("click")(silent);
+	    });
+	    
+	    degreeSlider.on("input")();
+	    degreeSlider.on("change")();
+	    
+	  };
+	  
+	  return filterMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 326:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for setting up the gravity sliders.
+	 *
+	 * @param graph the associated webvowl graph
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var gravityMenu = {},
+	    sliders = [],
+	    options = graph.graphOptions(),
+	    defaultCharge = options.charge();
+	  
+	  
+	  /**
+	   * Adds the gravity sliders to the website.
+	   */
+	  gravityMenu.setup = function (){
+	    var menuEntry = d3.select("#m_gravity");
+	    menuEntry.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	    });
+	    addDistanceSlider("#classSliderOption", "class", "Class distance", options.classDistance);
+	    addDistanceSlider("#datatypeSliderOption", "datatype", "Datatype distance", options.datatypeDistance);
+	  };
+	  
+	  function addDistanceSlider( selector, identifier, label, distanceFunction ){
+	    var defaultLinkDistance = distanceFunction();
+	    
+	    var sliderContainer,
+	      sliderValueLabel;
+	    
+	    sliderContainer = d3.select(selector)
+	      .append("div")
+	      .datum({ distanceFunction: distanceFunction }) // connect the options-function with the slider
+	      .classed("distanceSliderContainer", true);
+	    
+	    var slider = sliderContainer.append("input")
+	      .attr("id", identifier + "DistanceSlider")
+	      .attr("type", "range")
+	      .attr("min", 10)
+	      .attr("max", 600)
+	      .attr("value", distanceFunction())
+	      .attr("step", 10);
+	    
+	    sliderContainer.append("label")
+	      .classed("description", true)
+	      .attr("for", identifier + "DistanceSlider")
+	      .text(label);
+	    
+	    sliderValueLabel = sliderContainer.append("label")
+	      .classed("value", true)
+	      .attr("for", identifier + "DistanceSlider")
+	      .text(distanceFunction());
+	    
+	    // Store slider for easier resetting
+	    sliders.push(slider);
+	    
+	    slider.on("focusout", function (){
+	      graph.updateStyle();
+	    });
+	    
+	    slider.on("input", function (){
+	      var distance = slider.property("value");
+	      distanceFunction(distance);
+	      adjustCharge(defaultLinkDistance);
+	      sliderValueLabel.text(distance);
+	      graph.updateStyle();
+	    });
+	    
+	    // add wheel event to the slider
+	    slider.on("wheel", function (){
+	      var wheelEvent = d3.event;
+	      var offset;
+	      if ( wheelEvent.deltaY < 0 ) offset = 10;
+	      if ( wheelEvent.deltaY > 0 ) offset = -10;
+	      var oldVal = parseInt(slider.property("value"));
+	      var newSliderValue = oldVal + offset;
+	      if ( newSliderValue !== oldVal ) {
+	        slider.property("value", newSliderValue);
+	        distanceFunction(newSliderValue);
+	        slider.on("input")(); // << set text and update the graphStyles
+	      }
+	      d3.event.preventDefault();
+	    });
+	  }
+	  
+	  function adjustCharge( defaultLinkDistance ){
+	    var greaterDistance = Math.max(options.classDistance(), options.datatypeDistance()),
+	      ratio = greaterDistance / defaultLinkDistance,
+	      newCharge = defaultCharge * ratio;
+	    
+	    options.charge(newCharge);
+	  }
+	  
+	  /**
+	   * Resets the gravity sliders to their default.
+	   */
+	  gravityMenu.reset = function (){
+	    sliders.forEach(function ( slider ){
+	      slider.property("value", function ( d ){
+	        // Simply reload the distance from the options
+	        return d.distanceFunction();
+	      });
+	      slider.on("input")();
+	    });
+	  };
+	  
+	  
+	  return gravityMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 327:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for connecting the modes with the website.
+	 *
+	 * @param graph the graph that belongs to these controls
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var SAME_COLOR_MODE = { text: "Multicolor", type: "same" };
+	  var GRADIENT_COLOR_MODE = { text: "Multicolor", type: "gradient" };
+	  
+	  var modeMenu = {},
+	    checkboxes = [],
+	    colorModeSwitch;
+	  
+	  var dynamicLabelWidthCheckBox;
+	  // getter and setter for the state of color modes
+	  modeMenu.colorModeState = function ( s ){
+	    if ( !arguments.length ) return colorModeSwitch.datum().active;
+	    colorModeSwitch.datum().active = s;
+	    return modeMenu;
+	  };
+	  
+	  
+	  modeMenu.setDynamicLabelWidth = function ( val ){
+	    dynamicLabelWidthCheckBox.property("checked", val);
+	  };
+	  // getter for checkboxes
+	  modeMenu.getCheckBoxContainer = function (){
+	    return checkboxes;
+	  };
+	  // getter for the color switch [needed? ]
+	  modeMenu.colorModeSwitch = function (){
+	    return colorModeSwitch;
+	  };
+	  
+	  /**
+	   * Connects the website with the available graph modes.
+	   */
+	  modeMenu.setup = function ( pickAndPin, nodeScaling, compactNotation, colorExternals ){
+	    var menuEntry = d3.select("#m_modes");
+	    menuEntry.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	    });
+	    addCheckBoxD("labelWidth", "Dynamic label width", "#dynamicLabelWidth", graph.options().dynamicLabelWidth, 1);
+	    addCheckBox("editorMode", "Editing ", "#editMode", graph.editorMode);
+	    addModeItem(pickAndPin, "pickandpin", "Pick & pin", "#pickAndPinOption", false);
+	    addModeItem(nodeScaling, "nodescaling", "Node scaling", "#nodeScalingOption", true);
+	    addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
+	    var container = addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
+	    colorModeSwitch = addExternalModeSelection(container, colorExternals);
+	  };
+	  function addCheckBoxD( identifier, modeName, selector, onChangeFunc, updateLvl ){
+	    var moduleOptionContainer = d3.select(selector)
+	      .append("div")
+	      .classed("checkboxContainer", true);
+	    
+	    var moduleCheckbox = moduleOptionContainer.append("input")
+	      .classed("moduleCheckbox", true)
+	      .attr("id", identifier + "ModuleCheckbox")
+	      .attr("type", "checkbox")
+	      .property("checked", onChangeFunc());
+	    
+	    moduleCheckbox.on("click", function ( d ){
+	      var isEnabled = moduleCheckbox.property("checked");
+	      onChangeFunc(isEnabled);
+	      d3.select("#maxLabelWidthSlider").node().disabled = !isEnabled;
+	      d3.select("#maxLabelWidthvalueLabel").classed("disabledLabelForSlider", !isEnabled);
+	      d3.select("#maxLabelWidthDescriptionLabel").classed("disabledLabelForSlider", !isEnabled);
+	      
+	      if ( updateLvl > 0 ) {
+	        graph.animateDynamicLabelWidth();
+	        // graph.lazyRefresh();
+	      }
+	    });
+	    moduleOptionContainer.append("label")
+	      .attr("for", identifier + "ModuleCheckbox")
+	      .text(modeName);
+	    if ( identifier === "editorMode" ) {
+	      moduleOptionContainer.append("label")
+	        .attr("style", "font-size:10px;padding-top:3px")
+	        .text("(experimental)");
+	    }
+	    
+	    dynamicLabelWidthCheckBox = moduleCheckbox;
+	  }
+	  
+	  function addCheckBox( identifier, modeName, selector, onChangeFunc ){
+	    var moduleOptionContainer = d3.select(selector)
+	      .append("div")
+	      .classed("checkboxContainer", true);
+	    
+	    var moduleCheckbox = moduleOptionContainer.append("input")
+	      .classed("moduleCheckbox", true)
+	      .attr("id", identifier + "ModuleCheckbox")
+	      .attr("type", "checkbox")
+	      .property("checked", onChangeFunc());
+	    
+	    moduleCheckbox.on("click", function ( d ){
+	      var isEnabled = moduleCheckbox.property("checked");
+	      onChangeFunc(isEnabled);
+	      if ( isEnabled === true )
+	        graph.showEditorHintIfNeeded();
+	    });
+	    moduleOptionContainer.append("label")
+	      .attr("for", identifier + "ModuleCheckbox")
+	      .text(modeName);
+	    if ( identifier === "editorMode" ) {
+	      moduleOptionContainer.append("label")
+	        .attr("style", "font-size:10px;padding-top:3px")
+	        .text(" (experimental)");
+	    }
+	  }
+	  
+	  function addModeItem( module, identifier, modeName, selector, updateGraphOnClick ){
+	    var moduleOptionContainer,
+	      moduleCheckbox;
+	    
+	    moduleOptionContainer = d3.select(selector)
+	      .append("div")
+	      .classed("checkboxContainer", true)
+	      .datum({ module: module, defaultState: module.enabled() });
+	    
+	    moduleCheckbox = moduleOptionContainer.append("input")
+	      .classed("moduleCheckbox", true)
+	      .attr("id", identifier + "ModuleCheckbox")
+	      .attr("type", "checkbox")
+	      .property("checked", module.enabled());
+	    
+	    // Store for easier resetting all modes
+	    checkboxes.push(moduleCheckbox);
+	    
+	    moduleCheckbox.on("click", function ( d, silent ){
+	      var isEnabled = moduleCheckbox.property("checked");
+	      d.module.enabled(isEnabled);
+	      if ( updateGraphOnClick && silent !== true ) {
+	        graph.executeColorExternalsModule();
+	        graph.executeCompactNotationModule();
+	        graph.lazyRefresh();
+	      }
+	    });
+	    
+	    moduleOptionContainer.append("label")
+	      .attr("for", identifier + "ModuleCheckbox")
+	      .text(modeName);
+	    
+	    return moduleOptionContainer;
+	  }
+	  
+	  function addExternalModeSelection( container, colorExternalsMode ){
+	    var button = container.append("button").datum({ active: false }).classed("color-mode-switch", true);
+	    applyColorModeSwitchState(button, colorExternalsMode);
+	    
+	    button.on("click", function ( silent ){
+	      var data = button.datum();
+	      data.active = !data.active;
+	      applyColorModeSwitchState(button, colorExternalsMode);
+	      if ( colorExternalsMode.enabled() && silent !== true ) {
+	        graph.executeColorExternalsModule();
+	        graph.lazyRefresh();
+	      }
+	    });
+	    
+	    return button;
+	  }
+	  
+	  function applyColorModeSwitchState( element, colorExternalsMode ){
+	    var isActive = element.datum().active;
+	    var activeColorMode = getColorModeByState(isActive);
+	    
+	    element.classed("active", isActive)
+	      .text(activeColorMode.text);
+	    
+	    if ( colorExternalsMode ) {
+	      colorExternalsMode.colorModeType(activeColorMode.type);
+	    }
+	  }
+	  
+	  function getColorModeByState( isActive ){
+	    return isActive ? GRADIENT_COLOR_MODE : SAME_COLOR_MODE;
+	  }
+	  
+	  /**
+	   * Resets the modes to their default.
+	   */
+	  modeMenu.reset = function (){
+	    checkboxes.forEach(function ( checkbox ){
+	      var defaultState = checkbox.datum().defaultState,
+	        isChecked = checkbox.property("checked");
+	      
+	      if ( isChecked !== defaultState ) {
+	        checkbox.property("checked", defaultState);
+	        // Call onclick event handlers programmatically
+	        checkbox.on("click")(checkbox.datum());
+	      }
+	      
+	      // Reset the module that is connected with the checkbox
+	      checkbox.datum().module.reset();
+	    });
+	    
+	    // set the switch to active and simulate disabling
+	    colorModeSwitch.datum().active = true;
+	    colorModeSwitch.on("click")();
+	  };
+	  
+	  /** importer functions **/
+	  // setting manually the values of the filter
+	  // no update of the gui settings, these are updated in updateSettings
+	  modeMenu.setCheckBoxValue = function ( id, checked ){
+	    for ( var i = 0; i < checkboxes.length; i++ ) {
+	      var cbdId = checkboxes[i].attr("id");
+	      
+	      if ( cbdId === id ) {
+	        checkboxes[i].property("checked", checked);
+	        break;
+	      }
+	    }
+	  };
+	  modeMenu.getCheckBoxValue = function ( id ){
+	    for ( var i = 0; i < checkboxes.length; i++ ) {
+	      var cbdId = checkboxes[i].attr("id");
+	      if ( cbdId === id ) {
+	        return checkboxes[i].property("checked");
+	      }
+	    }
+	  };
+	  
+	  modeMenu.setColorSwitchState = function ( state ){
+	    // need the !state because we simulate later a click
+	    modeMenu.colorModeState(!state);
+	  };
+	  modeMenu.setColorSwitchStateUsingURL = function ( state ){
+	    // need the !state because we simulate later a click
+	    modeMenu.colorModeState(!state);
+	    colorModeSwitch.on("click")(true);
+	  };
+	  
+	  
+	  modeMenu.updateSettingsUsingURL = function (){
+	    var silent = true;
+	    checkboxes.forEach(function ( checkbox ){
+	      checkbox.on("click")(checkbox.datum(), silent);
+	    });
+	  };
+	  
+	  modeMenu.updateSettings = function (){
+	    var silent = true;
+	    checkboxes.forEach(function ( checkbox ){
+	      checkbox.on("click")(checkbox.datum(), silent);
+	    });
+	    // this simulates onclick and inverts its state
+	    colorModeSwitch.on("click")(silent);
+	  };
+	  return modeMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 328:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {module.exports = function ( graph ){
+	  var debugMenu = {},
+	    checkboxes = [];
+	  
+	  
+	  var hoverFlag = false;
+	  var specialCbx;
+	  debugMenu.setup = function (){
+	    var menuEntry = d3.select("#debugMenuHref");
+	    
+	    menuEntry.on("mouseover", function (){
+	      if ( hoverFlag === false ) {
+	        var searchMenu = graph.options().searchMenu();
+	        searchMenu.hideSearchEntries();
+	        specialCbx.on("click")(true);
+	        if ( graph.editorMode() === false ) {
+	          d3.select("#useAccuracyHelper").style("color", "#979797");
+	          d3.select("#useAccuracyHelper").style("pointer-events", "none");
+	          
+	          // regardless the state on which useAccuracyHelper is , we are not in editing mode -> disable it
+	          d3.select("#showDraggerObject").style("color", "#979797");
+	          d3.select("#showDraggerObject").style("pointer-events", "none");
+	        } else {
+	          d3.select("#useAccuracyHelper").style("color", "#2980b9");
+	          d3.select("#useAccuracyHelper").style("pointer-events", "auto");
+	        }
+	        hoverFlag = true;
+	      }
+	    });
+	    menuEntry.on("mouseout", function (){
+	      hoverFlag = false;
+	    });
+	    
+	    
+	    specialCbx = addCheckBox("useAccuracyHelper", "Use accuracy helper", "#useAccuracyHelper", graph.options().useAccuracyHelper,
+	      function ( enabled, silent ){
+	        if ( !enabled ) {
+	          d3.select("#showDraggerObject").style("color", "#979797");
+	          d3.select("#showDraggerObject").style("pointer-events", "none");
+	          d3.select("#showDraggerObjectConfigCheckbox").node().checked = false;
+	        } else {
+	          d3.select("#showDraggerObject").style("color", "#2980b9");
+	          d3.select("#showDraggerObject").style("pointer-events", "auto");
+	        }
+	        
+	        if ( silent === true ) return;
+	        graph.lazyRefresh();
+	        graph.updateDraggerElements();
+	      }
+	    );
+	    addCheckBox("showDraggerObject", "Show accuracy helper", "#showDraggerObject", graph.options().showDraggerObject,
+	      function ( enabled, silent ){
+	        if ( silent === true ) return;
+	        graph.lazyRefresh();
+	        graph.updateDraggerElements();
+	      });
+	    addCheckBox("showFPS_Statistics", "Show rendering statistics", "#showFPS_Statistics", graph.options().showRenderingStatistic,
+	      function ( enabled, silent ){
+	        
+	        if ( graph.options().getHideDebugFeatures() === false ) {
+	          d3.select("#FPS_Statistics").classed("hidden", !enabled);
+	        } else {
+	          d3.select("#FPS_Statistics").classed("hidden", true);
+	        }
+	        
+	        
+	      });
+	    addCheckBox("showModeOfOperation", "Show input modality", "#showModeOfOperation", graph.options().showInputModality,
+	      function ( enabled ){
+	        if ( graph.options().getHideDebugFeatures() === false ) {
+	          d3.select("#modeOfOperationString").classed("hidden", !enabled);
+	        } else {
+	          d3.select("#modeOfOperationString").classed("hidden", true);
+	        }
+	      });
+	    
+	    
+	  };
+	  
+	  
+	  function addCheckBox( identifier, modeName, selector, onChangeFunc, _callbackFunction ){
+	    var configOptionContainer = d3.select(selector)
+	      .append("div")
+	      .classed("checkboxContainer", true);
+	    var configCheckbox = configOptionContainer.append("input")
+	      .classed("moduleCheckbox", true)
+	      .attr("id", identifier + "ConfigCheckbox")
+	      .attr("type", "checkbox")
+	      .property("checked", onChangeFunc());
+	    
+	    
+	    configCheckbox.on("click", function ( silent ){
+	      var isEnabled = configCheckbox.property("checked");
+	      onChangeFunc(isEnabled);
+	      _callbackFunction(isEnabled, silent);
+	      
+	    });
+	    checkboxes.push(configCheckbox);
+	    configOptionContainer.append("label")
+	      .attr("for", identifier + "ConfigCheckbox")
+	      .text(modeName);
+	    
+	    return configCheckbox;
+	  }
+	  
+	  debugMenu.setCheckBoxValue = function ( identifier, value ){
+	    for ( var i = 0; i < checkboxes.length; i++ ) {
+	      var cbdId = checkboxes[i].attr("id");
+	      if ( cbdId === identifier ) {
+	        checkboxes[i].property("checked", value);
+	        break;
+	      }
+	    }
+	  };
+	  
+	  debugMenu.getCheckBoxValue = function ( id ){
+	    for ( var i = 0; i < checkboxes.length; i++ ) {
+	      var cbdId = checkboxes[i].attr("id");
+	      if ( cbdId === id ) {
+	        return checkboxes[i].property("checked");
+	      }
+	    }
+	  };
+	  
+	  debugMenu.updateSettings = function (){
+	    d3.selectAll(".debugOption").classed("hidden", graph.options().getHideDebugFeatures());
+	    
+	    var silent = true;
+	    checkboxes.forEach(function ( checkbox ){
+	      checkbox.on("click")(silent);
+	    });
+	    if ( graph.editorMode() === false ) {
+	      
+	      d3.select("#useAccuracyHelper").style("color", "#979797");
+	      d3.select("#useAccuracyHelper").style("pointer-events", "none");
+	      
+	      // regardless the state on which useAccuracyHelper is , we are not in editing mode -> disable it
+	      d3.select("#showDraggerObject").style("color", "#979797");
+	      d3.select("#showDraggerObject").style("pointer-events", "none");
+	    } else {
+	      
+	      d3.select("#useAccuracyHelper").style("color", "#2980b9");
+	      d3.select("#useAccuracyHelper").style("pointer-events", "auto");
+	    }
+	    
+	  };
+	  
+	  return debugMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 329:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {var unescape = __webpack_require__(330);
+
+	module.exports = function ( graph ){
+	  
+	  var ontologyMenu = {},
+	    loadingInfo = d3.select("#loading-info"),
+	    loadingProgress = d3.select("#loading-progress"),
+	    
+	    ontologyMenuTimeout,
+	    fileToLoad,
+	    stopTimer = false,
+	    loadingError = false,
+	    loadingStatusTimer,
+	    conversion_sessionId,
+	    cachedConversions = {},
+	    loadingModule,
+	    loadOntologyFromText;
+	  var currentLoadedOntologyName = "";
+	  
+	  String.prototype.beginsWith = function ( string ){
+	    return (this.indexOf(string) === 0);
+	  };
+	  
+	  ontologyMenu.getLoadingFunction = function (){
+	    return loadOntologyFromText;
+	  };
+	  
+	  ontologyMenu.clearCachedVersion = function (){
+	    if ( cachedConversions[currentLoadedOntologyName] ) {
+	      cachedConversions[currentLoadedOntologyName] = undefined;
+	    }
+	  };
+	  
+	  
+	  ontologyMenu.reloadCachedOntology = function (){
+	    ontologyMenu.clearCachedVersion();
+	    graph.clearGraphData();
+	    loadingModule.parseUrlAndLoadOntology(false);
+	  };
+	  
+	  ontologyMenu.cachedOntology = function ( ontoName ){
+	    currentLoadedOntologyName = ontoName;
+	    if ( cachedConversions[ontoName] ) {
+	      var locStr = String(location.hash);
+	      d3.select("#reloadSvgIcon").node().disabled = false;
+	      graph.showReloadButtonAfterLayoutOptimization(true);
+	      if ( locStr.indexOf("#file") > -1 ) {
+	        d3.select("#reloadSvgIcon").node().disabled = true;
+	        d3.select("#reloadCachedOntology").node().title = "reloading original version not possible, please reload the file";
+	        d3.select("#reloadSvgIcon").classed("disabledReloadElement", true);
+	        d3.select("#svgStringText").style("fill", "gray");
+	        d3.select("#svgStringText").classed("noselect", true);
+	      }
+	      else {
+	        d3.select("#reloadCachedOntology").node().title = "generate new visualization and overwrite cached ontology";
+	        d3.select("#reloadSvgIcon").classed("disabledReloadElement", false);
+	        d3.select("#svgStringText").style("fill", "black");
+	        d3.select("#svgStringText").classed("noselect", true);
+	      }
+	    } else {
+	      graph.showReloadButtonAfterLayoutOptimization(false);
+	      
+	    }
+	    return cachedConversions[ontoName];
+	  };
+	  ontologyMenu.setCachedOntology = function ( ontoName, ontoContent ){
+	    cachedConversions[ontoName] = ontoContent;
+	    currentLoadedOntologyName = ontoName;
+	  };
+	  
+	  ontologyMenu.getErrorStatus = function (){
+	    return loadingError;
+	  };
+	  
+	  ontologyMenu.setup = function ( _loadOntologyFromText ){
+	    loadOntologyFromText = _loadOntologyFromText;
+	    loadingModule = graph.options().loadingModule();
+	    var menuEntry = d3.select("#m_select");
+	    menuEntry.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	    });
+	    
+	    setupConverterButtons();
+	    setupUploadButton();
+	    
+	    var descriptionButton = d3.select("#error-description-button").datum({ open: false });
+	    descriptionButton.on("click", function ( data ){
+	      var errorContainer = d3.select("#error-description-container");
+	      var errorDetailsButton = d3.select(this);
+	      
+	      // toggle the state
+	      data.open = !data.open;
+	      var descriptionVisible = data.open;
+	      if ( descriptionVisible ) {
+	        errorDetailsButton.text("Hide error details");
+	      } else {
+	        errorDetailsButton.text("Show error details");
+	      }
+	      errorContainer.classed("hidden", !descriptionVisible);
+	    });
+	    
+	    setupUriListener();
+	    loadingModule.setOntologyMenu(ontologyMenu);
+	  };
+	  
+	  
+	  function setupUriListener(){
+	    // reload ontology when hash parameter gets changed manually
+	    d3.select(window).on("hashchange", function (){
+	      var oldURL = d3.event.oldURL, newURL = d3.event.newURL;
+	      if ( oldURL !== newURL ) {
+	        // don't reload when just the hash parameter gets appended
+	        if ( newURL === oldURL + "#" ) {
+	          return;
+	        }
+	        updateNavigationHrefs();
+	        loadingModule.parseUrlAndLoadOntology();
+	      }
+	    });
+	    updateNavigationHrefs();
+	  }
+	  
+	  ontologyMenu.stopLoadingTimer = function (){
+	    stopTimer = true;
+	    clearTimeout(loadingStatusTimer);
+	  };
+	  
+	  /**
+	   * Quick fix: update all anchor tags that are used as buttons because a click on them
+	   * changes the url and this will load an other ontology.
+	   */
+	  function updateNavigationHrefs(){
+	    d3.selectAll("#menuElementContainer > li > a").attr("href", location.hash || "#");
+	  }
+	  
+	  ontologyMenu.setIriText = function ( text ){
+	    d3.select("#iri-converter-input").node().value = text;
+	    d3.select("#iri-converter-button").attr("disabled", false);
+	    d3.select("#iri-converter-form").on("submit")();
+	  };
+	  
+	  ontologyMenu.clearDetailInformation = function (){
+	    var bpContainer = d3.select("#bulletPoint_container");
+	    var htmlCollection = bpContainer.node().children;
+	    var numEntries = htmlCollection.length;
+	    
+	    for ( var i = 0; i < numEntries; i++ ) {
+	      htmlCollection[0].remove();
+	    }
+	  };
+	  ontologyMenu.append_message = function ( msg ){
+	    // forward call
+	    append_message(msg);
+	  };
+	  function append_message( msg ){
+	    var bpContainer = d3.select("#bulletPoint_container");
+	    var div = bpContainer.append("div");
+	    div.node().innerHTML = msg;
+	    loadingModule.scrollDownDetails();
+	  }
+	  
+	  ontologyMenu.append_message_toLastBulletPoint = function ( msg ){
+	    // forward call
+	    append_message_toLastBulletPoint(msg);
+	  };
+	  
+	  ontologyMenu.append_bulletPoint = function ( msg ){
+	    // forward call
+	    append_bulletPoint(msg);
+	  };
+	  function append_message_toLastBulletPoint( msg ){
+	    var bpContainer = d3.select("#bulletPoint_container");
+	    var htmlCollection = bpContainer.node().getElementsByTagName("LI");
+	    var lastItem = htmlCollection.length - 1;
+	    if ( lastItem >= 0 ) {
+	      var oldText = htmlCollection[lastItem].innerHTML;
+	      htmlCollection[lastItem].innerHTML = oldText + msg;
+	    }
+	    loadingModule.scrollDownDetails();
+	  }
+	  
+	  function append_bulletPoint( msg ){
+	    var bp_container = d3.select("#bulletPoint_container");
+	    var bp = bp_container.append("li");
+	    bp.node().innerHTML = msg;
+	    d3.select("#currentLoadingStep").node().innerHTML = msg;
+	    loadingModule.scrollDownDetails();
+	  }
+	  
+	  
+	  function setupConverterButtons(){
+	    var iriConverterButton = d3.select("#iri-converter-button");
+	    var iriConverterInput = d3.select("#iri-converter-input");
+	    
+	    iriConverterInput.on("input", function (){
+	      keepOntologySelectionOpenShortly();
+	      
+	      var inputIsEmpty = iriConverterInput.property("value") === "";
+	      iriConverterButton.attr("disabled", inputIsEmpty || undefined);
+	    }).on("click", function (){
+	      keepOntologySelectionOpenShortly();
+	    });
+	    
+	    d3.select("#iri-converter-form").on("submit", function (){
+	      var inputName = iriConverterInput.property("value");
+	      
+	      // remove first spaces
+	      var clearedName = inputName.replace(/%20/g, " ");
+	      while ( clearedName.beginsWith(" ") ) {
+	        clearedName = clearedName.substr(1, clearedName.length);
+	      }
+	      // remove ending spaces
+	      while ( clearedName.endsWith(" ") ) {
+	        clearedName = clearedName.substr(0, clearedName.length - 1);
+	      }
+	      // check if iri is actually an url for a json file (ends with .json)
+	      // create lowercase filenames;
+	      inputName = clearedName;
+	      var lc_iri = inputName.toLowerCase();
+	      if ( lc_iri.endsWith(".json") ) {
+	        location.hash = "url=" + inputName;
+	        iriConverterInput.property("value", "");
+	        iriConverterInput.on("input")();
+	      } else {
+	        location.hash = "iri=" + inputName;
+	        iriConverterInput.property("value", "");
+	        iriConverterInput.on("input")();
+	      }
+	      d3.event.preventDefault();
+	      return false;
+	    });
+	  }
+	  
+	  function setupUploadButton(){
+	    var input = d3.select("#file-converter-input"),
+	      inputLabel = d3.select("#file-converter-label"),
+	      uploadButton = d3.select("#file-converter-button");
+	    
+	    input.on("change", function (){
+	      var selectedFiles = input.property("files");
+	      if ( selectedFiles.length <= 0 ) {
+	        inputLabel.text("Select ontology file");
+	        uploadButton.property("disabled", true);
+	      } else {
+	        inputLabel.text(selectedFiles[0].name);
+	        fileToLoad = selectedFiles[0].name;
+	        uploadButton.property("disabled", false);
+	        uploadButton.node().click();
+	        // close menu;
+	        graph.options().navigationMenu().hideAllMenus();
+	      }
+	    });
+	    
+	    uploadButton.on("click", function (){
+	      var selectedFile = input.property("files")[0];
+	      if ( !selectedFile ) {
+	        return false;
+	      }
+	      var newHashParameter = "file=" + selectedFile.name;
+	      // Trigger the reupload manually, because the iri is not changing
+	      if ( location.hash === "#" + newHashParameter ) {
+	        loadingModule.parseUrlAndLoadOntology();
+	      } else {
+	        location.hash = newHashParameter;
+	      }
+	    });
+	  }
+	  
+	  function setLoadingStatusInfo( message ){
+	    // check if there is a owl2vowl li item;
+	    var o2vConverterContainer = d3.select("#o2vConverterContainer");
+	    if ( !o2vConverterContainer.node() ) {
+	      var bp_container = d3.select("#bulletPoint_container");
+	      var div = bp_container.append("div");
+	      o2vConverterContainer = div.append("ul");
+	      o2vConverterContainer.attr("id", "o2vConverterContainer");
+	      o2vConverterContainer.style("margin-left", "-25px");
+	    }
+	    // clear o2vConverterContainer;
+	    var htmlCollection = o2vConverterContainer.node().children;
+	    var numEntries = htmlCollection.length;
+	    for ( var i = 0; i < numEntries; i++ ) {
+	      htmlCollection[0].remove();
+	    }
+	    // split tokens provided by o2v messages
+	    var tokens = message.split("* ");
+	    var liForToken;
+	    for ( var t = 0; t < tokens.length; t++ ) {
+	      var tokenMessage = tokens[t];
+	      // create li for tokens;
+	      if ( tokenMessage.length > 0 ) {
+	        liForToken = o2vConverterContainer.append("li");
+	        liForToken.attr("type", "disc");
+	        liForToken.node().innerHTML = tokenMessage.replace(/\n/g, "<br>");
+	      }
+	    }
+	    if ( liForToken )
+	      liForToken.node().innerHTML += "<br>";
+	    
+	    loadingModule.scrollDownDetails();
+	  }
+	  
+	  ontologyMenu.setLoadingStatusInfo = function ( message ){
+	    // forward call
+	    setLoadingStatusInfo(message);
+	  };
+	  
+	  function getLoadingStatusOnceCallBacked( callback, parameter ){
+	    d3.xhr("loadingStatus?sessionId=" + conversion_sessionId, "application/text", function ( error, request ){
+	      if ( error ) {
+	        console.log("ontologyMenu getLoadingStatusOnceCallBacked throws error");
+	        console.log("---------Error -----------");
+	        console.log(error);
+	        console.log("---------Request -----------");
+	        console.log(request);
+	      }
+	      setLoadingStatusInfo(request.responseText);
+	      callback(parameter);
+	    });
+	  }
+	  
+	  function getLoadingStatusTimeLooped(){
+	    d3.xhr("loadingStatus?sessionId=" + conversion_sessionId, "application/text", function ( error, request ){
+	      if ( error ) {
+	        console.log("ontologyMenu getLoadingStatusTimeLooped throws error");
+	        console.log("---------Error -----------");
+	        console.log(error);
+	        console.log("---------Request -----------");
+	        console.log(request);
+	      }
+	      if ( stopTimer === false ) {
+	        setLoadingStatusInfo(request.responseText);
+	        timedLoadingStatusLogger();
+	      }
+	    });
+	  }
+	  
+	  function timedLoadingStatusLogger(){
+	    clearTimeout(loadingStatusTimer);
+	    if ( stopTimer === false ) {
+	      loadingStatusTimer = setTimeout(function (){
+	        getLoadingStatusTimeLooped();
+	      }, 1000);
+	    }
+	  }
+	  
+	  function callbackUpdateLoadingMessage( msg ){
+	    d3.xhr("loadingStatus", "application/text", function ( error, request ){
+	      if ( request !== undefined ) {
+	        setLoadingStatusInfo(request.responseText + "<br>" + msg);
+	      } else {
+	        append_message(msg);
+	      }
+	    });
+	  }
+	  
+	  ontologyMenu.setConversionID = function ( id ){
+	    conversion_sessionId = id;
+	  };
+	  
+	  ontologyMenu.callbackLoad_Ontology_FromIRI = function ( parameter ){
+	    var relativePath = parameter[0];
+	    var ontoName = parameter[1];
+	    var localThreadId = parameter[2];
+	    stopTimer = false;
+	    timedLoadingStatusLogger();
+	    d3.xhr(relativePath, "application/json", function ( error, request ){
+	      var loadingSuccessful = !error;
+	      // check if error occurred or responseText is empty
+	      if ( (error !== null && error.status === 500) || (request && request.responseText.length === 0) ) {
+	        clearTimeout(loadingStatusTimer);
+	        stopTimer = true;
+	        getLoadingStatusOnceCallBacked(callbackFromIRI_URL_ERROR, [error, request, localThreadId]);
+	      }
+	      var jsonText;
+	      if ( loadingSuccessful ) {
+	        clearTimeout(loadingStatusTimer);
+	        stopTimer = true;
+	        jsonText = request.responseText;
+	        getLoadingStatusOnceCallBacked(callbackFromIRI_Success, [jsonText, ontoName, localThreadId]);
+	      }
+	    });
+	  };
+	  
+	  
+	  ontologyMenu.callbackLoad_Ontology_From_DirectInput = function ( text, parameter ){
+	    var input = text;
+	    var sessionId = parameter[1];
+	    stopTimer = false;
+	    timedLoadingStatusLogger();
+	    
+	    var formData = new FormData();
+	    formData.append("input", input);
+	    formData.append("sessionId", sessionId);
+	    var xhr = new XMLHttpRequest();
+	    
+	    xhr.open("POST", "directInput", true);
+	    xhr.onload = function (){
+	      clearTimeout(loadingStatusTimer);
+	      stopTimer = true;
+	      getLoadingStatusOnceCallBacked(callbackForConvert, [xhr, input, sessionId]);
+	    };
+	    timedLoadingStatusLogger();
+	    xhr.send(formData);
+	    
+	  };
+	  function callbackFromIRI_Success( parameter ){
+	    var local_conversionId = parameter[2];
+	    if ( local_conversionId !== conversion_sessionId ) {
+	      console.log("The conversion process for file:" + parameter[1] + " has been canceled!");
+	      ontologyMenu.conversionFinished(local_conversionId);
+	      return;
+	    }
+	    loadingModule.loadFromOWL2VOWL(parameter[0], parameter[1]);
+	    ontologyMenu.conversionFinished();
+	    
+	  }
+	  
+	  function callbackFromDirectInput_Success( parameter ){
+	    var local_conversionId = parameter[1];
+	    if ( local_conversionId !== conversion_sessionId ) {
+	      console.log("The conversion process for file:" + parameter[1] + " has been canceled!");
+	      ontologyMenu.conversionFinished(local_conversionId);
+	      return;
+	    }
+	    loadingModule.loadFromOWL2VOWL(parameter[0], "DirectInputConversionID" + local_conversionId);
+	    ontologyMenu.conversionFinished();
+	    
+	  }
+	  
+	  ontologyMenu.getConversionId = function (){
+	    return conversion_sessionId;
+	  };
+	  
+	  ontologyMenu.callbackLoad_JSON_FromURL = function ( parameter ){
+	    var relativePath = parameter[0];
+	    var ontoName = parameter[1];
+	    var local_conversionId = parameter[2];
+	    stopTimer = false;
+	    timedLoadingStatusLogger();
+	    d3.xhr(relativePath, "application/json", function ( error, request ){
+	      var loadingSuccessful = !error;
+	      // check if error occurred or responseText is empty
+	      if ( (error !== null && error.status === 500) || (request && request.responseText.length === 0) ) {
+	        clearTimeout(loadingStatusTimer);
+	        stopTimer = true;
+	        loadingSuccessful = false;
+	        console.log(request);
+	        console.log(request.responseText.length);
+	        getLoadingStatusOnceCallBacked(callbackFromJSON_URL_ERROR, [error, request, local_conversionId]);
+	      }
+	      if ( loadingSuccessful ) {
+	        clearTimeout(loadingStatusTimer);
+	        stopTimer = true;
+	        var jsonText = request.responseText;
+	        getLoadingStatusOnceCallBacked(callbackFromJSON_Success, [jsonText, ontoName, local_conversionId]);
+	      }
+	    });
+	  };
+	  
+	  function callbackFromJSON_Success( parameter ){
+	    var local_conversionId = parameter[2];
+	    if ( local_conversionId !== conversion_sessionId ) {
+	      console.log("The conversion process for file:" + parameter[1] + " has been canceled!");
+	      return;
+	    }
+	    loadingModule.loadFromOWL2VOWL(parameter[0], parameter[1]);
+	  }
+	  
+	  function callbackFromJSON_URL_ERROR( parameter ){
+	    var error = parameter[0];
+	    var request = parameter[1];
+	    var local_conversionId = parameter[2];
+	    if ( local_conversionId !== conversion_sessionId ) {
+	      console.log("This thread has been canceled!!");
+	      ontologyMenu.conversionFinished(local_conversionId);
+	      return;
+	    }
+	    callbackUpdateLoadingMessage("<br><span style='color:red'> Failed to convert the file.</span> " +
+	      " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+	      "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
+	    
+	    if ( error !== null && error.status === 500 ) {
+	      append_message("<span style='color:red'>Could not find ontology  at the URL</span>");
+	    }
+	    if ( request && request.responseText.length === 0 ) {
+	      append_message("<span style='color:red'>Received empty graph</span>");
+	    }
+	    graph.handleOnLoadingError();
+	    ontologyMenu.conversionFinished();
+	  }
+	  
+	  
+	  function callbackFromIRI_URL_ERROR( parameter ){
+	    var error = parameter[0];
+	    var request = parameter[1];
+	    var local_conversionId = parameter[2];
+	    if ( local_conversionId !== conversion_sessionId ) {
+	      console.log("This thread has been canceled!!");
+	      ontologyMenu.conversionFinished(local_conversionId);
+	      return;
+	    }
+	    callbackUpdateLoadingMessage("<br><span style='color:red'> Failed to convert the file.</span> " +
+	      " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+	      "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
+	    
+	    if ( error !== null && error.status === 500 ) {
+	      append_message("<span style='color:red'>Could not find ontology  at the URL</span>");
+	    }
+	    if ( request && request.responseText.length === 0 ) {
+	      append_message("<span style='color:red'>Received empty graph</span>");
+	    }
+	    graph.handleOnLoadingError();
+	    ontologyMenu.conversionFinished();
+	  }
+	  
+	  function callbackFromDirectInput_ERROR( parameter ){
+	    
+	    var error = parameter[0];
+	    var request = parameter[1];
+	    var local_conversionId = parameter[2];
+	    if ( local_conversionId !== conversion_sessionId ) {
+	      console.log("The loading process for direct input has been canceled!");
+	      return;
+	    }
+	    // callbackUpdateLoadingMessage("<br> <span style='color:red'> Failed to convert the file.</span> "+
+	    //     "Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+	    //     "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
+	    if ( error !== null && error.status === 500 ) {
+	      append_message("<span style='color:red'>Could not convert direct input</span>");
+	    }
+	    if ( request && request.responseText.length === 0 ) {
+	      append_message("<span style='color:red'>Received empty graph</span>");
+	    }
+	    
+	    graph.handleOnLoadingError();
+	    ontologyMenu.conversionFinished();
+	  }
+	  
+	  ontologyMenu.callbackLoadFromOntology = function ( selectedFile, filename, local_threadId ){
+	    callbackLoadFromOntology(selectedFile, filename, local_threadId);
+	  };
+	  
+	  function callbackLoadFromOntology( selectedFile, filename, local_threadId ){
+	    stopTimer = false;
+	    timedLoadingStatusLogger();
+	    
+	    var formData = new FormData();
+	    formData.append("ontology", selectedFile);
+	    formData.append("sessionId", local_threadId);
+	    var xhr = new XMLHttpRequest();
+	    
+	    xhr.open("POST", "convert", true);
+	    xhr.onload = function (){
+	      clearTimeout(loadingStatusTimer);
+	      stopTimer = true;
+	      console.log(xhr);
+	      getLoadingStatusOnceCallBacked(callbackForConvert, [xhr, filename, local_threadId]);
+	    };
+	    timedLoadingStatusLogger();
+	    xhr.send(formData);
+	  }
+	  
+	  function callbackForConvert( parameter ){
+	    var xhr = parameter[0];
+	    var filename = parameter[1];
+	    var local_threadId = parameter[2];
+	    if ( local_threadId !== conversion_sessionId ) {
+	      console.log("The conversion process for file:" + filename + " has been canceled!");
+	      ontologyMenu.conversionFinished(local_threadId);
+	      return;
+	    }
+	    if ( xhr.status === 200 ) {
+	      loadingModule.loadFromOWL2VOWL(xhr.responseText, filename);
+	      ontologyMenu.conversionFinished();
+	    } else {
+	      var uglyJson=xhr.responseText;
+	      var jsonResut=JSON.parse(uglyJson);
+	      var niceJSON=JSON.stringify(jsonResut, 'null', '  ');
+	      niceJSON= niceJSON.replace(new RegExp('\r?\n','g'), '<br />');
+	      callbackUpdateLoadingMessage("Failed to convert the file. " +
+	          "<br />Server answer: <br />"+
+	          "<hr>"+niceJSON+ "<hr>"+
+	        "Ontology could not be loaded.<br />Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+	        "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
+	      
+	      graph.handleOnLoadingError();
+	      ontologyMenu.conversionFinished();
+	    }
+	  }
+	  
+	  ontologyMenu.conversionFinished = function ( id ){
+	    var local_id = conversion_sessionId;
+	    if ( id ) {
+	      local_id = id;
+	    }
+	    d3.xhr("conversionDone?sessionId=" + local_id, "application/text", function ( error, request ){
+	      if ( error ) {
+	        console.log("ontologyMenu conversionFinished throws error");
+	        console.log("---------Error -----------");
+	        console.log(error);
+	        console.log("---------Request -----------");
+	        console.log(request);
+	      }
+	    });
+	  };
+	  
+	  function keepOntologySelectionOpenShortly(){
+	    // Events in the menu should not be considered
+	    var ontologySelection = d3.select("#select .toolTipMenu");
+	    ontologySelection.on("click", function (){
+	      d3.event.stopPropagation();
+	    }).on("keydown", function (){
+	      d3.event.stopPropagation();
+	    });
+	    
+	    ontologySelection.style("display", "block");
+	    
+	    function disableKeepingOpen(){
+	      ontologySelection.style("display", undefined);
+	      
+	      clearTimeout(ontologyMenuTimeout);
+	      d3.select(window).on("click", undefined).on("keydown", undefined);
+	      ontologySelection.on("mouseover", undefined);
+	    }
+	    
+	    // Clear the timeout to handle fast calls of this function
+	    clearTimeout(ontologyMenuTimeout);
+	    ontologyMenuTimeout = setTimeout(function (){
+	      disableKeepingOpen();
+	    }, 3000);
+	    
+	    // Disable forced open selection on interaction
+	    d3.select(window).on("click", function (){
+	      disableKeepingOpen();
+	    }).on("keydown", function (){
+	      disableKeepingOpen();
+	    });
+	    
+	    ontologySelection.on("mouseover", function (){
+	      disableKeepingOpen();
+	    });
+	  }
+	  
+	  ontologyMenu.showLoadingStatus = function ( visible ){
+	    if ( visible === true ) {
+	      displayLoadingIndicators();
+	    }
+	    else {
+	      hideLoadingInformations();
+	    }
+	  };
+	  
+	  function displayLoadingIndicators(){
+	    d3.select("#layoutLoadingProgressBarContainer").classed("hidden", false);
+	    loadingInfo.classed("hidden", false);
+	    loadingProgress.classed("hidden", false);
+	  }
+	  
+	  function hideLoadingInformations(){
+	    loadingInfo.classed("hidden", true);
+	  }
+	  
+	  return ontologyMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 330:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var toString = __webpack_require__(219),
+	    unescapeHtmlChar = __webpack_require__(331);
+
+	/** Used to match HTML entities and HTML characters. */
+	var reEscapedHtml = /&(?:amp|lt|gt|quot|#39);/g,
+	    reHasEscapedHtml = RegExp(reEscapedHtml.source);
+
+	/**
+	 * The inverse of `_.escape`; this method converts the HTML entities
+	 * `&amp;`, `&lt;`, `&gt;`, `&quot;`, and `&#39;` in `string` to
+	 * their corresponding characters.
+	 *
+	 * **Note:** No other HTML entities are unescaped. To unescape additional
+	 * HTML entities use a third-party library like [_he_](https://mths.be/he).
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.6.0
+	 * @category String
+	 * @param {string} [string=''] The string to unescape.
+	 * @returns {string} Returns the unescaped string.
+	 * @example
+	 *
+	 * _.unescape('fred, barney, &amp; pebbles');
+	 * // => 'fred, barney, & pebbles'
+	 */
+	function unescape(string) {
+	  string = toString(string);
+	  return (string && reHasEscapedHtml.test(string))
+	    ? string.replace(reEscapedHtml, unescapeHtmlChar)
+	    : string;
+	}
+
+	module.exports = unescape;
+
+
+/***/ }),
+
+/***/ 331:
+/***/ (function(module, exports, __webpack_require__) {
+
+	var basePropertyOf = __webpack_require__(332);
+
+	/** Used to map HTML entities to characters. */
+	var htmlUnescapes = {
+	  '&amp;': '&',
+	  '&lt;': '<',
+	  '&gt;': '>',
+	  '&quot;': '"',
+	  '&#39;': "'"
+	};
+
+	/**
+	 * Used by `_.unescape` to convert HTML entities to characters.
+	 *
+	 * @private
+	 * @param {string} chr The matched character to unescape.
+	 * @returns {string} Returns the unescaped character.
+	 */
+	var unescapeHtmlChar = basePropertyOf(htmlUnescapes);
+
+	module.exports = unescapeHtmlChar;
+
+
+/***/ }),
+
+/***/ 332:
+/***/ (function(module, exports) {
+
+	/**
+	 * The base implementation of `_.propertyOf` without support for deep paths.
+	 *
+	 * @private
+	 * @param {Object} object The object to query.
+	 * @returns {Function} Returns the new accessor function.
+	 */
+	function basePropertyOf(object) {
+	  return function(key) {
+	    return object == null ? undefined : object[key];
+	  };
+	}
+
+	module.exports = basePropertyOf;
+
+
+/***/ }),
+
+/***/ 333:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for the pause and resume button.
+	 *
+	 * @param graph the associated webvowl graph
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var pauseMenu = {},
+	    pauseButton;
+	  
+	  
+	  /**
+	   * Adds the pause button to the website.
+	   */
+	  pauseMenu.setup = function (){
+	    var menuEntry = d3.select("#pauseOption");
+	    menuEntry.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	    });
+	    pauseButton = d3.select("#pause-button")
+	      .datum({ paused: false })
+	      .on("click", function ( d ){
+	        graph.paused(!d.paused);
+	        d.paused = !d.paused;
+	        updatePauseButton();
+	        pauseButton.classed("highlighted", d.paused);
+	      });
+	    // Set these properties the first time manually
+	    updatePauseButton();
+	  };
+	  
+	  pauseMenu.setPauseValue = function ( value ){
+	    pauseButton.datum().paused = value;
+	    graph.paused(value);
+	    pauseButton.classed("highlighted", value);
+	    updatePauseButton();
+	  };
+	  
+	  function updatePauseButton(){
+	    updatePauseButtonClass();
+	    updatePauseButtonText();
+	  }
+	  
+	  function updatePauseButtonClass(){
+	    pauseButton.classed("paused", function ( d ){
+	      return d.paused;
+	    });
+	  }
+	  
+	  function updatePauseButtonText(){
+	    if ( pauseButton.datum().paused ) {
+	      pauseButton.text("Resume");
+	    } else {
+	      pauseButton.text("Pause");
+	    }
+	  }
+	  
+	  pauseMenu.reset = function (){
+	    // resuming
+	    pauseMenu.setPauseValue(false);
+	  };
+	  
+	  
+	  return pauseMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 334:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for the reset button.
+	 *
+	 * @param graph the associated webvowl graph
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var resetMenu = {},
+	    options = graph.graphOptions(),
+	    resettableModules,
+	    untouchedOptions = webvowl.options();
+	  
+	  
+	  /**
+	   * Adds the reset button to the website.
+	   * @param _resettableModules modules that can be resetted
+	   */
+	  resetMenu.setup = function ( _resettableModules ){
+	    resettableModules = _resettableModules;
+	    d3.select("#reset-button").on("click", resetGraph);
+	    var menuEntry = d3.select("#resetOption");
+	    menuEntry.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	    });
+	  };
+	  
+	  function resetGraph(){
+	    graph.resetSearchHighlight();
+	    graph.options().searchMenu().clearText();
+	    options.classDistance(untouchedOptions.classDistance());
+	    options.datatypeDistance(untouchedOptions.datatypeDistance());
+	    options.charge(untouchedOptions.charge());
+	    options.gravity(untouchedOptions.gravity());
+	    options.linkStrength(untouchedOptions.linkStrength());
+	    graph.reset();
+	    
+	    resettableModules.forEach(function ( module ){
+	      module.reset();
+	    });
+	    
+	    graph.updateStyle();
+	  }
+	  
+	  
+	  return resetMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 335:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the search "engine"
+	 *
+	 * @param graph the associated webvowl graph
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  var searchMenu = {},
+	    dictionary = [],
+	    entryNames = [],
+	    searchLineEdit,
+	    mergedStringsList,
+	    mergedIdList,
+	    maxEntries = 6,
+	    dictionaryUpdateRequired = true,
+	    labelDictionary,
+	    inputText,
+	    viewStatusOfSearchEntries = false;
+	  
+	  var results = [];
+	  var resultID = [];
+	  var c_locate = d3.select("#locateSearchResult");
+	  var c_search = d3.select("#c_search");
+	  var m_search = d3.select("#m_search"); // << dropdown container;
+	  
+	  
+	  String.prototype.beginsWith = function ( string ){
+	    return (this.indexOf(string) === 0);
+	  };
+	  
+	  searchMenu.requestDictionaryUpdate = function (){
+	    dictionaryUpdateRequired = true;
+	    // clear possible pre searched entries
+	    var htmlCollection = m_search.node().children;
+	    var numEntries = htmlCollection.length;
+	    
+	    for ( var i = 0; i < numEntries; i++ )
+	      htmlCollection[0].remove();
+	    searchLineEdit.node().value = "";
+	  };
+	  
+	  
+	  function updateSearchDictionary(){
+	    labelDictionary = graph.getUpdateDictionary();
+	    dictionaryUpdateRequired = false;
+	    dictionary = [];
+	    entryNames = [];
+	    var idList = [];
+	    var stringList = [];
+	    
+	    var i;
+	    for ( i = 0; i < labelDictionary.length; i++ ) {
+	      var lEntry = labelDictionary[i].labelForCurrentLanguage();
+	      idList.push(labelDictionary[i].id());
+	      stringList.push(lEntry);
+	      // add all equivalents to the search space;
+	      if ( labelDictionary[i].equivalents && labelDictionary[i].equivalents().length > 0 ) {
+	        var eqs = labelDictionary[i].equivalentsString();
+	        var eqsLabels = eqs.split(", ");
+	        for ( var e = 0; e < eqsLabels.length; e++ ) {
+	          idList.push(labelDictionary[i].id());
+	          stringList.push(eqsLabels[e]);
+	        }
+	      }
+	    }
+	    
+	    mergedStringsList = [];
+	    mergedIdList = [];
+	    var indexInStringList = -1;
+	    var currentString;
+	    var currentObjectId;
+	    
+	    for ( i = 0; i < stringList.length; i++ ) {
+	      if ( i === 0 ) {
+	        // just add the elements
+	        mergedStringsList.push(stringList[i]);
+	        mergedIdList.push([]);
+	        mergedIdList[0].push(idList[i]);
+	        continue;
+	      }
+	      else {
+	        currentString = stringList[i];
+	        currentObjectId = idList[i];
+	        indexInStringList = mergedStringsList.indexOf(currentString);
+	      }
+	      if ( indexInStringList === -1 ) {
+	        mergedStringsList.push(stringList[i]);
+	        mergedIdList.push([]);
+	        var lastEntry = mergedIdList.length;
+	        mergedIdList[lastEntry - 1].push(currentObjectId);
+	      } else {
+	        mergedIdList[indexInStringList].push(currentObjectId);
+	      }
+	    }
+	    
+	    for ( i = 0; i < mergedStringsList.length; i++ ) {
+	      var aString = mergedStringsList[i];
+	      var correspondingIdList = mergedIdList[i];
+	      var idListResult = "[ ";
+	      for ( var j = 0; j < correspondingIdList.length; j++ ) {
+	        idListResult = idListResult + correspondingIdList[j].toString();
+	        idListResult = idListResult + ", ";
+	      }
+	      idListResult = idListResult.substring(0, idListResult.length - 2);
+	      idListResult = idListResult + " ]";
+	      
+	      dictionary.push(aString);
+	      entryNames.push(aString);
+	    }
+	  }
+	  
+	  searchMenu.setup = function (){
+	    // clear dictionary;
+	    dictionary = [];
+	    searchLineEdit = d3.select("#search-input-text");
+	    searchLineEdit.on("input", userInput);
+	    searchLineEdit.on("keydown", userNavigation);
+	    searchLineEdit.on("click", toggleSearchEntryView);
+	    searchLineEdit.on("mouseover", hoverSearchEntryView);
+	    
+	    c_locate.on("click", function (){
+	      graph.locateSearchResult();
+	    });
+	    
+	    c_locate.on("mouseover", function (){
+	      searchMenu.hideSearchEntries();
+	    });
+	    
+	  };
+	  
+	  function hoverSearchEntryView(){
+	    updateSelectionStatusFlags();
+	    searchMenu.showSearchEntries();
+	  }
+	  
+	  function toggleSearchEntryView(){
+	    if ( viewStatusOfSearchEntries ) {
+	      searchMenu.hideSearchEntries();
+	    } else {
+	      searchMenu.showSearchEntries();
+	    }
+	  }
+	  
+	  searchMenu.hideSearchEntries = function (){
+	    m_search.style("display", "none");
+	    viewStatusOfSearchEntries = false;
+	  };
+	  
+	  searchMenu.showSearchEntries = function (){
+	    m_search.style("display", "block");
+	    viewStatusOfSearchEntries = true;
+	  };
+	  
+	  function ValidURL( str ){
+	    var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
+	    return urlregex.test(str);
+	    
+	  }
+	  
+	  
+	  function updateSelectionStatusFlags(){
+	    if ( searchLineEdit.node().value.length === 0 ) {
+	      createSearchEntries();
+	      return;
+	    }
+	    handleAutoCompletion();
+	  }
+	  
+	  function userNavigation(){
+	    if ( dictionaryUpdateRequired ) {
+	      updateSearchDictionary();
+	    }
+	    
+	    var htmlCollection = m_search.node().children;
+	    var numEntries = htmlCollection.length;
+	    
+	    
+	    var move = 0;
+	    var i;
+	    var selectedEntry = -1;
+	    for ( i = 0; i < numEntries; i++ ) {
+	      var atr = htmlCollection[i].getAttribute('class');
+	      if ( atr === "dbEntrySelected" ) {
+	        selectedEntry = i;
+	      }
+	    }
+	    if ( d3.event.keyCode === 13 ) {
+	      if ( selectedEntry >= 0 && selectedEntry < numEntries ) {
+	        // simulate onClick event
+	        htmlCollection[selectedEntry].onclick();
+	        searchMenu.hideSearchEntries();
+	      }
+	      else if ( numEntries === 0 ) {
+	        inputText = searchLineEdit.node().value;
+	        // check if input text ends or begins with with space
+	        // remove first spaces
+	        var clearedText = inputText.replace(/%20/g, " ");
+	        while ( clearedText.beginsWith(" ") ) {
+	          clearedText = clearedText.substr(1, clearedText.length);
+	        }
+	        // remove ending spaces
+	        while ( clearedText.endsWith(" ") ) {
+	          clearedText = clearedText.substr(0, clearedText.length - 1);
+	        }
+	        var iri = clearedText.replace(/ /g, "%20");
+	        
+	        var valid = ValidURL(iri);
+	        // validate url:
+	        if ( valid ) {
+	          var ontM = graph.options().ontologyMenu();
+	          ontM.setIriText(iri);
+	          searchLineEdit.node().value = "";
+	        }
+	        else {
+	          console.log(iri + " is not a valid URL!");
+	        }
+	      }
+	    }
+	    if ( d3.event.keyCode === 38 ) {
+	      move = -1;
+	      searchMenu.showSearchEntries();
+	    }
+	    if ( d3.event.keyCode === 40 ) {
+	      move = +1;
+	      searchMenu.showSearchEntries();
+	    }
+	    
+	    var newSelection = selectedEntry + move;
+	    if ( newSelection !== selectedEntry ) {
+	      
+	      if ( newSelection < 0 && selectedEntry <= 0 ) {
+	        htmlCollection[0].setAttribute('class', "dbEntrySelected");
+	      }
+	      
+	      if ( newSelection >= numEntries ) {
+	        htmlCollection[selectedEntry].setAttribute('class', "dbEntrySelected");
+	      }
+	      if ( newSelection >= 0 && newSelection < numEntries ) {
+	        htmlCollection[newSelection].setAttribute('class', "dbEntrySelected");
+	        if ( selectedEntry >= 0 )
+	          htmlCollection[selectedEntry].setAttribute('class', "dbEntry");
+	      }
+	    }
+	  }
+	  
+	  searchMenu.getSearchString = function (){
+	    return searchLineEdit.node().value;
+	  };
+	  
+	  
+	  function clearSearchEntries(){
+	    var htmlCollection = m_search.node().children;
+	    var numEntries = htmlCollection.length;
+	    for ( var i = 0; i < numEntries; i++ ) {
+	      htmlCollection[0].remove();
+	    }
+	    results = [];
+	    resultID = [];
+	    
+	  }
+	  
+	  function createSearchEntries(){
+	    inputText = searchLineEdit.node().value;
+	    var i;
+	    var lc_text = inputText.toLowerCase();
+	    var token;
+	    
+	    for ( i = 0; i < dictionary.length; i++ ) {
+	      var tokenElement = dictionary[i];
+	      if ( tokenElement === undefined ) {
+	        //@WORKAROUND : nodes with undefined labels are skipped
+	        //@FIX: these nodes are now not added to the dictionary
+	        continue;
+	      }
+	      token = dictionary[i].toLowerCase();
+	      if ( token.indexOf(lc_text) > -1 ) {
+	        results.push(dictionary[i]);
+	        resultID.push(i);
+	      }
+	    }
+	  }
+	  
+	  function measureTextWidth( text, textStyle ){
+	    // Set a default value
+	    if ( !textStyle ) {
+	      textStyle = "text";
+	    }
+	    var d = d3.select("body")
+	        .append("div")
+	        .attr("class", textStyle)
+	        .attr("id", "width-test") // tag this element to identify it
+	        .attr("style", "position:absolute; float:left; white-space:nowrap; visibility:hidden;")
+	        .text(text),
+	      w = document.getElementById("width-test").offsetWidth;
+	    d.remove();
+	    return w;
+	  }
+	  
+	  function cropText( input ){
+	    var maxWidth = 250;
+	    var textStyle = "dbEntry";
+	    var truncatedText = input;
+	    var textWidth;
+	    var ratio;
+	    var newTruncatedTextLength;
+	    while ( true ) {
+	      textWidth = measureTextWidth(truncatedText, textStyle);
+	      if ( textWidth <= maxWidth ) {
+	        break;
+	      }
+	      
+	      ratio = textWidth / maxWidth;
+	      newTruncatedTextLength = Math.floor(truncatedText.length / ratio);
+	      
+	      // detect if nothing changes
+	      if ( truncatedText.length === newTruncatedTextLength ) {
+	        break;
+	      }
+	      
+	      truncatedText = truncatedText.substring(0, newTruncatedTextLength);
+	    }
+	    
+	    if ( input.length > truncatedText.length ) {
+	      return input.substring(0, truncatedText.length - 6);
+	    }
+	    return input;
+	  }
+	  
+	  function createDropDownElements(){
+	    var numEntries;
+	    var copyRes = results;
+	    var i;
+	    var token;
+	    var newResults = [];
+	    var newResultsIds = [];
+	    
+	    var lc_text = searchLineEdit.node().value.toLowerCase();
+	    // set the number of shown results to be maxEntries or less;
+	    numEntries = results.length;
+	    if ( numEntries > maxEntries )
+	      numEntries = maxEntries;
+	    
+	    
+	    for ( i = 0; i < numEntries; i++ ) {
+	      // search for the best entry
+	      var indexElement = 1000000;
+	      var lengthElement = 1000000;
+	      var bestElement = -1;
+	      for ( var j = 0; j < copyRes.length; j++ ) {
+	        token = copyRes[j].toLowerCase();
+	        var tIe = token.indexOf(lc_text);
+	        var tLe = token.length;
+	        if ( tIe > -1 && tIe <= indexElement && tLe <= lengthElement ) {
+	          bestElement = j;
+	          indexElement = tIe;
+	          lengthElement = tLe;
+	        }
+	      }
+	      newResults.push(copyRes[bestElement]);
+	      newResultsIds.push(resultID[bestElement]);
+	      copyRes[bestElement] = "";
+	    }
+	    
+	    // add the results to the entry menu
+	    //******************************************
+	    numEntries = results.length;
+	    if ( numEntries > maxEntries )
+	      numEntries = maxEntries;
+	    
+	    var filteredOutElements = 0;
+	    for ( i = 0; i < numEntries; i++ ) {
+	      //add results to the dropdown menu
+	      var testEntry = document.createElement('li');
+	      testEntry.setAttribute('elementID', newResultsIds[i]);
+	      testEntry.onclick = handleClick(newResultsIds[i]);
+	      testEntry.setAttribute('class', "dbEntry");
+	      
+	      var entries = mergedIdList[newResultsIds[i]];
+	      var eLen = entries.length;
+	      
+	      var croppedText = cropText(newResults[i]);
+	      
+	      var el0 = entries[0];
+	      var allSame = true;
+	      var nodeMap = graph.getNodeMapForSearch();
+	      var visible = eLen;
+	      if ( eLen > 1 ) {
+	        for ( var q = 0; q < eLen; q++ ) {
+	          if ( nodeMap[entries[q]] === undefined ) {
+	            visible--;
+	          }
+	        }
+	      }
+	      
+	      for ( var a = 0; a < eLen; a++ ) {
+	        if ( el0 !== entries[a] ) {
+	          allSame = false;
+	        }
+	      }
+	      if ( croppedText !== newResults[i] ) {
+	        // append ...(#numElements) if needed
+	        if ( eLen > 1 && allSame === false ) {
+	          if ( eLen !== visible )
+	            croppedText += "... (" + visible + "/" + eLen + ")";
+	        }
+	        else {
+	          croppedText += "...";
+	        }
+	        testEntry.title = newResults[i];
+	      }
+	      else {
+	        if ( eLen > 1 && allSame === false ) {
+	          if ( eLen !== visible )
+	            croppedText += " (" + visible + "/" + eLen + ")";
+	          else
+	            croppedText += " (" + eLen + ")";
+	        }
+	      }
+	      
+	      var searchEntryNode = d3.select(testEntry);
+	      if ( eLen === 1 || allSame === true ) {
+	        if ( nodeMap[entries[0]] === undefined ) {
+	          searchEntryNode.style("color", "#979797");
+	          testEntry.title = newResults[i] + "\nElement is filtered out.";
+	          testEntry.onclick = function (){
+	          };
+	          d3.select(testEntry).style("cursor", "default");
+	          filteredOutElements++;
+	        }
+	      } else {
+	        if ( visible < 1 ) {
+	          searchEntryNode.style("color", "#979797");
+	          testEntry.onclick = function (){
+	          };
+	          testEntry.title = newResults[i] + "\nAll elements are filtered out.";
+	          d3.select(testEntry).style("cursor", "default");
+	          filteredOutElements++;
+	        } else {
+	          searchEntryNode.style("color", "");
+	        }
+	        if ( visible < eLen && visible > 1 ) {
+	          testEntry.title = newResults[i] + "\n" + visible + "/" + eLen + " elements are visible.";
+	        }
+	      }
+	      searchEntryNode.node().innerHTML = croppedText;
+	      m_search.node().appendChild(testEntry);
+	    }
+	  }
+	  
+	  
+	  function handleAutoCompletion(){
+	    /**  pre condition: autoCompletion has already a valid text**/
+	    clearSearchEntries();
+	    createSearchEntries();
+	    createDropDownElements();
+	  }
+	  
+	  function userInput(){
+	    c_locate.classed("highlighted", false);
+	    c_locate.node().title = "Nothing to locate";
+	    
+	    if ( dictionaryUpdateRequired ) {
+	      updateSearchDictionary();
+	    }
+	    graph.resetSearchHighlight();
+	    
+	    if ( dictionary.length === 0 ) {
+	      console.log("dictionary is empty");
+	      return;
+	    }
+	    inputText = searchLineEdit.node().value;
+	    
+	    clearSearchEntries();
+	    if ( inputText.length !== 0 ) {
+	      createSearchEntries();
+	      createDropDownElements();
+	    }
+	    
+	    searchMenu.showSearchEntries();
+	  }
+	  
+	  function handleClick( elementId ){
+	    
+	    return function (){
+	      var id = elementId;
+	      var correspondingIds = mergedIdList[id];
+	      
+	      // autoComplete the text for the user
+	      var autoComStr = entryNames[id];
+	      searchLineEdit.node().value = autoComStr;
+	      
+	      graph.resetSearchHighlight();
+	      graph.highLightNodes(correspondingIds);
+	      c_locate.node().title = "Locate search term";
+	      if ( autoComStr !== inputText ) {
+	        handleAutoCompletion();
+	      }
+	      searchMenu.hideSearchEntries();
+	    };
+	  }
+	  
+	  searchMenu.clearText = function (){
+	    searchLineEdit.node().value = "";
+	    c_locate.classed("highlighted", false);
+	    c_locate.node().title = "Nothing to locate";
+	    var htmlCollection = m_search.node().children;
+	    var numEntries = htmlCollection.length;
+	    for ( var i = 0; i < numEntries; i++ ) {
+	      htmlCollection[0].remove();
+	    }
+	  };
+	  
+	  return searchMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 336:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the navigation "engine"
+	 *
+	 * @param graph the associated webvowl graph
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  var navigationMenu = {},
+	    scrollContainer = d3.select("#menuElementContainer").node(),
+	    menuContainer = d3.select("#menuContainer").node(),
+	    leftButton = d3.select("#scrollLeftButton"),
+	    rightButton = d3.select("#scrollRightButton"),
+	    scrolLeftValue,
+	    scrollMax,
+	    currentlyVisibleMenu,
+	    currentlyHoveredEntry,
+	    touchedElement = false,
+	    t_scrollLeft,
+	    t_scrollRight,
+	    c_select = [],
+	    m_select = [];
+	  
+	  
+	  function clearAllTimers(){
+	    cancelAnimationFrame(t_scrollLeft);
+	    cancelAnimationFrame(t_scrollRight);
+	  }
+	  
+	  function timed_scrollRight(){
+	    scrolLeftValue += 5;
+	    scrollContainer.scrollLeft = scrolLeftValue;
+	    navigationMenu.updateScrollButtonVisibility();
+	    if ( scrolLeftValue >= scrollMax ) {
+	      clearAllTimers();
+	      return;
+	    }
+	    t_scrollRight = requestAnimationFrame(timed_scrollRight);
+	    
+	  }
+	  
+	  function timed_scrollLeft(){
+	    scrolLeftValue -= 5;
+	    scrollContainer.scrollLeft = scrolLeftValue;
+	    navigationMenu.updateScrollButtonVisibility();
+	    if ( scrolLeftValue <= 0 ) {
+	      clearAllTimers();
+	      return;
+	    }
+	    t_scrollRight = requestAnimationFrame(timed_scrollLeft);
+	  }
+	  
+	  // collect all menu entries and stuff;
+	  function setupControlsAndMenus(){
+	    // HEURISTIC : to match the menus and their controllers we remove the first 2 letters and match
+	    c_select = [];
+	    m_select = [];
+	    
+	    var c_temp = [];
+	    var m_temp = [];
+	    var i;
+	    var controlElements = scrollContainer.children;
+	    var numEntries = controlElements.length;
+	    
+	    for ( i = 0; i < numEntries; i++ ) {
+	      c_temp.push(controlElements[i].id.slice(2));
+	    }
+	    
+	    var menuElements = menuContainer.children;
+	    numEntries = menuElements.length;
+	    for ( i = 0; i < numEntries; i++ ) {
+	      m_temp.push(menuElements[i].id.slice(2));
+	    }
+	    
+	    numEntries = controlElements.length;
+	    for ( i = 0; i < numEntries; i++ ) {
+	      c_select[i] = "c_" + c_temp[i];
+	      if ( m_temp.indexOf(c_temp[i]) > -1 ) {
+	        m_select[i] = "m_" + c_temp[i];
+	      } else {
+	        m_select[i] = undefined;
+	      }
+	      // create custom behavior for click, touch, and hover
+	      d3.select("#" + c_select[i]).on("mouseover", menuElementOnHovered);
+	      d3.select("#" + c_select[i]).on("mouseout", menuElementOutHovered);
+	      
+	      d3.select("#" + c_select[i]).on("click", menuElementClicked);
+	      d3.select("#" + c_select[i]).on("touchstart", menuElementTouched);
+	      
+	    }
+	    
+	    // connect to mouseWheel
+	    d3.select("#menuElementContainer").on("wheel", function (){
+	      var wheelEvent = d3.event;
+	      var offset;
+	      if ( wheelEvent.deltaY < 0 ) offset = 20;
+	      if ( wheelEvent.deltaY > 0 ) offset = -20;
+	      scrollContainer.scrollLeft += offset;
+	      navigationMenu.hideAllMenus();
+	      navigationMenu.updateScrollButtonVisibility();
+	    });
+	    
+	    // connect scrollIndicator Buttons;
+	    d3.select("#scrollRightButton").on("mousedown", function (){
+	      scrolLeftValue = scrollContainer.scrollLeft;
+	      navigationMenu.hideAllMenus();
+	      t_scrollRight = requestAnimationFrame(timed_scrollRight);
+	      
+	    }).on("touchstart", function (){
+	      scrolLeftValue = scrollContainer.scrollLeft;
+	      navigationMenu.hideAllMenus();
+	      t_scrollRight = requestAnimationFrame(timed_scrollRight);
+	    }).on("mouseup", clearAllTimers)
+	      .on("touchend", clearAllTimers)
+	      .on("touchcancel", clearAllTimers);
+	    
+	    d3.select("#scrollLeftButton").on("mousedown", function (){
+	      scrolLeftValue = scrollContainer.scrollLeft;
+	      navigationMenu.hideAllMenus();
+	      t_scrollLeft = requestAnimationFrame(timed_scrollLeft);
+	    }).on("touchstart", function (){
+	      scrolLeftValue = scrollContainer.scrollLeft;
+	      navigationMenu.hideAllMenus();
+	      t_scrollLeft = requestAnimationFrame(timed_scrollLeft);
+	    }).on("mouseup", clearAllTimers)
+	      .on("touchend", clearAllTimers)
+	      .on("touchcancel", clearAllTimers);
+	    
+	    // connect the scroll functionality;
+	    d3.select("#menuElementContainer").on("scroll", function (){
+	      navigationMenu.updateScrollButtonVisibility();
+	      navigationMenu.hideAllMenus();
+	    });
+	  }
+	  
+	  function menuElementOnHovered(){
+	    navigationMenu.hideAllMenus();
+	    if ( touchedElement ) {
+	      return;
+	    }
+	    showSingleMenu(this.id);
+	  }
+	  
+	  function menuElementOutHovered(){
+	    hoveroutedControMenu(this.id);
+	  }
+	  
+	  function menuElementClicked(){
+	    var m_element = m_select[c_select.indexOf(this.id)];
+	    if ( m_element ) {
+	      var menuElement = d3.select("#" + m_element);
+	      if ( menuElement ) {
+	        if ( menuElement.style("display") === "block" ) {
+	          menuElement.style("display", "none");// hide it
+	        } else {
+	          showSingleMenu(this.id);
+	        }
+	      }
+	    }
+	  }
+	  
+	  function menuElementTouched(){
+	    // it sets a flag that we have touched it,
+	    // since d3. propagates the event for touch as hover and then click, we block the hover event
+	    touchedElement = true;
+	  }
+	  
+	  
+	  function hoveroutedControMenu( controllerID ){
+	    currentlyHoveredEntry = d3.select("#" + controllerID);
+	    if ( controllerID !== "c_search" ) {
+	      d3.select("#" + controllerID).select("path").style("stroke-width", "0");
+	      d3.select("#" + controllerID).select("path").style("fill", "#fff");
+	    }
+	    
+	  }
+	  
+	  function showSingleMenu( controllerID ){
+	    currentlyHoveredEntry = d3.select("#" + controllerID).node();
+	    // get the corresponding menu element for this controller
+	    var m_element = m_select[c_select.indexOf(controllerID)];
+	    if ( m_element ) {
+	      if ( controllerID !== "c_search" ) {
+	        
+	        d3.select("#" + controllerID).select("path").style("stroke-width", "0");
+	        d3.select("#" + controllerID).select("path").style("fill", "#bdc3c7");
+	      }
+	      // show it if we have a menu
+	      currentlyVisibleMenu = d3.select("#" + m_element);
+	      currentlyVisibleMenu.style("display", "block");
+	      if ( m_element === "m_export" )
+	        graph.options().exportMenu().exportAsUrl();
+	      updateMenuPosition();
+	    }
+	  }
+	  
+	  function updateMenuPosition(){
+	    if ( currentlyHoveredEntry ) {
+	      var leftOffset = currentlyHoveredEntry.offsetLeft;
+	      var scrollOffset = scrollContainer.scrollLeft;
+	      var totalOffset = leftOffset - scrollOffset;
+	      var finalOffset = Math.max(0, totalOffset);
+	      var fullContainer_width = scrollContainer.getBoundingClientRect().width;
+	      var elementWidth = currentlyVisibleMenu.node().getBoundingClientRect().width;
+	      // make priority > first check if we are right
+	      if ( finalOffset + elementWidth > fullContainer_width ) {
+	        finalOffset = fullContainer_width - elementWidth;
+	      }
+	      // fix priority;
+	      finalOffset = Math.max(0, finalOffset);
+	      currentlyVisibleMenu.style("left", finalOffset + "px");
+	      
+	      // // check if outside the viewport
+	      // var menuWidth=currentlyHoveredEntry.getBoundingClientRect().width;
+	      // var bt_width=36;
+	      // if (totalOffset+menuWidth<bt_width || totalOffset+bt_width>fullContainer_width){
+	      //     navigationMenu.hideAllMenus();
+	      //     currentlyHoveredEntry=undefined;
+	      // }
+	    }
+	  }
+	  
+	  navigationMenu.hideAllMenus = function (){
+	    d3.selectAll(".toolTipMenu").style("display", "none"); // hiding all menus
+	  };
+	  
+	  navigationMenu.updateScrollButtonVisibility = function (){
+	    scrollMax = scrollContainer.scrollWidth - scrollContainer.clientWidth - 2;
+	    if ( scrollContainer.scrollLeft === 0 ) {
+	      leftButton.classed("hidden", true);
+	    } else {
+	      leftButton.classed("hidden", false);
+	    }
+	    
+	    if ( scrollContainer.scrollLeft > scrollMax ) {
+	      rightButton.classed("hidden", true);
+	    } else {
+	      rightButton.classed("hidden", false);
+	    }
+	    
+	  };
+	  
+	  navigationMenu.setup = function (){
+	    setupControlsAndMenus();
+	    // make sure that the menu elements follow their controller and also their restrictions
+	    // some hovering behavior -- lets the menu disappear when hovered in graph or sidebar;
+	    d3.select("#graph").on("mouseover", function (){
+	      navigationMenu.hideAllMenus();
+	    });
+	    d3.select("#generalDetails").on("mouseover", function (){
+	      navigationMenu.hideAllMenus();
+	    });
+	  };
+	  
+	  return navigationMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 337:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/** The zoom Slider **/
+	module.exports = function ( graph ){
+	  var zoomSlider = {};
+	  var minMag = graph.options().minMagnification(),
+	    maxMag = graph.options().maxMagnification(),
+	    defZoom,
+	    t_zoomOut,
+	    t_zoomIn,
+	    zoomValue,
+	    showSlider = true,
+	    w = graph.options().width(),
+	    h = graph.options().height(),
+	    slider;
+	  
+	  defZoom = Math.min(w, h) / 1000;
+	  
+	  function clearAllTimers(){
+	    cancelAnimationFrame(t_zoomOut);
+	    cancelAnimationFrame(t_zoomIn);
+	  }
+	  
+	  function timed_zoomOut(){
+	    zoomValue = 0.98 * zoomValue;
+	    // fail saves
+	    if ( zoomValue < minMag ) {
+	      zoomValue = minMag;
+	    }
+	    graph.setSliderZoom(zoomValue);
+	    t_zoomOut = requestAnimationFrame(timed_zoomOut);
+	  }
+	  
+	  function timed_zoomIn(){
+	    zoomValue = 1.02 * zoomValue;
+	    // fail saves
+	    if ( zoomValue > maxMag ) {
+	      zoomValue = maxMag;
+	    }
+	    graph.setSliderZoom(zoomValue);
+	    t_zoomIn = requestAnimationFrame(timed_zoomIn);
+	  }
+	  
+	  zoomSlider.setup = function (){
+	    slider = d3.select("#zoomSliderParagraph").append("input")
+	      .datum({})
+	      .attr("id", "zoomSliderElement")
+	      .attr("type", "range")
+	      .attr("value", defZoom)
+	      .attr("min", minMag)
+	      .attr("max", maxMag)
+	      .attr("step", (maxMag - minMag) / 40)
+	      .attr("title", "zoom factor")
+	      .on("input", function (){
+	        zoomSlider.zooming();
+	      });
+	    
+	    d3.select("#zoomOutButton").on("mousedown", function (){
+	      graph.options().navigationMenu().hideAllMenus();
+	      zoomValue = graph.scaleFactor();
+	      t_zoomOut = requestAnimationFrame(timed_zoomOut);
+	    })
+	      .on("touchstart", function (){
+	        graph.options().navigationMenu().hideAllMenus();
+	        zoomValue = graph.scaleFactor();
+	        t_zoomOut = requestAnimationFrame(timed_zoomOut);
+	      })
+	      .on("mouseup", clearAllTimers)
+	      .on("touchend", clearAllTimers)
+	      .on("touchcancel", clearAllTimers)
+	      .attr("title", "zoom out");
+	    
+	    d3.select("#zoomInButton").on("mousedown", function (){
+	      graph.options().navigationMenu().hideAllMenus();
+	      zoomValue = graph.scaleFactor();
+	      t_zoomIn = requestAnimationFrame(timed_zoomIn);
+	    })
+	      .on("touchstart", function (){
+	        graph.options().navigationMenu().hideAllMenus();
+	        zoomValue = graph.scaleFactor();
+	        t_zoomIn = requestAnimationFrame(timed_zoomIn);
+	      })
+	      .on("mouseup", clearAllTimers)
+	      .on("touchend", clearAllTimers)
+	      .on("touchcancel", clearAllTimers)
+	      .attr("title", "zoom in");
+	    
+	    d3.select("#centerGraphButton").on("click", function (){
+	      graph.options().navigationMenu().hideAllMenus();
+	      graph.forceRelocationEvent();
+	    }).attr("title", "center graph");
+	    
+	  };
+	  
+	  zoomSlider.showSlider = function ( val ){
+	    if ( !arguments.length ) return showSlider;
+	    d3.select("#zoomSlider").classed("hidden", !val);
+	    showSlider = val;
+	  };
+	  
+	  zoomSlider.zooming = function (){
+	    graph.options().navigationMenu().hideAllMenus();
+	    var zoomValue = slider.property("value");
+	    slider.attr("value", zoomValue);
+	    graph.setSliderZoom(zoomValue);
+	  };
+	  
+	  zoomSlider.updateZoomSliderValue = function ( val ){
+	    if ( slider ) {
+	      slider.attr("value", val);
+	      slider.property("value", val);
+	    }
+	  };
+	  
+	  return zoomSlider;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 338:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for the sidebar.
+	 * @param graph the graph that belongs to these controls
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var sidebar = {},
+	    languageTools = webvowl.util.languageTools(),
+	    elementTools = webvowl.util.elementTools(),
+	    // Required for reloading when the language changes
+	    ontologyInfo,
+	    visibleSidebar = 1,
+	    lastSelectedElement,
+	    
+	    detailArea = d3.select("#detailsArea"),
+	    graphArea = d3.select("#canvasArea"),
+	    menuArea = d3.select("#swipeBarContainer"),
+	    collapseButton = d3.select("#sidebarExpandButton");
+	  
+	  /**
+	   * Setup the menu bar.
+	   */
+	  
+	  
+	  function setupCollapsing(){
+	    // adapted version of this example: http://www.normansblog.de/simple-jquery-accordion/
+	    function collapseContainers( containers ){
+	      containers.classed("hidden", true);
+	    }
+	    
+	    function expandContainers( containers ){
+	      containers.classed("hidden", false);
+	    }
+	    
+	    var triggers = d3.selectAll(".accordion-trigger");
+	    
+	    // Collapse all inactive triggers on startup
+	    collapseContainers(d3.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div"));
+	    
+	    triggers.on("click", function (){
+	      var selectedTrigger = d3.select(this),
+	        activeTriggers = d3.selectAll(".accordion-trigger-active");
+	      
+	      if ( selectedTrigger.classed("accordion-trigger-active") ) {
+	        // Collapse the active (which is also the selected) trigger
+	        collapseContainers(d3.select(selectedTrigger.node().nextElementSibling));
+	        selectedTrigger.classed("accordion-trigger-active", false);
+	      } else {
+	        // Collapse the other trigger ...
+	        collapseContainers(d3.selectAll(".accordion-trigger-active + div"));
+	        activeTriggers.classed("accordion-trigger-active", false);
+	        // ... and expand the selected one
+	        expandContainers(d3.select(selectedTrigger.node().nextElementSibling));
+	        selectedTrigger.classed("accordion-trigger-active", true);
+	      }
+	    });
+	  }
+	  
+	  sidebar.clearOntologyInformation = function (){
+	    
+	    d3.select("#title").text("No title available");
+	    d3.select("#about").attr("href", "#").attr("target", "_blank").text("not given");
+	    d3.select("#version").text("--");
+	    d3.select("#authors").text("--");
+	    d3.select("#description").text("No description available.");
+	    var container = d3.select("#ontology-metadata");
+	    container.selectAll("*").remove();
+	    d3.select("#classCount")
+	      .text("0");
+	    d3.select("#objectPropertyCount")
+	      .text("0");
+	    d3.select("#datatypePropertyCount")
+	      .text("0");
+	    d3.select("#individualCount")
+	      .text("0");
+	    d3.select("#nodeCount")
+	      .text("0");
+	    d3.select("#edgeCount")
+	      .text("0");
+	    
+	    // clear selectedNode info
+	    var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
+	    if ( isTriggerActive ) {
+	      // close accordion
+	      d3.select("#selection-details-trigger").node().click();
+	    }
+	    showSelectionAdvice();
+	    
+	  };
+	  
+	  /**
+	   * Updates the information of the passed ontology.
+	   * @param data the graph data
+	   * @param statistics the statistics module
+	   */
+	  sidebar.updateOntologyInformation = function ( data, statistics ){
+	    data = data || {};
+	    ontologyInfo = data.header || {};
+	    
+	    updateGraphInformation();
+	    displayGraphStatistics(undefined, statistics);
+	    displayMetadata(ontologyInfo.other);
+	    
+	    // Reset the sidebar selection
+	    sidebar.updateSelectionInformation(undefined);
+	    
+	    setLanguages(ontologyInfo.languages);
+	  };
+	  
+	  function setLanguages( languages ){
+	    languages = languages || [];
+	    
+	    // Put the default and unset label on top of the selection labels
+	    languages.sort(function ( a, b ){
+	      if ( a === webvowl.util.constants().LANG_IRIBASED ) {
+	        return -1;
+	      } else if ( b === webvowl.util.constants().LANG_IRIBASED ) {
+	        return 1;
+	      }
+	      if ( a === webvowl.util.constants().LANG_UNDEFINED ) {
+	        return -1;
+	      } else if ( b === webvowl.util.constants().LANG_UNDEFINED ) {
+	        return 1;
+	      }
+	      return a.localeCompare(b);
+	    });
+	    
+	    var languageSelection = d3.select("#language")
+	      .on("change", function (){
+	        graph.language(d3.event.target.value);
+	        updateGraphInformation();
+	        sidebar.updateSelectionInformation(lastSelectedElement);
+	      });
+	    
+	    languageSelection.selectAll("option").remove();
+	    languageSelection.selectAll("option")
+	      .data(languages)
+	      .enter().append("option")
+	      .attr("value", function ( d ){
+	        return d;
+	      })
+	      .text(function ( d ){
+	        return d;
+	      });
+	    
+	    if ( !trySelectDefaultLanguage(languageSelection, languages, "en") ) {
+	      if ( !trySelectDefaultLanguage(languageSelection, languages, webvowl.util.constants().LANG_UNDEFINED) ) {
+	        trySelectDefaultLanguage(languageSelection, languages, webvowl.util.constants().LANG_IRIBASED);
+	      }
+	    }
+	  }
+	  
+	  function trySelectDefaultLanguage( selection, languages, language ){
+	    var langIndex = languages.indexOf(language);
+	    if ( langIndex >= 0 ) {
+	      selection.property("selectedIndex", langIndex);
+	      graph.language(language);
+	      return true;
+	    }
+	    
+	    return false;
+	  }
+	  
+	  function updateGraphInformation(){
+	    var title = languageTools.textInLanguage(ontologyInfo.title, graph.language());
+	    d3.select("#title").text(title || "No title available");
+	    d3.select("#about").attr("href", ontologyInfo.iri).attr("target", "_blank").text(ontologyInfo.iri);
+	    d3.select("#version").text(ontologyInfo.version || "--");
+	    var authors = ontologyInfo.author;
+	    if ( typeof authors === "string" ) {
+	      // Stay compatible with author info as strings after change in january 2015
+	      d3.select("#authors").text(authors);
+	    } else if ( authors instanceof Array ) {
+	      d3.select("#authors").text(authors.join(", "));
+	    } else {
+	      d3.select("#authors").text("--");
+	    }
+	    
+	    var description = languageTools.textInLanguage(ontologyInfo.description, graph.language());
+	    d3.select("#description").text(description || "No description available.");
+	  }
+	  
+	  function displayGraphStatistics( deliveredMetrics, statistics ){
+	    // Metrics are optional and may be undefined
+	    deliveredMetrics = deliveredMetrics || {};
+	    
+	    d3.select("#classCount")
+	      .text(deliveredMetrics.classCount || statistics.classCount());
+	    d3.select("#objectPropertyCount")
+	      .text(deliveredMetrics.objectPropertyCount || statistics.objectPropertyCount());
+	    d3.select("#datatypePropertyCount")
+	      .text(deliveredMetrics.datatypePropertyCount || statistics.datatypePropertyCount());
+	    d3.select("#individualCount")
+	      .text(deliveredMetrics.totalIndividualCount || statistics.totalIndividualCount());
+	    d3.select("#nodeCount")
+	      .text(statistics.nodeCount());
+	    d3.select("#edgeCount")
+	      .text(statistics.edgeCount());
+	  }
+	  
+	  function displayMetadata( metadata ){
+	    var container = d3.select("#ontology-metadata");
+	    container.selectAll("*").remove();
+	    
+	    listAnnotations(container, metadata);
+	    
+	    if ( container.selectAll(".annotation").size() <= 0 ) {
+	      container.append("p").text("No annotations available.");
+	    }
+	  }
+	  
+	  function listAnnotations( container, annotationObject ){
+	    annotationObject = annotationObject || {};  //todo
+	    
+	    // Collect the annotations in an array for simpler processing
+	    var annotations = [];
+	    for ( var annotation in annotationObject ) {
+	      if ( annotationObject.hasOwnProperty(annotation) ) {
+	        annotations.push(annotationObject[annotation][0]);
+	      }
+	    }
+	    
+	    container.selectAll(".annotation").remove();
+	    container.selectAll(".annotation").data(annotations).enter().append("p")
+	      .classed("annotation", true)
+	      .classed("statisticDetails", true)
+	      .text(function ( d ){
+	        return d.identifier + ":";
+	      })
+	      .append("span")
+	      .each(function ( d ){
+	        appendIriLabel(d3.select(this), d.value, d.type === "iri" ? d.value : undefined);
+	      });
+	  }
+	  
+	  /**
+	   * Update the information of the selected node.
+	   * @param selectedElement the selection or null if nothing is selected
+	   */
+	  sidebar.updateSelectionInformation = function ( selectedElement ){
+	    lastSelectedElement = selectedElement;
+	    
+	    // Click event was prevented when dragging
+	    if ( d3.event && d3.event.defaultPrevented ) {
+	      return;
+	    }
+	    
+	    var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
+	    if ( selectedElement && !isTriggerActive ) {
+	      d3.select("#selection-details-trigger").node().click();
+	    } else if ( !selectedElement && isTriggerActive ) {
+	      showSelectionAdvice();
+	      return;
+	    }
+	    
+	    if ( elementTools.isProperty(selectedElement) ) {
+	      displayPropertyInformation(selectedElement);
+	    } else if ( elementTools.isNode(selectedElement) ) {
+	      displayNodeInformation(selectedElement);
+	    }
+	  };
+	  
+	  function showSelectionAdvice(){
+	    setSelectionInformationVisibility(false, false, true);
+	  }
+	  
+	  function setSelectionInformationVisibility( showClasses, showProperties, showAdvice ){
+	    d3.select("#classSelectionInformation").classed("hidden", !showClasses);
+	    d3.select("#propertySelectionInformation").classed("hidden", !showProperties);
+	    d3.select("#noSelectionInformation").classed("hidden", !showAdvice);
+	  }
+	  
+	  function displayPropertyInformation( property ){
+	    showPropertyInformations();
+	    
+	    setIriLabel(d3.select("#propname"), property.labelForCurrentLanguage(), property.iri());
+	    d3.select("#typeProp").text(property.type());
+	    
+	    if ( property.inverse() !== undefined ) {
+	      d3.select("#inverse").classed("hidden", false);
+	      setIriLabel(d3.select("#inverse span"), property.inverse().labelForCurrentLanguage(), property.inverse().iri());
+	    } else {
+	      d3.select("#inverse").classed("hidden", true);
+	    }
+	    
+	    var equivalentIriSpan = d3.select("#propEquivUri");
+	    listNodeArray(equivalentIriSpan, property.equivalents());
+	    
+	    listNodeArray(d3.select("#subproperties"), property.subproperties());
+	    listNodeArray(d3.select("#superproperties"), property.superproperties());
+	    
+	    if ( property.minCardinality() !== undefined ) {
+	      d3.select("#infoCardinality").classed("hidden", true);
+	      d3.select("#minCardinality").classed("hidden", false);
+	      d3.select("#minCardinality span").text(property.minCardinality());
+	      d3.select("#maxCardinality").classed("hidden", false);
+	      
+	      if ( property.maxCardinality() !== undefined ) {
+	        d3.select("#maxCardinality span").text(property.maxCardinality());
+	      } else {
+	        d3.select("#maxCardinality span").text("*");
+	      }
+	      
+	    } else if ( property.cardinality() !== undefined ) {
+	      d3.select("#minCardinality").classed("hidden", true);
+	      d3.select("#maxCardinality").classed("hidden", true);
+	      d3.select("#infoCardinality").classed("hidden", false);
+	      d3.select("#infoCardinality span").text(property.cardinality());
+	    } else {
+	      d3.select("#infoCardinality").classed("hidden", true);
+	      d3.select("#minCardinality").classed("hidden", true);
+	      d3.select("#maxCardinality").classed("hidden", true);
+	    }
+	    
+	    setIriLabel(d3.select("#domain"), property.domain().labelForCurrentLanguage(), property.domain().iri());
+	    setIriLabel(d3.select("#range"), property.range().labelForCurrentLanguage(), property.range().iri());
+	    
+	    displayAttributes(property.attributes(), d3.select("#propAttributes"));
+	    
+	    setTextAndVisibility(d3.select("#propDescription"), property.descriptionForCurrentLanguage());
+	    setTextAndVisibility(d3.select("#propComment"), property.commentForCurrentLanguage());
+	    
+	    listAnnotations(d3.select("#propertySelectionInformation"), property.annotations());
+	  }
+	  
+	  function showPropertyInformations(){
+	    setSelectionInformationVisibility(false, true, false);
+	  }
+	  
+	  function setIriLabel( element, name, iri ){
+	    var parent = d3.select(element.node().parentNode);
+	    
+	    if ( name ) {
+	      element.selectAll("*").remove();
+	      appendIriLabel(element, name, iri);
+	      parent.classed("hidden", false);
+	    } else {
+	      parent.classed("hidden", true);
+	    }
+	  }
+	  
+	  function appendIriLabel( element, name, iri ){
+	    var tag;
+	    
+	    if ( iri ) {
+	      tag = element.append("a")
+	        .attr("href", iri)
+	        .attr("title", iri)
+	        .attr("target", "_blank");
+	    } else {
+	      tag = element.append("span");
+	    }
+	    tag.text(name);
+	  }
+	  
+	  function displayAttributes( attributes, textSpan ){
+	    var spanParent = d3.select(textSpan.node().parentNode);
+	    
+	    if ( attributes && attributes.length > 0 ) {
+	      // Remove redundant redundant attributes for sidebar
+	      removeElementFromArray("object", attributes);
+	      removeElementFromArray("datatype", attributes);
+	      removeElementFromArray("rdf", attributes);
+	    }
+	    
+	    if ( attributes && attributes.length > 0 ) {
+	      textSpan.text(attributes.join(", "));
+	      
+	      spanParent.classed("hidden", false);
+	    } else {
+	      spanParent.classed("hidden", true);
+	    }
+	  }
+	  
+	  function removeElementFromArray( element, array ){
+	    var index = array.indexOf(element);
+	    if ( index > -1 ) {
+	      array.splice(index, 1);
+	    }
+	  }
+	  
+	  function displayNodeInformation( node ){
+	    showClassInformations();
+	    
+	    setIriLabel(d3.select("#name"), node.labelForCurrentLanguage(), node.iri());
+	    
+	    /* Equivalent stuff. */
+	    var equivalentIriSpan = d3.select("#classEquivUri");
+	    listNodeArray(equivalentIriSpan, node.equivalents());
+	    
+	    d3.select("#typeNode").text(node.type());
+	    listNodeArray(d3.select("#individuals"), node.individuals());
+	    
+	    /* Disjoint stuff. */
+	    var disjointNodes = d3.select("#disjointNodes");
+	    var disjointNodesParent = d3.select(disjointNodes.node().parentNode);
+	    
+	    if ( node.disjointWith() !== undefined ) {
+	      disjointNodes.selectAll("*").remove();
+	      
+	      node.disjointWith().forEach(function ( element, index ){
+	        if ( index > 0 ) {
+	          disjointNodes.append("span").text(", ");
+	        }
+	        appendIriLabel(disjointNodes, element.labelForCurrentLanguage(), element.iri());
+	      });
+	      
+	      disjointNodesParent.classed("hidden", false);
+	    } else {
+	      disjointNodesParent.classed("hidden", true);
+	    }
+	    
+	    displayAttributes(node.attributes(), d3.select("#classAttributes"));
+	    
+	    setTextAndVisibility(d3.select("#nodeDescription"), node.descriptionForCurrentLanguage());
+	    setTextAndVisibility(d3.select("#nodeComment"), node.commentForCurrentLanguage());
+	    
+	    listAnnotations(d3.select("#classSelectionInformation"), node.annotations());
+	  }
+	  
+	  function showClassInformations(){
+	    setSelectionInformationVisibility(true, false, false);
+	  }
+	  
+	  function listNodeArray( textSpan, nodes ){
+	    var spanParent = d3.select(textSpan.node().parentNode);
+	    
+	    if ( nodes && nodes.length ) {
+	      textSpan.selectAll("*").remove();
+	      nodes.forEach(function ( element, index ){
+	        if ( index > 0 ) {
+	          textSpan.append("span").text(", ");
+	        }
+	        appendIriLabel(textSpan, element.labelForCurrentLanguage(), element.iri());
+	      });
+	      
+	      spanParent.classed("hidden", false);
+	    } else {
+	      spanParent.classed("hidden", true);
+	    }
+	  }
+	  
+	  function setTextAndVisibility( label, value ){
+	    var parentNode = d3.select(label.node().parentNode);
+	    var hasValue = !!value;
+	    if ( value ) {
+	      label.text(value);
+	    }
+	    parentNode.classed("hidden", !hasValue);
+	  }
+	  
+	  /** Collapsible Sidebar functions; **/
+	  
+	  sidebar.showSidebar = function ( val, init ){
+	    // make val to bool
+	    if ( val === 1 ) {
+	      visibleSidebar = true;
+	      collapseButton.node().innerHTML = ">";
+	      detailArea.classed("hidden", true);
+	      if ( init === true ) {
+	        detailArea.classed("hidden", !visibleSidebar);
+	        graphArea.style("width", "78%");
+	        graphArea.style("-webkit-animation-name", "none");
+	        
+	        menuArea.style("width", "78%");
+	        menuArea.style("-webkit-animation-name", "none");
+	        
+	        d3.select("#WarningErrorMessagesContainer").style("width", "78%");
+	        d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name", "none");
+	      } else {
+	        graphArea.style("width", "78%");
+	        graphArea.style("-webkit-animation-name", "sbCollapseAnimation");
+	        graphArea.style("-webkit-animation-duration", "0.5s");
+	        
+	        menuArea.style("width", "78%");
+	        menuArea.style("-webkit-animation-name", "sbCollapseAnimation");
+	        menuArea.style("-webkit-animation-duration", "0.5s");
+	        
+	        d3.select("#WarningErrorMessagesContainer").style("width", "78%");
+	        d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name", "warn_ExpandRightBarAnimation");
+	        d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-duration", "0.5s");
+	      }
+	      graph.options().width(window.innerWidth - (window.innerWidth * 0.22));
+	      graph.options().navigationMenu().updateScrollButtonVisibility();
+	    }
+	    if ( val === 0 ) {
+	      visibleSidebar = false;
+	      detailArea.classed("hidden", true);
+	      
+	      collapseButton.node().innerHTML = "<";
+	      // adjust the layout
+	      if ( init === true ) {
+	        graphArea.style("width", "100%");
+	        graphArea.style("-webkit-animation-name", "none");
+	        
+	        menuArea.style("width", "100%");
+	        menuArea.style("-webkit-animation-name", "none");
+	        
+	        d3.select("#WarningErrorMessagesContainer").style("width", "100%");
+	        d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name", "none");
+	      } else {
+	        graphArea.style("width", "100%");
+	        graphArea.style("-webkit-animation-name", "sbExpandAnimation");
+	        graphArea.style("-webkit-animation-duration", "0.5s");
+	        
+	        menuArea.style("width", "100%");
+	        menuArea.style("-webkit-animation-name", "sbExpandAnimation");
+	        menuArea.style("-webkit-animation-duration", "0.5s");
+	        
+	        d3.select("#WarningErrorMessagesContainer").style("width", "100%");
+	        d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name", "warn_CollapseRightBarAnimation");
+	        d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-duration", "0.5s");
+	        
+	      }
+	      graph.options().width(window.innerWidth);
+	      graph.updateCanvasContainerSize();
+	      graph.options().navigationMenu().updateScrollButtonVisibility();
+	    }
+	  };
+	  
+	  sidebar.isSidebarVisible = function (){
+	    return visibleSidebar;
+	  };
+	  
+	  sidebar.updateSideBarVis = function ( init ){
+	    var vis = sidebar.getSidebarVisibility();
+	    sidebar.showSidebar(parseInt(vis), init);
+	  };
+	  
+	  sidebar.getSidebarVisibility = function (){
+	    var isHidden = detailArea.classed("hidden");
+	    if ( isHidden === false ) return String(1);
+	    if ( isHidden === true ) return String(0);
+	  };
+	  
+	  sidebar.initSideBarAnimation = function (){
+	    graphArea.node().addEventListener("animationend", function (){
+	      detailArea.classed("hidden", !visibleSidebar);
+	      graph.updateCanvasContainerSize();
+	      graph.options().navigationMenu().updateScrollButtonVisibility();
+	    });
+	  };
+	  
+	  sidebar.setup = function (){
+	    setupCollapsing();
+	    sidebar.initSideBarAnimation();
+	    
+	    collapseButton.on("click", function (){
+	      graph.options().navigationMenu().hideAllMenus();
+	      var settingValue = parseInt(sidebar.getSidebarVisibility());
+	      if ( settingValue === 1 ) sidebar.showSidebar(0);
+	      else                  sidebar.showSidebar(1);
+	    });
+	  };
+	  
+	  
+	  sidebar.updateShowedInformation = function (){
+	    var editMode = graph.editorMode();
+	    d3.select("#generalDetails").classed("hidden", editMode);
+	    d3.select("#generalDetailsEdit").classed("hidden", !editMode);
+	    
+	    // store the meta information in graph.options()
+	    
+	    // todo: update edit meta info
+	    graph.options().editSidebar().updateGeneralOntologyInfo();
+	    
+	    // todo: update showed meta info;
+	    graph.options().sidebar().updateGeneralOntologyInfo();
+	    
+	  };
+	  
+	  sidebar.updateGeneralOntologyInfo = function (){
+	    // get it from graph.options
+	    var generalMetaObj = graph.options().getGeneralMetaObject();
+	    var preferredLanguage = graph && graph.language ? graph.language() : null;
+	    if ( generalMetaObj.hasOwnProperty("title") ) {
+	      // title has language to it -.-
+	      if ( typeof generalMetaObj.title === "object" ) {
+	        d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj.title, preferredLanguage);
+	      } else {
+	        d3.select("#title").node().innerHTML = generalMetaObj.title;
+	      }
+	      
+	    }
+	    if ( generalMetaObj.hasOwnProperty("iri") ) d3.select("#about").node().innerHTML = generalMetaObj.iri;
+	    if ( generalMetaObj.hasOwnProperty("iri") ) d3.select("#about").node().href = generalMetaObj.iri;
+	    if ( generalMetaObj.hasOwnProperty("version") ) d3.select("#version").node().innerHTML = generalMetaObj.version;
+	    if ( generalMetaObj.hasOwnProperty("author") ) d3.select("#authors").node().innerHTML = generalMetaObj.author;
+	    // this could also be an object >>
+	    if ( generalMetaObj.hasOwnProperty("description") ) {
+	      if ( typeof generalMetaObj.description === "object" ) {
+	        d3.select("#description").node().innerHTML = languageTools.textInLanguage(generalMetaObj.description, preferredLanguage);
+	      }
+	      else {
+	        d3.select("#description").node().innerHTML = generalMetaObj.description;
+	      }
+	    }
+	  };
+	  
+	  
+	  return sidebar;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 339:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for the sidebar.
+	 * @param graph the graph that belongs to these controls
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var leftSidebar = {},
+	    languageTools = webvowl.util.languageTools(),
+	    elementTools = webvowl.util.elementTools();
+	  var collapseButton = d3.select("#leftSideBarCollapseButton");
+	  var visibleSidebar = 0;
+	  var backupVisibility = 0;
+	  var sideBarContent = d3.select("#leftSideBarContent");
+	  var sideBarContainer = d3.select("#containerForLeftSideBar");
+	  var defaultClassSelectionContainers = [];
+	  var defaultDatatypeSelectionContainers = [];
+	  var defaultPropertySelectionContainers = [];
+	  
+	  leftSidebar.setup = function (){
+	    setupCollapsing();
+	    leftSidebar.initSideBarAnimation();
+	    
+	    collapseButton.on("click", function (){
+	      graph.options().navigationMenu().hideAllMenus();
+	      var settingValue = parseInt(leftSidebar.getSidebarVisibility());
+	      if ( settingValue === 0 ) leftSidebar.showSidebar(1);
+	      else                  leftSidebar.showSidebar(0);
+	      backupVisibility = settingValue;
+	    });
+	    
+	    setupSelectionContainers();
+	    d3.select("#WarningErrorMessages").node().addEventListener("animationend", function (){
+	      d3.select("#WarningErrorMessages").style("-webkit-animation-name", "none");
+	    });
+	    
+	  };
+	  
+	  leftSidebar.hideCollapseButton = function ( val ){
+	    sideBarContainer.classed("hidden", val);
+	  };
+	  
+	  
+	  function unselectAllElements( container ){
+	    for ( var i = 0; i < container.length; i++ )
+	      container[i].classed("defaultSelected", false);
+	  }
+	  
+	  function selectThisDefaultElement( element ){
+	    d3.select(element).classed("defaultSelected", true);
+	  }
+	  
+	  function updateDefaultNameInAccordion( element, identifier ){
+	    var elementDescription = "";
+	    if ( identifier === "defaultClass" ) elementDescription = "Class: ";
+	    if ( identifier === "defaultDatatype" ) elementDescription = "Datatype: ";
+	    if ( identifier === "defaultProperty" ) elementDescription = "Property: ";
+	    
+	    d3.select("#" + identifier).node().innerHTML = elementDescription + element.innerHTML;
+	    d3.select("#" + identifier).node().title = element.innerHTML;
+	  }
+	  
+	  function classSelectorFunction(){
+	    unselectAllElements(defaultClassSelectionContainers);
+	    selectThisDefaultElement(this);
+	    updateDefaultNameInAccordion(this, "defaultClass");
+	  }
+	  
+	  function datatypeSelectorFunction(){
+	    unselectAllElements(defaultDatatypeSelectionContainers);
+	    selectThisDefaultElement(this);
+	    updateDefaultNameInAccordion(this, "defaultDatatype");
+	  }
+	  
+	  function propertySelectorFunction(){
+	    unselectAllElements(defaultPropertySelectionContainers);
+	    selectThisDefaultElement(this);
+	    updateDefaultNameInAccordion(this, "defaultProperty");
+	  }
+	  
+	  
+	  function setupSelectionContainers(){
+	    var classContainer = d3.select("#classContainer");
+	    var datatypeContainer = d3.select("#datatypeContainer");
+	    var propertyContainer = d3.select("#propertyContainer");
+	    // create the supported elements
+	    
+	    var defaultClass = "owl:Class";
+	    var defaultDatatype = "rdfs:Literal";
+	    var defaultProperty = "owl:objectProperty";
+	    
+	    var supportedClasses = graph.options().supportedClasses();
+	    var supportedDatatypes = graph.options().supportedDatatypes();
+	    var supportedProperties = graph.options().supportedProperties();
+	    var i;
+	    
+	    for ( i = 0; i < supportedClasses.length; i++ ) {
+	      var aClassSelectionContainer;
+	      aClassSelectionContainer = classContainer.append("div");
+	      aClassSelectionContainer.classed("containerForDefaultSelection", true);
+	      aClassSelectionContainer.classed("noselect", true);
+	      aClassSelectionContainer.node().id = "selectedClass" + supportedClasses[i];
+	      aClassSelectionContainer.node().innerHTML = supportedClasses[i];
+	      
+	      if ( supportedClasses[i] === defaultClass ) {
+	        selectThisDefaultElement(aClassSelectionContainer.node());
+	      }
+	      aClassSelectionContainer.on("click", classSelectorFunction);
+	      defaultClassSelectionContainers.push(aClassSelectionContainer);
+	    }
+	    
+	    for ( i = 0; i < supportedDatatypes.length; i++ ) {
+	      var aDTSelectionContainer = datatypeContainer.append("div");
+	      aDTSelectionContainer.classed("containerForDefaultSelection", true);
+	      aDTSelectionContainer.classed("noselect", true);
+	      aDTSelectionContainer.node().id = "selectedDatatype" + supportedDatatypes[i];
+	      aDTSelectionContainer.node().innerHTML = supportedDatatypes[i];
+	      
+	      if ( supportedDatatypes[i] === defaultDatatype ) {
+	        selectThisDefaultElement(aDTSelectionContainer.node());
+	      }
+	      aDTSelectionContainer.on("click", datatypeSelectorFunction);
+	      defaultDatatypeSelectionContainers.push(aDTSelectionContainer);
+	    }
+	    for ( i = 0; i < supportedProperties.length; i++ ) {
+	      var aPropSelectionContainer = propertyContainer.append("div");
+	      aPropSelectionContainer.classed("containerForDefaultSelection", true);
+	      aPropSelectionContainer.classed("noselect", true);
+	      aPropSelectionContainer.node().id = "selectedClass" + supportedProperties[i];
+	      aPropSelectionContainer.node().innerHTML = supportedProperties[i];
+	      aPropSelectionContainer.on("click", propertySelectorFunction);
+	      if ( supportedProperties[i] === defaultProperty ) {
+	        selectThisDefaultElement(aPropSelectionContainer.node());
+	      }
+	      defaultPropertySelectionContainers.push(aPropSelectionContainer);
+	    }
+	  }
+	  
+	  function setupCollapsing(){
+	    // adapted version of this example: http://www.normansblog.de/simple-jquery-accordion/
+	    function collapseContainers( containers ){
+	      containers.classed("hidden", true);
+	    }
+	    
+	    function expandContainers( containers ){
+	      containers.classed("hidden", false);
+	    }
+	    
+	    var triggers = d3.selectAll(".accordion-trigger");
+	    
+	    // Collapse all inactive triggers on startup
+	    // collapseContainers(d3.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div"));
+	    
+	    triggers.on("click", function (){
+	      var selectedTrigger = d3.select(this);
+	      if ( selectedTrigger.classed("accordion-trigger-active") ) {
+	        // Collapse the active (which is also the selected) trigger
+	        collapseContainers(d3.select(selectedTrigger.node().nextElementSibling));
+	        selectedTrigger.classed("accordion-trigger-active", false);
+	      } else {
+	        // Collapse the other trigger ...
+	        // collapseContainers(d3.selectAll(".accordion-trigger-active + div"));
+	        // activeTriggers.classed("accordion-trigger-active", false);
+	        // ... and expand the selected one
+	        expandContainers(d3.select(selectedTrigger.node().nextElementSibling));
+	        selectedTrigger.classed("accordion-trigger-active", true);
+	      }
+	    });
+	  }
+	  
+	  
+	  leftSidebar.isSidebarVisible = function (){
+	    return visibleSidebar;
+	  };
+	  
+	  leftSidebar.updateSideBarVis = function ( init ){
+	    var vis = leftSidebar.getSidebarVisibility();
+	    leftSidebar.showSidebar(parseInt(vis), init);
+	  };
+	  
+	  leftSidebar.initSideBarAnimation = function (){
+	    sideBarContainer.node().addEventListener("animationend", function (){
+	      sideBarContent.classed("hidden", !visibleSidebar);
+	      if ( visibleSidebar === true ) {
+	        sideBarContainer.style("width", "200px");
+	        sideBarContent.classed("hidden", false);
+	        d3.select("#leftSideBarCollapseButton").style("left", "200px");
+	        d3.select("#leftSideBarCollapseButton").classed("hidden", false);
+	        d3.select("#WarningErrorMessages").style("left", "100px");
+	      }
+	      else {
+	        sideBarContainer.style("width", "0px");
+	        d3.select("#leftSideBarCollapseButton").style("left", "0px");
+	        d3.select("#WarningErrorMessages").style("left", "0px");
+	        d3.select("#leftSideBarCollapseButton").classed("hidden", false);
+	        
+	      }
+	      graph.updateCanvasContainerSize();
+	      graph.options().navigationMenu().updateScrollButtonVisibility();
+	    });
+	  };
+	  
+	  leftSidebar.showSidebar = function ( val, init ){
+	    // make val to bool
+	    var collapseButton = d3.select("#leftSideBarCollapseButton");
+	    if ( init === true ) {
+	      visibleSidebar = (backupVisibility === 0);
+	      sideBarContent.classed("hidden", !visibleSidebar);
+	      sideBarContainer.style("-webkit-animation-name", "none");
+	      d3.select("#WarningErrorMessages").style("-webkit-animation-name", "none");
+	      if ( visibleSidebar === true ) {
+	        sideBarContainer.style("width", "200px");
+	        sideBarContent.classed("hidden", false);
+	        d3.select("#leftSideBarCollapseButton").style("left", "200px");
+	        d3.select("#leftSideBarCollapseButton").classed("hidden", false);
+	        d3.select("#WarningErrorMessages").style("left", "100px");
+	        collapseButton.node().innerHTML = "<";
+	      }
+	      
+	      else {
+	        sideBarContainer.style("width", "0px");
+	        d3.select("#WarningErrorMessages").style("left", "0px");
+	        d3.select("#leftSideBarCollapseButton").style("left", "0px");
+	        d3.select("#leftSideBarCollapseButton").classed("hidden", false);
+	        collapseButton.node().innerHTML = ">";
+	      }
+	      
+	      graph.updateCanvasContainerSize();
+	      graph.options().navigationMenu().updateScrollButtonVisibility();
+	      return;
+	    }
+	    
+	    d3.select("#leftSideBarCollapseButton").classed("hidden", true);
+	    
+	    if ( val === 1 ) {
+	      visibleSidebar = true;
+	      collapseButton.node().innerHTML = "<";
+	      // call expand animation;
+	      sideBarContainer.style("-webkit-animation-name", "l_sbExpandAnimation");
+	      sideBarContainer.style("-webkit-animation-duration", "0.5s");
+	      // prepare the animation;
+	      
+	      d3.select("#WarningErrorMessages").style("-webkit-animation-name", "warn_ExpandLeftBarAnimation");
+	      d3.select("#WarningErrorMessages").style("-webkit-animation-duration", "0.5s");
+	      
+	    }
+	    if ( val === 0 ) {
+	      visibleSidebar = false;
+	      sideBarContent.classed("hidden", true);
+	      collapseButton.node().innerHTML = ">";
+	      // call collapse animation
+	      sideBarContainer.style("-webkit-animation-name", "l_sbCollapseAnimation");
+	      sideBarContainer.style("-webkit-animation-duration", "0.5s");
+	      d3.select("#WarningErrorMessages").style("-webkit-animation-name", "warn_CollapseLeftBarAnimation");
+	      d3.select("#WarningErrorMessages").style("-webkit-animation-duration", "0.5s");
+	      d3.select("#WarningErrorMessages").style("left", "0");
+	    }
+	    
+	  };
+	  
+	  leftSidebar.getSidebarVisibility = function (){
+	    var isHidden = sideBarContent.classed("hidden");
+	    if ( isHidden === false ) return String(1);
+	    if ( isHidden === true ) return String(0);
+	  };
+	  
+	  return leftSidebar;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 340:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {/**
+	 * Contains the logic for the sidebar.
+	 * @param graph the graph that belongs to these controls
+	 * @returns {{}}
+	 */
+	module.exports = function ( graph ){
+	  
+	  var editSidebar = {},
+	    languageTools = webvowl.util.languageTools(),
+	    elementTools = webvowl.util.elementTools();
+	  
+	  var prefixModule = webvowl.util.prefixTools(graph);
+	  var selectedElementForCharacteristics;
+	  var oldPrefix, oldPrefixURL;
+	  var prefix_editMode = false;
+	  
+	  
+	  editSidebar.clearMetaObjectValue = function (){
+	    d3.select("#titleEditor").node().value = "";
+	    d3.select("#iriEditor").node().value = "";
+	    d3.select("#versionEditor").node().value = "";
+	    d3.select("#authorsEditor").node().value = "";
+	    d3.select("#descriptionEditor").node().value = "";
+	    // todo add clear description;
+	  };
+	  
+	  
+	  editSidebar.updatePrefixUi = function (){
+	    editSidebar.updateElementWidth();
+	    var prefixListContainer = d3.select("#prefixURL_Container");
+	    while ( prefixListContainer.node().firstChild ) {
+	      prefixListContainer.node().removeChild(prefixListContainer.node().firstChild);
+	    }
+	    setupPrefixList();
+	  };
+	  
+	  editSidebar.setup = function (){
+	    setupCollapsing();
+	    setupPrefixList();
+	    setupAddPrefixButton();
+	    setupSupportedDatatypes();
+	    
+	    
+	    d3.select("#titleEditor")
+	      .on("change", function (){
+	        graph.options().addOrUpdateGeneralObjectEntry("title", d3.select("#titleEditor").node().value);
+	      })
+	      .on("keydown", function (){
+	        d3.event.stopPropagation();
+	        if ( d3.event.keyCode === 13 ) {
+	          d3.event.preventDefault();
+	          graph.options().addOrUpdateGeneralObjectEntry("title", d3.select("#titleEditor").node().value);
+	        }
+	      });
+	    d3.select("#iriEditor")
+	      .on("change", function (){
+	        if ( graph.options().addOrUpdateGeneralObjectEntry("iri", d3.select("#iriEditor").node().value) === false ) {
+	          // restore value
+	          d3.select("#iriEditor").node().value = graph.options().getGeneralMetaObjectProperty('iri');
+	        }
+	      })
+	      .on("keydown", function (){
+	        d3.event.stopPropagation();
+	        if ( d3.event.keyCode === 13 ) {
+	          d3.event.preventDefault();
+	          if ( graph.options().addOrUpdateGeneralObjectEntry("iri", d3.select("#iriEditor").node().value) === false ) {
+	            // restore value
+	            d3.select("#iriEditor").node().value = graph.options().getGeneralMetaObjectProperty('iri');
+	          }
+	        }
+	      });
+	    d3.select("#versionEditor")
+	      .on("change", function (){
+	        graph.options().addOrUpdateGeneralObjectEntry("version", d3.select("#versionEditor").node().value);
+	      })
+	      .on("keydown", function (){
+	        d3.event.stopPropagation();
+	        if ( d3.event.keyCode === 13 ) {
+	          d3.event.preventDefault();
+	          graph.options().addOrUpdateGeneralObjectEntry("version", d3.select("#versionEditor").node().value);
+	        }
+	      });
+	    d3.select("#authorsEditor")
+	      .on("change", function (){
+	        graph.options().addOrUpdateGeneralObjectEntry("author", d3.select("#authorsEditor").node().value);
+	      })
+	      .on("keydown", function (){
+	        d3.event.stopPropagation();
+	        if ( d3.event.keyCode === 13 ) {
+	          d3.event.preventDefault();
+	          graph.options().addOrUpdateGeneralObjectEntry("author", d3.select("#authorsEditor").node().value);
+	        }
+	      });
+	    d3.select("#descriptionEditor")
+	      .on("change", function (){
+	        graph.options().addOrUpdateGeneralObjectEntry("description", d3.select("#descriptionEditor").node().value);
+	      });
+	    
+	    editSidebar.updateElementWidth();
+	    
+	  };
+	  
+	  function setupSupportedDatatypes(){
+	    var datatypeEditorSelection = d3.select("#typeEditor_datatype").node();
+	    var supportedDatatypes = ["undefined", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string"];
+	    for ( var i = 0; i < supportedDatatypes.length; i++ ) {
+	      var optB = document.createElement('option');
+	      optB.innerHTML = supportedDatatypes[i];
+	      datatypeEditorSelection.appendChild(optB);
+	    }
+	  }
+	  
+	  function highlightDeleteButton( enable, name ){
+	    var deletePath = d3.select("#del_pathFor_" + name);
+	    var deleteRect = d3.select("#del_rectFor_" + name);
+	    
+	    if ( enable === false ) {
+	      deletePath.node().style = "stroke: #f00;";
+	      deleteRect.style("cursor", "auto");
+	    } else {
+	      deletePath.node().style = "stroke: #ff972d;";
+	      deleteRect.style("cursor", "pointer");
+	    }
+	  }
+	  
+	  
+	  function highlightEditButton( enable, name, fill ){
+	    var editPath = d3.select("#pathFor_" + name);
+	    var editRect = d3.select("#rectFor_" + name);
+	    
+	    if ( enable === false ) {
+	      if ( fill )
+	        editPath.node().style = "fill: #fff; stroke : #fff; stroke-width : 1px";
+	      else
+	        editPath.node().style = " stroke : #fff; stroke-width : 1px";
+	      
+	      editRect.style("cursor", "auto");
+	    } else {
+	      if ( fill )
+	        editPath.node().style = "fill: #ff972d; stroke : #ff972d; stroke-width : 1px";
+	      else
+	        editPath.node().style = "stroke : #ff972d; stroke-width : 1px";
+	      editRect.style("cursor", "pointer");
+	    }
+	    
+	  }
+	  
+	  function setupAddPrefixButton(){
+	    var btn = d3.select("#addPrefixButton");
+	    btn.on("click", function (){
+	      
+	      // check if we are still in editMode?
+	      if ( prefix_editMode === false ) {
+	        // create new line entry;
+	        var name = "emptyPrefixEntry";
+	        var prefixListContainer = d3.select("#prefixURL_Container");
+	        var prefixEditContainer = prefixListContainer.append("div");
+	        prefixEditContainer.classed("prefixIRIElements", true);
+	        prefixEditContainer.node().id = "prefixContainerFor_" + name;
+	        
+	        var IconContainer = prefixEditContainer.append("div");
+	        IconContainer.style("position", "absolute");
+	        IconContainer.node().id = "containerFor_" + name;
+	        var editButton = IconContainer.append("svg");
+	        editButton.style("width", "14px");
+	        editButton.style("height", "20px");
+	        //   editButton.classed("editPrefixButton", true);
+	        editButton.classed("noselect", true);
+	        //editButton.node().innerHTML = "\u2714";
+	        editButton.node().id = "editButtonFor_" + name;
+	        
+	        editButton.node().elementStyle = "save";
+	        editButton.node().selectorName = name;
+	        var editIcon = editButton.append("g");
+	        var editRect = editIcon.append("rect");
+	        var editPath = editIcon.append("path");
+	        editIcon.node().id = "iconFor_" + name;
+	        editPath.node().id = "pathFor_" + name;
+	        editRect.node().id = "rectFor_" + name;
+	        
+	        editIcon.node().selectorName = name;
+	        editPath.node().selectorName = name;
+	        editRect.node().selectorName = name;
+	        IconContainer.node().title = "Save new prefix and IRI";
+	        
+	        editPath.classed("editPrefixIcon");
+	        editPath.style("stroke", "#fff");
+	        editPath.style("stroke-width", "1px");
+	        editPath.style("fill", "#fff");
+	        editRect.attr("width", "14px");
+	        editRect.attr("height", "14px");
+	        editRect.style("fill", "#18202A");
+	        editRect.attr("transform", "matrix(1,0,0,1,-3,4)");
+	        
+	        editButton.selectAll("g").on("mouseover", function (){
+	          highlightEditButton(true, this.selectorName, true);
+	        });
+	        editButton.selectAll("g").on("mouseout", function (){
+	          highlightEditButton(false, this.selectorName, true);
+	        });
+	        // Check mark
+	        // M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z
+	        // pencil
+	        // M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z
+	        editPath.attr("d", "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z");
+	        editPath.attr("transform", "matrix(0.45,0,0,0.45,0,5)");
+	        
+	        var prefInput = prefixEditContainer.append("input");
+	        prefInput.classed("prefixInput", true);
+	        prefInput.node().type = "text";
+	        prefInput.node().id = "prefixInputFor_" + name;
+	        prefInput.node().autocomplete = "off";
+	        prefInput.node().value = "";
+	        prefInput.style("margin-left", "14px");
+	        
+	        var prefURL = prefixEditContainer.append("input");
+	        prefURL.classed("prefixURL", true);
+	        prefURL.node().type = "text";
+	        prefURL.node().id = "prefixURLFor_" + name;
+	        prefURL.node().autocomplete = "off";
+	        prefURL.node().value = "";
+	        
+	        prefInput.node().disabled = false;
+	        prefURL.node().disabled = false;
+	        prefix_editMode = true;
+	        var deleteContainer = prefixEditContainer.append("div");
+	        deleteContainer.style("float", "right");
+	        var deleteButton = deleteContainer.append("svg");
+	        deleteButton.node().id = "deleteButtonFor_" + name;
+	        deleteContainer.node().title = "Delete prefix and IRI";
+	        deleteButton.style("width", "10px");
+	        deleteButton.style("height", "20px");
+	        var deleteIcon = deleteButton.append("g");
+	        var deleteRect = deleteIcon.append("rect");
+	        var deletePath = deleteIcon.append("path");
+	        deleteIcon.node().id = "del_iconFor_" + name;
+	        deletePath.node().id = "del_pathFor_" + name;
+	        deleteRect.node().id = "del_rectFor_" + name;
+	        
+	        deleteIcon.node().selectorName = name;
+	        deletePath.node().selectorName = name;
+	        deleteRect.node().selectorName = name;
+	        
+	        
+	        deletePath.style("stroke", "#f00");
+	        deleteRect.attr("width", "10px");
+	        deleteRect.attr("height", "14px");
+	        deleteRect.style("fill", "#18202A");
+	        deleteRect.attr("transform", "matrix(1,0,0,1,-3,4)");
+	        
+	        
+	        deletePath.attr("d", "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z");
+	        deletePath.attr("transform", "matrix(0.45,0,0,0.45,0,5)");
+	        
+	        deleteButton.selectAll("g").on("mouseover", function (){
+	          highlightDeleteButton(true, this.selectorName);
+	        });
+	        deleteButton.selectAll("g").on("mouseout", function (){
+	          highlightDeleteButton(false, this.selectorName);
+	        });
+	        
+	        
+	        // connect the buttons;
+	        editButton.on("click", enablePrefixEdit);
+	        deleteButton.on("click", deletePrefixLine);
+	        
+	        editSidebar.updateElementWidth();
+	        // swap focus to prefixInput
+	        prefInput.node().focus();
+	        oldPrefix = name;
+	        oldPrefixURL = "";
+	        d3.select("#addPrefixButton").node().innerHTML = "Save Prefix";
+	      } else {
+	        d3.select("#editButtonFor_emptyPrefixEntry").on("click")(d3.select("#editButtonFor_emptyPrefixEntry").node());
+	      }
+	      
+	    });
+	    
+	  }
+	  
+	  function setupPrefixList(){
+	    if ( graph.isEditorMode() === false ) return;
+	    var prefixListContainer = d3.select("#prefixURL_Container");
+	    var prefixElements = graph.options().prefixList();
+	    for ( var name in prefixElements ) {
+	      if ( prefixElements.hasOwnProperty(name) ) {
+	        var prefixEditContainer = prefixListContainer.append("div");
+	        prefixEditContainer.classed("prefixIRIElements", true);
+	        prefixEditContainer.node().id = "prefixContainerFor_" + name;
+	        
+	        // create edit button which enables the input fields
+	        var IconContainer = prefixEditContainer.append("div");
+	        IconContainer.style("position", "absolute");
+	        IconContainer.node().id = "containerFor_" + name;
+	        var editButton = IconContainer.append("svg");
+	        editButton.style("width", "14px");
+	        editButton.style("height", "20px");
+	        editButton.classed("noselect", true);
+	        editButton.node().id = "editButtonFor_" + name;
+	        IconContainer.node().title = "Edit prefix and IRI";
+	        editButton.node().elementStyle = "save";
+	        editButton.node().selectorName = name;
+	        
+	        editButton.node().id = "editButtonFor_" + name;
+	        editButton.node().elementStyle = "edit";
+	        var editIcon = editButton.append("g");
+	        var editRect = editIcon.append("rect");
+	        var editPath = editIcon.append("path");
+	        editIcon.node().id = "iconFor_" + name;
+	        editPath.node().id = "pathFor_" + name;
+	        editRect.node().id = "rectFor_" + name;
+	        
+	        editIcon.node().selectorName = name;
+	        editPath.node().selectorName = name;
+	        editRect.node().selectorName = name;
+	        
+	        
+	        editPath.classed("editPrefixIcon");
+	        editPath.style("stroke", "#fff");
+	        editPath.style("stroke-width", "1px");
+	        editRect.attr("width", "14px");
+	        editRect.attr("height", "14px");
+	        editRect.style("fill", "#18202A");
+	        editRect.attr("transform", "matrix(1,0,0,1,-3,4)");
+	        
+	        editButton.selectAll("g").on("mouseover", function (){
+	          var sender = this;
+	          var fill = false;
+	          var enable = true;
+	          var f_editPath = d3.select("#pathFor_" + sender.selectorName);
+	          var f_editRect = d3.select("#rectFor_" + sender.selectorName);
+	          
+	          if ( enable === false ) {
+	            if ( fill )
+	              f_editPath.node().style = "fill: #fff; stroke : #fff; stroke-width : 1px";
+	            else
+	              f_editPath.node().style = " stroke : #fff; stroke-width : 1px";
+	            
+	            f_editRect.style("cursor", "auto");
+	          } else {
+	            if ( fill )
+	              f_editPath.node().style = "fill: #ff972d; stroke : #ff972d; stroke-width : 1px";
+	            else
+	              f_editPath.node().style = "stroke : #ff972d; stroke-width : 1px";
+	            f_editRect.style("cursor", "pointer");
+	          }
+	        });
+	        editButton.selectAll("g").on("mouseout", function (){
+	          var sender = this;
+	          var fill = false;
+	          var enable = false;
+	          var f_editPath = d3.select("#pathFor_" + sender.selectorName);
+	          var f_editRect = d3.select("#rectFor_" + sender.selectorName);
+	          
+	          if ( enable === false ) {
+	            if ( fill )
+	              f_editPath.node().style = "fill: #fff; stroke : #fff; stroke-width : 1px";
+	            else
+	              f_editPath.node().style = " stroke : #fff; stroke-width : 1px";
+	            
+	            f_editRect.style("cursor", "auto");
+	          } else {
+	            if ( fill )
+	              f_editPath.node().style = "fill: #ff972d; stroke : #ff972d; stroke-width : 1px";
+	            else
+	              f_editPath.node().style = "stroke : #ff972d; stroke-width : 1px";
+	            f_editRect.style("cursor", "pointer");
+	          }
+	        });
+	        
+	        editPath.attr("d", "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z");
+	        editPath.attr("transform", "matrix(-0.45,0,0,0.45,10,5)");
+	        
+	        // create input field for prefix
+	        var prefInput = prefixEditContainer.append("input");
+	        prefInput.classed("prefixInput", true);
+	        prefInput.node().type = "text";
+	        prefInput.node().id = "prefixInputFor_" + name;
+	        prefInput.node().autocomplete = "off";
+	        prefInput.node().value = name;
+	        prefInput.style("margin-left", "14px");
+	        
+	        // create input field for prefix url
+	        var prefURL = prefixEditContainer.append("input");
+	        prefURL.classed("prefixURL", true);
+	        prefURL.node().type = "text";
+	        prefURL.node().id = "prefixURLFor_" + name;
+	        prefURL.node().autocomplete = "off";
+	        prefURL.node().value = prefixElements[name];
+	        prefURL.node().title = prefixElements[name];
+	        // disable the input fields (already defined elements can be edited later)
+	        prefInput.node().disabled = true;
+	        prefURL.node().disabled = true;
+	        
+	        // create the delete button
+	        var deleteContainer = prefixEditContainer.append("div");
+	        deleteContainer.style("float", "right");
+	        var deleteButton = deleteContainer.append("svg");
+	        deleteButton.node().id = "deleteButtonFor_" + name;
+	        deleteContainer.node().title = "Delete prefix and IRI";
+	        deleteButton.style("width", "10px");
+	        deleteButton.style("height", "20px");
+	        var deleteIcon = deleteButton.append("g");
+	        var deleteRect = deleteIcon.append("rect");
+	        var deletePath = deleteIcon.append("path");
+	        deleteIcon.node().id = "del_iconFor_" + name;
+	        deletePath.node().id = "del_pathFor_" + name;
+	        deleteRect.node().id = "del_rectFor_" + name;
+	        
+	        deleteIcon.node().selectorName = name;
+	        deletePath.node().selectorName = name;
+	        deleteRect.node().selectorName = name;
+	        
+	        
+	        deletePath.style("stroke", "#f00");
+	        deleteRect.attr("width", "10px");
+	        deleteRect.attr("height", "14px");
+	        deleteRect.style("fill", "#18202A");
+	        deleteRect.attr("transform", "matrix(1,0,0,1,-3,4)");
+	        
+	        
+	        deletePath.attr("d", "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z");
+	        deletePath.attr("transform", "matrix(0.45,0,0,0.45,0,5)");
+	        
+	        deleteButton.selectAll("g").on("mouseover", function (){
+	          var selector = this;
+	          var enable = true;
+	          var f_deletePath = d3.select("#del_pathFor_" + selector.selectorName);
+	          var f_deleteRect = d3.select("#del_rectFor_" + selector.selectorName);
+	          
+	          if ( enable === false ) {
+	            f_deletePath.node().style = "stroke: #f00;";
+	            f_deleteRect.style("cursor", "auto");
+	          } else {
+	            f_deletePath.node().style = "stroke: #ff972d;";
+	            f_deleteRect.style("cursor", "pointer");
+	          }
+	        });
+	        deleteButton.selectAll("g").on("mouseout", function (){
+	          var selector = this;
+	          var enable = false;
+	          var f_deletePath = d3.select("#del_pathFor_" + selector.selectorName);
+	          var f_deleteRect = d3.select("#del_rectFor_" + selector.selectorName);
+	          
+	          if ( enable === false ) {
+	            f_deletePath.node().style = "stroke: #f00;";
+	            f_deleteRect.style("cursor", "auto");
+	          } else {
+	            f_deletePath.node().style = "stroke: #ff972d;";
+	            f_deleteRect.style("cursor", "pointer");
+	          }
+	        });
+	        
+	        
+	        editButton.on("click", enablePrefixEdit);
+	        deleteButton.on("click", deletePrefixLine);
+	        
+	        // EXPERIMENTAL
+	        
+	        if ( name === "rdf" ||
+	          name === "rdfs" ||
+	          name === "xsd" || name === "dc" ||
+	          name === "owl"
+	        ) {
+	          // make them invis so the spacing does not change
+	          IconContainer.classed("hidden", true);
+	          deleteContainer.classed("hidden", true);
+	        }
+	      }
+	    }
+	    prefixModule.updatePrefixModel();
+	  }
+	  
+	  function deletePrefixLine(){
+	    if ( this.disabled === true ) return;
+	    d3.select("#addPrefixButton").node().innerHTML = "Add Prefix";
+	    var selector = this.id.split("_")[1];
+	    d3.select("#prefixContainerFor_" + selector).remove();
+	    graph.options().removePrefix(selector);
+	    prefix_editMode = false; // <<TODO make some sanity checks
+	    prefixModule.updatePrefixModel();
+	  }
+	  
+	  function enablePrefixEdit( item ){
+	    
+	    var agent = this;
+	    if ( item )
+	      agent = item;
+	    
+	    if ( agent.disabled === true ) return;
+	    var selector = agent.id.split("_")[1];
+	    var stl = agent.elementStyle;
+	    if ( stl === "edit" ) {
+	      d3.select("#prefixInputFor_" + selector).node().disabled = false;
+	      d3.select("#prefixURLFor_" + selector).node().disabled = false;
+	      // change the button content
+	      //  this.innerHTML = "\u2714";
+	      agent.elementStyle = "save";
+	      oldPrefix = d3.select("#prefixInputFor_" + selector).node().value;
+	      oldPrefixURL = d3.select("#prefixURLFor_" + selector).node().value;
+	      prefix_editMode = true;
+	      if ( d3.select("#containerFor_" + selector).node() )
+	        d3.select("#containerFor_" + selector).node().title = "Save new prefix and IRI";
+	      
+	      var editButton = d3.select(agent);
+	      editButton.selectAll("g").on("mouseover", function (){
+	        
+	        highlightEditButton(true, agent.selectorName, true);
+	      });
+	      editButton.selectAll("g").on("mouseout", function (){
+	        highlightEditButton(false, agent.selectorName, true);
+	      });
+	      
+	      var editPath = d3.select("#pathFor_" + agent.selectorName);
+	      editPath.attr("d", "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z");
+	      editPath.attr("transform", "matrix(0.45,0,0,0.45,0,5)");
+	      
+	      highlightEditButton(true, agent.selectorName, true);
+	      
+	      
+	    }
+	    if ( stl === "save" ) {
+	      var newPrefixURL = d3.select("#prefixURLFor_" + selector).node().value;
+	      var newPrefix = d3.select("#prefixInputFor_" + selector).node().value;
+	      
+	      
+	      if ( graph.options().updatePrefix(oldPrefix, newPrefix, oldPrefixURL, newPrefixURL) === true ) {
+	        d3.select("#prefixInputFor_" + newPrefix).node().disabled = true;
+	        d3.select("#prefixURLFor_" + newPrefix).node().disabled = true;
+	        d3.select("#addPrefixButton").node().innerHTML = "Add Prefix";
+	        if ( d3.select("#containerFor_" + selector).node() )
+	          d3.select("#containerFor_" + selector).node().title = "Edit prefix and IRI";
+	        
+	        // change the button content
+	        
+	        agent.elementStyle = "edit";
+	        prefix_editMode = false;
+	        prefixModule.updatePrefixModel();
+	        var saveButton = d3.select(agent);
+	        saveButton.selectAll("g").on("mouseover", function (){
+	          highlightEditButton(true, agent.selectorName, false);
+	        });
+	        saveButton.selectAll("g").on("mouseout", function (){
+	          highlightEditButton(false, agent.selectorName, false);
+	        });
+	        
+	        var savePath = d3.select("#pathFor_" + agent.selectorName);
+	        savePath.attr("d", "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z");
+	        savePath.attr("transform", "matrix(-0.45,0,0,0.45,10,5)");
+	        highlightEditButton(true, agent.selectorName, false);
+	      }
+	    }
+	  }
+	  
+	  function changeDatatypeType( element ){
+	    var datatypeEditorSelection = d3.select("#typeEditor_datatype").node();
+	    var givenName = datatypeEditorSelection.value;
+	    var identifier = givenName.split(":")[1];
+	    
+	    if ( datatypeEditorSelection.value !== "undefined" ) {
+	      d3.select("#element_iriEditor").node().disabled = true;
+	      d3.select("#element_labelEditor").node().disabled = true;
+	    } else {
+	      identifier = "undefined";
+	      d3.select("#element_iriEditor").node().disabled = false;
+	      d3.select("#element_labelEditor").node().disabled = false;
+	    }
+	    element.label(identifier);
+	    element.dType(givenName);
+	    element.iri("http://www.w3.org/2001/XMLSchema#" + identifier);
+	    element.baseIri("http://www.w3.org/2001/XMLSchema#");
+	    element.redrawLabelText();
+	    
+	    d3.select("#element_iriEditor").node().value = prefixModule.getPrefixRepresentationForFullURI(element.iri());
+	    d3.select("#element_iriEditor").node().title = element.iri();
+	    d3.select("#element_labelEditor").node().value = element.labelForCurrentLanguage();
+	  }
+	  
+	  
+	  function identifyExternalCharacteristicForElement( ontoIRI, elementIRI ){
+	    return (elementIRI.indexOf(ontoIRI) === -1);
+	    
+	  }
+	  
+	  function defaultIriValue( element ){
+	    // get the iri of that element;
+	    if ( graph.options().getGeneralMetaObject().iri ) {
+	      var str2Compare = graph.options().getGeneralMetaObject().iri + element.id();
+	      return element.iri() === str2Compare;
+	    }
+	    return false;
+	  }
+	  
+	  function getURLFROMPrefixedVersion( element ){
+	    var url = d3.select("#element_iriEditor").node().value;
+	    var base = graph.options().getGeneralMetaObjectProperty("iri");
+	    if ( validURL(url) === false ) {
+	      
+	      // make better usability
+	      // try to split element;
+	      var tokens = url.split(":");
+	      
+	      //console.log("try to split the input into prefix:name")
+	      console.log("Tokens");
+	      console.log(tokens);
+	      console.log("---------------");
+	      // TODO MORE VALIDATION TESTS
+	      if ( tokens.length === 2 ) {
+	        var pr = tokens[0];
+	        var name = tokens[1];
+	        if ( pr.length > 0 ) {
+	          var basePref = graph.options().prefixList()[pr];
+	          if ( basePref === undefined ) {
+	            console.log("ERROR __________________");
+	            graph.options().warningModule().showWarning("Invalid Element IRI",
+	              "Could not resolve prefix '" + basePref + "'",
+	              "Restoring previous IRI for Element" + element.iri(), 1, false);
+	            d3.select("#element_iriEditor").node().value = element.iri();
+	            return;
+	            
+	          }
+	          // check if url is not empty
+	          
+	          if ( name.length === 0 ) {
+	            graph.options().warningModule().showWarning("Invalid Element IRI",
+	              "Input IRI is EMPTY",
+	              "Restoring previous IRI for Element" + element.iri(), 1, false);
+	            console.log("NO INPUT PROVIDED");
+	            d3.select("#element_iriEditor").node().value = element.iri();
+	            return;
+	            
+	          }
+	          url = basePref + name;
+	        }
+	        else {
+	          url = base + name;
+	        }
+	      } else {
+	        if ( url.length === 0 ) {
+	          //
+	          console.log("NO INPUT PROVIDED");
+	          d3.select("#element_iriEditor").node().value = element.iri();
+	          return;
+	        }
+	        // failed to identify anything useful
+	        console.log("Tryig to use the input!");
+	        url = base + url;
+	      }
+	    }
+	    return url;
+	  }
+	  
+	  function changeIriForElement( element ){
+	    var url = getURLFROMPrefixedVersion(element);
+	    var base = graph.options().getGeneralMetaObjectProperty("iri");
+	    var sanityCheckResult;
+	    if ( elementTools.isNode(element) ) {
+	      
+	      sanityCheckResult = graph.checkIfIriClassAlreadyExist(url);
+	      if ( sanityCheckResult === false ) {
+	        element.iri(url);
+	      } else {
+	        // throw warnign
+	        graph.options().warningModule().showWarning("Already seen this class",
+	          "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+	          "Restoring previous IRI for Element : " + element.iri(), 2, false, sanityCheckResult);
+	        
+	        editSidebar.updateSelectionInformation(element);
+	        return;
+	        
+	      }
+	    }
+	    if ( elementTools.isProperty(element) === true ) {
+	      sanityCheckResult = editSidebar.checkProperIriChange(element, url);
+	      if ( sanityCheckResult !== false ) {
+	        graph.options().warningModule().showWarning("Already seen this property",
+	          "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+	          "Restoring previous IRI for Element : " + element.iri(), 1, false, sanityCheckResult);
+	        
+	        editSidebar.updateSelectionInformation(element);
+	        return;
+	      }
+	    }
+	    
+	    // if (element.existingPropertyIRI(url)===true){
+	    //     console.log("I Have seen this Particular URL already "+url);
+	    //     graph.options().warningModule().showWarning("Already Seen This one ",
+	    //         "Input IRI For Element"+ element.labelForCurrentLanguage()+" already been set  ",
+	    //         "Restoring previous IRI for Element"+element.iri(),1,false);
+	    //     d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(element.iri());
+	    //     editSidebar.updateSelectionInformation(element);
+	    //     return;
+	    // }
+	    
+	    element.iri(url);
+	    if ( identifyExternalCharacteristicForElement(base, url) === true ) {
+	      addAttribute(element, "external");
+	      // background color for external element;
+	      element.backgroundColor("#36C");
+	      element.redrawElement();
+	      element.redrawLabelText();
+	      // handle visual selection
+	      
+	    } else {
+	      removeAttribute(element, "external");
+	      // background color for external element;
+	      element.backgroundColor(undefined);
+	      element.redrawElement();
+	      element.redrawLabelText();
+	      
+	    }
+	    
+	    if ( element.focused() ) {
+	      graph.options().focuserModule().handle(element, true); // unfocus
+	      graph.options().focuserModule().handle(element, true); // focus
+	    }
+	    // graph.options().focuserModule().handle(undefined);
+	    
+	    
+	    d3.select("#element_iriEditor").node().value = prefixModule.getPrefixRepresentationForFullURI(url);
+	    editSidebar.updateSelectionInformation(element);
+	  }
+	  
+	  function validURL( str ){
+	    var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
+	    return urlregex.test(str);
+	  }
+	  
+	  
+	  function changeLabelForElement( element ){
+	    element.label(d3.select("#element_labelEditor").node().value);
+	    element.redrawLabelText();
+	  }
+	  
+	  editSidebar.updateEditDeleteButtonIds = function ( oldPrefix, newPrefix ){
+	    d3.select("#prefixInputFor_" + oldPrefix).node().id = "prefixInputFor_" + newPrefix;
+	    d3.select("#prefixURLFor_" + oldPrefix).node().id = "prefixURLFor_" + newPrefix;
+	    d3.select("#deleteButtonFor_" + oldPrefix).node().id = "deleteButtonFor_" + newPrefix;
+	    d3.select("#editButtonFor_" + oldPrefix).node().id = "editButtonFor_" + newPrefix;
+	    
+	    d3.select("#prefixContainerFor_" + oldPrefix).node().id = "prefixContainerFor_" + newPrefix;
+	  };
+	  
+	  editSidebar.checkForExistingURL = function ( url ){
+	    var i;
+	    var allProps = graph.getUnfilteredData().properties;
+	    for ( i = 0; i < allProps.length; i++ ) {
+	      if ( allProps[i].iri() === url ) return true;
+	    }
+	    return false;
+	    
+	  };
+	  editSidebar.checkProperIriChange = function ( element, url ){
+	    console.log("Element changed Label");
+	    console.log("Testing URL " + url);
+	    if ( element.type() === "rdfs:subClassOf" || element.type() === "owl:disjointWith" ) {
+	      console.log("ignore this for now, already handled in the type and domain range changer");
+	    } else {
+	      var i;
+	      var allProps = graph.getUnfilteredData().properties;
+	      for ( i = 0; i < allProps.length; i++ ) {
+	        if ( allProps[i] === element ) continue;
+	        if ( allProps[i].iri() === url ) return allProps[i];
+	      }
+	    }
+	    return false;
+	  };
+	  
+	  editSidebar.updateSelectionInformation = function ( element ){
+	    
+	    if ( element === undefined ) {
+	      // show hint;
+	      d3.select("#selectedElementProperties").classed("hidden", true);
+	      d3.select("#selectedElementPropertiesEmptyHint").classed("hidden", false);
+	      selectedElementForCharacteristics = null;
+	      editSidebar.updateElementWidth();
+	    }
+	    else {
+	      d3.select("#selectedElementProperties").classed("hidden", false);
+	      d3.select("#selectedElementPropertiesEmptyHint").classed("hidden", true);
+	      d3.select("#typeEditForm_datatype").classed("hidden", true);
+	      
+	      // set the element IRI, and labels
+	      d3.select("#element_iriEditor").node().value = element.iri();
+	      d3.select("#element_labelEditor").node().value = element.labelForCurrentLanguage();
+	      d3.select("#element_iriEditor").node().title = element.iri();
+	      
+	      d3.select("#element_iriEditor")
+	        .on("change", function (){
+	          var elementIRI = element.iri();
+	          var prefixed = graph.options().prefixModule().getPrefixRepresentationForFullURI(elementIRI);
+	          if ( prefixed === d3.select("#element_iriEditor").node().value ) {
+	            console.log("Iri is identical, nothing has changed!");
+	            return;
+	          }
+	          
+	          changeIriForElement(element);
+	        })
+	        .on("keydown", function (){
+	          d3.event.stopPropagation();
+	          if ( d3.event.keyCode === 13 ) {
+	            d3.event.preventDefault();
+	            console.log("IRI CHANGED Via ENTER pressed");
+	            changeIriForElement(element);
+	            d3.select("#element_iriEditor").node().title = element.iri();
+	          }
+	        });
+	      
+	      var forceIRISync = defaultIriValue(element);
+	      d3.select("#element_labelEditor")
+	        .on("change", function (){
+	          var sanityCheckResult;
+	          console.log("Element changed Label");
+	          var url = getURLFROMPrefixedVersion(element);
+	          if ( element.iri() !== url ) {
+	            if ( elementTools.isProperty(element) === true ) {
+	              sanityCheckResult = editSidebar.checkProperIriChange(element, url);
+	              if ( sanityCheckResult !== false ) {
+	                graph.options().warningModule().showWarning("Already seen this property",
+	                  "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+	                  "Continuing with duplicate property!", 1, false, sanityCheckResult);
+	                editSidebar.updateSelectionInformation(element);
+	                return;
+	              }
+	            }
+	            
+	            if ( elementTools.isNode(element) === true ) {
+	              sanityCheckResult = graph.checkIfIriClassAlreadyExist(url);
+	              if ( sanityCheckResult !== false ) {
+	                graph.options().warningModule().showWarning("Already seen this Class",
+	                  "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+	                  "Restoring previous IRI for Element : " + element.iri(), 2, false, sanityCheckResult);
+	                
+	                editSidebar.updateSelectionInformation(element);
+	                return;
+	              }
+	            }
+	            element.iri(url);
+	          }
+	          changeLabelForElement(element);
+	          editSidebar.updateSelectionInformation(element); // prevents that it will be changed if node is still active
+	        })
+	        .on("keydown", function (){
+	          d3.event.stopPropagation();
+	          if ( d3.event.keyCode === 13 ) {
+	            d3.event.preventDefault();
+	            var sanityCheckResult;
+	            console.log("Element changed Label");
+	            var url = getURLFROMPrefixedVersion(element);
+	            if ( element.iri() !== url ) {
+	              if ( elementTools.isProperty(element) === true ) {
+	                sanityCheckResult = editSidebar.checkProperIriChange(element, url);
+	                if ( sanityCheckResult !== false ) {
+	                  graph.options().warningModule().showWarning("Already seen this property",
+	                    "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+	                    "Continuing with duplicate property!", 1, false, sanityCheckResult);
+	                  
+	                  editSidebar.updateSelectionInformation(element);
+	                  return;
+	                }
+	              }
+	              
+	              if ( elementTools.isNode(element) === true ) {
+	                sanityCheckResult = graph.checkIfIriClassAlreadyExist(url);
+	                if ( sanityCheckResult !== false ) {
+	                  graph.options().warningModule().showWarning("Already seen this Class",
+	                    "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+	                    "Restoring previous IRI for Element : " + element.iri(), 2, false, sanityCheckResult);
+	                  
+	                  editSidebar.updateSelectionInformation(element);
+	                  return;
+	                }
+	              }
+	              element.iri(url);
+	            }
+	            changeLabelForElement(element);
+	          }
+	        })
+	        .on("keyup", function (){
+	          if ( forceIRISync ) {
+	            var labelName = d3.select("#element_labelEditor").node().value;
+	            var resourceName = labelName.replaceAll(" ", "_");
+	            var syncedIRI = element.baseIri() + resourceName;
+	            
+	            //element.iri(syncedIRI);
+	            d3.select("#element_iriEditor").node().title = element.iri();
+	            d3.select("#element_iriEditor").node().value = prefixModule.getPrefixRepresentationForFullURI(syncedIRI);
+	          }
+	        });
+	      // check if we are allowed to change IRI OR LABEL
+	      d3.select("#element_iriEditor").node().disabled = false;
+	      d3.select("#element_labelEditor").node().disabled = false;
+	      
+	      if ( element.type() === "rdfs:subClassOf" ) {
+	        d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#subClassOf";
+	        d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#subClassOf";
+	        d3.select("#element_labelEditor").node().value = "Subclass of";
+	        d3.select("#element_iriEditor").node().disabled = true;
+	        d3.select("#element_labelEditor").node().disabled = true;
+	      }
+	      if ( element.type() === "owl:Thing" ) {
+	        d3.select("#element_iriEditor").node().value = "http://www.w3.org/2002/07/owl#Thing";
+	        d3.select("#element_iriEditor").node().title = "http://www.w3.org/2002/07/owl#Thing";
+	        d3.select("#element_labelEditor").node().value = "Thing";
+	        d3.select("#element_iriEditor").node().disabled = true;
+	        d3.select("#element_labelEditor").node().disabled = true;
+	      }
+	      
+	      if ( element.type() === "owl:disjointWith" ) {
+	        d3.select("#element_iriEditor").node().value = "http://www.w3.org/2002/07/owl#disjointWith";
+	        d3.select("#element_iriEditor").node().title = "http://www.w3.org/2002/07/owl#disjointWith";
+	        d3.select("#element_iriEditor").node().disabled = true;
+	        d3.select("#element_labelEditor").node().disabled = true;
+	      }
+	      
+	      if ( element.type() === "rdfs:Literal" ) {
+	        d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Literal";
+	        d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#Literal";
+	        d3.select("#element_iriEditor").node().disabled = true;
+	        d3.select("#element_labelEditor").node().disabled = true;
+	        element.iri("http://www.w3.org/2000/01/rdf-schema#Literal");
+	      }
+	      if ( element.type() === "rdfs:Datatype" ) {
+	        var datatypeEditorSelection = d3.select("#typeEditor_datatype");
+	        d3.select("#typeEditForm_datatype").classed("hidden", false);
+	        element.iri("http://www.w3.org/2000/01/rdf-schema#Datatype");
+	        d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Datatype";
+	        d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#Datatype";
+	        d3.select("#element_iriEditor").node().disabled = true;
+	        d3.select("#element_labelEditor").node().disabled = true;
+	        
+	        datatypeEditorSelection.node().value = element.dType();
+	        if ( datatypeEditorSelection.node().value === "undefined" ) {
+	          d3.select("#element_iriEditor").node().disabled = true; // always prevent IRI modifications
+	          d3.select("#element_labelEditor").node().disabled = false;
+	        }
+	        // reconnect the element
+	        datatypeEditorSelection.on("change", function (){
+	          changeDatatypeType(element);
+	        });
+	      }
+	      
+	      // add type selector
+	      var typeEditorSelection = d3.select("#typeEditor").node();
+	      var htmlCollection = typeEditorSelection.children;
+	      var numEntries = htmlCollection.length;
+	      var i;
+	      var elementPrototypes = getElementPrototypes(element);
+	      for ( i = 0; i < numEntries; i++ )
+	        typeEditorSelection.removeChild(htmlCollection[0]);
+	      
+	      for ( i = 0; i < elementPrototypes.length; i++ ) {
+	        var optA = document.createElement('option');
+	        optA.innerHTML = elementPrototypes[i];
+	        typeEditorSelection.appendChild(optA);
+	      }
+	      // set the proper value in the selection
+	      typeEditorSelection.value = element.type();
+	      d3.select("#typeEditor").on("change", function (){
+	        elementTypeSelectionChanged(element);
+	      });
+	      
+	      
+	      // add characteristics selection
+	      var needChar = elementNeedsCharacteristics(element);
+	      d3.select("#property_characteristics_Container").classed("hidden", !needChar);
+	      if ( needChar === true ) {
+	        addElementsCharacteristics(element);
+	      }
+	      var fullURI = d3.select("#element_iriEditor").node().value;
+	      d3.select("#element_iriEditor").node().value = prefixModule.getPrefixRepresentationForFullURI(fullURI);
+	      d3.select("#element_iriEditor").node().title = fullURI;
+	      editSidebar.updateElementWidth();
+	    }
+	    
+	  };
+	  
+	  editSidebar.updateGeneralOntologyInfo = function (){
+	    var preferredLanguage = graph && graph.language ? graph.language() : null;
+	    
+	    // get it from graph.options
+	    var generalMetaObj = graph.options().getGeneralMetaObject();
+	    if ( generalMetaObj.hasOwnProperty("title") ) {
+	      // title has language to it -.-
+	      if ( typeof generalMetaObj.title === "object" ) {
+	        d3.select("#titleEditor").node().value = languageTools.textInLanguage(generalMetaObj.title, preferredLanguage);
+	      } else
+	        d3.select("#titleEditor").node().value = generalMetaObj.title;
+	    }
+	    if ( generalMetaObj.hasOwnProperty("iri") ) d3.select("#iriEditor").node().value = generalMetaObj.iri;
+	    if ( generalMetaObj.hasOwnProperty("version") ) d3.select("#versionEditor").node().value = generalMetaObj.version;
+	    if ( generalMetaObj.hasOwnProperty("author") ) d3.select("#authorsEditor").node().value = generalMetaObj.author;
+	    
+	    
+	    if ( generalMetaObj.hasOwnProperty("description") ) {
+	      
+	      if ( typeof generalMetaObj.description === "object" )
+	        d3.select("#descriptionEditor").node().value =
+	          languageTools.textInLanguage(generalMetaObj.description, preferredLanguage);
+	      else
+	        d3.select("#descriptionEditor").node().value = generalMetaObj.description;
+	    }
+	    else
+	      d3.select("#descriptionEditor").node().value = "No Description";
+	  };
+	  
+	  editSidebar.updateElementWidth = function (){
+	    var height = window.innerHeight - 40;
+	    var lsb_offset = d3.select("#logo").node().getBoundingClientRect().height + 5;
+	    var lsb_height = height - lsb_offset;
+	    d3.select("#containerForLeftSideBar").style("top", lsb_offset + "px");
+	    d3.select("#leftSideBarCollapseButton").style("top", lsb_offset + "px");
+	    d3.select("#containerForLeftSideBar").style("height", lsb_height + "px");
+	    
+	    var div_width = d3.select("#generalDetailsEdit").node().getBoundingClientRect().width;
+	    div_width += 10;
+	    
+	    var title_labelWidth = d3.select("#titleEditor-label").node().getBoundingClientRect().width + 20;
+	    var iri_labelWidth = d3.select("#iriEditor-label").node().getBoundingClientRect().width + 20;
+	    var version_labelWidth = d3.select("#versionEditor-label").node().getBoundingClientRect().width + 20;
+	    var author_labelWidth = d3.select("#authorsEditor-label").node().getBoundingClientRect().width + 20;
+	    //find max width;
+	    var maxW = 0;
+	    maxW = Math.max(maxW, title_labelWidth);
+	    maxW = Math.max(maxW, iri_labelWidth);
+	    maxW = Math.max(maxW, version_labelWidth);
+	    maxW = Math.max(maxW, author_labelWidth);
+	    
+	    var meta_inputWidth = div_width - maxW - 10;
+	    
+	    d3.select("#titleEditor").style("width", meta_inputWidth + "px");
+	    d3.select("#iriEditor").style("width", meta_inputWidth + "px");
+	    d3.select("#versionEditor").style("width", meta_inputWidth + "px");
+	    d3.select("#authorsEditor").style("width", meta_inputWidth + "px");
+	    
+	    
+	    var elementIri_width = d3.select("#element_iriEditor-label").node().getBoundingClientRect().width + 20;
+	    var elementLabel_width = d3.select("#element_labelEditor-label").node().getBoundingClientRect().width + 20;
+	    var elementType_width = d3.select("#typeEditor-label").node().getBoundingClientRect().width + 20;
+	    var elementDType_width = d3.select("#typeEditor_datatype-label").node().getBoundingClientRect().width + 20;
+	    
+	    maxW = 0;
+	    maxW = Math.max(maxW, elementIri_width);
+	    maxW = Math.max(maxW, elementLabel_width);
+	    maxW = Math.max(maxW, elementType_width);
+	    maxW = Math.max(maxW, elementDType_width);
+	    var selectedElement_inputWidth = div_width - maxW - 10;
+	    
+	    d3.select("#element_iriEditor").style("width", selectedElement_inputWidth + "px");
+	    d3.select("#element_labelEditor").style("width", selectedElement_inputWidth + "px");
+	    d3.select("#typeEditor").style("width", selectedElement_inputWidth + 4 + "px");
+	    d3.select("#typeEditor_datatype").style("width", selectedElement_inputWidth + 4 + "px");
+	    
+	    // update prefix Element width;
+	    var containerWidth = d3.select("#containerForPrefixURL").node().getBoundingClientRect().width;
+	    if ( containerWidth !== 0 ) {
+	      var inputs = d3.selectAll(".prefixInput");
+	      if ( inputs.node() ) {
+	        var prefixWidth = d3.selectAll(".prefixInput").node().getBoundingClientRect().width;
+	        d3.selectAll(".prefixURL").style("width", containerWidth - prefixWidth - 45 + "px");
+	      }
+	    }
+	  };
+	  
+	  function addElementsCharacteristics( element ){
+	    // save selected element for checkbox handler
+	    selectedElementForCharacteristics = element;
+	    var i;
+	    // KILL old elements
+	    var charSelectionNode = d3.select("#property_characteristics_Selection");
+	    var htmlCollection = charSelectionNode.node().children;
+	    if ( htmlCollection ) {
+	      var numEntries = htmlCollection.length;
+	      for ( var q = 0; q < numEntries; q++ ) {
+	        charSelectionNode.node().removeChild(htmlCollection[0]);
+	      }
+	    }
+	    // datatypes kind of ignored by the elementsNeedCharacteristics function
+	    // so we need to check if we are a node or not
+	    if ( element.attributes().indexOf("external") > -1 ) {
+	      // add external span to the div;
+	      var externalCharSpan = charSelectionNode.append("span");
+	      externalCharSpan.classed("spanForCharSelection", true);
+	      externalCharSpan.node().innerHTML = "external";
+	    }
+	    var filterContainer,
+	      filterCheckbox;
+	    if ( elementTools.isNode(element) === true ) {
+	      // add the deprecated characteristic;
+	      var arrayOfNodeChars = ["deprecated"];
+	      for ( i = 0; i < arrayOfNodeChars.length; i++ ) {
+	        filterContainer = charSelectionNode
+	          .append("div")
+	          .classed("checkboxContainer", true)
+	          .style("padding-top", "2px");
+	        
+	        filterCheckbox = filterContainer.append("input")
+	          .classed("filterCheckbox", true)
+	          .attr("id", "CharacteristicsCheckbox" + i)
+	          .attr("type", "checkbox")
+	          .attr("characteristics", arrayOfNodeChars[i])
+	          .property("checked", getPresentAttribute(element, arrayOfNodeChars[i]));
+	        //
+	        filterContainer.append("label")
+	          .attr("for", "CharacteristicsCheckbox" + i)
+	          .text(arrayOfNodeChars[i]);
+	        
+	        filterCheckbox.on("click", handleCheckBoxClick);
+	        
+	      }
+	    }
+	    
+	    else {
+	      // add the deprecated characteristic;
+	      var arrayOfPropertyChars = ["deprecated", "inverse functional", "functional", "transitive"];
+	      if ( elementTools.isDatatypeProperty(element) === true ) {
+	        arrayOfPropertyChars = ["deprecated", "functional"];
+	      }
+	      for ( i = 0; i < arrayOfPropertyChars.length; i++ ) {
+	        filterContainer = charSelectionNode
+	          .append("div")
+	          .classed("checkboxContainer", true)
+	          .style("padding-top", "2px");
+	        
+	        filterCheckbox = filterContainer.append("input")
+	          .classed("filterCheckbox", true)
+	          .attr("id", "CharacteristicsCheckbox" + i)
+	          .attr("type", "checkbox")
+	          .attr("characteristics", arrayOfPropertyChars[i])
+	          .property("checked", getPresentAttribute(element, arrayOfPropertyChars[i]));
+	        //
+	        filterContainer.append("label")
+	          .attr("for", "CharacteristicsCheckbox" + i)
+	          .text(arrayOfPropertyChars[i]);
+	        
+	        filterCheckbox.on("click", handleCheckBoxClick);
+	        
+	      }
+	    }
+	    
+	    
+	  }
+	  
+	  function getPresentAttribute( selectedElement, element ){
+	    return (selectedElement.attributes().indexOf(element) >= 0);
+	  }
+	  
+	  function handleCheckBoxClick(){
+	    var checked = this.checked;
+	    var char = this.getAttribute("characteristics");
+	    if ( checked === true ) {
+	      addAttribute(selectedElementForCharacteristics, char);
+	    } else {
+	      removeAttribute(selectedElementForCharacteristics, char);
+	    }
+	    // graph.executeColorExternalsModule();
+	    selectedElementForCharacteristics.redrawElement();
+	    // workaround to have the node still be focused as rendering element
+	    selectedElementForCharacteristics.focused(false);
+	    selectedElementForCharacteristics.toggleFocus();
+	    
+	  }
+	  
+	  
+	  function addAttribute( selectedElement, char ){
+	    if ( selectedElement.attributes().indexOf(char) === -1 ) {
+	      // not found add it
+	      var attr = selectedElement.attributes();
+	      attr.push(char);
+	      selectedElement.attributes(attr);
+	    }// indications string update;
+	    if ( selectedElement.indications().indexOf(char) === -1 ) {
+	      var indications = selectedElement.indications();
+	      indications.push(char);
+	      selectedElement.indications(indications);
+	    }
+	    // add visual attributes
+	    var visAttr;
+	    if ( selectedElement.visualAttributes().indexOf(char) === -1 ) {
+	      visAttr = selectedElement.visualAttributes();
+	      visAttr.push(char);
+	      selectedElement.visualAttributes(visAttr);
+	    }
+	    if ( getPresentAttribute(selectedElement, "external") && getPresentAttribute(selectedElement, "deprecated") ) {
+	      visAttr = selectedElement.visualAttributes();
+	      var visInd = visAttr.indexOf("external");
+	      if ( visInd > -1 ) {
+	        visAttr.splice(visInd, 1);
+	      }
+	      selectedElement.visualAttributes(visAttr);
+	    }
+	    
+	  }
+	  
+	  function removeAttribute( selectedElement, element ){
+	    var attr = selectedElement.attributes();
+	    var indications = selectedElement.indications();
+	    var visAttr = selectedElement.visualAttributes();
+	    var attrInd = attr.indexOf(element);
+	    if ( attrInd >= 0 ) {
+	      attr.splice(attrInd, 1);
+	    }
+	    var indInd = indications.indexOf(element);
+	    if ( indInd > -1 ) {
+	      indications.splice(indInd, 1);
+	    }
+	    var visInd = visAttr.indexOf(element);
+	    if ( visInd > -1 ) {
+	      visAttr.splice(visInd, 1);
+	    }
+	    selectedElement.attributes(attr);
+	    selectedElement.indications(indications);
+	    selectedElement.visualAttributes(visAttr);
+	    if ( element === "deprecated" ) {
+	      // set its to its original Style
+	      //typeBaseThign
+	      // todo : fix all different types
+	      if ( selectedElement.type() === "owl:Class" ) selectedElement.styleClass("class");
+	      if ( selectedElement.type() === "owl:DatatypeProperty" ) selectedElement.styleClass("datatypeproperty");
+	      if ( selectedElement.type() === "owl:ObjectProperty" ) selectedElement.styleClass("objectproperty");
+	      if ( selectedElement.type() === "owl:disjointWith" ) selectedElement.styleClass("disjointwith");
+	    }
+	  }
+	  
+	  
+	  function elementNeedsCharacteristics( element ){
+	    //TODO: Add more types
+	    if ( element.type() === "owl:Thing" ||
+	      element.type() === "rdfs:subClassOf" ||
+	      element.type() === "rdfs:Literal" ||
+	      element.type() === "rdfs:Datatype" ||
+	      element.type() === "rdfs:disjointWith" )
+	      return false;
+	    
+	    // if (element.attributes().indexOf("external")||
+	    //     element.attributes().indexOf("deprecated"))
+	    //     return true;
+	    return true;
+	    
+	  }
+	  
+	  function elementTypeSelectionChanged( element ){
+	    if ( elementTools.isNode(element) ) {
+	      if ( graph.changeNodeType(element) === false ) {
+	        //restore old value
+	        
+	        if ( elementTools.isDatatype(element) === true ) {
+	          
+	        }
+	        editSidebar.updateSelectionInformation(element);
+	      }
+	    }
+	    
+	    if ( elementTools.isProperty(element) ) {
+	      if ( graph.changePropertyType(element) === false ) {
+	        //restore old value
+	        editSidebar.updateSelectionInformation(element);
+	        
+	      }
+	    }
+	    
+	  }
+	  
+	  function getElementPrototypes( selectedElement ){
+	    var availiblePrototypes = [];
+	    // TODO the text should be also complied with the prefixes loaded into the ontology
+	    if ( elementTools.isProperty(selectedElement) ) {
+	      if ( selectedElement.type() === "owl:DatatypeProperty" )
+	        availiblePrototypes.push("owl:DatatypeProperty");
+	      else {
+	        availiblePrototypes.push("owl:ObjectProperty");
+	        // handling loops !
+	        if ( selectedElement.domain() !== selectedElement.range() ) {
+	          availiblePrototypes.push("rdfs:subClassOf");
+	        }
+	        availiblePrototypes.push("owl:disjointWith");
+	        availiblePrototypes.push("owl:allValuesFrom");
+	        availiblePrototypes.push("owl:someValuesFrom");
+	      }
+	      return availiblePrototypes;
+	    }
+	    if ( selectedElement.renderType() === "rect" ) {
+	      availiblePrototypes.push("rdfs:Literal");
+	      availiblePrototypes.push("rdfs:Datatype");
+	    } else {
+	      availiblePrototypes.push("owl:Class");
+	      availiblePrototypes.push("owl:Thing");
+	      //  TODO: ADD MORE TYPES
+	      // availiblePrototypes.push("owl:complementOf");
+	      // availiblePrototypes.push("owl:disjointUnionOf");
+	    }
+	    return availiblePrototypes;
+	  }
+	  
+	  
+	  function setupCollapsing(){
+	    // TODO : Decision , for now I want to have the control over the collapse expand operation of the
+	    // TODO : elements, otherwise the old approach will also randomly collapse other containers
+	    
+	    // adapted version of this example: http://www.normansblog.de/simple-jquery-accordion/
+	    function collapseContainers( containers ){
+	      containers.classed("hidden", true);
+	    }
+	    
+	    function expandContainers( containers ){
+	      containers.classed("hidden", false);
+	    }
+	    
+	    var triggers = d3.selectAll(".accordion-trigger");
+	    
+	    // Collapse all inactive triggers on startup
+	    // collapseContainers(d3.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div"));
+	    
+	    triggers.on("click", function (){
+	      var selectedTrigger = d3.select(this);
+	      if ( selectedTrigger.classed("accordion-trigger-active") ) {
+	        // Collapse the active (which is also the selected) trigger
+	        collapseContainers(d3.select(selectedTrigger.node().nextElementSibling));
+	        selectedTrigger.classed("accordion-trigger-active", false);
+	      } else {
+	        // Collapse the other trigger ...
+	        // collapseContainers(d3.selectAll(".accordion-trigger-active + div"));
+	        
+	        // ... and expand the selected one
+	        expandContainers(d3.select(selectedTrigger.node().nextElementSibling));
+	        selectedTrigger.classed("accordion-trigger-active", true);
+	      }
+	      editSidebar.updateElementWidth();
+	    });
+	  }
+	  
+	  return editSidebar;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 341:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {module.exports = function ( graph ){
+	  var configMenu = {},
+	    checkboxes = [];
+	  
+	  
+	  configMenu.setup = function (){
+	    var menuEntry = d3.select("#m_modes");
+	    menuEntry.on("mouseover", function (){
+	      var searchMenu = graph.options().searchMenu();
+	      searchMenu.hideSearchEntries();
+	    });
+	    
+	    addCheckBox("showZoomSlider", "Zoom controls", "#zoomSliderOption", graph.options().zoomSlider().showSlider, 0);
+	    addLabelWidthSlider("#maxLabelWidthSliderOption", "maxLabelWidth", "Max label width", graph.options().maxLabelWidth);
+	  };
+	  
+	  
+	  function addLabelWidthSlider( selector, identifier, label, onChangeFunction ){
+	    var sliderContainer,
+	      sliderValueLabel;
+	    
+	    sliderContainer = d3.select(selector)
+	      .append("div")
+	      .classed("distanceSliderContainer", true);
+	    
+	    var slider = sliderContainer.append("input")
+	      .attr("id", identifier + "Slider")
+	      .attr("type", "range")
+	      .attr("min", 20)
+	      .attr("max", 600)
+	      .attr("value", onChangeFunction())
+	      .attr("step", 10);
+	    sliderContainer.append("label")
+	      .classed("description", true)
+	      .attr("for", identifier + "Slider")
+	      .attr("id", identifier + "DescriptionLabel")
+	      .text(label);
+	    sliderValueLabel = sliderContainer.append("label")
+	      .classed("value", true)
+	      .attr("for", identifier + "Slider")
+	      .attr("id", identifier + "valueLabel")
+	      .text(onChangeFunction());
+	    
+	    slider.on("input", function (){
+	      var value = slider.property("value");
+	      onChangeFunction(value);
+	      sliderValueLabel.text(value);
+	      if ( graph.options().dynamicLabelWidth() === true )
+	        graph.animateDynamicLabelWidth();
+	    });
+	    
+	    // add wheel event to the slider
+	    slider.on("wheel", function (){
+	      if ( slider.node().disabled === true ) return;
+	      var wheelEvent = d3.event;
+	      var offset;
+	      if ( wheelEvent.deltaY < 0 ) offset = 10;
+	      if ( wheelEvent.deltaY > 0 ) offset = -10;
+	      var oldVal = parseInt(slider.property("value"));
+	      var newSliderValue = oldVal + offset;
+	      if ( newSliderValue !== oldVal ) {
+	        slider.property("value", newSliderValue);
+	        onChangeFunction(newSliderValue);
+	        slider.on("input")(); // << set text and update the graphStyles
+	      }
+	      d3.event.preventDefault();
+	    });
+	  }
+	  
+	  function addCheckBox( identifier, modeName, selector, onChangeFunc, updateLvl ){
+	    var configOptionContainer = d3.select(selector)
+	      .append("div")
+	      .classed("checkboxContainer", true);
+	    var configCheckbox = configOptionContainer.append("input")
+	      .classed("moduleCheckbox", true)
+	      .attr("id", identifier + "ConfigCheckbox")
+	      .attr("type", "checkbox")
+	      .property("checked", onChangeFunc());
+	    
+	    
+	    configCheckbox.on("click", function ( silent ){
+	      var isEnabled = configCheckbox.property("checked");
+	      onChangeFunc(isEnabled);
+	      if ( silent !== true ) {
+	        // updating graph when silent is false or the parameter is not given.
+	        if ( updateLvl === 1 ) {
+	          graph.lazyRefresh();
+	          //graph.redrawWithoutForce
+	        }
+	        if ( updateLvl === 2 ) {
+	          graph.update();
+	        }
+	        
+	        if ( updateLvl === 3 ) {
+	          graph.updateDraggerElements();
+	        }
+	      }
+	      
+	    });
+	    checkboxes.push(configCheckbox);
+	    configOptionContainer.append("label")
+	      .attr("for", identifier + "ConfigCheckbox")
+	      .text(modeName);
+	  }
+	  
+	  configMenu.setCheckBoxValue = function ( identifier, value ){
+	    for ( var i = 0; i < checkboxes.length; i++ ) {
+	      var cbdId = checkboxes[i].attr("id");
+	      if ( cbdId === identifier ) {
+	        checkboxes[i].property("checked", value);
+	        break;
+	      }
+	    }
+	  };
+	  
+	  configMenu.getCheckBoxValue = function ( id ){
+	    for ( var i = 0; i < checkboxes.length; i++ ) {
+	      var cbdId = checkboxes[i].attr("id");
+	      if ( cbdId === id ) {
+	        return checkboxes[i].property("checked");
+	      }
+	    }
+	  };
+	  
+	  configMenu.updateSettings = function (){
+	    var silent = true;
+	    checkboxes.forEach(function ( checkbox ){
+	      checkbox.on("click")(silent);
+	    });
+	  };
+	  
+	  return configMenu;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 342:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {module.exports = function ( graph ){
+	  /** some constants **/
+	  var PREDEFINED = 0,
+	    FILE_UPLOAD = 1,
+	    JSON_URL = 2,
+	    IRI_URL = 3;
+	  
+	  var PROGRESS_BAR_ERROR = 0,
+	    PROGRESS_BAR_BUSY = 1,
+	    PROGRESS_BAR_PERCENT = 2,
+	    progressBarMode = 1;
+	  
+	  var loadingWasSuccessFul = false;
+	  var missingImportsWarning = false;
+	  var showLoadingDetails = false;
+	  var visibilityStatus = true;
+	  
+	  var DEFAULT_JSON_NAME = "ontology"; // This file is loaded by default
+	  var conversion_sessionId;
+	  
+	  /** variable defs **/
+	  var loadingModule = {},
+	    menuContainer = d3.select("#loading-info"),
+	    loadingInfoContainer = d3.select("#loadingInfo-container"),
+	    detailsButton = d3.select("#show-loadingInfo-button"),
+	    closeButton = d3.select("#loadingIndicator_closeButton"),
+	    ontologyMenu,
+	    ontologyIdentifierFromURL;
+	  
+	  /** functon defs **/
+	  loadingModule.checkForScreenSize = function (){
+	    // checks for window size and adjusts the loading indicator
+	    var w = graph.options().width(),
+	      h = graph.options().height();
+	    
+	    if ( w < 270 ) {
+	      d3.select("#loading-info").classed("hidden", true);
+	    } else {
+	      // check if it should be visible
+	      if ( visibilityStatus === true ) {
+	        d3.select("#loading-info").classed("hidden", false);
+	      } else {
+	        d3.select("#loading-info").classed("hidden", true);
+	      }
+	    }
+	    if ( h < 150 ) {
+	      d3.select("#loadingInfo_msgBox").classed("hidden", true);
+	    } else {
+	      d3.select("#loadingInfo_msgBox").classed("hidden", false);
+	    }
+	    if ( h < 80 ) {
+	      d3.select("#progressBarContext").classed("hidden", true);
+	      d3.select("#layoutLoadingProgressBarContainer").style("height", "20px");
+	    } else {
+	      d3.select("#progressBarContext").classed("hidden", false);
+	      d3.select("#layoutLoadingProgressBarContainer").style("height", "50px");
+	    }
+	  };
+	  
+	  loadingModule.getMessageVisibilityStatus = function (){
+	    return visibilityStatus;
+	  };
+	  
+	  loadingModule.getProgressBarMode = function (){
+	    return progressBarMode;
+	  };
+	  
+	  loadingModule.successfullyLoadedOntology = function (){
+	    return loadingWasSuccessFul;
+	  };
+	  
+	  loadingModule.missingImportsWarning = function (){
+	    return missingImportsWarning;
+	  };
+	  
+	  loadingModule.setOntologyMenu = function ( m ){
+	    ontologyMenu = m;
+	  };
+	  
+	  loadingModule.showErrorDetailsMessage = function (){
+	    loadingModule.showLoadingIndicator();
+	    loadingModule.expandDetails();
+	    d3.select("#loadingIndicator_closeButton").classed("hidden", true);
+	    loadingModule.scrollDownDetails();
+	  };
+	  
+	  loadingModule.showWarningDetailsMessage = function (){
+	    d3.select("#currentLoadingStep").style("color", "#ff0");
+	    loadingModule.showLoadingIndicator();
+	    loadingModule.expandDetails();
+	    d3.select("#loadingIndicator_closeButton").classed("hidden", false);
+	    loadingModule.scrollDownDetails();
+	  };
+	  
+	  loadingModule.scrollDownDetails = function (){
+	    var scrollingElement = d3.select("#loadingInfo-container").node();
+	    scrollingElement.scrollTop = scrollingElement.scrollHeight;
+	  };
+	  
+	  loadingModule.hideLoadingIndicator = function (){
+	    d3.select("#loading-info").classed("hidden", true);
+	    visibilityStatus = false;
+	  };
+	  
+	  loadingModule.showLoadingIndicator = function (){
+	    d3.select("#loading-info").classed("hidden", false);
+	    visibilityStatus = true;
+	    
+	  };
+	  
+	  /** -- SETUP -- **/
+	  loadingModule.setup = function (){
+	    // create connections for close and details button;
+	    loadingInfoContainer.classed("hidden", !showLoadingDetails);
+	    detailsButton.on("click", function (){
+	      showLoadingDetails = !showLoadingDetails;
+	      loadingInfoContainer.classed("hidden", !showLoadingDetails);
+	      detailsButton.classed("accordion-trigger-active", showLoadingDetails);
+	    });
+	    
+	    closeButton.on("click", function (){
+	      menuContainer.classed("hidden", true);
+	    });
+	    loadingModule.setBusyMode();
+	  };
+	  
+	  loadingModule.updateSize = function (){
+	    showLoadingDetails = !(loadingInfoContainer.classed("hidden"));
+	    loadingInfoContainer.classed("hidden", !showLoadingDetails);
+	    detailsButton.classed("accordion-trigger-active", showLoadingDetails);
+	  };
+	  
+	  loadingModule.getDetailsState = function (){
+	    return showLoadingDetails;
+	  };
+	  
+	  loadingModule.expandDetails = function (){
+	    showLoadingDetails = true;
+	    loadingInfoContainer.classed("hidden", !showLoadingDetails);
+	    detailsButton.classed("accordion-trigger-active", showLoadingDetails);
+	  };
+	  
+	  loadingModule.collapseDetails = function (){
+	    showLoadingDetails = false;
+	    loadingInfoContainer.classed("hidden", !showLoadingDetails);
+	    detailsButton.classed("accordion-trigger-active", showLoadingDetails);
+	  };
+	  
+	  loadingModule.setBusyMode = function (){
+	    d3.select("#currentLoadingStep").style("color", "#fff");
+	    d3.select("#progressBarValue").node().innherHTML = "";
+	    d3.select("#progressBarValue").style("width", "20%");
+	    d3.select("#progressBarValue").classed("busyProgressBar", true);
+	    progressBarMode = PROGRESS_BAR_BUSY;
+	  };
+	  
+	  loadingModule.setSuccessful = function (){
+	    d3.select("#currentLoadingStep").style("color", "#0f0");
+	  };
+	  
+	  loadingModule.setErrorMode = function (){
+	    d3.select("#currentLoadingStep").style("color", "#f00");
+	    d3.select("#progressBarValue").style("width", "0%");
+	    d3.select("#progressBarValue").classed("busyProgressBar", false);
+	    d3.select("#progressBarValue").node().innherHTML = "";
+	    progressBarMode = PROGRESS_BAR_ERROR;
+	  };
+	  
+	  loadingModule.setPercentMode = function (){
+	    d3.select("#currentLoadingStep").style("color", "#fff");
+	    d3.select("#progressBarValue").classed("busyProgressBar", false);
+	    d3.select("#progressBarValue").node().innherHTML = "0%";
+	    d3.select("#progressBarValue").style("width", "0%");
+	    progressBarMode = PROGRESS_BAR_PERCENT;
+	  };
+	  
+	  loadingModule.setPercentValue = function ( val ){
+	    d3.select("#progressBarValue").node().innherHTML = val;
+	  };
+	  
+	  loadingModule.emptyGraphContentError = function (){
+	    graph.clearGraphData();
+	    ontologyMenu.append_message_toLastBulletPoint("<span style='color:red;'>failed</span>");
+	    ontologyMenu.append_message_toLastBulletPoint("<br><span style=\"color:red;\">Error: Received empty graph</span>");
+	    loadingWasSuccessFul = false;
+	    graph.handleOnLoadingError();
+	    loadingModule.setErrorMode();
+	  };
+	  
+	  loadingModule.isThreadCanceled = function (){
+	    
+	  };
+	  
+	  loadingModule.initializeLoader = function ( storeCache ){
+	    if ( storeCache === true && graph.getCachedJsonObj() !== null ) {
+	      // save cached ontology;
+	      var cachedContent = JSON.stringify(graph.getCachedJsonObj());
+	      var cachedName = ontologyIdentifierFromURL;
+	      ontologyMenu.setCachedOntology(cachedName, cachedContent);
+	    }
+	    conversion_sessionId = -10000;
+	    ontologyMenu.setConversionID(conversion_sessionId);
+	    ontologyMenu.stopLoadingTimer();
+	    graph.clearGraphData();
+	    loadingModule.setBusyMode();
+	    loadingModule.showLoadingIndicator();
+	    loadingModule.collapseDetails();
+	    missingImportsWarning = false;
+	    d3.select("#loadingIndicator_closeButton").classed("hidden", true);
+	    ontologyMenu.clearDetailInformation();
+	  };
+	  
+	  /** ------------------ URL Interpreter -------------- **/
+	  loadingModule.parseUrlAndLoadOntology = function ( storeCache ){
+	    var autoStore = true;
+	    if ( storeCache === false ) {
+	      autoStore = false;
+	    }
+	    
+	    graph.clearAllGraphData();
+	    loadingModule.initializeLoader(autoStore);
+	    var urlString = String(location);
+	    var parameterArray = identifyParameter(urlString);
+	    ontologyIdentifierFromURL = DEFAULT_JSON_NAME;
+	    loadGraphOptions(parameterArray); // identifies and loads configuration values
+	    var loadingMethod = identifyOntologyLoadingMethod(ontologyIdentifierFromURL);
+	    d3.select("#progressBarValue").node().innerHTML = " ";
+	    switch ( loadingMethod ) {
+	      case 0:
+	        loadingModule.from_presetOntology(ontologyIdentifierFromURL);
+	        break;
+	      case 1:
+	        loadingModule.from_FileUpload(ontologyIdentifierFromURL);
+	        break;
+	      case 2:
+	        loadingModule.from_JSON_URL(ontologyIdentifierFromURL);
+	        break;
+	      case 3:
+	        loadingModule.from_IRI_URL(ontologyIdentifierFromURL);
+	        break;
+	      default:
+	        console.log("Could not identify loading method , or not IMPLEMENTED YET");
+	    }
+	  };
+	  
+	  /** ------------------- LOADING --------------------- **/
+	  // the loading module splits into 3 branches
+	  // 1] PresetOntology Loading
+	  // 2] File Upload
+	  // 3] Load From URL / IRI
+	  
+	  loadingModule.from_JSON_URL = function ( fileName ){
+	    var filename = decodeURIComponent(fileName.slice("url=".length));
+	    ontologyIdentifierFromURL = filename;
+	    
+	    var ontologyContent = "";
+	    if ( ontologyMenu.cachedOntology(filename) ) {
+	      ontologyMenu.append_bulletPoint("Loading already cached ontology: " + filename);
+	      ontologyContent = ontologyMenu.cachedOntology(filename);
+	      loadingWasSuccessFul = true; // cached Ontology should be true;
+	      parseOntologyContent(ontologyContent);
+	      
+	    } else {
+	      // involve the o2v conveter;
+	      ontologyMenu.append_message("Retrieving ontology from JSON URL " + filename);
+	      requestServerTimeStampForJSON_URL(ontologyMenu.callbackLoad_JSON_FromURL, ["read?json=" + filename, filename]);
+	    }
+	  };
+	  
+	  function requestServerTimeStampForJSON_URL( callback, parameter ){
+	    d3.xhr("serverTimeStamp", "application/text", function ( error, request ){
+	      if ( error ) {
+	        // could not get server timestamp -> no connection to owl2vowl
+	        ontologyMenu.append_bulletPoint("Could not establish connection to OWL2VOWL service");
+	        fallbackForJSON_URL(callback, parameter);
+	      } else {
+	        conversion_sessionId = request.responseText;
+	        ontologyMenu.setConversionID(conversion_sessionId);
+	        parameter.push(conversion_sessionId);
+	        callback(parameter);
+	      }
+	    });
+	    
+	  }
+	  
+	  loadingModule.requestServerTimeStampForDirectInput = function ( callback, text ){
+	    d3.xhr("serverTimeStamp", "application/text", function ( error, request ){
+	      if ( error ) {
+	        // could not get server timestamp -> no connection to owl2vowl
+	        ontologyMenu.append_bulletPoint("Could not establish connection to OWL2VOWL service");
+	        loadingModule.setErrorMode();
+	        ontologyMenu.append_message_toLastBulletPoint("<br><span style='color:red'>Could not connect to OWL2VOWL service </span>");
+	        loadingModule.showErrorDetailsMessage();
+	        d3.select("#progressBarValue").style("width", "0%");
+	        d3.select("#progressBarValue").classed("busyProgressBar", false);
+	        d3.select("#progressBarValue").text("0%");
+	        
+	      } else {
+	        conversion_sessionId = request.responseText;
+	        ontologyMenu.setConversionID(conversion_sessionId);
+	        callback(text, ["conversionID" + conversion_sessionId, conversion_sessionId]);
+	      }
+	    });
+	  };
+	  
+	  loadingModule.from_IRI_URL = function ( fileName ){
+	    // owl2vowl converters the given ontology url and returns json file;
+	    var filename = decodeURIComponent(fileName.slice("iri=".length));
+	    ontologyIdentifierFromURL = filename;
+	    
+	    var ontologyContent = "";
+	    if ( ontologyMenu.cachedOntology(filename) ) {
+	      ontologyMenu.append_bulletPoint("Loading already cached ontology: " + filename);
+	      ontologyContent = ontologyMenu.cachedOntology(filename);
+	      loadingWasSuccessFul = true; // cached Ontology should be true;
+	      parseOntologyContent(ontologyContent);
+	    } else {
+	      // involve the o2v conveter;
+	      var encoded = encodeURIComponent(filename);
+	      ontologyMenu.append_bulletPoint("Retrieving ontology from IRI: " + filename);
+	      requestServerTimeStampForIRI_Converte(ontologyMenu.callbackLoad_Ontology_FromIRI, ["convert?iri=" + encoded, filename]);
+	    }
+	  };
+	  
+	  loadingModule.fromFileDrop = function ( fileName, file ){
+	    d3.select("#progressBarValue").node().innerHTML = " ";
+	    loadingModule.initializeLoader(false);
+	    
+	    ontologyMenu.append_bulletPoint("Retrieving ontology from dropped file: " + fileName);
+	    var ontologyContent = "";
+	    
+	    // two options here
+	    //1] Direct Json Upload
+	    if ( fileName.match(/\.json$/) ) {
+	      ontologyMenu.setConversionID(-10000);
+	      var reader = new FileReader();
+	      reader.readAsText(file);
+	      reader.onload = function (){
+	        ontologyContent = reader.result;
+	        ontologyIdentifierFromURL = fileName;
+	        parseOntologyContent(ontologyContent);
+	      };
+	    } else {
+	      //2] File Upload to OWL2VOWL Converter
+	      // 1) check if we can get a timeStamp;
+	      var parameterArray = [file, fileName];
+	      requestServerTimeStamp(ontologyMenu.callbackLoadFromOntology, parameterArray);
+	    }
+	  };
+	  
+	  
+	  loadingModule.from_FileUpload = function ( fileName ){
+	    loadingModule.setBusyMode();
+	    var filename = decodeURIComponent(fileName.slice("file=".length));
+	    ontologyIdentifierFromURL = filename;
+	    var ontologyContent = "";
+	    if ( ontologyMenu.cachedOntology(filename) ) {
+	      ontologyMenu.append_bulletPoint("Loading already cached ontology: " + filename);
+	      ontologyContent = ontologyMenu.cachedOntology(filename);
+	      loadingWasSuccessFul = true; // cached Ontology should be true;
+	      parseOntologyContent(ontologyContent);
+	      
+	    } else {
+	      // d3.select("#currentLoadingStep").node().innerHTML="Loading ontology from file "+ filename;
+	      ontologyMenu.append_bulletPoint("Retrieving ontology from file: " + filename);
+	      // get the file
+	      var selectedFile = d3.select("#file-converter-input").property("files")[0];
+	      // No selection -> this was triggered by the iri. Unequal names -> reuploading another file
+	      if ( !selectedFile || (filename && (filename !== selectedFile.name)) ) {
+	        ontologyMenu.append_message_toLastBulletPoint("<br><span style=\"color:red;\">No cached version of \"" + filename + "\" was found.</span><br>Please reupload the file.");
+	        loadingModule.setErrorMode();
+	        d3.select("#progressBarValue").classed("busyProgressBar", false);
+	        graph.handleOnLoadingError();
+	        return;
+	      } else {
+	        filename = selectedFile.name;
+	      }
+
+
+	// two options here
+	//1] Direct Json Upload
+	      if ( filename.match(/\.json$/) ) {
+	        ontologyMenu.setConversionID(-10000);
+	        var reader = new FileReader();
+	        reader.readAsText(selectedFile);
+	        reader.onload = function (){
+	          ontologyContent = reader.result;
+	          ontologyIdentifierFromURL = filename;
+	          parseOntologyContent(ontologyContent);
+	        };
+	      } else {
+	//2] File Upload to OWL2VOWL Converter
+	        // 1) check if we can get a timeStamp;
+	        var parameterArray = [selectedFile, filename];
+	        requestServerTimeStamp(ontologyMenu.callbackLoadFromOntology, parameterArray);
+	      }
+	    }
+	  };
+	  
+	  function fallbackForJSON_URL( callback, parameter ){
+	    ontologyMenu.append_message_toLastBulletPoint("<br>Trying to convert with other communication protocol.");
+	    callback(parameter);
+	    
+	  }
+	  
+	  function fallbackConversion( parameter ){
+	    ontologyMenu.append_message_toLastBulletPoint("<br>Trying to convert with other communication protocol.");
+	    var file = parameter[0];
+	    var name = parameter[1];
+	    var formData = new FormData();
+	    formData.append("ontology", file);
+	    
+	    var xhr = new XMLHttpRequest();
+	    xhr.open("POST", "convert", true);
+	    var ontologyContent = "";
+	    xhr.onload = function (){
+	      if ( xhr.status === 200 ) {
+	        ontologyContent = xhr.responseText;
+	        ontologyMenu.setCachedOntology(name, ontologyContent);
+	        ontologyIdentifierFromURL = name;
+	        missingImportsWarning = true; // using this variable for warnings
+	        ontologyMenu.append_message_toLastBulletPoint("<br>Success, <span style='color:yellow'>but you are using a deprecated OWL2VOWL service!<span>");
+	        parseOntologyContent(ontologyContent);
+	      }
+	    };
+	    
+	    // check what this thing is doing;
+	    xhr.onreadystatechange = function (){
+	      if ( xhr.readyState === 4 && xhr.status === 0 ) {
+	        ontologyMenu.append_message_toLastBulletPoint("<br>Old protocol also failed to establish connection to OWL2VOWL service!");
+	        loadingModule.setErrorMode();
+	        ontologyMenu.append_bulletPoint("Failed to load ontology");
+	        ontologyMenu.append_message_toLastBulletPoint("<br><span style='color:red'>Could not connect to OWL2VOWL service </span>");
+	        loadingModule.showErrorDetailsMessage();
+	      }
+	    };
+	    xhr.send(formData);
+	  }
+	  
+	  function requestServerTimeStampForIRI_Converte( callback, parameterArray ){
+	    d3.xhr("serverTimeStamp", "application/text", function ( error, request ){
+	      loadingModule.setBusyMode();
+	      if ( error ) {
+	        // could not get server timestamp -> no connection to owl2vowl
+	        ontologyMenu.append_bulletPoint("Could not establish connection to OWL2VOWL service");
+	        loadingModule.setErrorMode();
+	        ontologyMenu.append_bulletPoint("Failed to load ontology");
+	        ontologyMenu.append_message_toLastBulletPoint("<br><span style='color:red'>Could not connect to OWL2VOWL service </span>");
+	        loadingModule.showErrorDetailsMessage();
+	      } else {
+	        conversion_sessionId = request.responseText;
+	        ontologyMenu.setConversionID(conversion_sessionId);
+	        // update paramater for new communication paradigm
+	        parameterArray[0] = parameterArray[0] + "&sessionId=" + conversion_sessionId;
+	        parameterArray.push(conversion_sessionId);
+	        callback(parameterArray);
+	      }
+	    });
+	  }
+	  
+	  function requestServerTimeStamp( callback, parameterArray ){
+	    d3.xhr("serverTimeStamp", "application/text", function ( error, request ){
+	      if ( error ) {
+	        // could not get server timestamp -> no connection to owl2vowl
+	        ontologyMenu.append_bulletPoint("Could not establish connection to OWL2VOWL service");
+	        fallbackConversion(parameterArray); // tries o2v version0.3.4 communication
+	      } else {
+	        conversion_sessionId = request.responseText;
+	        ontologyMenu.setConversionID(conversion_sessionId);
+	        console.log("Request Session ID:" + conversion_sessionId);
+	        callback(parameterArray[0], parameterArray[1], conversion_sessionId);
+	      }
+	    });
+	  }
+	  
+	  loadingModule.directInput = function ( text ){
+	    ontologyMenu.clearDetailInformation();
+	    parseOntologyContent(text);
+	  };
+	  
+	  loadingModule.loadFromOWL2VOWL = function ( ontoContent, filename ){
+	    loadingWasSuccessFul = false;
+	    
+	    var old = d3.select("#bulletPoint_container").node().innerHTML;
+	    if ( old.indexOf("(with warnings)") !== -1 ) {
+	      missingImportsWarning = true;
+	    }
+	    
+	    if ( ontologyMenu.cachedOntology(ontoContent) ) {
+	      ontologyMenu.append_bulletPoint("Loading already cached ontology: " + filename);
+	      parseOntologyContent(ontoContent);
+	    } else { // set parse the ontology content;
+	      parseOntologyContent(ontoContent);
+	    }
+	  };
+	  
+	  loadingModule.from_presetOntology = function ( selectedOntology ){
+	    ontologyMenu.append_bulletPoint("Retrieving ontology: " + selectedOntology);
+	    loadPresetOntology(selectedOntology);
+	  };
+	  
+	  function loadPresetOntology( ontology ){
+	    // check if already cached in ontology menu?
+	    var f2r;
+	    var loadingNewOntologyForEditor=false;
+	    if ( ontology.indexOf("new_ontology") !== -1 ) {
+	      loadingModule.hideLoadingIndicator();
+	      graph.showEditorHintIfNeeded();
+	      f2r = "./data/new_ontology.json";
+	      loadingNewOntologyForEditor=true;
+	    }
+	    
+	    loadingWasSuccessFul = false;
+	    var ontologyContent = "";
+	    if ( ontologyMenu.cachedOntology(ontology) ) {
+	      ontologyMenu.append_bulletPoint("Loading already cached ontology: " + ontology);
+	      ontologyContent = ontologyMenu.cachedOntology(ontology);
+	      loadingWasSuccessFul = true; // cached Ontology should be true;
+	      loadingModule.showLoadingIndicator();
+	      parseOntologyContent(ontologyContent);
+	      
+	    } else {
+	      // read the file name
+	      
+	      var fileToRead = "./data/" + ontology + ".json";
+	      if ( f2r ) {
+	        fileToRead = f2r;
+	      } // overwrite the newOntology Index
+	      // read file
+	      d3.xhr(fileToRead, "application/json", function ( error, request ){
+	        var loadingSuccessful = !error;
+	        if ( loadingSuccessful ) {
+	          ontologyContent = request.responseText;
+	          parseOntologyContent(ontologyContent);
+	        } else {
+
+	          if (loadingNewOntologyForEditor){
+	            ontologyContent = '{\n' +
+	              '  "_comment": "Empty ontology for WebVOWL Editor",\n' +
+	              '  "header": {\n' +
+	              '    "languages": [\n' +
+	              '      "en"\n' +
+	              '    ],\n' +
+	              '    "baseIris": [\n' +
+	              '      "http://www.w3.org/2000/01/rdf-schema"\n' +
+	              '    ],\n' +
+	              '    "iri": "http://visualdataweb.org/newOntology/",\n' +
+	              '    "title": {\n' +
+	              '      "en": "New ontology"\n' +
+	              '    },\n' +
+	              '    "description": {\n' +
+	              '      "en": "New ontology description"\n' +
+	              '    }\n' +
+	              '  },\n' +
+	              '  "namespace": [],\n' +
+	              '  "metrics": {\n' +
+	              '    "classCount": 0,\n' +
+	              '    "datatypeCount": 0,\n' +
+	              '    "objectPropertyCount": 0,\n' +
+	              '    "datatypePropertyCount": 0,\n' +
+	              '    "propertyCount": 0,\n' +
+	              '    "nodeCount": 0,\n' +
+	              '    "individualCount": 0\n' +
+	              '  }\n' +
+	              '}\n';
+	            parseOntologyContent(ontologyContent);
+	          }else{
+	          // some error occurred
+	          ontologyMenu.append_bulletPoint("Failed to load: " + ontology);
+	          if (error.status===0){ // assumption this is CORS error when running locally (error status == 0)
+	            ontologyMenu.append_message_toLastBulletPoint(" <span style='color: red'>ERROR STATUS:</span> " + error.status);
+	            if (window.location.toString().startsWith("file:/")){
+	              ontologyMenu.append_message_toLastBulletPoint("<br><p>WebVOWL runs in a local instance.</p>");
+	              ontologyMenu.append_message_toLastBulletPoint("<p>CORS prevents to automatically load files on host system.</p>");
+	              ontologyMenu.append_message_toLastBulletPoint("<p>You can load preprocessed ontologies (i.e. VOWL-JSON files) using the upload feature in the ontology menu or by dragging the files and dropping them on the canvas.</p>");
+	              ontologyMenu.append_message_toLastBulletPoint("<p><i>Hint: </i>Note that the conversion of ontologies into the VOWL-JSON format is not part of WebVOWL but requires an additional converter such as OWL2VOWL.</p>");
+	              ontologyMenu.append_message_toLastBulletPoint("<p>Ontologies can be created using the editor mode (i.e. activate editing mode in <b>Modes</b> menu and create a new ontology using the <b>Ontology</b> menu.</p>");
+	            }
+	          }else {
+	            ontologyMenu.append_message_toLastBulletPoint(" <span style='color: red'>ERROR STATUS:</span> " + error.status);
+	          }
+
+
+
+	          graph.handleOnLoadingError();
+	          loadingModule.setErrorMode();
+	          }
+	        }
+	      });
+	    }
+	  }
+	  
+	  
+	  /** -- PARSE JSON CONTENT -- **/
+	  function parseOntologyContent( content ){
+	    
+	    ontologyMenu.append_bulletPoint("Reading ontology graph ... ");
+	    var _loader = ontologyMenu.getLoadingFunction();
+	    _loader(content, ontologyIdentifierFromURL, "noAlternativeNameYet");
+	  }
+	  
+	  loadingModule.notValidJsonFile = function (){
+	    graph.clearGraphData();
+	    ontologyMenu.append_message_toLastBulletPoint(" <span style='color:red;'>failed</span>");
+	    ontologyMenu.append_message_toLastBulletPoint("<br><span style='color:red;'>Error: Received empty graph</span>");
+	    loadingWasSuccessFul = false;
+	    graph.handleOnLoadingError();
+	    
+	  };
+	  
+	  loadingModule.validJsonFile = function (){
+	    ontologyMenu.append_message_toLastBulletPoint("done");
+	    loadingWasSuccessFul = true;
+	  };
+	  
+	  
+	  /** --- HELPER FUNCTIONS **/
+	  
+	  function identifyParameter( url ){
+	    var numParameters = (url.match(/#/g) || []).length;
+	    // create parameters array
+	    var paramArray = [];
+	    if ( numParameters > 0 ) {
+	      var tokens = url.split("#");
+	      // skip the first token since it is the address of the server
+	      for ( var i = 1; i < tokens.length; i++ ) {
+	        if ( tokens[i].length === 0 ) {
+	          // this token belongs actually to the last paramArray
+	          paramArray[paramArray.length - 1] = paramArray[paramArray.length - 1] + "#";
+	        } else {
+	          paramArray.push(tokens[i]);
+	        }
+	      }
+	    }
+	    return paramArray;
+	  }
+	  
+	  
+	  function loadGraphOptions( parameterArray ){
+	    var optString = "opts=";
+	    
+	    function loadDefaultConfig(){
+	      graph.options().setOptionsFromURL(graph.options().defaultConfig(), false);
+	    }
+	    
+	    function loadCustomConfig( opts ){
+	      var changeEditingFlag = false;
+	      var defObj = graph.options().defaultConfig();
+	      for ( var i = 0; i < opts.length; i++ ) {
+	        var keyVal = opts[i].split('=');
+	        if ( keyVal[0] === "editorMode" ) {
+	          changeEditingFlag = true;
+	        }
+	        defObj[keyVal[0]] = keyVal[1];
+	      }
+	      graph.options().setOptionsFromURL(defObj, changeEditingFlag);
+	    }
+	    
+	    function identifyOptions( paramArray ){
+	      if ( paramArray[0].indexOf(optString) >= 0 ) {
+	        // parse the parameters;
+	        var parameterLength = paramArray[0].length;
+	        var givenOptionsStr = paramArray[0].substr(5, parameterLength - 6);
+	        var optionsArray = givenOptionsStr.split(';');
+	        loadCustomConfig(optionsArray);
+	      } else {
+	        ontologyIdentifierFromURL = paramArray[0];
+	        loadDefaultConfig();
+	      }
+	    }
+	    
+	    function identifyOptionsAndOntology( paramArray ){
+	      
+	      if ( paramArray[0].indexOf(optString) >= 0 ) {
+	        // parse the parameters;
+	        var parameterLength = paramArray[0].length;
+	        var givenOptionsStr = paramArray[0].substr(5, parameterLength - 6);
+	        var optionsArray = givenOptionsStr.split(';');
+	        loadCustomConfig(optionsArray);
+	      } else {
+	        loadDefaultConfig();
+	      }
+	      ontologyIdentifierFromURL = paramArray[1];
+	    }
+	    
+	    switch ( parameterArray.length ) {
+	      case 0:
+	        loadDefaultConfig();
+	        break;
+	      case 1:
+	        identifyOptions(parameterArray);
+	        break;
+	      case 2:
+	        identifyOptionsAndOntology(parameterArray);
+	        break;
+	      default :
+	        console.log("To many input parameters , loading default config");
+	        loadDefaultConfig();
+	        ontologyIdentifierFromURL = "ERROR_TO_MANY_INPUT_PARAMETERS";
+	    }
+	  }
+	  
+	  
+	  function identifyOntologyLoadingMethod( url ){
+	    var iriKey = "iri=";
+	    var urlKey = "url=";
+	    var fileKey = "file=";
+	    
+	    var method = -1;
+	    if ( url.substr(0, fileKey.length) === fileKey ) {
+	      method = FILE_UPLOAD;
+	    } else if ( url.substr(0, urlKey.length) === urlKey ) {
+	      method = JSON_URL;
+	    } else if ( url.substr(0, iriKey.length) === iriKey ) {
+	      method = IRI_URL;
+	    } else {
+	      method = PREDEFINED;
+	    }
+	    return method;
+	  }
+	  
+	  return loadingModule;
+	}
+	;
+
+
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 343:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {module.exports = function ( graph ){
+	  /** variable defs **/
+	  var warningModule = {};
+	  var superContainer = d3.select("#WarningErrorMessages");
+	  var _messageContainers = [];
+	  var _messageContext = [];
+	  var _visibleStatus = [];
+	  
+	  var _filterHintId;
+	  var _editorHintId;
+	  var _messageId = -1;
+	  superContainer.style("display", "inline-block");
+	  var cssStyleIndex = 0;
+	  var styleSelectorIndex = 2;
+	  
+
+	  // helper for standalone webvowl in chrome
+	  function createCSSSelector( name, rules ){
+	    var style = document.createElement('style');
+	    style.type = 'text/css';
+	    document.getElementsByTagName('head')[0].appendChild(style);
+	    if ( !(style.sheet || {}).insertRule )
+	      (style.styleSheet || style.sheet).addRule(name, rules);
+	    else
+	      style.sheet.insertRule(name + "{" + rules + "}", 0);
+	  }
+	  
+	  
+	  function findCSS_Index(){
+	    createCSSSelector("@keyframes msg_CollapseAnimation", " 0% { top: 0; } 100% { top: -400px;}");
+	    console.log(document.styleSheets );
+	  }
+	  
+	  findCSS_Index();
+	  
+	  warningModule.addMessageBox = function (){
+	    
+	    // add a container;
+	    _messageId++;
+	    var messageContainer = d3.select("#WarningErrorMessages").append("div");
+	    messageContainer.node().id = "messageContainerId_" + _messageId;
+	    
+	    var messageContext = messageContainer.append("div");
+	    messageContext.node().id = "messageContextId_" + _messageId;
+	    messageContext.style("top", "0");
+	    messageContainer.style("position", "relative");
+	    messageContainer.style("width", "100%");
+	    //save in array
+	    _messageContainers.push(messageContainer);
+	    _messageContext.push(messageContext);
+	    
+	    // add animation to the container
+	    messageContainer.node().addEventListener("animationend", _msgContainer_animationEnd);
+	    
+	    // set visible flag that is used in end of animation
+	    _visibleStatus[_messageId] = true;
+	    return _messageId;
+	  };
+	  
+	  function _msgContainer_animationEnd(){
+	    var containerId = this.id;
+	    var tokens = containerId.split("_")[1];
+	    var mContainer = d3.select("#" + containerId);
+	    // get number of children
+	    mContainer.classed("hidden", !_visibleStatus[tokens]);
+	    // clean up DOM
+	    if ( !_visibleStatus[tokens] ) {
+	      mContainer.remove();
+	      _messageContext[tokens] = null;
+	      _messageContainers[tokens] = null;
+	    }
+	    // remove event listener
+	    var c = d3.select(this);
+	    // c.node().removeEventListener("animationend",_msgContainer_animationEnd);
+	  }
+	  
+	  warningModule.createMessageContext = function ( id ){
+	    var warningContainer = _messageContext[id];
+	    var moduleContainer = _messageContainers[id];
+	    var generalHint = warningContainer.append('div');
+	    generalHint.node().innerHTML = "";
+	    _editorHintId = id;
+	    /** Editing mode activated. You can now modify an existing ontology or create a new one via the <em>ontology</em> menu. You can save any ontology using the <em>export</em> menu (and exporting it as TTL file).**/
+	    generalHint.node().innerHTML += "Editing mode activated.<br>" +
+	      "You can now modify an existing ontology or create a new one via the <em>ontology</em> menu.<br>" +
+	      "You can save any ontology using the <em>export</em> menu (and exporting it as TTL file).";
+	    
+	    generalHint.style("padding", "5px");
+	    generalHint.style("line-height", "1.2em");
+	    generalHint.style("font-size", "1.2em");
+	    
+	    
+	    var ul = warningContainer.append('ul');
+	    ul.append('li').node().innerHTML = "Create a class with <b>double click / tap</b> on empty canvas area.";
+	    ul.append('li').node().innerHTML = "Edit names with <b>double click / tap</b> on element.</li>";
+	    ul.append('li').node().innerHTML = "Selection of default constructors is provided in the left sidebar.";
+	    ul.append('li').node().innerHTML = "Additional editing functionality is provided in the right sidebar.";
+	    
+	    
+	    var gotItButton = warningContainer.append("label");
+	    gotItButton.node().id = "killWarningErrorMessages_" + id;
+	    gotItButton.node().innerHTML = "Got It";
+	    gotItButton.on("click", warningModule.closeMessage);
+	    
+	    moduleContainer.classed("hidden", false);
+	    moduleContainer.style("-webkit-animation-name", "warn_ExpandAnimation");
+	    moduleContainer.style("-webkit-animation-duration", "0.5s");
+	  };
+	  
+	  warningModule.showMessage = function ( id ){
+	    var moduleContainer = _messageContainers[id];
+	    moduleContainer.classed("hidden", false);
+	    moduleContainer.style("-webkit-animation-name", "warn_ExpandAnimation");
+	    moduleContainer.style("-webkit-animation-duration", "0.5s");
+	  };
+	  
+	  warningModule.closeMessage = function ( id ){
+	    var nId;
+	    if ( id === undefined ) {
+	      var givenId = this.id;
+	      nId = givenId.split("_")[1];
+	    } else {
+	      nId = id;
+	    }
+	    if ( id && id.indexOf("_") !== -1 ) {
+	      nId = id.split("_")[1];
+	    }
+	    _visibleStatus[nId] = false;
+	    // get module;
+	    var moduleContainer = _messageContainers[nId];
+	    moduleContainer.style("-webkit-animation-name", "warn_CollapseAnimation");
+	    moduleContainer.style("-webkit-animation-duration", "0.5s");
+	    
+	    var m_height = moduleContainer.node().getBoundingClientRect().height;
+	    
+	    // find my id in the children
+	    var pNode = moduleContainer.node().parentNode;
+	    
+	    var followingChildren = [];
+	    var pChild = pNode.children;
+	    var pChild_len = pChild.length;
+	    var containerId = moduleContainer.node().id;
+	    var found_me = false;
+	    for ( var i = 0; i < pChild_len; i++ ) {
+	      if ( found_me === true ) {
+	        followingChildren.push(pChild[i].id);
+	      }
+	      
+	      if ( containerId === pChild[i].id ) {
+	        found_me = true;
+	      }
+	    }
+	    
+	    for ( var fc = 0; fc < followingChildren.length; fc++ ) {
+	      var child = d3.select("#" + followingChildren[fc]);
+	      // get the document style and overwrite it;
+	      var superCss = document.styleSheets[styleSelectorIndex].cssRules[cssStyleIndex];
+	      // remove the existing 0% and 100% rules
+	      superCss.deleteRule("0%");
+	      superCss.deleteRule("100%");
+	      
+	      superCss.appendRule("0%   {top: 0;}");
+	      superCss.appendRule("100% {top: -" + m_height + "px;");
+	      
+	      child.style("-webkit-animation-name", "msg_CollapseAnimation");
+	      child.style("-webkit-animation-duration", "0.5s");
+	      child.node().addEventListener("animationend", _child_animationEnd);
+	    }
+	  };
+	  
+	  function _child_animationEnd(){
+	    var c = d3.select(this);
+	    c.style("-webkit-animation-name", "");
+	    c.style("-webkit-animation-duration", "");
+	    c.node().removeEventListener("animationend", _child_animationEnd);
+	  }
+	  
+	  warningModule.closeFilterHint = function (){
+	    if ( _messageContainers[_filterHintId] ) {
+	      _messageContainers[_filterHintId].classed("hidden", true);
+	      _messageContainers[_filterHintId].remove();
+	      _messageContainers[_filterHintId] = null;
+	      _messageContext[_filterHintId] = null;
+	      _visibleStatus[_filterHintId] = false;
+	    }
+	  };
+	  
+	  warningModule.showEditorHint = function (){
+	    var id = warningModule.addMessageBox();
+	    warningModule.createMessageContext(id);
+	  };
+
+	  warningModule.showExporterWarning=function (){
+	    warningModule.showWarning("Can not export ontology", "Detected unsupported ontology axioms, (e.g. owl:Union)", "Ontology is not exported", 1, false);
+	  };
+
+	  
+	  
+	  warningModule.responseWarning = function ( header, reason, action, callback, parameterArray, forcedWarning ){
+	    var id = warningModule.addMessageBox();
+	    var warningContainer = _messageContext[id];
+	    var moduleContainer = _messageContainers[id];
+	    _visibleStatus[id] = true;
+	    d3.select("#blockGraphInteractions").classed("hidden", false);
+	    var graphWidth = 0.5 * graph.options().width();
+	    
+	    if ( header.length > 0 ) {
+	      var head = warningContainer.append("div");
+	      head.style("padding", "5px");
+	      var titleHeader = head.append("div");
+	      // some classes
+	      titleHeader.style("display", "inline-flex");
+	      titleHeader.node().innerHTML = "<b>Warning:</b>";
+	      titleHeader.style("padding-right", "3px");
+	      var msgHeader = head.append("div");
+	      // some classes
+	      msgHeader.style("display", "inline-flex");
+	      msgHeader.style("max-width", graphWidth + "px");
+	      
+	      msgHeader.node().innerHTML = header;
+	    }
+	    if ( reason.length > 0 ) {
+	      var reasonContainer = warningContainer.append("div");
+	      reasonContainer.style("padding", "5px");
+	      var reasonHeader = reasonContainer.append("div");
+	      // some classes
+	      reasonHeader.style("display", "inline-flex");
+	      reasonHeader.style("padding-right", "3px");
+	      
+	      reasonHeader.node().innerHTML = "<b>Reason:</b>";
+	      var msgReason = reasonContainer.append("div");
+	      // some classes
+	      msgReason.style("display", "inline-flex");
+	      msgReason.style("max-width", graphWidth + "px");
+	      msgReason.node().innerHTML = reason;
+	    }
+	    if ( action.length > 0 ) {
+	      var actionContainer = warningContainer.append("div");
+	      actionContainer.style("padding", "5px");
+	      var actionHeader = actionContainer.append("div");
+	      // some classes
+	      actionHeader.style("display", "inline-flex");
+	      actionHeader.style("padding-right", "8px");
+	      actionHeader.node().innerHTML = "<b>Action:</b>";
+	      var msgAction = actionContainer.append("div");
+	      // some classes
+	      msgAction.style("display", "inline-flex");
+	      msgAction.style("max-width", graphWidth + "px");
+	      msgAction.node().innerHTML = action;
+	    }
+	    
+	    var gotItButton = warningContainer.append("label");
+	    gotItButton.node().id = "killWarningErrorMessages_" + id;
+	    gotItButton.node().innerHTML = "Continue";
+	    gotItButton.on("click", function (){
+	      warningModule.closeMessage(this.id);
+	      d3.select("#blockGraphInteractions").classed("hidden", true);
+	      callback(parameterArray[0], parameterArray[1], parameterArray[2], parameterArray[3]);
+	    });
+	    warningContainer.append("span").node().innerHTML = "|";
+	    var cancelButton = warningContainer.append("label");
+	    cancelButton.node().id = "cancelButton_" + id;
+	    cancelButton.node().innerHTML = "Cancel";
+	    cancelButton.on("click", function (){
+	      warningModule.closeMessage(this.id);
+	      d3.select("#blockGraphInteractions").classed("hidden", true);
+	    });
+	    moduleContainer.classed("hidden", false);
+	    moduleContainer.style("-webkit-animation-name", "warn_ExpandAnimation");
+	    moduleContainer.style("-webkit-animation-duration", "0.5s");
+	  };
+	  
+	  warningModule.showFilterHint = function (){
+	    var id = warningModule.addMessageBox();
+	    var warningContainer = _messageContext[id];
+	    var moduleContainer = _messageContainers[id];
+	    _visibleStatus[id] = true;
+	    
+	    _filterHintId = id;
+	    var generalHint = warningContainer.append('div');
+	    /** Editing mode activated. You can now modify an existing ontology or create a new one via the <em>ontology</em> menu. You can save any ontology using the <em>export</em> menu (and exporting it as TTL file).**/
+	    generalHint.node().innerHTML = "Collapsing filter activated.<br>" +
+	      "The number of visualized elements has been automatically reduced.<br>" +
+	      "Use the degree of collapsing slider in the <em>filter</em> menu to adjust the visualization.<br><br>" +
+	      "<em>Note:</em> A performance decrease could be experienced with a growing amount of visual elements in the graph.";
+	    
+	    
+	    generalHint.style("padding", "5px");
+	    generalHint.style("line-height", "1.2em");
+	    generalHint.style("font-size", "1.2em");
+	    
+	    var gotItButton = warningContainer.append("label");
+	    gotItButton.node().id = "killFilterMessages_" + id;
+	    gotItButton.node().innerHTML = "Got It";
+	    gotItButton.on("click", warningModule.closeMessage);
+	    
+	    moduleContainer.classed("hidden", false);
+	    moduleContainer.style("-webkit-animation-name", "warn_ExpandAnimation");
+	    moduleContainer.style("-webkit-animation-duration", "0.5s");
+	  };
+	  
+	  warningModule.showMultiFileUploadWarning = function (){
+	    var id = warningModule.addMessageBox();
+	    var warningContainer = _messageContext[id];
+	    var moduleContainer = _messageContainers[id];
+	    _visibleStatus[id] = true;
+	    
+	    _filterHintId = id;
+	    var generalHint = warningContainer.append('div');
+	    
+	    generalHint.node().innerHTML = "Uploading multiple files is not supported.<br>";
+	    
+	    generalHint.style("padding", "5px");
+	    generalHint.style("line-height", "1.2em");
+	    generalHint.style("font-size", "1.2em");
+	    
+	    var gotItButton = warningContainer.append("label");
+	    gotItButton.node().id = "killFilterMessages_" + id;
+	    gotItButton.node().innerHTML = "Got It";
+	    gotItButton.on("click", warningModule.closeMessage);
+	    
+	    moduleContainer.classed("hidden", false);
+	    moduleContainer.style("-webkit-animation-name", "warn_ExpandAnimation");
+	    moduleContainer.style("-webkit-animation-duration", "0.5s");
+	  };
+	  
+	  warningModule.showWarning = function ( header, reason, action, type, forcedWarning, additionalOpts ){
+	    var id = warningModule.addMessageBox();
+	    var warningContainer = _messageContext[id];
+	    var moduleContainer = _messageContainers[id];
+	    _visibleStatus[id] = true;
+	    
+	    // add new one;
+	    var graphWidth = 0.5 * graph.options().width();
+	    
+	    if ( header.length > 0 ) {
+	      var head = warningContainer.append("div");
+	      head.style("padding", "5px");
+	      var titleHeader = head.append("div");
+	      // some classes
+	      titleHeader.style("display", "inline-flex");
+	      titleHeader.node().innerHTML = "<b>Warning:</b>";
+	      titleHeader.style("padding-right", "3px");
+	      var msgHeader = head.append("div");
+	      // some classes
+	      msgHeader.style("display", "inline-flex");
+	      msgHeader.style("max-width", graphWidth + "px");
+	      
+	      msgHeader.node().innerHTML = header;
+	    }
+	    if ( reason.length > 0 ) {
+	      var reasonContainer = warningContainer.append("div");
+	      reasonContainer.style("padding", "5px");
+	      var reasonHeader = reasonContainer.append("div");
+	      // some classes
+	      reasonHeader.style("display", "inline-flex");
+	      reasonHeader.style("padding-right", "3px");
+	      
+	      reasonHeader.node().innerHTML = "<b>Reason:</b>";
+	      var msgReason = reasonContainer.append("div");
+	      // some classes
+	      msgReason.style("display", "inline-flex");
+	      msgReason.style("max-width", graphWidth + "px");
+	      msgReason.node().innerHTML = reason;
+	    }
+	    if ( action.length > 0 ) {
+	      var actionContainer = warningContainer.append("div");
+	      actionContainer.style("padding", "5px");
+	      var actionHeader = actionContainer.append("div");
+	      // some classes
+	      actionHeader.style("display", "inline-flex");
+	      actionHeader.style("padding-right", "8px");
+	      actionHeader.node().innerHTML = "<b>Action:</b>";
+	      var msgAction = actionContainer.append("div");
+	      // some classes
+	      msgAction.style("display", "inline-flex");
+	      msgAction.style("max-width", graphWidth + "px");
+	      msgAction.node().innerHTML = action;
+	    }
+	    
+	    var gotItButton;
+	    if ( type === 1 ) {
+	      gotItButton = warningContainer.append("label");
+	      gotItButton.node().id = "killWarningErrorMessages_" + id;
+	      gotItButton.node().innerHTML = "Got It";
+	      gotItButton.on("click", warningModule.closeMessage);
+	    }
+	    
+	    if ( type === 2 ) {
+	      gotItButton = warningContainer.append("label");
+	      gotItButton.node().id = "killWarningErrorMessages_" + id;
+	      gotItButton.node().innerHTML = "Got It";
+	      gotItButton.on("click", warningModule.closeMessage);
+	      warningContainer.append("span").node().innerHTML = "|";
+	      var zoomToElementButton = warningContainer.append("label");
+	      zoomToElementButton.node().id = "zoomElementThing_" + id;
+	      zoomToElementButton.node().innerHTML = "Zoom to element ";
+	      zoomToElementButton.on("click", function (){
+	        // assume the additional Element is for halo;
+	        graph.zoomToElementInGraph(additionalOpts);
+	      });
+	      warningContainer.append("span").node().innerHTML = "|";
+	      var ShowElementButton = warningContainer.append("label");
+	      ShowElementButton.node().id = "showElementThing_" + id;
+	      ShowElementButton.node().innerHTML = "Indicate element";
+	      ShowElementButton.on("click", function (){
+	        // assume the additional Element is for halo;
+	        if ( additionalOpts.halo() === false ) {
+	          additionalOpts.drawHalo();
+	          graph.updatePulseIds([additionalOpts.id()]);
+	        } else {
+	          additionalOpts.removeHalo();
+	          additionalOpts.drawHalo();
+	          graph.updatePulseIds([additionalOpts.id()]);
+	        }
+	      });
+	    }
+	    moduleContainer.classed("hidden", false);
+	    moduleContainer.style("-webkit-animation-name", "warn_ExpandAnimation");
+	    moduleContainer.style("-webkit-animation-duration", "0.5s");
+	    moduleContainer.classed("hidden", false);
+	  };
+	  
+	  return warningModule;
+	};
+
+
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ }),
+
+/***/ 344:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(d3) {module.exports = function ( graph ){
+	  /** variable defs **/
+	  var directInputModule = {};
+	  var inputContainer = d3.select("#DirectInputContent");
+	  inputContainer.style("top", "0");
+	  inputContainer.style("position", "absolute");
+	  var textArea = d3.select("#directInputTextArea");
+	  var visibleContainer = false;
+	  
+	  inputContainer.style("border", "1px solid black");
+	  inputContainer.style("padding", "5px");
+	  inputContainer.style("background", "#fff");
+	  
+	  
+	  // connect upload and close button;
+	  directInputModule.handleDirectUpload = function (){
+	    
+	    var text = textArea.node().value;
+	    var jsonOBJ;
+	    try {
+	      jsonOBJ = JSON.parse(text);
+	      graph.options().loadingModule().directInput(text);
+	      // close if successful
+	      if ( jsonOBJ.class.length > 0 ) {
+	        directInputModule.setDirectInputMode(false);
+	      }
+	    }
+	    catch ( e ) {
+	      try {
+	        // Initialize;
+	        graph.options().loadingModule().initializeLoader();
+	        graph.options().loadingModule().requestServerTimeStampForDirectInput(
+	          graph.options().ontologyMenu().callbackLoad_Ontology_From_DirectInput, text
+	        );
+	      } catch ( error2 ) {
+	        console.log("Error " + error2);
+	        d3.select("#Error_onLoad").classed("hidden", false);
+	        d3.select("#Error_onLoad").node().innerHTML = "Failed to convert the input!";
+	      }
+	    }
+	  };
+	  
+	  directInputModule.handleCloseButton = function (){
+	    directInputModule.setDirectInputMode(false);
+	  };
+	  
+	  directInputModule.updateLayout = function (){
+	    var w = graph.options().width();
+	    var h = graph.options().height();
+	    textArea.style("width", 0.4 * w + "px");
+	    textArea.style("height", 0.7 * h + "px");
+	  };
+	  
+	  directInputModule.setDirectInputMode = function ( val ){
+	    if ( !val ) {
+	      visibleContainer = !visibleContainer;
+	    }
+	    else {
+	      visibleContainer = val;
+	    }
+	    // update visibility;
+	    directInputModule.updateLayout();
+	    d3.select("#Error_onLoad").classed("hidden", true);
+	    inputContainer.classed("hidden", !visibleContainer);
+	  };
+	  
+	  
+	  d3.select("#directUploadBtn").on("click", directInputModule.handleDirectUpload);
+	  d3.select("#close_directUploadBtn").on("click", directInputModule.handleCloseButton);
+	  
+	  return directInputModule;
+	};
+
+
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+
+/***/ })
+
+/******/ });

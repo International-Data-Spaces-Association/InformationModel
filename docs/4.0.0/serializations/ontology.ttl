@@ -6,33 +6,33 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <https://w3id.org/idsa/core> .
 
-<https://w3id.org/idsa/core> rdf:type owl:Ontology ;
-                                                                                         <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
-                                                                                         <http://purl.org/dc/terms/contributor> _:genid-nodeid-genid-2b93ab899cbc4bb783ba4716d046ad33-AnnaKasprzik ,
-                                                                                                                                <https://github.com/HaydarAk> ,
-                                                                                                                                <https://github.com/JohannesLipp> ,
-                                                                                                                                <https://github.com/Maboeckmann> ,
-                                                                                                                                <https://github.com/clange> ,
-                                                                                                                                <https://github.com/jlangkau> ,
-                                                                                                                                <https://github.com/mkollenstart> ,
-                                                                                                                                <https://github.com/sebbader> ,
-                                                                                                                                _:genid1 ,
-                                                                                                                                _:genid2 ;
-                                                                                         <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
-                                                                                                                            <https://github.com/cmader> ,
-                                                                                                                            <https://github.com/jpullmann> ;
-                                                                                         <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
-                                                                                         <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
-                                                                                         <http://rdfs.org/ns/void#vocabulary> <http://purl.org/dc/terms/> ,
-                                                                                                                              <http://purl.org/vocab/vann/> ,
-                                                                                                                              <http://purl.org/vocommons/voaf#> ,
-                                                                                                                              <http://rdfs.org/ns/void#> ,
-                                                                                                                              <http://xmlns.com/foaf/0.1/> ;
-                                                                                         rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
-                                                                                         rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
-                                                                                         rdfs:label "IDS Information Model"@en ;
-                                                                                         rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
-                                                                                         owl:versionInfo "4.0.0" .
+<file:/Users/linamolinascomet/Documents/documentationIDSModel/copies/4.0.0/InformationModel-4.0.0/model/shared/Described.ttl> rdf:type owl:Ontology ;
+                                                                                                                               <http://creativecommons.org/ns#license> <http://www.apache.org/licenses/LICENSE-2.0> ;
+                                                                                                                               <http://purl.org/dc/terms/contributor> _:genid-nodeid-genid-bfb24d218bd242ad8cbfbc96c9a58f0f-AnnaKasprzik ,
+                                                                                                                                                                      <https://github.com/HaydarAk> ,
+                                                                                                                                                                      <https://github.com/JohannesLipp> ,
+                                                                                                                                                                      <https://github.com/Maboeckmann> ,
+                                                                                                                                                                      <https://github.com/clange> ,
+                                                                                                                                                                      <https://github.com/jlangkau> ,
+                                                                                                                                                                      <https://github.com/mkollenstart> ,
+                                                                                                                                                                      <https://github.com/sebbader> ,
+                                                                                                                                                                      _:genid1 ,
+                                                                                                                                                                      _:genid2 ;
+                                                                                                                               <http://purl.org/dc/terms/creator> <http://sebastian.tramp.name> ,
+                                                                                                                                                                  <https://github.com/cmader> ,
+                                                                                                                                                                  <https://github.com/jpullmann> ;
+                                                                                                                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "ids" ;
+                                                                                                                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/idsa/core/" ;
+                                                                                                                               <http://rdfs.org/ns/void#vocabulary> <http://purl.org/dc/terms/> ,
+                                                                                                                                                                    <http://purl.org/vocab/vann/> ,
+                                                                                                                                                                    <http://purl.org/vocommons/voaf#> ,
+                                                                                                                                                                    <http://rdfs.org/ns/void#> ,
+                                                                                                                                                                    <http://xmlns.com/foaf/0.1/> ;
+                                                                                                                               rdfs:comment "This ontology defines classes and properties for describing participants, infrastructure, data and services of the International Data Spaces (formerly known as Industrial Data Space)." ;
+                                                                                                                               rdfs:isDefinedBy <https://w3id.org/idsa/core/> ;
+                                                                                                                               rdfs:label "IDS Information Model"@en ;
+                                                                                                                               rdfs:seeAlso <https://industrialdataspace.github.io/InformationModel/> ;
+                                                                                                                               owl:versionInfo "4.0.0" .
 
 _:genid1 rdf:type <http://purl.org/dc/terms/Agent> ,
                    <http://xmlns.com/foaf/0.1/Person> ;
@@ -1602,7 +1602,12 @@ xsd:duration rdf:type rdfs:Datatype .
 ###  https://w3id.org/idsa/core/created
 <https://w3id.org/idsa/core/created> rdf:type owl:DatatypeProperty ;
                                      rdfs:subPropertyOf <http://purl.org/dc/terms/issued> ;
-                                     rdfs:domain _:genid-nodeid-node1fal45i7dx31 ;
+                                     rdfs:domain [ rdf:type owl:Class ;
+                                                   owl:unionOf ( <https://w3id.org/idsa/core/DigitalContent>
+                                                                 <https://w3id.org/idsa/core/Representation>
+                                                                 <https://w3id.org/idsa/core/UsageControlObject>
+                                                               )
+                                                 ] ;
                                      rdfs:range xsd:dateTimeStamp ;
                                      rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en ;
                                      rdfs:label "created"@en ;
@@ -1991,7 +1996,11 @@ xsd:duration rdf:type rdfs:Datatype .
 
 ###  https://w3id.org/idsa/core/revocationReason
 <https://w3id.org/idsa/core/revocationReason> rdf:type owl:DatatypeProperty ;
-                                              rdfs:domain _:genid2147483754 ;
+                                              rdfs:domain [ rdf:type owl:Class ;
+                                                            owl:unionOf ( <https://w3id.org/idsa/core/ConnectorCertificateRevokedMessage>
+                                                                          <https://w3id.org/idsa/core/ParticipantCertificateRevokedMessage>
+                                                                        )
+                                                          ] ;
                                               rdfs:range xsd:string ;
                                               rdfs:comment "Plain Text containing the reason for revoking an existing certificate of either a connector or participant."@en ;
                                               rdfs:label "Revocation Reason"@en .
@@ -2226,14 +2235,6 @@ xsd:duration rdf:type rdfs:Datatype .
 #################################################################
 #    Classes
 #################################################################
-
-###  _:genid-nodeid-node1fal45i7dx31
-_:genid-nodeid-node1fal45i7dx31 rdf:type owl:Class .
-
-
-###  _:genid2147483754
-_:genid2147483754 rdf:type owl:Class .
-
 
 ###  http://purl.org/dc/terms/Agent
 <http://purl.org/dc/terms/Agent> rdf:type owl:Class .
@@ -3548,7 +3549,9 @@ owl:Class rdf:type owl:Class .
 
 ###  https://w3id.org/idsa/core/QueryMessage
 <https://w3id.org/idsa/core/QueryMessage> rdf:type owl:Class ;
-                                          rdfs:subClassOf <https://w3id.org/idsa/core/RequestMessage> .
+                                          rdfs:subClassOf <https://w3id.org/idsa/core/RequestMessage> ;
+                                          rdfs:comment "Query message intended to be consumed by a component."@en ;
+                                          rdfs:label "Query Message"@en .
 
 
 ###  https://w3id.org/idsa/core/QueryScope
@@ -3972,9 +3975,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/AA> .
 
 
+###  https://w3id.org/idsa/code/AA
+<https://w3id.org/idsa/code/AA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ab
 <http://dbpedia.org/resource/ISO_639:ab> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/AB> .
+
+
+###  https://w3id.org/idsa/code/AB
+<https://w3id.org/idsa/code/AB> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ae
@@ -3982,9 +3993,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/AE> .
 
 
+###  https://w3id.org/idsa/code/AE
+<https://w3id.org/idsa/code/AE> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:af
 <http://dbpedia.org/resource/ISO_639:af> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/AF> .
+
+
+###  https://w3id.org/idsa/code/AF
+<https://w3id.org/idsa/code/AF> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ak
@@ -3992,9 +4011,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/AK> .
 
 
+###  https://w3id.org/idsa/code/AK
+<https://w3id.org/idsa/code/AK> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:am
 <http://dbpedia.org/resource/ISO_639:am> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/AM> .
+
+
+###  https://w3id.org/idsa/code/AM
+<https://w3id.org/idsa/code/AM> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:an
@@ -4002,9 +4029,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/AN> .
 
 
+###  https://w3id.org/idsa/code/AN
+<https://w3id.org/idsa/code/AN> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ar
 <http://dbpedia.org/resource/ISO_639:ar> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/AR> .
+
+
+###  https://w3id.org/idsa/code/AR
+<https://w3id.org/idsa/code/AR> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:as
@@ -4012,9 +4047,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/AS> .
 
 
+###  https://w3id.org/idsa/code/AS
+<https://w3id.org/idsa/code/AS> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:av
 <http://dbpedia.org/resource/ISO_639:av> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/AV> .
+
+
+###  https://w3id.org/idsa/code/AV
+<https://w3id.org/idsa/code/AV> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ay
@@ -4022,9 +4065,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/AY> .
 
 
+###  https://w3id.org/idsa/code/AY
+<https://w3id.org/idsa/code/AY> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:az
 <http://dbpedia.org/resource/ISO_639:az> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/AZ> .
+
+
+###  https://w3id.org/idsa/code/AZ
+<https://w3id.org/idsa/code/AZ> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ba
@@ -4032,9 +4083,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/BA> .
 
 
+###  https://w3id.org/idsa/code/BA
+<https://w3id.org/idsa/code/BA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:be
 <http://dbpedia.org/resource/ISO_639:be> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/BE> .
+
+
+###  https://w3id.org/idsa/code/BE
+<https://w3id.org/idsa/code/BE> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:bg
@@ -4042,9 +4101,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/BG> .
 
 
+###  https://w3id.org/idsa/code/BG
+<https://w3id.org/idsa/code/BG> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:bh
 <http://dbpedia.org/resource/ISO_639:bh> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/BH> .
+
+
+###  https://w3id.org/idsa/code/BH
+<https://w3id.org/idsa/code/BH> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:bi
@@ -4052,9 +4119,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/BI> .
 
 
+###  https://w3id.org/idsa/code/BI
+<https://w3id.org/idsa/code/BI> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:bm
 <http://dbpedia.org/resource/ISO_639:bm> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/BM> .
+
+
+###  https://w3id.org/idsa/code/BM
+<https://w3id.org/idsa/code/BM> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:bn
@@ -4062,9 +4137,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/BN> .
 
 
+###  https://w3id.org/idsa/code/BN
+<https://w3id.org/idsa/code/BN> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:bo
 <http://dbpedia.org/resource/ISO_639:bo> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/BO> .
+
+
+###  https://w3id.org/idsa/code/BO
+<https://w3id.org/idsa/code/BO> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:br
@@ -4072,9 +4155,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/BR> .
 
 
+###  https://w3id.org/idsa/code/BR
+<https://w3id.org/idsa/code/BR> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:bs
 <http://dbpedia.org/resource/ISO_639:bs> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/BS> .
+
+
+###  https://w3id.org/idsa/code/BS
+<https://w3id.org/idsa/code/BS> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ca
@@ -4082,9 +4173,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/CA> .
 
 
+###  https://w3id.org/idsa/code/CA
+<https://w3id.org/idsa/code/CA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ce
 <http://dbpedia.org/resource/ISO_639:ce> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/CE> .
+
+
+###  https://w3id.org/idsa/code/CE
+<https://w3id.org/idsa/code/CE> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ch
@@ -4092,9 +4191,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/CH> .
 
 
+###  https://w3id.org/idsa/code/CH
+<https://w3id.org/idsa/code/CH> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:co
 <http://dbpedia.org/resource/ISO_639:co> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/CO> .
+
+
+###  https://w3id.org/idsa/code/CO
+<https://w3id.org/idsa/code/CO> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:cr
@@ -4102,9 +4209,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/CR> .
 
 
+###  https://w3id.org/idsa/code/CR
+<https://w3id.org/idsa/code/CR> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:cs
 <http://dbpedia.org/resource/ISO_639:cs> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/CS> .
+
+
+###  https://w3id.org/idsa/code/CS
+<https://w3id.org/idsa/code/CS> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:cu
@@ -4112,9 +4227,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/CU> .
 
 
+###  https://w3id.org/idsa/code/CU
+<https://w3id.org/idsa/code/CU> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:cv
 <http://dbpedia.org/resource/ISO_639:cv> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/CV> .
+
+
+###  https://w3id.org/idsa/code/CV
+<https://w3id.org/idsa/code/CV> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:cy
@@ -4122,9 +4245,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/CY> .
 
 
+###  https://w3id.org/idsa/code/CY
+<https://w3id.org/idsa/code/CY> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:da
 <http://dbpedia.org/resource/ISO_639:da> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/DA> .
+
+
+###  https://w3id.org/idsa/code/DA
+<https://w3id.org/idsa/code/DA> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:de
@@ -4132,9 +4263,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/DE> .
 
 
+###  https://w3id.org/idsa/code/DE
+<https://w3id.org/idsa/code/DE> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:dv
 <http://dbpedia.org/resource/ISO_639:dv> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/DV> .
+
+
+###  https://w3id.org/idsa/code/DV
+<https://w3id.org/idsa/code/DV> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:dz
@@ -4142,9 +4281,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/DZ> .
 
 
+###  https://w3id.org/idsa/code/DZ
+<https://w3id.org/idsa/code/DZ> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ee
 <http://dbpedia.org/resource/ISO_639:ee> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/EE> .
+
+
+###  https://w3id.org/idsa/code/EE
+<https://w3id.org/idsa/code/EE> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:el
@@ -4152,9 +4299,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/EL> .
 
 
+###  https://w3id.org/idsa/code/EL
+<https://w3id.org/idsa/code/EL> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:en
 <http://dbpedia.org/resource/ISO_639:en> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/EN> .
+
+
+###  https://w3id.org/idsa/code/EN
+<https://w3id.org/idsa/code/EN> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:eo
@@ -4162,9 +4317,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/EO> .
 
 
+###  https://w3id.org/idsa/code/EO
+<https://w3id.org/idsa/code/EO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:es
 <http://dbpedia.org/resource/ISO_639:es> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/ES> .
+
+
+###  https://w3id.org/idsa/code/ES
+<https://w3id.org/idsa/code/ES> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:et
@@ -4172,9 +4335,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/ET> .
 
 
+###  https://w3id.org/idsa/code/ET
+<https://w3id.org/idsa/code/ET> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:eu
 <http://dbpedia.org/resource/ISO_639:eu> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/EU> .
+
+
+###  https://w3id.org/idsa/code/EU
+<https://w3id.org/idsa/code/EU> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:fa
@@ -4182,9 +4353,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/FA> .
 
 
+###  https://w3id.org/idsa/code/FA
+<https://w3id.org/idsa/code/FA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ff
 <http://dbpedia.org/resource/ISO_639:ff> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/FF> .
+
+
+###  https://w3id.org/idsa/code/FF
+<https://w3id.org/idsa/code/FF> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:fi
@@ -4192,9 +4371,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/FI> .
 
 
+###  https://w3id.org/idsa/code/FI
+<https://w3id.org/idsa/code/FI> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:fj
 <http://dbpedia.org/resource/ISO_639:fj> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/FJ> .
+
+
+###  https://w3id.org/idsa/code/FJ
+<https://w3id.org/idsa/code/FJ> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:fo
@@ -4202,9 +4389,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/FO> .
 
 
+###  https://w3id.org/idsa/code/FO
+<https://w3id.org/idsa/code/FO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:fr
 <http://dbpedia.org/resource/ISO_639:fr> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/FR> .
+
+
+###  https://w3id.org/idsa/code/FR
+<https://w3id.org/idsa/code/FR> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:fy
@@ -4212,9 +4407,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/FY> .
 
 
+###  https://w3id.org/idsa/code/FY
+<https://w3id.org/idsa/code/FY> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ga
 <http://dbpedia.org/resource/ISO_639:ga> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/GA> .
+
+
+###  https://w3id.org/idsa/code/GA
+<https://w3id.org/idsa/code/GA> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:gd
@@ -4222,9 +4425,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/GD> .
 
 
+###  https://w3id.org/idsa/code/GD
+<https://w3id.org/idsa/code/GD> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:gl
 <http://dbpedia.org/resource/ISO_639:gl> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/GL> .
+
+
+###  https://w3id.org/idsa/code/GL
+<https://w3id.org/idsa/code/GL> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:gn
@@ -4232,9 +4443,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/GN> .
 
 
+###  https://w3id.org/idsa/code/GN
+<https://w3id.org/idsa/code/GN> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:gu
 <http://dbpedia.org/resource/ISO_639:gu> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/GU> .
+
+
+###  https://w3id.org/idsa/code/GU
+<https://w3id.org/idsa/code/GU> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:gv
@@ -4242,9 +4461,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/GV> .
 
 
+###  https://w3id.org/idsa/code/GV
+<https://w3id.org/idsa/code/GV> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ha
 <http://dbpedia.org/resource/ISO_639:ha> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/HA> .
+
+
+###  https://w3id.org/idsa/code/HA
+<https://w3id.org/idsa/code/HA> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:he
@@ -4252,9 +4479,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/HE> .
 
 
+###  https://w3id.org/idsa/code/HE
+<https://w3id.org/idsa/code/HE> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:hi
 <http://dbpedia.org/resource/ISO_639:hi> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/HI> .
+
+
+###  https://w3id.org/idsa/code/HI
+<https://w3id.org/idsa/code/HI> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ho
@@ -4262,9 +4497,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/HO> .
 
 
+###  https://w3id.org/idsa/code/HO
+<https://w3id.org/idsa/code/HO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:hr
 <http://dbpedia.org/resource/ISO_639:hr> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/HR> .
+
+
+###  https://w3id.org/idsa/code/HR
+<https://w3id.org/idsa/code/HR> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ht
@@ -4272,9 +4515,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/HT> .
 
 
+###  https://w3id.org/idsa/code/HT
+<https://w3id.org/idsa/code/HT> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:hu
 <http://dbpedia.org/resource/ISO_639:hu> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/HU> .
+
+
+###  https://w3id.org/idsa/code/HU
+<https://w3id.org/idsa/code/HU> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:hy
@@ -4282,9 +4533,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/HY> .
 
 
+###  https://w3id.org/idsa/code/HY
+<https://w3id.org/idsa/code/HY> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:hz
 <http://dbpedia.org/resource/ISO_639:hz> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/HZ> .
+
+
+###  https://w3id.org/idsa/code/HZ
+<https://w3id.org/idsa/code/HZ> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ia
@@ -4292,9 +4551,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/IA> .
 
 
+###  https://w3id.org/idsa/code/IA
+<https://w3id.org/idsa/code/IA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:id
 <http://dbpedia.org/resource/ISO_639:id> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/ID> .
+
+
+###  https://w3id.org/idsa/code/ID
+<https://w3id.org/idsa/code/ID> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ie
@@ -4302,9 +4569,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/IE> .
 
 
+###  https://w3id.org/idsa/code/IE
+<https://w3id.org/idsa/code/IE> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ig
 <http://dbpedia.org/resource/ISO_639:ig> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/IG> .
+
+
+###  https://w3id.org/idsa/code/IG
+<https://w3id.org/idsa/code/IG> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ii
@@ -4312,9 +4587,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/II> .
 
 
+###  https://w3id.org/idsa/code/II
+<https://w3id.org/idsa/code/II> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ik
 <http://dbpedia.org/resource/ISO_639:ik> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/IK> .
+
+
+###  https://w3id.org/idsa/code/IK
+<https://w3id.org/idsa/code/IK> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:io
@@ -4322,9 +4605,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/IO> .
 
 
+###  https://w3id.org/idsa/code/IO
+<https://w3id.org/idsa/code/IO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:is
 <http://dbpedia.org/resource/ISO_639:is> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/IS> .
+
+
+###  https://w3id.org/idsa/code/IS
+<https://w3id.org/idsa/code/IS> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:it
@@ -4332,9 +4623,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/IT> .
 
 
+###  https://w3id.org/idsa/code/IT
+<https://w3id.org/idsa/code/IT> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:iu
 <http://dbpedia.org/resource/ISO_639:iu> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/IU> .
+
+
+###  https://w3id.org/idsa/code/IU
+<https://w3id.org/idsa/code/IU> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ja
@@ -4342,9 +4641,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/JA> .
 
 
+###  https://w3id.org/idsa/code/JA
+<https://w3id.org/idsa/code/JA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:jv
 <http://dbpedia.org/resource/ISO_639:jv> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/JV> .
+
+
+###  https://w3id.org/idsa/code/JV
+<https://w3id.org/idsa/code/JV> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ka
@@ -4352,9 +4659,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KA> .
 
 
+###  https://w3id.org/idsa/code/KA
+<https://w3id.org/idsa/code/KA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:kg
 <http://dbpedia.org/resource/ISO_639:kg> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/KG> .
+
+
+###  https://w3id.org/idsa/code/KG
+<https://w3id.org/idsa/code/KG> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ki
@@ -4362,9 +4677,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KI> .
 
 
+###  https://w3id.org/idsa/code/KI
+<https://w3id.org/idsa/code/KI> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:kj
 <http://dbpedia.org/resource/ISO_639:kj> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/KJ> .
+
+
+###  https://w3id.org/idsa/code/KJ
+<https://w3id.org/idsa/code/KJ> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:kk
@@ -4372,9 +4695,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KK> .
 
 
+###  https://w3id.org/idsa/code/KK
+<https://w3id.org/idsa/code/KK> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:kl
 <http://dbpedia.org/resource/ISO_639:kl> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/KL> .
+
+
+###  https://w3id.org/idsa/code/KL
+<https://w3id.org/idsa/code/KL> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:km
@@ -4382,9 +4713,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KM> .
 
 
+###  https://w3id.org/idsa/code/KM
+<https://w3id.org/idsa/code/KM> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:kn
 <http://dbpedia.org/resource/ISO_639:kn> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/KN> .
+
+
+###  https://w3id.org/idsa/code/KN
+<https://w3id.org/idsa/code/KN> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ko
@@ -4392,9 +4731,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KO> .
 
 
+###  https://w3id.org/idsa/code/KO
+<https://w3id.org/idsa/code/KO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:kr
 <http://dbpedia.org/resource/ISO_639:kr> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/KR> .
+
+
+###  https://w3id.org/idsa/code/KR
+<https://w3id.org/idsa/code/KR> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ks
@@ -4402,9 +4749,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KS> .
 
 
+###  https://w3id.org/idsa/code/KS
+<https://w3id.org/idsa/code/KS> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ku
 <http://dbpedia.org/resource/ISO_639:ku> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/KU> .
+
+
+###  https://w3id.org/idsa/code/KU
+<https://w3id.org/idsa/code/KU> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:kv
@@ -4412,9 +4767,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KV> .
 
 
+###  https://w3id.org/idsa/code/KV
+<https://w3id.org/idsa/code/KV> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:kw
 <http://dbpedia.org/resource/ISO_639:kw> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/KW> .
+
+
+###  https://w3id.org/idsa/code/KW
+<https://w3id.org/idsa/code/KW> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ky
@@ -4422,9 +4785,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/KY> .
 
 
+###  https://w3id.org/idsa/code/KY
+<https://w3id.org/idsa/code/KY> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:la
 <http://dbpedia.org/resource/ISO_639:la> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/LA> .
+
+
+###  https://w3id.org/idsa/code/LA
+<https://w3id.org/idsa/code/LA> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:lb
@@ -4432,9 +4803,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/LB> .
 
 
+###  https://w3id.org/idsa/code/LB
+<https://w3id.org/idsa/code/LB> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:lg
 <http://dbpedia.org/resource/ISO_639:lg> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/LG> .
+
+
+###  https://w3id.org/idsa/code/LG
+<https://w3id.org/idsa/code/LG> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:li
@@ -4442,9 +4821,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/LI> .
 
 
+###  https://w3id.org/idsa/code/LI
+<https://w3id.org/idsa/code/LI> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ln
 <http://dbpedia.org/resource/ISO_639:ln> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/LN> .
+
+
+###  https://w3id.org/idsa/code/LN
+<https://w3id.org/idsa/code/LN> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:lo
@@ -4452,9 +4839,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/LO> .
 
 
+###  https://w3id.org/idsa/code/LO
+<https://w3id.org/idsa/code/LO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:lt
 <http://dbpedia.org/resource/ISO_639:lt> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/LT> .
+
+
+###  https://w3id.org/idsa/code/LT
+<https://w3id.org/idsa/code/LT> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:lu
@@ -4462,9 +4857,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/LU> .
 
 
+###  https://w3id.org/idsa/code/LU
+<https://w3id.org/idsa/code/LU> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:lv
 <http://dbpedia.org/resource/ISO_639:lv> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/LV> .
+
+
+###  https://w3id.org/idsa/code/LV
+<https://w3id.org/idsa/code/LV> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:mg
@@ -4472,9 +4875,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/MG> .
 
 
+###  https://w3id.org/idsa/code/MG
+<https://w3id.org/idsa/code/MG> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:mh
 <http://dbpedia.org/resource/ISO_639:mh> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/MH> .
+
+
+###  https://w3id.org/idsa/code/MH
+<https://w3id.org/idsa/code/MH> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:mi
@@ -4482,9 +4893,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/MI> .
 
 
+###  https://w3id.org/idsa/code/MI
+<https://w3id.org/idsa/code/MI> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:mk
 <http://dbpedia.org/resource/ISO_639:mk> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/MK> .
+
+
+###  https://w3id.org/idsa/code/MK
+<https://w3id.org/idsa/code/MK> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ml
@@ -4492,9 +4911,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/ML> .
 
 
+###  https://w3id.org/idsa/code/ML
+<https://w3id.org/idsa/code/ML> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:mn
 <http://dbpedia.org/resource/ISO_639:mn> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/MN> .
+
+
+###  https://w3id.org/idsa/code/MN
+<https://w3id.org/idsa/code/MN> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:mr
@@ -4502,9 +4929,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/MR> .
 
 
+###  https://w3id.org/idsa/code/MR
+<https://w3id.org/idsa/code/MR> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ms
 <http://dbpedia.org/resource/ISO_639:ms> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/MS> .
+
+
+###  https://w3id.org/idsa/code/MS
+<https://w3id.org/idsa/code/MS> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:mt
@@ -4512,9 +4947,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/MT> .
 
 
+###  https://w3id.org/idsa/code/MT
+<https://w3id.org/idsa/code/MT> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:my
 <http://dbpedia.org/resource/ISO_639:my> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/MY> .
+
+
+###  https://w3id.org/idsa/code/MY
+<https://w3id.org/idsa/code/MY> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:na
@@ -4522,9 +4965,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/NA> .
 
 
+###  https://w3id.org/idsa/code/NA
+<https://w3id.org/idsa/code/NA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:nb
 <http://dbpedia.org/resource/ISO_639:nb> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/NB> .
+
+
+###  https://w3id.org/idsa/code/NB
+<https://w3id.org/idsa/code/NB> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:nd
@@ -4532,9 +4983,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/ND> .
 
 
+###  https://w3id.org/idsa/code/ND
+<https://w3id.org/idsa/code/ND> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ne
 <http://dbpedia.org/resource/ISO_639:ne> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/NE> .
+
+
+###  https://w3id.org/idsa/code/NE
+<https://w3id.org/idsa/code/NE> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ng
@@ -4542,9 +5001,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/NG> .
 
 
+###  https://w3id.org/idsa/code/NG
+<https://w3id.org/idsa/code/NG> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:nl
 <http://dbpedia.org/resource/ISO_639:nl> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/NL> .
+
+
+###  https://w3id.org/idsa/code/NL
+<https://w3id.org/idsa/code/NL> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:nn
@@ -4552,9 +5019,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/NN> .
 
 
+###  https://w3id.org/idsa/code/NN
+<https://w3id.org/idsa/code/NN> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:no
 <http://dbpedia.org/resource/ISO_639:no> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/NO> .
+
+
+###  https://w3id.org/idsa/code/NO
+<https://w3id.org/idsa/code/NO> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:nr
@@ -4562,9 +5037,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/NR> .
 
 
+###  https://w3id.org/idsa/code/NR
+<https://w3id.org/idsa/code/NR> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:nv
 <http://dbpedia.org/resource/ISO_639:nv> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/NV> .
+
+
+###  https://w3id.org/idsa/code/NV
+<https://w3id.org/idsa/code/NV> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ny
@@ -4572,9 +5055,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/NY> .
 
 
+###  https://w3id.org/idsa/code/NY
+<https://w3id.org/idsa/code/NY> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:oc
 <http://dbpedia.org/resource/ISO_639:oc> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/OC> .
+
+
+###  https://w3id.org/idsa/code/OC
+<https://w3id.org/idsa/code/OC> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:oj
@@ -4582,9 +5073,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/OJ> .
 
 
+###  https://w3id.org/idsa/code/OJ
+<https://w3id.org/idsa/code/OJ> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:om
 <http://dbpedia.org/resource/ISO_639:om> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/OM> .
+
+
+###  https://w3id.org/idsa/code/OM
+<https://w3id.org/idsa/code/OM> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:or
@@ -4592,9 +5091,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/OR> .
 
 
+###  https://w3id.org/idsa/code/OR
+<https://w3id.org/idsa/code/OR> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:os
 <http://dbpedia.org/resource/ISO_639:os> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/OS> .
+
+
+###  https://w3id.org/idsa/code/OS
+<https://w3id.org/idsa/code/OS> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:pa
@@ -4602,9 +5109,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/PA> .
 
 
+###  https://w3id.org/idsa/code/PA
+<https://w3id.org/idsa/code/PA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:pi
 <http://dbpedia.org/resource/ISO_639:pi> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/PI> .
+
+
+###  https://w3id.org/idsa/code/PI
+<https://w3id.org/idsa/code/PI> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:pl
@@ -4612,9 +5127,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/PL> .
 
 
+###  https://w3id.org/idsa/code/PL
+<https://w3id.org/idsa/code/PL> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ps
 <http://dbpedia.org/resource/ISO_639:ps> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/PS> .
+
+
+###  https://w3id.org/idsa/code/PS
+<https://w3id.org/idsa/code/PS> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:pt
@@ -4622,9 +5145,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/PT> .
 
 
+###  https://w3id.org/idsa/code/PT
+<https://w3id.org/idsa/code/PT> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:qu
 <http://dbpedia.org/resource/ISO_639:qu> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/QU> .
+
+
+###  https://w3id.org/idsa/code/QU
+<https://w3id.org/idsa/code/QU> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:rm
@@ -4632,9 +5163,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/RM> .
 
 
+###  https://w3id.org/idsa/code/RM
+<https://w3id.org/idsa/code/RM> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:rn
 <http://dbpedia.org/resource/ISO_639:rn> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/RN> .
+
+
+###  https://w3id.org/idsa/code/RN
+<https://w3id.org/idsa/code/RN> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ro
@@ -4642,9 +5181,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/RO> .
 
 
+###  https://w3id.org/idsa/code/RO
+<https://w3id.org/idsa/code/RO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ru
 <http://dbpedia.org/resource/ISO_639:ru> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/RU> .
+
+
+###  https://w3id.org/idsa/code/RU
+<https://w3id.org/idsa/code/RU> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:rw
@@ -4652,9 +5199,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/RW> .
 
 
+###  https://w3id.org/idsa/code/RW
+<https://w3id.org/idsa/code/RW> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:sa
 <http://dbpedia.org/resource/ISO_639:sa> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SA> .
+
+
+###  https://w3id.org/idsa/code/SA
+<https://w3id.org/idsa/code/SA> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:sc
@@ -4662,9 +5217,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SC> .
 
 
+###  https://w3id.org/idsa/code/SC
+<https://w3id.org/idsa/code/SC> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:sd
 <http://dbpedia.org/resource/ISO_639:sd> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SD> .
+
+
+###  https://w3id.org/idsa/code/SD
+<https://w3id.org/idsa/code/SD> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:se
@@ -4672,9 +5235,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SE> .
 
 
+###  https://w3id.org/idsa/code/SE
+<https://w3id.org/idsa/code/SE> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:sg
 <http://dbpedia.org/resource/ISO_639:sg> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SG> .
+
+
+###  https://w3id.org/idsa/code/SG
+<https://w3id.org/idsa/code/SG> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:si
@@ -4682,9 +5253,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SI> .
 
 
+###  https://w3id.org/idsa/code/SI
+<https://w3id.org/idsa/code/SI> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:sk
 <http://dbpedia.org/resource/ISO_639:sk> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SK> .
+
+
+###  https://w3id.org/idsa/code/SK
+<https://w3id.org/idsa/code/SK> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:sl
@@ -4692,9 +5271,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SL> .
 
 
+###  https://w3id.org/idsa/code/SL
+<https://w3id.org/idsa/code/SL> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:sm
 <http://dbpedia.org/resource/ISO_639:sm> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SM> .
+
+
+###  https://w3id.org/idsa/code/SM
+<https://w3id.org/idsa/code/SM> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:sn
@@ -4702,9 +5289,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SN> .
 
 
+###  https://w3id.org/idsa/code/SN
+<https://w3id.org/idsa/code/SN> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:so
 <http://dbpedia.org/resource/ISO_639:so> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SO> .
+
+
+###  https://w3id.org/idsa/code/SO
+<https://w3id.org/idsa/code/SO> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:sq
@@ -4712,9 +5307,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SQ> .
 
 
+###  https://w3id.org/idsa/code/SQ
+<https://w3id.org/idsa/code/SQ> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:sr
 <http://dbpedia.org/resource/ISO_639:sr> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SR> .
+
+
+###  https://w3id.org/idsa/code/SR
+<https://w3id.org/idsa/code/SR> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ss
@@ -4722,9 +5325,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SS> .
 
 
+###  https://w3id.org/idsa/code/SS
+<https://w3id.org/idsa/code/SS> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:st
 <http://dbpedia.org/resource/ISO_639:st> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/ST> .
+
+
+###  https://w3id.org/idsa/code/ST
+<https://w3id.org/idsa/code/ST> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:su
@@ -4732,9 +5343,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SU> .
 
 
+###  https://w3id.org/idsa/code/SU
+<https://w3id.org/idsa/code/SU> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:sv
 <http://dbpedia.org/resource/ISO_639:sv> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/SV> .
+
+
+###  https://w3id.org/idsa/code/SV
+<https://w3id.org/idsa/code/SV> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:sw
@@ -4742,9 +5361,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/SW> .
 
 
+###  https://w3id.org/idsa/code/SW
+<https://w3id.org/idsa/code/SW> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ta
 <http://dbpedia.org/resource/ISO_639:ta> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/TA> .
+
+
+###  https://w3id.org/idsa/code/TA
+<https://w3id.org/idsa/code/TA> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:te
@@ -4752,9 +5379,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/TE> .
 
 
+###  https://w3id.org/idsa/code/TE
+<https://w3id.org/idsa/code/TE> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:tg
 <http://dbpedia.org/resource/ISO_639:tg> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/TG> .
+
+
+###  https://w3id.org/idsa/code/TG
+<https://w3id.org/idsa/code/TG> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:th
@@ -4762,9 +5397,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/TH> .
 
 
+###  https://w3id.org/idsa/code/TH
+<https://w3id.org/idsa/code/TH> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ti
 <http://dbpedia.org/resource/ISO_639:ti> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/TI> .
+
+
+###  https://w3id.org/idsa/code/TI
+<https://w3id.org/idsa/code/TI> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:tk
@@ -4772,9 +5415,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/TK> .
 
 
+###  https://w3id.org/idsa/code/TK
+<https://w3id.org/idsa/code/TK> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:tl
 <http://dbpedia.org/resource/ISO_639:tl> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/TL> .
+
+
+###  https://w3id.org/idsa/code/TL
+<https://w3id.org/idsa/code/TL> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:tn
@@ -4782,9 +5433,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/TN> .
 
 
+###  https://w3id.org/idsa/code/TN
+<https://w3id.org/idsa/code/TN> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:to
 <http://dbpedia.org/resource/ISO_639:to> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/TO> .
+
+
+###  https://w3id.org/idsa/code/TO
+<https://w3id.org/idsa/code/TO> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:tr
@@ -4792,9 +5451,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/TR> .
 
 
+###  https://w3id.org/idsa/code/TR
+<https://w3id.org/idsa/code/TR> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ts
 <http://dbpedia.org/resource/ISO_639:ts> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/TS> .
+
+
+###  https://w3id.org/idsa/code/TS
+<https://w3id.org/idsa/code/TS> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:tt
@@ -4802,9 +5469,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/TT> .
 
 
+###  https://w3id.org/idsa/code/TT
+<https://w3id.org/idsa/code/TT> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:tw
 <http://dbpedia.org/resource/ISO_639:tw> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/TW> .
+
+
+###  https://w3id.org/idsa/code/TW
+<https://w3id.org/idsa/code/TW> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:ty
@@ -4812,9 +5487,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/TY> .
 
 
+###  https://w3id.org/idsa/code/TY
+<https://w3id.org/idsa/code/TY> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ug
 <http://dbpedia.org/resource/ISO_639:ug> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/UG> .
+
+
+###  https://w3id.org/idsa/code/UG
+<https://w3id.org/idsa/code/UG> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:uk
@@ -4822,9 +5505,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/UK> .
 
 
+###  https://w3id.org/idsa/code/UK
+<https://w3id.org/idsa/code/UK> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ur
 <http://dbpedia.org/resource/ISO_639:ur> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/UR> .
+
+
+###  https://w3id.org/idsa/code/UR
+<https://w3id.org/idsa/code/UR> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:uz
@@ -4832,9 +5523,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/UZ> .
 
 
+###  https://w3id.org/idsa/code/UZ
+<https://w3id.org/idsa/code/UZ> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:ve
 <http://dbpedia.org/resource/ISO_639:ve> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/VE> .
+
+
+###  https://w3id.org/idsa/code/VE
+<https://w3id.org/idsa/code/VE> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:vi
@@ -4842,9 +5541,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/VI> .
 
 
+###  https://w3id.org/idsa/code/VI
+<https://w3id.org/idsa/code/VI> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:vo
 <http://dbpedia.org/resource/ISO_639:vo> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/VO> .
+
+
+###  https://w3id.org/idsa/code/VO
+<https://w3id.org/idsa/code/VO> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:wa
@@ -4852,9 +5559,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/WA> .
 
 
+###  https://w3id.org/idsa/code/WA
+<https://w3id.org/idsa/code/WA> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:wo
 <http://dbpedia.org/resource/ISO_639:wo> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/WO> .
+
+
+###  https://w3id.org/idsa/code/WO
+<https://w3id.org/idsa/code/WO> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:xh
@@ -4862,9 +5577,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/XH> .
 
 
+###  https://w3id.org/idsa/code/XH
+<https://w3id.org/idsa/code/XH> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:yi
 <http://dbpedia.org/resource/ISO_639:yi> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/YI> .
+
+
+###  https://w3id.org/idsa/code/YI
+<https://w3id.org/idsa/code/YI> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:yo
@@ -4872,9 +5595,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/YO> .
 
 
+###  https://w3id.org/idsa/code/YO
+<https://w3id.org/idsa/code/YO> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:za
 <http://dbpedia.org/resource/ISO_639:za> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/ZA> .
+
+
+###  https://w3id.org/idsa/code/ZA
+<https://w3id.org/idsa/code/ZA> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/ISO_639:zh
@@ -4882,9 +5613,17 @@ owl:Class rdf:type owl:Class .
                                          owl:sameAs <https://w3id.org/idsa/code/ZH> .
 
 
+###  https://w3id.org/idsa/code/ZH
+<https://w3id.org/idsa/code/ZH> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/ISO_639:zu
 <http://dbpedia.org/resource/ISO_639:zu> rdf:type owl:NamedIndividual ;
                                          owl:sameAs <https://w3id.org/idsa/code/ZU> .
+
+
+###  https://w3id.org/idsa/code/ZU
+<https://w3id.org/idsa/code/ZU> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/annual
@@ -4892,9 +5631,17 @@ owl:Class rdf:type owl:Class .
                                   owl:sameAs <https://w3id.org/idsa/code/ANNUAL> .
 
 
+###  https://w3id.org/idsa/code/ANNUAL
+<https://w3id.org/idsa/code/ANNUAL> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/biennial
 <http://purl.org/cld/freq/biennial> rdf:type owl:NamedIndividual ;
                                     owl:sameAs <https://w3id.org/idsa/code/BIENNIAL> .
+
+
+###  https://w3id.org/idsa/code/BIENNIAL
+<https://w3id.org/idsa/code/BIENNIAL> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/bimonthly
@@ -4902,9 +5649,17 @@ owl:Class rdf:type owl:Class .
                                      owl:sameAs <https://w3id.org/idsa/code/BIMONTHLY> .
 
 
+###  https://w3id.org/idsa/code/BIMONTHLY
+<https://w3id.org/idsa/code/BIMONTHLY> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/biweekly
 <http://purl.org/cld/freq/biweekly> rdf:type owl:NamedIndividual ;
                                     owl:sameAs <https://w3id.org/idsa/code/BIWEEKLY> .
+
+
+###  https://w3id.org/idsa/code/BIWEEKLY
+<https://w3id.org/idsa/code/BIWEEKLY> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/continuous
@@ -4912,9 +5667,17 @@ owl:Class rdf:type owl:Class .
                                       owl:sameAs <https://w3id.org/idsa/code/CONTINUOUS> .
 
 
+###  https://w3id.org/idsa/code/CONTINUOUS
+<https://w3id.org/idsa/code/CONTINUOUS> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/daily
 <http://purl.org/cld/freq/daily> rdf:type owl:NamedIndividual ;
                                  owl:sameAs <https://w3id.org/idsa/code/DAILY> .
+
+
+###  https://w3id.org/idsa/code/DAILY
+<https://w3id.org/idsa/code/DAILY> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/irregular
@@ -4922,9 +5685,17 @@ owl:Class rdf:type owl:Class .
                                      owl:sameAs <https://w3id.org/idsa/code/IRREGULAR> .
 
 
+###  https://w3id.org/idsa/code/IRREGULAR
+<https://w3id.org/idsa/code/IRREGULAR> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/monthly
 <http://purl.org/cld/freq/monthly> rdf:type owl:NamedIndividual ;
                                    owl:sameAs <https://w3id.org/idsa/code/MONTHLY> .
+
+
+###  https://w3id.org/idsa/code/MONTHLY
+<https://w3id.org/idsa/code/MONTHLY> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/quarterly
@@ -4932,9 +5703,17 @@ owl:Class rdf:type owl:Class .
                                      owl:sameAs <https://w3id.org/idsa/code/QUARTERLY> .
 
 
+###  https://w3id.org/idsa/code/QUARTERLY
+<https://w3id.org/idsa/code/QUARTERLY> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/semiannual
 <http://purl.org/cld/freq/semiannual> rdf:type owl:NamedIndividual ;
                                       owl:sameAs <https://w3id.org/idsa/code/SEMIANNUAL> .
+
+
+###  https://w3id.org/idsa/code/SEMIANNUAL
+<https://w3id.org/idsa/code/SEMIANNUAL> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/semimonthly
@@ -4942,9 +5721,17 @@ owl:Class rdf:type owl:Class .
                                        owl:sameAs <https://w3id.org/idsa/code/SEMIMONTHLY> .
 
 
+###  https://w3id.org/idsa/code/SEMIMONTHLY
+<https://w3id.org/idsa/code/SEMIMONTHLY> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/semiweekly
 <http://purl.org/cld/freq/semiweekly> rdf:type owl:NamedIndividual ;
                                       owl:sameAs <https://w3id.org/idsa/code/SEMIWEEKLY> .
+
+
+###  https://w3id.org/idsa/code/SEMIWEEKLY
+<https://w3id.org/idsa/code/SEMIWEEKLY> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/threeTimesAMonth
@@ -4952,9 +5739,17 @@ owl:Class rdf:type owl:Class .
                                             owl:sameAs <https://w3id.org/idsa/code/THREE_TIMES_A_MONTH> .
 
 
+###  https://w3id.org/idsa/code/THREE_TIMES_A_MONTH
+<https://w3id.org/idsa/code/THREE_TIMES_A_MONTH> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/threeTimesAWeek
 <http://purl.org/cld/freq/threeTimesAWeek> rdf:type owl:NamedIndividual ;
                                            owl:sameAs <https://w3id.org/idsa/code/THREE_TIMES_A_WEEK> .
+
+
+###  https://w3id.org/idsa/code/THREE_TIMES_A_WEEK
+<https://w3id.org/idsa/code/THREE_TIMES_A_WEEK> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/cld/freq/threeTimesAYear
@@ -4962,14 +5757,26 @@ owl:Class rdf:type owl:Class .
                                            owl:sameAs <https://w3id.org/idsa/code/THREE_TIMES_A_YEAR> .
 
 
+###  https://w3id.org/idsa/code/THREE_TIMES_A_YEAR
+<https://w3id.org/idsa/code/THREE_TIMES_A_YEAR> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/triennial
 <http://purl.org/cld/freq/triennial> rdf:type owl:NamedIndividual ;
                                      owl:sameAs <https://w3id.org/idsa/code/TRIENNIAL> .
 
 
+###  https://w3id.org/idsa/code/TRIENNIAL
+<https://w3id.org/idsa/code/TRIENNIAL> rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.org/cld/freq/weekly
 <http://purl.org/cld/freq/weekly> rdf:type owl:NamedIndividual ;
                                   owl:sameAs <https://w3id.org/idsa/code/WEEKLY> .
+
+
+###  https://w3id.org/idsa/code/WEEKLY
+<https://w3id.org/idsa/code/WEEKLY> rdf:type owl:NamedIndividual .
 
 
 ###  https://github.com/HaydarAk
@@ -7711,62 +8518,62 @@ owl:Class rdf:type owl:Class .
 
 ###  https://w3id.org/idsa/core/Action
 <https://w3id.org/idsa/core/Action> rdf:type owl:NamedIndividual ;
-                                    <https://w3id.org/idsa/metamodel/validation> _:genid52 .
+                                    <https://w3id.org/idsa/metamodel/validation> _:genid59 .
 
-_:genid52 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid59 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/actionRefinement> .
 
 
 ###  https://w3id.org/idsa/core/AppEndpoint
 <https://w3id.org/idsa/core/AppEndpoint> rdf:type owl:NamedIndividual ;
-                                         <https://w3id.org/idsa/metamodel/validation> _:genid53 .
+                                         <https://w3id.org/idsa/metamodel/validation> _:genid60 .
 
-_:genid53 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid60 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appEndpointType> .
 
 
 ###  https://w3id.org/idsa/core/AppNotificationMessage
 <https://w3id.org/idsa/core/AppNotificationMessage> rdf:type owl:NamedIndividual ;
-                                                    <https://w3id.org/idsa/metamodel/validation> _:genid54 ;
+                                                    <https://w3id.org/idsa/metamodel/validation> _:genid61 ;
                                                     <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid54 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid61 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedDataAppResource> .
 
 
 ###  https://w3id.org/idsa/core/AppRoute
 <https://w3id.org/idsa/core/AppRoute> rdf:type owl:NamedIndividual ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid55 ,
-                                                                                   _:genid56 ,
-                                                                                   _:genid57 ,
-                                                                                   _:genid58 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid62 ,
+                                                                                   _:genid63 ,
+                                                                                   _:genid64 ,
+                                                                                   _:genid65 .
 
-_:genid55 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/routeDeployMethod> .
+_:genid62 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appRouteEnd> .
 
-_:genid56 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid63 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appRouteStart> .
 
-_:genid57 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid64 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/subRoute> .
 
-_:genid58 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appRouteEnd> .
+_:genid65 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/routeDeployMethod> .
 
 
 ###  https://w3id.org/idsa/core/AppUploadMessage
 <https://w3id.org/idsa/core/AppUploadMessage> rdf:type owl:NamedIndividual ;
-                                              <https://w3id.org/idsa/metamodel/validation> _:genid59 .
+                                              <https://w3id.org/idsa/metamodel/validation> _:genid66 .
 
-_:genid59 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid66 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appArtifactReference> .
 
 
 ###  https://w3id.org/idsa/core/ArtifactRequestMessage
 <https://w3id.org/idsa/core/ArtifactRequestMessage> rdf:type owl:NamedIndividual ;
-                                                    <https://w3id.org/idsa/metamodel/validation> _:genid60 .
+                                                    <https://w3id.org/idsa/metamodel/validation> _:genid67 .
 
-_:genid60 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid67 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/requestedArtifact> .
 
 
@@ -7777,26 +8584,26 @@ _:genid60 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 
 ###  https://w3id.org/idsa/core/AuthInfo
 <https://w3id.org/idsa/core/AuthInfo> rdf:type owl:NamedIndividual ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid61 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid68 .
 
-_:genid61 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid68 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/authService> .
 
 
 ###  https://w3id.org/idsa/core/BoundingPolygon
 <https://w3id.org/idsa/core/BoundingPolygon> rdf:type owl:NamedIndividual ;
-                                             <https://w3id.org/idsa/metamodel/validation> _:genid62 .
+                                             <https://w3id.org/idsa/metamodel/validation> _:genid69 .
 
-_:genid62 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
+_:genid69 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/geoPoint> .
 
 
 ###  https://w3id.org/idsa/core/Broker
 <https://w3id.org/idsa/core/Broker> rdf:type owl:NamedIndividual ;
-                                    <https://w3id.org/idsa/metamodel/validation> _:genid63 .
+                                    <https://w3id.org/idsa/metamodel/validation> _:genid70 .
 
-_:genid63 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid70 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connectorCatalog> .
 
 
@@ -7827,95 +8634,95 @@ _:genid63 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 
 ###  https://w3id.org/idsa/core/ConfigurationModel
 <https://w3id.org/idsa/core/ConfigurationModel> rdf:type owl:NamedIndividual ;
-                                                <https://w3id.org/idsa/metamodel/validation> _:genid64 ,
-                                                                                             _:genid65 ,
-                                                                                             _:genid66 ,
-                                                                                             _:genid67 ,
-                                                                                             _:genid68 ,
-                                                                                             _:genid69 .
+                                                <https://w3id.org/idsa/metamodel/validation> _:genid71 ,
+                                                                                             _:genid72 ,
+                                                                                             _:genid73 ,
+                                                                                             _:genid74 ,
+                                                                                             _:genid75 ,
+                                                                                             _:genid76 .
 
-_:genid64 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connectorDeployMode> .
-
-_:genid65 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/userAuthentication> .
-
-_:genid66 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/configurationModelLogLevel> .
-
-_:genid67 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connectorStatus> .
-
-_:genid68 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid71 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connectorProxy> .
 
-_:genid69 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid72 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/configurationModelLogLevel> .
+
+_:genid73 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connectorStatus> .
+
+_:genid74 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/connectorDeployMode> .
+
+_:genid75 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/userAuthentication> .
+
+_:genid76 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appRoute> .
 
 
 ###  https://w3id.org/idsa/core/Connector
 <https://w3id.org/idsa/core/Connector> rdf:type owl:NamedIndividual ;
-                                       <https://w3id.org/idsa/metamodel/validation> _:genid70 ,
-                                                                                    _:genid71 ,
-                                                                                    _:genid72 ,
-                                                                                    _:genid73 ,
-                                                                                    _:genid74 ,
-                                                                                    _:genid75 ;
+                                       <https://w3id.org/idsa/metamodel/validation> _:genid77 ,
+                                                                                    _:genid78 ,
+                                                                                    _:genid79 ,
+                                                                                    _:genid80 ,
+                                                                                    _:genid81 ,
+                                                                                    _:genid82 ;
                                        <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid70 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid77 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasEndpoint> .
 
-_:genid71 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid78 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/extendedGuarantee> .
 
-_:genid72 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid79 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityProfile> .
 
-_:genid73 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid80 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasAgent> .
 
-_:genid74 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid81 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourceCatalog> .
 
-_:genid75 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid82 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasDefaultEndpoint> .
 
 
 ###  https://w3id.org/idsa/core/ConnectorCatalog
 <https://w3id.org/idsa/core/ConnectorCatalog> rdf:type owl:NamedIndividual ;
-                                              <https://w3id.org/idsa/metamodel/validation> _:genid76 .
+                                              <https://w3id.org/idsa/metamodel/validation> _:genid83 .
 
-_:genid76 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid83 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/listedConnector> .
 
 
 ###  https://w3id.org/idsa/core/ConnectorEndpoint
 <https://w3id.org/idsa/core/ConnectorEndpoint> rdf:type owl:NamedIndividual ;
-                                               <https://w3id.org/idsa/metamodel/validation> _:genid77 .
+                                               <https://w3id.org/idsa/metamodel/validation> _:genid84 .
 
-_:genid77 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid84 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/accessUrl> .
 
 
 ###  https://w3id.org/idsa/core/ConnectorNotificationMessage
 <https://w3id.org/idsa/core/ConnectorNotificationMessage> rdf:type owl:NamedIndividual ;
-                                                          <https://w3id.org/idsa/metamodel/validation> _:genid78 ;
+                                                          <https://w3id.org/idsa/metamodel/validation> _:genid85 ;
                                                           <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid78 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid85 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedConnector> .
 
 
 ###  https://w3id.org/idsa/core/Constraint
 <https://w3id.org/idsa/core/Constraint> rdf:type owl:NamedIndividual ;
-                                        <https://w3id.org/idsa/metamodel/validation> _:genid79 ,
-                                                                                     _:genid80 .
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid86 ,
+                                                                                     _:genid87 .
 
-_:genid79 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid86 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/leftOperand> .
 
-_:genid80 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid87 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operator> .
 
 
@@ -7926,66 +8733,69 @@ _:genid80 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/me
 
 ###  https://w3id.org/idsa/core/Contract
 <https://w3id.org/idsa/core/Contract> rdf:type owl:NamedIndividual ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid81 ,
-                                                                                   _:genid82 ,
-                                                                                   _:genid83 ;
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid88 ,
+                                                                                   _:genid89 ,
+                                                                                   _:genid90 ;
                                       <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid81 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid88 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/obligation> .
 
-_:genid82 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/permission> .
-
-_:genid83 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid89 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/prohibition> .
+
+_:genid90 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/permission> .
 
 
 ###  https://w3id.org/idsa/core/ContractAgreement
 <https://w3id.org/idsa/core/ContractAgreement> rdf:type owl:NamedIndividual ;
-                                               <https://w3id.org/idsa/metamodel/validation> _:genid84 .
+                                               <https://w3id.org/idsa/metamodel/validation> _:genid91 .
 
-_:genid84 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid91 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contractStart> .
 
 
 ###  https://w3id.org/idsa/core/DatPayload
 <https://w3id.org/idsa/core/DatPayload> rdf:type owl:NamedIndividual ;
-                                        <https://w3id.org/idsa/metamodel/validation> _:genid85 ,
-                                                                                     _:genid86 ,
-                                                                                     _:genid87 .
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid92 ,
+                                                                                     _:genid93 ,
+                                                                                     _:genid94 .
 
-_:genid85 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid92 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/referringConnector> .
 
-_:genid86 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid93 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/iss> .
 
-_:genid87 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid94 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/extendedGuarantee> .
 
 
 ###  https://w3id.org/idsa/core/DataApp
 <https://w3id.org/idsa/core/DataApp> rdf:type owl:NamedIndividual ;
-                                     <https://w3id.org/idsa/metamodel/validation> _:genid88 ;
+                                     <https://w3id.org/idsa/metamodel/validation> _:genid95 ,
+                                                                                  _:genid96 ;
                                      <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid88 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
-           <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid95 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appEndpoint> .
+
+_:genid96 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/appEndpoint> .
 
 
 ###  https://w3id.org/idsa/core/Described
 <https://w3id.org/idsa/core/Described> rdf:type owl:NamedIndividual ;
-                                       <https://w3id.org/idsa/metamodel/validation> _:genid89 ,
-                                                                                    _:genid90 ;
+                                       <https://w3id.org/idsa/metamodel/validation> _:genid97 ,
+                                                                                    _:genid98 ;
                                        <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid89 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/description> .
-
-_:genid90 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid97 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/title> .
+
+_:genid98 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/description> .
 
 
 ###  https://w3id.org/idsa/core/DescribedSemantically
@@ -7995,78 +8805,78 @@ _:genid90 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/
 
 ###  https://w3id.org/idsa/core/DigitalContent
 <https://w3id.org/idsa/core/DigitalContent> rdf:type owl:NamedIndividual ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid91 ,
-                                                                                         _:genid92 ,
-                                                                                         _:genid93 ,
-                                                                                         _:genid94 ,
-                                                                                         _:genid95 ,
-                                                                                         _:genid96 ,
-                                                                                         _:genid97 ,
-                                                                                         _:genid98 ;
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid99 ,
+                                                                                         _:genid100 ,
+                                                                                         _:genid101 ,
+                                                                                         _:genid102 ,
+                                                                                         _:genid103 ,
+                                                                                         _:genid104 ,
+                                                                                         _:genid105 ,
+                                                                                         _:genid106 ;
                                             <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid91 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid99 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentPart> .
 
-_:genid92 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> .
+_:genid100 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/spatialCoverage> .
 
-_:genid93 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> .
+_:genid101 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/temporalCoverage> .
 
-_:genid94 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/language> .
+_:genid102 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/language> .
 
-_:genid95 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/theme> .
+_:genid103 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/theme> .
 
-_:genid96 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/keyword> .
+_:genid104 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/keyword> .
 
-_:genid97 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentRefinement> .
+_:genid105 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contentRefinement> .
 
-_:genid98 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> .
+_:genid106 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/representation> .
 
 
 ###  https://w3id.org/idsa/core/DurationEntity
 <https://w3id.org/idsa/core/DurationEntity> rdf:type owl:NamedIndividual ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid99 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid107 .
 
-_:genid99 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-           <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasDuration> .
+_:genid107 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasDuration> .
 
 
 ###  https://w3id.org/idsa/core/DynamicAttributeToken
 <https://w3id.org/idsa/core/DynamicAttributeToken> rdf:type owl:NamedIndividual ;
-                                                   <https://w3id.org/idsa/metamodel/validation> _:genid100 .
+                                                   <https://w3id.org/idsa/metamodel/validation> _:genid108 .
 
-_:genid100 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid108 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/tokenFormat> .
 
 
 ###  https://w3id.org/idsa/core/Endpoint
 <https://w3id.org/idsa/core/Endpoint> rdf:type owl:NamedIndividual ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid101 ,
-                                                                                   _:genid102 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid109 ,
+                                                                                   _:genid110 .
 
-_:genid101 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointInformation> .
-
-_:genid102 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid109 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointDocumentation> .
+
+_:genid110 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/endpointInformation> .
 
 
 ###  https://w3id.org/idsa/core/GeoPoint
 <https://w3id.org/idsa/core/GeoPoint> rdf:type owl:NamedIndividual ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid103 ,
-                                                                                   _:genid104 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid111 ,
+                                                                                   _:genid112 .
 
-_:genid103 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid111 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/latitude> .
 
-_:genid104 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid112 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/longitude> .
 
 
@@ -8094,77 +8904,80 @@ _:genid104 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
 
 ###  https://w3id.org/idsa/core/InfrastructureComponent
 <https://w3id.org/idsa/core/InfrastructureComponent> rdf:type owl:NamedIndividual ;
-                                                     <https://w3id.org/idsa/metamodel/validation> _:genid105 ,
-                                                                                                  _:genid106 ,
-                                                                                                  _:genid107 ,
-                                                                                                  _:genid108 ;
+                                                     <https://w3id.org/idsa/metamodel/validation> _:genid113 ,
+                                                                                                  _:genid114 ,
+                                                                                                  _:genid115 ,
+                                                                                                  _:genid116 ;
                                                      <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid105 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid113 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/maintainer> .
 
-_:genid106 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid114 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/curator> .
 
-_:genid107 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
+_:genid115 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/inboundModelVersion> .
 
-_:genid108 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid116 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/outboundModelVersion> .
 
 
 ###  https://w3id.org/idsa/core/Interval
 <https://w3id.org/idsa/core/Interval> rdf:type owl:NamedIndividual ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid109 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid117 .
 
-_:genid109 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid117 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/begin> .
 
 
 ###  https://w3id.org/idsa/core/InvokeOperationMessage
 <https://w3id.org/idsa/core/InvokeOperationMessage> rdf:type owl:NamedIndividual ;
-                                                    <https://w3id.org/idsa/metamodel/validation> _:genid110 .
+                                                    <https://w3id.org/idsa/metamodel/validation> _:genid118 .
 
-_:genid110 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid118 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/operationReference> .
 
 
 ###  https://w3id.org/idsa/core/JwtPayload
 <https://w3id.org/idsa/core/JwtPayload> rdf:type owl:NamedIndividual ;
-                                        <https://w3id.org/idsa/metamodel/validation> _:genid111 ,
-                                                                                     _:genid112 ,
-                                                                                     _:genid113 ,
-                                                                                     _:genid114 ,
-                                                                                     _:genid115 ,
-                                                                                     _:genid116 ,
-                                                                                     _:genid117 ,
-                                                                                     _:genid118 ;
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid119 ,
+                                                                                     _:genid120 ,
+                                                                                     _:genid121 ,
+                                                                                     _:genid122 ,
+                                                                                     _:genid123 ,
+                                                                                     _:genid124 ,
+                                                                                     _:genid125 ,
+                                                                                     _:genid126 ,
+                                                                                     _:genid127 ;
                                         <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid111 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid119 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/aud> .
 
-_:genid112 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid120 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sub> .
 
-_:genid113 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid121 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/nbf> .
 
-_:genid114 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid122 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/exp> .
 
-_:genid115 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid123 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/iat> .
 
-_:genid116 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid124 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/scope> .
 
-_:genid117 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid125 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityProfile> .
 
-_:genid118 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
-            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid126 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/transportCertsSha256> .
+
+_:genid127 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/transportCertsSha256> .
 
 
@@ -8175,18 +8988,18 @@ _:genid118 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/m
 
 ###  https://w3id.org/idsa/core/LogicalConstraint
 <https://w3id.org/idsa/core/LogicalConstraint> rdf:type owl:NamedIndividual ;
-                                               <https://w3id.org/idsa/metamodel/validation> _:genid119 ,
-                                                                                            _:genid120 ,
-                                                                                            _:genid121 .
+                                               <https://w3id.org/idsa/metamodel/validation> _:genid128 ,
+                                                                                            _:genid129 ,
+                                                                                            _:genid130 .
 
-_:genid119 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid128 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/xone> .
 
-_:genid120 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/and> .
-
-_:genid121 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid129 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/or> .
+
+_:genid130 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/and> .
 
 
 ###  https://w3id.org/idsa/core/ManagedEntity
@@ -8202,140 +9015,135 @@ _:genid121 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 
 ###  https://w3id.org/idsa/core/Message
 <https://w3id.org/idsa/core/Message> rdf:type owl:NamedIndividual ;
-                                     <https://w3id.org/idsa/metamodel/validation> _:genid122 ,
-                                                                                  _:genid123 ,
-                                                                                  _:genid124 ,
-                                                                                  _:genid125 ,
-                                                                                  _:genid126 ,
-                                                                                  _:genid127 ,
-                                                                                  _:genid128 ;
+                                     <https://w3id.org/idsa/metamodel/validation> _:genid131 ,
+                                                                                  _:genid132 ,
+                                                                                  _:genid133 ,
+                                                                                  _:genid134 ,
+                                                                                  _:genid135 ,
+                                                                                  _:genid136 ,
+                                                                                  _:genid137 ;
                                      <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid122 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientAgent> .
-
-_:genid123 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid131 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/modelVersion> .
 
-_:genid124 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid132 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issued> .
 
-_:genid125 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid133 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/issuerConnector> .
 
-_:genid126 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid134 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientConnector> .
 
-_:genid127 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid135 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityToken> .
 
-_:genid128 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid136 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/senderAgent> .
+
+_:genid137 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/recipientAgent> .
 
 
 ###  https://w3id.org/idsa/core/MessageProcessedNotificationMessage
 <https://w3id.org/idsa/core/MessageProcessedNotificationMessage> rdf:type owl:NamedIndividual ;
-                                                                 <https://w3id.org/idsa/metamodel/validation> _:genid129 .
+                                                                 <https://w3id.org/idsa/metamodel/validation> _:genid138 .
 
-_:genid129 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid138 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 
 
 ###  https://w3id.org/idsa/core/ParIS
 <https://w3id.org/idsa/core/ParIS> rdf:type owl:NamedIndividual ;
-                                   <https://w3id.org/idsa/metamodel/validation> _:genid130 .
+                                   <https://w3id.org/idsa/metamodel/validation> _:genid139 .
 
-_:genid130 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid139 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/participantCatalog> .
 
 
 ###  https://w3id.org/idsa/core/Participant
 <https://w3id.org/idsa/core/Participant> rdf:type owl:NamedIndividual ;
-                                         <https://w3id.org/idsa/metamodel/validation> _:genid131 ,
-                                                                                      _:genid132 ,
-                                                                                      _:genid133 .
+                                         <https://w3id.org/idsa/metamodel/validation> _:genid140 ,
+                                                                                      _:genid141 ,
+                                                                                      _:genid142 .
 
-_:genid131 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberParticipant> .
-
-_:genid132 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid140 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberPerson> .
 
-_:genid133 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid141 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/memberParticipant> .
+
+_:genid142 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/corporateEmailAddress> .
 
 
 ###  https://w3id.org/idsa/core/ParticipantCatalog
 <https://w3id.org/idsa/core/ParticipantCatalog> rdf:type owl:NamedIndividual ;
-                                                <https://w3id.org/idsa/metamodel/validation> _:genid134 .
+                                                <https://w3id.org/idsa/metamodel/validation> _:genid143 .
 
-_:genid134 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid143 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/member> .
 
 
 ###  https://w3id.org/idsa/core/ParticipantNotificationMessage
 <https://w3id.org/idsa/core/ParticipantNotificationMessage> rdf:type owl:NamedIndividual ;
-                                                            <https://w3id.org/idsa/metamodel/validation> _:genid135 ;
+                                                            <https://w3id.org/idsa/metamodel/validation> _:genid144 ;
                                                             <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid135 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid144 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedParticipant> .
 
 
 ###  https://w3id.org/idsa/core/ParticipantRequestMessage
 <https://w3id.org/idsa/core/ParticipantRequestMessage> rdf:type owl:NamedIndividual ;
-                                                       <https://w3id.org/idsa/metamodel/validation> _:genid136 .
+                                                       <https://w3id.org/idsa/metamodel/validation> _:genid145 .
 
-_:genid136 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid145 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/requestedParticipant> .
 
 
 ###  https://w3id.org/idsa/core/Permission
 <https://w3id.org/idsa/core/Permission> rdf:type owl:NamedIndividual ;
-                                        <https://w3id.org/idsa/metamodel/validation> _:genid137 ,
-                                                                                     _:genid138 .
+                                        <https://w3id.org/idsa/metamodel/validation> _:genid146 ,
+                                                                                     _:genid147 .
 
-_:genid137 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/preDuty> .
-
-_:genid138 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid146 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/postDuty> .
+
+_:genid147 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/preDuty> .
 
 
 ###  https://w3id.org/idsa/core/Person
 <https://w3id.org/idsa/core/Person> rdf:type owl:NamedIndividual ;
-                                    <https://w3id.org/idsa/metamodel/validation> _:genid139 ,
-                                                                                 _:genid140 .
+                                    <https://w3id.org/idsa/metamodel/validation> _:genid148 ,
+                                                                                 _:genid149 .
 
-_:genid139 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> .
-
-_:genid140 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid148 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/phoneNumber> .
+
+_:genid149 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/emailAddress> .
 
 
 ###  https://w3id.org/idsa/core/Proxy
 <https://w3id.org/idsa/core/Proxy> rdf:type owl:NamedIndividual ;
-                                   <https://w3id.org/idsa/metamodel/validation> _:genid141 ,
-                                                                                _:genid142 .
+                                   <https://w3id.org/idsa/metamodel/validation> _:genid150 ,
+                                                                                _:genid151 .
 
-_:genid141 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/noProxy> .
-
-_:genid142 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid150 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/proxyURI> .
 
-
-###  https://w3id.org/idsa/core/QueryMessage
-<https://w3id.org/idsa/core/QueryMessage> rdf:type owl:NamedIndividual ;
-                                          <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
+_:genid151 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/noProxy> .
 
 
 ###  https://w3id.org/idsa/core/Representation
 <https://w3id.org/idsa/core/Representation> rdf:type owl:NamedIndividual ;
-                                            <https://w3id.org/idsa/metamodel/validation> _:genid143 .
+                                            <https://w3id.org/idsa/metamodel/validation> _:genid152 .
 
-_:genid143 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid152 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/instance> .
 
 
@@ -8346,122 +9154,122 @@ _:genid143 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
 
 ###  https://w3id.org/idsa/core/RequestInProcessMessage
 <https://w3id.org/idsa/core/RequestInProcessMessage> rdf:type owl:NamedIndividual ;
-                                                     <https://w3id.org/idsa/metamodel/validation> _:genid144 .
+                                                     <https://w3id.org/idsa/metamodel/validation> _:genid153 .
 
-_:genid144 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid153 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 
 
 ###  https://w3id.org/idsa/core/Resource
 <https://w3id.org/idsa/core/Resource> rdf:type owl:NamedIndividual ;
-                                      <https://w3id.org/idsa/metamodel/validation> _:genid145 ,
-                                                                                   _:genid146 ,
-                                                                                   _:genid147 ,
-                                                                                   _:genid148 .
+                                      <https://w3id.org/idsa/metamodel/validation> _:genid154 ,
+                                                                                   _:genid155 ,
+                                                                                   _:genid156 ,
+                                                                                   _:genid157 .
 
-_:genid145 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid154 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourceEndpoint> .
 
-_:genid146 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid155 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/resourcePart> .
 
-_:genid147 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid156 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contractOffer> .
 
-_:genid148 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid157 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/sample> .
 
 
 ###  https://w3id.org/idsa/core/ResourceCatalog
 <https://w3id.org/idsa/core/ResourceCatalog> rdf:type owl:NamedIndividual ;
-                                             <https://w3id.org/idsa/metamodel/validation> _:genid149 ,
-                                                                                          _:genid150 .
+                                             <https://w3id.org/idsa/metamodel/validation> _:genid158 ,
+                                                                                          _:genid159 .
 
-_:genid149 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid158 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/requestedResource> .
 
-_:genid150 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid159 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/offeredResource> .
 
 
 ###  https://w3id.org/idsa/core/ResourceNotificationMessage
 <https://w3id.org/idsa/core/ResourceNotificationMessage> rdf:type owl:NamedIndividual ;
-                                                         <https://w3id.org/idsa/metamodel/validation> _:genid151 ;
+                                                         <https://w3id.org/idsa/metamodel/validation> _:genid160 ;
                                                          <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid151 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid160 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/affectedResource> .
 
 
 ###  https://w3id.org/idsa/core/ResponseMessage
 <https://w3id.org/idsa/core/ResponseMessage> rdf:type owl:NamedIndividual ;
-                                             <https://w3id.org/idsa/metamodel/validation> _:genid152 .
+                                             <https://w3id.org/idsa/metamodel/validation> _:genid161 .
 
-_:genid152 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid161 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/correlationMessage> .
 
 
 ###  https://w3id.org/idsa/core/Rule
 <https://w3id.org/idsa/core/Rule> rdf:type owl:NamedIndividual ;
-                                  <https://w3id.org/idsa/metamodel/validation> _:genid153 ,
-                                                                               _:genid154 ,
-                                                                               _:genid155 ,
-                                                                               _:genid156 ;
+                                  <https://w3id.org/idsa/metamodel/validation> _:genid162 ,
+                                                                               _:genid163 ,
+                                                                               _:genid164 ,
+                                                                               _:genid165 ;
                                   <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean .
 
-_:genid153 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assignee> .
+_:genid162 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> .
 
-_:genid154 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
-            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/action> .
-
-_:genid155 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid163 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/constraint> .
 
-_:genid156 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assigner> .
+_:genid164 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/assignee> .
+
+_:genid165 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/action> .
 
 
 ###  https://w3id.org/idsa/core/SecurityProfile
 <https://w3id.org/idsa/core/SecurityProfile> rdf:type owl:NamedIndividual ;
-                                             <https://w3id.org/idsa/metamodel/validation> _:genid157 .
+                                             <https://w3id.org/idsa/metamodel/validation> _:genid166 .
 
-_:genid157 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid166 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/securityGuarantee> .
 
 
 ###  https://w3id.org/idsa/core/Token
 <https://w3id.org/idsa/core/Token> rdf:type owl:NamedIndividual ;
-                                   <https://w3id.org/idsa/metamodel/validation> _:genid158 .
+                                   <https://w3id.org/idsa/metamodel/validation> _:genid167 .
 
-_:genid158 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+_:genid167 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/tokenValue> .
 
 
 ###  https://w3id.org/idsa/core/UsageControlObject
 <https://w3id.org/idsa/core/UsageControlObject> rdf:type owl:NamedIndividual ;
-                                                <https://w3id.org/idsa/metamodel/validation> _:genid159 ,
-                                                                                             _:genid160 ,
-                                                                                             _:genid161 ,
-                                                                                             _:genid162 ,
-                                                                                             _:genid163 .
+                                                <https://w3id.org/idsa/metamodel/validation> _:genid168 ,
+                                                                                             _:genid169 ,
+                                                                                             _:genid170 ,
+                                                                                             _:genid171 ,
+                                                                                             _:genid172 .
 
-_:genid159 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid168 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/hasState> .
 
-_:genid160 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/data> .
-
-_:genid161 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotEmpty> ;
+_:genid169 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
             <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/contract> .
 
-_:genid162 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
-            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/created> .
+_:genid170 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/data> .
 
-_:genid163 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
+_:genid171 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa/metamodel/OneToMany> ;
             <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/action> .
+
+_:genid172 <https://w3id.org/idsa/metamodel/constraint> <https://w3id.org/idsa/metamodel/NotNull> ;
+            <https://w3id.org/idsa/metamodel/forProperty> <https://w3id.org/idsa/core/created> .
 
 
 ###  https://w3id.org/idsa/core/UserAuthentication
@@ -8874,12 +9682,6 @@ _:genid163 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
                                    rdfs:seeAlso <https://tools.ietf.org/html/rfc2068> .
 
 
-<https://w3id.org/idsa/core/QueryMessage> rdfs:comment "Query commands are intended to annotate query strings in a specified query language or address a specific resource."@en ,
-                                                       "Query message intended to be consumed by a component."@en ;
-                                          rdfs:label "Query Command"@en ,
-                                                     "Query Message"@en .
-
-
 <https://w3id.org/idsa/core/Representation> rdfs:comment "Syntactic template of a Resource."@en ;
                                             rdfs:label "Representation"@en .
 
@@ -9201,4 +10003,4 @@ _:genid163 <https://w3id.org/idsa/metamodel/relationType> <https://w3id.org/idsa
                                               rdfs:label "forProperty"@en .
 
 
-###  Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

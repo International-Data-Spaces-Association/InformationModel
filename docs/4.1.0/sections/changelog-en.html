@@ -2,434 +2,237 @@
 <h2 id="changes" class="list">Changes from last version</h2>
 <h3 id="changeClass" class="list">Classes</h3>
 <details><summary><u>Modified classes</u></summary>
-<ul><li><a href="#/AbstractConstraint">https://w3id.org/idsa/core/AbstractConstraint</a>
+<ul><li><a href="#/Agent">https://w3id.org/idsa/core/Agent</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "Internal or external Agent interacting with the International Data Spaces, not necessarily an IDS Participant."@en</li>
 </ul>
-</li>
-<li><a href="#/Action">https://w3id.org/idsa/core/Action</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483691</li>
-</ul>
-</li>
-<li><a href="#/AppEndpoint">https://w3id.org/idsa/core/AppEndpoint</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483655</li>
-</ul>
-</li>
-<li><a href="#/AppNotificationMessage">https://w3id.org/idsa/core/AppNotificationMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483765</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "Internal or external Agent interacting with the Industrial Data Space, not necessarily an IDS Participant."@en</li>
 </ul>
 </li>
 <li><a href="#/AppRoute">https://w3id.org/idsa/core/AppRoute</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483651</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483652</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483653</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483650</li>
+<li>Added: rdfs:comment "
+    ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.
+    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between two adjacent data apps is represented by the ids:RouteStep class.
+    ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.
+    "@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "
+    ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.
+    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is represented by the ids:EndToEndRoutes class.
+    ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.
+    "@en</li>
 </ul>
 </li>
-<li><a href="#/AppUploadMessage">https://w3id.org/idsa/core/AppUploadMessage</a>
+<li><a href="#/Artifact">https://w3id.org/idsa/core/Artifact</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483769</li>
-</ul>
-</li>
-<li><a href="#/ArtifactRequestMessage">https://w3id.org/idsa/core/ArtifactRequestMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483771</li>
-</ul>
-</li>
-<li><a href="#/Asset">https://w3id.org/idsa/core/Asset</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/AuthInfo">https://w3id.org/idsa/core/AuthInfo</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483734</li>
-</ul>
-</li>
-<li><a href="#/BoundingPolygon">https://w3id.org/idsa/core/BoundingPolygon</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483686</li>
-</ul>
-</li>
-<li><a href="#/Broker">https://w3id.org/idsa/core/Broker</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483707</li>
-</ul>
-</li>
-<li><a href="#/Catalog">https://w3id.org/idsa/core/Catalog</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/Certification">https://w3id.org/idsa/core/Certification</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/CertificationLevel">https://w3id.org/idsa/core/CertificationLevel</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/CommandMessage">https://w3id.org/idsa/core/CommandMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/Concept">https://w3id.org/idsa/core/Concept</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/ConfigurationModel">https://w3id.org/idsa/core/ConfigurationModel</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483716</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483713</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483717</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483714</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483715</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483712</li>
-</ul>
-</li>
-<li><a href="#/Connector">https://w3id.org/idsa/core/Connector</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483722</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483718</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483719</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483720</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483723</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483721</li>
+<li>Added: SubClass of https://w3id.org/idsa/core/Asset</li>
 </ul>
 </li>
 <li><a href="#/ConnectorCatalog">https://w3id.org/idsa/core/ConnectorCatalog</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483711</li>
+<li>Added: rdfs:comment "Class that aggregates Connectors from a (distributable) Catalog."@en</li>
 </ul>
-</li>
-<li><a href="#/ConnectorEndpoint">https://w3id.org/idsa/core/ConnectorEndpoint</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483654</li>
-</ul>
-</li>
-<li><a href="#/ConnectorNotificationMessage">https://w3id.org/idsa/core/ConnectorNotificationMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483770</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/Constraint">https://w3id.org/idsa/core/Constraint</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483692</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483693</li>
+<li>Deleted: rdfs:comment "Class that aggregates Connectors which, as a whole, from a (distributable) Catalog."@en</li>
 </ul>
 </li>
 <li><a href="#/ContentType">https://w3id.org/idsa/core/ContentType</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/usage> "Instances of Content Type are used to more precisely specify the type, genre or interpretation of a Digital Content."@en</li>
+<li>Added: rdfs:comment "Enumerated types of content expanding upon the Digital Content hierarchy. Instances of Content Type are used to more precisely specify the type, genre or interpretation of a Digital Content."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Enumerated types of content expanding upon the Digital Content hierarchy."@en</li>
 </ul>
 </li>
-<li><a href="#/Contract">https://w3id.org/idsa/core/Contract</a>
+<li><a href="#/ContractOfferMessage">https://w3id.org/idsa/core/ContractOfferMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483700</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483699</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483698</li>
+<li>Added: rdfs:comment "Message containing a offered content contract (as offered by a data provider to the data consumer) in the associated payload (which is an instance of ids:ContractOffer). In contrast to the ids:ContractResponseMessage, the ids:ContractOfferMessage is not related to a previous contract "@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Message containing a offered content contract (as offered by a data provider to the data consumer) in the associated payload (which is an instance of ContractOffer). In contrast to the ids:ContractResponseMessage, the ids:ContractOfferMessage is not related to a previous contract "@en</li>
 </ul>
 </li>
-<li><a href="#/ContractAgreement">https://w3id.org/idsa/core/ContractAgreement</a>
+<li><a href="#/ContractRequestMessage">https://w3id.org/idsa/core/ContractRequestMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483697</li>
+<li>Added: rdfs:comment "Message containing a suggested content contract (as offered by the data consumer to the data provider) in the associated payload (which is an instance of ids:ContractRequest)."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Message containing a suggested content contract (as offered by the data consumer to the data provider) in the associated payload (which is an instance of ContractRequest)."@en</li>
 </ul>
 </li>
-<li><a href="#/DatPayload">https://w3id.org/idsa/core/DatPayload</a>
+<li><a href="#/ContractResponseMessage">https://w3id.org/idsa/core/ContractResponseMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483742</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483743</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483741</li>
+<li>Added: rdfs:comment "Message containing a response to a contract request (of a data consumer) in form of a counter-proposal of a contract in the associated payload (which is an instance of ids:ContractOffer). "@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Message containing a response to a contract request (of a data consumer) in form of a counter-proposal of a contract in the associated payload (which is an instance of ContractOffcer). "@en</li>
 </ul>
 </li>
-<li><a href="#/DataApp">https://w3id.org/idsa/core/DataApp</a>
+<li><a href="#/ContractSupplementMessage">https://w3id.org/idsa/core/ContractSupplementMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483667</li>
+<li>Added: rdfs:comment "Message containing supplemental information to access resources of a contract (e.g., resource access tokens)."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Message containing supplemental information to access resources of a contract (e.g. resource access tokens)."@en</li>
 </ul>
 </li>
-<li><a href="#/Described">https://w3id.org/idsa/core/Described</a>
+<li><a href="#/DescriptionRequestMessage">https://w3id.org/idsa/core/DescriptionRequestMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483750</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483749</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g., because the element was not found."@en</li>
 </ul>
-</li>
-<li><a href="#/DescribedSemantically">https://w3id.org/idsa/core/DescribedSemantically</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "Message requesting metadata. If no URI is supplied via the ids:requestedElement field, this messages is treated like a self-description request and the recipient should return its self-description via an ids:DescriptionResponseMessage. However, if a URI is supplied, the Connector should either return metadata about the requested element via an ids:DescriptionResponseMessage, or send an ids:RejectionMessage, e.g. because the element was not found."@en</li>
 </ul>
 </li>
 <li><a href="#/DigitalContent">https://w3id.org/idsa/core/DigitalContent</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483672</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483675</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483668</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483670</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483673</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483669</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483674</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483671</li>
+<li>Added: rdfs:comment "Digital content of a particular type providing hints on its usage, e.g., listening to an Audio, navigating a Structure or accessing a List by an index."@en</li>
 </ul>
-</li>
-<li><a href="#/DurationEntity">https://w3id.org/idsa/core/DurationEntity</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483689</li>
-</ul>
-</li>
-<li><a href="#/DynamicAttributeToken">https://w3id.org/idsa/core/DynamicAttributeToken</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483739</li>
-</ul>
-</li>
-<li><a href="#/Endpoint">https://w3id.org/idsa/core/Endpoint</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483656</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483657</li>
-</ul>
-</li>
-<li><a href="#/GeoPoint">https://w3id.org/idsa/core/GeoPoint</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483687</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483688</li>
-</ul>
-</li>
-<li><a href="#/Geometry">https://w3id.org/idsa/core/Geometry</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/IANAMediaType">https://w3id.org/idsa/core/IANAMediaType</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/example> "
-    <https://w3id.org/spar/mediatype/text/csv> a ids:IANAMediaType .
-        # the retrieved representation (HTML, turtle, RDF/XML) depends on content negotiation
-"^^xsd:string</li>
-<li>Added: <https://w3id.org/idsa/metamodel/usage> "Definition of an ids:IANAMediaType should define individual equivalence to corresponding SPAR-Media Type."@en</li>
-</ul>
-</li>
-<li><a href="#/InfrastructureComponent">https://w3id.org/idsa/core/InfrastructureComponent</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483727</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483724</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483726</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483725</li>
-</ul>
-</li>
-<li><a href="#/Interval">https://w3id.org/idsa/core/Interval</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483690</li>
-</ul>
-</li>
-<li><a href="#/InvokeOperationMessage">https://w3id.org/idsa/core/InvokeOperationMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483766</li>
+<li>Deleted: rdfs:comment "Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index."@en</li>
 </ul>
 </li>
 <li><a href="#/JwtPayload">https://w3id.org/idsa/core/JwtPayload</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483744</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483736</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483747</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483740</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483746</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483737</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483748</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483745</li>
+<li>Added: rdfs:comment "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g., DatPayload and DatRequestPayload."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g. DatPayload and DatRequestPayload."@en</li>
 </ul>
 </li>
-<li><a href="#/Location">https://w3id.org/idsa/core/Location</a>
+<li><a href="#/LogMessage">https://w3id.org/idsa/core/LogMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "Log Message which can be used to transfer logs e.g., to the clearing house."@en</li>
 </ul>
-</li>
-<li><a href="#/LogicalConstraint">https://w3id.org/idsa/core/LogicalConstraint</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483695</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483694</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483696</li>
-</ul>
-</li>
-<li><a href="#/ManagedEntity">https://w3id.org/idsa/core/ManagedEntity</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "Log Message which can be used to transfer logs e.g. to the clearing house."@en</li>
 </ul>
 </li>
 <li><a href="#/MediaType">https://w3id.org/idsa/core/MediaType</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/usage> "ids:CustomMediaType is used only when no ids:IANAMediaType available."@en</li>
+<li>Added: rdfs:comment "General class of media types (formerly known as MIME types). ids:CustomMediaType is used only when no ids:IANAMediaType available."@en</li>
 </ul>
-</li>
-<li><a href="#/Message">https://w3id.org/idsa/core/Message</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483662</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483658</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483659</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483661</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483664</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483663</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483660</li>
-</ul>
-</li>
-<li><a href="#/MessageProcessedNotificationMessage">https://w3id.org/idsa/core/MessageProcessedNotificationMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483772</li>
-</ul>
-</li>
-<li><a href="#/ParIS">https://w3id.org/idsa/core/ParIS</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483728</li>
+<li>Deleted: rdfs:comment "General class of media types (formerly known as MIME types)."@en</li>
 </ul>
 </li>
 <li><a href="#/Participant">https://w3id.org/idsa/core/Participant</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483732</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483729</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483730</li>
+<li>Added: rdfs:comment "Stakeholder in the International Data Spaces, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en</li>
 </ul>
 </li>
 <li><a href="#/ParticipantCatalog">https://w3id.org/idsa/core/ParticipantCatalog</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483708</li>
+<li>Added: rdfs:comment "Class that aggregates Participants from a (distributable) Catalog."@en</li>
 </ul>
-</li>
-<li><a href="#/ParticipantNotificationMessage">https://w3id.org/idsa/core/ParticipantNotificationMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483773</li>
+<li>Deleted: rdfs:comment "Class that aggregates Participants which, as a whole, from a (distributable) Catalog."@en</li>
 </ul>
 </li>
 <li><a href="#/ParticipantRequestMessage">https://w3id.org/idsa/core/ParticipantRequestMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483767</li>
+<li>Added: owl:deprecated "true"^^xsd:boolean</li>
+<li>Added: rdfs:label "Participant Request Message (Deprecated)"@en</li>
+<li>Added: rdfs:comment "This class is deprecated. Use ids:DescriptionRequestMessage instead. Message asking for retrieving the specified Participants information as the payload of an ids:ParticipantResponse message."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message."@en</li>
+<li>Deleted: rdfs:label "Participant Request Message"@en</li>
 </ul>
 </li>
-<li><a href="#/Permission">https://w3id.org/idsa/core/Permission</a>
+<li><a href="#/ParticipantResponseMessage">https://w3id.org/idsa/core/ParticipantResponseMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483705</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483706</li>
+<li>Added: owl:deprecated "true"^^xsd:boolean</li>
+<li>Added: rdfs:label "Participant Response Message (Deprecated)"@en</li>
+<li>Added: rdfs:comment "This class is deprecated. Use ids:DescriptionResponseMessage instead. ParticipantResponseMessage follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Message that follows up a ParticipantRequestMessage and contains the Participant's information in the payload section."@en</li>
+<li>Deleted: rdfs:label "Participant Response Message"@en</li>
 </ul>
 </li>
-<li><a href="#/Person">https://w3id.org/idsa/core/Person</a>
+<li><a href="#/QueryScope">https://w3id.org/idsa/core/QueryScope</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483733</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483731</li>
+<li>Added: rdfs:comment "Class of scopes that may limit the space of query results, e.g., ALL, ACTIVE_ONLY."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Class of scopes that may limit the space of query results, e.g. ALL, ACTIVE_ONLY."@en</li>
 </ul>
 </li>
-<li><a href="#/Proxy">https://w3id.org/idsa/core/Proxy</a>
+<li><a href="#/QueryTarget">https://w3id.org/idsa/core/QueryTarget</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483665</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483666</li>
+<li>Added: rdfs:comment "Class of recipients of a query message, e.g., BROKER, APPSTORE, ANY."@en</li>
 </ul>
-</li>
-<li><a href="#/QueryMessage">https://w3id.org/idsa/core/QueryMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "Class of recipients of a query message, e.g. BROKER, APPSTORE, ANY."@en</li>
 </ul>
 </li>
 <li><a href="#/Representation">https://w3id.org/idsa/core/Representation</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483676</li>
-</ul>
-</li>
-<li><a href="#/RepresentationInstance">https://w3id.org/idsa/core/RepresentationInstance</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/RequestInProcessMessage">https://w3id.org/idsa/core/RequestInProcessMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483768</li>
-</ul>
-</li>
-<li><a href="#/Resource">https://w3id.org/idsa/core/Resource</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483677</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483680</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483678</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483679</li>
+<li>Added: SubClass of https://w3id.org/idsa/core/Asset</li>
 </ul>
 </li>
 <li><a href="#/ResourceCatalog">https://w3id.org/idsa/core/ResourceCatalog</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483709</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483710</li>
+<li>Added: rdfs:comment "Class that aggregates Resources from a (distributable) Catalog."@en</li>
 </ul>
-</li>
-<li><a href="#/ResourceNotificationMessage">https://w3id.org/idsa/core/ResourceNotificationMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483774</li>
-</ul>
-</li>
-<li><a href="#/ResponseMessage">https://w3id.org/idsa/core/ResponseMessage</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483775</li>
-</ul>
-</li>
-<li><a href="#/Rule">https://w3id.org/idsa/core/Rule</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483702</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483703</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483704</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483701</li>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/SecurityProfile">https://w3id.org/idsa/core/SecurityProfile</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483735</li>
-</ul>
-</li>
-<li><a href="#/Token">https://w3id.org/idsa/core/Token</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483738</li>
-</ul>
-</li>
-<li><a href="#/UsageControlObject">https://w3id.org/idsa/core/UsageControlObject</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483683</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483682</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483685</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483684</li>
-<li>Added: <https://w3id.org/idsa/metamodel/validation> _:genid2147483681</li>
-</ul>
-</li>
-<li><a href="#/UserAuthentication">https://w3id.org/idsa/core/UserAuthentication</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/abstract> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en</li>
 </ul>
 </li>
 </ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#_:genid-nodeid-node1fal42qo2x31">_:genid-nodeid-node1fal42qo2x31</a>
+<ul><li><a href="#/AppResourceCatalog">https://w3id.org/idsa/core/AppResourceCatalog</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/Catalog</li>
+</ul>
 </li>
-<li><a href="#_:genid2147483754">_:genid2147483754</a>
+<li><a href="#/AppStoreCatalog">https://w3id.org/idsa/core/AppStoreCatalog</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/ConnectorCatalog</li>
+</ul>
+</li>
+<li><a href="#/BrokerCatalog">https://w3id.org/idsa/core/BrokerCatalog</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/ConnectorCatalog</li>
+</ul>
+</li>
+<li><a href="#/BusinessIdentifier">https://w3id.org/idsa/core/BusinessIdentifier</a>
+</li>
+<li><a href="#/ClearingHouseCatalog">https://w3id.org/idsa/core/ClearingHouseCatalog</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/Catalog</li>
+</ul>
+</li>
+<li><a href="#/GenericEndpoint">https://w3id.org/idsa/core/GenericEndpoint</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/Endpoint</li>
+</ul>
+</li>
+<li><a href="#/RouteStep">https://w3id.org/idsa/core/RouteStep</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/AppRoute</li>
+</ul>
+</li>
+<li><a href="#/UsagePolicyClass">https://w3id.org/idsa/core/UsagePolicyClass</a>
 </li>
 </ul></details><details><summary><u>Deleted classes</u></summary>
-<ul><li><a href="#_:genid-nodeid-node1f8nmq4lmx31">_:genid-nodeid-node1f8nmq4lmx31</a>
+<ul><li><a href="#http://org.semanticweb.owlapi/error#Error1">http://org.semanticweb.owlapi/error#Error1</a>
 </li>
-<li><a href="#http://org.semanticweb.owlapi/error#Error1">http://org.semanticweb.owlapi/error#Error1</a>
+<li><a href="#http://org.semanticweb.owlapi/error#Error2">http://org.semanticweb.owlapi/error#Error2</a>
 </li>
 <li><a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">http://www.w3.org/1999/02/22-rdf-syntax-ns#Property</a>
 </li>
 <li><a href="#http://www.w3.org/2002/07/owl#Class">http://www.w3.org/2002/07/owl#Class</a>
+</li>
+<li><a href="#/EndToEndRoute">https://w3id.org/idsa/core/EndToEndRoute</a>
+</li>
+<li><a href="#/Operation">https://w3id.org/idsa/core/Operation</a>
 </li>
 <li><a href="#https://w3id.org/idsa/metamodel/Constraint">https://w3id.org/idsa/metamodel/Constraint</a>
 </li>
@@ -442,30 +245,19 @@
 <li><a href="#https://w3id.org/idsa/metamodel/RelationType">https://w3id.org/idsa/metamodel/RelationType</a>
 </li>
 </ul></details><h3 id="changeProp" class="list">Object Properties</h3>
-<details><summary><u>Modified properties</u></summary>
+<details><summary><u>Modified object properties</u></summary>
 <ul><li><a href="#/action">https://w3id.org/idsa/core/action</a>
 <ul>
+<li>Added: rdfs:comment "The operation relating to the asset / data object. "@en</li>
+<li>Added: domain Union of (https://w3id.org/idsa/core/Rule, https://w3id.org/idsa/core/UsageControlObject)</li>
 <li>Added: Range https://w3id.org/idsa/core/Action</li>
 </ul>
-</li>
-<li><a href="#/affectedConnector">https://w3id.org/idsa/core/affectedConnector</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/affectedDataApp">https://w3id.org/idsa/core/affectedDataApp</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/affectedParticipant">https://w3id.org/idsa/core/affectedParticipant</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/affectedResource">https://w3id.org/idsa/core/affectedResource</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "The sequence of executed actions on the data object. Must be an element of ids:Action."@en</li>
+<li>Deleted: rdfs:comment "The operation relating to the asset for which permission is being granted."@en</li>
+<li>Deleted: domain https://w3id.org/idsa/core/UsageControlObject</li>
+<li>Deleted: domain https://w3id.org/idsa/core/Rule</li>
+<li>Deleted: rdfs:label "applied actions"@en</li>
 </ul>
 </li>
 <li><a href="#/and">https://w3id.org/idsa/core/and</a>
@@ -473,56 +265,85 @@
 <li>Added: Range https://w3id.org/idsa/core/Constraint</li>
 </ul>
 </li>
-<li><a href="#/appArtifactReference">https://w3id.org/idsa/core/appArtifactReference</a>
+<li><a href="#/appRouteEnd">https://w3id.org/idsa/core/appRouteEnd</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: Range https://w3id.org/idsa/core/Endpoint</li>
+</ul>
+<ul>
+<li>Deleted: Range https://w3id.org/idsa/core/AppEndpoint</li>
+</ul>
+</li>
+<li><a href="#/appRouteStart">https://w3id.org/idsa/core/appRouteStart</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/Endpoint</li>
+</ul>
+<ul>
+<li>Deleted: Range https://w3id.org/idsa/core/AppEndpoint</li>
+</ul>
+</li>
+<li><a href="#/assetRefinement">https://w3id.org/idsa/core/assetRefinement</a>
+<ul>
+<li>Added: rdfs:comment "AssetRefinement define constraints that refine a (composite) Digital Content in an ids:Rule respectively the ids:AssetCollection."@en</li>
+<li>Added: domain Union of (https://w3id.org/idsa/core/AssetCollection, https://w3id.org/idsa/core/Rule)</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Constraint that refines a (composite) Digital Content."@en</li>
+<li>Deleted: domain https://w3id.org/idsa/core/AssetCollection</li>
+<li>Deleted: domain https://w3id.org/idsa/core/Resource</li>
+<li>Deleted: rdfs:label "asset refinement"@en</li>
+<li>Deleted: rdfs:comment "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."@en</li>
 </ul>
 </li>
 <li><a href="#/assignee">https://w3id.org/idsa/core/assignee</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
 <li>Added: Range https://w3id.org/idsa/core/Participant</li>
 </ul>
 </li>
 <li><a href="#/assigner">https://w3id.org/idsa/core/assigner</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
 <li>Added: Range https://w3id.org/idsa/core/Participant</li>
 </ul>
 </li>
 <li><a href="#/constraint">https://w3id.org/idsa/core/constraint</a>
 <ul>
-<li>Added: Range https://w3id.org/idsa/core/Constraint</li>
+<li>Added: Range https://w3id.org/idsa/core/AbstractConstraint</li>
 </ul>
 </li>
-<li><a href="#/consumer">https://w3id.org/idsa/core/consumer</a>
+<li><a href="#/contentType">https://w3id.org/idsa/core/contentType</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: SubProperty of http://purl.org/dc/terms/type</li>
 </ul>
 </li>
 <li><a href="#/correlationMessage">https://w3id.org/idsa/core/correlationMessage</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "Correlated message, e.g., a response to a previous request."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Correlated message, e.g. a response to a previous request."@en</li>
 </ul>
 </li>
-<li><a href="#/curator">https://w3id.org/idsa/core/curator</a>
+<li><a href="#/hasEndpoint">https://w3id.org/idsa/core/hasEndpoint</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "Reference to the Endpoints that serve the resource's content or let you exchange messages with an IDS Connector."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en</li>
 </ul>
 </li>
-<li><a href="#/hasAgent">https://w3id.org/idsa/core/hasAgent</a>
+<li><a href="#/listedConnector">https://w3id.org/idsa/core/listedConnector</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "A Connector that is part of a Connector catalog."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "A Connector, that is part of a Connector catalog."@en</li>
 </ul>
 </li>
-<li><a href="#/issuerConnector">https://w3id.org/idsa/core/issuerConnector</a>
+<li><a href="#/member">https://w3id.org/idsa/core/member</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "A Participant that is part of a participant catalog."@en</li>
 </ul>
-</li>
-<li><a href="#/maintainer">https://w3id.org/idsa/core/maintainer</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "A Participant, that is part of a participant catalog."@en</li>
 </ul>
 </li>
 <li><a href="#/memberParticipant">https://w3id.org/idsa/core/memberParticipant</a>
@@ -538,11 +359,6 @@
 <li><a href="#/obligation">https://w3id.org/idsa/core/obligation</a>
 <ul>
 <li>Added: Range https://w3id.org/idsa/core/Duty</li>
-</ul>
-</li>
-<li><a href="#/operationReference">https://w3id.org/idsa/core/operationReference</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
 </ul>
 </li>
 <li><a href="#/operator">https://w3id.org/idsa/core/operator</a>
@@ -580,39 +396,31 @@
 <li>Added: Range https://w3id.org/idsa/core/Prohibition</li>
 </ul>
 </li>
-<li><a href="#/provider">https://w3id.org/idsa/core/provider</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/publisher">https://w3id.org/idsa/core/publisher</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/recipientAgent">https://w3id.org/idsa/core/recipientAgent</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/recipientConnector">https://w3id.org/idsa/core/recipientConnector</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/referringConnector">https://w3id.org/idsa/core/referringConnector</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/requestedArtifact">https://w3id.org/idsa/core/requestedArtifact</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
 <li><a href="#/requestedParticipant">https://w3id.org/idsa/core/requestedParticipant</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: rdfs:label "Requested Participant (Deprecated)"@en</li>
+<li>Added: owl:deprecated "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "This property is deprecated. Use ids:requestedElement along with ids:DescriptionRequestMessage instead. References a Participant in the context of a request."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:label "Requested Participant"@en</li>
+<li>Deleted: rdfs:comment "References a Participant in the context of a request."@en</li>
+</ul>
+</li>
+<li><a href="#/requestedResource">https://w3id.org/idsa/core/requestedResource</a>
+<ul>
+<li>Added: rdfs:comment "A Resource that is part of a resource catalog, indicating a request (of, e.g., data, software, …)."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "A Resource that is part of a resource catalog, indicating a request (of, e.g., data, software,...)."@en</li>
+</ul>
+</li>
+<li><a href="#/resourceEndpoint">https://w3id.org/idsa/core/resourceEndpoint</a>
+<ul>
+<li>Added: rdfs:comment "Reference to the Endpoints that serve the resource's content or let you exchange messages with an IDS Connector."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Reference to the Endpoints serving the resource's content or let you exchange messages with an IDS Connector."@en</li>
 </ul>
 </li>
 <li><a href="#/rightOperand">https://w3id.org/idsa/core/rightOperand</a>
@@ -623,32 +431,14 @@
 <li><a href="#/rightOperandReference">https://w3id.org/idsa/core/rightOperandReference</a>
 <ul>
 <li>Added: Range http://www.w3.org/2000/01/rdf-schema#Resource</li>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
 </ul>
 </li>
-<li><a href="#/senderAgent">https://w3id.org/idsa/core/senderAgent</a>
+<li><a href="#/variant">https://w3id.org/idsa/core/variant</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "(Equivalent) variant of given Resource, e.g., a translation."@en</li>
 </ul>
-</li>
-<li><a href="#/sovereign">https://w3id.org/idsa/core/sovereign</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/target">https://w3id.org/idsa/core/target</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/theme">https://w3id.org/idsa/core/theme</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/transferContract">https://w3id.org/idsa/core/transferContract</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Deleted: rdfs:comment "(Equivalent) variant of given Resource, e.g. a translation."@en</li>
 </ul>
 </li>
 <li><a href="#/xone">https://w3id.org/idsa/core/xone</a>
@@ -656,8 +446,101 @@
 <li>Added: Range https://w3id.org/idsa/core/Constraint</li>
 </ul>
 </li>
-</ul></details><details><summary><u>Deleted properties</u></summary>
-<ul><li><a href="#https://w3id.org/idsa/metamodel/constraint">https://w3id.org/idsa/metamodel/constraint</a>
+</ul></details><details><summary><u>Added object properties</u></summary>
+<ul><li><a href="#http://purl.org/dc/terms/type">http://purl.org/dc/terms/type</a>
+</li>
+<li><a href="#/appRouteBroker">https://w3id.org/idsa/core/appRouteBroker</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/Broker</li>
+<li>Added: domain https://w3id.org/idsa/core/AppRoute</li>
+</ul>
+</li>
+<li><a href="#/appRouteClearingHouse">https://w3id.org/idsa/core/appRouteClearingHouse</a>
+<ul>
+<li>Added: domain https://w3id.org/idsa/core/AppRoute</li>
+<li>Added: Range https://w3id.org/idsa/core/ClearingHouse</li>
+</ul>
+</li>
+<li><a href="#/appRouteOutput">https://w3id.org/idsa/core/appRouteOutput</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/Resource</li>
+<li>Added: domain https://w3id.org/idsa/core/AppRoute</li>
+</ul>
+</li>
+<li><a href="#/businessIdentifier">https://w3id.org/idsa/core/businessIdentifier</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/BusinessIdentifier</li>
+<li>Added: domain https://w3id.org/idsa/core/Participant</li>
+</ul>
+</li>
+<li><a href="#/configuredAppResource">https://w3id.org/idsa/core/configuredAppResource</a>
+<ul>
+<li>Added: domain https://w3id.org/idsa/core/ConfigurationModel</li>
+<li>Added: Range https://w3id.org/idsa/core/AppResourceCatalog</li>
+</ul>
+</li>
+<li><a href="#/configuredAppStore">https://w3id.org/idsa/core/configuredAppStore</a>
+<ul>
+<li>Added: domain https://w3id.org/idsa/core/ConfigurationModel</li>
+<li>Added: Range https://w3id.org/idsa/core/AppStoreCatalog</li>
+</ul>
+</li>
+<li><a href="#/configuredBroker">https://w3id.org/idsa/core/configuredBroker</a>
+<ul>
+<li>Added: domain https://w3id.org/idsa/core/ConfigurationModel</li>
+<li>Added: Range https://w3id.org/idsa/core/BrokerCatalog</li>
+</ul>
+</li>
+<li><a href="#/configuredClearingHouse">https://w3id.org/idsa/core/configuredClearingHouse</a>
+<ul>
+<li>Added: domain https://w3id.org/idsa/core/ConfigurationModel</li>
+<li>Added: Range https://w3id.org/idsa/core/ClearingHouseCatalog</li>
+</ul>
+</li>
+<li><a href="#/genericEndpointAuthentication">https://w3id.org/idsa/core/genericEndpointAuthentication</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/BasicAuthentication</li>
+<li>Added: domain https://w3id.org/idsa/core/GenericEndpoint</li>
+</ul>
+</li>
+<li><a href="#/hasSubRoute">https://w3id.org/idsa/core/hasSubRoute</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/RouteStep</li>
+<li>Added: domain https://w3id.org/idsa/core/AppRoute</li>
+</ul>
+</li>
+<li><a href="#/listedAppResource">https://w3id.org/idsa/core/listedAppResource</a>
+<ul>
+<li>Added: domain https://w3id.org/idsa/core/AppResourceCatalog</li>
+<li>Added: SubProperty of http://www.w3.org/ns/dcat#dataset</li>
+<li>Added: Range https://w3id.org/idsa/core/AppResource</li>
+</ul>
+</li>
+<li><a href="#/listedClearingHouse">https://w3id.org/idsa/core/listedClearingHouse</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/ClearingHouse</li>
+<li>Added: domain https://w3id.org/idsa/core/ClearingHouseCatalog</li>
+<li>Added: SubProperty of http://www.w3.org/ns/dcat#dataset</li>
+</ul>
+</li>
+<li><a href="#/requiredDataApp">https://w3id.org/idsa/core/requiredDataApp</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/AppRepresentation</li>
+<li>Added: domain https://w3id.org/idsa/core/RouteStep</li>
+</ul>
+</li>
+<li><a href="#/supportedUsagePolicies">https://w3id.org/idsa/core/supportedUsagePolicies</a>
+<ul>
+<li>Added: Range https://w3id.org/idsa/core/UsagePolicyClass</li>
+<li>Added: domain https://w3id.org/idsa/core/DataApp</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Deleted object properties</u></summary>
+<ul><li><a href="#/operationReference">https://w3id.org/idsa/core/operationReference</a>
+</li>
+<li><a href="#/subRoute">https://w3id.org/idsa/core/subRoute</a>
+</li>
+<li><a href="#https://w3id.org/idsa/metamodel/constraint">https://w3id.org/idsa/metamodel/constraint</a>
 </li>
 <li><a href="#https://w3id.org/idsa/metamodel/forProperty">https://w3id.org/idsa/metamodel/forProperty</a>
 </li>
@@ -675,114 +558,107 @@
 <details><summary><u>Modified data properties</u></summary>
 <ul><li><a href="#/corporateEmailAddress">https://w3id.org/idsa/core/corporateEmailAddress</a>
 <ul>
-<li>Added: Domain https://w3id.org/idsa/core/Participant</li>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
 </ul>
 </li>
 <li><a href="#/corporateHomepage">https://w3id.org/idsa/core/corporateHomepage</a>
 <ul>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#anyURI</li>
-<li>Added: Domain https://w3id.org/idsa/core/Participant</li>
 </ul>
 </li>
 <li><a href="#/created">https://w3id.org/idsa/core/created</a>
 <ul>
-<li>Added: Domain _:genid-nodeid-node1fal42qo2x31</li>
 <li>Added: SubProperty of http://purl.org/dc/terms/issued</li>
+<li>Added: Domain Union of (https://w3id.org/idsa/core/DigitalContent, https://w3id.org/idsa/core/Representation, https://w3id.org/idsa/core/UsageControlObject)</li>
 </ul>
 <ul>
-<li>Deleted: Domain _:genid-nodeid-node1f8nmq4lmx31</li>
-</ul>
-</li>
-<li><a href="#/dateTime">https://w3id.org/idsa/core/dateTime</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/example> "2018-12-31T13:20:00+02:00"^^xsd:dateTimeStamp</li>
+<li>Deleted: Domain http://org.semanticweb.owlapi/error#Error2</li>
 </ul>
 </li>
 <li><a href="#/emailAddress">https://w3id.org/idsa/core/emailAddress</a>
 <ul>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
-<li>Added: Domain https://w3id.org/idsa/core/Person</li>
+</ul>
+</li>
+<li><a href="#/endpointDocumentation">https://w3id.org/idsa/core/endpointDocumentation</a>
+<ul>
+<li>Added: rdfs:comment "IRI reference to a documentation of the endpoint, e.g., reference to an OpenAPI-based documentation."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "IRI reference to a documentation of the endpoint,  e.g., reference to an OpenAPI-based documentation."@en</li>
 </ul>
 </li>
 <li><a href="#/familyName">https://w3id.org/idsa/core/familyName</a>
 <ul>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
-<li>Added: Domain https://w3id.org/idsa/core/Person</li>
 </ul>
 </li>
 <li><a href="#/givenName">https://w3id.org/idsa/core/givenName</a>
 <ul>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
-<li>Added: Domain https://w3id.org/idsa/core/Person</li>
-</ul>
-</li>
-<li><a href="#/hasDuration">https://w3id.org/idsa/core/hasDuration</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/example> "P2Y6M5DT12H35M30S"^^xsd:duration</li>
 </ul>
 </li>
 <li><a href="#/homepage">https://w3id.org/idsa/core/homepage</a>
 <ul>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
-<li>Added: Domain https://w3id.org/idsa/core/Person</li>
+</ul>
+</li>
+<li><a href="#/inboundPath">https://w3id.org/idsa/core/inboundPath</a>
+<ul>
+<li>Added: rdfs:comment "Relative path used for inbound communication via this endpoint, i.e., input messages and faults only."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Relative path used for inbound communication via this endpoint, i.e. input messages and faults only."@en</li>
 </ul>
 </li>
 <li><a href="#/issued">https://w3id.org/idsa/core/issued</a>
 <ul>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#dateTimeStamp</li>
-<li>Added: Domain https://w3id.org/idsa/core/Message</li>
-</ul>
-</li>
-<li><a href="#/issuerConnector">https://w3id.org/idsa/core/issuerConnector</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
 </ul>
 </li>
 <li><a href="#/latitude">https://w3id.org/idsa/core/latitude</a>
 <ul>
-<li>Added: Domain https://w3id.org/idsa/core/GeoPoint</li>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#float</li>
 </ul>
 </li>
 <li><a href="#/longitude">https://w3id.org/idsa/core/longitude</a>
 <ul>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#float</li>
-<li>Added: Domain https://w3id.org/idsa/core/GeoPoint</li>
 </ul>
 </li>
 <li><a href="#/operationReference">https://w3id.org/idsa/core/operationReference</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: Domain https://w3id.org/idsa/core/InvokeOperationMessage</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#anyURI</li>
+</ul>
+</li>
+<li><a href="#/outboundPath">https://w3id.org/idsa/core/outboundPath</a>
+<ul>
+<li>Added: rdfs:comment "Relative path used for outbound communication via this endpoint, i.e., output messages and faults only."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Relative path used for outbound communication via this endpoint, i.e. output messages and faults only."@en</li>
 </ul>
 </li>
 <li><a href="#/phoneNumber">https://w3id.org/idsa/core/phoneNumber</a>
 <ul>
-<li>Added: Domain https://w3id.org/idsa/core/Person</li>
 <li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
-</ul>
-</li>
-<li><a href="#/recipientAgent">https://w3id.org/idsa/core/recipientAgent</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
-</ul>
-</li>
-<li><a href="#/referringConnector">https://w3id.org/idsa/core/referringConnector</a>
-<ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
 </ul>
 </li>
 <li><a href="#/revocationReason">https://w3id.org/idsa/core/revocationReason</a>
 <ul>
-<li>Added: Domain _:genid2147483754</li>
+<li>Added: Domain Union of (https://w3id.org/idsa/core/ConnectorCertificateRevokedMessage, https://w3id.org/idsa/core/ParticipantCertificateRevokedMessage)</li>
 </ul>
 <ul>
 <li>Deleted: Domain http://org.semanticweb.owlapi/error#Error1</li>
 </ul>
 </li>
-<li><a href="#/senderAgent">https://w3id.org/idsa/core/senderAgent</a>
+<li><a href="#/routeConfiguration">https://w3id.org/idsa/core/routeConfiguration</a>
 <ul>
-<li>Added: <https://w3id.org/idsa/metamodel/referenceByUri> "true"^^xsd:boolean</li>
+<li>Added: rdfs:comment "Configuration details (e.g., contents of a config file) used to configure the route. Should be Base64 encoded."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Configuration details (e.g. contents of a config file) used to configure the route. Should be Base64 encoded."@en</li>
 </ul>
 </li>
 <li><a href="#/unit">https://w3id.org/idsa/core/unit</a>
@@ -791,7 +667,106 @@
 </ul>
 </li>
 </ul></details><details><summary><u>Added data properties</u></summary>
-<ul><li><a href="#http://purl.org/dc/terms/issued">http://purl.org/dc/terms/issued</a>
+<ul><li><a href="#http://purl.org/dc/terms/identifier">http://purl.org/dc/terms/identifier</a>
+</li>
+<li><a href="#http://purl.org/dc/terms/issued">http://purl.org/dc/terms/issued</a>
+</li>
+<li><a href="#/appEndpointProtocol">https://w3id.org/idsa/core/appEndpointProtocol</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/AppEndpoint</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
+</li>
+<li><a href="#/appEnvironmentVariables">https://w3id.org/idsa/core/appEnvironmentVariables</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/DataApp</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
+</li>
+<li><a href="#/appStorageConfiguration">https://w3id.org/idsa/core/appStorageConfiguration</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: Domain https://w3id.org/idsa/core/DataApp</li>
+</ul>
+</li>
+<li><a href="#/dataAppDistributionService">https://w3id.org/idsa/core/dataAppDistributionService</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/AppRepresentation</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#anyURI</li>
+</ul>
+</li>
+<li><a href="#/dataAppRuntimeEnvironment">https://w3id.org/idsa/core/dataAppRuntimeEnvironment</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: Domain https://w3id.org/idsa/core/AppRepresentation</li>
+</ul>
+</li>
+<li><a href="#/genericEndpointConfiguration">https://w3id.org/idsa/core/genericEndpointConfiguration</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/GenericEndpoint</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
+</li>
+<li><a href="#/identifierNumber">https://w3id.org/idsa/core/identifierNumber</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/BusinessIdentifier</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: SubProperty of http://purl.org/dc/terms/identifier</li>
+</ul>
+</li>
+<li><a href="#/identifierSystem">https://w3id.org/idsa/core/identifierSystem</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/BusinessIdentifier</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
+</li>
+<li><a href="#/jurisdiction">https://w3id.org/idsa/core/jurisdiction</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: Domain https://w3id.org/idsa/core/Participant</li>
+</ul>
+</li>
+<li><a href="#/keyStoreAlias">https://w3id.org/idsa/core/keyStoreAlias</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: Domain https://w3id.org/idsa/core/ConfigurationModel</li>
+</ul>
+</li>
+<li><a href="#/keyStorePassword">https://w3id.org/idsa/core/keyStorePassword</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/ConfigurationModel</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
+</li>
+<li><a href="#/legalForm">https://w3id.org/idsa/core/legalForm</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: Domain https://w3id.org/idsa/core/Participant</li>
+</ul>
+</li>
+<li><a href="#/legalName">https://w3id.org/idsa/core/legalName</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: Domain https://w3id.org/idsa/core/Participant</li>
+</ul>
+</li>
+<li><a href="#/trustStoreAlias">https://w3id.org/idsa/core/trustStoreAlias</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/ConfigurationModel</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
+</li>
+<li><a href="#/trustStorePassword">https://w3id.org/idsa/core/trustStorePassword</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/ConfigurationModel</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
+</li>
+<li><a href="#/vatID">https://w3id.org/idsa/core/vatID</a>
+<ul>
+<li>Added: Domain https://w3id.org/idsa/core/Participant</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+</ul>
 </li>
 </ul></details><details><summary><u>Deleted data properties</u></summary>
 <ul><li><a href="#https://w3id.org/idsa/metamodel/abstract">https://w3id.org/idsa/metamodel/abstract</a>

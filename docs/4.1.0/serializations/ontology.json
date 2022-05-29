@@ -1,26 +1,23 @@
 [ {
-  "@id" : "_:genid1",
-  "@type" : [ "http://purl.org/dc/terms/Agent", "http://xmlns.com/foaf/0.1/Person" ],
-  "http://xmlns.com/foaf/0.1/name" : [ {
-    "@value" : "Andreas Müller"
-  } ]
+  "@id" : "_:genid-nodeid-node1eg0mg14fx31",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "_:genid10",
+  "@id" : "_:genid1",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
       "@id" : "https://w3id.org/idsa/core/Connector"
     }, {
-      "@id" : "https://w3id.org/idsa/core/JwtPayload"
+      "@id" : "https://w3id.org/idsa/core/DatPayload"
     } ]
   } ]
 }, {
   "@id" : "_:genid100",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/exp"
+    "@id" : "https://w3id.org/idsa/core/endpointInformation"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid101",
@@ -28,7 +25,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/iat"
+    "@id" : "https://w3id.org/idsa/core/latitude"
   } ]
 }, {
   "@id" : "_:genid102",
@@ -36,7 +33,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/scope"
+    "@id" : "https://w3id.org/idsa/core/longitude"
   } ]
 }, {
   "@id" : "_:genid103",
@@ -44,204 +41,61 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/securityProfile"
+    "@id" : "https://w3id.org/idsa/core/maintainer"
   } ]
 }, {
   "@id" : "_:genid104",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/transportCertsSha256"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+    "@id" : "https://w3id.org/idsa/core/curator"
   } ]
 }, {
   "@id" : "_:genid105",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#oneOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION"
-    }, {
-      "@id" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_NONE"
-    }, {
-      "@id" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE"
-    } ]
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/inboundModelVersion"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid106",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/outboundModelVersion"
+  } ]
+}, {
+  "@id" : "_:genid107",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/begin"
+  } ]
+}, {
+  "@id" : "_:genid108",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/operationReference"
   } ]
 }, {
   "@id" : "_:genid109",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/or"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid110",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/xone"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid111",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/and"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid112",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/modelVersion"
+    "@id" : "https://w3id.org/idsa/core/scope"
   } ]
 }, {
-  "@id" : "_:genid113",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/issued"
-  } ]
-}, {
-  "@id" : "_:genid114",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/issuerConnector"
-  } ]
-}, {
-  "@id" : "_:genid115",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/recipientConnector"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid116",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/securityToken"
-  } ]
-}, {
-  "@id" : "_:genid117",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/senderAgent"
-  } ]
-}, {
-  "@id" : "_:genid118",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/recipientAgent"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid119",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/correlationMessage"
-  } ]
-}, {
-  "@id" : "_:genid120",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#cardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/name"
-  } ]
-}, {
-  "@id" : "_:genid121",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/participantCatalog"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid122",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/corporateEmailAddress"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid123",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/memberPerson"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid124",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/memberParticipant"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid125",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/member"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid126",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/idsa/core/ParticipantCertificationLevel"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/certificationLevel"
-  } ]
-}, {
-  "@id" : "_:genid127",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/affectedParticipant"
-  } ]
-}, {
-  "@id" : "_:genid128",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/requestedParticipant"
-  } ]
-}, {
-  "@id" : "_:genid129",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/postDuty"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid13",
+  "@id" : "_:genid11",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -253,9 +107,172 @@
     } ]
   } ]
 }, {
+  "@id" : "_:genid110",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/iat"
+  } ]
+}, {
+  "@id" : "_:genid111",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/transportCertsSha256"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid112",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/securityProfile"
+  } ]
+}, {
+  "@id" : "_:genid113",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/aud"
+  } ]
+}, {
+  "@id" : "_:genid114",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/sub"
+  } ]
+}, {
+  "@id" : "_:genid115",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/nbf"
+  } ]
+}, {
+  "@id" : "_:genid116",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/exp"
+  } ]
+}, {
+  "@id" : "_:genid117",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/xone"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid118",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/or"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid119",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/and"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid120",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/recipientAgent"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid121",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/senderAgent"
+  } ]
+}, {
+  "@id" : "_:genid122",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/modelVersion"
+  } ]
+}, {
+  "@id" : "_:genid123",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/issued"
+  } ]
+}, {
+  "@id" : "_:genid124",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/issuerConnector"
+  } ]
+}, {
+  "@id" : "_:genid125",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/recipientConnector"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid126",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/securityToken"
+  } ]
+}, {
+  "@id" : "_:genid127",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/correlationMessage"
+  } ]
+}, {
+  "@id" : "_:genid128",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/participantCatalog"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid129",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/corporateEmailAddress"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
   "@id" : "_:genid130",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/preDuty"
+    "@id" : "https://w3id.org/idsa/core/memberParticipant"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -263,7 +280,7 @@
 }, {
   "@id" : "_:genid131",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/phoneNumber"
+    "@id" : "https://w3id.org/idsa/core/memberPerson"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -271,18 +288,18 @@
 }, {
   "@id" : "_:genid132",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/emailAddress"
+    "@id" : "https://w3id.org/idsa/core/member"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid133",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/noProxy"
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/affectedParticipant"
   } ]
 }, {
   "@id" : "_:genid134",
@@ -290,28 +307,28 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/proxyURI"
+    "@id" : "https://w3id.org/idsa/core/requestedParticipant"
   } ]
 }, {
   "@id" : "_:genid135",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/instance"
+    "@id" : "https://w3id.org/idsa/core/postDuty"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid136",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/correlationMessage"
+    "@id" : "https://w3id.org/idsa/core/preDuty"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid137",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/resourceEndpoint"
+    "@id" : "https://w3id.org/idsa/core/phoneNumber"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -319,23 +336,23 @@
 }, {
   "@id" : "_:genid138",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/resourcePart"
+    "@id" : "https://w3id.org/idsa/core/emailAddress"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid139",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/contractOffer"
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/proxyURI"
   } ]
 }, {
   "@id" : "_:genid140",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/sample"
+    "@id" : "https://w3id.org/idsa/core/noProxy"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -343,29 +360,13 @@
 }, {
   "@id" : "_:genid141",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/requestedResource"
+    "@id" : "https://w3id.org/idsa/core/instance"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid142",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/offeredResource"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid143",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/affectedResource"
-  } ]
-}, {
-  "@id" : "_:genid144",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
@@ -373,9 +374,25 @@
     "@id" : "https://w3id.org/idsa/core/correlationMessage"
   } ]
 }, {
+  "@id" : "_:genid143",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/resourceEndpoint"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid144",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/resourcePart"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
   "@id" : "_:genid145",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/constraint"
+    "@id" : "https://w3id.org/idsa/core/contractOffer"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -383,7 +400,7 @@
 }, {
   "@id" : "_:genid146",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/assigner"
+    "@id" : "https://w3id.org/idsa/core/sample"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
@@ -391,123 +408,29 @@
 }, {
   "@id" : "_:genid147",
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/assignee"
+    "@id" : "https://w3id.org/idsa/core/requestedResource"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid148",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
-  } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/action"
+    "@id" : "https://w3id.org/idsa/core/offeredResource"
   } ],
   "https://w3id.org/idsa/metamodel/relationType" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid149",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/securityGuarantee"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid150",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#oneOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_LEAST_PRIVILEGE"
-    }, {
-      "@id" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_NONE"
-    }, {
-      "@id" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_PROCESS_GROUP"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid154",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/tokenValue"
+    "@id" : "https://w3id.org/idsa/core/affectedResource"
   } ]
 }, {
-  "@id" : "_:genid155",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#oneOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/idsa/code/USAGE_CONTROL_NONE"
-    }, {
-      "@id" : "https://w3id.org/idsa/code/USAGE_CONTROL_POLICY_ENFORCEMENT"
-    }, {
-      "@id" : "https://w3id.org/idsa/code/USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid159",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/action"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid160",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/hasState"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid161",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/contract"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid162",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/created"
-  } ]
-}, {
-  "@id" : "_:genid163",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/data"
-  } ]
-}, {
-  "@id" : "_:genid17",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/actionRefinement"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid18",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/appEndpointType"
-  } ]
-}, {
-  "@id" : "_:genid19",
+  "@id" : "_:genid15",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -519,79 +442,121 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid2",
+  "@id" : "_:genid150",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/correlationMessage"
+  } ]
+}, {
+  "@id" : "_:genid151",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/action"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid152",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/assignee"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid153",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/assigner"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid154",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/constraint"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid155",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/securityGuarantee"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid156",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/tokenValue"
+  } ]
+}, {
+  "@id" : "_:genid157",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/hasState"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid158",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/action"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid159",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/created"
+  } ]
+}, {
+  "@id" : "_:genid160",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/contract"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid161",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/data"
+  } ]
+}, {
+  "@id" : "_:genid162",
+  "@type" : [ "http://purl.org/dc/terms/Agent", "http://xmlns.com/foaf/0.1/Person" ],
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Andreas Müller"
+  } ]
+}, {
+  "@id" : "_:genid163",
   "@type" : [ "http://purl.org/dc/terms/Agent", "http://xmlns.com/foaf/0.1/Person" ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@value" : "Anna Kasprzik"
   } ]
 }, {
-  "@id" : "_:genid23",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/affectedDataAppResource"
-  } ]
-}, {
-  "@id" : "_:genid24",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/routeDeployMethod"
-  } ]
-}, {
-  "@id" : "_:genid25",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/subRoute"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid26",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/appRouteStart"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid27",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/appRouteEnd"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid28",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/appArtifactReference"
-  } ]
-}, {
-  "@id" : "_:genid29",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/requestedArtifact"
-  } ]
-}, {
-  "@id" : "_:genid3",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/idsa/core/Connector"
-    }, {
-      "@id" : "https://w3id.org/idsa/core/DatPayload"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid30",
+  "@id" : "_:genid19",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -603,15 +568,10 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid34",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/authService"
-  } ]
+  "@id" : "_:genid2147483766",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "_:genid35",
+  "@id" : "_:genid23",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -623,26 +583,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid39",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/geoPoint"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid40",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/connectorCatalog"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid41",
+  "@id" : "_:genid27",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "https://w3id.org/idsa/core/ComponentCertificationLevel"
@@ -651,385 +592,7 @@
     "@id" : "https://w3id.org/idsa/core/certificationLevel"
   } ]
 }, {
-  "@id" : "_:genid42",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/appRoute"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid43",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/configurationModelLogLevel"
-  } ]
-}, {
-  "@id" : "_:genid44",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/connectorStatus"
-  } ]
-}, {
-  "@id" : "_:genid45",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/connectorDeployMode"
-  } ]
-}, {
-  "@id" : "_:genid46",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/userAuthentication"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid47",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/connectorProxy"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid48",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/hasEndpoint"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid49",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/extendedGuarantee"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid50",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/securityProfile"
-  } ]
-}, {
-  "@id" : "_:genid51",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/hasAgent"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid52",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/resourceCatalog"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid53",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/hasDefaultEndpoint"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ]
-}, {
-  "@id" : "_:genid54",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/listedConnector"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid55",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/accessUrl"
-  } ]
-}, {
-  "@id" : "_:genid56",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/affectedConnector"
-  } ]
-}, {
-  "@id" : "_:genid57",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/leftOperand"
-  } ]
-}, {
-  "@id" : "_:genid58",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/operator"
-  } ]
-}, {
-  "@id" : "_:genid59",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/prohibition"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid6",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/idsa/core/AppEndpoint"
-    }, {
-      "@id" : "https://w3id.org/idsa/core/DigitalContent"
-    }, {
-      "@id" : "https://w3id.org/idsa/core/Representation"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid60",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/permission"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid61",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/obligation"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid62",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/contractStart"
-  } ]
-}, {
-  "@id" : "_:genid63",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/referringConnector"
-  } ]
-}, {
-  "@id" : "_:genid64",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/iss"
-  } ]
-}, {
-  "@id" : "_:genid65",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/extendedGuarantee"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid66",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/appEndpoint"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid67",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/description"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid68",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/title"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid69",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/contentPart"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid70",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/spatialCoverage"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid71",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/temporalCoverage"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid72",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/language"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid73",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/theme"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid74",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/keyword"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid75",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/contentRefinement"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid76",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/representation"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid77",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/hasDuration"
-  } ]
-}, {
-  "@id" : "_:genid78",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/tokenFormat"
-  } ]
-}, {
-  "@id" : "_:genid79",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/endpointInformation"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid80",
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/endpointDocumentation"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid81",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/latitude"
-  } ]
-}, {
-  "@id" : "_:genid82",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/longitude"
-  } ]
-}, {
-  "@id" : "_:genid83",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/maintainer"
-  } ]
-}, {
-  "@id" : "_:genid84",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/curator"
-  } ]
-}, {
-  "@id" : "_:genid85",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/inboundModelVersion"
-  } ],
-  "https://w3id.org/idsa/metamodel/relationType" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
-  } ]
-}, {
-  "@id" : "_:genid86",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
-  "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/outboundModelVersion"
-  } ]
-}, {
-  "@id" : "_:genid87",
+  "@id" : "_:genid28",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -1041,7 +604,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid91",
+  "@id" : "_:genid32",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#oneOf" : [ {
     "@list" : [ {
@@ -1053,20 +616,463 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid95",
+  "@id" : "_:genid36",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_FULL_ENCRYPTION"
+    }, {
+      "@id" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_NONE"
+    }, {
+      "@id" : "https://w3id.org/idsa/code/LOCAL_DATA_CONFIDENTIALITY_SECURE_ERASURE"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid4",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/idsa/core/AppEndpoint"
+    }, {
+      "@id" : "https://w3id.org/idsa/core/DigitalContent"
+    }, {
+      "@id" : "https://w3id.org/idsa/core/Representation"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid40",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#cardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/name"
+  } ]
+}, {
+  "@id" : "_:genid41",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/idsa/core/ParticipantCertificationLevel"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/certificationLevel"
+  } ]
+}, {
+  "@id" : "_:genid42",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_LEAST_PRIVILEGE"
+    }, {
+      "@id" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_NONE"
+    }, {
+      "@id" : "https://w3id.org/idsa/code/SERVICE_ISOLATION_PROCESS_GROUP"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid46",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/idsa/code/USAGE_CONTROL_NONE"
+    }, {
+      "@id" : "https://w3id.org/idsa/code/USAGE_CONTROL_POLICY_ENFORCEMENT"
+    }, {
+      "@id" : "https://w3id.org/idsa/code/USAGE_CONTROL_REMOTE_COMPLIANCE_VERIFICATION"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid50",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/actionRefinement"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid51",
   "https://w3id.org/idsa/metamodel/constraint" : [ {
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/begin"
+    "@id" : "https://w3id.org/idsa/core/appEndpointType"
+  } ]
+}, {
+  "@id" : "_:genid52",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/affectedDataAppResource"
+  } ]
+}, {
+  "@id" : "_:genid53",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/appRouteEnd"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid54",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/appRouteStart"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid55",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/subRoute"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid56",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/routeDeployMethod"
+  } ]
+}, {
+  "@id" : "_:genid57",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/appArtifactReference"
+  } ]
+}, {
+  "@id" : "_:genid58",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/requestedArtifact"
+  } ]
+}, {
+  "@id" : "_:genid59",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/authService"
+  } ]
+}, {
+  "@id" : "_:genid60",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/geoPoint"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid61",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/connectorCatalog"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid62",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/connectorProxy"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid63",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/userAuthentication"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid64",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/configurationModelLogLevel"
+  } ]
+}, {
+  "@id" : "_:genid65",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/connectorStatus"
+  } ]
+}, {
+  "@id" : "_:genid66",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/connectorDeployMode"
+  } ]
+}, {
+  "@id" : "_:genid67",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/appRoute"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid68",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/hasEndpoint"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid69",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/extendedGuarantee"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid70",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/securityProfile"
+  } ]
+}, {
+  "@id" : "_:genid71",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/hasAgent"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid72",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/resourceCatalog"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid73",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/hasDefaultEndpoint"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ]
+}, {
+  "@id" : "_:genid74",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/listedConnector"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid75",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/accessUrl"
+  } ]
+}, {
+  "@id" : "_:genid76",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/affectedConnector"
+  } ]
+}, {
+  "@id" : "_:genid77",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/operator"
+  } ]
+}, {
+  "@id" : "_:genid78",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/leftOperand"
+  } ]
+}, {
+  "@id" : "_:genid79",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/obligation"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid8",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/idsa/core/Connector"
+    }, {
+      "@id" : "https://w3id.org/idsa/core/JwtPayload"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid80",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/prohibition"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid81",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/permission"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid82",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/contractStart"
+  } ]
+}, {
+  "@id" : "_:genid83",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/iss"
+  } ]
+}, {
+  "@id" : "_:genid84",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/referringConnector"
+  } ]
+}, {
+  "@id" : "_:genid85",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/extendedGuarantee"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid86",
+  "https://w3id.org/idsa/metamodel/constraint" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/NotEmpty"
+  } ],
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/appEndpoint"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid87",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/title"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid88",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/description"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid89",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/representation"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid90",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/contentRefinement"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid91",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/keyword"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid92",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/theme"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid93",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/language"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid94",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/temporalCoverage"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
+  } ]
+}, {
+  "@id" : "_:genid95",
+  "https://w3id.org/idsa/metamodel/forProperty" : [ {
+    "@id" : "https://w3id.org/idsa/core/contentPart"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid96",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/operationReference"
+    "@id" : "https://w3id.org/idsa/core/spatialCoverage"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "_:genid97",
@@ -1074,7 +1080,7 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/sub"
+    "@id" : "https://w3id.org/idsa/core/hasDuration"
   } ]
 }, {
   "@id" : "_:genid98",
@@ -1082,15 +1088,15 @@
     "@id" : "https://w3id.org/idsa/metamodel/NotNull"
   } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/nbf"
+    "@id" : "https://w3id.org/idsa/core/tokenFormat"
   } ]
 }, {
   "@id" : "_:genid99",
-  "https://w3id.org/idsa/metamodel/constraint" : [ {
-    "@id" : "https://w3id.org/idsa/metamodel/NotNull"
-  } ],
   "https://w3id.org/idsa/metamodel/forProperty" : [ {
-    "@id" : "https://w3id.org/idsa/core/aud"
+    "@id" : "https://w3id.org/idsa/core/endpointDocumentation"
+  } ],
+  "https://w3id.org/idsa/metamodel/relationType" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/OneToMany"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core",
@@ -1099,7 +1105,9 @@
     "@id" : "http://www.apache.org/licenses/LICENSE-2.0"
   } ],
   "http://purl.org/dc/terms/contributor" : [ {
-    "@id" : "https://w3id.org/idsa/core-nodeid-genid-b7d99a82baab42f6b67bae1adf42fbed-AnnaKasprzik"
+    "@id" : "_:genid-nodeid-_:AndreasMueller"
+  }, {
+    "@id" : "_:genid-nodeid-_:AnnaKasprzik"
   }, {
     "@id" : "https://github.com/HaydarAk"
   }, {
@@ -1114,10 +1122,6 @@
     "@id" : "https://github.com/mkollenstart"
   }, {
     "@id" : "https://github.com/sebbader"
-  }, {
-    "@id" : "_:genid1"
-  }, {
-    "@id" : "_:genid2"
   } ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://sebastian.tramp.name"
@@ -1154,18 +1158,11 @@
     "@value" : "IDS Information Model"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
-    "@id" : "https://international-data-spaces-association.github.io/InformationModel/"
+    "@id" : "https://industrialdataspace.github.io/InformationModel/"
   } ],
-  
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "4.1.0"
+    "@value" : "4.0.0"
   } ]
-}, {
-  "@id" : "https://w3id.org/idsa/core-nodeid-node1fal42qo2x31",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "https://w3id.org/idsa/core",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://creativecommons.org/ns#license",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
@@ -2477,6 +2474,9 @@
   "@id" : "http://www.geonames.org/ontology#Feature",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
+  "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
@@ -2485,6 +2485,9 @@
 }, {
   "@id" : "http://www.w3.org/2001/XMLSchema#duration",
   "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2002/07/owl#Class",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
@@ -5502,11 +5505,11 @@
   } ],
   "http://www.w3.org/2004/02/skos/core#note" : [ {
     "@language" : "en",
-    "@value" : "The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] \n\t\tits [<Representation URI>|<Artifact URI>].\n\t\tOptional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].\n\t\tOptional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."
+    "@value" : "The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] \r\n\t\tits [<Representation URI>|<Artifact URI>].\r\n\t\tOptional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].\r\n\t\tOptional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."
   }, {
-    "@value" : "@prefix ids: <https://w3id.org/idsa/core/> .\n\t\t@prefix idsc: <https://w3id.org/idsa/code/> .\n\t\t@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\t\t@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\t\t@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n\t\t[<contract URI>| [] ] a ids:ContractRequest ;\n\t\t\tids:uid <contract ID> ;\n\t\t\tids:refersTo idsc:RequestTemplate ;\n\t\t\tids:target [<Representation URI>|<Artifact URI>] ;\n\t\t\tids:consumer <Consumer Participant URI> ;\n\t\t\tids:provider <Provider Participant URI>\n\t\t\t[ids:permission [\n\t\t\t\tids:action ids:[use|read|...] ;\n\t\t\t\tids:constraint [\n\t\t\t\t\tids:leftOperand <Attribute URI> ;\n\t\t\t\t\tids:operator [ids:eq|ids:lt|ids:gt] ;\n\t\t\t\t\tids:rightOperand [<Value URI>|<Value Literal>]\n\t\t\t\t]\n\t\t\t] ;]*\n\t\t."
+    "@value" : "@prefix ids: <https://w3id.org/idsa/core/> .\r\n\t\t@prefix idsc: <https://w3id.org/idsa/code/> .\r\n\t\t@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\r\n\t\t@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\r\n\t\t@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\r\n\r\n\t\t[<contract URI>| [] ] a ids:ContractRequest ;\r\n\t\t\tids:uid <contract ID> ;\r\n\t\t\tids:refersTo idsc:RequestTemplate ;\r\n\t\t\tids:target [<Representation URI>|<Artifact URI>] ;\r\n\t\t\tids:consumer <Consumer Participant URI> ;\r\n\t\t\tids:provider <Provider Participant URI>\r\n\t\t\t[ids:permission [\r\n\t\t\t\tids:action ids:[use|read|...] ;\r\n\t\t\t\tids:constraint [\r\n\t\t\t\t\tids:leftOperand <Attribute URI> ;\r\n\t\t\t\t\tids:operator [ids:eq|ids:lt|ids:gt] ;\r\n\t\t\t\t\tids:rightOperand [<Value URI>|<Value Literal>]\r\n\t\t\t\t]\r\n\t\t\t] ;]*\r\n\t\t."
   }, {
-    "@value" : "{ \n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\n\t\t\"@type\": \"ContractRequest\", \n\t\t\"uid\": \"<contract ID>\", \n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \n\t\t\"ids:permission\": {\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\n\t\t\t[\"ids:constraint\" : {    \n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\n\t\t\t\t\t \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\n\t\t\t } [,]]*\n\t\t} }"
+    "@value" : "{ \r\n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\r\n\t\t\"@type\": \"ContractRequest\", \r\n\t\t\"uid\": \"<contract ID>\", \r\n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\r\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\r\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\r\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \r\n\t\t\"ids:permission\": {\r\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\r\n\t\t\t[\"ids:constraint\" : {    \r\n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\r\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\r\n\t\t\t\t\t \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\r\n\t\t\t } [,]]*\r\n\t\t} }"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/code/SA",
@@ -6568,7 +6571,7 @@
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2021-06-17"
+    "@value" : "2020-08-10"
   } ],
   "http://purl.org/dc/terms/publisher" : [ {
     "@id" : "https://w3id.org/idsa/core/IDSA"
@@ -6579,7 +6582,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AbstractConstraint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The upper class of Constraints and LogicalConstraints is solely intended as a placholder at the range of IDS Properties."
@@ -6625,7 +6628,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Action",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A thing one might be permitted to do or prohibited from doing to something."
@@ -6638,7 +6641,7 @@
     "@id" : "http://www.w3.org/ns/odrl/2/Action"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid17"
+    "@id" : "_:genid50"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Agent",
@@ -6688,7 +6691,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppEndpoint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Description of endpoints a DataApp offers."
@@ -6701,7 +6704,7 @@
     "@id" : "https://w3id.org/idsa/core/Endpoint"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid18"
+    "@id" : "_:genid51"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppEndpointType",
@@ -6729,11 +6732,11 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid19"
+    "@id" : "_:genid15"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppNotificationMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."
@@ -6750,7 +6753,7 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid23"
+    "@id" : "_:genid52"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppRegistrationRequestMessage",
@@ -6810,23 +6813,23 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppRoute",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "\n    ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.\n    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is represented by the ids:EndToEndRoutes class.\n    ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.\n    "
+    "@value" : "\r\n    ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.\r\n    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is represented by the ids:EndToEndRoutes class.\r\n    ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.\r\n    "
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "App Route"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid24"
+    "@id" : "_:genid53"
   }, {
-    "@id" : "_:genid25"
+    "@id" : "_:genid54"
   }, {
-    "@id" : "_:genid26"
+    "@id" : "_:genid55"
   }, {
-    "@id" : "_:genid27"
+    "@id" : "_:genid56"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppStore",
@@ -6858,7 +6861,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppUploadMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Message that usually follows a AppRegistrationResponseMessage and is used to upload a data app to the app store. Payload contains data app. Note that the message must refer to the prior sent, corresponding AppResource instance. The IRI of the ids:appArtifactReference must must match the IRI of the artifact which is the value for the ids:instance property. The ids:instance is specific for each representation. Therefore, if someone wants to upload multiple representations for an app, he has to state them using multiple ids:instance properties inside the AppRepresentation (and therefore inside the AppResource). Otherwise no mapping between payload and app metadata can be achieved."
@@ -6871,7 +6874,7 @@
     "@id" : "https://w3id.org/idsa/core/UploadMessage"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid28"
+    "@id" : "_:genid57"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppUploadResponseMessage",
@@ -6906,7 +6909,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ArtifactRequestMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."
@@ -6919,7 +6922,7 @@
     "@id" : "https://w3id.org/idsa/core/RequestMessage"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid29"
+    "@id" : "_:genid58"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ArtifactResponseMessage",
@@ -6948,7 +6951,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Asset",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "An Asset is either an ids:Resource, an ids:Representation, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."
@@ -7037,11 +7040,11 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid30"
+    "@id" : "_:genid19"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AuthInfo",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Holds authentication information so that connections to the Connector's data offerings can be establised."
@@ -7051,7 +7054,7 @@
     "@value" : "AuthInfo"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid34"
+    "@id" : "_:genid59"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AuthStandard",
@@ -7079,7 +7082,7 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid35"
+    "@id" : "_:genid23"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/BaseConnector",
@@ -7128,7 +7131,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/BoundingPolygon",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Defines an area of interest as a set of connected points."
@@ -7141,11 +7144,11 @@
     "@id" : "https://w3id.org/idsa/core/Geometry"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid39"
+    "@id" : "_:genid60"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Broker",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Broker holding an index of published data endpoints."
@@ -7158,11 +7161,11 @@
     "@id" : "https://w3id.org/idsa/core/Connector"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid40"
+    "@id" : "_:genid61"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Catalog",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Class that represents (distributable) Catalogs."
@@ -7180,7 +7183,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Certification",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Abstract certification of compliance according to given Certification Scheme."
@@ -7198,7 +7201,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/CertificationLevel",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Level of Certification"
@@ -7227,7 +7230,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/CommandMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Command messages are usually sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."
@@ -7257,7 +7260,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/idsa/core/Certification"
   }, {
-    "@id" : "_:genid41"
+    "@id" : "_:genid27"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "https://w3id.org/idsa/core/ParticipantCertification"
@@ -7281,7 +7284,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Concept",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Class of categories for classification of Resources."
@@ -7304,7 +7307,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ConfigurationModel",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Configuration Model is used for Connector deployment."
@@ -7314,21 +7317,21 @@
     "@value" : "Configuration Model"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid42"
+    "@id" : "_:genid62"
   }, {
-    "@id" : "_:genid43"
+    "@id" : "_:genid63"
   }, {
-    "@id" : "_:genid44"
+    "@id" : "_:genid64"
   }, {
-    "@id" : "_:genid45"
+    "@id" : "_:genid65"
   }, {
-    "@id" : "_:genid46"
+    "@id" : "_:genid66"
   }, {
-    "@id" : "_:genid47"
+    "@id" : "_:genid67"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Connector",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."
@@ -7345,21 +7348,21 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid48"
+    "@id" : "_:genid68"
   }, {
-    "@id" : "_:genid49"
+    "@id" : "_:genid69"
   }, {
-    "@id" : "_:genid50"
+    "@id" : "_:genid70"
   }, {
-    "@id" : "_:genid51"
+    "@id" : "_:genid71"
   }, {
-    "@id" : "_:genid52"
+    "@id" : "_:genid72"
   }, {
-    "@id" : "_:genid53"
+    "@id" : "_:genid73"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ConnectorCatalog",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Class that aggregates Connectors which, as a whole, from a (distributable) Catalog."
@@ -7372,7 +7375,7 @@
     "@id" : "https://w3id.org/idsa/core/Catalog"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid54"
+    "@id" : "_:genid74"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ConnectorCertificateGrantedMessage",
@@ -7415,7 +7418,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ConnectorEndpoint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Connector-specific endpoint exposing Artifacts."
@@ -7428,11 +7431,11 @@
     "@id" : "https://w3id.org/idsa/core/Endpoint"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid55"
+    "@id" : "_:genid75"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ConnectorNotificationMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Superclass of all messages, indicating a change of a connector's conditions."
@@ -7449,7 +7452,7 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid56"
+    "@id" : "_:genid76"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ConnectorStatus",
@@ -7534,7 +7537,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Constraint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The class of Constraints that restrict a Rule."
@@ -7547,13 +7550,13 @@
     "@id" : "https://w3id.org/idsa/core/AbstractConstraint"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid57"
+    "@id" : "_:genid77"
   }, {
-    "@id" : "_:genid58"
+    "@id" : "_:genid78"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ContentType",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Enumerated types of content expanding upon the Digital Content hierarchy."
@@ -7571,7 +7574,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Contract",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Abstract set of rules governing the usage of a Resource."
@@ -7588,15 +7591,15 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid59"
+    "@id" : "_:genid79"
   }, {
-    "@id" : "_:genid60"
+    "@id" : "_:genid80"
   }, {
-    "@id" : "_:genid61"
+    "@id" : "_:genid81"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ContractAgreement",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Contract governing the actual usage of a Resource that has been agreed by all parties."
@@ -7616,7 +7619,7 @@
     "@id" : "https://w3id.org/idsa/core/ContractRequest"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid62"
+    "@id" : "_:genid82"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ContractAgreementMessage",
@@ -7767,7 +7770,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DatPayload",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are either defined by RFC 7519 or by the IDS Information Model. As a direct consequence of regarding the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."
@@ -7783,11 +7786,11 @@
     "@id" : "https://w3id.org/idsa/core/JwtPayload"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid63"
+    "@id" : "_:genid83"
   }, {
-    "@id" : "_:genid64"
+    "@id" : "_:genid84"
   }, {
-    "@id" : "_:genid65"
+    "@id" : "_:genid85"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DatRequestPayload",
@@ -7808,7 +7811,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DataApp",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."
@@ -7822,7 +7825,7 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid66"
+    "@id" : "_:genid86"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DataRepresentation",
@@ -7896,7 +7899,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Described",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Entity described by a minimal textual annotation, i.e. a title and description."
@@ -7910,13 +7913,13 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid67"
+    "@id" : "_:genid87"
   }, {
-    "@id" : "_:genid68"
+    "@id" : "_:genid88"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DescribedSemantically",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Entity described semantically."
@@ -7959,7 +7962,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DigitalContent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index."
@@ -7991,21 +7994,21 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid69"
+    "@id" : "_:genid89"
   }, {
-    "@id" : "_:genid70"
+    "@id" : "_:genid90"
   }, {
-    "@id" : "_:genid71"
+    "@id" : "_:genid91"
   }, {
-    "@id" : "_:genid72"
+    "@id" : "_:genid92"
   }, {
-    "@id" : "_:genid73"
+    "@id" : "_:genid93"
   }, {
-    "@id" : "_:genid74"
+    "@id" : "_:genid94"
   }, {
-    "@id" : "_:genid75"
+    "@id" : "_:genid95"
   }, {
-    "@id" : "_:genid76"
+    "@id" : "_:genid96"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DistributeEcryptedAgreement",
@@ -8065,7 +8068,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DurationEntity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."
@@ -8078,7 +8081,7 @@
     "@id" : "https://w3id.org/idsa/core/TemporalEntity"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid77"
+    "@id" : "_:genid97"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DurationOffer",
@@ -8126,7 +8129,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/DynamicAttributeToken",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'. The complete JWT *including* header, payload and signiture is referenced by this class and *not* only the JSON element in the payload. See ids:DatPayload for the payload definition."
@@ -8144,14 +8147,14 @@
     "@id" : "https://w3id.org/idsa/core/Token"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid78"
+    "@id" : "_:genid98"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/EndToEndRoute",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "\n    EndToEndRoute hold information about a communication pipelines between apps. An EndToEndRoute should hold\n    one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.\n    "
+    "@value" : "\r\n    EndToEndRoute hold information about a communication pipelines between apps. An EndToEndRoute should hold\r\n    one value for the ids:appRouteStart and/or ids:appRouteEnd properties, so that communication between app endpoints remain distinguishable.\r\n    "
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -8162,7 +8165,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Endpoint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Access point of data exchange, service interaction and service description."
@@ -8172,9 +8175,9 @@
     "@value" : "Endpoint"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid79"
+    "@id" : "_:genid99"
   }, {
-    "@id" : "_:genid80"
+    "@id" : "_:genid100"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/EvaluationFacility",
@@ -8275,7 +8278,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/GeoPoint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A location identified by geo coordinates."
@@ -8288,13 +8291,13 @@
     "@id" : "https://w3id.org/idsa/core/Location"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid81"
+    "@id" : "_:genid101"
   }, {
-    "@id" : "_:genid82"
+    "@id" : "_:genid102"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Geometry",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Geometrical shape indicating a spatial area of interest."
@@ -8328,7 +8331,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/IANAMediaType",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The class of media types registered with IANA."
@@ -8348,7 +8351,7 @@
     "@id" : "https://w3id.org/idsa/core/MediaType"
   } ],
   "https://w3id.org/idsa/metamodel/example" : [ {
-    "@value" : "\n    <https://w3id.org/spar/mediatype/text/csv> a ids:IANAMediaType .\n        # the retrieved representation (HTML, turtle, RDF/XML) depends on content negotiation\n"
+    "@value" : "\r\n    <https://w3id.org/spar/mediatype/text/csv> a ids:IANAMediaType .\r\n        # the retrieved representation (HTML, turtle, RDF/XML) depends on content negotiation\r\n"
   } ],
   "https://w3id.org/idsa/metamodel/usage" : [ {
     "@language" : "en",
@@ -8407,7 +8410,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/InfrastructureComponent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The class of all infrastructure components of the IDS."
@@ -8424,13 +8427,13 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid83"
+    "@id" : "_:genid103"
   }, {
-    "@id" : "_:genid84"
+    "@id" : "_:genid104"
   }, {
-    "@id" : "_:genid85"
+    "@id" : "_:genid105"
   }, {
-    "@id" : "_:genid86"
+    "@id" : "_:genid106"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Instant",
@@ -8463,7 +8466,7 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid87"
+    "@id" : "_:genid28"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/IntegrityVerificationScopeGuarantee",
@@ -8480,11 +8483,11 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid91"
+    "@id" : "_:genid32"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Interval",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."
@@ -8501,7 +8504,7 @@
     "@id" : "https://w3id.org/idsa/core/TemporalEntity"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid95"
+    "@id" : "_:genid107"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/IntervalUsageAgreement",
@@ -8547,7 +8550,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/InvokeOperationMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Message requesting the recipient to invoke a specific operation."
@@ -8560,11 +8563,11 @@
     "@id" : "https://w3id.org/idsa/core/RequestMessage"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid96"
+    "@id" : "_:genid108"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/JwtPayload",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g. DatPayload and DatRequestPayload."
@@ -8578,21 +8581,21 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid97"
+    "@id" : "_:genid109"
   }, {
-    "@id" : "_:genid98"
+    "@id" : "_:genid110"
   }, {
-    "@id" : "_:genid99"
+    "@id" : "_:genid111"
   }, {
-    "@id" : "_:genid100"
+    "@id" : "_:genid112"
   }, {
-    "@id" : "_:genid101"
+    "@id" : "_:genid113"
   }, {
-    "@id" : "_:genid102"
+    "@id" : "_:genid114"
   }, {
-    "@id" : "_:genid103"
+    "@id" : "_:genid115"
   }, {
-    "@id" : "_:genid104"
+    "@id" : "_:genid116"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/KeyType",
@@ -8659,11 +8662,11 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid105"
+    "@id" : "_:genid36"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Location",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Class of all locations."
@@ -8750,7 +8753,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/LogicalConstraint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."
@@ -8765,15 +8768,15 @@
     "@id" : "https://w3id.org/idsa/core/AbstractConstraint"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid109"
+    "@id" : "_:genid117"
   }, {
-    "@id" : "_:genid110"
+    "@id" : "_:genid118"
   }, {
-    "@id" : "_:genid111"
+    "@id" : "_:genid119"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ManagedEntity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The class of mutable individuals."
@@ -8791,7 +8794,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/MediaType",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "General class of media types (formerly known as MIME types)."
@@ -8813,7 +8816,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Message",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Metadata describing payload exchanged by interacting Connectors."
@@ -8827,23 +8830,23 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid112"
+    "@id" : "_:genid120"
   }, {
-    "@id" : "_:genid113"
+    "@id" : "_:genid121"
   }, {
-    "@id" : "_:genid114"
+    "@id" : "_:genid122"
   }, {
-    "@id" : "_:genid115"
+    "@id" : "_:genid123"
   }, {
-    "@id" : "_:genid116"
+    "@id" : "_:genid124"
   }, {
-    "@id" : "_:genid117"
+    "@id" : "_:genid125"
   }, {
-    "@id" : "_:genid118"
+    "@id" : "_:genid126"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/MessageProcessedNotificationMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Notification that a message has been successfully processed (i.e. not ignored or rejected)."
@@ -8856,7 +8859,7 @@
     "@id" : "https://w3id.org/idsa/core/NotificationMessage"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid119"
+    "@id" : "_:genid127"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Named",
@@ -8870,7 +8873,7 @@
     "@value" : "Named"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid120"
+    "@id" : "_:genid40"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/NotMoreThanNAgreement",
@@ -9003,7 +9006,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ParIS",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The Participant Information Service (ParIS) provides metadata and relevant information about participants (humans and organizations) in the International Data Spaces."
@@ -9016,11 +9019,11 @@
     "@id" : "https://w3id.org/idsa/core/Connector"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid121"
+    "@id" : "_:genid128"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Participant",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."
@@ -9037,15 +9040,15 @@
     "@id" : "https://w3id.org/idsa/core/ManagedEntity"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid122"
+    "@id" : "_:genid129"
   }, {
-    "@id" : "_:genid123"
+    "@id" : "_:genid130"
   }, {
-    "@id" : "_:genid124"
+    "@id" : "_:genid131"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ParticipantCatalog",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Class that aggregates Participants which, as a whole, from a (distributable) Catalog."
@@ -9058,7 +9061,7 @@
     "@id" : "https://w3id.org/idsa/core/Catalog"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid125"
+    "@id" : "_:genid132"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ParticipantCertificateGrantedMessage",
@@ -9102,7 +9105,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/idsa/core/Certification"
   }, {
-    "@id" : "_:genid126"
+    "@id" : "_:genid41"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ParticipantCertificationLevel",
@@ -9120,7 +9123,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ParticipantNotificationMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Superclass of all messages, indicating a change of a particpants's conditions."
@@ -9137,11 +9140,11 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid127"
+    "@id" : "_:genid133"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ParticipantRequestMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message."
@@ -9154,7 +9157,7 @@
     "@id" : "https://w3id.org/idsa/core/RequestMessage"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid128"
+    "@id" : "_:genid134"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ParticipantResponseMessage",
@@ -9200,7 +9203,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Permission",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The class of Permissions as defined in the ODRL ontology."
@@ -9215,13 +9218,13 @@
     "@id" : "https://w3id.org/idsa/core/Rule"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid129"
+    "@id" : "_:genid135"
   }, {
-    "@id" : "_:genid130"
+    "@id" : "_:genid136"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Person",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The class of persons (people)"
@@ -9234,9 +9237,9 @@
     "@id" : "http://xmlns.com/foaf/0.1/Person"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid131"
+    "@id" : "_:genid137"
   }, {
-    "@id" : "_:genid132"
+    "@id" : "_:genid138"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/PolicyTemplate",
@@ -9259,7 +9262,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Proxy",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Holds Proxy information."
@@ -9272,9 +9275,9 @@
     "@id" : "https://tools.ietf.org/html/rfc2068"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid133"
+    "@id" : "_:genid139"
   }, {
-    "@id" : "_:genid134"
+    "@id" : "_:genid140"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/PublicKey",
@@ -9345,24 +9348,14 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Query commands are intended to annotate query strings in a specified query language or address a specific resource."
-  }, {
-    "@language" : "en",
     "@value" : "Query message intended to be consumed by a component."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Query Command"
-  }, {
     "@language" : "en",
     "@value" : "Query Message"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/idsa/core/RequestMessage"
-  } ],
-  "https://w3id.org/idsa/metamodel/abstract" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
-    "@value" : "true"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/QueryScope",
@@ -9455,7 +9448,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Representation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Syntactic template of a Resource."
@@ -9470,11 +9463,11 @@
     "@id" : "https://w3id.org/idsa/core/DescribedSemantically"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid135"
+    "@id" : "_:genid141"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/RepresentationInstance",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A particular instance of given representation."
@@ -9489,7 +9482,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/RequestInProcessMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Notification that a request has been accepted and is being processed."
@@ -9502,7 +9495,7 @@
     "@id" : "https://w3id.org/idsa/core/NotificationMessage"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid136"
+    "@id" : "_:genid142"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/RequestMessage",
@@ -9520,7 +9513,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Resource",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."
@@ -9542,17 +9535,17 @@
     "@id" : "https://w3id.org/idsa/core/ManagedEntity"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid137"
+    "@id" : "_:genid143"
   }, {
-    "@id" : "_:genid138"
+    "@id" : "_:genid144"
   }, {
-    "@id" : "_:genid139"
+    "@id" : "_:genid145"
   }, {
-    "@id" : "_:genid140"
+    "@id" : "_:genid146"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ResourceCatalog",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."
@@ -9565,13 +9558,13 @@
     "@id" : "https://w3id.org/idsa/core/Catalog"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid141"
+    "@id" : "_:genid147"
   }, {
-    "@id" : "_:genid142"
+    "@id" : "_:genid148"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ResourceNotificationMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Superclass of all messages, indicating a change of a resource."
@@ -9588,7 +9581,7 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid143"
+    "@id" : "_:genid149"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ResourceUnavailableMessage",
@@ -9620,7 +9613,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ResponseMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."
@@ -9633,7 +9626,7 @@
     "@id" : "https://w3id.org/idsa/core/Message"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid144"
+    "@id" : "_:genid150"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/ResultMessage",
@@ -9693,7 +9686,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Rule",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Superclass of Permissions, Prohibitions and Duties."
@@ -9712,13 +9705,13 @@
     "@value" : "true"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid145"
+    "@id" : "_:genid151"
   }, {
-    "@id" : "_:genid146"
+    "@id" : "_:genid152"
   }, {
-    "@id" : "_:genid147"
+    "@id" : "_:genid153"
   }, {
-    "@id" : "_:genid148"
+    "@id" : "_:genid154"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/SalesAgreement",
@@ -9803,7 +9796,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/SecurityProfile",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."
@@ -9813,7 +9806,7 @@
     "@value" : "SecurityProfile"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid149"
+    "@id" : "_:genid155"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/SecurityRequest",
@@ -9844,7 +9837,7 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid150"
+    "@id" : "_:genid42"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Site",
@@ -10044,7 +10037,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/Token",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A token (e.g., for authorization) mediated as part of the message."
@@ -10054,7 +10047,7 @@
     "@value" : "Token."
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
-    "@id" : "_:genid154"
+    "@id" : "_:genid156"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/TokenFormat",
@@ -10124,11 +10117,11 @@
     "@id" : "https://w3id.org/idsa/core/SecurityGuarantee"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid155"
+    "@id" : "_:genid46"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/UsageControlObject",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A data element containing all relevant information for usage control engines."
@@ -10138,19 +10131,19 @@
     "@value" : "Usage Control Object"
   } ],
   "https://w3id.org/idsa/metamodel/validation" : [ {
+    "@id" : "_:genid157"
+  }, {
+    "@id" : "_:genid158"
+  }, {
     "@id" : "_:genid159"
   }, {
     "@id" : "_:genid160"
   }, {
     "@id" : "_:genid161"
-  }, {
-    "@id" : "_:genid162"
-  }, {
-    "@id" : "_:genid163"
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/UserAuthentication",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Holds User authentication information. Differs from ids:AuthInfo. This class refers to user authentication methods that are not intended for direct data exchange with a connector."
@@ -10309,7 +10302,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/affectedConnector",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "References the connector that is affected by the runtime condition change."
@@ -10330,7 +10323,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/affectedDataApp",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The affected data app that is referenced in the App-related messages. "
@@ -10351,7 +10344,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/affectedParticipant",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "References the participant that is referenced in the participant-related notification messages."
@@ -10372,7 +10365,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/affectedResource",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The affected resource that is referenced in the resource-related notification messages. "
@@ -10413,7 +10406,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/appArtifactReference",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "IRI reference to the ids:Artifact, whose corresponding data is transfered as payload of the AppUploadMessage. The Artifact IRI reference must match the IRI of the instance IRI for the corresponding ids:AppRepresentation."
@@ -10613,7 +10606,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/assignee",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The recipient of the policy statement."
@@ -10637,7 +10630,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/assigner",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The issuer of the policy statement."
@@ -11017,7 +11010,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/consumer",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Consumer of a Resource or Service that is the subject matter of the Contract. This party may differ from the Assignee specified by the Contract rules."
@@ -11285,7 +11278,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/correlationMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Correlated message, e.g. a response to a previous request."
@@ -11312,7 +11305,7 @@
     "@value" : "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core-nodeid-node1fal42qo2x31"
+    "@id" : "_:genid-nodeid-node1eg0mg14fx31"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -11349,7 +11342,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/curator",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Participant responsible for the correctness of the content offered by the InfrastructureComponent."
@@ -11461,7 +11454,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/dateTime",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Absolute date time with a defined time zone."
@@ -11679,7 +11672,7 @@
     "@value" : "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid3"
+    "@id" : "_:genid1"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -11801,7 +11794,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/hasAgent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The Agents for which this Connector may initiate and receive Messages."
@@ -11839,7 +11832,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/hasDuration",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."
@@ -12105,7 +12098,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/issuerConnector",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The Connector which is the origin of the message."
@@ -12203,7 +12196,7 @@
     "@value" : "Natural language(s) used within the content."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid6"
+    "@id" : "_:genid4"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -12314,7 +12307,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/maintainer",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Participant responsible for technical maintenance of the InfrastructureComponent."
@@ -12455,7 +12448,7 @@
     "@value" : "The date/time this Digital Content has been changed the last time. Only one 'modified' attribute is usually needed."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid13"
+    "@id" : "_:genid11"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -12569,7 +12562,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/operationReference",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "References the operation to be invoked on the recipient's side by an URI."
@@ -12886,7 +12879,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/provider",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Provider of a Resource or Service that is the subject matter of the contract. This party may differ from the Assigner specified by the Contract rules."
@@ -12961,7 +12954,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/publisher",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The publisher of the resource (which may differ from the sovereign)."
@@ -13019,7 +13012,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/recipientAgent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The Agent for which the Mesaage is intended."
@@ -13040,7 +13033,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/recipientConnector",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The Connector which is the recipient of the message."
@@ -13078,7 +13071,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/referringConnector",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The RDF connector entity as referred to by the DAT, with its URI included as the value. The value MUST be its accessible URI."
@@ -13153,7 +13146,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/requestedArtifact",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "References an artifact in the context of a request."
@@ -13191,7 +13184,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/requestedParticipant",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "References a Participant in the context of a request."
@@ -13309,7 +13302,7 @@
     "@value" : "Plain Text containing the reason for revoking an existing certificate of either a connector or participant."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core"
+    "@id" : "_:genid2147483766"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -13340,7 +13333,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/rightOperandReference",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."
@@ -13491,7 +13484,7 @@
     "@value" : "The SecurityProfile supported by the Connector."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid10"
+    "@id" : "_:genid8"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -13519,7 +13512,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/senderAgent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The Agent which initiated the Message."
@@ -13594,7 +13587,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/sovereign",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The 'owner', i.e. sovereign of the data."
@@ -13638,7 +13631,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "\n    Reference to a well-known License regulating the general usage of the Resource.\n    Check wikidata license documentation for an extensive list of licenses.\n    License IRI should refer to the direct of link for a given standard license,\n    e.g., MIT license (https://www.wikidata.org/wiki/Q334661). The label of the resolved wikidata license IRI can be used to\n    present the license in human-readable form.\n    "
+    "@value" : "\r\n    Reference to a well-known License regulating the general usage of the Resource.\r\n    Check wikidata license documentation for an extensive list of licenses.\r\n    License IRI should refer to the direct of link for a given standard license,\r\n    e.g., MIT license (https://www.wikidata.org/wiki/Q334661). The label of the resolved wikidata license IRI can be used to\r\n    present the license in human-readable form.\r\n    "
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/Resource"
@@ -13695,7 +13688,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/target",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The subject of the policy statement (ids:Rule)."
@@ -13756,7 +13749,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/theme",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Abstract or concrete concept related to or referred by the content."
@@ -13834,7 +13827,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/idsa/core/transferContract",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The contract which is (or will be) the legal basis of the data transfer."
@@ -14033,27 +14026,334 @@
     "@id" : "http://www.w3.org/ns/odrl/2/xone"
   } ]
 }, {
+  "@id" : "https://w3id.org/idsa/metamodel/Constraint",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The class of contraints concerning the right operand of a relation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Constraint"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/ModelView",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Tailored view defined upon and generated from an ontology for a particular purpose."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Model view"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/NotEmpty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/metamodel/Constraint" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "NotEmpty"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/NotNull",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/metamodel/Constraint" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "NotNull"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/OneToMany",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://w3id.org/idsa/metamodel/RelationType" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "OneToMany"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/Package",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Abstract grouping of concepts relevant for a particular model view."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Package"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/PropertyValidation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The class of all property validations."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "PropertyValidation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/RelationType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The class of relation types, i.e., cardinality definitions of left and right operands of a relation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "RelationType"
+  } ]
+}, {
   "@id" : "https://w3id.org/idsa/metamodel/abstract",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Abstract concept marker, its instantiation is delegated to extending constructs (sub-classes or sub-properties)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Class"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "abstract"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/competencyQuestion",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Single 'competency question' the modeling construct is intended to address."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "competency question"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "@id" : "https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html#Step1"
+  } ]
 }, {
   "@id" : "https://w3id.org/idsa/metamodel/constraint",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Specifies the kind of constraint for a PropertyValidation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/PropertyValidation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "constraint"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/Constraint"
+  } ]
 }, {
   "@id" : "https://w3id.org/idsa/metamodel/example",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Literal in-line example of instantiating given modeling construct."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "example"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/focusClass",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Indicates a class as a \"central\" class that should be visualized in a particular way."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Class"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "focusClass"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
+  } ]
 }, {
   "@id" : "https://w3id.org/idsa/metamodel/forProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The property a PropertyValidation targets."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/PropertyValidation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "forProperty"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/issue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Explicit statement of pending issue related to the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "issue"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/package",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Assigns membership of a resource to a package."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/Package"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/rationale",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Literal description of motivations, requirements and design decisions underlying the modeling of a construct."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "rationale"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"
+  } ]
 }, {
   "@id" : "https://w3id.org/idsa/metamodel/referenceByUri",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "States that a reference to a class should not be implemented by a local in-memory reference but as a URL addressing the remote instance."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Class"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Reference by URL"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
+  } ]
 }, {
   "@id" : "https://w3id.org/idsa/metamodel/relationType",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Specifies the relation type for a PropertyValidation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/PropertyValidation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "relationType"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/RelationType"
+  } ]
 }, {
   "@id" : "https://w3id.org/idsa/metamodel/usage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Literal in-line note recommending a particular usage of given modeling construct."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "usage"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"
+  } ]
 }, {
   "@id" : "https://w3id.org/idsa/metamodel/validation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Annotates a class with a validation concerning a specific property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Class"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "validation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/PropertyValidation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/view",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Model view associated with given resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "view"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/ModelView"
+  } ]
+}, {
+  "@id" : "https://w3id.org/idsa/metamodel/viewOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Resource associated with given model view."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/idsa/metamodel/ModelView"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "view"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ]
 } ]

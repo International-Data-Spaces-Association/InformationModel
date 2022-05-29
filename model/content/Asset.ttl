@@ -1,7 +1,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -15,7 +15,7 @@ ids:Asset
     a owl:Class;
     rdfs:subClassOf odrl:Asset ;
     rdfs:label "Asset"@en ;
-    idsm:abstract true ;
+
     rdfs:comment "An Asset is either an ids:Resource, an ids:Representation, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."@en;
 .
 
@@ -39,10 +39,11 @@ ids:assetSource a owl:ObjectProperty ;
     rdfs:comment "A remote link to the location (PIP) where this AssetCollection and its members are maintained."@en ;
 .
 
-ids:assetRefinement a owl:ObjectProperty ;
-    rdfs:subPropertyOf odrl:refinement ;
-    rdfs:label "asset refinement"@en ;
-    rdfs:domain ids:AssetCollection ;
-    rdfs:range ids:AbstractConstraint ;
-    rdfs:comment "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."@en ;
-.
+# united with ids:assetRefinement of the ids:Rule class.
+#ids:assetRefinement a owl:ObjectProperty ;
+#    rdfs:subPropertyOf odrl:refinement ;
+#    rdfs:label "asset refinement"@en ;
+#    rdfs:domain ids:AssetCollection ;
+#    rdfs:range ids:AbstractConstraint ;
+#    rdfs:comment "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."@en ;
+#.
