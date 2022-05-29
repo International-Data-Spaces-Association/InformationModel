@@ -573,7 +573,7 @@ def rename_OOPSeval_file(ontology_version):
     # Replace reference in index.html
     with open(f'{vp}/docs/index.html', 'r+') as fp:
         text = fp.read()
-        text = re.sub('oopsEval.html', 'OOPSeval.html', text)
+        text = re.sub('OOPSEvaluation/oopsEval.html', 'OOPSevaluation/OOPSeval.html', text)
         fp.seek(0)
         fp.write(text)
         fp.truncate()
