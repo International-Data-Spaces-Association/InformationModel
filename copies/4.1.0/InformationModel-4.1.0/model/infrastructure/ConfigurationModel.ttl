@@ -1,0 +1,129 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+
+ids:ConfigurationModel a owl:Class ;
+    rdfs:label "Configuration Model"@en ;
+    rdfs:comment "Configuration Model is used for Connector deployment."@en ;
+.
+
+ids:userAuthentication a owl:ObjectProperty;
+    rdfs:label "user authentication"@en ;
+    rdfs:comment "authentication methods allowed in a Configuration Model"@en ;
+    rdfs:domain ids:ConfigurationModel ;
+    rdfs:range ids:UserAuthentication ;
+.
+
+ids:configurationModelLogLevel a owl:ObjectProperty;
+    rdfs:label "configuration model log level"@en ;
+    rdfs:comment "Log level configuration for a Connector which is deployed using the Configuration Model"@en ;
+    rdfs:domain ids:ConfigurationModel ;
+    rdfs:range ids:LogLevel ;
+.
+
+ids:connectorStatus a owl:ObjectProperty;
+    rdfs:label "Connector Status"@en ;
+    rdfs:comment "Status of a Connector deployed by the Configuration Model"@en ;
+    rdfs:domain ids:ConfigurationModel ;
+    rdfs:range ids:ConnectorStatus ;
+.
+
+ids:connectorDeployMode a owl:ObjectProperty;
+    rdfs:label "connector deploy mode"@en ;
+    rdfs:comment "Deply mode of a Connector in the Configuration Model"@en ;
+    rdfs:domain ids:ConfigurationModel ;
+    rdfs:range ids:ConnectorDeployMode ;
+.
+
+ids:connectorDescription a owl:ObjectProperty;
+    rdfs:label "Connector description"@en ;
+    rdfs:comment "References to Connector which is deployed / maintained in the Configuration Model"@en ;
+    rdfs:domain ids:ConfigurationModel ;
+    rdfs:range ids:Connector ;
+.
+
+ids:connectorProxy a owl:ObjectProperty;
+    rdfs:label "Connector proxy"@en ;
+    rdfs:comment "Proxies for a Connector which is deployed using the Configuration Model"@en ;
+    rdfs:domain ids:ConfigurationModel ;
+    rdfs:range ids:Proxy ;
+.
+
+ids:trustStore a owl:DatatypeProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:anyURI;
+    rdfs:label "trust store"@en ;
+    rdfs:comment "URI of the trust store server."@en ;
+.
+
+ids:trustStoreAlias a owl:DatatypeProperty;
+	rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "trust store alias"@en ;
+    rdfs:comment "alias for the trust store."@en ;
+.
+
+ids:trustStorePassword a owl:DatatypeProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "trust store password"@en ;
+    rdfs:comment "Password of the trust store server."@en ;
+.
+
+ids:keyStore a owl:DatatypeProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:anyURI;
+    rdfs:label "key store"@en ;
+    rdfs:comment "URI of the key store server."@en ;
+.
+
+ids:keyStoreAlias a owl:DatatypeProperty;
+	rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "key store alias"@en ;
+    rdfs:comment "alias for the key store."@en ;
+.
+
+ids:keyStorePassword a owl:DatatypeProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:string;
+    rdfs:label "key store password"@en ;
+    rdfs:comment "Password of the key store server."@en ;
+.
+
+ids:configuredBroker a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:BrokerCatalog;
+    rdfs:label "configured broker"@en ;
+    rdfs:comment "Catalog of Brokers to which the ids:Connector that we are configuring (cf. ids:connectorDescription) may want to talk."@en ;
+.
+
+ids:appRoute a owl:ObjectProperty;
+    rdfs:label "app route";
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:AppRoute;
+.
+
+ids:configuredAppStore a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:AppStoreCatalog;
+    rdfs:label "configured appstore"@en ;
+    rdfs:comment "One or more app stores to which the ids:Connector that we are configuring (cf. ids:connectorDescription) may want to talk, e.g., to retrieve apps from them."@en ;
+.
+
+ids:configuredAppResource a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:AppResourceCatalog;
+    rdfs:label "configured app resources"@en;
+    rdfs:comment "Catalog of app resources for a given Configuration Model. Used to persist configured / installed apps."@en;
+.
+
+ids:configuredClearingHouse a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:ClearingHouseCatalog;
+    rdfs:label "configured clearing house"@en;
+    rdfs:comment "Catalog of clearing houses for a given Configuration Model."@en;
+.

@@ -1,0 +1,98 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/IndustrialDataSpace/InformationModel/testing/> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:EndpointShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:Endpoint ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:Endpoint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Endpoint)
+			}
+		""" ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointHost ;
+		sh:class ids:Host ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:endpointHost property must point from an ids:Endpoint to an ids:Host."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:path ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:path property must point from an ids:Endpoint to an xsd:string."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:inboundPath ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:inboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:outboundPath ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/EndpointShape.ttl> (EndpointShape): An ids:outboundPath property must point from an ids:Endpoint to an xsd:string."@en ; 
+	] .
+
+
+shapes:StaticEndpointShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:StaticEndpoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointArtifact ;
+		sh:class ids:Artifact ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/EndpointShape.ttl> (StaticEndpointShape): An ids:endpointArtifact property must point from an ids:StaticEndpoint to an ids:Artifact."@en ; 
+	] .
+
+
+shapes:InteractiveEndpointShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:InteractiveEndpoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endpointOperationBinding ;
+		sh:class ids:OperationBinding ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/master/testing/communication/EndpointShape.ttl> (InteractiveEndpointShape): An ids:endpointOperationBinding property must point from an ids:InteractiveEndpoint to an ids:OperationBinding."@en ; 
+	] .
+

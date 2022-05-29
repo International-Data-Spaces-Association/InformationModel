@@ -1,0 +1,66 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+# Template
+# --------
+
+idsc:SPATIAL_OFFER_TEMPLATE a ids:SpatialOffer ;
+    rdfs:label "Spatial Usage Offer Template" ;
+    spin:labelTemplate """The Provider offers to allow a defined Action on its Asset for a defined geospatial ?area."""@en ;
+    rdfs:comment "This template models the restriction to a certain area."@en ;
+    skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
+    (
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    | # or
+      (ids:provider idsc:PARTICIPANT_TEMPLATE ;
+       ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
+    )
+    ids:permission [
+        a ids:Permission ;
+        (
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+        | # or
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        | # or
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+        )
+        ids:target idsc:ASSET_TEMPLATE ;
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
+            ids:operator ?spatialOperator ;                 # the spatial comparison operator, for instance idsc:INSIDE
+            ids:rightOperand (
+              ?area ;                                       # a URI of a named area, for instance http://dbpedia.org/resource/Europe
+            | # or
+              [
+                a ids:GeoPoint ;
+                ids:latitude "?lat"^^xsd:float ;            # the latitude, for instance 48.856700
+                ids:longitude "?lng"^^xsd:float ;           # the longitude, for instance 2.350800
+              ] ;
+            | # or
+              [
+                  a ids:BoundingPolygon ;
+                  (ids:geoPoint [
+                      a ids:GeoPoint ;
+                      ids:latitude "?lat"^^xsd:float ;
+                      ids:longitude "?lng"^^xsd:float ;
+                  ] ;){3,}  # at least three GeoPoints are needed to define an area
+              ] ;
+            )
+        ] ;
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
+        ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
+    ]
+.

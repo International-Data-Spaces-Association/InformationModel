@@ -1,0 +1,129 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:CertificationBodyShape
+	a sh:NodeShape ;
+	sh:targetClass ids:CertificationBody ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationBodyShape): An ids:CertificationBody is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:CertificationBody)
+			}
+		""" ;
+	] .
+
+
+shapes:CertificationShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Certification ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:Certification is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Certification)
+			}
+		""" ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:certificationLevel ;
+		sh:class ids:CertificationLevel ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:certificationLevel property must not have more than one point from an ids:Certification to an ids:CertificationLevel."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:lastValidDate ;
+		sh:datatype xsd:dateTimeStamp ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:lastValidDate property must not have more than one point from an ids:Certification to an xsd:dateTimeStamp."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:evaluationFacility ;
+		sh:class ids:EvaluationFacility ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationShape): An ids:evaluationFacility property must not have more than one point from an ids:Certification to an ids:EvaluationFacility."@en ;
+	] .
+
+
+shapes:CertificationSchemeShape
+	a sh:NodeShape ;
+	sh:targetClass ids:CertificationScheme ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationSchemeShape): An ids:CertificationScheme is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:CertificationScheme)
+			}
+		""" ;
+	] .
+
+
+shapes:CertificationLevelShape
+	a sh:NodeShape ;
+	sh:targetClass ids:CertificationLevel ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationLevelShape): An ids:CertificationLevel is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:CertificationLevel)
+			}
+		""" ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:includedCertificationLevel ;
+		sh:class ids:CertificationLevel ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/governance/CertificationShape.ttl> (CertificationLevelShape): An ids:includedCertificationLevel property must not have more than one point from an ids:CertificationLevel to an ids:CertificationLevel."@en ;
+	] .

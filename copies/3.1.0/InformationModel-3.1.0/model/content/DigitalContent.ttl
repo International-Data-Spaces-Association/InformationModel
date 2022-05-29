@@ -1,0 +1,176 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+ids:DigitalContent
+    a owl:Class;    
+    rdfs:subClassOf ids:Described, dcat:Dataset;
+    rdfs:label "Digital content"@en ;
+    rdfs:comment "Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index."@en ;
+    idsm:validation [
+        idsm:forProperty ids:contentPart;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:spatialCoverage;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:temporalCoverage;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:language;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:theme;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:keyword;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:contentRefinement;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:validation [
+        idsm:forProperty ids:representation;
+        idsm:relationType idsm:OneToMany;
+    ];
+    idsm:abstract true ;
+    rdfs:seeAlso
+        <https://en.wikipedia.org/wiki/Digital_content> ,
+        <http://www.ontodm.com/doku.php?id=ontodt> ,
+        # <https://schema.org/DataType> ,
+        # <https://schema.org/additionalType> ,
+        <http://schema.org/DataType> ,
+        <http://schema.org/additionalType> ,
+        <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> ,
+        <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html>. # GeneralDataFormat, formerly KindOfDataFormat
+
+# Properties
+# general "content" properties here, otherwise with concrete subclasses
+# ------------
+
+ids:contentType
+    a owl:ObjectProperty;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:ContentType;
+    rdfs:label "content type"@en;
+    rdfs:comment "Detailed type, genre or interpretation of the Digital Content."@en.
+
+ids:contentPart
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:hasPart;
+    rdfs:label "content part"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:DigitalContent;
+    rdfs:comment "Reference to a Digital Content (physically or logically) included, definition of part-whole hierarchies."@en .
+
+ids:representation
+    a owl:ObjectProperty;
+    #rdfs:subPropertyOf dcat:distribution ; # Links to non-materialized part of Distribution
+    rdfs:label "representation"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:Representation;
+    rdfs:comment "Representation of the content."@en.
+
+ids:defaultRepresentation
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf ids:representation ;
+    rdfs:label "Default representation"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:Representation;
+    rdfs:comment "Default representation of the content."@en.
+
+ids:language
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:language;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:Language; # does not fit the defined range of dct:language - dct:LinguisticSystem !
+    rdfs:label "language"@en;
+    rdfs:comment "Natural language(s) used within the content."@en.
+
+ids:theme # ... "topic" / "subject" ?
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf dcat:theme; # is a sub-property of dct:subject, comparable to qb:concept (?)
+    idsm:referenceByUri true ;
+    rdfs:label "theme"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:Concept; # former "ContentCategory", skos:Concepts organized in a skos:ConceptScheme
+    rdfs:comment "Abstract or concrete concept related to or referred by the content."@en.
+
+
+ids:keyword
+    a owl:DatatypeProperty;
+    rdfs:subPropertyOf dcat:keyword;
+    rdfs:label "keyword"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range xsd:string;
+    rdfs:comment "Controlled keywords that describe the nature, purpose, or use of the content."@en.
+
+ids:temporalCoverage
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:temporal;
+    rdfs:label "temporal coverage"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:TemporalEntity;
+    rdfs:comment "Temporal period or instance covered by the content."@en.
+
+ids:spatialCoverage
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:spatial;
+    rdfs:label "spatial coverage"@en;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range ids:SpatialEntity;
+    rdfs:comment "Named spatial entity covered by the Resource."@en.
+
+ids:accrualPeriodicity # consider irregular updates as well
+    a owl:DatatypeProperty;
+    # rdfs:subPropertyOf dct:accrualPeriodicity - not applicable, since range is a dct:Frequency
+    rdfs:label "Accrual periodicity"@en;
+    rdfs:comment "The regular period with which items are added to a collection."@en ;
+    rdfs:domain ids:DigitalContent;
+    rdfs:range xsd:duration;
+    .
+
+ids:contentStandard
+    idsm:referenceByUri true;
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dct:conformsTo ;
+    rdfs:domain ids:DigitalContent ;
+    rdfs:range ids:Standard;
+    rdfs:label "content standard"@en;
+    rdfs:comment "Standards document defining the given Digital Content. The content is assumed to conform to that Standard."@en.
+
+ids:created
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:issued;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:DigitalContent ids:Representation)
+              ] ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:label "created"@en;
+    rdfs:seeAlso <http://purl.org/dc/terms/created> ;
+    rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en.
+
+ids:modified
+    a owl:DatatypeProperty;
+    rdfs:subPropertyOf dct:modified;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:DigitalContent ids:Representation)
+              ] ;
+    rdfs:range xsd:dateTimeStamp;
+    rdfs:label "modified"@en;
+    rdfs:seeAlso <http://purl.org/dc/terms/modified> ;
+    rdfs:comment "The date/time this Digital Content has been changed the last time. Only one 'modified' attribute is usually needed."@en.

@@ -1,0 +1,108 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ids:DataResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:someValuesFrom ids:Data
+    ] ;
+    rdfs:label "Data Resource"@en ;
+    rdfs:comment "Resource (at least partially) comprising data content."@en .
+
+ids:TextResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:someValuesFrom ids:Text
+    ] ;
+    rdfs:label "Text Resource"@en ;
+    rdfs:comment "Resource (at least partially) comprising textual content."@en .
+
+ids:AudioResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:someValuesFrom ids:Audio
+    ] ;
+    rdfs:label "Audio Resource"@en ;
+    rdfs:comment "Resource (at least partially) comprising audio content."@en .
+
+ids:ImageResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:someValuesFrom ids:Image
+    ] ;
+    rdfs:label "Image Resource"@en ;
+    rdfs:comment "Resource (at least partially) comprising image content."@en .
+
+# language is optional
+ids:VideoResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:someValuesFrom ids:Video
+    ] ;
+    rdfs:label "Video Resource"@en ;
+    rdfs:comment "Resource (at least partially) comprising video content."@en .
+
+ids:SoftwareResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:someValuesFrom ids:Software
+    ] ;
+    rdfs:label "Software Resource"@en ;
+    rdfs:comment "Resource (at least partially) comprising Software."@en .
+
+ids:SchemaResource
+    a owl:Class;
+    rdfs:label "Schema Resource"@en ;
+    rdfs:comment "Resource (at least partially) comprising a Schema."@en .
+
+ids:SimpleResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:cardinality 1
+    ] ;
+    rdfs:label "Simple Resource"@en ;
+    rdfs:comment "Resource comprising exactly one Digital Content."@en .
+
+ids:CompositeResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ids:contentPart ;
+        owl:minCardinality 2
+    ] ;
+    rdfs:label "Composite Resource"@en ;
+    rdfs:comment "Resource comprising multiple Digital Contents."@en .
+
+ids:CollectionResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource, ids:Collection;
+    rdfs:label "Collection resource"@en ;
+    rdfs:comment "Resource comprising a set of named (Map) or ordered (List) elements."@en .
+

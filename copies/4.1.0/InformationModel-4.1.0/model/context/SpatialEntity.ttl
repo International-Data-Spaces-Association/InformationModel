@@ -1,0 +1,69 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geo: <http://www.opengis.net/def/function/geosparql/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+
+# Classes
+# -------
+
+ids:Location a owl:Class;
+    rdfs:subClassOf dct:Location;
+    rdfs:subClassOf wgs84:SpatialThing;
+
+    rdfs:label "Location"@en ;
+    rdfs:comment "Class of all locations."@en.
+
+ids:GeoPoint rdfs:subClassOf ids:Location;
+    a owl:Class;
+    rdfs:label "GeoPoint"@en ;
+    rdfs:comment "A location identified by geo coordinates."@en;
+.
+
+ids:GeoFeature a owl:Class;
+    rdfs:subClassOf gn:Feature;
+    rdfs:subClassOf ids:Location;
+    rdfs:label "GeoFeature"@en ;
+    rdfs:comment "A location identified by a geonames URL."@en.
+
+ids:Geometry rdfs:subClassOf locn:Geometry;
+    rdfs:subClassOf ids:Location;
+    a owl:Class;
+    rdfs:label "Geometry"@en ;
+    rdfs:comment "Geometrical shape indicating a spatial area of interest."@en.
+
+ids:BoundingPolygon rdfs:subClassOf ids:Geometry;
+    a owl:Class;
+    rdfs:label "BoundingPolygon"@en;
+    rdfs:comment "Defines an area of interest as a set of connected points."@en;
+.
+
+# Properties for describing spatial entities
+# -------------------------------------------
+
+ids:latitude rdfs:subPropertyOf wgs84:lat;
+    a owl:DatatypeProperty;
+    rdfs:domain ids:GeoPoint;
+    rdfs:range xsd:float;
+    rdfs:label "latitude"@en;
+    rdfs:comment "Latitude of a GeoPoint (decimal degrees)."@en.
+
+ids:longitude rdfs:subPropertyOf wgs84:long;
+    a owl:DatatypeProperty;
+    rdfs:domain ids:GeoPoint;
+    rdfs:range xsd:float;
+    rdfs:label "longitude"@en;
+    rdfs:comment "Longitude of a GeoPoint (decimal degrees)."@en.
+
+ids:geoPoint a owl:ObjectProperty;
+     rdfs:domain ids:BoundingPolygon;
+     rdfs:range ids:GeoPoint;
+     rdfs:label "geoPoint"@en;
+     rdfs:comment "Refers to a GeoPoint that is member of a BoundingPolygon."@en.
+

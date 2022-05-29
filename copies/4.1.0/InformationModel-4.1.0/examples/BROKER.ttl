@@ -1,0 +1,64 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
+@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
+@prefix broker1: <https://aastat.gov.de/connector/broker1/> .
+
+
+broker1:
+    a ids:Broker;
+    # General properties
+    ids:title "Logistics registry" ;
+    ids:description "Description of an example Trusted Connector maintained by PART1" ;
+    ids:maintainer part1: ; # Participant ~ service provider PART1
+    ids:curator part1: ; # Content manager
+    ids:physicalLocation <http://sws.geonames.org/3247450/> ; #Datacenter located in Bonn
+    ids:outboundModelVersion "4.1.0" ;
+    ids:inboundModelVersion "4.1.0" ;
+
+    ids:hasDefaultEndpoint [
+               a ids:ConnectorEndpoint;
+               ids:endpointInformation "This is the default endpoint of the Broker.";
+               ids:endpointDocumentation <http://IRItoSomeAPIdocumentation> ;
+               ids:accessURL <https://aastat.gov.de/broker/infrastructure> ;
+               ids:inboundPath "/input";
+               ids:outboundPath "/output";
+                           ];
+    # Security and trust features
+    ids:authInfo conn2:auth_info ;
+    ids:securityProfile idsc:BASE_SECURITY_PROFILE ;
+    ids:componentCertification conn2:certification ;
+
+    # Catalog of mediated resources
+    ids:resourceCatalog [
+        a ids:ResourceCatalog ;
+        ids:offeredResource conn2:data1, conn2:data2, conn2:data3 ; # those resources are "offer(s)", in contrast to "request"
+    ].
+
+<http://sws.geonames.org/3247450/> a ids:GeoFeature .
+
+conn2:auth_info
+    a ids:AuthInfo ;
+    ids:authService <https://keycloak.aastat.gov.de>;
+    ids:authStandard idsc:OAUTH2_JWT ;
+    .
+
+conn2:certification
+    a ids:ComponentCertification ;
+    ids:certificationLevel idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
+    ids:lastValidDate "2020-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+    .
+
+conn2:data1 a ids:Resource;
+    ids:title "some Resource";
+        .
+
+conn2:data2 a ids:Resource;
+    ids:title "another Resource";
+.
+
+conn2:data3 a ids:Resource;
+    ids:title "yet another Resource";
+.

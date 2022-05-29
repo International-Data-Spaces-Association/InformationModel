@@ -1,0 +1,114 @@
+{
+  "@context": {
+    "broker1": "https://aastat.gov.de/connector/broker1/",
+    "conn2": "https://aastat.gov.de/connector/conn2/",
+    "ids": "https://w3id.org/idsa/core/",
+    "idsc": "https://w3id.org/idsa/code/",
+    "part1": "https://im.internationaldataspaces.org/participant/part1",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "conn2:auth_info",
+      "@type": "ids:AuthInfo",
+      "ids:authService": {
+        "@id": "https://keycloak.aastat.gov.de"
+      },
+      "ids:authStandard": {
+        "@id": "idsc:OAUTH2_JWT"
+      }
+    },
+    {
+      "@id": "conn2:data1",
+      "@type": "ids:Resource",
+      "ids:title": "some Resource"
+    },
+    {
+      "@id": "broker1:",
+      "@type": "ids:Broker",
+      "ids:authInfo": {
+        "@id": "conn2:auth_info"
+      },
+      "ids:componentCertification": {
+        "@id": "conn2:certification"
+      },
+      "ids:curator": {
+        "@id": "https://im.internationaldataspaces.org/participant/part1"
+      },
+      "ids:description": "Description of an example Trusted Connector maintained by PART1",
+      "ids:hasDefaultEndpoint": {
+        "@id": "_:ub91bL19C28"
+      },
+      "ids:inboundModelVersion": "4.1.0",
+      "ids:maintainer": {
+        "@id": "https://im.internationaldataspaces.org/participant/part1"
+      },
+      "ids:outboundModelVersion": "4.1.0",
+      "ids:physicalLocation": {
+        "@id": "http://sws.geonames.org/3247450/"
+      },
+      "ids:resourceCatalog": {
+        "@id": "_:ub91bL33C25"
+      },
+      "ids:securityProfile": {
+        "@id": "idsc:BASE_SECURITY_PROFILE"
+      },
+      "ids:title": "Logistics registry"
+    },
+    {
+      "@id": "conn2:data2",
+      "@type": "ids:Resource",
+      "ids:title": "another Resource"
+    },
+    {
+      "@id": "_:ub91bL19C28",
+      "@type": "ids:ConnectorEndpoint",
+      "ids:accessURL": {
+        "@id": "https://aastat.gov.de/broker/infrastructure"
+      },
+      "ids:endpointDocumentation": {
+        "@id": "http://IRItoSomeAPIdocumentation"
+      },
+      "ids:endpointInformation": "This is the default endpoint of the Broker.",
+      "ids:inboundPath": "/input",
+      "ids:outboundPath": "/output"
+    },
+    {
+      "@id": "conn2:data3",
+      "@type": "ids:Resource",
+      "ids:title": "yet another Resource"
+    },
+    {
+      "@id": "_:ub91bL33C25",
+      "@type": "ids:ResourceCatalog",
+      "ids:offeredResource": [
+        {
+          "@id": "conn2:data2"
+        },
+        {
+          "@id": "conn2:data3"
+        },
+        {
+          "@id": "conn2:data1"
+        }
+      ]
+    },
+    {
+      "@id": "http://sws.geonames.org/3247450/",
+      "@type": "ids:GeoFeature"
+    },
+    {
+      "@id": "conn2:certification",
+      "@type": "ids:ComponentCertification",
+      "ids:certificationLevel": {
+        "@id": "idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW"
+      },
+      "ids:lastValidDate": {
+        "@type": "xsd:dateTimeStamp",
+        "@value": "2020-12-31T13:20:00Z"
+      }
+    }
+  ]
+}

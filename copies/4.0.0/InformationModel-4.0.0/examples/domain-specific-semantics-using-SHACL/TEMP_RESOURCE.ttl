@@ -1,0 +1,111 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix conn1: <https://aastat.gov.de/connector/conn1/> .
+@prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
+
+# This document contains an example of a resource and how it is represented in the information model.
+
+
+# A (Text) Resource in the IDS Information Model
+sample_Data:
+    a ids:DataResource ;
+    ids:title "Sample temperature data"@en ;
+    ids:description "Temperature data of ___ from 2001 - 2012 ."@en;
+    ids:keyword "temperature", "data" ;
+
+    # Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ.
+    ids:publisher "<URI of the publisher IDS participant>";
+    ids:sovereign "<URI of the sovereign IDS participant>";
+
+    # Temporal period covered by the content of the resource:     2001-01-01 to 2012-12-31
+    ids:temporalCoverage [
+        a ids:Interval ;
+        ids:begin [ ids:date "2001-01-01"^^xsd:date ];
+        ids:end   [ ids:date "2012-12-31"^^xsd:date ];
+    ] ;
+
+    # license of the resource:     "Other Commercial License" (as a placeholder for a commercial license)
+    ids:standardLicense idsc:OTHERCOMMERCIALLICENSE;
+
+    # Language of resource:         Englisch
+    ids:language idsc:ENGLISH ;
+
+    # References to verview of domain-specific vocabularies and terms used by the resource as a whole
+    ids:domainVocabulary [
+        # see class ids:VocabularyData and https://www.w3.org/TR/void/ for details.
+        a ids:VocabularyData;
+        ids:vocabulary "<URI to  domain-specific RDF / OWL>";
+        ids:propertyPartition "<Ref to subset of a ids:VocabularyData>";
+    ];
+
+    # Value of ids:shapesGraph should be a URI to a graph (e.g., an RDF file) containing one or more SHACL shapes which describe the domain-specific semantics of the ids:Resource
+    ids:shapesGraph "https://example.com/shacl_shapes/temperature_shacl.ttl";
+
+    ids:representation [
+        a ids:DataRepresentation ;
+        ids:mediaType idsc:APPLICATION_JSON;
+        ids:instance sample_Data:tempdata_file ;
+    ] ;
+
+    # JSON artifact of the resource is available at following static path
+    ids:resourceEndpoint [
+        a ids:StaticEndpoint ;
+        # reference to the (http) Host of the IDS connector "conn1". See "Connector_example.ttl" file for an example of a connector.
+        ids:endpointHost conn1:http_host ;
+        # reference to the artifact, see "sample_Data:tempdata_file" below
+        ids:endpointArtifact sample_Data:tempdata_file ;
+        ids:path "/reports/tempdata_file.json"
+    ] ;
+
+    # Commodization of the data resource in the form of a contract offer
+    ids:contractOffer [
+        a ids:ContractOffer ;
+        ids:provider "<URI of the provider ids participant>";
+        ids:contractDocument "<Reference to human-readable resource of this Contract>";
+
+        # permission and usage constraints of the resource
+        # Users have permission to "use" the json artifact in the time range between 2019-09-01T00:00:00 and 2019-10-01T00:00:00
+        # with the duty / obligation to pay 100 Euros.
+        ids:permission [
+            a ids:Permission ;
+
+            # Specify permission
+            ids:action idsc:USE ;
+            ids:assigner "<URI of the provider IDS participant>";
+
+            # Individual target artifact(s)
+            ids:targetArtifact sample_Data:tempdata_file ;
+
+            # time interval restricted usage constraict
+            ids:constraint [
+                a ids:Constraint ;
+                ids:leftOperand idsc:now;
+                ids:operator idsc:IN_TIME_INTERVAL ;
+                ids:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
+                ] ;
+
+            # Obligation / Duty
+            ids:preDuty [
+                ids:action idsc:COMPENSATE ;
+                ids:constraint [
+                    ids:leftOperand idsc:payAmount ;
+                      ids:operator ids:EQ ;
+                      ids:rightOperand 100 ;
+                      ids:unit <http://dbpedia.org/resource/Euro>;
+                ]
+            ]
+        ]
+    ]
+.
+
+# A sample file in JSON format, which contains temperature data.
+sample_Data:tempdata_file
+    a ids:Artifact ;
+    ids:byteSize "12497"^^xsd:integer ;
+    ids:fileName "Temperature_data.json";
+    ids:creationDate "2018-06-01"^^xsd:date ;
+.

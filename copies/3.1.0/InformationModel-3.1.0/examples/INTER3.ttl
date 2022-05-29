@@ -1,0 +1,65 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
+@prefix conn3: <https://someCompany.de/connector/conn3> .
+@prefix conn2: <https://aastat.gov.de/connector/conn2/> .
+
+# original request from (potential) consuming connector to providing connector
+conn3:inter3_r a ids:ContractRequestMessage;
+    ids:issuerConnector conn3: ;
+    ids:recipientConnector conn2: ;
+    ids:issued "2018-10-01T15:57:00"^^xsd:dateTime;
+    ids:modelVersion "1.0.0";
+    ids:authorizationToken [
+        a ids:Token;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ];
+    ids:baseContractOffer data1:offer.
+
+# counteroffer from providing connector as part of the payload
+conn2:inter3_o a ids:ContractOfferMessage;
+    ids:issuerConnector conn2: ;
+    ids:recipientConnector conn3: ;
+    ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
+    ids:modelVersion "1.0.0";
+    ids:authorizationToken [
+        a ids:Token;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ];
+    ids:correlationMessage conn3:inter3_r.
+
+# agreement on a contract
+conn3:inter3_a a ids:ContractAgreementMessage;
+    ids:issuerConnector conn3: ;
+    ids:recipientConnector conn2: ;
+    ids:issued "2018-10-01T15:58:00"^^xsd:dateTime;
+    ids:modelVersion "1.0.0";
+    ids:authorizationToken [
+        a ids:Token;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ];
+    ids:correlationMessage conn2:inter3_o.
+
+# confirmation of contract agreement
+conn2:inter3_a a ids:ContractAgreementMessage;
+    ids:issuerConnector conn2: ;
+    ids:recipientConnector conn3: ;
+    ids:issued "2018-10-01T15:59:00"^^xsd:dateTime;
+    ids:modelVersion "1.0.0";
+    ids:authorizationToken [
+        a ids:Token;
+        ids:tokenValue "2YotnFZFEjr1zCsicMWpAA"
+    ];
+    ids:correlationMessage conn3:inter3_a.
+
+
+

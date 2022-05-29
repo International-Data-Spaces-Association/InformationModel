@@ -1,0 +1,102 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:ActivityShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:Activity ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:Activity is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Activity)
+			}
+		""" ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:activityDescription ;
+		sh:or (
+            [
+                sh:datatype xsd:string ;
+			]
+			[
+                sh:datatype rdf:langString ;
+            ]
+            );
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:activityDescription property must point from an ids:Activity to either a xsd:string or a rdf:langString which contains a language code.."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:startedBy ;
+		sh:class ids:Participant ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:Activity must not have more than one ids:Participant linked through the ids:startedBy property"@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:startedAt ;
+		sh:datatype xsd:dateTimeStamp ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:startedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endedBy ;
+		sh:class ids:Participant ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedBy property must point from an ids:Activity to an ids:Participant."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:endedAt ;
+		sh:datatype xsd:dateTimeStamp ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ActivityShape): An ids:endedAt property must point from an ids:Activity to an xsd:dateTimeStamp."@en ;
+	] .
+
+
+shapes:ModificationActivityShape
+	a sh:NodeShape ; 
+	sh:targetClass ids:ModificationActivity ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:invalidated ;
+		sh:datatype ids:ManagedEntity ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/traceability/ActivityShape.ttl> (ModificationActivityShape): An ids:invalidated property must point from an ids:ModificationActivity to an ids:ManagedEntity."@en ;
+	] .
+

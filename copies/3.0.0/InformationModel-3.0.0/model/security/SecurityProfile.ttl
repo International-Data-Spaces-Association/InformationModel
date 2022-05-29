@@ -1,0 +1,35 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:SecurityProfile a owl:Class;
+    rdfs:label "SecurityProfile"@en ;
+    rdfs:comment "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."@en ;
+    idsm:validation [
+        idsm:forProperty ids:securityGuarantee;
+        idsm:relationType idsm:OneToMany;
+    ];
+    # .. specifies several security aspects expressing the minimum requirements a Data Consumer must meet to be granted access to the Data Endpoints exposed by a providing Connector.
+    .
+
+ids:SecurityGuarantee
+    a owl:Class;
+    rdfs:label "Security guarantee"@en ;
+    rdfs:comment "Security guarantee claimed by a security profile."@en ;
+    .
+
+# Properties
+# ----------
+
+ids:securityGuarantee
+    a owl:ObjectProperty;
+    rdfs:domain ids:SecurityProfile;
+    rdfs:range ids:SecurityGuarantee;
+    rdfs:label "Security guarantee"@en;
+    rdfs:comment "Reference to a security guarantee supported by given profile."@en.

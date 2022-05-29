@@ -1,0 +1,87 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:Connector
+    rdfs:subClassOf ids:InfrastructureComponent;
+    a owl:Class;
+    rdfs:label "Connector"@en ;
+    rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
+# TODO: a connector might not want to present a catalog
+.
+
+ids:BaseConnector rdfs:subClassOf ids:Connector ;
+    a owl:Class;
+    rdfs:label "Base Connector"@en ;
+    rdfs:comment "Implementation of the Connector specification providing only restricted security capabilities."@en .
+
+ids:TrustedConnector rdfs:subClassOf ids:Connector ;
+    a owl:Class;
+    rdfs:label "Trusted Connector"@en ;
+    rdfs:comment "Hardened implementation of the Connector specification providing enhanced security capabilities."@en .
+
+# Properties
+# ----------
+
+ids:hasDefaultEndpoint
+    a owl:ObjectProperty;
+    rdfs:label "has default endpoint"@en;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:ConnectorEndpoint;
+    rdfs:comment "Indicates the default endpoint that should be used for basic infrastructure interactions, e.g., providing the self description."@en.
+
+# see also ids:hasEndpoint Property also for ids:Resource
+ids:hasEndpoint
+    a owl:ObjectProperty;
+    rdfs:label "has endpoint"@en ;
+    rdfs:domain ids:Connector ;
+    rdfs:range ids:ConnectorEndpoint;
+    rdfs:comment "Reference to the Endpoints that serve the resource's content or let you exchange messages with an IDS Connector."@en.
+
+ids:securityProfile a owl:ObjectProperty;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Connector ids:JwtPayload)
+              ] ;
+    rdfs:range ids:SecurityProfile;
+    rdfs:label "securityProfile"@en;
+    rdfs:comment "The SecurityProfile supported by the Connector."@en.
+    
+ids:extendedGuarantee a owl:ObjectProperty;
+    rdfs:domain [ rdf:type owl:Class ;
+                owl:unionOf ( ids:Connector ids:DatPayload)
+              ] ;
+    rdfs:range ids:SecurityGuarantee;
+    rdfs:label "extended guarantee"@en;
+    rdfs:comment "Reference to a security guarantee that, if used in combination with a security profile instance, overrides the respective guarantee of the given predefined instance."@en.
+
+ids:authInfo a owl:ObjectProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:AuthInfo;
+    rdfs:label "authInfo"@en;
+    rdfs:comment "Information of the authentication service used by the Connector."@en.
+
+ids:resourceCatalog a owl:ObjectProperty;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:ResourceCatalog;
+    rdfs:label "resource catalog"@en;
+    rdfs:comment "References the Catalog of published or requested resource by this Connector."@en.
+
+ids:hasAgent a owl:ObjectProperty;
+    rdfs:label "has Agent"@en;
+    rdfs:domain ids:Connector;
+    rdfs:range ids:Agent;
+    rdfs:comment "The Agents for which this Connector may initiate and receive Messages."@en.
+
+# TODO: maybe needed for configuration model later. 
+#ids:configurationModel a owl:ObjectProperty;
+#    rdfs:label "Configuration Model"@en;
+#    rdfs:domain ids:Connector;
+#    rdfs:range ids:ConfigurationModel;
+#    rdfs:comment "References the Configuration Model, which deployed the Connector."@en;
+#.

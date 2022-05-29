@@ -1,0 +1,103 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:AbstractConstraint rdfs:subClassOf odrl:Constraint;
+    a owl:Class;
+    rdfs:label "Abstract Constraint"@en;
+    rdfs:comment "The upper class of Constraints and LogicalConstraints is solely intended as a placholder at the range of IDS Properties."@en;
+.
+
+ids:Constraint rdfs:subClassOf ids:AbstractConstraint ;
+    a owl:Class;
+    rdfs:label "Constraint"@en;
+    rdfs:comment "The class of Constraints that restrict a Rule."@en;
+.
+
+ids:LogicalConstraint rdfs:subClassOf ids:AbstractConstraint ;
+    rdfs:subClassOf odrl:LogicalConstraint;
+    a owl:Class;
+    rdfs:label "Logical Constraint"@en;
+    rdfs:comment "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."@en;
+.
+
+# Properties
+# ----------
+
+ids:leftOperand
+    a owl:ObjectProperty;
+    rdfs:subPropertyOf odrl:leftOperand;
+    rdfs:label "leftOperand"@en ;
+    rdfs:domain ids:Constraint;
+    rdfs:range ids:LeftOperand ;
+    rdfs:comment "The left operand in a constraint expression."@en.
+
+ids:operator rdfs:subPropertyOf odrl:operator;
+    a owl:ObjectProperty;
+    rdfs:label "operator"@en ;
+    rdfs:domain ids:Constraint;
+    rdfs:range ids:BinaryOperator;
+    rdfs:comment "The operator function applied to operands of a Constraint"@en.
+
+ids:rightOperand rdfs:subPropertyOf odrl:rightOperand;
+    a owl:ObjectProperty;
+    rdfs:label "rightOperand"@en ;
+    rdfs:domain ids:Constraint;
+    rdfs:range rdfs:Resource;
+    rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en.
+
+ids:rightOperandReference rdfs:subPropertyOf odrl:rightOperandReference;
+    a owl:ObjectProperty;
+    rdfs:label "rightOperandReference"@en ;
+    rdfs:domain ids:Constraint;
+    rdfs:range rdfs:Resource;
+    rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en.
+
+ids:unit rdfs:subPropertyOf odrl:unit;
+    a owl:ObjectProperty;
+    rdfs:label "unit"@en;
+    rdfs:domain ids:Constraint;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "The unit of measurement of a Constraint."@en.
+
+ids:pipEndpoint a owl:ObjectProperty;
+     rdfs:label "has PIP endpoint"@en;
+     rdfs:domain ids:Constraint;
+     rdfs:range xsd:anyURI ;
+     rdfs:comment "The reference to the endpoint which provides the current state of the feature of interest (as referrenced by the leftOperand) can be retrieved."@en
+.
+
+ids:and rdfs:subPropertyOf odrl:and;
+  a owl:ObjectProperty;
+  rdfs:label "and operand"@en ;
+  rdfs:domain ids:LogicalConstraint;
+  #rdfs:range rdf:List;
+  rdfs:range ids:Constraint;
+  rdfs:comment "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
+.
+
+ids:or rdfs:subPropertyOf odrl:or;
+  a owl:ObjectProperty;
+  rdfs:label "or operand"@en ;
+  rdfs:domain ids:LogicalConstraint;
+  #rdfs:range rdf:List;
+  rdfs:range ids:Constraint;
+  rdfs:comment "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
+.
+
+ids:xone rdfs:subPropertyOf odrl:xone;
+  a owl:ObjectProperty;
+  rdfs:label "exclusive or"@en ;
+  rdfs:domain ids:LogicalConstraint;
+  #rdfs:range rdf:List;
+  rdfs:range ids:Constraint;
+  rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
+.

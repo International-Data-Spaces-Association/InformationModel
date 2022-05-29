@@ -1,0 +1,58 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin:    <http://spinrdf.org/spin#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Instances
+# ---------
+
+idsc_pt:UsageOfferForPurposeTemplate a ids:PolicyTemplate ;
+    rdfs:label "Offer for a Specific Purpose Template" ;
+    rdfs:comment "A template for policy offers which allow usage only for a defined purpose. A program may indicate through its self-description or label which purpose it has."@en ;
+	spin:labelTemplate """The {?ProviderParticipantURI} offers to {?action element of [ids:use|ids:read|...]} 
+		its {?content element of [<Representation URI>|<Artifact URI>]} only if the (potentially still unknown) 
+		consumer uses it with systems which can be used for {?PurposeURI}."""@en ;
+    skos:note """{ 
+		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@type": "ContractOffer", 
+		"@id": "{?contractID}", 
+		"refersTo": "https://w3id.org/idsa/code/policytemplate/UsageOfferForPurposeTemplate" ,
+		"targetContent": "{?content}",
+		"provider": "{?ProviderParticipantURI}",
+		"permission": {
+			"action": "{?action}" ,
+			["constraint" : {    
+					 "leftOperand" : "purpose",
+					 "operator" : "eq",
+					 "rightOperandReference" : "{?PurposeURI}"
+			}[,]]+
+		} }"""^^xsd:string ;
+	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc_pt: <https://w3id.org/idsa/code/policytemplate/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		{?contractID} a ids:ContractOffer ;
+			ids:refersTo idsc_pt:UsageOfferForPurposeTemplate ;
+			ids:targetContent {?content} ;
+			ids:provider {?ProviderParticipantURI} ;
+			ids:permission [
+				ids:action {?action} ;
+				[ids:constraint [
+					ids:leftOperand ids:purpose ;
+					ids:operator ids:eq ;
+					ids:rightOperandReference {?PurposeURI}
+				] ;]+
+			]
+		."""^^xsd:string 
+	.
+
+
+

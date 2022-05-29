@@ -1,0 +1,64 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:InfrastructureComponent rdfs:subClassOf ids:ManagedEntity;
+    a owl:Class;
+    rdfs:label "InfrastructureComponent"@en ;
+    rdfs:comment "The class of all infrastructure components of the IDS."@en;
+.
+
+# Properties of InfrastructureComponent
+# -------------------------------------
+
+ids:maintainer a owl:ObjectProperty;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Participant;
+    rdfs:label "maintainer"@en;
+    rdfs:comment "Participant responsible for technical maintenance of the InfrastructureComponent."@en.
+
+ids:curator a owl:ObjectProperty;
+    rdfs:subPropertyOf dct:publisher;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Participant;
+    rdfs:label "curator"@en;
+    rdfs:comment "Participant responsible for the correctness of the content offered by the InfrastructureComponent."@en.
+
+ids:physicalLocation a owl:ObjectProperty;
+    rdfs:label "physicalLocation"@en;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:Location;
+    rdfs:comment "The location where the Connector is physically deployed."@en.
+
+ids:inboundModelVersion a owl:DatatypeProperty;
+    rdfs:label "inboundModelVersion"@en;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range xsd:string;
+    rdfs:comment "Information Model version that the InfrastructureComponent is capable of reading/processing."@en.
+
+ids:outboundModelVersion a owl:DatatypeProperty;
+     rdfs:label "outbound model version"@en;
+     rdfs:domain ids:InfrastructureComponent;
+     rdfs:range xsd:string;
+     rdfs:comment "Information Model version being produced by the InfrastructureComponent."@en.
+
+ids:componentCertification
+    a owl:ObjectProperty;
+    rdfs:label "component certification"@en;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:ComponentCertification;
+    rdfs:comment "Certification issued for the given Infrastructure Component."@en.
+
+ids:publicKey a owl:ObjectProperty;
+    rdfs:label "Public Key"@en;
+    rdfs:domain ids:InfrastructureComponent;
+    rdfs:range ids:PublicKey;
+    rdfs:comment "Public Key that has been created for the Component."@en.

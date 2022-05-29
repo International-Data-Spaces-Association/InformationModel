@@ -1,0 +1,49 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+
+ids:UserAuthentication a owl:Class;
+    rdfs:label "User Authentication"@en ;
+    rdfs:comment "Holds User authentication information. Differs from ids:AuthInfo. This class refers to user authentication methods that are not intended for direct data exchange with a connector."@en ;
+.
+
+ids:authUsername a owl:DatatypeProperty;
+    rdfs:domain ids:UserAuthentication ;
+    rdfs:range xsd:string ;
+    rdfs:label "auth username"@en ;
+    rdfs:comment "Username / ID used for authentication."@en ;
+.
+
+
+ids:BasicAuthentication a owl:Class;
+    #  ;
+    rdfs:subClassOf ids:UserAuthentication ;
+    rdfs:label "User Authentication"@en ;
+    rdfs:comment "Basic authentication using username / password "@en ;
+    rdfs:seeAlso <https://tools.ietf.org/html/rfc7617> ;
+    .
+
+ids:authPassword a owl:DatatypeProperty;
+    rdfs:domain ids:BasicAuthentication;
+    rdfs:range xsd:string;
+    rdfs:label "auth password" ;
+    rdfs:comment "Username / ID used for authentication.";
+    .
+
+ids:HTTPAuthentication a owl:Class;
+    rdfs:subClassOf ids:BasicAuthentication ;
+    rdfs:label "HTTP Authentication"@en ;
+    rdfs:comment "HTTP authentication."@en ;
+.
+
+ids:httpAuthURI a owl:DatatypeProperty;
+    rdfs:domain ids:HTTPAuthentication;
+    rdfs:range xsd:anyURI;
+    rdfs:label "http auth URI"@en ;
+    rdfs:comment "HTTP authentication URI."@en ;
+    rdfs:seeAlso <https://tools.ietf.org/html/rfc7235> ;
+.

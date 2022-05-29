@@ -1,0 +1,94 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
+@prefix idsc_mep: <https://w3id.org/idsa/code/mep/> .
+@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
+@prefix idsc_operation: <https://w3id.org/idsa/code/operation/> .
+@prefix idsc_standard: <https://w3id.org/idsa/code/standard/> .
+
+@prefix appstore1:  <http://app4traffic.de/connector/appstore1/> .
+@prefix app2:       <http://app4traffic.de/connector/appstore1/app2/> .
+
+app2:
+    a ids:Resource, ids:DataProcessingApp ;
+    ids:title "Traffic image anonymization App"@en ;
+    ids:description "Data App for anonymization of traffic images."@en;
+    ids:keyword "image", "anonymization " ;
+    ids:representation [
+        a ids:SoftwareRepresentation ;
+        ids:mediaType idsc_media:APPLICATION_DATAAPP ;
+        ids:instance app2:processing_app ;
+    ] ;
+
+    # Provision of the Data App Resource
+    ids:resourceEndpoint [
+        a ids:StaticEndpoint ;
+        ids:endpointHost appstore1:http_host ;
+        ids:endpointArtifact app2:processing_app;
+        ids:path "/apps/processor/TrafficImageAnonymization.app"
+    ]
+    .
+
+app2:processing_app
+    a ids:Artifact ;
+    ids:byteSize "267297"^^xsd:nonNegativeInteger ;
+    ids:fileName "TrafficImageAnonymization.app" ;
+    ids:creationDate "2018-06-01"^^xsd:date ;
+    .
+
+app2:
+    ids:softwareInterface [
+        a ids:Interface ;
+        ids:title "Image anonymization interface" ;
+        ids:operation app2:anonymize_image ;
+    ] ;
+    .
+
+app2:anonymize_image
+    ids:name "Anonymize traffic surveillance image" ;
+    a ids:ProcessContentOperation ;
+    ids:operationType idsc_operation:ANONYMIZE ;
+    ids:pattern idsc_mep:IN_OUT;
+    ids:mandatoryInput [
+        a ids:Parameter ;
+        ids:name "traffic surveillance image" ;
+        ids:parameterContent [
+            a ids:Image ;
+            # the content is expected to comply with IEC 62676-4:2014
+            ids:representationStandard idsc_standard:IEC_62676_4_2014 ;
+            # any of these representations is valid
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_JPEG;
+            ] ;
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_PNG;
+            ];
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_TIFF;
+            ]
+        ]
+    ] ;
+    ids:output [
+        a ids:Parameter ;
+        ids:name "anonymized traffic surveillance image" ;
+        ids:parameterContent [
+            a ids:Image ;
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_JPEG;
+            ] ;
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_PNG;
+            ];
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_TIFF;
+            ]
+        ]
+    ]
+    .

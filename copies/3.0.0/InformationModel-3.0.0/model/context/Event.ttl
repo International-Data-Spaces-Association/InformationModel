@@ -1,0 +1,22 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+
+# Classes
+# -------
+
+ids:Event 
+    a owl:Class;
+    rdfs:subClassOf schema:Event ;
+    rdfs:label "event"@en ;
+    rdfs:comment "Named event with a known or unknown temporal location or duration."@en ;
+    rdfs:seeAlso <https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes> ;
+    .
+
+# Properties for describing events
+# --------------------------------
+
+# tbc.

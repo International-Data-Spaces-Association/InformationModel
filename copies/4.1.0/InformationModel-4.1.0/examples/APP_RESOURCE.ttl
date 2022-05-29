@@ -1,0 +1,49 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+<https://connector.fit.fraunhofer.de/apps/ImageAnonymizationApp/1337>
+    a ids:AppResource;
+    ids:title "App Title" ;
+    ids:description "Data App for something with data."@en;
+    ids:keyword "Data", "processing", "bla" ;
+    ids:customLicense <https://www.gnu.org/licenses/gpl-3.0-standalone.html> ;
+    ids:resourceEndpoint [
+        a ids:ConnectorEndpoint ;
+        ids:endpointInformation "This is the default endpoint of the FIT Connector. Used for communication and data exchange.";
+        ids:endpointDocumentation <http://someAPIreferenceIRI> ;
+        ids:accessURL <https://connector.fraunhofer.de/httphost> ;
+        ids:endpointArtifact <https://connector.fit.fraunhofer.de/apps/instance/42> ;
+        ids:path "/apps/processor/TrafficImageAnonymization.zip"
+    ];
+
+    ids:representation [
+        a ids:AppRepresentation ;
+        ids:mediaType <https://www.iana.org/assignments/media-types/application/zip> ;
+        ids:dataAppDistributionService <https://example.com> ;
+        ids:dataAppRuntimeEnvironment "Docker" ;
+        ids:dataAppInformation [
+            a ids:SmartDataApp ;
+            ids:appDocumentation "App-related human-readable documentation.";
+            ids:appEnvironmentVariables "$Env1 = environment variable 1, $Env2 = environment variable 2";
+            ids:appStorageConfiguration "1 Docker volume required, e.g., -v /data";
+            ids:appEndpoint [
+                a ids:AppEndpoint;
+                ids:appEndpointInformation "I am an app endpoint. I do endpoint things.";
+                ids:appEndpointDocumentation <https://app.swaggerhub.com/apis/app/1337> ;
+                ids:appEndpointType idsc:INPUT_ENDPOINT ;
+                ids:appEndPointPort 5000 ;
+                ids:path "/input";
+                ids:appEndpointMediaType <https://www.iana.org/assignments/media-types/application/json> ;
+                ids:appEndpointProtocol "HTTP/1.1";
+                ]
+            ];
+    ]
+.
+
+<https://www.iana.org/assignments/media-types/application/zip> a ids:IANAMediaType .
+
+<https://www.iana.org/assignments/media-types/application/json>  a ids:IANAMediaType .
+
+<https://connector.fit.fraunhofer.de/apps/instance/42> a ids:Artifact .

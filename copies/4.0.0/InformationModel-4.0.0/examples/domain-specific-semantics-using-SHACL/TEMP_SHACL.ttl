@@ -1,0 +1,81 @@
+#############
+# SHACL Shape
+#############
+@prefix ex: <http://example.org/ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL Shape to describe (and optionally) validate data which is based on a specific schema.
+ex:TemperatureDataShape
+    a sh:NodeShape ;
+    sh:targetClass ex:SensorMeasurement ;
+    
+    # describes the 'value' property:
+    # datatype equals xsd:decimal
+    # the property has at exactly 1 value
+    # the defaultValue for the property is 0
+    sh:property [
+        sh:path ex:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:defaultValue 0 ;
+    ] ;
+    
+    # describes the 'unit' property:
+    # datatype equals xsd:string
+    # the property has at exactly 1 value
+    # the value has to be any of "C", "K" or "F". C = Celsius, K = Kelvin, F = Fahrenheit
+    sh:property [
+        sh:path ex:unit ;
+        sh:datatype xsd:string ;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:in ( "C" "K" "F" ) ;
+    ];
+    
+    # describes the 'timestamp' property:
+    # datatype equals xsd:datetime
+    # the property has at exactly 1 value
+    sh:property [
+        sh:path ex:timestamp;
+        sh:datatype xsd:datetime ;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ];
+    
+    # describes the 'location' property:
+    # Contains reference to another SHACL shape via 'sh:node ex:GeoShape'
+    sh:property [
+        sh:path ex:location ;
+        sh:node ex:GeoShape ;
+    ] ;
+
+.
+
+ex:GeoShape
+    a sh:NodeShape ;
+    sh:closed true ;
+    
+    # SHACL code below describes the 'lon' (longitude) and 'lat' (latitude) properties. 
+    # Except their name, all fields are identical
+    # datatype equals xsd:datetime
+    # the properties have exactly 1 value
+    # the defaultValue for the properties are 0
+    
+    sh:property [
+        sh:path ex:lon ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:defaultValue 0 ;
+    ] ;
+    
+    sh:property [
+        sh:path ex:lat ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:defaultValue 0 ;
+    ] ;
+.

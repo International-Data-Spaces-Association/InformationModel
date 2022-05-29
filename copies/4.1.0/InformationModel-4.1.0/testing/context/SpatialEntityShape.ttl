@@ -1,0 +1,98 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:LocationShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Location ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (LocationShape): An ids:Location is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Location)
+			}
+		""" ;
+	] .
+
+
+shapes:GeoPointShape
+	a sh:NodeShape ;
+	sh:targetClass ids:GeoPoint ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:latitude ;
+		sh:datatype xsd:float ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:latitude property must point from an ids:GeoPoint to exactly one xsd:float."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:longitude ;
+		sh:datatype xsd:float ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeoPointShape): An ids:longitude property must point from an ids:GeoPoint to exactly one xsd:float."@en ;
+	] .
+
+
+shapes:GeometryShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Geometry ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (GeometryShape): An ids:Geometry is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Geometry)
+			}
+		""" ;
+	] .
+
+
+shapes:BoundingPolygonShape
+	a sh:NodeShape ;
+	sh:targetClass ids:BoundingPolygon ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:geoPoint ;
+		sh:class ids:GeoPoint ;
+		sh:minCount 3 ; # maybe 3 to form a shape that is more than a line?
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/context/SpatialEntityShape.ttl> (BoundingPolygonShape): An ids:geoPoint property must point from an ids:BoundingPolygon to at least three ids:GeoPoints."@en ;
+	] .

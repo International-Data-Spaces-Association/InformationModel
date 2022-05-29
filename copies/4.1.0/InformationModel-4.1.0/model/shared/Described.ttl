@@ -1,0 +1,45 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+
+### Removing this class, as it is already defined in model/content/Concept.ttl
+#ids:Concept
+#	a owl:Class ;
+#	rdfs:subClassOf skos:Concept ;
+#	rdfs:label "Concept"@en .
+
+
+
+ids:Described
+    a owl:Class ;
+    rdfs:label "described"@en ;
+    rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en;
+    .
+
+ids:title #.. how does it relate to "name", is "title" a functional property?
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:title ;
+    rdfs:label "title"@en ;
+    rdfs:domain ids:Described ;
+    rdfs:range xsd:string;
+    rdfs:comment "(Localized) name of the entity."@en .
+
+# description is used for explanation in natural language. 
+# ids:theme (class ids:DigitalContent) is used for SKOS representation
+ids:description
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:description ;
+    rdfs:label "description"@en ;
+    rdfs:domain ids:Described ;
+    rdfs:range xsd:string ; 
+    rdfs:comment "Explanation of the resource in a natural language text."@en ;
+    .

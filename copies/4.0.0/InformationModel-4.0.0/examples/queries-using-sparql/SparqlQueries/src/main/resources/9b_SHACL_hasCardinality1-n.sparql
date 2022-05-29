@@ -1,0 +1,16 @@
+PREFIX ids:    <https://w3id.org/idsa/core/>
+PREFIX sh:     <http://www.w3.org/ns/shacl#>
+
+SELECT DISTINCT ?resource WHERE {
+    ?resource a ids:DataResource ;
+        sh:shapesGraph ?shape .
+
+    ?shape sh:property ?property .
+
+    ?property sh:path <http://purl.org/linked-data/cube#observation> ;
+        sh:minCount 1 .
+
+    FILTER NOT EXISTS {
+        ?property sh:maxCount ?maxValue .
+    }
+}

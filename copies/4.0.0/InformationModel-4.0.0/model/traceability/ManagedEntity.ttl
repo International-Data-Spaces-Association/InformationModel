@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:ManagedEntity
+    a owl:Class;
+    rdfs:subClassOf ids:Described ;
+    idsm:abstract true;
+    rdfs:label "Managed entity"@en ;
+    rdfs:comment "The class of mutable individuals."@en;
+.
+
+# Properties of ManagedEntity
+# -------------------------------------
+
+ids:version a owl:DatatypeProperty;
+    rdfs:subPropertyOf dct:hasVersion;
+    rdfs:label "version"@en;
+    rdfs:domain ids:ManagedEntity;
+    rdfs:range xsd:string;
+    rdfs:comment "Version identifier of the Managed Entity"@en.
+

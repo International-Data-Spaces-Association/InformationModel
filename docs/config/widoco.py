@@ -94,6 +94,8 @@ def generate_documentation(ontology_version, ontology_previous_version, ontology
     rename_index_file(ontology_version)
     remove_ids_trailingslash('crossref-en.html', ontology_version)
     remove_ids_trailingslash('overview-en.html', ontology_version)
+    change_download_file_extension(ontology_version)
+    rename_OOPSeval_file(ontology_version)
 
 
 def clean_up_webvowl_json(ontology_version):
@@ -155,7 +157,7 @@ def update_image_path():
         fp.write(new_path_descriptionfile)
 
 
-# Update date of release parameter in config file.
+# Update config.properties file first to generate proper versioning documentation
 def update_config_information(ontology_version, ontology_latest_version, ontology_previous_version, release_dates):
     vf = version_folder.format(ontology_version=ontology_version)
     new_config = ''
@@ -166,7 +168,7 @@ def update_config_information(ontology_version, ontology_latest_version, ontolog
             elif line.startswith('thisVersionURI'):
                 line = 'thisVersionURI=' + f'https://w3id.org/idsa/core-{ontology_version.replace(".", "")}' + '\n'
             elif line.startswith('latestVersionURI'):
-                line = 'latestVersionURI=' + f'https://w3id.org/idsa/core-{ontology_latest_version.replace(".", "")}' + '\n'
+                line = 'latestVersionURI=' + f'https://w3id.org/idsa/core' + '\n'
             elif line.startswith('previousVersionURI'):
                 line = 'previousVersionURI=' + f'https://w3id.org/idsa/core-{ontology_previous_version.replace(".", "")}' + '\n'
             elif line.startswith('ontologyRevisionNumber'):
@@ -551,7 +553,36 @@ def clean_up_ontology_serialization_owl_imports(ontology_version):
     clean_up_xml_ontology_owl_imports(ontology_version)
     clean_up_webvowl_ontology(ontology_version)
 
+# Change "Download serialization" file extensions in "index.html" as the generated widoco information is not correct, for example Json-ld label reference to json file
+def change_download_file_extension(ontology_version):
+    vp = version_folder.format(ontology_version=ontology_version)
 
+    with open(f'{vp}/docs/index.html', 'r+') as fp:
+        text = fp.read()
+        text = re.sub('serializations/ontology.json', 'serializations/ontology.jsonld', text)
+        text = re.sub('serializations/ontology.xml', 'serializations/ontology.rdf', text)
+        fp.seek(0)
+        fp.write(text)
+        fp.truncate()
+
+# Renames widoco output file "oopsEval.html" to "OOPSeval.html".
+# Only "index.html" gets displayed correctly with github pages.
+def rename_OOPSeval_file(ontology_version):
+    vp = version_folder.format(ontology_version=ontology_version)
+
+    # Replace reference in index.html
+    with open(f'{vp}/docs/index.html', 'r+') as fp:
+        text = fp.read()
+        text = re.sub('oopsEval.html', 'OOPSeval.html', text)
+        fp.seek(0)
+        fp.write(text)
+        fp.truncate()
+
+    # Finally rename the oopsEval.html file
+    if os.path.exists(f'{vp}/docs/OOPSevaluation/oopsEval.html'):
+        #os.remove(f'{vp}/docs/index.html')
+        os.rename(f'{vp}/docs/OOPSevaluation/oopsEval.html', f'{vp}/docs/OOPSevaluation/OOPSeval.html')
+    
 # Renames widoco output file "index-en.html" to "index.html".
 # Only "index.html" gets displayed correctly with github pages.
 def rename_index_file(ontology_version):

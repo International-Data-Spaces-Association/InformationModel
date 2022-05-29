@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+
+# Classes
+# -------
+
+ids:Representation
+    a owl:Class ;
+    rdfs:subClassOf ids:DescribedSemantically, ids:Asset, dcat:Distribution;# covers the generalizable parts of a Distribution
+    rdfs:label "Representation"@en;
+    rdfs:comment "Syntactic template of a Resource."@en;
+.
+
+ids:RepresentationInstance
+    a owl:Class ;
+    rdfs:label "Representation instance"@en;
+    rdfs:comment "A particular instance of given representation."@en ;
+
+    .
+
+ids:Value
+    a owl:Class ;
+    rdfs:subClassOf ids:RepresentationInstance ;
+    rdfs:label "Value"@en;
+    rdfs:comment "Literal, inline value instantiation of a representation."@en ;
+    owl:disjointWith ids:Artifact ;
+    .
+
+# Properties
+# ----------
+
+ids:instance
+    a owl:ObjectProperty ;
+    rdfs:domain ids:Representation ;
+    rdfs:range ids:RepresentationInstance;
+    rdfs:label "instance"@en ;
+    rdfs:comment "Reference to an instance of given representation, i.e. inline value or file placeholder."@en.
+
+ids:mediaType
+    a owl:ObjectProperty ;
+    # consider alternatives: dcterms:FileFormat/dcterms:MediaType etc.
+    rdfs:subPropertyOf dcat:mediaType ;
+    rdfs:domain ids:Representation ;
+    rdfs:range ids:MediaType ;
+    rdfs:label "media type"@en ;
+    rdfs:comment "Media Type of the Representation."@en.
+
+# Standard followed at representation level, i.e. it governs the serialization of an abstract content like RDF/XML, Turtle for RDF
+ids:representationStandard
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:conformsTo ;
+    rdfs:domain ids:Representation;
+    rdfs:range xsd:anyURI;
+    rdfs:label "representation standard"@en;
+    rdfs:comment "Standards document defining the given Representation (in contrast to general Resource content). The Representation is assumed to conform to that Standard."@en.

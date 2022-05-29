@@ -1,0 +1,52 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+# Participant URI is resolved by Identity Manager
+@prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
+
+# Connector-related description nodes reside in its own namespace
+@prefix conn1: <https://aastat.gov.de/connector/conn1/> .
+
+conn1:
+    a ids:BaseConnector ;
+    # General properties
+    ids:title "Mobile base connector" ;
+    ids:description "Mobile base connector operated by PART1" ;
+    ids:maintainer part1: ;
+    ids:curator part1: ;
+    ids:physicalLocation <http://sws.geonames.org/3247450/> ; # Bonn
+    ids:outboundModelVersion "4.0.0" ;
+    ids:inboundModelVersion "4.0.0" ;
+
+    # Network hosts maintained by the Connector
+    ids:hasDefaultEndpoint conn1:http_host ;
+
+    # Security and trust features
+    ids:authInfo conn1:auth_info ;
+    ids:securityProfile idsc:BASE_CONNECTOR_SECURITY_PROFILE ;
+    ids:componentCertification conn1:certification ;
+
+    # Catalog of mediated resources
+    ids:resourceCatalog [
+        a ids:ResourceCatalog ;
+    ].
+
+<http://sws.geonames.org/3247450/> a ids:GeoFeature .
+
+conn1:http_host
+    a ids:ConnectorEndpoint ;
+    ids:accessURL <https://monconnector.aastat.gov.de>;
+    .
+
+conn1:auth_info
+    a ids:AuthInfo ;
+    ids:authService <https://keycloak.aastat.gov.de>;
+    ids:authStandard idsc:OAUTH2_JWT ;
+    .
+
+conn1:certification
+    a ids:ComponentCertification ;
+    ids:certificationLevel idsc:COMPONENT_TRUSTPLUS_SECURITY_PROFILE_CONCEPT_REVIEW ;
+    ids:lastValidDate "2020-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+    .

@@ -1,0 +1,54 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+# -------
+
+ids:ParticipantCertificationLevel
+    a owl:Class ;
+    rdfs:subClassOf ids:CertificationLevel;
+    rdfs:label "Participant Certification Level"@en ;
+    rdfs:comment "Level of a Participant Certification"@en .
+
+ids:ComponentCertificationLevel
+    a owl:Class ;
+    rdfs:subClassOf ids:CertificationLevel;
+    owl:disjointWith ids:ParticipantCertificationLevel ;
+    rdfs:label "Component Certification Level"@en ;
+    rdfs:comment "Level of a Component Certification"@en .
+
+ids:ParticipantCertification
+    a owl:Class ;
+    rdfs:subClassOf
+        ids:Certification ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ids:certificationLevel ;
+            owl:allValuesFrom ids:ParticipantCertificationLevel ;
+        ] ;
+    rdfs:label "Participant Certification"@en ;
+    rdfs:comment "Process and result of certifying an interested party in order to become a certified member of the International Data Space."@en.
+
+ids:ComponentCertification
+    a owl:Class ;
+    rdfs:subClassOf
+        ids:Certification ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ids:certificationLevel ;
+            owl:allValuesFrom ids:ComponentCertificationLevel ;
+        ] ;
+    owl:disjointWith ids:ParticipantCertification ;
+    rdfs:label "Component Certification"@en ;
+    rdfs:comment "Process and result of certifying a software component/servivce in order to become a certified part of the International Data Space infrastructure."@en.
+
+# Properties
+# ----------
+
+ids:membershipEnd a owl:DatatypeProperty ;
+    rdfs:label "membership end"@en;
+    rdfs:domain ids:ParticipantCertification ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:comment "End of the participant's IDS membership."@en .

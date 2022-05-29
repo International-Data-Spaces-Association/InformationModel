@@ -1,0 +1,110 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:CatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Catalog ;
+
+    sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (CatalogShape): An ids:Catalog is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = ids:Catalog)
+			}
+		""" ;
+	] ;
+.
+
+
+shapes:ResourceCatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ResourceCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:offeredResources ;
+		sh:class ids:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ResourceCatalog): An ids:offeredResource property must point from an ids:ResourceCatalog to an ids:Resource."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:requestedResource ;
+		sh:class ids:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ResourceCatalog): An ids:requestedResource property must point from an ids:ResourceCatalog to an ids:Resource."@en ;
+	] ;
+.
+
+
+shapes:ParticipantCatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ParticipantCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:member ;
+		sh:class ids:Participant ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ParticipantCatalog): An ids:member property must point from an ids:ParticipantCatalog to an ids:Participant."@en ;
+	] ;
+.
+
+
+shapes:ConnectorCatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ConnectorCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:listedConnector ;
+		sh:class ids:Connector ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ConnectorCatalog): An ids:listedConnector property must point from an ids:ConnectorCatalog to an ids:Connector."@en ;
+	] ;
+.
+
+shapes:ClearingHouseCatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:ClearingHouseCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:listedClearingHouse ;
+		sh:class ids:ClearingHouse ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (ClearingHouseCatalog): An ids:listedClearingHouse property must point from an ids:ClearingHouseCatalog to an ids:ClearingHouse."@en ;
+	] ;
+.
+
+shapes:AppResourceCatalogShape
+	a sh:NodeShape ;
+	sh:targetClass ids:AppResourceCatalog ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:listedAppResource ;
+		sh:class ids:AppResource ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/infrastructure/CatalogShape.ttl> (AppResourceCatalog): An ids:listedAppResource property must point from an ids:AppResourceCatalog to an ids:AppResource."@en ;
+	] ;
+.

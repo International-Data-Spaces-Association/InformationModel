@@ -1,0 +1,197 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+	] .
+
+
+shapes:TokenShape
+	a sh:NodeShape ;
+	sh:targetClass ids:Token ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:tokenValue ;
+		sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): Exactly one ids:tokenValue property must point from an ids:Token to an xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:tokenFormat ;
+		sh:class ids:TokenFormat ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (TokenShape): An ids:tokenFormat property must point from an ids:Token to exactly one ids:TokenFormat."@en ;
+	];
+.
+
+
+shapes:JwtPayloadShape
+	a sh:NodeShape ;
+	sh:targetClass ids:JwtPayload  ;
+
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+	  sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/TokenShape.ttl> (JwtPayloadShape): A ids:JwtPayload is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+	  sh:prefixes shapes: ;
+	  sh:select """
+	  	SELECT ?this ?type
+	    WHERE {
+	    	?this rdf:type ?type .
+	      FILTER (?type = ids:JwtPayload)
+	    }
+	  """ ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:aud  ;
+		sh:class ids:Audience ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:aud property must point from an ids:JwtPayload to an ids:Audience via an IRI."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:exp  ;
+		sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:exp property must point from an ids:JwtPayload to an xsd:integer."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:iat  ;
+		sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:iat property must point from an ids:JwtPayload to an xsd:integer."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:iss  ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): An ids:iss property must point from an ids:JwtPayload to zero or one xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:nbf  ;
+		sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:nbf property must point from an ids:JwtPayload to an xsd:integer."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:referringConnector ;
+		sh:nodeKind sh:IRI ;
+    #sh:class ids:Connector ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): An ids:referringConnector property must point from an ids:JwtPayload to zero or one Connector via an IRI."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:sub ;
+		sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:sub property must point from an ids:JwtPayload to an xsd:string."@en ;
+	] ;
+
+  sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:scope ;
+		sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): Exactly one ids:sub property must point from an ids:JwtPayload to an xsd:string."@en ;
+	] ;
+
+  sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:securityProfile ;
+		sh:class ids:SecurityProfile ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): An ids:JwtPayload must have exactly one ids:SecurityProfile linked through the ids:securityProfile property"@en ;
+	] ;
+
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path ids:transportCertsSha256 ;
+      sh:datatype xsd:string ;
+      sh:minCount 1;
+      sh:severity sh:Violation ;
+      sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (JwtPayloadShape): The ids:transportCertsSha256 property must point from an ids:JwtPayload to at least one xsd:string containing the SHA256 fingerprints."@en ;
+] ;
+.
+
+
+shapes:DatPayloadShape
+	a sh:NodeShape ;
+	sh:targetClass ids:DatPayload  ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:referringConnector  ;
+		sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (DatPayloadShape): Exactly one ids:iss property must point from ids:DatPayload to ids:Connector via an IRI."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:iss  ;
+		sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (DatPayloadShape): Exactly one ids:iss property must point from an ids:DatPayload to an xsd:string."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:extendedGuarantee ;
+		sh:class ids:SecurityGuarantee ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/security/TokenShape.ttl> (DatPayloadShape): The ids:extendedGuarantee property must point from an ids:DatPayload to an ids:SecurityGuarantee"@en ;
+	] ;
+.

@@ -1,0 +1,44 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Instances
+# ---------
+
+idsc:MinimalRequestTemplate a ids:PolicyTemplate ;
+    rdfs:label "Policy Request Template" ;
+    rdfs:comment "A minimal template for policy requests where additional information already reveals sensitive content."@en ;
+	skos:note """The <Consumer Participant URI> asks <Provider Participant URI> about its [<Representation URI>|<Artifact URI>].
+		Any further information exchange is up to the participants."""@en ;
+    skos:note """{ 
+		"@context": "http://www.w3id.org/ids/contract.jsonld", 
+		"@type": "ContractRequest", 
+		"uid": "<contract ID>", 
+		"refersTo": "idsc:MinimalRequestTemplate" ,
+		"target": "[<Representation URI>|<Artifact URI>]",
+		"ids:provider": "<Provider Participant URI>",
+		"ids:consumer": "<Consumer Participant URI>", 
+		} }"""^^xsd:string ;
+	skos:note """@prefix ids: <https://w3id.org/idsa/core/> .
+		@prefix idsc: <https://w3id.org/idsa/code/> .
+		@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+		@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+		@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+		[<contract URI>] a ids:ContractRequest ;
+			ids:uid <contract ID> ;
+			ids:refersTo idsc:MinimalRequestTemplate ;
+			ids:target [<Representation URI>|<Artifact URI>] ;
+			ids:consumer <Consumer Participant URI> ;
+			ids:provider <Provider Participant URI>
+		."""^^xsd:string
+	.
+
+
+

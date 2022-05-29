@@ -1,0 +1,68 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix idsc_lang: <https://w3id.org/idsa/code/language/> .
+@prefix idsc_mep: <https://w3id.org/idsa/code/mep/> .
+@prefix idsc_media: <https://w3id.org/idsa/code/mediatype/> .
+
+@prefix appstore1:  <http://app4traffic.de/connector/appstore1/> .
+@prefix app1:       <http://app4traffic.de/connector/appstore1/app1/> .
+@prefix part1:      <https://im.internationaldataspaces.org/participant/part1> .
+
+app1:
+    a ids:Resource, ids:SystemAdapter ;
+    ids:title "Camera driver"@en ;
+    ids:uid "camera_adapter:latest";
+    ids:description "Camera driver ingesting image content into a Connector via defined interface."@en;
+    ids:keyword "driver", "camera" ;
+    ids:icon "data:image/gif;base64,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";
+
+    ids:representation [
+        a ids:SoftwareRepresentation ;
+        ids:mediaType idsc_media:APPLICATION_DATAAPP ; # assuming future support by TrustMe
+        # https://industrial-data-space.github.io/trusted-connector-documentation/docs/overview/#trustedplatform
+        ids:instance app1:adapter_app ;
+    ] ;
+
+    # Provision of the Data App Resource
+    ids:resourceEndpoint [
+        a ids:StaticEndpoint ;
+        ids:endpointHost appstore1:http_host ; # this resource is available via the App Store
+        ids:endpointArtifact app1:adapter_app ;
+        ids:path "/apps/adapter/CameraAdapter.app"
+    ]
+    .
+
+app1:adapter_app
+    a ids:Artifact ;
+    ids:byteSize "28467297"^^xsd:nonNegativeInteger ;
+    ids:fileName "CameraAdapter.app" ;
+    ids:creationDate "2018-06-01"^^xsd:date ;
+    .
+
+app1:
+    ids:softwareInterface [ # exposes the functionality of the Data App, instead of the Data App resource itself (ids:resourceInterface)
+        a ids:Interface ;
+        ids:title "Image provision interface" ;
+        ids:operation app1:provide_image ;
+    ] ;
+    .
+
+app1:provide_image
+    a ids:ProvideContentOperation ; # the driver e.g. pushes the images to via a PUB/SUB protocol
+    ids:pattern idsc_mep:OUT_ONLY ; # no client input needed
+    ids:name "Provide camera image" ;
+    ids:mandatoryOutput [
+        a ids:Parameter ;
+        ids:name "image" ;
+        ids:parameterContent [
+            a ids:Image ;
+            ids:representation [
+                a ids:ImageRepresentation ;
+                ids:mediaType idsc_media:IMAGE_JPEG;
+                ids:width 5184;
+                ids:height 3888;
+            ]
+        ]
+    ]
+    .
