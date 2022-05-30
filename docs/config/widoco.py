@@ -8,7 +8,7 @@ import zipfile
 import io
 from distutils.dir_util import copy_tree
 
-root = '../../../documentationIDSModel'
+root = '../../../InformationModel'
 copies = f'{root}/copies'
 version_folder = copies + '/{ontology_version}/InformationModel-{ontology_version}'
 
