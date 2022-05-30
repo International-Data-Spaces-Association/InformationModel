@@ -15,24 +15,24 @@ shapes:
 	] ;
 
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+		sh:prefix "dct" ;
+		sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
 	] .
 
 
 shapes:MediaTypeShape
 	a sh:NodeShape ;
-	sh:targetClass ids:MediaType ;
+	sh:targetClass dct:MediaType ;
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/MediaTypeShape.ttl> (MediaTypeShape): An ids:MediaType is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/MediaTypeShape.ttl> (MediaTypeShape): An dct:MediaType is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
 			WHERE {
 				?this rdf:type ?type .
-				FILTER (?type = ids:MediaType)
+				FILTER (?type = dct:MediaType)
 			}
 		""" ;
 	] ;
@@ -43,5 +43,5 @@ shapes:MediaTypeShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/MediaTypeShape.ttl> (MediaTypeShape): An ids:filenameExtension property must not have more than one point from an ids:MediaType to an xsd:string."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/MediaTypeShape.ttl> (MediaTypeShape): An ids:filenameExtension property must not have more than one point from an dct:MediaType to an xsd:string."@en ;
 	] .

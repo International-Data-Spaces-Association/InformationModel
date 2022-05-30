@@ -4,6 +4,8 @@
 @prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
 
@@ -130,15 +132,15 @@ ids:MessageUpgradeShape
 			$this ids:contractRejectionReason ?newContractRejectionReason .
 			idsm:VersionUpgrade ids:contractRejectionReason ?oldContractRejectionReason.
 			
-			$this ids:issued ?newIssued .
-			idsm:VersionUpgrade ids:issued ?oldIssued.
+			$this dct:issued ?newIssued .
+			idsm:VersionUpgrade dct:issued ?oldIssued.
 		}
 		WHERE {
 			OPTIONAL {$this ids:contractRejectionReason ?oldContractRejectionReason .}
 			BIND(STRDT(STR(?oldContractRejectionReason), xsd:string) AS ?newContractRejectionReason)
 			
 			
-			OPTIONAL {$this ids:issued ?oldIssued .}
+			OPTIONAL {$this dct:issued ?oldIssued .}
 			BIND(if(regex(?oldIssued, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
 				oldIssued,
 				STRDT(CONCAT(STR(?oldIssued),"Z"), xsd:dateTimeStamp )
@@ -168,11 +170,11 @@ ids:ArtifactUpgradeShape
 		prefix idsm: <https://w3id.org/idsa/metamodel/>
 
 		CONSTRUCT {
-			$this ids:creationDate ?newCreationDate .
-			idsm:VersionUpgrade ids:creationDate ?oldCreationDate.
+			$this dct:created ?newCreationDate .
+			idsm:VersionUpgrade dct:created ?oldCreationDate.
 		}
 		WHERE {
-			OPTIONAL {$this ids:creationDate ?oldCreationDate .}
+			OPTIONAL {$this dct:created ?oldCreationDate .}
 			
 			BIND(if(regex(?oldCreationDate, ".*(Z|(\+|-)[0-9][0-9]:[0-9][0-9])"),
 				oldCreationDate,
@@ -203,17 +205,17 @@ ids:DescribedUpgradeShape
 		prefix idsm: <https://w3id.org/idsa/metamodel/>
 
 		CONSTRUCT {
-			$this ids:description ?newDescription .
-			idsm:VersionUpgrade ids:description ?oldDescription.
+			$this dct:description ?newDescription .
+			idsm:VersionUpgrade dct:description ?oldDescription.
 			
-			$this ids:title ?newTitle .
-			idsm:VersionUpgrade ids:title ?oldTitle.
+			$this dct:title ?newTitle .
+			idsm:VersionUpgrade dct:title ?oldTitle.
 		}
 		WHERE {
-			OPTIONAL {$this ids:description ?oldDescription .}
+			OPTIONAL {$this dct:description ?oldDescription .}
 			BIND(STRDT(STR(?oldDescription), xsd:string) AS ?newDescription)
 			
-			OPTIONAL {$this ids:title ?oldTitle .}
+			OPTIONAL {$this dct:title ?oldTitle .}
 			BIND(STRDT(STR(?oldTitle), xsd:string) AS ?newTitle)
 		}
 		""" ;
@@ -240,11 +242,11 @@ ids:DigitalContentUpgradeShape
 		prefix idsm: <https://w3id.org/idsa/metamodel/>
 
 		CONSTRUCT {
-			$this ids:keyword ?newKeyword .
-			idsm:VersionUpgrade ids:keyword ?oldKeyword.
+			$this dcat:keyword ?newKeyword .
+			idsm:VersionUpgrade dcat:keyword ?oldKeyword.
 		}
 		WHERE {
-			OPTIONAL {$this ids:keyword ?oldKeyword .}
+			OPTIONAL {$this dcat:keyword ?oldKeyword .}
 			BIND(STRDT(STR(?oldKeyword), xsd:string) AS ?newKeyword)
 		}
 		""" ;

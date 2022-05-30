@@ -1,0 +1,24 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Dimensions
+# ---------
+
+idsc:AVAILABILITY
+    a dqv:Dimension ;
+    rdfs:label "Availability" ;
+    skos:definition "Availability of a dataset: Is the data present, obtainable and ready for use?"@en .
+
+
+# Metrics
+# ---------
+
+idsc:DOWNLOAD_URL_AVAILABILITY_METRIC
+    a dqv:Metric ;
+    skos:definition "Checks if all ResourceEndpoints for given resource are available and dereferenceable."@en ;
+    dqv:expectedDataType xsd:boolean ;
+    dqv:inDimension idsc:AVAILABILITY .

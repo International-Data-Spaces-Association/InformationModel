@@ -4,12 +4,13 @@
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix broker1: <https://aastat.gov.de/connector/broker1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 broker1:
     a ids:Broker;
     # General properties
-    ids:title "Logistics registry" ;
-    ids:description "Description of an example Trusted Connector maintained by PART1" ;
+    dct:title "Logistics registry" ;
+    dct:description "Description of an example Trusted Connector maintained by PART1" ;
     ids:maintainer part1: ; # Participant ~ service provider PART1
     ids:curator part1: ; # Content manager
     ids:physicalLocation <http://sws.geonames.org/3247450/> ; #Datacenter located in Bonn
@@ -50,13 +51,13 @@ conn2:certification
     .
 
 conn2:data1 a ids:Resource;
-    ids:title "some Resource";
+    dct:title "some Resource";
         .
 
 conn2:data2 a ids:Resource;
-    ids:title "another Resource";
+    dct:title "another Resource";
 .
 
 conn2:data3 a ids:Resource;
-    ids:title "yet another Resource";
+    dct:title "yet another Resource";
 .

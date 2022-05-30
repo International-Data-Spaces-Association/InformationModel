@@ -18,25 +18,24 @@ shapes:
 	] ;
 
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+		sh:prefix "skos" ;
+		sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
 	] .
 
 
 shapes:ConceptShape
-	a sh:NodeShape ; 
-	sh:targetClass ids:Concept ;
+	a sh:NodeShape ;
+	sh:targetClass skos:Concept ;
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ConceptShape.ttl> (ConceptShape): An ids:Concept is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ConceptShape.ttl> (ConceptShape): An skos:Concept is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
 			WHERE {
 				?this rdf:type ?type .
-				FILTER (?type = ids:Concept)
+				FILTER (?type = skos:Concept)
 			}
 		""" ;
 	] .
-

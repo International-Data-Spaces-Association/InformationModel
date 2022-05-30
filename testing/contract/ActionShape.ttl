@@ -12,24 +12,24 @@
 
 shapes:ActionShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Action ;
+	sh:targetClass odrl:Action ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:actionRefinement ;
-		sh:class ids:Constraint ;
+		sh:class odrl:Constraint ;
 		#sh:minCount 1 ; #The Action codes do not meet this criteria
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:actionRefinement property must have at least one point from an ids:Action to an ids:Constraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:actionRefinement property must have at least one point from an odrl:Action to an odrl:Constraint."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:includedIn ;
-		sh:class ids:Action ;
+		sh:path odrl:includedIn ;
+		sh:class odrl:Action ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:includedIn property must not have more than one point from an ids:Action to an ids:Action."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An odrl:includedIn property must not have more than one point from an odrl:Action to an odrl:Action."@en ;
 	] ;
 
 	sh:property [
@@ -39,6 +39,6 @@ shapes:ActionShape
 		sh:minCount 0 ;
 		sh:maxCount 1 ;
  		sh:severity sh:Violation ;
- 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:pxpEndpoint property must have an ids:Action to an ids:PXP."@en ;
+ 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:pxpEndpoint property must have an odrl:Action to an ids:PXP."@en ;
  	] ;
 .
