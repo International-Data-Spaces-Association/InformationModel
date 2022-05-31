@@ -12,19 +12,19 @@
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
         "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "ids:action": (idsc:ACTION_TEMPLATE),
+        "odrl:action": (idsc:ACTION_TEMPLATE),
         "ids:preDuty": {
             "@type": "ids:Duty",
             "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider,
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer,
-            "ids:action": {
-                "@type": "ids:Action",
+            "odrl:action": {
+                "@type": "odrl:Action",
                 "ids:includedIn": { "@id": "idsc:COMPENSATE" },
                 "ids:actionRefinement": {
                     "@type": "ids:Constraint",
-                    "ids:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
-                    "ids:operator": { "@id": "idsc:EQ" },
-                    "ids:rightOperand": {
+                    "odrl:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
+                    "odrl:operator": { "@id": "idsc:EQ" },
+                    "odrl:rightOperand": {
                         "@value": "?price",
                         "@type": "http://www.w3.org/2001/XMLSchema#double"
                     },

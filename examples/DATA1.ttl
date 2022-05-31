@@ -2,6 +2,10 @@
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 @prefix conn2: <https://aastat.gov.de/connector/conn2/> .
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
@@ -9,39 +13,41 @@
 
 data1:
     a ids:TextResource ;
-    ids:title "European highway statistics - accident report"@en ;
-    ids:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
-    ids:keyword "report", "highway", "statistics", "Europe" ;
-    ids:temporalCoverage [
+    dct:title "European highway statistics - accident report"@en ;
+    dct:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
+    dcat:keyword "report", "highway", "statistics", "Europe" ;
+    dct:temporal [
         a ids:Interval ;
-        ids:begin [
-            a ids:Instant ;
-            ids:dateTime "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        time:hasBeginning [
+            a time:Instant ;
+            time:inXSDDateTimeStamp "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ];
-        ids:end   [
-            a ids:Instant ;
-            ids:dateTime "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        time:hasEnd   [
+            a time:Instant;
+            time:inXSDDateTimeStamp "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ] ;
     ] ;
-    ids:language idsc:EN ;
+    dct:language idsc:EN ;
     ids:representation [
         a ids:TextRepresentation ;
-        ids:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
+        dcat:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
         ids:instance data1:report_pdf ;
     ] ;
     ids:representation [
         a ids:TextRepresentation ;
-        ids:mediaType <https://www.iana.org/assignments/media-types/application/msword> ;
+        dcat:mediaType <https://www.iana.org/assignments/media-types/application/msword> ;
         ids:instance data1:report_doc ;
     ] ;
 
     # Communication
     ids:resourceEndpoint [
         a ids:ConnectorEndpoint ;
+        ids:endpointArtifact data1:report_pdf ;
         ids:accessURL <https://connector.aastat.gov.de/reports/Highway_accident_statistics.pdf> ;
     ] ;
     ids:resourceEndpoint [
         a ids:ConnectorEndpoint ;
+        ids:endpointArtifact data1:report_doc ;
         ids:accessURL <https://connector.aastat.gov.de/reports/Highway_accident_statistics.doc> ;
     ] ;
 
@@ -53,45 +59,36 @@ data1:report_pdf
     a ids:Artifact ;
     ids:byteSize "1923497"^^xsd:integer ;
     ids:fileName "Highway_accident_statistics.pdf" ;
-    ids:creationDate "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+    dct:created "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
     .
 
 data1:report_doc
     a ids:Artifact ;
     ids:byteSize "28923491"^^xsd:integer ;
     ids:fileName "Highway_accident_statistics.doc" ;
-    ids:creationDate "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+    dct:created "2018-06-18T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
     .
 
 data1:offer
     a ids:ContractOffer ;
-    ids:permission [
-		a ids:Permission ;
-        ids:assigner part1: ;
+    odrl:permission[
+		a odrl:Permission ;
+        odrl:assigner part1: ;
         # individual target(s)
         ids:target data1: ;
-        ids:action idsc:USE ;
+        odrl:action idsc:USE ;
         # Obligation
         ids:preDuty [
-            a ids:Duty ;
-            ids:action idsc:COMPENSATE ;
-            ids:constraint [
-				a ids:Constraint ;
-                ids:leftOperand     idsc:PAY_AMOUNT ;
-                  ids:operator      idsc:EQUALS ;
-                  ids:rightOperand  25 ;
-                  ids:unit          <http://dbpedia.org/resource/Euro>
+            a odrl:Duty ;
+            odrl:action idsc:COMPENSATE ;
+            odrl:constraint [
+				a odrl:Constraint ;
+                odrl:leftOperand     idsc:PAY_AMOUNT ;
+                  odrl:operator      idsc:EQUALS ;
+                  odrl:rightOperand  25 ;
+                  odrl:unit          <http://dbpedia.org/resource/Euro>
             ]
-            # original ODRL construct does not fit model transformation because of indirect action-reference via rdf:value
-            #ids:action [
-            #    rdf:value idsc_action:COMPENSATE ;
-            #    ids:refinement  [
-            #        ids:leftOperand     ids:payAmount ;
-            #          ids:operator      ids:eq ;
-            #          ids:rightOperand  25 ;
-            #          ids:unit          <http://dbpedia.org/resource/Euro>
-            #    ]
-            #]
+         
         ]
     ] .
 	

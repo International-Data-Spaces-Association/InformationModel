@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.2.0] 2022-05-13
+Version 4.2.0 of the IDS Information Model
+
+### Added
+
+* Class `ids:PaymentModality` and property `ids:paymentModality` to document pricing modalities (free/ fixed price/ negotiation basis). Property is directly attached to the `ids:Resource`.
+* Class `ids:IdsProtocolSpecification` and property `ids:apiSpecification` to describe `ids:Endpoint`s with their supported protocols
+* New individuals of `ids:Action`: `ADD`, `DIVIDE`, `HASH`, `INCREMENT_COUNTER`, `MULTIPLY`, `REPLACE`, `SHUFFLE`
+* New individuals of `ids:Frequency`: `TWO_TIMES_A_DAY`, `EVERY_THREE_HOURS`, `BIHOURLY`, `HOURLY`, `EVERY_30_MINUTES`, `EVERY_15_MINUTES`, `EVERY_10_MINUTES`, `EVERY_5_MINUTES`, `EVERY_1_MINUTE`
+* New individuals of `ids:IdsProtocolSpecification`: `IDS-REST`, `IDS-CP`, `QUERY`, `MULTIPART`
+* New individuals of `ids:LeftOperand`: `DATE_TIME`, `HASH_ALGORITHM`, `JSON_PATH`, `XPATH`, `REPLACE_WITH`, `OPERAND`, `ROLE`, `RECIPIENT`, `TARGET_POLICY`, `ARTIFACT_STATE`, `SYSTEM_DEVICE`, `APPLICATION`, `CONNECTOR`, `LOG_LEVEL`, `NOTIFICATION_LEVEL`
+* New individuals of `ids:CustomMediaType`: `OTHER_MEDIATYPE`
+* Title (`ids:title`) and description (`ids:description`) properties for `ids:Representation`.
+* Shapes for AppResources
+* Class UsageControlComponent and Shape
+
+### Changed
+
+* `ids:Representation` is now subclass of `ids:Described` giving instances a title- and description label.
+
+### Removed
+
+* Remove `ids:magicNumber` from `ids:MediaType`
 
 ## [4.1.0] 2021-05-26
 Version 4.1.0 of the IDS Information Model

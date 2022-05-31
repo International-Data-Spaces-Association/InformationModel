@@ -420,7 +420,7 @@
 <https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/AssetCollection> .
 <https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Resource> .
 <https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/idsa/core/AbstractConstraint> .
-<https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#comment> "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."@en .
+<https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#comment> "Conditions which specify whether an arbitrary odrl:Asset is a member of this AssetCollection."@en .
 <https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#comment> "Constraint that refines a (composite) Digital Content."@en .
 <https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#label> "asset refinement"@en .
 <https://w3id.org/idsa/core/assetRefinement> <http://www.w3.org/2000/01/rdf-schema#label> "content refinement"@en .
@@ -1340,7 +1340,7 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/idsa/core/contractDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/idsa/core/contractDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Contract> .
 <https://w3id.org/idsa/core/contractDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
-<https://w3id.org/idsa/core/contractDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Absolute datetime of singing the Contract."@en .
+<https://w3id.org/idsa/core/contractDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Absolute datetime of signing the Contract."@en .
 <https://w3id.org/idsa/core/contractDate> <http://www.w3.org/2000/01/rdf-schema#label> "Contract date"@en .
 # 
 # https://w3id.org/idsa/core/contractEnd
@@ -1381,7 +1381,7 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/idsa/core/created> <http://www.w3.org/2000/01/rdf-schema#domain> <_:genid-nodeid-node1eg0mg14fx31> .
 <_:genid-nodeid-node1eg0mg14fx31> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/created> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
-<https://w3id.org/idsa/core/created> <http://www.w3.org/2000/01/rdf-schema#comment> "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en .
+<https://w3id.org/idsa/core/created> <http://www.w3.org/2000/01/rdf-schema#comment> "The date of the creation of the Digital Content. In contrast to the dct:temporal, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en .
 <https://w3id.org/idsa/core/created> <http://www.w3.org/2000/01/rdf-schema#label> "created"@en .
 <https://w3id.org/idsa/core/created> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/dc/terms/created> .
 # 
@@ -2212,7 +2212,7 @@ _:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/core/AssetCollection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/idsa/core/AssetCollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/odrl/2/AssetCollection> .
 <https://w3id.org/idsa/core/AssetCollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/Asset> .
-<https://w3id.org/idsa/core/AssetCollection> <http://www.w3.org/2000/01/rdf-schema#comment> "An AssetCollection is a bracket object combining several ids:Assets."@en .
+<https://w3id.org/idsa/core/AssetCollection> <http://www.w3.org/2000/01/rdf-schema#comment> "An AssetCollection is a bracket object combining several odrl:Asset."@en .
 <https://w3id.org/idsa/core/AssetCollection> <http://www.w3.org/2000/01/rdf-schema#label> "Asset Collection"@en .
 # 
 # https://w3id.org/idsa/core/Audience
@@ -4549,7 +4549,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/AFTER
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en .
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#label> "after"@en .
 <https://w3id.org/idsa/code/AFTER> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#after> .
 # 
@@ -4711,10 +4711,10 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/BEFORE
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en .
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#label> "before"@en .
 <https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#before> .
-<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp."@en .
+<https://w3id.org/idsa/code/BEFORE> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp."@en .
 # 
 # https://w3id.org/idsa/code/BG
 <https://w3id.org/idsa/code/BG> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -4884,11 +4884,11 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/CONTAINS
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en .
+<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#label> "contains"@en .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#inside> .
 <https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalContains> .
-<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+<https://w3id.org/idsa/code/CONTAINS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."@en .
 # 
 # https://w3id.org/idsa/code/CONTINUOUS
 <https://w3id.org/idsa/code/CONTINUOUS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
@@ -5016,7 +5016,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2000/01/rdf-schema#label> "has same duration"@en .
 <https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#hasTemporalDuration> .
-<https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/DURATION_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity."@en .
 # 
 # https://w3id.org/idsa/code/DURING
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -5024,7 +5024,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/2000/01/rdf-schema#label> "during"@en .
 <https://w3id.org/idsa/code/DURING> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalDuring> .
-<https://w3id.org/idsa/code/DURING> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+<https://w3id.org/idsa/code/DURING> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."@en .
 # 
 # https://w3id.org/idsa/code/DV
 <https://w3id.org/idsa/code/DV> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -5137,7 +5137,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/FINISHED_BY> <http://www.w3.org/2000/01/rdf-schema#comment> "If an interval T1 is finished by another interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
 <https://w3id.org/idsa/code/FINISHED_BY> <http://www.w3.org/2000/01/rdf-schema#label> "finished by"@en .
 <https://w3id.org/idsa/code/FINISHED_BY> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalFinishedBy> .
-<https://w3id.org/idsa/code/FINISHED_BY> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en .
+<https://w3id.org/idsa/code/FINISHED_BY> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en .
 # 
 # https://w3id.org/idsa/code/FINISHES
 <https://w3id.org/idsa/code/FINISHES> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -5146,7 +5146,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/FINISHES> <http://www.w3.org/2000/01/rdf-schema#label> "finishes"@en .
 <https://w3id.org/idsa/code/FINISHES> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://w3id.org/idsa/core/intervalIn> .
 <https://w3id.org/idsa/code/FINISHES> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalFinishes> .
-<https://w3id.org/idsa/code/FINISHES> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en .
+<https://w3id.org/idsa/code/FINISHES> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en .
 # 
 # https://w3id.org/idsa/code/FJ
 <https://w3id.org/idsa/code/FJ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -5515,14 +5515,14 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/LONGER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2000/01/rdf-schema#label> "longer"@en .
-<https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/LONGER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/LONGER_EQ
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2000/01/rdf-schema#comment> "If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2000/01/rdf-schema#label> "longer or equals"@en .
-<https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/LONGER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/LT
 <https://w3id.org/idsa/code/LT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
@@ -5802,15 +5802,15 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/OVERLAPPED_BY> <http://www.w3.org/2000/01/rdf-schema#comment> "If a interval T1 is overlapped another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
 <https://w3id.org/idsa/code/OVERLAPPED_BY> <http://www.w3.org/2000/01/rdf-schema#label> "overlapped by"@en .
 <https://w3id.org/idsa/code/OVERLAPPED_BY> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalOverlappedBy> .
-<https://w3id.org/idsa/code/OVERLAPPED_BY> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en .
+<https://w3id.org/idsa/code/OVERLAPPED_BY> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en .
 # 
 # https://w3id.org/idsa/code/OVERLAPS
 <https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/2000/01/rdf-schema#comment> "If an ids:Interval T1 overlapps another ids:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en .
+<https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a time:Interval T1 overlapps another time:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en .
 <https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/2000/01/rdf-schema#label> "overlaps"@en .
 <https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalOverlaps> .
-<https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en .
+<https://w3id.org/idsa/code/OVERLAPS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en .
 # 
 # https://w3id.org/idsa/code/PA
 <https://w3id.org/idsa/code/PA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -5887,7 +5887,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/POLICY_EVALUATION_TIME
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/LeftOperand> .
-<https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2000/01/rdf-schema#comment> "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity."@en .
+<https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2000/01/rdf-schema#comment> "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand time:TemporalEntity."@en .
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2000/01/rdf-schema#label> "policy evaluation time"@en .
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> <http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/ns/odrl/2/dateTime> .
 # 
@@ -5991,8 +5991,8 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/RequestTemplate> <http://www.w3.org/2000/01/rdf-schema#comment> "A generic template for policy requests with one permission and several constraints" .
 <https://w3id.org/idsa/code/RequestTemplate> <http://www.w3.org/2000/01/rdf-schema#label> "Policy Request Template" .
 <https://w3id.org/idsa/code/RequestTemplate> <http://www.w3.org/2004/02/skos/core#note> "The <Consumer Participant URI> asks <Provider Participant URI> to [ids:use|ids:read|...] \r\n\t\tits [<Representation URI>|<Artifact URI>].\r\n\t\tOptional: This only holds if <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>].\r\n\t\tOptional: This only holds if also <Attribute URI> is [equal|lower than|greater than] the [<Value URI>|<Value Literal>]."@en .
-<https://w3id.org/idsa/code/RequestTemplate> <http://www.w3.org/2004/02/skos/core#note> "@prefix ids: <https://w3id.org/idsa/core/> .\r\n\t\t@prefix idsc: <https://w3id.org/idsa/code/> .\r\n\t\t@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\r\n\t\t@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\r\n\t\t@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\r\n\r\n\t\t[<contract URI>| [] ] a ids:ContractRequest ;\r\n\t\t\tids:uid <contract ID> ;\r\n\t\t\tids:refersTo idsc:RequestTemplate ;\r\n\t\t\tids:target [<Representation URI>|<Artifact URI>] ;\r\n\t\t\tids:consumer <Consumer Participant URI> ;\r\n\t\t\tids:provider <Provider Participant URI>\r\n\t\t\t[ids:permission [\r\n\t\t\t\tids:action ids:[use|read|...] ;\r\n\t\t\t\tids:constraint [\r\n\t\t\t\t\tids:leftOperand <Attribute URI> ;\r\n\t\t\t\t\tids:operator [ids:eq|ids:lt|ids:gt] ;\r\n\t\t\t\t\tids:rightOperand [<Value URI>|<Value Literal>]\r\n\t\t\t\t]\r\n\t\t\t] ;]*\r\n\t\t." .
-<https://w3id.org/idsa/code/RequestTemplate> <http://www.w3.org/2004/02/skos/core#note> "{ \r\n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\r\n\t\t\"@type\": \"ContractRequest\", \r\n\t\t\"uid\": \"<contract ID>\", \r\n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\r\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\r\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\r\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \r\n\t\t\"ids:permission\": {\r\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\r\n\t\t\t[\"ids:constraint\" : {    \r\n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\r\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\r\n\t\t\t\t\t \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\r\n\t\t\t } [,]]*\r\n\t\t} }" .
+<https://w3id.org/idsa/code/RequestTemplate> <http://www.w3.org/2004/02/skos/core#note> "@prefix ids: <https://w3id.org/idsa/core/> .\r\n\t\t@prefix idsc: <https://w3id.org/idsa/code/> .\r\n\t\t@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\r\n\t\t@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\r\n\t\t@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\r\n\r\n\t\t[<contract URI>| [] ] a ids:ContractRequest ;\r\n\t\t\tids:uid <contract ID> ;\r\n\t\t\tids:refersTo idsc:RequestTemplate ;\r\n\t\t\tids:target [<Representation URI>|<Artifact URI>] ;\r\n\t\t\tids:consumer <Consumer Participant URI> ;\r\n\t\t\tids:provider <Provider Participant URI>\r\n\t\t\t[ids:permission [\r\n\t\t\t\tids:action ids:[use|read|...] ;\r\n\t\t\t\todrl:constraint [\r\n\t\t\t\t\tids:leftOperand <Attribute URI> ;\r\n\t\t\t\t\tids:operator [ids:eq|ids:lt|ids:gt] ;\r\n\t\t\t\t\tids:rightOperand [<Value URI>|<Value Literal>]\r\n\t\t\t\t]\r\n\t\t\t] ;]*\r\n\t\t." .
+<https://w3id.org/idsa/code/RequestTemplate> <http://www.w3.org/2004/02/skos/core#note> "{ \r\n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\r\n\t\t\"@type\": \"ContractRequest\", \r\n\t\t\"uid\": \"<contract ID>\", \r\n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\r\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\r\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\r\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \r\n\t\t\"ids:permission\": {\r\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\r\n\t\t\t[\"odrl:constraint\" : {    \r\n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\r\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\r\n\t\t\t\t\t \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\r\n\t\t\t } [,]]*\r\n\t\t} }" .
 # 
 # https://w3id.org/idsa/code/SA
 <https://w3id.org/idsa/code/SA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -6094,14 +6094,14 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2000/01/rdf-schema#label> "shorter"@en .
-<https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/SHORTER> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/SHORTER_EQ
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2000/01/rdf-schema#comment> "If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en .
 <https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2000/01/rdf-schema#label> "shorter or equals"@en .
-<https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+<https://w3id.org/idsa/code/SHORTER_EQ> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 # 
 # https://w3id.org/idsa/code/SI
 <https://w3id.org/idsa/code/SI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/Language> .
@@ -6189,7 +6189,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/STARTED_BY> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity T1 is started by another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en .
 <https://w3id.org/idsa/code/STARTED_BY> <http://www.w3.org/2000/01/rdf-schema#label> "started by"@en .
 <https://w3id.org/idsa/code/STARTED_BY> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalStartedBy> .
-<https://w3id.org/idsa/code/STARTED_BY> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of ids:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."@en .
+<https://w3id.org/idsa/code/STARTED_BY> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of time:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."@en .
 # 
 # https://w3id.org/idsa/code/STARTS
 <https://w3id.org/idsa/code/STARTS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -6197,7 +6197,7 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 <https://w3id.org/idsa/code/STARTS> <http://www.w3.org/2000/01/rdf-schema#comment> "If an interval T1 starts with a TemporalEntity T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en .
 <https://w3id.org/idsa/code/STARTS> <http://www.w3.org/2000/01/rdf-schema#label> "starts"@en .
 <https://w3id.org/idsa/code/STARTS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalStarts> .
-<https://w3id.org/idsa/code/STARTS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an ids:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"@en .
+<https://w3id.org/idsa/code/STARTS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an time:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"@en .
 # 
 # https://w3id.org/idsa/code/STATE
 <https://w3id.org/idsa/code/STATE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -6263,15 +6263,15 @@ _:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1
 # https://w3id.org/idsa/code/TEMPORAL_DISJOINT
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en .
+<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en .
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#label> "disjoint"@en .
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalDisjoint> .
-<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal."@en .
+<https://w3id.org/idsa/code/TEMPORAL_DISJOINT> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal."@en .
 # 
 # https://w3id.org/idsa/code/TEMPORAL_EQUALS
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/idsa/core/BinaryOperator> .
-<https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."@en .
+<https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#comment> "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal)."@en .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#label> "interval equals"@en .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/TR/owl-time/#intervalEquals> .
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved."@en .
@@ -7297,7 +7297,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/ArtifactRequestMessage> <http://www.w3.org/2000/01/rdf-schema#comment> "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en .
 <https://w3id.org/idsa/core/ArtifactRequestMessage> <http://www.w3.org/2000/01/rdf-schema#label> "Artifact Request Message"@en .
 # 
-<https://w3id.org/idsa/core/Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "An Asset is either an ids:Resource, an ids:Representation, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."@en .
+<https://w3id.org/idsa/core/Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "An Asset is either an ids:Resource, an dcat:Distribution, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."@en .
 <https://w3id.org/idsa/core/Asset> <http://www.w3.org/2000/01/rdf-schema#label> "Asset"@en .
 # 
 <https://w3id.org/idsa/core/AuthInfo> <http://www.w3.org/2000/01/rdf-schema#comment> "Holds authentication information so that connections to the Connector's data offerings can be establised."@en .
@@ -7375,7 +7375,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/DigitalContent> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://en.wikipedia.org/wiki/Digital_content> .
 <https://w3id.org/idsa/core/DigitalContent> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> .
 # 
-<https://w3id.org/idsa/core/DurationEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en .
+<https://w3id.org/idsa/core/DurationEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "A relative temporal entity of a certain length. Different to time:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to a time:Interval."@en .
 <https://w3id.org/idsa/core/DurationEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Duration"@en .
 # 
 <https://w3id.org/idsa/core/DynamicAttributeToken> <http://www.w3.org/2000/01/rdf-schema#comment> "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'. The complete JWT *including* header, payload and signiture is referenced by this class and *not* only the JSON element in the payload. See ids:DatPayload for the payload definition."@en .
@@ -7497,7 +7497,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/accrualPeriodicity> <http://www.w3.org/2000/01/rdf-schema#label> "Accrual periodicity"@en .
 # 
 <https://w3id.org/idsa/core/action> <http://www.w3.org/2000/01/rdf-schema#comment> "The operation relating to the asset for which permission is being granted."@en .
-<https://w3id.org/idsa/core/action> <http://www.w3.org/2000/01/rdf-schema#comment> "The sequence of executed actions on the data object. Must be an element of ids:Action."@en .
+<https://w3id.org/idsa/core/action> <http://www.w3.org/2000/01/rdf-schema#comment> "The sequence of executed actions on the data object. Must be an element of odrl:Action."@en .
 <https://w3id.org/idsa/core/action> <http://www.w3.org/2000/01/rdf-schema#label> "action"@en .
 <https://w3id.org/idsa/core/action> <http://www.w3.org/2000/01/rdf-schema#label> "applied actions"@en .
 # 
@@ -7513,7 +7513,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/affectedResource> <http://www.w3.org/2000/01/rdf-schema#comment> "The affected resource that is referenced in the resource-related notification messages. "@en .
 <https://w3id.org/idsa/core/affectedResource> <http://www.w3.org/2000/01/rdf-schema#label> "affected Resource"@en .
 # 
-<https://w3id.org/idsa/core/and> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en .
+<https://w3id.org/idsa/core/and> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"@en .
 <https://w3id.org/idsa/core/and> <http://www.w3.org/2000/01/rdf-schema#label> "and operand"@en .
 # 
 <https://w3id.org/idsa/core/appArtifactReference> <http://www.w3.org/2000/01/rdf-schema#comment> "IRI reference to the ids:Artifact, whose corresponding data is transfered as payload of the AppUploadMessage. The Artifact IRI reference must match the IRI of the instance IRI for the corresponding ids:AppRepresentation."@en .
@@ -7568,7 +7568,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/hasAgent> <http://www.w3.org/2000/01/rdf-schema#comment> "The Agents for which this Connector may initiate and receive Messages."@en .
 <https://w3id.org/idsa/core/hasAgent> <http://www.w3.org/2000/01/rdf-schema#label> "has Agent"@en .
 # 
-<https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of ids:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en .
+<https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of time:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en .
 <https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#label> "has duration"@en .
 <https://w3id.org/idsa/core/hasDuration> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/2006/time#hasDuration> .
 # 
@@ -7605,7 +7605,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/operator> <http://www.w3.org/2000/01/rdf-schema#comment> "The operator function applied to operands of a Constraint"@en .
 <https://w3id.org/idsa/core/operator> <http://www.w3.org/2000/01/rdf-schema#label> "operator"@en .
 # 
-<https://w3id.org/idsa/core/or> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en .
+<https://w3id.org/idsa/core/or> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"@en .
 <https://w3id.org/idsa/core/or> <http://www.w3.org/2000/01/rdf-schema#label> "or operand"@en .
 # 
 <https://w3id.org/idsa/core/permission> <http://www.w3.org/2000/01/rdf-schema#comment> "A Permission granted by the Contract."@en .
@@ -7656,10 +7656,10 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/requester> <http://www.w3.org/2000/01/rdf-schema#comment> "\tThe target application requesting the usage. Should be some locally unique identifiers, preferably URIs."@en .
 <https://w3id.org/idsa/core/requester> <http://www.w3.org/2000/01/rdf-schema#label> "requesting application"@en .
 # 
-<https://w3id.org/idsa/core/rightOperand> <http://www.w3.org/2000/01/rdf-schema#comment> "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en .
+<https://w3id.org/idsa/core/rightOperand> <http://www.w3.org/2000/01/rdf-schema#comment> "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en .
 <https://w3id.org/idsa/core/rightOperand> <http://www.w3.org/2000/01/rdf-schema#label> "rightOperand"@en .
 # 
-<https://w3id.org/idsa/core/rightOperandReference> <http://www.w3.org/2000/01/rdf-schema#comment> "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en .
+<https://w3id.org/idsa/core/rightOperandReference> <http://www.w3.org/2000/01/rdf-schema#comment> "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en .
 <https://w3id.org/idsa/core/rightOperandReference> <http://www.w3.org/2000/01/rdf-schema#label> "rightOperandReference"@en .
 # 
 <https://w3id.org/idsa/core/senderAgent> <http://www.w3.org/2000/01/rdf-schema#comment> "The Agent which initiated the Message."@en .
@@ -7671,7 +7671,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/sovereign> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'owner', i.e. sovereign of the data."@en .
 <https://w3id.org/idsa/core/sovereign> <http://www.w3.org/2000/01/rdf-schema#label> "sovereign"@en .
 # 
-<https://w3id.org/idsa/core/target> <http://www.w3.org/2000/01/rdf-schema#comment> "The subject of the policy statement (ids:Rule)."@en .
+<https://w3id.org/idsa/core/target> <http://www.w3.org/2000/01/rdf-schema#comment> "The subject of the policy statement (odrl:Rule)."@en .
 <https://w3id.org/idsa/core/target> <http://www.w3.org/2000/01/rdf-schema#label> "target"@en .
 # 
 <https://w3id.org/idsa/core/temporalResolution> <http://www.w3.org/2000/01/rdf-schema#comment> "Minimum time between collected data points in a time series within this content."@en .
@@ -7689,7 +7689,7 @@ _:genid163 <http://xmlns.com/foaf/0.1/name> "Anna Kasprzik" .
 <https://w3id.org/idsa/core/usageDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration, which this asset is in use by now. Might be calculated on the fly when requested by a Usage Control Engine."@en .
 <https://w3id.org/idsa/core/usageDuration> <http://www.w3.org/2000/01/rdf-schema#label> "usage duration"@en .
 # 
-<https://w3id.org/idsa/core/xone> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en .
+<https://w3id.org/idsa/core/xone> <http://www.w3.org/2000/01/rdf-schema#comment> "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"@en .
 <https://w3id.org/idsa/core/xone> <http://www.w3.org/2000/01/rdf-schema#label> "exclusive or"@en .
 # 
 <https://w3id.org/idsa/metamodel/forProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "The property a PropertyValidation targets."@en .

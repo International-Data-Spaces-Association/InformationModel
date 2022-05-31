@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -25,31 +26,31 @@ idsc:USAGE_LOGGING_OFFER_TEMPLATE a ids:LoggingOffer ;
       (ids:provider idsc:PARTICIPANT_TEMPLATE ;
        ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
     )
-    ids:permission [
-        a ids:Permission ;
+    odrl:permission[
+        a odrl:Permission ;
         (
-          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
         | # or
-          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         | # or
-          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
-           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         )
         ids:target idsc:ASSET_TEMPLATE ;
-        ids:action idsc:ACTION_TEMPLATE ;
+        odrl:action idsc:ACTION_TEMPLATE ;
         ids:postDuty [
-            a ids:Duty ;
+            a odrl:Duty ;
             (
-              (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+              (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
             | # or
-              (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+              (odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
             | # or
-              (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
-               ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+              (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+               odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
             )
-            ids:action idsc:LOG ;
+            odrl:action idsc:LOG ;
         ] ;
-        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
     ]

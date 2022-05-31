@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -16,40 +17,40 @@
 (
     (
         a ids:TemporalConstraint ;                                              # A TemporalConstraint, for instance current time > January 1st 2020
-        ids:leftOperand idsc:POLICY_EVALUATION_TIME ;                           # The current time, usually the system time.
+        odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;                           # The current time, usually the system time.
         ids:operator ( idsc:AFTER | idsc:BEFORE | idsc:CONTAINS |
           idsc:TEMPORAL_DISJOINT | idsc:DURING | idsc:TEMPORAL_EQUALS |
           idsc:FINISHED_BY | idsc:FINISHES | idsc:MEETS | idsc:MET_BY |
           idsc:OVERLAPS | idsc:OVERLAPPED_BY | idsc:STARTS | idsc:STARTED_BY) ; # The comaprison operator, for instance AFTER
-        ids:rightOperand "?Value"^^xsd:dateTimeStamp ;                          # The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
+        odrl:rightOperand "?Value"^^xsd:dateTimeStamp ;                          # The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
         ( ids:pipEndpoint ?ClockEndpoint ; )?                               # A URI or path expression to a shared time provider, if necessary.
     )
 | # or
     (
         a ids:TemporalConstraint ;                                              # A TemporalConstraint, for instance usage time < 10 minutes
-        ids:leftOperand idsc:ELAPSED_TIME ;                                     # The overall usage time of the asset, must be provided by the usage enforcement engine or the IDS Connector.
+        odrl:leftOperand idsc:ELAPSED_TIME ;                                     # The overall usage time of the asset, must be provided by the usage enforcement engine or the IDS Connector.
         ids:operator ( idsc:SHORTER | idsc:SHORTER_EQ | idsc:LONGER |
           idsc:LONGER_EQ | idsc:DURATION_EQ ) ;                                 # The comaprison operator, for instance SHORTER
-        ids:rightOperand "?Value"^^xsd:duration ;                               # The value expression, for instance ?Value := "P0Y0M0DT0H10M0S"
+        odrl:rightOperand "?Value"^^xsd:duration ;                               # The value expression, for instance ?Value := "P0Y0M0DT0H10M0S"
         ( ids:pipEndpoint ?ClockEndpoint ; )?                               # A URI or path expression to a provider of the usage duration.
     )
 | # or
     (
-        a ids:LogicalConstraint ;                                               # A Collection with more than one condition to describe its members.
-        ids:and                                                                 # Both Constraints have to be satisfied.
+        a odrl:LogicalConstraint ;                                               # A Collection with more than one condition to describe its members.
+        odrl:and                                                                 # Both Constraints have to be satisfied.
             ( # '(' is used as an RDF List operator here                        # LogicalConstraints allow the expression of complex constraints. For instance, we can restrict the policy to be only valid in 2020.
               [
                   a ids:TemporalConstraint ;                                    # A TemporalConstraint, for instance current time > January 1st 2020
-                  ids:leftOperand idsc:POLICY_EVALUATION_TIME ;                 # The current time, usually the system time.
+                  odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;                 # The current time, usually the system time.
                   ids:operator idsc:AFTER ;                                     # The comaprison operator, for instance AFTER
-                  ids:rightOperand "?Value"^^xsd:dateTimeStamp ;                # The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
+                  odrl:rightOperand "?Value"^^xsd:dateTimeStamp ;                # The value expression, for instance ?Value := "2020-01-01T00:00:00.000+02:00"
                   ( ids:pipEndpoint ?ClockEndpoint ; )?                     # A URI or path expression to a shared time provider, if necessary.
               ]
               [
                   a ids:TemporalConstraint ;                                    # A TemporalConstraint, for instance current time < January 1st 2021
-                  ids:leftOperand idsc:POLICY_EVALUATION_TIME ;                 # The current time, usually the system time.
+                  odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;                 # The current time, usually the system time.
                   ids:operator idsc:BEFORE ;                                    # The comaprison operator, for instance AFTER
-                  ids:rightOperand "?Value"^^xsd:dateTimeStamp ;                # The value expression, for instance ?Value := "2020-12-12T23:59:59.999+02:00"
+                  odrl:rightOperand "?Value"^^xsd:dateTimeStamp ;                # The value expression, for instance ?Value := "2020-12-12T23:59:59.999+02:00"
                   ( ids:pipEndpoint ?ClockEndpoint ; )?                     # A URI or path expression to a shared time provider, if necessary.
               ]
             ) # ')' is used as an RDF List operator here
