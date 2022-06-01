@@ -14,15 +14,15 @@ data3:
     ids:title "European highway statistics - traffic report"@en ;
     ids:description "Detailed traffic analysis report based on European highway statistics data 2000 - 2017."@en;
     ids:keyword "report", "highway", "statistics", "Europe" ;
-    ids:temporalCoverage [
+    dct:temporal [
         a ids:Interval ;
-        ids:begin [
-            a ids:Instant ;
-            ids:dateTime "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        time:hasBeginning [
+            a time:Instant ;
+            time:inXSDDateTimeStamp "2001-01-01T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ];
-        ids:end   [
-            a ids:Instant ;
-            ids:dateTime "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
+        time:hasEnd [
+            a time:Instant ;
+            time:inXSDDateTimeStamp "2017-12-31T12:00:00.000+02:00"^^xsd:dateTimeStamp ;
         ] ;
     ] ;
     ids:language idsc:EN ;
