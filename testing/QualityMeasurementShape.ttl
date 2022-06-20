@@ -26,14 +26,14 @@ shapes:
 		sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI ;
 	] .
 
-shapes:ResourceShape
+shapes:QualityMeasurementShape
 	a sh:NodeShape ;
 	sh:targetClass dqv:QualityMeasurement ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dqv:isMeasurementOf ;
-		sh:class dqv:Dimension ;
+		sh:class dqv:Metric ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/QualityMeasurementShape.ttl> (QualityMeasurementShape): An dqv:isMeasurementOf must point from an dqv:QualityMeasurement to an dqv:Dimension."@en ;
 	] ;

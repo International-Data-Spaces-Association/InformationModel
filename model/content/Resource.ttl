@@ -1,5 +1,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
 
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -87,3 +88,9 @@ ids:variant a owl:ObjectProperty;
     rdfs:domain ids:Resource;
     rdfs:range ids:Resource;
     rdfs:comment "(Equivalent) variant of given Resource, e.g., a translation."@en.
+
+dqv:hasQualityMeasurement a rdf:Property ;
+    rdfs:label "has quality measurement"@en ;
+    rdfs:comment "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."@en ;
+    rdfs:range dqv:QualityMeasurement ;
+    owl:inverseOf dqv:computedOn .
