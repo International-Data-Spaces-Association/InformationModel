@@ -1,6 +1,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
-
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -70,7 +70,7 @@ shapes:ResourceShape
 		a sh:PropertyShape ;
 		sh:path dct:publisher ;
 		sh:or (
-	    [ sh:class ids:Agent ; sh:order 1 ; ]
+	    [ sh:class foaf:Agent ; sh:order 1 ; ]
 	    [ sh:nodeKind sh:IRI ; sh:order 2 ; ]
 		) ;
 		sh:maxCount 1 ;
@@ -82,7 +82,7 @@ shapes:ResourceShape
 		a sh:PropertyShape ;
 		sh:path ids:sovereign ;
 		sh:or (
-	    [ sh:class ids:Agent ; sh:order 1 ; ]
+	    [ sh:class foaf:Agent ; sh:order 1 ; ]
 	    [ sh:nodeKind sh:IRI ; sh:order 2 ; ]
 		) ;
 		sh:maxCount 1 ;
@@ -110,7 +110,7 @@ shapes:ResourceShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dqv:hasQualityMeasurement ;
-		sh:class dqv:QualityMeasurement ;		
+		sh:class dqv:QualityMeasurement ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): A dqv:hasQualityMeasurement property must point from an ids:Resource to a dqv:QualityMeasurement."@en ;
 	] ;
