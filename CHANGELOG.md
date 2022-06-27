@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [4.2.0] 2022-05-13
+## [4.2.0] 2022-06-01
 Version 4.2.0 of the IDS Information Model
 
 ### Added
@@ -19,7 +19,14 @@ Version 4.2.0 of the IDS Information Model
 * Title (`ids:title`) and description (`ids:description`) properties for `ids:Representation`.
 * Shapes for AppResources
 * Class UsageControlComponent and Shape
-* `ids:Representation` is now additionally subclass of `ids:Described` giving instances a title- and description label.
+
+### Changed
+
+* `ids:Representation` is now subclass of `ids:Described` giving instances a title- and description label.
+
+### Removed
+
+* Remove `ids:magicNumber` from `ids:MediaType`
 
 ## [4.1.0] 2021-05-26
 Version 4.1.0 of the IDS Information Model

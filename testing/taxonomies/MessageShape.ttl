@@ -35,7 +35,35 @@ shapes:DescriptionRequestMessage
 	] .
 
 
+shapes:RequestMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:RequestMessage ;
 
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:callbackURL ;
+		sh:datatype xsd:anyURI ;
+		sh:minCount 0 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (RequestMessageShape): An ids:RequestMessage must have exactly one URI reference to an call back URL linked through the ids:callbackURL property"@en ;
+	] .
+
+
+shapes:NotificationMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:NotificationMessage ;
+
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:callbackURL ;
+		sh:datatype xsd:anyURI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (NotificationMessageShape): An ids:NotificationMessage must have exactly one URI reference to an call back URL linked through the ids:callbackURL property"@en ;
+	] .
 
 shapes:ResponseMessageShape
 	a sh:NodeShape ;
@@ -53,23 +81,6 @@ shapes:ResponseMessageShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (ResponseMessageShape): An ids:Message must have exactly one URI reference to an ids:Message linked through the ids:correlationMessage property"@en ;
 	] .
 
-shapes:CommandMessageShape
-	a sh:NodeShape ;
-	sh:targetClass ids:CommandMessage ;
-
-	sh:sparql [
-		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (CommandMessageShape): An ids:CommandMessage is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-		sh:prefixes shapes: ;
-		sh:select """
-			SELECT ?this ?type
-			WHERE {
-				?this rdf:type ?type .
-				FILTER (?type = ids:CommandMessage)
-			}
-		""" ;
-	] .
-
 
 shapes:QueryMessageShape
 	a sh:NodeShape ;
@@ -82,15 +93,6 @@ shapes:QueryMessageShape
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:queryLanguage property must point from an ids:QueryMessage to zero or one ids:QueryLanguage."@en ;
-	] ;
-
-    sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:queryScope ;
-		sh:class ids:QueryScope ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (QueryMessageShape): An ids:querySceope property must point from an ids:QueryMessage to zero or one ids:QueryScope."@en ;
 	] ;
 
     sh:property [
@@ -265,23 +267,13 @@ shapes:InvokeOperationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:operationReference ;
-		sh:nodeKind sh:IRI ;
+		sh:datatype xsd:anyURI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one IRI reference to a ids:Operation linked through the ids:operationReference property"@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:operationParameterization ;
-		sh:datatype ids:ParameterAssignment ;
-		sh:minCount 1 ;
-    sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (InvokeOperationMessageShape): An ids:InvokeOperationMessage must have exactly one ids:ParameterAssignment linked through the ids:operationParameterization property"@en ;
-	] .
+	]  .
 
 
 shapes:RequestInProcessMessageShape
@@ -385,13 +377,13 @@ shapes:AppNotificationMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:affectedAppResource ;
+		sh:path ids:affectedResource ;
 		sh:nodeKind sh:IRI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedAppResource property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedResource property"@en ;
 	]	.
 
 shapes:AppRegistrationRequestMessageShape

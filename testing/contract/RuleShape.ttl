@@ -17,114 +17,112 @@ shapes:
 	] ;
 
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/core/"^^xsd:anyURI ;
+		sh:prefix "odrl" ;
+		sh:namespace "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ;
 	] .
 
 
 shapes:RuleShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Rule ;
+	sh:targetClass odrl:Rule ;
 
 	sh:sparql [
 		a sh:SPARQLConstraint ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:Rule is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
 		sh:prefixes shapes: ;
 		sh:select """
 			SELECT ?this ?type
 			WHERE {
 				?this rdf:type ?type .
-				FILTER (?type = ids:Rule)
+				FILTER (?type = odrl:Rule)
 			}
 		""" ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:action ;
-		sh:class ids:Action ;
+		sh:path odrl:action ;
+		sh:class odrl:Action ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have at least one ids:Action linked through the ids:action property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:Rule must have at least one odrl:Action linked through the odrl:action property"@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:assignee ;
-		sh:or (
-      [ sh:nodeKind sh:IRI ; ]
-			[ sh:class ids:Participant ; ]
-    );
+		sh:path odrl:assignee ;
+		#sh:or (
+    #  [
+		 sh:nodeKind sh:IRI ;# ]
+		#	[ sh:class ids:Participant ; #]
+    #);
 		sh:minCount 0 ;
 		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have at maximum one ids:Participant linked through the ids:assignee property."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:Rule must have at maximum one ids:Participant linked through the odrl:assignee property."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:assigner ;
-		sh:or (
-      [ sh:nodeKind sh:IRI ; ]
-			[ sh:class ids:Participant ; ]
-    );
+		sh:path odrl:assigner ;
+		#sh:or (
+    #  [
+		 sh:nodeKind sh:IRI ;# ]
+		#	[ sh:class ids:Participant ; #]
+    #);
 		sh:minCount 0 ;
 		#sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:Rule must have at maximum one ids:Participant linked through the ids:assigner property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:Rule must have at maximum one ids:Participant linked through the odrl:assigner property"@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:target ;
-		sh:or (
-      [ sh:nodeKind sh:IRI ; ]
-			[ sh:class ids:Asset ; ]
-    );
+		#sh:or (
+    #  [
+		 sh:nodeKind sh:IRI ;# ]
+		#	[ sh:class ids:Participant ; #]
+    #);
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must not have more than one point from an ids:Rule to an ids:Asset."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:target property must not have more than one point from an odrl:Rule to an odrl:Asset."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:assetRefinement ;
-		sh:class ids:AbstractConstraint ;
+		sh:path odrl:refinement ;
+		sh:class odrl:Constraint ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:assetRefinement must not have more than one point from an ids:Rule to an ids:AbstractConstraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:refinement must not have more than one point from an odrl:Rule to an odrl:Constraint."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:constraint ;
-		sh:class ids:AbstractConstraint ;
+		sh:path odrl:constraint ;
+		sh:class odrl:Constraint ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An ids:constraint property must point from an ids:Rule to an ids:Constraint or ids:LogicalConstraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (RuleShape): An odrl:constraint property must point from an odrl:Rule to an odrl:Constraint or odrl:LogicalConstraint."@en ;
 	] .
 
 
 shapes:PermissionShape
 	a sh:NodeShape ;
-	sh:targetClass ids:Permission ;
+	sh:targetClass odrl:Permission ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:preDuty ;
-		sh:class ids:Duty ;
+		sh:class odrl:Duty ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:preDuty property must point from an ids:Permission to an ids:Duty."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:preDuty property must point from an odrl:Permission to an odrl:Duty."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:postDuty ;
-		sh:class ids:Duty ;
+		sh:class odrl:Duty ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:postDuty property must point from an ids:Permission to an ids:Duty."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/RuleShape.ttl> (PermissionShape): An ids:postDuty property must point from an odrl:Permission to an odrl:Duty."@en ;
 	] .
-
-
-#shapes:DutyShape
-#		a sh:NodeShape ;
-#		sh:targetClass ids:Duty ;

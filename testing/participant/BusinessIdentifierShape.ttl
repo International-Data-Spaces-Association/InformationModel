@@ -5,6 +5,7 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix shapes: <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 shapes:
 	a owl:Ontology ;
@@ -35,11 +36,11 @@ shapes:BusinessIdentifierShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:identifierNumber ;
+		sh:path dct:identifier ;
 		sh:datatype xsd:string ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/BusinessIdentifierShape.ttl> (BusinessIdentifierShape): An ids:BusinessIdentifier must have exactly one identifier number as a xsd:string linked through the ids:identifierNumber property. "@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/participant/BusinessIdentifierShape.ttl> (BusinessIdentifierShape): An ids:BusinessIdentifier must have exactly one identifier number as a xsd:string linked through the dct:identifier property. "@en ;
 	] ;
 .

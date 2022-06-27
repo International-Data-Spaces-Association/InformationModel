@@ -8,42 +8,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
-# Classes
-# -------
-
-ids:Asset
-    a owl:Class;
-    rdfs:subClassOf odrl:Asset ;
-    rdfs:label "Asset"@en ;
-
-    rdfs:comment "An Asset is either an ids:Resource, an ids:Representation, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."@en;
-.
-
-
-ids:AssetCollection
-    a owl:Class;
-    rdfs:subClassOf ids:Asset, odrl:AssetCollection ;
-    rdfs:label "Asset Collection"@en ;
-    rdfs:comment "An AssetCollection is a bracket object combining several ids:Assets."@en;
-.
-
-
 # Properties
 # ----------
 
 ids:assetSource a owl:ObjectProperty ;
     rdfs:subPropertyOf odrl:source ;
     rdfs:label "asset source"@en ;
-    rdfs:domain ids:AssetCollection ;
+    rdfs:domain odrl:AssetCollection ;
     rdfs:range xsd:anyURI ;
     rdfs:comment "A remote link to the location (PIP) where this AssetCollection and its members are maintained."@en ;
 .
-
-# united with ids:assetRefinement of the ids:Rule class.
-#ids:assetRefinement a owl:ObjectProperty ;
-#    rdfs:subPropertyOf odrl:refinement ;
-#    rdfs:label "asset refinement"@en ;
-#    rdfs:domain ids:AssetCollection ;
-#    rdfs:range ids:AbstractConstraint ;
-#    rdfs:comment "Conditions which specify whether an arbitrary ids:Asset is a member of this AssetCollection."@en ;
-#.

@@ -12,7 +12,7 @@
 # ---------
 
 idsc:ANONYMIZE
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "To anonymize all, parts or certain attributes of the resource."@en ;
     rdfs:label "anonymize"@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/anonymize> ;
@@ -21,7 +21,7 @@ idsc:ANONYMIZE
 .
 
 idsc:AGGREGATE_BY_CONSUMER
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "Data will be part of another piece of data so that it is not distinguishable anymore."@en ;
     rdfs:label "aggregate by consumer"@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/aggregate> ;
@@ -30,7 +30,7 @@ idsc:AGGREGATE_BY_CONSUMER
 .
 
 idsc:AGGREGATE_BY_PROVIDER
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "Data will be part of another piece of data so that it is not distinguishable anymore."@en ;
     rdfs:label "aggregate by provider"@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/aggregate> ;
@@ -38,9 +38,15 @@ idsc:AGGREGATE_BY_PROVIDER
     skos:note "This action is always evaluated at the provider side."@en ;
 .
 
+idsc:ADD
+    a odrl:Action ;
+    rdfs:comment "This action modifies a number by adding a given value to it."@en ;
+    rdfs:label "add"@en ;
+    skos:note "This action modifies a number by adding a given value to it. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
+.
 
 idsc:COMPENSATE
-    a ids:Action;
+    a odrl:Action;
     rdfs:label "compensate"@en ;
     rdfs:comment "To pay a certain amount of money in order to use a resource."@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/compensate> ;
@@ -48,8 +54,15 @@ idsc:COMPENSATE
     skos:note "This action must be evaluated both at the consumer and provider side. A compensation might be required before access is granted (provider-side), or each time the usage action is performed (consumer-side)."@en ;
     .
 
+idsc:DIVIDE
+    a odrl:Action ;
+    rdfs:comment "This action modifies dividing something by something else."@en ;
+    rdfs:label "divide"@en ;
+    skos:note "This action modifies dividing something by something else. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
+.
+
 idsc:DELETE
-    a ids:Action;
+    a odrl:Action;
     rdfs:label "delete"@en ;
     rdfs:comment "To remove a resource or inhibit any further access with reasonable measures."@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/delete> ;
@@ -58,7 +71,7 @@ idsc:DELETE
     .
 
 idsc:DISTRIBUTE
-    a ids:Action;
+    a odrl:Action;
     rdfs:label "distribute"@en;
     rdfs:comment "To forward or supply a resource to a third-party."@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/distribute> ;
@@ -67,7 +80,7 @@ idsc:DISTRIBUTE
     .
 
 idsc:GRANT_USE
-    a ids:Action;
+    a odrl:Action;
     rdfs:label "grant use"@en;
     rdfs:comment "To grant use of a resource to another party. Does *not* imply any other usage rights."@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/grantUse> ;
@@ -75,16 +88,29 @@ idsc:GRANT_USE
     skos:note "This action is always evaluated at the consumer side, at the moment a third party intends to access the resource as received by the original consumer."@en ;
     .
 
+idsc:HASH
+    a odrl:Action ;
+    rdfs:comment "This action modifies a value by replacing it with a hash of the value."@en ;
+    rdfs:label "hash"@en ;
+    skos:note "This action modifies a value by replacing it with a hash of the value. The field to be modified and the hash algorithm are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:HASH_ALGORITHM (eg. SHA256), respectively."@en ;
+    .
+
+idsc:INCREMENT_COUNTER
+    a odrl:Action ;
+    rdfs:label "increment counter"@en;
+    rdfs:comment "An action to be used in the count usage policy where the idsc:COUNT left operand is used."@en ;
+    .
+
 idsc:ENCRYPT
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "The data artifact or parts of it are encrypted and can not be read by neither the ids:DataConsumer nor any other third party. The encryption algorithm might be specified by a constraint."@en ;
-    rdfs:label "ecrypt"@en ;
+    rdfs:label "encrypt"@en ;
     odrl:includedIn idsc:USE ;
     skos:note "This action is always evaluated at the provider side."@en ;
 .
 
 idsc:LOG
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "To log information or store information about incidents in a local file or database. Is not necessarily available to external parties but can be used to create transparency on happened events."@en ;
     rdfs:label "log"@en ;
     odrl:includedIn idsc:USE ;
@@ -92,7 +118,7 @@ idsc:LOG
 .
 
 idsc:MODIFY
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "To change a resource locally."@en ;
     rdfs:label "modify"@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/modify>;
@@ -100,8 +126,15 @@ idsc:MODIFY
     skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;
     .
 
+idsc:MULTIPLY
+    a odrl:Action ;
+    rdfs:comment "This action modifies a number by multiplying it to a given value."@en ;
+    rdfs:label "multiply"@en ;
+    skos:note "This action modifies a number by multiplying it to a given value. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
+.
+
 idsc:NEXT_POLICY
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "To forward the resource under the same policy. Implies a permission to distribute."@en ;
     rdfs:label "next policy"@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/nextPolicy> ;
@@ -110,7 +143,7 @@ idsc:NEXT_POLICY
     .
 
 idsc:NOTIFY
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "To log information or notify an instance about incidents. Can be used to define Clearing House interactions."@en ;
     rdfs:label "notify"@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/inform> ;
@@ -119,7 +152,7 @@ idsc:NOTIFY
     .
 
 idsc:READ
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "To obtain data from the resource."@en ;
     rdfs:label "read"@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/read>;
@@ -127,8 +160,22 @@ idsc:READ
     skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;
     .
 
+idsc:REPLACE
+    a odrl:Action ;
+    rdfs:comment "To replace some value."@en ;
+    rdfs:label "replace"@en ;
+    skos:note "This action modifies a value by replacing it with a given value. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:REPLACE_WITH, respectively."@en ;
+.
+
+idsc:SHUFFLE
+    a odrl:Action ;
+    rdfs:comment "This action modifies a value by replacing it with an anagram of the value."@en ;
+    rdfs:label "shuffle"@en ;
+    skos:note "This action modifies a value by replacing it with an anagram of the value. The field to be modified is specified in the policy as idsc:JSONPATH/idsc:XPATH."@en ;
+.
+
 idsc:TRACK_PROVENANCE
-    a ids:Action ;
+    a odrl:Action ;
     #odrl:implies ids:acceptTracking;
     rdfs:comment "To accept that the use of the Asset may be tracked."@en ;
     rdfs:label "track provenance"@en ;
@@ -137,7 +184,7 @@ idsc:TRACK_PROVENANCE
 	.
 
 idsc:USE
-    a ids:Action;
+    a odrl:Action;
     rdfs:label "use"@en;
     rdfs:comment "To use a resource in any possible way. Includes all other actions."@en ;
     skos:broader <http://www.w3.org/ns/odrl/2/use> ;
@@ -145,7 +192,7 @@ idsc:USE
     .
 
 idsc:WRITE
-    a ids:Action ;
+    a odrl:Action ;
     rdfs:comment "To change a remote resource."@en ;
     rdfs:label "write"@en ;
     odrl:includedIn idsc:USE ;

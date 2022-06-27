@@ -4,50 +4,43 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 
 # Classes
 # -------
 
-ids:Catalog
-    a owl:Class;
-    rdfs:subClassOf dcat:Catalog;
-
-    rdfs:label "Catalog"@en ;
-    rdfs:comment "Class that represents (distributable) Catalogs."@en ;
-    .
-
 ids:ResourceCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "Resource Catalog"@en ;
     rdfs:comment "Class that aggregates Resources from a (distributable) Catalog."@en ;
 .
 
 ids:ParticipantCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "Participant Catalog"@en ;
     rdfs:comment "Class that aggregates Participants from a (distributable) Catalog."@en ;
 .
 
 ids:ConnectorCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "Connector Catalog"@en ;
     rdfs:comment "Class that aggregates Connectors from a (distributable) Catalog."@en ;
 .
 
 ids:BrokerCatalog
     a owl:Class;
-    rdfs:subClassOf ids:ConnectorCatalog;
+    rdfs:subClassOf ids:ConnectorCatalog, ids:Described ;
     rdfs:label "Broker Catalog"@en ;
     rdfs:comment "Class that aggregates Brokers from a (distributable) Catalog."@en ;
 .
 
 ids:AppStoreCatalog
     a owl:Class;
-    rdfs:subClassOf ids:ConnectorCatalog;
+    rdfs:subClassOf ids:ConnectorCatalog, ids:Described ;
     rdfs:label "AppStore Catalog"@en ;
     rdfs:comment "Class that aggregates AppStores from a (distributable) Catalog."@en ;
 .
@@ -55,14 +48,14 @@ ids:AppStoreCatalog
 # TODO: Align with ResourceCatalog
 ids:AppResourceCatalog
     a owl:Class;
-    rdfs:subClassOf ids:Catalog;
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "App Resource Catalog"@en ;
     rdfs:comment "Class that aggregates App Resources from a (distributable) Catalog. May be used to list installed apps in a component."@en ;
 .
 
 ids:ClearingHouseCatalog
-    rdfs:subClassOf ids:Catalog;
     a owl:Class;
+    rdfs:subClassOf dcat:Catalog, odrl:AssetCollection, ids:Described ;
     rdfs:label "Clearing House Catalog"@en ;
     rdfs:comment "Class that aggregates Clearing Houses from a (distributable) Catalog."@en ;
 .
