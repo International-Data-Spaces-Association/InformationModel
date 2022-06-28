@@ -3,7 +3,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 
@@ -40,7 +39,7 @@ ids:BaseConnectorUpgradeShape
 
 ids:CatalogUpgradeShape1
 	a sh:NodeShape ;
-	sh:targetClass dcat:Catalog ;
+	sh:targetClass ids:Catalog ;
 	sh:rule [
 		a sh:SPARQLRule ;
 		sh:prefixes ids: ;
@@ -57,17 +56,17 @@ ids:CatalogUpgradeShape1
 
 		CONSTRUCT {
 			$this rdf:type ids:ResourceCatalog .
-			idsm:VersionUpgrade rdf:type ids:catalog .
+			idsm:VersionUpgrade rdf:type ids:catalog .			
 		}
 		WHERE {$this rdf:type ids:catalog .}
 		""" ;
-			sh:condition dcat:Catalog ;    # Rules only apply if the input matches the respective shape
+			sh:condition ids:Catalog ;    # Rules only apply if the input matches the respective shape
 	] ;
 .
 
 ids:CatalogUpgradeShape2
 	a sh:NodeShape ;
-	sh:targetClass dcat:Catalog ;
+	sh:targetClass ids:Catalog ;
 	sh:rule [
 		a sh:SPARQLRule ;
 		sh:prefixes ids: ;
@@ -84,17 +83,17 @@ ids:CatalogUpgradeShape2
 
 		CONSTRUCT {
 			$this ids:offeredResources $offeredResources .
-			idsm:VersionUpgrade ids:offer $offeredResources .
+			idsm:VersionUpgrade ids:offer $offeredResources .			
 		}
 		WHERE {$this ids:offer $offeredResources .}
 		""" ;
-			sh:condition dcat:Catalog ;    # Rules only apply if the input matches the respective shape
+			sh:condition ids:Catalog ;    # Rules only apply if the input matches the respective shape
 	] ;
 .
 
 ids:CatalogUpgradeShape3
 	a sh:NodeShape ;
-	sh:targetClass dcat:Catalog ;
+	sh:targetClass ids:Catalog ;
 	sh:rule [
 		a sh:SPARQLRule ;
 		sh:prefixes ids: ;
@@ -108,14 +107,14 @@ ids:CatalogUpgradeShape3
 		prefix ids: <https://w3id.org/idsa/core/>
 		prefix idsc: <https://w3id.org/idsa/code/>
 		prefix idsm: <https://w3id.org/idsa/metamodel/>
-
+		
 		CONSTRUCT {
 			$this ids:requestedResources $requestedResources .
-			idsm:VersionUpgrade ids:request $requestedResources .
+			idsm:VersionUpgrade ids:request $requestedResources .			
 		}
 		WHERE {$this ids:request $requestedResources .}
 		""" ;
-			sh:condition dcat:Catalog ;    # Rules only apply if the input matches the respective shape
+			sh:condition ids:Catalog ;    # Rules only apply if the input matches the respective shape
 	] ;
 .
 
@@ -141,14 +140,14 @@ ids:ResourceUpgradeShape
 		CONSTRUCT {
 			$this rdf:type ids:ConnectorEndpoint .
 			idsm:VersionUpgrade rdf:type ids:StaticEndpoint .
-
+			
 			$staticEndpoint ids:accessUrl $accessUrl .
 			idsm:VersionUpgrade ids:accessUrl $accessUrl .
 		}
 		WHERE {
 			$this ids:resourceEndpoint $staticEndpoint .
 			$staticEndpoint rdf:type ids:StaticEndpoint .
-
+						
 			OPTIONAL {
 				$staticEndpoint ids:endpointHost $endpointHost .
 				$this rdf:type ids:Host .
