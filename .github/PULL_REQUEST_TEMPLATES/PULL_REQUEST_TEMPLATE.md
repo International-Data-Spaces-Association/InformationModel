@@ -24,3 +24,4 @@
 - [ ] Generate human-readable documentation and single-file serializations using Widoco
 - [ ] Generate Java library
 - [ ] Update the message table
+- [ ] Announce new version via mailing lists
