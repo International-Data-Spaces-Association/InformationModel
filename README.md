@@ -16,13 +16,14 @@ The Information Model was originally created by
 with significant contributions, comments and support by (in alphabetical order):
 
 - Haydar Akyürek, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
-- Sebastian Bader, [Fraunhofer IAIS](https://www.iais.fraunhofer.de/en)
+- Dr. Sebastian Bader, [Fraunhofer IAIS](https://www.iais.fraunhofer.de/en), now SAP
 - Matthias Böckmann, [Fraunhofer IAIS](https://www.iais.fraunhofer.de/en) 
-- Dr. Sandra Geisler, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
+- Prof. Sandra Geisler, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
+- Philipp Hochmann, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
 - Dr. Anna Kasprzik, [TIB](https://www.tib.eu/en)
 - Dr. Christoph Lange, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en) (see above)
 - Jörg Langkau, [nicos AG](http://www.nicos-ag.com)
-- Johannes Lipp, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
+- Johannes Theissen-Lipp, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
 - Lina Molinas Comet, [Fraunhofer FIT](https://www.fit.fraunhofer.de/en)
 - Andreas W. Müller, [Schaeffler](https://www.schaeffler.de/content.schaeffler.de/en/)
 - Dr. Michael Theß, [Signal Cruncher GmbH](https://signal-cruncher.com/)
