@@ -26,9 +26,9 @@ In the following the concepts of an application profile are illustrated in a non
 
 | Property | URI | Type | Range | Card. | Vocabulary |
 | --- | --- | --- | --- | --- | --- |
-| Title | `ids:title` | mandatory |`xs:string`|1..n| - |
+| Title | `dct:title` | mandatory |`xsd:string`|1..n| - |
 | Standard Licence | `ids:standardLicense` | optional |`spdx:ListedLicense`|0..1| [SPDX License List](https://github.com/spdx/license-list-data/tree/master/rdfturtle) |
-| Publisher | `ids:publisher` | optional | `foaf:Agent` |0..n| - |
+| Publisher | `dct:publisher` | optional | `foaf:Agent` |0..n| - |
 
 
 #### Range Details
