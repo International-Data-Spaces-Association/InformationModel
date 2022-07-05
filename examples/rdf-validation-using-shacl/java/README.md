@@ -18,9 +18,9 @@ A failed validation logs the error to console.
 ````shell
 Total RDF triples 	5708
 Total SHACL shapes 	300
-Feb 17, 2020 3:18:53 PM SHACL_Validator validateRDF
+Feb 17, 2020 3:18:53 PM ShaclValidator validateRDF
 SEVERE: failed
-Feb 17, 2020 3:18:53 PM SHACL_Validator validateRDF
+Feb 17, 2020 3:18:53 PM ShaclValidator validateRDF
 SEVERE: [Node=<https://w3id.org/idsa/autogen/artifactRequestMessage/a5afaed2-a69b-41ed-bb6f-363b8f63478f>
   Path=<https://w3id.org/idsa/core/issued>
   <https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/communication/MessageShape.ttl> (MessageShape): An ids:Message must have exactly one xsd:dateTime linked through the dct:issued property, Node=<https://w3id.org/idsa/autogen/artifactRequestMessage/a5afaed2-a69b-41ed-bb6f-363b8f63478f>
