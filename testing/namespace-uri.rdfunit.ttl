@@ -17,7 +17,7 @@ rutt:ontologies-vann-preferredNamespaceUri
     dcterms:description "All ontologies should have vann:preferredNamespaceUri matching their URI" ;
     rut:appliesTo rut:Schema ;
     rut:generated rut:ManuallyGenerated ;
-    rut:source <http://purl.org/vocab/vann/> ;
+    rut:source vann: ;
     rut:sparqlWhere """ { ?this a owl:Ontology .
         OPTIONAL { ?this <http://purl.org/vocab/vann/preferredNamespaceUri> ?vannUri }
         FILTER (
@@ -29,7 +29,7 @@ rutt:ontologies-vann-preferredNamespaceUri
     rut:resultAnnotation [
         a rut:ResultAnnotation ;
         rut:annotationProperty sh:predicate ;
-        rut:annotationValue <http://purl.org/vocab/vann/preferredNamespaceUri>
+        rut:annotationValue vann:preferredNamespaceUri
     ];
     rut:resultAnnotation [
         a rut:ResultAnnotation ;

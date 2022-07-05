@@ -18,7 +18,7 @@ rutt:ontologies-owl-versionInfo
     rut:appliesTo rut:Schema ;
     rut:generated rut:ManuallyGenerated ;
     rut:references owl:versionInfo, owl:Ontology ;
-    rut:source <http://www.w3.org/2002/07/owl#> ;
+    rut:source owl: ;
     rut:sparqlWhere """ { ?this a owl:Ontology .
         OPTIONAL { ?this <http://www.w3.org/2002/07/owl#versionInfo> ?versionInfo }
         FILTER (
@@ -29,7 +29,7 @@ rutt:ontologies-owl-versionInfo
     rut:resultAnnotation [
         a rut:ResultAnnotation ;
         rut:annotationProperty sh:predicate ;
-        rut:annotationValue <http://www.w3.org/2002/07/owl#versionInfo>
+        rut:annotationValue owl:versionInfo
     ];
     rut:resultAnnotation [
         a rut:ResultAnnotation ;
