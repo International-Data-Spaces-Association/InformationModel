@@ -56,7 +56,7 @@ To validate, e.g., a Connector self-description, one creates the corresponding S
 To solve this issue, we _recommend_ to concatenate all SHACL shapes in the _testing_ subdirectory of the respository into a single shapes graph or file, respectively.
 
 #### <a name="prepare_2"></a>2. Preparing the RDF instance
-In addition to the preparation of the SHACL shapes graph, the RDF instance may need some additional semantic informationen such as `rdfs:subClassOf` class inheritance informations. For example, the `ids:Connector` class is a subclass of the `ids:ManagedEntity` class. To enable SHACL to validate those properties, which the `ids:Connector` RDF instance inherits from its `ids:ManagedEntity` superclass, the correct axioms must be added to the data graph. This is due to the fact that SHACL _shapes_ do not cover these kind of semantics themselves.
+In addition to the preparation of the SHACL shapes graph, the RDF instance may need some additional semantic informationen such as `rdfs:subClassOf` class inheritance information. For example, the `ids:Connector` class is a subclass of the `ids:ManagedEntity` class. To enable SHACL to validate those properties, which the `ids:Connector` RDF instance inherits from its `ids:ManagedEntity` superclass, the correct axioms must be added to the data graph. This is due to the fact that SHACL _shapes_ do not cover this kind of semantics themselves.
 
 A simple solution is to append the whole IDS Information Model ontology to the RDF instance. This ensures that the data graph contains all necessary relational information. In practice, this approach has been sufficiently efficient so far.
 

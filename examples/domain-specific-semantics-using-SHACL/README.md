@@ -14,7 +14,7 @@ The Information Model is domain-independent; it contains generic properties for 
 
 The [TEMP_SHACL.ttl](TEMP_SHACL.ttl) contains a SHACL shape, which describes the schema of a JSON temperature dataset. The [TEMP_DATA_SCHEMA.json](TEMP_DATA_SCHEMA.json) file contains the corresponding JSON schema, from which the SHACL shape is derived.
 
-[TEMP_RESOURCE.ttl](TEMP_RESOURCE.ttl) and [TEMP_RESOURCE.json](TEMP_RESOURCE.json), show an exemplary modelling of a temperature dataset as an _ids:Resource_ using the [RDF/Turtle](https://www.w3.org/TR/turtle/) or [JSON-LD](https://www.w3.org/TR/2014/REC-json-ld-20140116/) RDF serialization. The aforementioned [TEMP_SHACL.ttl](TEMP_SHACL.ttl) SHACL shape can be referenced by its URI in the _ids:Resource_ (or _dcat:Distribution_) using the _sh:shapesGraph_ property, an import of _sh:shapesGraph_ into the IDS namespace. In this way, domain-specific semantics can be supplemented to a _ids:Resource / dcat:Distribution_.  
+[TEMP_RESOURCE.ttl](TEMP_RESOURCE.ttl) and [TEMP_RESOURCE.json](TEMP_RESOURCE.json), show an exemplary modelling of a temperature dataset as an _ids:Resource_ using the [RDF/Turtle](https://www.w3.org/TR/turtle/) or [JSON-LD](https://www.w3.org/TR/2014/REC-json-ld-20140116/) RDF serialization. The aforementioned [TEMP_SHACL.ttl](TEMP_SHACL.ttl) SHACL shape can be referenced by its URI in the _ids:Resource_ (or _dcat:Distribution_) using the _sh:shapesGraph_ property, an import of _sh:shapesGraph_ into the IDS namespace. In this way, domain-specific semantics can be supplemented to an _ids:Resource / dcat:Distribution_.  
 
 
 ##### Validate data using SHACL

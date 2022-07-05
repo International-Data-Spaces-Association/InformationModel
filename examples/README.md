@@ -65,7 +65,7 @@ its Data Apps (e.g. APP2) via that registry.
 
 ## Example PART1: European traffic data provider)
 
-The hypothetical "Highway monitoring and statistics agency" acts as a data provider [PART1](PART1.ttl). It maintains a large-scale infrastructure for monitoring, analysis and prediction of highway utilization statistics in European context. The agency has deployed a range of mobile connectors (e.g. CONN1) for distributed collection and publication of geo-tagged, regional sensor data, likewise a secure connector (CONN2) for sharing valuable statistics
+The hypothetical "Highway monitoring and statistics agency" acts as a data provider [PART1](PART1.ttl). It maintains a large-scale infrastructure for monitoring, analysis and prediction of highway utilization statistics in European context. The agency has deployed a range of mobile connectors (e.g. CONN1) for distributed collection and publication of geotagged, regional sensor data, likewise a secure connector (CONN2) for sharing valuable statistics
 reports and predictions.
 
 

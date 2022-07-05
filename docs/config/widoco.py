@@ -148,7 +148,7 @@ def get_jive_information(jive_credentials):
             subsection_id += 1
             description_text += '<div class="jive-rendered-content">' + useful_text
 
-    # Fix a enumeration mistake in the current version of the jive documents (last checked: 08/19)
+    # Fix an enumeration mistake in the current version of the jive documents (last checked: 08/19)
     description_text = re.sub(r'Figure\s3\s20:', 'Figure 3.24:', description_text)
     description_text = re.sub(r'Figure\s3\s21:', 'Figure 3.25:', description_text)
 
@@ -390,7 +390,7 @@ def clean_up_webvowl_ontology():
 
 
 # Some local references are included to the generated serializations.
-# This starts the clean up for all formats.
+# This starts the cleanup for all formats.
 def clean_up_ontology_serialization_owl_imports():
     clean_up_json_ontology_owl_imports()
     clean_up_nt_ontology_owl_imports()
@@ -400,7 +400,7 @@ def clean_up_ontology_serialization_owl_imports():
 
 
 # Renames widoco output file "index-en.html" to "index.html".
-# Only "index.html" gets displayed correctly with github pages.
+# Only "index.html" gets displayed correctly with GitHub pages.
 def rename_index_file():
     # Replace reference in index-en.html itself
     with open('../index-en.html') as fp:
@@ -448,7 +448,7 @@ def rename_namespace(old_ns, uri, new_ns):
 
 # Define all namespaces which are not wanted to be added to the namespaces.
 # Most of them come from "rdfs:seeAlso"-links or the additional references.
-# Additionally defines some incorrectly named namespaces and starts the
+# Additionally, defines some incorrectly named namespaces and starts the
 # substitution process.
 def adjust_namespaces():
     # Entry format for the list:

@@ -25,7 +25,7 @@ Once we found these results, we listed each class and property by file, the rela
 
 We describe some examples here:
 
-- The `ids:Agent` is defined as an extension of the `odrl:Party`, indeed `ids:Agent` is defined as a `subClassOf odrl:Party`. We took the following notes: "It is not clear why ids:Agent needs to be defined as a subclass of two external classes. Based on the information on the **ODRL vocabulary**, `foaf:Agent` needs to be used to describe further details of the party. Additionally to `odlr:Party` and `foaf:Agent`, it is defined as a subclass of `ids:Described` and adds only `rdfs:label` and `rdfs:comment`. It is used in *Participant.ttl* to define `ids:Participant`, and to define range for `ids:publisher`, and `ids:sovereign` in *Resource.ttl*, `ids:senderAgent` and `ids:recipientAgent` in *Message.ttl*, and `ids:hasAgent` in *Connector.ttl"*. Based on those evaluation notes, we decided the definition in the IDS Information Model was **Redundant (r)**, removed the `ids:Agent` and replaced it by `foaf:Agent`.
+- The `ids:Agent` is defined as an extension of the `odrl:Party`, indeed `ids:Agent` is defined as a `subClassOf odrl:Party`. We took the following notes: "It is not clear why ids:Agent needs to be defined as a subclass of two external classes. Based on the information on the **ODRL vocabulary**, `foaf:Agent` needs to be used to describe further details of the party. Additionally, to `odlr:Party` and `foaf:Agent`, it is defined as a subclass of `ids:Described` and adds only `rdfs:label` and `rdfs:comment`. It is used in *Participant.ttl* to define `ids:Participant`, and to define range for `ids:publisher`, and `ids:sovereign` in *Resource.ttl*, `ids:senderAgent` and `ids:recipientAgent` in *Message.ttl*, and `ids:hasAgent` in *Connector.ttl"*. Based on those evaluation notes, we decided the definition in the IDS Information Model was **Redundant (r)**, removed the `ids:Agent` and replaced it by `foaf:Agent`.
 
 
 - The `ids:contentType` is defined as a `subPropertyOf` `dct:type`, and it adds `rdfs:domain` (ids:DigitalContent), and `rdfs:range` (ids:ContentType). We decided that this definition was **Partially Redundant (pr)**, but we decided to keep it, as it is more specific than `dct:type`.
@@ -77,7 +77,7 @@ After making the aforementioned evaluation and changes, the results are the foll
 
 - 103 definitions were evaluated, from which 36 were classes and 67 were properties.
 - We detected 57 **Probably Redundant (pr)** cases, 40 **Redundant (r)** cases, and 6 **Non Redundant (nr)** cases.
-- In 30 cases we made no changes, from which 6 correspond to **Non Redundant (nr)** cases and 24 correspond to **Partially Redundant (pr)** cases.
+- In 30 cases we made no changes, from which 6 correspond to **Non-Redundant (nr)** cases and 24 correspond to **Partially Redundant (pr)** cases.
 - In 72 cases we made changes by removing the local definitions and replacing them by their external definitions, they all correspond to **Redundant (r)** and **Partially Redundant (pr)** cases.
 - 1 case is pending, and corresponds to the property **"ids:rightOperand"**
 
@@ -245,7 +245,7 @@ ap15:Ressource1
 
 Here we included the additional properties `dct:title`, `dct:description`, `dcat:keyword`, `dct:issued`, which all refer to external definitions belongin to DCAT and Dublin Core Terms (`@prefix dcat: <http://www.w3.org/ns/dcat#> .` and `@prefix dct:  <http://purl.org/dc/terms/> .` respectively).
 
-Moreover, we included the properties `ap15:serialNumber` and `ap15:operator`, which are local definitions corresponding to the above mentioned prefix `@prefix ap15: <http://fit.fraunhofer.de/ap15/> .`.
+Moreover, we included the properties `ap15:serialNumber` and `ap15:operator`, which are local definitions corresponding to the above-mentioned prefix `@prefix ap15: <http://fit.fraunhofer.de/ap15/> .`.
 
 Now, let's say we want to include further validations for those additional properties, 
 We create a new file containing the validations as SHACL shapes, as follows:

@@ -1,6 +1,6 @@
 # Model
 
-The RDFS/OWL-ontology maintained in Github is the normative, *declarative representation* of the IDS Information Model. It is framed by the *conceptual representation* laid down in the *Reference Architecture Model* ([RAM v2](https://www.internationaldataspaces.org/publications/idsa-ram/)) and mapped to *programmatic representations* supporting a native development within a programming language, e.g. Java. 
+The RDFS/OWL-ontology maintained in GitHub is the normative, *declarative representation* of the IDS Information Model. It is framed by the *conceptual representation* laid down in the *Reference Architecture Model* ([RAM v2](https://www.internationaldataspaces.org/publications/idsa-ram/)) and mapped to *programmatic representations* supporting a native development within a programming language, e.g. Java. 
 
 The overall purpose of this formal model is to enable a (semi)automated exchange of digital assets within a network of distributed parties while maintaining their sovereignty on those assets. Given such a broad functional scope intersected with respective business domains (logistics, agriculture, energy etc.) the Information Model is a subject to perpetual evolution and refinement lead by clear design principles. These are, among others:
 - *reuse*: body of existing work (standards, ontologies, scientific publications etc.) is evaluated and re-used. It either informs or is effectively used in the development of the Information Model, e.g. by extending classes and properties of vocabularies like [DCAT](https://www.w3.org/TR/vocab-dcat/).
@@ -11,7 +11,7 @@ The mnemonic hexagonal arrangement of **C**arbon atoms was chosen to illustrate 
 
 <div align="center"><img alt="Concerns hexagon" src="https://raw.githubusercontent.com/IndustrialDataSpace/InformationModel/develop/images/Hexagon_simple.jpg" width="40%" /></div>
 
-Some of the sub-models below directly map to the above mentioned concerns, some follow a more detailed view on particular aspects (e.g. participants). 
+Some sub-models below directly map to the above-mentioned concerns, some follow a more detailed view on particular aspects (e.g. participants). 
 
 ## Directory layout
 Each of the sub-models represents an individual modeling facet:
