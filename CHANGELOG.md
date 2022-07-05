@@ -45,7 +45,7 @@ Version 4.1.0 of the IDS Information Model
 
 
 ### Removed
-* `idsm:` metamodel annotations, which were used to annotate cardinalities of properties. The property cardinalities and restrictions are now exclusively represented via the corresponding SHACL shapes found in the [testing subdirectory](testing/)
+* `idsm:` metamodel annotations, which were used to annotate cardinalities of properties. The property cardinalities and restrictions are now exclusively represented via the corresponding SHACL shapes found in the [testing subdirectory](testing)
 
 
 ## [4.0.0] 2020-08-04

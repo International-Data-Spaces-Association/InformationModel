@@ -43,7 +43,7 @@ $(PATH_TO_JENA_bin)/riot --strict --check --output=Turtle conn_self_description.
 ```
 This is needed because the TopBraid SHACL tool, which is used for validation in this example, only supports RDF/Turtle notation.
 
-4. Retrieve the corresponding SHACL shape for the Connector self-description. The *ConnectorShape.ttl* is located in the [testing/infrastructure](../../testing/infrastructure) subfolder of the IDS Information Model. Alternatively, one can download the SHACL shape using following command, if there is no local copy of the IDS Information Model repository.
+4. Retrieve the corresponding SHACL shape for the Connector self-description. The *ConnectorShape.ttl* is located in the [testing/infrastructure](/testing/infrastructure) subfolder of the IDS Information Model. Alternatively, one can download the SHACL shape using following command, if there is no local copy of the IDS Information Model repository.
 ```
 wget -N https://github.com/IndustrialDataSpace/InformationModel/raw/master/testing/infrastructure/ConnectorShape.ttl
 ```
