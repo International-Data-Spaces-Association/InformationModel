@@ -4,7 +4,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix spin: <http://spinrdf.org/spin#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
@@ -14,10 +14,10 @@
 
 idsc:SWAP_REQUEST_TEMPLATE a ids:SwapRequest ;
     rdfs:label "Data Swap Request Template" ;
-    spin:labelTemplate """The Consumer requests the permission to perform a defined Action on the Provider's Data Asset and at the
+    sh:labelTemplate """The Consumer requests the permission to perform a defined Action on the Provider's Data Asset and at the
     same time offers to allow (another) defined Action on the Consumer's Data Asset to the Provider."""@en ;
     rdfs:comment "This template models the data swap between two IDS Participants."@en ;
-    skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
+    skos:note "rdfs:label, rdfs:comment, sh:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     (
       (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
     | # or

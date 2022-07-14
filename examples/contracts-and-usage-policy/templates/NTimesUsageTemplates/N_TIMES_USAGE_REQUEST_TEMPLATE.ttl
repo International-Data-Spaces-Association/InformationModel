@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix spin: <http://spinrdf.org/spin#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -14,9 +14,9 @@
 
 idsc:N_TIMES_USAGE_REQUEST_TEMPLATE a ids:NotMoreThanNRequest ;
     rdfs:label "N Times Usage Request Template" ;
-    spin:labelTemplate """The Consumer requests from a potential Producer to allow a defined Action ?n times on a specified Asset."""@en ;
+    sh:labelTemplate """The Consumer requests from a potential Producer to allow a defined Action ?n times on a specified Asset."""@en ;
     rdfs:comment "This template models the limited usage of accessing data ?n times."@en ;
-    skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
+    skos:note "rdfs:label, rdfs:comment, sh:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     (
       (ids:provider idsc:PARTICIPANT_TEMPLATE ;)
     | # or

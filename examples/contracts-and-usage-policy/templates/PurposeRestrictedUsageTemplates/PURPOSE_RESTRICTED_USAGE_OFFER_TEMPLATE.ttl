@@ -4,7 +4,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix spin: <http://spinrdf.org/spin#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
@@ -14,7 +14,7 @@
 
 idsc:PURPOSE_RESTRICTED_USAGE_OFFER_TEMPLATE a ids:PurposeOffer ;
     rdfs:label "Purpose Restricted Usage Offer Template" ;
-    spin:labelTemplate """The Provider offers to the Consumer to allow a defined Action on its Asset given that the
+    sh:labelTemplate """The Provider offers to the Consumer to allow a defined Action on its Asset given that the
     Consumer only uses the data for a specific purpose."""@en ;
     rdfs:comment "This template models data usage for a specific purpose only."@en ;
     skos:note "rdfs:label, rdfs:comment, and skos:note annotations are _not_ part of the template itself!"@en ;
