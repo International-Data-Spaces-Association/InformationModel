@@ -5,10 +5,10 @@ These reference examples show how RDF instances of the IDS Information Model can
 
 
 ### <a name="contents"></a>Contents
-The __[cli](./cli/)__ subdirectory demonstrates the SHACL validation using CLI tools. Note that this validation approach, with the tools presented here, can only be done after performing the steps described in [Preparing the SHACL Shapes](#prepare_1) and [Preparing the RDF instance](#prepare_2) either manually or using other tools beforehand.
+The __[cli](./cli)__ subdirectory demonstrates the SHACL validation using CLI tools. Note that this validation approach, with the tools presented here, can only be done after performing the steps described in [Preparing the SHACL Shapes](#prepare_1) and [Preparing the RDF instance](#prepare_2) either manually or using other tools beforehand.
 
 
-The __[java](./java/)__ subdirectory contains a code example of a small SHACL validator implementation, based on the [Apache Jena](https://jena.apache.org/) library for Java. The example program provides programmatic functionalities to do most of the steps described in [Validating RDF instances using SHACL](#validation) automatically.
+The __[java](./java)__ subdirectory contains a code example of a small SHACL validator implementation, based on the [Apache Jena](https://jena.apache.org/) library for Java. The example program provides programmatic functionalities to do most of the steps described in [Validating RDF instances using SHACL](#validation) automatically.
 
 
 Below, the basic functionality of SHACL as well as its intended usage is described.
@@ -23,7 +23,7 @@ To ensure the correct usage and understanding of the vocabulary, validation stru
 - an `ids:Resource` is described using the right metadata terms
 - an HTTP multipart message exchanged between IDS components provides the necessary information
 
-The SHACL shapes can be found in the [testing](../testing) subdirectory of the IDS Information Model.
+The SHACL shapes can be found in the [testing](/testing) subdirectory of the IDS Information Model.
 
 The tools and methods provided here demonstrate the validation of JSON-LD RDF statements since JSON-LD is currently the most widely used RDF serialization in the IDS.
 
@@ -56,7 +56,7 @@ To validate, e.g., a Connector self-description, one creates the corresponding S
 To solve this issue, we _recommend_ to concatenate all SHACL shapes in the _testing_ subdirectory of the respository into a single shapes graph or file, respectively.
 
 #### <a name="prepare_2"></a>2. Preparing the RDF instance
-In addition to the preparation of the SHACL shapes graph, the RDF instance may need some additional semantic informationen such as `rdfs:subClassOf` class inheritance informations. For example, the `ids:Connector` class is a subclass of the `ids:ManagedEntity` class. To enable SHACL to validate those properties, which the `ids:Connector` RDF instance inherits from its `ids:ManagedEntity` superclass, the correct axioms must be added to the data graph. This is due to the fact that SHACL _shapes_ do not cover these kind of semantics themselves.
+In addition to the preparation of the SHACL shapes graph, the RDF instance may need some additional semantic informationen such as `rdfs:subClassOf` class inheritance information. For example, the `ids:Connector` class is a subclass of the `ids:ManagedEntity` class. To enable SHACL to validate those properties, which the `ids:Connector` RDF instance inherits from its `ids:ManagedEntity` superclass, the correct axioms must be added to the data graph. This is due to the fact that SHACL _shapes_ do not cover this kind of semantics themselves.
 
 A simple solution is to append the whole IDS Information Model ontology to the RDF instance. This ensures that the data graph contains all necessary relational information. In practice, this approach has been sufficiently efficient so far.
 

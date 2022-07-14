@@ -11,7 +11,7 @@ maintained according to the rules documented on http://keepachangelog.com.
 
 - strip whitespace at the end of lines
 - do not use tabs (use 4 spaces instead)
-- end each file with a newline (its easier to concat them then)
+- end each file with a newline (it is easier to concat them then)
 
 ## Commits
 
@@ -26,7 +26,7 @@ Good commits serve at least these important purposes:
 
 ### Meta Data
 
-Please create commits with valid meta data only. This means, you have to configure your name and mail address like this:
+Please create commits with valid metadata only. This means, you have to configure your name and mail address like this:
 
 ```
 git config --global user.name "$name"
@@ -92,8 +92,8 @@ For example:
 
 Notice how this doesn't work for the other non-imperative forms:
 
-- If applied, this commit will fixed bug with Y
-- If applied, this commit will changing behavior of X
+- If applied, this commit will fix bug with Y
+- If applied, this commit will change behavior of X
 - If applied, this commit will more fixes for broken stuff
 - If applied, this commit will sweet new class
 
@@ -110,7 +110,7 @@ The branching model defines the basic workflow for different activities in the r
 - prepare and release a version
 
 Our used branching model is an enhanced version of the model by [Vincent Driessen](http://nvie.com/posts/a-successful-git-branching-model/).
-The important variation is the back-merge from the the tagged master onto the develop branch.
+The important variation is the back-merge from the tagged master onto the develop branch.
 This enables the power of the `git describe --always --dirty` command, which outputs an ID for the whole process.
 
 #### Requirements
@@ -124,7 +124,7 @@ This enables the power of the `git describe --always --dirty` command, which out
 - Every new feature will be developed in its own feature branch off from develop
 - Each feature will follow this naming: feature/featureName (where feature name is some descriptive feature name, 2 words most, camel case)
 - Regularly push your work to the same named feature branch on the server
-- If you need newest changes from develop merge it into your feature branch using git merge --no-ff
+- If you need the newest changes from develop merge it into your feature branch using git merge --no-ff
 - Avoid cross-merging of other feature branches
 - CONVENTION: merge your feature branch into develop by opening a pull request
     - Always merge your feature branch into develop using git merge --no-ff

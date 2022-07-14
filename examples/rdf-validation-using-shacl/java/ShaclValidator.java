@@ -31,7 +31,7 @@ import java.util.stream.Stream;
  * A simple Java application to demonstrate the usage of the Jena framework for SHACL validation.
  */
 
-public class SHACL_Validator {
+public class ShaclValidator {
 
     final Logger logger = LoggerFactory.getLogger(SHACL_Validator.class);
     private Path ont_path;
@@ -45,23 +45,23 @@ public class SHACL_Validator {
     public static void main(String[] args) throws IOException {
         File[] instances = new File(args[2]).listFiles((dir, name) -> name.toLowerCase().endsWith(".jsonld"));
         for (File p : instances){
-            SHACL_Validator validator = new SHACL_Validator(args[0], args[1], p);
+            SHACL_Validator validator = new ShaclValidator(args[0], args[1], p);
             validator.validateRDF();
         }
     }
 
     /**
      *
-     * @param ont_path Path to the IDS Information Model
-     * @param shacl_path path to the SHACL shapes. Basically the same as the /testing/ directory of the IDS Information Model repository
-     * @param instance_file File of the RDF instance (in JSON-LD) which ha to be validated against SHACL
+     * @param ontPath Path to the IDS Information Model
+     * @param shaclPath path to the SHACL shapes. Basically the same as the /testing/ directory of the IDS Information Model repository
+     * @param instanceFile File of the RDF instance (in JSON-LD) which ha to be validated against SHACL
      * @throws MalformedURLException
      */
-    public SHACL_Validator(String ont_path, String shacl_path, File instance_file) throws MalformedURLException {
-        this.ont_path = format_rdf_path(ont_path);
-        this.shacl_path = format_rdf_path(shacl_path);
-        //this.instance_path = format_rdf_path(instance_path) ;
-        this.instance_file = instance_file;
+    public ShaclValidator(String ontPath, String shaclPath, File instanceFile) throws MalformedURLException {
+        this.ont_path = formatRdfPath(ontPath);
+        this.shacl_path = formatRdfPath(shaclPath);
+        //this.instance_path = formatRdfPath(instance_path) ;
+        this.instance_file = instanceFile;
     }
 
     /**
@@ -69,13 +69,13 @@ public class SHACL_Validator {
      * @throws IOException
      */
     void validateRDF() throws IOException {
-        Graph data_graph = readModelAndInstance();          // Read ontology and
-        Shapes shapes_graph = readSHACL();
+        Graph dataGraph = readModelAndInstance();          // Read ontology and
+        Shapes shapesGraph = readSHACL();
 
-        System.out.println("Total RDF triples \t" + data_graph.size());
-        System.out.println("Total SHACL shapes \t" + shapes_graph.numShapes());
+        System.out.println("Total RDF triples \t" + dataGraph.size());
+        System.out.println("Total SHACL shapes \t" + shapesGraph.numShapes());
 
-        ValidationReport report = ShaclValidator.get().validate(shapes_graph, data_graph);
+        ValidationReport report = ShaclValidator.get().validate(shapesGraph, dataGraph);
         if (!report.conforms()) {
             System.out.println(instance_file.toString() + " failed");
             System.out.println(String.valueOf(report.getEntries()));
@@ -88,18 +88,18 @@ public class SHACL_Validator {
 
     /**
      * Converts a path provided as string to a Path object
-     * @param string_path path to the file / directory
+     * @param stringPath path to the file / directory
      * @return Representation of the file / directory path as a Path object
      * @throws MalformedURLException
      */
-    private Path format_rdf_path(String string_path) throws MalformedURLException {
-        URL path_as_url = Paths.get(string_path).toUri().toURL();
+    private Path formatRdfPath(String stringPath) throws MalformedURLException {
+        URL pathAsUrl = Paths.get(stringPath).toUri().toURL();
 
-        if (path_as_url.getPath().substring(0, 4).contains(":")) {
-            return Paths.get(path_as_url.getPath().substring(1));
+        if (pathAsUrl.getPath().substring(0, 4).contains(":")) {
+            return Paths.get(pathAsUrl.getPath().substring(1));
         }
         else {
-            return Paths.get(path_as_url.getPath());
+            return Paths.get(pathAsUrl.getPath());
         }
     }
 
@@ -114,10 +114,10 @@ public class SHACL_Validator {
         ontologyModel.read(Files.newInputStream(this.ont_path)
                 , null, "TTL");
         Graph rdfInstanceModel = JenaUtil.createMemoryModel().getGraph();
-        byte[] json_ld_arr = Files.readAllBytes(this.instance_file.toPath());
+        byte[] jsonLdArr = Files.readAllBytes(this.instance_file.toPath());
 
         RDFParser parser = RDFParser.create()
-                .source(new ByteArrayInputStream(json_ld_arr))
+                .source(new ByteArrayInputStream(jsonLdArr))
                 .lang(RDFLanguages.JSONLD)
                 .errorHandler(ErrorHandlerFactory.errorHandlerWarn).build();
         parser.parse(rdfInstanceModel);

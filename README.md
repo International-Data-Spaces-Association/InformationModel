@@ -27,7 +27,7 @@ with significant contributions, comments and support by (in alphabetical order):
 - Andreas W. Müller, [Schaeffler](https://www.schaeffler.de/content.schaeffler.de/en/)
 - Dr. Michael Theß, [Signal Cruncher GmbH](https://signal-cruncher.com/)
 
-Likewise the authors would like to thank numerous colleagues at Fraunhofer, active participants of the [International Data Spaces Association](https://www.internationaldataspaces.org/en/), the members of the W3C [Dataset Exchange Group](https://www.w3.org/2017/dxwg/wiki/Main_Page) and [Data Market Austria](https://datamarket.at/en/) for illuminating conversations and support in shaping the Information Model.
+Likewise, the authors would like to thank numerous colleagues at Fraunhofer, active participants of the [International Data Spaces Association](https://www.internationaldataspaces.org/en/), the members of the W3C [Dataset Exchange Group](https://www.w3.org/2017/dxwg/wiki/Main_Page) and [Data Market Austria](https://datamarket.at/en/) for illuminating conversations and support in shaping the Information Model.
 
 ## Directory layout
 

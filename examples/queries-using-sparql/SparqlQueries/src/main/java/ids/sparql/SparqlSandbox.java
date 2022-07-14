@@ -49,9 +49,9 @@ public class SparqlSandbox {
     }
 
     /**
-     * Reads a SPARQL query from file, executes it against the pre-loaded target, and prints the results to console.
+     * Reads a SPARQL query from file, executes it against the preloaded target, and prints the results to console.
      * @param queryPath the file path to load the SPARQL query from
-     * @param model the pre-loaded RDF model of the input/target
+     * @param model the preloaded RDF model of the input/target
      * @throws IOException on I/O error while reading the query from the given file path
      */
     private static void executeQueryAndPrintResults(Path queryPath, Model model) throws IOException {

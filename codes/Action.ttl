@@ -15,7 +15,7 @@ idsc:ANONYMIZE
     a odrl:Action ;
     rdfs:comment "To anonymize all, parts or certain attributes of the resource."@en ;
     rdfs:label "anonymize"@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/anonymize> ;
+    skos:broader odrl:anonymize ;
     odrl:includedIn idsc:USE ;
     skos:note "This action is always evaluated at the provider side."@en ;
 .
@@ -24,7 +24,7 @@ idsc:AGGREGATE_BY_CONSUMER
     a odrl:Action ;
     rdfs:comment "Data will be part of another piece of data so that it is not distinguishable anymore."@en ;
     rdfs:label "aggregate by consumer"@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/aggregate> ;
+    skos:broader odrl:aggregate ;
     odrl:includedIn idsc:USE ;
     skos:note "This action is always evaluated at the consumer side."@en ;
 .
@@ -33,7 +33,7 @@ idsc:AGGREGATE_BY_PROVIDER
     a odrl:Action ;
     rdfs:comment "Data will be part of another piece of data so that it is not distinguishable anymore."@en ;
     rdfs:label "aggregate by provider"@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/aggregate> ;
+    skos:broader odrl:aggregate ;
     odrl:includedIn idsc:AGGREGATE_BY_CONSUMER ;
     skos:note "This action is always evaluated at the provider side."@en ;
 .
@@ -49,7 +49,7 @@ idsc:COMPENSATE
     a odrl:Action;
     rdfs:label "compensate"@en ;
     rdfs:comment "To pay a certain amount of money in order to use a resource."@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/compensate> ;
+    skos:broader odrl:compensate ;
     odrl:includedIn idsc:USE ;
     skos:note "This action must be evaluated both at the consumer and provider side. A compensation might be required before access is granted (provider-side), or each time the usage action is performed (consumer-side)."@en ;
     .
@@ -65,7 +65,7 @@ idsc:DELETE
     a odrl:Action;
     rdfs:label "delete"@en ;
     rdfs:comment "To remove a resource or inhibit any further access with reasonable measures."@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/delete> ;
+    skos:broader odrl:delete ;
     odrl:includedIn idsc:WRITE ;
     skos:note "This action is evaluated at the consumer side if used in a duty clause. A provider cannot be forced to delete its data resources. If used in a permission clause, it is effecting the data provider as it allows the consumer to delete the provider's resource remotely."@en ;
     .
@@ -74,7 +74,7 @@ idsc:DISTRIBUTE
     a odrl:Action;
     rdfs:label "distribute"@en;
     rdfs:comment "To forward or supply a resource to a third-party."@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/distribute> ;
+    skos:broader odrl:distribute ;
     odrl:includedIn idsc:USE ;
     skos:note "This action is always evaluated at the consumer side and allows it to become a data provider of this resource."@en ;
     .
@@ -83,7 +83,7 @@ idsc:GRANT_USE
     a odrl:Action;
     rdfs:label "grant use"@en;
     rdfs:comment "To grant use of a resource to another party. Does *not* imply any other usage rights."@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/grantUse> ;
+    skos:broader odrl:grantUse ;
     odrl:includedIn idsc:USE ;
     skos:note "This action is always evaluated at the consumer side, at the moment a third party intends to access the resource as received by the original consumer."@en ;
     .
@@ -121,7 +121,7 @@ idsc:MODIFY
     a odrl:Action ;
     rdfs:comment "To change a resource locally."@en ;
     rdfs:label "modify"@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/modify>;
+    skos:broader odrl:modify;
     odrl:includedIn idsc:WRITE ;
     skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;
     .
@@ -137,7 +137,7 @@ idsc:NEXT_POLICY
     a odrl:Action ;
     rdfs:comment "To forward the resource under the same policy. Implies a permission to distribute."@en ;
     rdfs:label "next policy"@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/nextPolicy> ;
+    skos:broader odrl:nextPolicy ;
     odrl:includedIn idsc:DISTRIBUTE ;
     skos:note "This action is always evaluated at the consumer side."@en ;
     .
@@ -146,7 +146,7 @@ idsc:NOTIFY
     a odrl:Action ;
     rdfs:comment "To log information or notify an instance about incidents. Can be used to define Clearing House interactions."@en ;
     rdfs:label "notify"@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/inform> ;
+    skos:broader odrl:inform ;
     odrl:includedIn idsc:LOG ;
     skos:note "This action can target the consumer and the data provider of the resource."@en ;
     .
@@ -155,7 +155,7 @@ idsc:READ
     a odrl:Action ;
     rdfs:comment "To obtain data from the resource."@en ;
     rdfs:label "read"@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/read>;
+    skos:broader odrl:read;
     odrl:includedIn idsc:MODIFY ;
     skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;
     .
@@ -187,7 +187,7 @@ idsc:USE
     a odrl:Action;
     rdfs:label "use"@en;
     rdfs:comment "To use a resource in any possible way. Includes all other actions."@en ;
-    skos:broader <http://www.w3.org/ns/odrl/2/use> ;
+    skos:broader odrl:use ;
     skos:note "This action is always evaluated at the consumer side."@en ;
     .
 

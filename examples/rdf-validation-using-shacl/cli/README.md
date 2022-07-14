@@ -4,7 +4,7 @@
 The reference examples show how an Information Model RDF instance can be validated on the CLI against the IDS Information Model using SHACL.
 
 ## Description
-This reference example demonstrates the SHACL validation of a Connector self-description. A IDS Connector provides its self-description as a JSON-LD document. The self-description can be validated using the corresponding SHACL shapes, which can be found in the _/testing/_ directory.
+This reference example demonstrates the SHACL validation of a Connector self-description. An IDS Connector provides its self-description as a JSON-LD document. The self-description can be validated using the corresponding SHACL shapes, which can be found in the _/testing/_ directory.
 
 This example demonstrates the validation of a single RDF instance without considering its relations to other classes and their corresponding SHACL validity. Please check the [README.md in the parent directory](../README.md) for more information regarding this.
 
@@ -43,7 +43,7 @@ $(PATH_TO_JENA_bin)/riot --strict --check --output=Turtle conn_self_description.
 ```
 This is needed because the TopBraid SHACL tool, which is used for validation in this example, only supports RDF/Turtle notation.
 
-4. Retrieve the corresponding SHACL shape for the Connector self-description. The *ConnectorShape.ttl* is located in the [testing/infrastructure](../../testing/infrastructure) subfolder of the IDS Information Model. Alternatively, one can download the SHACL shape using following command, if there is no local copy of the IDS Information Model repository.
+4. Retrieve the corresponding SHACL shape for the Connector self-description. The *ConnectorShape.ttl* is located in the [testing/infrastructure](/testing/infrastructure) subfolder of the IDS Information Model. Alternatively, one can download the SHACL shape using following command, if there is no local copy of the IDS Information Model repository.
 ```
 wget -N https://github.com/IndustrialDataSpace/InformationModel/raw/master/testing/infrastructure/ConnectorShape.ttl
 ```
