@@ -380,14 +380,14 @@ ids:requestedParticipant rdf:type owl:ObjectProperty ;
 # Log messaging
 # -------------
 
-ids:LogEntry a owl:Class;
-    rdfs:label "Log Entry"@en ;
-    rdfs:comment "Contains the metadata of a LogMessage"@en .
-
 ids:LogMessage a owl:Class;
     rdfs:subClassOf ids:NotificationMessage ;
     rdfs:label "Log Message"@en ;
     rdfs:comment "Log Message which can be used to transfer logs e.g., to the clearing house."@en.
+
+ids:LogEntry a owl:Class;
+    rdfs:label "Log Entry"@en ;
+    rdfs:comment "Contains the metadata of a LogMessage"@en .
 
 ids:transactionID a owl:DatatypeProperty ;
     rdfs:domain ids:LogEntry ;
