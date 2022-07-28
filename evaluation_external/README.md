@@ -74,7 +74,7 @@ Here we list the issues related to the evaluation and implementation of changes.
 After making the aforementioned evaluation and changes, the results are the following:
 
 - SHACL shapes were revised, in which obsolete IDS classes and properties have been replaced by directly using those from external ontologies. Link: [Revised SHACL shapes](https://github.com/International-Data-Spaces-Association/InformationModel/pull/504/files?authenticity_token=XVFNq4XvnDG%2B7RiaW4dajYrPiYhNvJduQR6iBOrESAomY91dmV4lzg2WjUWMB3c3cGYFzHUesT95PDoMD2eqkg%3D%3D&file-filters%5B%5D=.ttl&hide-deleted-files=true&w=1)
-- The IDS infomodel has been improved. Link: [Revised infomodel](https://github.com/International-Data-Spaces-Association/InformationModel/pull/504/commits)
+- The IDS Information Model has been improved. Link: [Revised Information Model](https://github.com/International-Data-Spaces-Association/InformationModel/pull/504/commits)
 - A dedicated helper file, which compensates for the copies deleted from the infomodel and thus makes them available to the CodeGen environment, has been developed. This contains a minimal set of all the resources needed to keep code generation stable and reliable. Link: [Dedicated helper file](https://github.com/International-Data-Spaces-Association/InformationModel/blob/documentationIDSModel-enhacement/utils/refactor_helper.ttl)
 
 - 103 definitions were evaluated, from which 36 were classes and 67 were properties.
