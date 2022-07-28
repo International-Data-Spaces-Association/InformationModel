@@ -23,7 +23,7 @@ First, we created a new branch from the *"develop"* branch. After that, we creat
 
 Our approach for identifying possible redundant definitions was to search in files by using regular expressions: `subClassOf(?!ids)`, and `subPropertyOf(?!ids)`. We traversed all the results and ignored copies of ontologies. Moreover, we focused on the *.ttl* files included in the different model definitions, for example **communication**, or **content**.
 
-Once we found these results, we listed each class and property by file, the relation (`subClassOf or subPropertyOf`), and the external class or property it refers to.  For the aforementioned evaluation (**r**, **pr**, **nr**), we analyzed the internal definition, for example, which other additional information was introduced by it. We then determined the use of that internal definition in the related files in the models, validations, and testing files. Based on the performed evaluation, we made the decisions to keep the class or property, or remove it and proceeded to the concrete implementation of changes as described in the next section.
+Once we found these results, we listed each class and property by file, the relation (`subClassOf` or `subPropertyOf`), and the external class or property it refers to.  For the aforementioned evaluation (**r**, **pr**, **nr**), we analyzed the internal definition, for example, which other additional information was introduced by it. We then determined the use of that internal definition in the related files in the models, validations, and testing files. Based on the performed evaluation, we made the decisions to keep the class or property, or remove it and proceeded to the concrete implementation of changes as described in the next section.
 
 We describe some examples here:
 
