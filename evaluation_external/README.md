@@ -1,4 +1,6 @@
-# Reusability and Domain-specific Extensions Through Application Profiles (T60)
+# Reusability and Domain-specific Extensions Through Application Profiles
+
+This work has been carried out in the scope of the [Fraunhofer Cluster of Excellence Cognitive Internet Technologies](https://www.cit.fraunhofer.de/), [Research Center Data Spaces](https://www.dataspaces.fraunhofer.de/), project T60.
 
 ## Introduction
 
