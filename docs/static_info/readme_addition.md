@@ -13,7 +13,6 @@ details: (https://github.com/dgarijo/WIDOCO/releases/latest). Alternatively you 
 (`git clone https://github.com/dgarijo/Widoco`), extract it and run `mvn clean package` to build the jar file.
 * Put the resulting jar file into Infomodel\docs\config.
 * Run `pip install -r requirements.txt` to make sure, the `request` package is installed.
-* Run the `widoco.py` script with `python widoco.py <widoco-filename> <username> <password>` providing your username and
-password for the IndustrialDataSpace Jiveon (https://industrialdataspace.jiveon.com/) and the name of the widoco executable (e.g.
-`widoco-1.4.11-jar-with-dependencies.jar`).
+* Run the `widoco.py` script with `python widoco.py <widoco-filename>` providing the name of the widoco executable (e.g.
+`widoco-1.4.17-jar-with-dependencies`).
 

@@ -13,25 +13,19 @@ copies = f'{root}/copies'
 version_folder = copies + '/{ontology_version}/InformationModel-{ontology_version}'
 
 
-# Get path to widoco executable jar file and jive credentials from
-# command line or bamboo variabes.
+# Get path to widoco executable jar file
 def parse_arguments():
     if len(sys.argv) == 4:
         # Use command line arguments
         widoco_path = sys.argv[1]
-        jive_un = sys.argv[2]
-        jive_pw = sys.argv[3]
     elif len(sys.argv) == 2:
-        # Use bamboo variables
         widoco_path = sys.argv[1]
-        jive_un = os.environ['bamboo_jive_username']
-        jive_pw = os.environ['bamboo_jive_password']
     else:
         # Not enough information provided. Exit.
-        print('Usage: widoco.py <widoco_path> <jiveon_username> <jiveon_password>')
+        print('Usage: widoco.py <widoco_path>')
         exit(0)
 
-    return widoco_path, (jive_un, jive_pw)
+    return widoco_path
 
 
 # Get files from the repository by release tag (the last release) and build directories
@@ -83,8 +77,7 @@ def generate_documentation(ontology_version, ontology_previous_version, ontology
     edit_readme(ontology_version)
     move_ontology_files(ontology_version)
     replace_ontology_download_link(ontology_version)
-    #currently getting 401 error while trying to retrieve docs. To investigate with IDSA people
-    #insert_jive_information(jive_credentials, ontology_version)
+    insert_content_documentation_information(ontology_version)
     insert_references(ontology_version)
 
     # Correction of unwanted behavior from widoco.jar
@@ -267,9 +260,9 @@ def remove_ids_trailingslash(filename, ontology_version):
     return
 
 
-# Download information from jive and insert into the widoco output.
-def insert_jive_information(jive_credentials, ontology_version):
-    intro, description = get_jive_information(jive_credentials)
+# Take content from local files (coming from available information in Jive up to July 2022) and insert into the widoco output.
+def insert_content_documentation_information(ontology_version):
+    intro, description = get_content_documentation_information()
     image_names = get_image_names()
 
     intro = replace_image_names(intro, image_names)
@@ -280,76 +273,39 @@ def insert_jive_information(jive_credentials, ontology_version):
 
     return
 
-
 # Downloads a given set of documents to describe the InfoModel.
-def get_jive_information(jive_credentials):
-    # https://industrialdataspace.jiveon.com/docs/DOC-1952 -> current abstract
-    # https://industrialdataspace.jiveon.com/docs/DOC-1953 -> current introduction
-    # https://industrialdataspace.jiveon.com/docs/DOC-1954 |
-    # https://industrialdataspace.jiveon.com/docs/DOC-1971 |
-    # https://industrialdataspace.jiveon.com/docs/DOC-1972 |
-    # https://industrialdataspace.jiveon.com/docs/DOC-1973 | -> current description
-    # search <div class="jive-rendered-content"> for the relevant info
+def get_content_documentation_information():
+    # ../../content_documentation/DOC-1952 -> current abstract
+    # ../../content_documentation/DOC-1953 -> current introduction
+    # ../../content_documentation/DOC-1954 |
+    # ../../content_documentation/DOC-1971 |
+    # ../../content_documentation/DOC-1972 |
+    # ../../content_documentation/DOC-1973 | -> current description
 
-    intorduction_text = ''
+    introduction_text = ''
     description_text = ''
     subsection_id = 1
 
     for doc_id in ['1953', '1954', '1971', '1972', '1973']:
-        resp = requests.get('https://industrialdataspace.jiveon.com/docs/DOC-' + doc_id, data={},
-                            auth=(jive_credentials[0], jive_credentials[1]))
-
-        html = resp.text
+        with open(f'../../content_documentation/DOC-{doc_id}.html', 'r') as f:
+            html = f.read()
         useful_text = html.split('<div class="jive-rendered-content">')[1].split('<!-- [DocumentBodyEnd:')[0]
 
         if doc_id == '1953':
             useful_text = re.sub(r'3\.\d\.\d', '', useful_text)
-            intorduction_text = '<div class="jive-rendered-content">' + useful_text
+            introduction_text = '<div class="jive-rendered-content">' + useful_text
         else:
             useful_text = re.sub(r'3\.\d\.\d', '3.%d.' % subsection_id, useful_text)
             subsection_id += 1
             description_text += '<div class="jive-rendered-content">' + useful_text
 
-    # Fix a enumeration mistake in the current version of the jive documents (last checked: 08/19)
+    # Fix a enumeration mistake in the current version of the documents coming from Jive (last checked: 08/19)
     description_text = re.sub(r'Figure\s3\s20:', 'Figure 3.24:', description_text)
     description_text = re.sub(r'Figure\s3\s21:', 'Figure 3.25:', description_text)
 
-    return intorduction_text, description_text
+    return introduction_text, description_text
 
-
-# Not used right now because the current version in jive does not have
-# pictures with a high resolution.
-# Downloads the referenced images in the given text from jive.
-def download_images(text, jive_credentials):
-    session = requests.Session()
-    session.auth = (jive_credentials[0], jive_credentials[1])
-    auth = session.post('https://industrialdataspace.jiveon.com')
-
-    images = re.findall('src="(.*?).png"', text)
-    image_names = {}
-
-    for image in images:
-        image_name = image[image.rfind('/') + 1:] + '.png'
-        res = re.search(r'(\d{3}-\d{4}-\d-\d{4})', image)
-        image_id = res.group(1)
-
-        if image_name in image_names:
-            new_image_name = image_name[:-4] + '_2.png'
-        else:
-            new_image_name = image_name
-
-        image_names[new_image_name] = (image_name, image_id)
-
-        resp = session.get(image)
-        with open('../img/' + new_image_name, 'wb') as f:
-            f.write(resp.content)
-
-    session.close()
-
-    return image_names
-
-
-# Define a translation from the jive image-names to the ones with better resolution.
+# Define a translation from the image-names coming originally from Jive to the ones with better resolution.
 def get_image_names():
     return {'pastedImage_1.png': 'Figure_3_13_Representations_of_the_Information_Model.png',
             'pastedImage_9.png': 'Table_2_01_Class_diagram.png',
@@ -678,6 +634,6 @@ def adjust_namespaces(ontology_version):
 
 if __name__ == '__main__':
     # Preparation
-    widoco_path, jive_credentials = parse_arguments()
+    widoco_path = parse_arguments()
     # Get files by tag from repository and then run widoco documentation process
     get_files_from_repository()

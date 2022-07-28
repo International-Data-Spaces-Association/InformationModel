@@ -13,17 +13,8 @@ details: (https://github.com/dgarijo/WIDOCO/releases/latest). Alternatively you 
 (`git clone https://github.com/dgarijo/Widoco`), extract it and run `mvn clean package` to build the jar file.
 * Put the resulting jar file into Infomodel\docs\config.
 * Run `pip install -r requirements.txt` to make sure, the `request` package is installed.
-* Run the `widoco.py` script with `python widoco.py <widoco-filename> <username> <password>` providing your username and
-password for the IndustrialDataSpace Jiveon (https://industrialdataspace.jiveon.com/) and the name of the widoco executable (e.g.
-`widoco-1.4.11-jar-with-dependencies.jar`).
-* Manually delete the generated ontology.json file and create a new one using the owl2vowl.jar. To achieve this, execute the following command lines (where X.Y.Z represent the ontology version number):
-
-- wget http://downloads.visualdataweb.de/owl2vowl_0.3.7.zip -O owl2vowl.zip
-- unzip owl2vowl_0.3.7.zip
-- java -jar owl2vowl.jar -file Documents/InformationModel/Ontology-X.Y.Z.ttl
-- mv Ontology-X.Y.Z.json Documents/InformationModel/docs/X.Y.Z/webvowl/data 
-
-* Rename the Ontology-X.Y.Z.json to ontology.json (in Documents/InformationModel/docs/X.Y.Z/webvowl/data)
+* Run the `widoco.py` script with `python widoco.py <widoco-filename>` providing the name of the widoco executable (e.g.
+`widoco-1.4.17-jar-with-dependencies`).
 
 About Widoco output
 ===================
