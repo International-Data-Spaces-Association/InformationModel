@@ -5,28 +5,31 @@
     "part1": "https://im.internationaldataspaces.org/participant/part1",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "org": "<http://www.w3.org/ns/org#>",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
       "@id": "https://im.internationaldataspaces.org/participant/part1",
       "@type": "ids:Participant",
-      "ids:corporateEmailAddress": "info@aastat.de",
-      "ids:corporateHomepage": {
+      "foaf:mbox": "info@aastat.de",
+      "foaf:homepage": {
         "@id": "http://aastat.de"
       },
-      "ids:description": {
+      "dct:description": {
         "@language": "en",
         "@value": "Agency maintaining a large-scale infrastructure for monitoring, analysis and prediction of highway utilization statistics in Europe."
       },
       "ids:participantCertification": {
         "@id": "_:ub97bL19C34"
       },
-      "ids:primarySite": {
+      "org:hasPrimarySite": {
         "@id": "_:ub97bL15C21"
       },
 	  "ids:legalForm" : "DX6Z" ,
-      "ids:title": [
+      "dct:title": [
         {
           "@language": "en",
           "@value": "Highway monitoring and statistics agency"
@@ -50,7 +53,7 @@
     },
     {
       "@id": "_:ub97bL15C21",
-      "@type": "ids:Site",
+      "@type": "org:Site",
       "ids:siteAddress": "Agentur für Autobahnstatistik, Am Hügel 5, D-53121 Bonn"
     }
   ]

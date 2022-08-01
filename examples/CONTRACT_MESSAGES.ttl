@@ -3,6 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 @prefix data1: <https://aastat.gov.de/connector/conn2/data1/> .
 @prefix conn3: <https://someCompany.de/connector/conn3> .
@@ -12,7 +13,7 @@
 conn3:inter3_r a ids:ContractRequestMessage;
     ids:issuerConnector conn3: ;
     ids:recipientConnector conn2: ;
-    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    dct:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
     ids:modelVersion "4.1.0";
     ids:securityToken [ 
 		a ids:DynamicAttributeToken ;
@@ -26,7 +27,7 @@ conn3:inter3_r a ids:ContractRequestMessage;
 conn2:inter3_o a ids:ContractOfferMessage;
     ids:issuerConnector conn2: ;
     ids:recipientConnector conn3: ;
-    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    dct:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
     ids:modelVersion "4.1.0";
     ids:securityToken [ 
 		a ids:DynamicAttributeToken ;
@@ -41,7 +42,7 @@ conn2:inter3_o a ids:ContractOfferMessage;
 conn3:inter3_a a ids:ContractAgreementMessage;
     ids:issuerConnector conn3: ;
     ids:recipientConnector conn2: ;
-    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    dct:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
     ids:modelVersion "4.1.0";
     ids:securityToken [ 
 		a ids:DynamicAttributeToken ;
@@ -56,7 +57,7 @@ conn3:inter3_a a ids:ContractAgreementMessage;
 conn2:inter3_a a ids:ContractAgreementMessage;
     ids:issuerConnector conn2: ;
     ids:recipientConnector conn3: ;
-    ids:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
+    dct:issued "2020-06-08T12:10:13Z"^^xsd:dateTimeStamp ;
     ids:modelVersion "4.1.0";
     ids:securityToken [ 
 		a ids:DynamicAttributeToken ;
