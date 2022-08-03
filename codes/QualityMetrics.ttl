@@ -1,0 +1,35 @@
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix dqvno: <https://data.norge.no/vocabulary/dqvno#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Dimensions
+# ---------
+
+# All metrics used so far are defined in dqv or dqvno
+
+# Metrics
+# ---------
+
+idsc:SPATIAL_ACCURACY
+    a dqv:Metric ;
+    skos:definition "Percentage of spatial elements that are found accurate according to a specific methodology" @en ;
+    dqv:expectedDataType xsd:decimal ;
+    dqv:inDimension dqvno:accuracy 
+    .
+
+idsc:POPULATION_COMPLETENESS
+    a dqv:Metric ;
+    skos:definition "Ratio between the number of objects represented in the dataset and the number of objects expected to be represented according to the declared dataset scope."@en ;
+    dqv:inDimension dqvno:completeness ;
+    dqv:expectedDataType xsd:double
+    .
+
+idsc:SPATIAL_RESOLUTION_AS_ANGULAR_DISTANCE a dqv:Metric;
+    skos:definition "Spatial resolution of a dataset expressed as angular distance"@en ;
+    dqv:expectedDataType xsd:decimal ;
+    dqv:inDimension dqv:precision 
+    .
