@@ -14,7 +14,11 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dqvno: <https://data.norge.no/vocabulary/dqvno#> .
 
 # Definition of Classes
 
@@ -525,9 +529,9 @@ dqv:QualityMeasurement a owl:Class, rdfs:Class ;
   rdfs:subClassOf qb:Observation .
 
 ###  https://data.norge.no/vocabulary/dqvno#rateOfObjectsWithInconsistencyBetweenGivenProperties
-:rateOfObjectsWithInconsistencyBetweenGivenProperties rdf:type owl:NamedIndividual ,
+dqvno:rateOfObjectsWithInconsistencyBetweenGivenProperties rdf:type owl:NamedIndividual ,
                                                                dqv:Metric ;
-                                                      dqv:inDimension :consistencyWithinDataset ;
+                                                      dqv:inDimension dqvno:consistencyWithinDataset ;
                                                       dqv:expectedDataType ""^^xsd:double ;
                                                       dct:source "egendefinert"@nb ,
                                                                  "own definition"@en ;
