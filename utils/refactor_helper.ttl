@@ -1,0 +1,87 @@
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix dqvno: <https://data.norge.no/vocabulary/dqvno#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# --------------------------------------------------------------
+# External Classes
+# --------------------------------------------------------------
+
+dqv:QualityMeasurement a owl:Class, rdfs:Class ;
+  rdfs:label "Quality Measurement"@en ;
+  rdfs:comment "Represents the evaluation of a given dataset (or dataset distribution) against a specific quality metric."@en ;
+  owl:equivalentClass daq:Observation;
+  vann:usageNote "The unit of measure in quality measurement should be specified through the property sdmx-attribute:unitMeasure as recommended by RDF Data Cube. The Ontology of units of Measure (OM) by Rijgersberg Et Al provides a list of HTTP dereferenceable unit of measures, which can be exploited as values for sdmx-attribute:unitMeasure."@en ;
+  rdfs:subClassOf qb:Observation .
+
+dqv:Metric a owl:Class, rdfs:Class;
+  rdfs:label "Metric"@en ;
+  rdfs:comment "Represents a standard to measure a quality dimension. An observation (instance of dqv:QualityMeasurement) assigns a value in a given unit to a Metric."@en ;
+  owl:equivalentClass daq:Metric .
+
+dqv:Dimension a owl:Class, rdfs:Class ;
+  rdfs:label "Dimension"@en ;
+  rdfs:comment "Represents criteria relevant for assessing quality. Each quality dimension must have one or more metric to measure it. A dimension is linked with a category using the dqv:inCategory property."@en ;
+  rdfs:subClassOf skos:Concept ;
+  owl:equivalentClass daq:Dimension .
+  
+dqv:Category a owl:Class, rdfs:Class ;
+  rdfs:label "Category"@en ;
+  rdfs:comment "Represents a group of quality dimensions in which a common type of information is used as quality indicator."@en ;
+  rdfs:subClassOf skos:Concept ;
+  owl:equivalentClass daq:Category .
+
+# --------------------------------------------------------------
+# External Properties
+# --------------------------------------------------------------
+
+dqv:hasQualityMeasurement a rdf:Property ;
+  rdfs:label "has quality measurement"@en ;
+  rdfs:comment "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."@en ;
+  rdfs:domain ids:Resource ;
+  rdfs:range dqv:QualityMeasurement ;
+  owl:inverseOf dqv:computedOn .
+
+dqv:isMeasurementOf a rdf:Property, qb:DimensionProperty ;
+  rdfs:label "is measurement of"@en ;
+  rdfs:comment "Indicates the metric being observed."@en ;
+  rdfs:domain dqv:QualityMeasurement ;
+  rdfs:range dqv:Metric ;
+  owl:equivalentProperty daq:metric .
+
+
+dqv:value a rdf:Property, qb:MeasureProperty, owl:DatatypeProperty ;
+  rdfs:label "value"@en ;
+  rdfs:comment "Refers to values computed by metric."@en ;
+  rdfs:domain dqv:QualityMeasurement ;
+  rdfs:range xsd:decimal ;
+  owl:equivalentProperty daq:value .
+
+# --------------------------------------------------------------
+# External Instances
+# --------------------------------------------------------------
+
+###  https://data.norge.no/vocabulary/dqvno#rateOfObjectsWithInconsistencyBetweenGivenProperties
+dqvno:rateOfObjectsWithInconsistencyBetweenGivenProperties rdf:type owl:NamedIndividual ,
+            dqv:Metric ;
+    dqv:inDimension dqvno:consistencyWithinDataset ;
+    dqv:expectedDataType ""^^xsd:double ;
+    dct:source "egendefinert"@nb ,
+                "own definition"@en ;
+    skos:altLabel "andel objekter med inkonsistens mellom gitte egenskaper"@nb ;
+    skos:definition "antall enheter med inkonsistens mellom gitte egenskaper i forhold til antall enheter i datasettet"@nb ,
+                    "number of objects with inconsistency between given properties in relation to the number of objects in the data set"@en ;
+    skos:example "\"0,03%\" (av bygningene i datasettet står oppført med bruksareal som er høyere enn bruttoareal)"@nb ,
+                "\"0,2%\" (av personene i datasettet står oppført som utvandret, men er likevel registrert med norsk bostedsadresse)"@nb ,
+                "\"0,4%\" (av ansatte i datasettet står oppført med startdato på arbeidsforhold som er før fødsesldato)"@nb ,
+                "“0.03%\" (0.03% of the buildings in the dataset have “usable area” larger than “gross area”)"@en ;
+    skos:prefLabel "andel enheter med inkonsistens mellom gitte egenskaper"@nb ,
+                    "rate of objects with inconsistency between given properties"@en .
