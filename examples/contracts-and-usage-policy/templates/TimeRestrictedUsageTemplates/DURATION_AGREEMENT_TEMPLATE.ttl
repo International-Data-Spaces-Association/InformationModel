@@ -5,7 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -19,19 +18,19 @@ idsc:DURATION_AGREEMENT_TEMPLATE a ids:DurationAgreement ;
     skos:note "rdfs:label, rdfs:comment, spin:labelTemplate, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
     ids:consumer idsc:PARTICIPANT_TEMPLATE ;
-    odrl:permission[
-        a odrl:Permission ;
-        odrl:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
-        odrl:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
+    ids:permission [
+        a ids:Permission ;
+        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider
+        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer
         ids:target idsc:ASSET_TEMPLATE ;
-        odrl:action idsc:ACTION_TEMPLATE ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand idsc:ELAPSED_TIME ;
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:ELAPSED_TIME ;
             ids:operator idsc:SHORTER_EQ ;
-            odrl:rightOperand ?duration ;                    # for a certain usage ?duration
+            ids:rightOperand ?duration ;                    # for a certain usage ?duration
         ] ;
-        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
     ]

@@ -5,7 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -20,25 +19,25 @@ idsc:USAGE_NOTIFICATION_AGREEMENT_TEMPLATE a ids:NotificationAgreement ;
     skos:note "rdfs:label, rdfs:comment, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
     ids:consumer idsc:PARTICIPANT_TEMPLATE ;
-    odrl:permission[
-        a odrl:Permission ;
-        odrl:assigner idsc:PARTICIPANT_TEMPLATE ;
-        odrl:assignee idsc:PARTICIPANT_TEMPLATE ;
+    ids:permission [
+        a ids:Permission ;
+        ids:assigner idsc:PARTICIPANT_TEMPLATE ;
+        ids:assignee idsc:PARTICIPANT_TEMPLATE ;
         ids:target idsc:ASSET_TEMPLATE ;
-        odrl:action idsc:ACTION_TEMPLATE ;
+        ids:action idsc:ACTION_TEMPLATE ;
         ids:postDuty [
-            a odrl:Duty ;
-            odrl:action [
-                a odrl:Action ;
-                odrl:includedIn idsc:NOTIFY ;
+            a ids:Duty ;
+            ids:action [
+                a ids:Action ;
+                ids:includedIn idsc:NOTIFY ;
                 ids:actionRefinement [
-                    a odrl:Constraint ;
-                    odrl:leftOperand idsc:ENDPOINT ;
-                    odrl:operator idsc:DEFINES_AS ;
-                    odrl:rightOperandReference ?notificationEndpointUrl ; # Send notification information to this URL
+                    a ids:Constraint ;
+                    ids:leftOperand idsc:ENDPOINT ;
+                    ids:operator idsc:DEFINES_AS ;
+                    ids:rightOperandReference ?notificationEndpointUrl ; # Send notification information to this URL
                 ]
             ]
         ] ;
-        [ odrl:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints
+        [ ids:constraint idsc:CONSTRAINT_TEMPLATE ; ]*      # zero or more Constraints
     ]
 .

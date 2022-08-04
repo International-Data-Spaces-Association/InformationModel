@@ -5,7 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -19,32 +18,32 @@ idsc:SECURITY_LEVEL_AGREEMENT_TEMPLATE a ids:SecurityAgreement ;
     skos:note "rdfs:label, rdfs:comment, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
     ids:consumer idsc:PARTICIPANT_TEMPLATE ;
-    odrl:permission[
-        a odrl:Permission ;
-        odrl:assigner idsc:PARTICIPANT_TEMPLATE ;
-        odrl:assignee idsc:PARTICIPANT_TEMPLATE ;
+    ids:permission [
+        a ids:Permission ;
+        ids:assigner idsc:PARTICIPANT_TEMPLATE ;
+        ids:assignee idsc:PARTICIPANT_TEMPLATE ;
         ids:target idsc:ASSET_TEMPLATE ;
-        odrl:action idsc:ACTION_TEMPLATE ;
-        odrl:constraint [
-            a odrl:LogicalConstraint ;
-            odrl:or ( # '(' is used as an RDF List operator here
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:LogicalConstraint ;
+            ids:or ( # '(' is used as an RDF List operator here
             ([
-                a odrl:Constraint ;
-                odrl:leftOperand idsc:SECURITY_LEVEL ;
-                odrl:operator idsc:SAME_AS ;
-                odrl:rightOperandReference idsc:BASE_SECURITY_PROFILE ;
+                a ids:Constraint ;
+                ids:leftOperand idsc:SECURITY_LEVEL ;
+                ids:operator idsc:SAME_AS ;
+                ids:rightOperandReference idsc:BASE_SECURITY_PROFILE ;
             ])?
             ([
-                a odrl:Constraint ;
-                odrl:leftOperand idsc:SECURITY_LEVEL ;
-                odrl:operator idsc:SAME_AS ;
-                odrl:rightOperandReference idsc:TRUST_SECURITY_PROFILE ;         # in case BASE is selected, TRUST must also always be included
+                a ids:Constraint ;
+                ids:leftOperand idsc:SECURITY_LEVEL ;
+                ids:operator idsc:SAME_AS ;
+                ids:rightOperandReference idsc:TRUST_SECURITY_PROFILE ;         # in case BASE is selected, TRUST must also always be included
             ])?
             [
-                a odrl:Constraint ;
-                odrl:leftOperand idsc:SECURITY_LEVEL ;
-                odrl:operator idsc:SAME_AS ;
-                odrl:rightOperandReference idsc:TRUST_PLUS_SECURITY_PROFILE ;    # TRUST+ is always included
+                a ids:Constraint ;
+                ids:leftOperand idsc:SECURITY_LEVEL ;
+                ids:operator idsc:SAME_AS ;
+                ids:rightOperandReference idsc:TRUST_PLUS_SECURITY_PROFILE ;    # TRUST+ is always included
             ]
             ) # ')' is used as an RDF List operator here
         ] ;

@@ -1,10 +1,10 @@
 # SPARQL Queries
-This module illustrates the annotation of IDS resources via the [W3C Data Cube Vocabulary](https://www.w3.org/TR/vocab-data-cube/), the [W3C CSV on the Web Metadata Vocabulary for Tabular Data (CSVW)](https://www.w3.org/TR/2015/REC-tabular-metadata-20151217/), the [W3C Vocabulary of Interlinked Datasets VoID](https://www.w3.org/TR/void/) and the [W3C Shapes Constraint Language SHACL](https://www.w3.org/TR/shacl/), and presents a filtering mechanism based on SPARQL queries.
+This module illustrates the annotation of IDS resources via the [W3C Data Cube Vocabulary](https://www.w3.org/TR/vocab-data-cube/), the [W3C Vocabulary of Interlinked Datasets VoID](https://www.w3.org/TR/void/) and the [W3C Shapes Constraint Language SHACL](https://www.w3.org/TR/shacl/), and presents a filtering mechanism based on SPARQL queries.
 That is, __given multiple IDS resources along with SPARQL queries, return all matching resources.__
 
 ## Motivation and Scenario
 Having one or multiple resources, one would like to filter these based on certain criteria such as
-- their structure (dimension), in terms of Data Cube or, in the case of 2-dimensional tables, also CSVW
+- their structure (dimension), in terms of Data Cube
   - dimension count: "has 3 dimensions"
   - dimension usage: "uses time as dimension"
 - their terminology, in terms of VoID
@@ -16,9 +16,7 @@ Having one or multiple resources, one would like to filter these based on certai
   - "`lifeExpectancy` property is in range 0–150"
   - "`observation` property has to be used at least once"
 
-We therefore extend the IDS Information Model with additional fields in the Data Cube and VoID vocabularies (cf. https://github.com/International-Data-Spaces-Association/InformationModel/issues/190 for details), and query these via SPARQL for appropriate filtering.
-
-For CSVW, neither explicit support nor explicit examples have been implemented so far, but such cases can be modelled in a similar way.
+We therefore extend the IDS Information Model with additional fields in the Data Cube and VoID vocabularies (cf. https://github.com/International-Data-Spaces-Association/InformationModel/issues/190), and query these via SPARQL for appropriate filtering.
 
 ## Requirements
 - Java 11

@@ -6,7 +6,7 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix time: <http://www.w3.org/2006/time#> .
+@prefix time: <https://www.w3.org/TR/owl-time/#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
@@ -111,23 +111,23 @@ idsc:MATCHES a ids:BinaryOperator;
 idsc:AFTER a ids:BinaryOperator;
     rdfs:seeAlso time:after;
     rdfs:label "after"@en ;
-    rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en ;
+    rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
     .
 
 idsc:BEFORE
     a ids:BinaryOperator ;
     rdfs:seeAlso time:before ;
 	rdfs:label "before"@en;
-    skos:note "Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp."@en ;
-    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or a time:TemporalEntity."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp."@en ;
+    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
     .
 
 
 idsc:CONTAINS a ids:BinaryOperator;
     rdfs:seeAlso time:inside, time:intervalContains;
     rdfs:label "contains"@en ;
-    rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
-    skos:note "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."@en ;
+    rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
+    skos:note "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
     .
 
 
@@ -135,8 +135,8 @@ idsc:TEMPORAL_DISJOINT
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:intervalDisjoint;
 	rdfs:label "disjoint"@en;
-	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en;
-    skos:note "Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal."@en ;
+	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en;
+    skos:note "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal."@en ;
     .
 
 idsc:DURING
@@ -144,14 +144,14 @@ idsc:DURING
 	rdfs:seeAlso time:intervalDuring;
 	rdfs:label "during"@en;
 	rdfs:comment "If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
-    skos:note "Compares an instance of time:Instant, time:Interval or xsd:dateTimeStamp with an instance of time:Interval. Evaluates to false if compared to a non time:Interval."@en ;
+    skos:note "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en ;
     .
 
 idsc:TEMPORAL_EQUALS
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:intervalEquals;
 	rdfs:label "interval equals"@en;
-	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal)."@en ;
+	rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."@en ;
     skos:note "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved."@en ;
     .
 
@@ -160,7 +160,7 @@ idsc:FINISHED_BY
 	rdfs:seeAlso time:intervalFinishedBy;
 	rdfs:label "finished by"@en;
 	rdfs:comment "If an interval T1 is finished by another interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en;
-    skos:note "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en ;
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
     .
 
 idsc:FINISHES
@@ -168,7 +168,7 @@ idsc:FINISHES
 	rdfs:seeAlso time:intervalFinishes, ids:intervalIn;
 	rdfs:label "finishes"@en;
 	rdfs:comment "If an Interval T1 finishes another interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en;
-    skos:note "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en ;
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
     .
 
 idsc:MEETS
@@ -191,8 +191,8 @@ idsc:OVERLAPS
 	a ids:BinaryOperator ;
 	rdfs:seeAlso time:intervalOverlaps;
 	rdfs:label "overlaps"@en;
-	rdfs:comment "If a time:Interval T1 overlapps another time:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en ;
-    skos:note "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en ;
+	rdfs:comment "If an ids:Interval T1 overlapps another ids:Interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en ;
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
     .
 
 idsc:OVERLAPPED_BY
@@ -200,7 +200,7 @@ idsc:OVERLAPPED_BY
 	rdfs:seeAlso time:intervalOverlappedBy;
 	rdfs:label "overlapped by"@en;
 	rdfs:comment "If a interval T1 is overlapped another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
-    skos:note "Compares an instance of time:Interval to another instance of time:Interval. Evaluates to false if compared to a non time:Interval or one interval is empty."@en ;
+    skos:note "Compares an instance of ids:Interval to another instance of ids:Interval. Evaluates to false if compared to a non ids:Interval or one interval is empty."@en ;
     .
 
 idsc:STARTS
@@ -208,7 +208,7 @@ idsc:STARTS
 	rdfs:seeAlso time:intervalStarts;
 	rdfs:label "starts"@en;
 	rdfs:comment "If an interval T1 starts with a TemporalEntity T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en ;
-    skos:note "Compares an instance of time:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not a time:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"@en ;
+    skos:note "Compares an instance of ids:Interval to another instance of TemporalEntity (or xsd:dateTimeStamp Literal). Evaluates to false if T2 is not an ids:Interval as then the end of T1 can never be idsc:BEFORE the end of T2"@en ;
     .
 
 idsc:STARTED_BY
@@ -216,7 +216,7 @@ idsc:STARTED_BY
 	rdfs:seeAlso time:intervalStartedBy;
 	rdfs:label "started by"@en;
 	rdfs:comment "If a TemporalEntity T1 is started by another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en ;
-    skos:note "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of time:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."@en ;
+    skos:note "Compares an instance of TemporalEntity (or xsd:dateTimeStamp Literal) to instance of ids:Interval. Evaluates to false if T1 is an Instant (or xsd:dateTimeStamp Literal) as the end of T1 can then not be idsc:AFTER the end of T2."@en ;
     .
 
 
@@ -225,28 +225,28 @@ idsc:DURATION_EQ
 	rdfs:seeAlso time:hasTemporalDuration;
 	rdfs:label "has same duration"@en;
 	rdfs:comment "If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."@en ;
     .
 
 idsc:LONGER
 	a ids:BinaryOperator ;
     rdfs:label "longer"@en ;
 	rdfs:comment "If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 idsc:LONGER_EQ
 	a ids:BinaryOperator ;
     rdfs:label "longer or equals"@en ;
 	rdfs:comment "If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 idsc:SHORTER_EQ
 	a ids:BinaryOperator ;
     rdfs:label "shorter or equals"@en ;
 	rdfs:comment "If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 
@@ -254,7 +254,7 @@ idsc:SHORTER
 	a ids:BinaryOperator ;
     rdfs:label "shorter"@en ;
 	rdfs:comment "If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
-    skos:note "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en ;
+    skos:note "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en ;
     .
 
 

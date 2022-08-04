@@ -5,7 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -26,30 +25,30 @@ idsc:ROLEBASED_RESTRICTED_USAGE_REQUEST_TEMPLATE a ids:RolebasedRequest ;
       (ids:provider idsc:PARTICIPANT_TEMPLATE ;
        ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
     )
-    odrl:permission[
-        a odrl:Permission ;
+    ids:permission [
+        a ids:Permission ;
         (
-          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
         | # or
-          (odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         | # or
-          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
-           odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         )
         ids:target idsc:ASSET_TEMPLATE ;
-        odrl:action idsc:ACTION_TEMPLATE ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand idsc:USER ;
-            odrl:operator idsc:MEMBER_OF ;
-            odrl:rightOperandReference ?ParticipantOrganizationUri ; #  the role below is only valid inside the defining organization, so both aspects need to be checked.
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:USER ;
+            ids:operator idsc:MEMBER_OF ;
+            ids:rightOperandReference ?ParticipantOrganizationUri ; #  the role below is only valid inside the defining organization, so both aspects need to be checked.
             ids:pipEndpoint ?pipUri ;                       # A reference to a Policy Information Point endpoint (might be only locally accessible), which knows about the memberships. For instance the LDAP service.
         ] ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand idsc:USER ;
-            odrl:operator idsc:HAS_MEMBERSHIP ;
-            odrl:rightOperandReference ?RoleURI ;          # the role below is only valid inside the defining organization, so both aspects need to be checked.
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:USER ;
+            ids:operator idsc:HAS_MEMBERSHIP ;
+            ids:rightOperandReference ?RoleURI ;          # the role below is only valid inside the defining organization, so both aspects need to be checked.
             ids:pipEndpoint ?pipUri ;                     # A reference to a Policy Information Point endpoint (might be only locally accessible), which knows about the memberships. For instance the LDAP service.
         ] ;
     ]

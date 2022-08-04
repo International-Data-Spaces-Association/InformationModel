@@ -5,7 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -20,17 +19,17 @@ idsc:CONNECTORBASED_AGREEMENT_TEMPLATE a ids:ConnectorbasedAgreement ;
     skos:note "rdfs:label, rdfs:comment, and skos:note annotations are _not_ part of the template itself!"@en ;
     ids:provider idsc:PARTICIPANT_TEMPLATE ;
     ids:consumer idsc:PARTICIPANT_TEMPLATE ;
-    odrl:permission[
-        a odrl:Permission ;
-        odrl:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider,
-        odrl:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer,
+    ids:permission [
+        a ids:Permission ;
+        ids:assigner idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:provider,
+        ids:assignee idsc:PARTICIPANT_TEMPLATE ;            # same value as ids:consumer,
         ids:target idsc:ASSET_TEMPLATE ;
-        odrl:action idsc:ACTION_TEMPLATE ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand idsc:SYSTEM ;
-            odrl:operator idsc:SAME_AS ;
-            odrl:rightOperandReference ?ConnectorUri ; #  the Connector or target system identifier.
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:SYSTEM ;
+            ids:operator idsc:SAME_AS ;
+            ids:rightOperandReference ?ConnectorUri ; #  the Connector or target system identifier.
         ] ;
     ]
 .

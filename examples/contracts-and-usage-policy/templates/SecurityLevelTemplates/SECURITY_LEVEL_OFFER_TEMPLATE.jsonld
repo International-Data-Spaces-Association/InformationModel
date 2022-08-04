@@ -24,27 +24,27 @@
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         )
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "odrl:action": (idsc:ACTION_TEMPLATE),
+        "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
           {
             "@type:" "ids:LogicalConstraint",
             "ids:or": { "@list": [
                 ({
                   "@type:" "ids:Constraint",
-                  "odrl:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
-                  "odrl:operator": { "@id": "idsc:SAME_AS" },
+                  "ids:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
+                  "ids:operator": { "@id": "idsc:SAME_AS" },
                   "ids:rightOperandReference": { "@id": "idsc:BASE_SECURITY_PROFILE" }
                 },)?
                 ({
                   "@type:" "ids:Constraint",
-                  "odrl:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
-                  "odrl:operator": { "@id": "idsc:SAME_AS" },
+                  "ids:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
+                  "ids:operator": { "@id": "idsc:SAME_AS" },
                   "ids:rightOperandReference": { "@id": "idsc:TRUST_SECURITY_PROFILE" }     // in case BASE is selected, TRUST must also always be included
                 },)?
                 {
                   "@type:" "ids:Constraint",
-                  "odrl:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
-                  "odrl:operator": { "@id": "idsc:SAME_AS" },
+                  "ids:leftOperand": { "@id": "idsc:SECURITY_LEVEL" },
+                  "ids:operator": { "@id": "idsc:SAME_AS" },
                   "ids:rightOperandReference": { "@id": "idsc:TRUST_PLUS_SECURITY_PROFILE" } // TRUST+ is always included
                 }
               ]}

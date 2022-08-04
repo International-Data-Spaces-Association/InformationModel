@@ -1,24 +1,20 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
-@prefix org: <http://www.w3.org/ns/org#> .
 # Participant URI is resolved by Identity Manager
 @prefix part1: <https://im.internationaldataspaces.org/participant/part1> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-
 
 # Assuming resolution of the hypothetical participant URI (urn:ids:example:PART1) by the Identity Provider
 part1:
     a ids:Participant ;
-    dct:title "Agentur für Autobahnstatistik"@de;
-    dct:title "Highway monitoring and statistics agency"@en;
-    dct:description "Agency maintaining a large-scale infrastructure for monitoring, analysis and prediction of highway utilization statistics in Europe."@en ;
-    foaf:mbox "info@aastat.de" ;
-    foaf:homepage <http://aastat.de> ;
+    ids:title "Agentur für Autobahnstatistik"@de;
+    ids:title "Highway monitoring and statistics agency"@en;
+    ids:description "Agency maintaining a large-scale infrastructure for monitoring, analysis and prediction of highway utilization statistics in Europe."@en ;
+    ids:corporateEmailAddress "info@aastat.de" ;
+    ids:corporateHomepage <http://aastat.de> ;
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275. <https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list/>
-    org:hasPrimarySite [
-        a org:Site ;
+    ids:primarySite [
+        a ids:Site ;
         ids:siteAddress "Agentur für Autobahnstatistik, Am Hügel 5, D-53121 Bonn" ;
     ] ;
     ids:participantCertification [

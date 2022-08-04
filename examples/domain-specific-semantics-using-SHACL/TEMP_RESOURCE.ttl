@@ -4,15 +4,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix conn1: <https://aastat.gov.de/connector/conn1/> .
 @prefix sample_Data: <https://aastat.gov.de/connector/conn1/sample_Data/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-
-
 
 # This document contains an example of a resource and how it is represented in the information model.
 
@@ -20,26 +13,26 @@
 # A (Text) Resource in the IDS Information Model
 sample_Data:
     a ids:DataResource ;
-    dct:title "Sample temperature data"@en ;
-    dct:description "Temperature data of ___ from 2001 - 2012 ."@en;
-    dcat:keyword "temperature", "data" ;
+    ids:title "Sample temperature data"@en ;
+    ids:description "Temperature data of ___ from 2001 - 2012 ."@en;
+    ids:keyword "temperature", "data" ;
 
     # Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ.
-    dct:publisher "<URI of the publisher IDS participant>";
+    ids:publisher "<URI of the publisher IDS participant>";
     ids:sovereign "<URI of the sovereign IDS participant>";
 
     # Temporal period covered by the content of the resource:     2001-01-01 to 2012-12-31
-    dct:temporal [
+    ids:temporalCoverage [
         a ids:Interval ;
-        time:hasBeginning [ ids:date "2001-01-01"^^xsd:date ];
-        time:hasEnd   [ ids:date "2012-12-31"^^xsd:date ];
+        ids:begin [ ids:date "2001-01-01"^^xsd:date ];
+        ids:end   [ ids:date "2012-12-31"^^xsd:date ];
     ] ;
 
     # license of the resource:     "Other Commercial License" (as a placeholder for a commercial license)
-    dct:license idsc:OTHERCOMMERCIALLICENSE;
+    ids:standardLicense idsc:OTHERCOMMERCIALLICENSE;
 
     # Language of resource:         Englisch
-    dct:language idsc:ENGLISH ;
+    ids:language idsc:ENGLISH ;
 
     # References to verview of domain-specific vocabularies and terms used by the resource as a whole
     ids:domainVocabulary [
@@ -49,12 +42,12 @@ sample_Data:
         ids:propertyPartition "<Ref to subset of a ids:VocabularyData>";
     ];
 
-    # Value of sh:shapesGraph should be a URI to a graph (e.g., an RDF file) containing one or more SHACL shapes which describe the domain-specific semantics of the ids:Resource
-    sh:shapesGraph "https://example.com/shacl_shapes/temperature_shacl.ttl";
+    # Value of ids:shapesGraph should be a URI to a graph (e.g., an RDF file) containing one or more SHACL shapes which describe the domain-specific semantics of the ids:Resource
+    ids:shapesGraph "https://example.com/shacl_shapes/temperature_shacl.ttl";
 
     ids:representation [
         a ids:DataRepresentation ;
-        dcat:mediaType idsc:APPLICATION_JSON;
+        ids:mediaType idsc:APPLICATION_JSON;
         ids:instance sample_Data:tempdata_file ;
     ] ;
 
@@ -77,32 +70,32 @@ sample_Data:
         # permission and usage constraints of the resource
         # Users have permission to "use" the json artifact in the time range between 2019-09-01T00:00:00 and 2019-10-01T00:00:00
         # with the duty / obligation to pay 100 Euros.
-        odrl:permission[
-            a odrl:Permission ;
+        ids:permission [
+            a ids:Permission ;
 
             # Specify permission
-            odrl:action idsc:USE ;
-            odrl:assigner "<URI of the provider IDS participant>";
+            ids:action idsc:USE ;
+            ids:assigner "<URI of the provider IDS participant>";
 
             # Individual target artifact(s)
             ids:target sample_Data:tempdata_file ;
 
             # time interval restricted usage constraict
-            odrl:constraint [
-                a odrl:Constraint ;
-                odrl:leftOperand idsc:now;
+            ids:constraint [
+                a ids:Constraint ;
+                ids:leftOperand idsc:now;
                 ids:operator idsc:IN_TIME_INTERVAL ;
-                odrl:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
+                ids:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
                 ] ;
 
             # Obligation / Duty
             ids:preDuty [
-                odrl:action idsc:COMPENSATE ;
-                odrl:constraint [
-                    odrl:leftOperand idsc:payAmount ;
+                ids:action idsc:COMPENSATE ;
+                ids:constraint [
+                    ids:leftOperand idsc:payAmount ;
                       ids:operator ids:EQ ;
-                      odrl:rightOperand 100 ;
-                      odrl:unit <http://dbpedia.org/resource/Euro>;
+                      ids:rightOperand 100 ;
+                      ids:unit <http://dbpedia.org/resource/Euro>;
                 ]
             ]
         ]
@@ -114,5 +107,5 @@ sample_Data:tempdata_file
     a ids:Artifact ;
     ids:byteSize "12497"^^xsd:integer ;
     ids:fileName "Temperature_data.json";
-    dct:created "2018-06-01"^^xsd:date ;
+    ids:creationDate "2018-06-01"^^xsd:date ;
 .

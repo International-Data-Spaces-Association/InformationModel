@@ -5,7 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -25,26 +24,26 @@ idsc:EVENT_OFFER_TEMPLATE a ids:EventOffer ;
       (ids:provider idsc:PARTICIPANT_TEMPLATE ;
        ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
     )
-    odrl:permission[
-        a odrl:Permission ;
+    ids:permission [
+        a ids:Permission ;
         (
-          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
         | # or
-          (odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         | # or
-          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
-           odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         )
         ids:target idsc:ASSET_TEMPLATE ;
-        odrl:action idsc:ACTION_TEMPLATE ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand [
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand [
               rdf:subject ?EventURI ;    # TODO: rdf:subject is not defined in the IDS IM # The identifier of this event, for instance http://dbpedia.org/resource/Category:FIFA_World_Cup_tournaments
               ids:broader idsc:EVENT ;
             ] ;
-            odrl:operator idsc:EQUALS ;                    # if pipReturnValue == true --> Constraint is staisfied
-            odrl:rightOperand "true"^^xsd:boolean ;        # for a certain usage ?duration
+            ids:operator idsc:EQUALS ;                    # if pipReturnValue == true --> Constraint is staisfied
+            ids:rightOperand "true"^^xsd:boolean ;        # for a certain usage ?duration
             ids:pipEndpoint ?askIfEventPipUri ;           # The PIP call for this event, for instance https//pip.com/path/isFIFA_World_Cup_tournaments or https//pip.com/ids?event=FIFA_World_Cup_tournaments
         ] ;
     ]

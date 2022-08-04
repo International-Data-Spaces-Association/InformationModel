@@ -8,7 +8,6 @@
 # -------
 
 ids:AppRoute a owl:Class;
-    rdfs:subClassOf ids:Described ;
     rdfs:label "App Route"@en ;
     rdfs:comment """
     ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.
@@ -78,7 +77,7 @@ ids:appRouteOutput a owl:ObjectProperty;
     rdfs:comment """ids:Resource that corresponds to the output of an app route.
 Rationale: whereas an ids:Endpoint can have an ids:endpointArtifact, it is additionally important that the data flow inside the ids:Connector / ids:ConfigurationModel is aware of the ids:ContractOffer (a property of ids:Resource!) associated with the data coming into the Connector or going out of the Connector.
 Use: Whenever properties of this Resource change, it may make sense to notify the ids:broker(s) configured for this AppRoute.
-Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the output resource of one step serves immediately as the input that is processed by the subsequent step(s).  An ids:SystemAdapter typically does not change the ids:Resource, but might rather make it available in a different dcat:Distribution.  An ids:SmartDataApp might replate its input(s) by an entirely different (e.g., fused) resource.
+Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the output resource of one step serves immediately as the input that is processed by the subsequent step(s).  An ids:SystemAdapter typically does not change the ids:Resource, but might rather make it available in a different ids:Representation.  An ids:SmartDataApp might replate its input(s) by an entirely different (e.g., fused) resource.
 """@en ;
 .
 

@@ -24,13 +24,13 @@
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         )
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "odrl:action": (idsc:ACTION_TEMPLATE),
+        "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
-            "odrl:leftOperand": { "@id": "idsc:STATE" },
-            "odrl:operator": { "@id": "idsc:NOT" },
-            "odrl:rightOperand": { "@id": "?terminationState" }    // An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
+            "ids:leftOperand": { "@id": "idsc:STATE" },
+            "ids:operator": { "@id": "idsc:NOT" },
+            "ids:rightOperand": { "@id": "?terminationState" }    // An entity expressing the (final) state that the contract has been terminated by either one of the involved parties.
             (, "ids:pipEndpoint": { "@id": "?pipUri" } )?         // The location where to find this state.
           }
         ] ,
@@ -44,14 +44,14 @@
               ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
                 "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
             )
-            "odrl:action": {
-                "@type": "odrl:Action",
+            "ids:action": {
+                "@type": "ids:Action",
                 "ids:includedIn": { "@id": "idsc:COMPENSATE" },
                 "ids:actionRefinement": {
                     "@type": "ids:Constraint",
-                    "odrl:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
-                    "odrl:operator": { "@id": "idsc:EQ" },
-                    "odrl:rightOperand": {
+                    "ids:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
+                    "ids:operator": { "@id": "idsc:EQ" },
+                    "ids:rightOperand": {
                         "@value": "?fee",
                         "@type": "http://www.w3.org/2001/XMLSchema#double"
                     },
@@ -62,9 +62,9 @@
             "ids:constraint": [
               {
                 "@type": { "@id": "ids:Constraint" },
-                "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-                "odrl:operator": { "@id": "idsc:AFTER" },
-                "odrl:rightOperand": {
+                "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+                "ids:operator": { "@id": "idsc:AFTER" },
+                "ids:rightOperand": {
                     "@value": "?duration",                        // for a certain usage ?duration
                     "@type": "http://www.w3.org/2001/XMLSchema#duration"
                 }

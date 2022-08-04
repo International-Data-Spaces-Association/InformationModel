@@ -5,7 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spin: <http://spinrdf.org/spin#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 
@@ -26,23 +25,23 @@ idsc:SPATIAL_REQUEST_TEMPLATE a ids:SpatialRequest ;
       (ids:provider idsc:PARTICIPANT_TEMPLATE ;
        ids:consumer idsc:PARTICIPANT_TEMPLATE ;)
     )
-    odrl:permission[
-        a odrl:Permission ;
+    ids:permission [
+        a ids:Permission ;
         (
-          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:provider
         | # or
-          (odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         | # or
-          (odrl:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
-           odrl:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
+          (ids:assigner idsc:PARTICIPANT_TEMPLATE ;         # same value as ids:provider
+           ids:assignee idsc:PARTICIPANT_TEMPLATE ;)        # same value as ids:consumer
         )
         ids:target idsc:ASSET_TEMPLATE ;
-        odrl:action idsc:ACTION_TEMPLATE ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
-            odrl:operator ?spatialOperator ;                 # the spatial comparison operator, for instance idsc:INSIDE
-            odrl:rightOperand (
+        ids:action idsc:ACTION_TEMPLATE ;
+        ids:constraint [
+            a ids:Constraint ;
+            ids:leftOperand idsc:ABSOLUTE_SPATIAL_POSITION ;
+            ids:operator ?spatialOperator ;                 # the spatial comparison operator, for instance idsc:INSIDE
+            ids:rightOperand (
               ?area ;                                       # a URI of a named area, for instance http://dbpedia.org/resource/Europe
             | # or
               [
@@ -61,7 +60,7 @@ idsc:SPATIAL_REQUEST_TEMPLATE a ids:SpatialRequest ;
               ] ;
             )
         ] ;
-        ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
+        ( ids:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints
         ( ids:preDuty idsc:OBLIGATION_TEMPLATE ; )*   # zero or more Obligations which need to be fulfilled before the Usage event
         ( ids:postDuty idsc:OBLIGATION_TEMPLATE ; )*  # zero or more additional Obligations which have to be fulfilled after the Usage event
     ]

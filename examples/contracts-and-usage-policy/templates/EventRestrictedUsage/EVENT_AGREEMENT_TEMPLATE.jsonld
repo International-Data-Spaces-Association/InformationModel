@@ -12,18 +12,19 @@
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
         "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "odrl:action": (idsc:ACTION_TEMPLATE),
-        "ids:constraint": [{
+        "ids:action": (idsc:ACTION_TEMPLATE),
+        "ids:constraint": {
             "@type": "ids:Constraint",
-            "odrl:leftOperand": {
-              "@id": "idsc:EVENT"
+            "ids:leftOperand": {
+              "@id": "?EventURI",                                 // The identifier of this event, for instance http://dbpedia.org/resource/Category:FIFA_World_Cup_tournaments
+              "ids:broader" : "idsc:EVENT"
             },
-            "odrl:operator": { "@id": "idsc:EQUALS" },             // if pipReturnValue == true --> Constraint is staisfied
-            "odrl:rightOperand": {
-                "@value": "?eventUri",
-                "@type": "xsd:anyURI"
+            "ids:operator": { "@id": "idsc:EQUALS" },             // if pipReturnValue == true --> Constraint is staisfied
+            "ids:rightOperand": {
+                "@value": "true",
+                "@type": "http://www.w3.org/2001/XMLSchema#boolean"
             },
-            "ids:pipEndpoint": { "@id": "?askIfEventPipUri" }   // the pip receives one parameter (?eventUri) and returns boolean
-        }]
+            "ids:pipEndpoint": { "@id": "?askIfEventPipUri" }   // The PIP call for this event, for instance https//pip.com/path/isFIFA_World_Cup_tournaments or https//pip.com/ids?event=FIFA_World_Cup_tournaments
+        }
     }
 }

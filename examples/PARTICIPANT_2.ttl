@@ -1,21 +1,17 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
-@prefix org: <http://www.w3.org/ns/org#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix part2: <https://im.internationaldataspaces.org/participant/part2> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-
 
 part2:
     a ids:Participant ;
-    dct:title "App4Traffic GmbH"@en;
-    dct:description "Software development and service provision"@en ;
-    foaf:mbox "info@app4traffic.de" ;
-    foaf:homepage <http://app4traffic.de> ;
+    ids:title "App4Traffic GmbH"@en;
+    ids:description "Software development and service provision"@en ;
+    ids:corporateEmailAddress "info@app4traffic.de" ;
+    ids:corporateHomepage <http://app4traffic.de> ;
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275. <https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list/>
-	org:hasPrimarySite [
-        a org:Site ;
+	ids:primarySite [
+        a ids:Site ;
         ids:siteAddress "App4Traffic GmbH, Am Rheinufer 7, D-53127 Bonn" ;
     ] ;
     ids:participantCertification [

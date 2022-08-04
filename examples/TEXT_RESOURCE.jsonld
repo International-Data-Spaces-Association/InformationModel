@@ -5,10 +5,7 @@
     "part1": "https://im.internationaldataspaces.org/participant/part1",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "time": "http://www.w3.org/2006/time#",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dct": "http://purl.org/dc/terms/"
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
     "@type": "ids:TextResource",
     "@id": "https://connector.fit.fraunhofer.de/autogen/textResource/a1247d97-fa1d-4fb4-b22f-590b2f53fa6e",
@@ -29,14 +26,14 @@
     "temporalCoverage": [{
             "@type": "ids:Interval",
             "begin": {
-                "@type": "time:Instant",
+                "@type": "ids:Instant",
                 "dateTime": {
                     "@value": "2000-01-01T12:00:00.000+02:00",
                     "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
                 }
             },
             "end": {
-                "@type": "time:Instant",
+                "@type": "ids:Instant",
                 "dateTime": {
                     "@value": "2017-12-31T12:00:00.000+02:00",
                     "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
@@ -45,7 +42,7 @@
         }
     ],
     "standardLicense": {
-        "@type": "dct:License",
+        "@type": "ids:License",
         "@id": "https://example.org/OTHERCOMMERCIALLICENSE"
     },
     "language": {
@@ -83,17 +80,17 @@
         "provider": {"@id": "<Provider Participant URI>"},
         "contractDocument": {"@id": "<Reference to human-readable resource of this Contract>"},
         "permission": [{
-                "@type": "odrl:Permission",
+                "@type": "ids:Permission",
                 "action": {
-                    "@type": "odrl:Action",
+                    "@type": "ids:Action",
                     "@id": "https://w3id.org/idsa/code/USE"
                 },
                 "assigner": {"@id": "<Assigner Participant URI>"},
                 "target": {"@id": "Reference to the PDF Artifact,     e.g. https://connector.fit.fraunhofer.de/augtogen/artifact/934e-112fe8aa050b"},
                 "constraint": {
-                    "@type": "odrl:Constraint",
+                    "@type": "ids:Constraint",
                     "leftOperand": {
-                        "@type": "odrl:LeftOperand",
+                        "@type": "ids:LeftOperand",
                         "@id": "https://w3id.org/idsa/code/POLICY_EVALUATION_TIME"
                     },
                     "operator": {
@@ -103,14 +100,14 @@
                     "rightOperand": {
                         "@type": "ids:Interval",
                         "begin": {
-                            "@type": "time:Instant",
+                            "@type": "ids:Instant",
                             "dateTime": {
                                 "@value": "2000-01-01T12:00:00.000+02:00",
                                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
                             }
                         },
                         "end": {
-                            "@type": "time:Instant",
+                            "@type": "ids:Instant",
                             "dateTime": {
                                 "@value": "2017-12-31T12:00:00.000+02:00",
                                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
@@ -119,14 +116,14 @@
                     }
                 },
                 "preObligation": {
-                    "@type": "odrl:Duty",
+                    "@type": "ids:Duty",
                     "action": {
                         "@id": "https://w3id.org/idsa/code/COMPENSATE"
                     },
                     "constraint": {
-                        "@type": "odrl:Constraint",
+                        "@type": "ids:Constraint",
                         "leftOperand": {
-                            "@type": "odrl:LeftOperand",
+                            "@type": "ids:LeftOperand",
                             "@id": "https://w3id.org/idsa/code/PAY_AMOUNT"
                         },
 

@@ -12,13 +12,13 @@
         "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
         "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "odrl:action": (idsc:ACTION_TEMPLATE),
+        "ids:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
-            "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-            "odrl:operator": { "@id": "idsc:AFTER" },
-            "odrl:rightOperand": {
+            "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+            "ids:operator": { "@id": "idsc:AFTER" },
+            "ids:rightOperand": {
                 "@value": "?startDateTime",                   // ?startDateTime < ?endDateTime
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
             }
@@ -26,9 +26,9 @@
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
-            "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-            "odrl:operator": { "@id": "idsc:BEFORE" },
-            "odrl:rightOperand": {
+            "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+            "ids:operator": { "@id": "idsc:BEFORE" },
+            "ids:rightOperand": {
                 "@value": "?endDateTime",
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
             }
@@ -38,14 +38,14 @@
             "@type": "ids:Duty",
             "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer
-            "odrl:action": {
-                "@type": "odrl:Action",
+            "ids:action": {
+                "@type": "ids:Action",
                 "ids:includedIn": { "@id": "idsc:DELETE" },
                 "ids:actionRefinement": {
                     "@type": "ids:Constraint",
-                    "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-                    "odrl:operator": { "@id": "idsc:TEMPORAL_EQUALS" },
-                    "odrl:rightOperand": {
+                    "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+                    "ids:operator": { "@id": "idsc:TEMPORAL_EQUALS" },
+                    "ids:rightOperand": {
                         "@value": "?endDateTime",                   // when the interval is over
                         "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
                     }
