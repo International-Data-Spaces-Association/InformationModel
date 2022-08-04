@@ -1,9 +1,11 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
+
 
 <https://example-connector.com>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:BaseConnector ;
@@ -13,23 +15,23 @@
         ids:inboundModelVersion   "2.1.0" ;
         ids:maintainer            "https://example-connector.com" ;
         ids:outboundModelVersion  "2.1.0" ;
-        ids:title                 "Example Connector"@en .
+        dct:title                 "Example Connector"@en .
 
 <https://w3id.org/idsa/autogen/catalog/b0baaeed-6e7e-47dc-86d7-edf087b47845>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Catalog ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  dcat:Catalog ;
         ids:offer  <https://w3id.org/idsa/autogen/resource/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98> ;
         ids:offer  <https://w3id.org/idsa/autogen/resource/resource:uuid:8d254705-b95d-4827-b245-13f8f7c21156> ;
         ids:offer  <https://w3id.org/idsa/autogen/resource/resource:uuid:db2c1abe-0bec-4278-8916-def8dcb982a6> .
 
 <https://w3id.org/idsa/autogen/resource/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Resource ;
-        ids:customLicense     "www.licence.de" ;
-        ids:keyword           ""@en ;
+        dct:license            "www.license.de" ;
+        dcat:keyword           ""@en ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/interactiveEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/metaEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
-        ids:standardLicense   <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
-        ids:version           "Version 1" .
+        dct:license           <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
+        dct:hasVersion        "Version 1" .
 
 <https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:StaticEndpoint ;
@@ -48,7 +50,7 @@
         ids:fileName  "http://ids-mock-http-file:3005/data/data.csv" .
 
 <https://w3id.org/idsa/autogen/host/069c0f90-7888-4dca-8927-83f457bf3bbe>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Host ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Endpoint ;
         ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98/data" ;
         ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:48607e7e-567d-4381-8b3d-86ba8e093d98/meta" ;
         ids:accessUrl  "http://example-connector.com:8000/ids-connector/resource:uuid:8d254705-b95d-4827-b245-13f8f7c21156/data" ;
@@ -70,21 +72,21 @@
 
 <https://w3id.org/idsa/autogen/resource/resource:uuid:8d254705-b95d-4827-b245-13f8f7c21156>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Resource ;
-        ids:customLicense     "www.licence.de" ;
-        ids:description       "Temperature data for IDS-Lab usecase"@en ;
-        ids:keyword           "Temperature;JSON;IDS-Lab"@en ;
+        dct:license           "www.license.de" ;
+        dct:description       "Temperature data for IDS-Lab usecase"@en ;
+        dcat:keyword           "Temperature;JSON;IDS-Lab"@en ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/interactiveEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/metaEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
-        ids:standardLicense   <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
-        ids:version           "Version 1" .
+        dct:license           <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
+        dct:hasVersion        "Version 1" .
 
 <https://w3id.org/idsa/autogen/resource/resource:uuid:db2c1abe-0bec-4278-8916-def8dcb982a6>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>  ids:Resource ;
-        ids:customLicense     "www.licence.de" ;
-        ids:keyword           ""@en ;
+        dct:license            "www.license.de" ;
+        dcat:keyword           ""@en ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/staticEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/interactiveEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
         ids:resourceEndpoint  <https://w3id.org/idsa/autogen/metaEndpoint/4a99a3df-0f0a-4353-8908-043ed7f5cf4a> ;
-        ids:standardLicense   <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
-        ids:version           "Version 1" .
+        dct:license           <https://w3id.org/idsa/code/license/CREATIVECOMMONSATTRIBUTION> ;
+        dct:hasVersion        "Version 1" .

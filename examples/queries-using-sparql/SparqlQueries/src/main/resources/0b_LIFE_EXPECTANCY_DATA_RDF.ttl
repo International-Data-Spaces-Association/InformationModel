@@ -5,6 +5,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
 @prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix life_expectancy: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/> .
 @prefix life_expectancy-geo: <https://statswales.gov.wales/Catalogue/Health-and-Social-Care/Life-Expectancy/Geo/> .
 
@@ -24,27 +27,27 @@
 # A (Data) Resource in the IDS Information Model
 life_expectancy:Resource
   a ids:DataResource , qb:DataSet;
-  ids:title "European highway statistics - accident report"@en ;
-  ids:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
+  dct:title "European highway statistics - accident report"@en ;
+  dct:description "Detailed accident analysis report based on European highway statistics data 2000 - 2017."@en;
 
 # Publisher and sovereign (owner) of the resource. Publisher and sovereign may differ.
-  ids:publisher <www.ids.org/participants/4711>;
+  dct:publisher <www.ids.org/participants/4711>;
   ids:sovereign <www.ids.org/participants/42>;
 
 # Temporal period covered by the content of the resource
-  ids:temporalCoverage [
+  dct:temporal [
                          a ids:Interval ;
-                         ids:begin [a ids:Instant ;
-                                    ids:dateTime "2004-01-01T12:00:00+02:00"^^xsd:dateTimeStamp ];
-                         ids:end   [a ids:Instant ;
-             						ids:dateTime "2008-12-31T12:00:00+02:00"^^xsd:dateTimeStamp ];
+                         time:hasBeginning [a time:Instant ;
+                                    time:inXSDDateTimeStamp "2004-01-01T12:00:00+02:00"^^xsd:dateTimeStamp ];
+                         time:hasEnd   [a time:Instant ;
+             						time:inXSDDateTimeStamp "2008-12-31T12:00:00+02:00"^^xsd:dateTimeStamp ];
                        ] ;
 
 # Open Government License
-  ids:customLicense <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dct:license <http://www.nationalarchives.gov.uk/doc/open-government-license/version/3/> ;
 
 # Language of resource
-  ids:language idsc:EN ;
+  dct:language idsc:EN ;
 
 # Data cube details
   qb:structure life_expectancy:Structure ;
@@ -53,7 +56,7 @@ life_expectancy:Resource
 # Representation of resource: Reference to an "instance" (Excel file below)
   ids:representation [
                        a ids:DataRepresentation ;
-                       ids:mediaType <https://www.iana.org/assignments/media-types/application/vnd.ms-excel>;
+                       dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.ms-excel>;
                        ids:instance life_expectancy:ExcelFile ;
                      ] ;
 .
@@ -67,7 +70,7 @@ life_expectancy:ExcelFile
   a ids:Artifact ;
   ids:byteSize 9759 ;
   ids:fileName "LIFE_EXPECTANCY_DATA.xlsx";
-  ids:creationDate "2020-03-19T12:00:00+02:00"^^xsd:dateTimeStamp ;
+  dct:created "2020-03-19T12:00:00+02:00"^^xsd:dateTimeStamp ;
 .
 
 # Data Cube structure

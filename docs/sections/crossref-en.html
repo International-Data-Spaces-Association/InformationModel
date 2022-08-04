@@ -1477,7 +1477,7 @@ This section provides details for each class and property defined by Internation
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/AssetCollection</p>
       <div class="comment">
-         <span class="markdown">An AssetCollection is a bracket object combining several ids:Assets.</span>
+         <span class="markdown">An AssetCollection is a bracket object combining several odrl:Asset.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -4279,7 +4279,7 @@ This section provides details for each class and property defined by Internation
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/License</p>
       <div class="comment">
-         <span class="markdown">Class of Licences to be referred to by Resources.</span>
+         <span class="markdown">Class of licenses to be referred to by Resources.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -8016,7 +8016,41 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
          </dl>
       </div>
    </div>
-   <div class="entity" id="assetSource">
+   <div class="entity" id="/assetRefinement">
+      <h3>asset refinement<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/idsa/core/assetRefinement</p>
+      <div class="comment">
+         <span class="markdown">Conditions which specify whether an arbitrary odrl:Asset is a member of this AssetCollection.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/ns/odrl/2/refinement">refinement</span>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/AssetCollection" title="https://w3id.org/idsa/core/AssetCollection">Asset Collection</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#/Resource" title="https://w3id.org/idsa/core/Resource">Resource</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/AbstractConstraint" title="https://w3id.org/idsa/core/AbstractConstraint">Abstract Constraint</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/assetSource">
       <h3>asset source<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
@@ -11986,7 +12020,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/contractDate</p>
       <div class="comment">
-         <span class="markdown">Absolute datetime of singing the Contract.</span>
+         <span class="markdown">Absolute datetime of signing the Contract.</span>
       </div>
       <div class="description">
          <dl>
@@ -12145,7 +12179,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
       <p>
          <strong>IRI:</strong> https://w3id.org/idsa/core/created</p>
       <div class="comment">
-         <span class="markdown">The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself.</span>
+         <span class="markdown">The date of the creation of the Digital Content. In contrast to the dct:temporal, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself.</span>
       </div>
       <div class="description">
          <dl>
@@ -12222,9 +12256,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
          <dl>
             <dt>has super-properties</dt>
             <dd>
-               <a href="http://purl.org/dc/terms/licence"
-                  target="_blank"
-                  title="http://purl.org/dc/terms/licence">licence</a>
+               <span class="dotted" title="http://purl.org/dc/terms/license">license</span>
                <sup class="type-dp" title="data property">dp</sup>
             </dd>
             <dt>has domain</dt>
@@ -14008,9 +14040,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
          <dl>
             <dt>has super-properties</dt>
             <dd>
-               <a href="http://purl.org/dc/terms/licence"
-                  target="_blank"
-                  title="http://purl.org/dc/terms/licence">licence</a>
+               <span class="dotted" title="http://purl.org/dc/terms/license">license</span>
                <sup class="type-dp" title="data property">dp</sup>
             </dd>
             <dt>has domain</dt>

@@ -4,6 +4,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
 @base <https://w3id.org/idsa/core> .
 
 <https://w3id.org/idsa/core> rdf:type owl:Ontology ;
@@ -570,8 +572,10 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
                                                                        )
                                                          ] ;
                                              rdfs:range <https://w3id.org/idsa/core/AbstractConstraint> ;
-                                             rdfs:comment "AssetRefinement define constraints that refine a (composite) Digital Content in an ids:Rule respectively the ids:AssetCollection."@en ;
-                                             rdfs:label "content refinement"@en .
+                                             rdfs:comment "Conditions which specify whether an arbitrary odrl:Asset is a member of this AssetCollection."@en ,
+                                                          "Constraint that refines a (composite) Digital Content."@en ;
+                                             rdfs:label "asset refinement"@en ,
+                                                        "content refinement"@en .
 
 
 ###  https://w3id.org/idsa/core/assetSource
@@ -1533,12 +1537,8 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
 <http://purl.org/dc/terms/hasVersion> rdf:type owl:DatatypeProperty .
 
 
-###  http://purl.org/dc/terms/identifier
-<http://purl.org/dc/terms/identifier> rdf:type owl:DatatypeProperty .
-
-
-###  http://purl.org/dc/terms/licence
-<http://purl.org/dc/terms/licence> rdf:type owl:DatatypeProperty .
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:DatatypeProperty .
 
 
 ###  http://purl.org/dc/terms/modified
@@ -1692,7 +1692,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
 <https://w3id.org/idsa/core/contractDate> rdf:type owl:DatatypeProperty ;
                                           rdfs:domain <https://w3id.org/idsa/core/Contract> ;
                                           rdfs:range xsd:dateTimeStamp ;
-                                          rdfs:comment "Absolute datetime of singing the Contract."@en ;
+                                          rdfs:comment "Absolute datetime of signing the Contract."@en ;
                                           rdfs:label "Contract date"@en .
 
 
@@ -1742,7 +1742,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
                                                                )
                                                  ] ;
                                      rdfs:range xsd:dateTimeStamp ;
-                                     rdfs:comment "The date of the creation of the Digital Content. In contrast to the ids:temporalCoverage, creation dates of ids:Representation, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en ;
+                                     rdfs:comment "The date of the creation of the Digital Content. In contrast to the dct:temporal, creation dates of dcat:Distribution, ids:Artifacts or any other form of meta-data, this property describes the creation date of referenced Digital Content itself."@en ;
                                      rdfs:label "created"@en ;
                                      rdfs:seeAlso <http://purl.org/dc/terms/created> .
 
@@ -1758,7 +1758,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
 
 ###  https://w3id.org/idsa/core/customLicense
 <https://w3id.org/idsa/core/customLicense> rdf:type owl:DatatypeProperty ;
-                                           rdfs:subPropertyOf <http://purl.org/dc/terms/licence> ;
+                                           rdfs:subPropertyOf <http://purl.org/dc/terms/license> ;
                                            rdfs:domain <https://w3id.org/idsa/core/Resource> ;
                                            rdfs:range xsd:anyURI ;
                                            rdfs:comment "URL reference to a custom license regulating the general usage of the Resource."@en ;
@@ -2300,7 +2300,7 @@ Note: In an ids:AppRoute that is the sequence of multiple ids:RouteSteps, the ou
 
 ###  https://w3id.org/idsa/core/standardLicense
 <https://w3id.org/idsa/core/standardLicense> rdf:type owl:DatatypeProperty ;
-                                             rdfs:subPropertyOf <http://purl.org/dc/terms/licence> ;
+                                             rdfs:subPropertyOf <http://purl.org/dc/terms/license> ;
                                              rdfs:domain <https://w3id.org/idsa/core/Resource> ;
                                              rdfs:range xsd:anyURI ;
                                              rdfs:comment """
@@ -2785,7 +2785,7 @@ rdfs:Resource rdf:type owl:Class .
 <https://w3id.org/idsa/core/AssetCollection> rdf:type owl:Class ;
                                              rdfs:subClassOf <http://www.w3.org/ns/odrl/2/AssetCollection> ,
                                                              <https://w3id.org/idsa/core/Asset> ;
-                                             rdfs:comment "An AssetCollection is a bracket object combining several ids:Assets."@en ;
+                                             rdfs:comment "An AssetCollection is a bracket object combining several odrl:Asset."@en ;
                                              rdfs:label "Asset Collection"@en .
 
 
@@ -3550,7 +3550,7 @@ rdfs:Resource rdf:type owl:Class .
 ###  https://w3id.org/idsa/core/License
 <https://w3id.org/idsa/core/License> rdf:type owl:Class ;
                                      rdfs:subClassOf <http://purl.org/dc/terms/License> ;
-                                     rdfs:comment "Class of Licences to be referred to by Resources."@en ;
+                                     rdfs:comment "Class of licenses to be referred to by Resources."@en ;
                                      rdfs:label "License"@en .
 
 
@@ -6223,7 +6223,7 @@ rdfs:Resource rdf:type owl:Class .
 ###  https://w3id.org/idsa/code/AFTER
 <https://w3id.org/idsa/code/AFTER> rdf:type owl:NamedIndividual ,
                                             <https://w3id.org/idsa/core/BinaryOperator> ;
-                                   rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
+                                   rdfs:comment "If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2 and the beginning of T1 is different to the ending of T2. Temporal entities can either be a xsd:dateTimeStamp or an time:TemporalEntity."@en ;
                                    rdfs:label "after"@en ;
                                    rdfs:seeAlso <https://www.w3.org/TR/owl-time/#after> .
 
@@ -6456,10 +6456,10 @@ rdfs:Resource rdf:type owl:Class .
 ###  https://w3id.org/idsa/code/BEFORE
 <https://w3id.org/idsa/code/BEFORE> rdf:type owl:NamedIndividual ,
                                              <https://w3id.org/idsa/core/BinaryOperator> ;
-                                    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an ids:TemporalEntity."@en ;
+                                    rdfs:comment "If a temporal entity T1 is before another temporal entity T2, then the ending of T1 is before the end of T2 and the ending of T1 is different to the beginning of T2. Temporal entities can either be a xsd:dateTimeStamp or an time:TemporalEntity."@en ;
                                     rdfs:label "before"@en ;
                                     rdfs:seeAlso <https://www.w3.org/TR/owl-time/#before> ;
-                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of ids:TemporalEntity or a Literal of xsd:dateTimeStamp."@en .
+                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp to an instance of time:TemporalEntity or a Literal of xsd:dateTimeStamp."@en .
 
 
 ###  https://w3id.org/idsa/code/BG
@@ -6681,11 +6681,11 @@ rdfs:Resource rdf:type owl:Class .
 ###  https://w3id.org/idsa/code/CONTAINS
 <https://w3id.org/idsa/code/CONTAINS> rdf:type owl:NamedIndividual ,
                                                <https://w3id.org/idsa/core/BinaryOperator> ;
-                                      rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another ids:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
+                                      rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 contains another time:TemporalEntity T2, then the beginning of T1 is idsc:AFTER the beginning of T2 and the ending of T1 is idsc:BEFORE the ending of T2. An Instant (or xsd:dateTimeStamp) cannot contain another Instant (or xsd:dateTimeStamp), neihter contains itself."@en ;
                                       rdfs:label "contains"@en ;
                                       rdfs:seeAlso <https://www.w3.org/TR/owl-time/#inside> ,
                                                    <https://www.w3.org/TR/owl-time/#intervalContains> ;
-                                      <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+                                      <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
 
 
 ###  https://w3id.org/idsa/code/CONTINUOUS
@@ -6856,7 +6856,7 @@ rdfs:Resource rdf:type owl:Class .
                                          rdfs:comment "If a temporal entity T1 has the same duration as another temporal entity T2, then their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
                                          rdfs:label "has same duration"@en ;
                                          rdfs:seeAlso <https://www.w3.org/TR/owl-time/#hasTemporalDuration> ;
-                                         <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of ids:TemporalEntity."@en .
+                                         <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of time:TemporalEntity."@en .
 
 
 ###  https://w3id.org/idsa/code/DURATION_RESTRICTED_DATA_USAGE
@@ -6872,7 +6872,7 @@ rdfs:Resource rdf:type owl:Class .
                                     rdfs:comment "If a TemporalEntity T1 is during another TemporalEntity T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
                                     rdfs:label "during"@en ;
                                     rdfs:seeAlso <https://www.w3.org/TR/owl-time/#intervalDuring> ;
-                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
+                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:Instant, ids:Interval or xsd:dateTimeStamp with an instance of ids:Interval. Evaluates to false if compared to a non ids:Interval."@en .
 
 
 ###  https://w3id.org/idsa/code/DV
@@ -7570,7 +7570,7 @@ rdfs:Resource rdf:type owl:Class .
                                              <https://w3id.org/idsa/core/BinaryOperator> ;
                                     rdfs:comment "If a temporal entity T1 is longer than another temporal entity T2, then the length or duration of T1 is bigger. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
                                     rdfs:label "longer"@en ;
-                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+                                    <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 
 
 ###  https://w3id.org/idsa/code/LONGER_EQ
@@ -7578,7 +7578,7 @@ rdfs:Resource rdf:type owl:Class .
                                                 <https://w3id.org/idsa/core/BinaryOperator> ;
                                        rdfs:comment "If temporal entity T1 is longer or equals than another temporal entity T2, then the length or duration of T1 is bigger or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
                                        rdfs:label "longer or equals"@en ;
-                                       <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+                                       <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 
 
 ###  https://w3id.org/idsa/code/LT
@@ -8058,7 +8058,7 @@ rdfs:Resource rdf:type owl:Class .
 ###  https://w3id.org/idsa/code/POLICY_EVALUATION_TIME
 <https://w3id.org/idsa/code/POLICY_EVALUATION_TIME> rdf:type owl:NamedIndividual ,
                                                              <https://w3id.org/idsa/core/LeftOperand> ;
-                                                    rdfs:comment "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand ids:TemporalEntity."@en ;
+                                                    rdfs:comment "The current system time (as UTC xsd:dateTimeStamp) for evaluating a time-related constraint. Allowed operators are idsc:AFTER, idsc:BEFORE, idsc:CONTAINS, idsc:TEMPORAL_DISJOINT, idsc:DURING, idsc:TEMPORAL_EQUALS, idsc:FINISHED_BY, idsc:FINISHES, idsc:MEETS, idsc:MET_BY, idsc:OVERLAPS, idsc:OVERLAPPED_BY, idsc:STARTS, idsc:STARTED_BY and idsc:DURATION_EQ with RightOperand time:TemporalEntity."@en ;
                                                     rdfs:label "policy evaluation time"@en ;
                                                     <http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/ns/odrl/2/dateTime> .
 
@@ -8242,9 +8242,9 @@ rdfs:Resource rdf:type owl:Class .
 			ids:target [<Representation URI>|<Artifact URI>] ;
 			ids:consumer <Consumer Participant URI> ;
 			ids:provider <Provider Participant URI>
-			[ids:permission [
+			[odrl:permission[
 				ids:action ids:[use|read|...] ;
-				ids:constraint [
+				odrl:constraint [
 					ids:leftOperand <Attribute URI> ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
 					ids:rightOperand [<Value URI>|<Value Literal>]
@@ -8258,10 +8258,10 @@ rdfs:Resource rdf:type owl:Class .
 		\"refersTo\": \"idsc:RequestTemplate\" ,
 		\"target\": \"[<Representation URI>|<Artifact URI>]\",
 		\"ids:provider\": \"<Provider Participant URI>\",
-		\"ids:consumer\": \"<Consumer Participant URI>\", 
-		\"ids:permission\": {
+		\"ids:consumer\": \"<Consumer Participant URI>\",
+		\"odrl:permission\": {
 			\"ids:action\": \"[ids:use|ids:read|...]\" ,
-			[\"ids:constraint\" : {    
+			[\"odrl:constraint\" : {
 					 \"ids:leftOperand\" : \"<Attribute URI>\",
 					 \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",
 					 \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"
@@ -8410,7 +8410,7 @@ rdfs:Resource rdf:type owl:Class .
                                               <https://w3id.org/idsa/core/BinaryOperator> ;
                                      rdfs:comment "If a temporal entity T1 is shorter than another temporal entity T2, then the length or duration of T1 is shorter. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
                                      rdfs:label "shorter"@en ;
-                                     <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+                                     <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 
 
 ###  https://w3id.org/idsa/code/SHORTER_EQ
@@ -8418,7 +8418,7 @@ rdfs:Resource rdf:type owl:Class .
                                                  <https://w3id.org/idsa/core/BinaryOperator> ;
                                         rdfs:comment "If a temporal entity T1 is shorter or equals than another temporal entity T2, then the length or duration of T1 is shorter or their length or their duration is equal. Instants and xsd:dateTimeStamp Literals have always the duration 'P0Y0M0DT0H0M0S'^^xsd:duration and therefore have always the same duration."@en ;
                                         rdfs:label "shorter or equals"@en ;
-                                        <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity with an instance of xsd:duration."@en .
+                                        <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity with an instance of xsd:duration."@en .
 
 
 ###  https://w3id.org/idsa/code/SI
@@ -8633,16 +8633,16 @@ rdfs:Resource rdf:type owl:Class .
 ###  https://w3id.org/idsa/code/TEMPORAL_DISJOINT
 <https://w3id.org/idsa/code/TEMPORAL_DISJOINT> rdf:type owl:NamedIndividual ,
                                                         <https://w3id.org/idsa/core/BinaryOperator> ;
-                                               rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another ids:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en ;
+                                               rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp) T1 is disjoint with another time:TemporalEntity (or xsd:dateTimeStamp) T2, then T1 is idsc:BEFORE or idsc:AFTER to T2."@en ;
                                                rdfs:label "disjoint"@en ;
                                                rdfs:seeAlso <https://www.w3.org/TR/owl-time/#intervalDisjoint> ;
-                                               <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal to an instance of ids:TemporalEntity or xsd:dateTimeStamp Literal."@en .
+                                               <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of time:TemporalEntity or xsd:dateTimeStamp Literal to an instance of time:TemporalEntity or xsd:dateTimeStamp Literal."@en .
 
 
 ###  https://w3id.org/idsa/code/TEMPORAL_EQUALS
 <https://w3id.org/idsa/code/TEMPORAL_EQUALS> rdf:type owl:NamedIndividual ,
                                                       <https://w3id.org/idsa/core/BinaryOperator> ;
-                                             rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of ids:Instant (or xsd:dateTimeStamp Literal)."@en ;
+                                             rdfs:comment "If a TemporalEntity (or xsd:dateTimeStamp Literal) T1 is equals another TemporalEntity (or xsd:dateTimeStamp Literal) T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2. The beginning and ending is the same for instances of time:Instant (or xsd:dateTimeStamp Literal)."@en ;
                                              rdfs:label "interval equals"@en ;
                                              rdfs:seeAlso <https://www.w3.org/TR/owl-time/#intervalEquals> ;
                                              <http://www.w3.org/2004/02/skos/core#note> "Compares an instance of TemporalEntity or xsd:dateTimeStamp Literal to another TemporalEntity or xsd:dateTimeStamp. Evaluates to false if a DurationEntity is involved."@en .
@@ -9034,6 +9034,290 @@ rdfs:Resource rdf:type owl:Class .
 <http://www.apache.org/licenses/LICENSE-2.0> rdfs:label "Apache License Version 2.0, January 2004" .
 
 
+<https://w3id.org/idsa/core/AbstractConstraint> rdfs:comment "The upper class of Constraints and LogicalConstraints is solely intended as a placholder at the range of IDS Properties."@en ;
+                                                rdfs:label "Abstract Constraint"@en .
+
+
+<https://w3id.org/idsa/core/Action> rdfs:comment "A thing one might be permitted to do or prohibited from doing to something."@en ;
+                                    rdfs:label "Action"@en .
+
+
+<https://w3id.org/idsa/core/AppEndpoint> rdfs:comment "Description of endpoints a DataApp offers."@en ;
+                                         rdfs:label "DataApp Endpoint"@en .
+
+
+<https://w3id.org/idsa/core/AppNotificationMessage> rdfs:comment "Superclass of all messages, indicating a change of a DataApp. Unlike Resource-related Messages, AppNotificationMessages should lead to a state change for an app at the recipient, the AppStore."@en ;
+                                                    rdfs:label "App Notification Message"@en .
+
+
+<https://w3id.org/idsa/core/AppRoute> rdfs:comment """
+    ids:AppRoute describes the communication between data apps (such as in a data processing pipeline) inside an IDS Connector.
+    An ids:AppRoute consist of multiple app endpoints which exchange data. The communication pipeline between data apps is represented by the ids:EndToEndRoutes class.
+    ids:AppRoute also holds the information about the app endpoints, which are at the start and end of the whole processing pipeline.
+    """@en ;
+                                      rdfs:label "App Route"@en .
+
+
+<https://w3id.org/idsa/core/AppUploadMessage> rdfs:comment "Message that usually follows a AppRegistrationResponseMessage and is used to upload a data app to the app store. Payload contains data app. Note that the message must refer to the prior sent, corresponding AppResource instance. The IRI of the ids:appArtifactReference must must match the IRI of the artifact which is the value for the ids:instance property. The ids:instance is specific for each representation. Therefore, if someone wants to upload multiple representations for an app, he has to state them using multiple ids:instance properties inside the AppRepresentation (and therefore inside the AppResource). Otherwise no mapping between payload and app metadata can be achieved."@en ;
+                                              rdfs:label "App Upload Message"@en .
+
+
+<https://w3id.org/idsa/core/ArtifactRequestMessage> rdfs:comment "Message asking for retrieving the specified Artifact as the payload of an ArtifactResponse message."@en ;
+                                                    rdfs:label "Artifact Request Message"@en .
+
+
+<https://w3id.org/idsa/core/Asset> rdfs:comment "An Asset is either an ids:Resource, an dcat:Distribution, or an ids:Artifact. The Asset is used to reference the target of an ids:Contract."@en ;
+                                   rdfs:label "Asset"@en .
+
+
+<https://w3id.org/idsa/core/AuthInfo> rdfs:comment "Holds authentication information so that connections to the Connector's data offerings can be establised."@en ;
+                                      rdfs:label "AuthInfo"@en .
+
+
+<https://w3id.org/idsa/core/BoundingPolygon> rdfs:comment "Defines an area of interest as a set of connected points."@en ;
+                                             rdfs:label "BoundingPolygon"@en .
+
+
+<https://w3id.org/idsa/core/Broker> rdfs:comment "Broker holding an index of published data endpoints."@en ;
+                                    rdfs:label "Broker"@en .
+
+
+<https://w3id.org/idsa/core/Catalog> rdfs:comment "Class that represents (distributable) Catalogs."@en ;
+                                     rdfs:label "Catalog"@en .
+
+
+<https://w3id.org/idsa/core/Certification> rdfs:comment "Abstract certification of compliance according to given Certification Scheme."@en ;
+                                           rdfs:label "Certification"@en .
+
+
+<https://w3id.org/idsa/core/CertificationLevel> rdfs:comment "Level of Certification"@en ;
+                                                rdfs:label "Certification Level"@en .
+
+
+<https://w3id.org/idsa/core/CommandMessage> rdfs:comment "Command messages are usually sent when a response is expected by the sender. Changes state on the recipient side. Therefore, commands are not 'safe' in the sense of REST."@en ;
+                                            rdfs:label "Command Message"@en .
+
+
+<https://w3id.org/idsa/core/Concept> rdfs:comment "Class of categories for classification of Resources."@en ;
+                                     rdfs:label "Concept"@en ;
+                                     rdfs:seeAlso <https://github.com/w3c/dxwg/wiki/Data-aspects---semantics> ,
+                                                  <https://www.w3.org/TR/vocab-dcat/#Property:dataset_theme> .
+
+
+<https://w3id.org/idsa/core/ConfigurationModel> rdfs:comment "Configuration Model is used for Connector deployment."@en ;
+                                                rdfs:label "Configuration Model"@en .
+
+
+<https://w3id.org/idsa/core/Connector> rdfs:comment "Dedicated communication server for sending and receiving data in compliance with the Connector specification. There are different types of Connectors according to provided capabilities."@en ;
+                                       rdfs:label "Connector"@en .
+
+
+<https://w3id.org/idsa/core/ConnectorCatalog> rdfs:comment "Class that aggregates Connectors which, as a whole, from a (distributable) Catalog."@en ;
+                                              rdfs:label "Connector Catalog"@en .
+
+
+<https://w3id.org/idsa/core/ConnectorEndpoint> rdfs:comment "Connector-specific endpoint exposing Artifacts."@en ;
+                                               rdfs:label "Connector Endpoint"@en .
+
+
+<https://w3id.org/idsa/core/ConnectorNotificationMessage> rdfs:comment "Superclass of all messages, indicating a change of a connector's conditions."@en ;
+                                                          rdfs:label "Connector Notification Message"@en .
+
+
+<https://w3id.org/idsa/core/Constraint> rdfs:comment "The class of Constraints that restrict a Rule."@en ;
+                                        rdfs:label "Constraint"@en .
+
+
+<https://w3id.org/idsa/core/ContentType> rdfs:comment "Enumerated types of content expanding upon the Digital Content hierarchy."@en ;
+                                         rdfs:label "Content type"@en .
+
+
+<https://w3id.org/idsa/core/Contract> rdfs:comment "Abstract set of rules governing the usage of a Resource."@en ;
+                                      rdfs:label "Contract"@en .
+
+
+<https://w3id.org/idsa/core/ContractAgreement> rdfs:comment "Contract governing the actual usage of a Resource that has been agreed by all parties."@en ;
+                                               rdfs:label "Contract agreement"@en .
+
+
+<https://w3id.org/idsa/core/DatPayload> rdfs:comment "The Dynamic Attribute Token (DAT) Payload is the JSON Element of any DAT containing the claims of the token bearer. This payload itself is a JSON-LD encoded RDF class with a defined set of attributes. These attributes are either defined by RFC 7519 or by the IDS Information Model. As a direct consequence of regarding the DAT Payload as JSON-LD, *all* DAT Payloads must have exactly one \"@context\" attribute with the IDS context URI as its value and a \"@type\" with ids:DatPayload as its value."@en ;
+                                        rdfs:label "DAT Payload"@en ;
+                                        rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> .
+
+
+<https://w3id.org/idsa/core/DataApp> rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en ;
+                                     rdfs:label "DataApp"@en .
+
+
+<https://w3id.org/idsa/core/Described> rdfs:comment "Entity described by a minimal textual annotation, i.e. a title and description."@en ;
+                                       rdfs:label "described"@en .
+
+
+<https://w3id.org/idsa/core/DescribedSemantically> rdfs:comment "Entity described semantically."@en ;
+                                                   rdfs:label "DescribedSemantically"@en .
+
+
+<https://w3id.org/idsa/core/DigitalContent> rdfs:comment "Digital content of a particular type providing hints on its usage, e.g. listening to an Audio, navigating a Structure or accessing a List by an index."@en ;
+                                            rdfs:label "Digital content"@en ;
+                                            rdfs:seeAlso <http://schema.org/DataType> ,
+                                                         <http://schema.org/additionalType> ,
+                                                         <http://www.ddialliance.org/Specification/DDI-CV/GeneralDataFormat_2.0.html> ,
+                                                         <http://www.ontodm.com/doku.php?id=ontodt> ,
+                                                         <https://en.wikipedia.org/wiki/Digital_content> ,
+                                                         <https://github.com/twosixlabs/icas-ontology/blob/master/ontology/mime.ttl> .
+
+
+<https://w3id.org/idsa/core/DurationEntity> rdfs:comment "A relative temporal entity of a certain length. Different to ids:Interval, the starting point is not (yet) defined. Specifying a starting or ending point automatically transformes an instance of ids:DurationEntity to an ids:Interval."@en ;
+                                            rdfs:label "Duration"@en .
+
+
+<https://w3id.org/idsa/core/DynamicAttributeToken> rdfs:comment "A JSON Web Token (e.g., for authorization) mediated as part of the message, formerly known as the 'DAPS Token'. The complete JWT *including* header, payload and signiture is referenced by this class and *not* only the JSON element in the payload. See ids:DatPayload for the payload definition."@en ;
+                                                   rdfs:label "Dynamic Attribute Token (DAT)."@en ;
+                                                   rdfs:seeAlso <https://tools.ietf.org/html/rfc7519> ,
+                                                                <https://w3id.org/idsa/core/DatPayload> .
+
+
+<https://w3id.org/idsa/core/Endpoint> rdfs:comment "Access point of data exchange, service interaction and service description."@en ;
+                                      rdfs:label "Endpoint"@en .
+
+
+<https://w3id.org/idsa/core/GeoPoint> rdfs:comment "A location identified by geo coordinates."@en ;
+                                      rdfs:label "GeoPoint"@en .
+
+
+<https://w3id.org/idsa/core/Geometry> rdfs:comment "Geometrical shape indicating a spatial area of interest."@en ;
+                                      rdfs:label "Geometry"@en .
+
+
+<https://w3id.org/idsa/core/IANAMediaType> rdfs:comment "The class of media types registered with IANA."@en ;
+                                           rdfs:label "IANA Media Type"@en ;
+                                           rdfs:seeAlso <http://dx.doi.org/10.6084/m9.figshare.1608294> ,
+                                                        <http://www.sparontologies.net/mediatype/> ,
+                                                        <https://www.iana.org/assignments/media-types/> .
+
+
+<https://w3id.org/idsa/core/InfrastructureComponent> rdfs:comment "The class of all infrastructure components of the IDS."@en ;
+                                                     rdfs:label "InfrastructureComponent"@en .
+
+
+<https://w3id.org/idsa/core/Interval> rdfs:comment "A temporal entity with extent or duration, fixed in time (different to ids:DurationEntity)."@en ;
+                                      rdfs:label "Interval"@en .
+
+
+<https://w3id.org/idsa/core/InvokeOperationMessage> rdfs:comment "Message requesting the recipient to invoke a specific operation."@en ;
+                                                    rdfs:label "Invoke Operation Message"@en .
+
+
+<https://w3id.org/idsa/core/JwtPayload> rdfs:comment "The payload of an JSON Web Token as a RDF class. Is used as the common parent of e.g. DatPayload and DatRequestPayload."@en ;
+                                        rdfs:label "JWT Payload"@en .
+
+
+<https://w3id.org/idsa/core/Location> rdfs:comment "Class of all locations."@en ;
+                                      rdfs:label "Location"@en .
+
+
+<https://w3id.org/idsa/core/LogicalConstraint> rdfs:comment "The class of Logical Constraints that restrict a Rule. A Logical Constraints is a collection of Constraints, related with each other through the ids:operand property."@en ;
+                                               rdfs:label "Logical Constraint"@en .
+
+
+<https://w3id.org/idsa/core/ManagedEntity> rdfs:comment "The class of mutable individuals."@en ;
+                                           rdfs:label "Managed entity"@en .
+
+
+<https://w3id.org/idsa/core/MediaType> rdfs:comment "General class of media types (formerly known as MIME types)."@en ;
+                                       rdfs:label "Media Type"@en .
+
+
+<https://w3id.org/idsa/core/Message> rdfs:comment "Metadata describing payload exchanged by interacting Connectors."@en ;
+                                     rdfs:label "Message"@en .
+
+
+<https://w3id.org/idsa/core/MessageProcessedNotificationMessage> rdfs:comment "Notification that a message has been successfully processed (i.e. not ignored or rejected)."@en ;
+                                                                 rdfs:label "Message Processed Notification Message"@en .
+
+
+<https://w3id.org/idsa/core/ParIS> rdfs:comment "The Participant Information Service (ParIS) provides metadata and relevant information about participants (humans and organizations) in the International Data Spaces."@en ;
+                                   rdfs:label "Participant Information Service"@en .
+
+
+<https://w3id.org/idsa/core/Participant> rdfs:comment "Stakeholder in the Industrial Data Space, assuming one or more of the predefined roles; every participant is given a unique identity by the Identity Provider."@en ;
+                                         rdfs:label "Participant"@en .
+
+
+<https://w3id.org/idsa/core/ParticipantCatalog> rdfs:comment "Class that aggregates Participants which, as a whole, from a (distributable) Catalog."@en ;
+                                                rdfs:label "Participant Catalog"@en .
+
+
+<https://w3id.org/idsa/core/ParticipantNotificationMessage> rdfs:comment "Superclass of all messages, indicating a change of a particpants's conditions."@en ;
+                                                            rdfs:label "Participant Notification Message"@en .
+
+
+<https://w3id.org/idsa/core/ParticipantRequestMessage> rdfs:comment "Message asking for retrieving the specified Participants information as the payload of an ParticipantResponse message."@en ;
+                                                       rdfs:label "Participant Request Message"@en .
+
+
+<https://w3id.org/idsa/core/Permission> rdfs:comment "The class of Permissions as defined in the ODRL ontology."@en ;
+                                        rdfs:label "Permission"@en .
+
+
+<https://w3id.org/idsa/core/Person> rdfs:comment "The class of persons (people)"@en ;
+                                    rdfs:label "Person"@en .
+
+
+<https://w3id.org/idsa/core/Proxy> rdfs:comment "Holds Proxy information."@en ;
+                                   rdfs:label "Proxy"@en ;
+                                   rdfs:seeAlso <https://tools.ietf.org/html/rfc2068> .
+
+
+<https://w3id.org/idsa/core/Representation> rdfs:comment "Syntactic template of a Resource."@en ;
+                                            rdfs:label "Representation"@en .
+
+
+<https://w3id.org/idsa/core/RepresentationInstance> rdfs:comment "A particular instance of given representation."@en ;
+                                                    rdfs:label "Representation instance"@en .
+
+
+<https://w3id.org/idsa/core/RequestInProcessMessage> rdfs:comment "Notification that a request has been accepted and is being processed."@en ;
+                                                     rdfs:label "Request In Process Message"@en .
+
+
+<https://w3id.org/idsa/core/Resource> rdfs:comment "Resource is a single digital content or a coherent set of digital contents. Resource content is formalized in Representations and optionally materialized as Artifacts. The Resource's content is exposed via defined Interfaces at various protocol Endpoints."@en ;
+                                      rdfs:label "Resource"@en ;
+                                      rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat/#class-dataset> .
+
+
+<https://w3id.org/idsa/core/ResourceCatalog> rdfs:comment "Class that aggregates Resources which, as a whole, form a (distributable) Catalog."@en ;
+                                             rdfs:label "Resource Catalog"@en .
+
+
+<https://w3id.org/idsa/core/ResourceNotificationMessage> rdfs:comment "Superclass of all messages, indicating a change of a resource."@en ;
+                                                         rdfs:label "Resource Notification Message"@en .
+
+
+<https://w3id.org/idsa/core/ResponseMessage> rdfs:comment "Response messages hold information about the reaction of a recipient to a formerly sent command or event. They must be correlated to this message."@en ;
+                                             rdfs:label "Response Message"@en .
+
+
+<https://w3id.org/idsa/core/Rule> rdfs:comment "Superclass of Permissions, Prohibitions and Duties."@en ;
+                                  rdfs:label "Rule"@en .
+
+
+<https://w3id.org/idsa/core/SecurityProfile> rdfs:comment "Set of security guarantees claimed by a Connector. Connectors may asses their mutual technical reliability and trustworthiness by evaluating each other’s security profile."@en ;
+                                             rdfs:label "SecurityProfile"@en .
+
+
+<https://w3id.org/idsa/core/Token> rdfs:comment "A token (e.g., for authorization) mediated as part of the message."@en ;
+                                   rdfs:label "Token."@en .
+
+
+<https://w3id.org/idsa/core/UsageControlObject> rdfs:comment "A data element containing all relevant information for usage control engines."@en ;
+                                                rdfs:label "Usage Control Object"@en .
+
+
+<https://w3id.org/idsa/core/UserAuthentication> rdfs:comment "Holds User authentication information. Differs from ids:AuthInfo. This class refers to user authentication methods that are not intended for direct data exchange with a connector."@en ;
+                                                rdfs:label "User Authentication"@en .
+
+
 <https://w3id.org/idsa/core/accessed> rdfs:comment "Last read or write access."@en ;
                                       rdfs:label "last accessed"@en .
 
@@ -9042,11 +9326,29 @@ rdfs:Resource rdf:type owl:Class .
                                                 rdfs:label "Accrual periodicity"@en .
 
 
-<https://w3id.org/idsa/core/action> rdfs:comment "The operation relating to the asset / data object. "@en ;
-                                    rdfs:label "action"@en .
+<https://w3id.org/idsa/core/action> rdfs:comment "The operation relating to the asset for which permission is being granted."@en ,
+                                                 "The sequence of executed actions on the data object. Must be an element of odrl:Action."@en ;
+                                    rdfs:label "action"@en ,
+                                               "applied actions"@en .
 
 
-<https://w3id.org/idsa/core/and> rdfs:comment "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
+<https://w3id.org/idsa/core/affectedConnector> rdfs:comment "References the connector that is affected by the runtime condition change."@en ;
+                                               rdfs:label "affected Connector"@en .
+
+
+<https://w3id.org/idsa/core/affectedDataApp> rdfs:comment "The affected data app that is referenced in the App-related messages. "@en ;
+                                             rdfs:label "affected AppResource"@en .
+
+
+<https://w3id.org/idsa/core/affectedParticipant> rdfs:comment "References the participant that is referenced in the participant-related notification messages."@en ;
+                                                 rdfs:label "affected Participant"@en .
+
+
+<https://w3id.org/idsa/core/affectedResource> rdfs:comment "The affected resource that is referenced in the resource-related notification messages. "@en ;
+                                              rdfs:label "affected Resource"@en .
+
+
+<https://w3id.org/idsa/core/and> rdfs:comment "The 'and' operand connects a rdf:List of Constraints with the Boolean operator 'AND'. All Constraints of an 'and' relation must be satisfied at the same time. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"@en ;
                                  rdfs:label "and operand"@en .
 
 
@@ -9094,6 +9396,15 @@ rdfs:Resource rdf:type owl:Class .
                                        rdfs:label "givenName"@en .
 
 
+<https://w3id.org/idsa/core/hasAgent> rdfs:comment "The Agents for which this Connector may initiate and receive Messages."@en ;
+                                      rdfs:label "has Agent"@en .
+
+
+<https://w3id.org/idsa/core/hasDuration> rdfs:comment "Duration (relative time interval) of a temporal specification. Different to the TIME Ontology, durations are expressed using the xsd:duration datatype. In case it is used with a instance of time:Instant, the value must be 'P0Y0M0DT0H0M0S'^^xsd:duration."@en ;
+                                         rdfs:label "has duration"@en ;
+                                         rdfs:seeAlso <http://www.w3.org/2006/time#hasDuration> .
+
+
 <https://w3id.org/idsa/core/homepage> rdfs:comment "Website providing additional information about a person."@en ;
                                       rdfs:label "homepage"@en .
 
@@ -9130,7 +9441,7 @@ rdfs:Resource rdf:type owl:Class .
                                       rdfs:label "operator"@en .
 
 
-<https://w3id.org/idsa/core/or> rdfs:comment "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
+<https://w3id.org/idsa/core/or> rdfs:comment "The 'or' operand connects a rdf:List of Constraints with the Boolean operator 'OR'. At least one Constraint of an 'or' relation must be satisfied. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"@en ;
                                 rdfs:label "or operand"@en .
 
 
@@ -9178,11 +9489,11 @@ rdfs:Resource rdf:type owl:Class .
                                        rdfs:label "requesting application"@en .
 
 
-<https://w3id.org/idsa/core/rightOperand> rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en ;
+<https://w3id.org/idsa/core/rightOperand> rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en ;
                                           rdfs:label "rightOperand"@en .
 
 
-<https://w3id.org/idsa/core/rightOperandReference> rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or ids:rightOperandReference should be used in an ids:Constraint."@en ;
+<https://w3id.org/idsa/core/rightOperandReference> rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en ;
                                                    rdfs:label "rightOperandReference"@en .
 
 
@@ -9192,6 +9503,14 @@ rdfs:Resource rdf:type owl:Class .
 
 <https://w3id.org/idsa/core/source> rdfs:comment "The application which provided the data object. Should be a valid URI. Must be unique in the regarded environment."@en ;
                                     rdfs:label "source"@en .
+
+
+<https://w3id.org/idsa/core/sovereign> rdfs:comment "The 'owner', i.e. sovereign of the data."@en ;
+                                       rdfs:label "sovereign"@en .
+
+
+<https://w3id.org/idsa/core/target> rdfs:comment "The subject of the policy statement (odrl:Rule)."@en ;
+                                    rdfs:label "target"@en .
 
 
 <https://w3id.org/idsa/core/temporalResolution> rdfs:comment "Minimum time between collected data points in a time series within this content."@en ;
@@ -9206,7 +9525,7 @@ rdfs:Resource rdf:type owl:Class .
                                            rdfs:label "usage duration"@en .
 
 
-<https://w3id.org/idsa/core/xone> rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of ids:and, ids:or, or ids:xone can be used for a specific ids:LogicalConstraint!"@en ;
+<https://w3id.org/idsa/core/xone> rdfs:comment "The 'xone' operand connects a rdf:List of Constraints. Only one Constraint, not more, of an 'xone' relation must be satisfied. Only one of odrl:and, odrl:or, or odrl:xone can be used for a specific odrl:LogicalConstraint!"@en ;
                                   rdfs:label "exclusive or"@en .
 
 

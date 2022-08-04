@@ -24,13 +24,13 @@
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         )
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "ids:action": (idsc:ACTION_TEMPLATE),
+        "odrl:action": (idsc:ACTION_TEMPLATE),
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
-            "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-            "ids:operator": { "@id": "idsc:AFTER" },
-            "ids:rightOperand": {
+            "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+            "odrl:operator": { "@id": "idsc:AFTER" },
+            "odrl:rightOperand": {
                 "@value": "?startDateTime",                   // ?startDateTime < ?endDateTime
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
             }
@@ -38,9 +38,9 @@
         "ids:constraint": [
           {
             "@type:" "ids:Constraint",
-            "ids:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
-            "ids:operator": { "@id": "idsc:BEFORE" },
-            "ids:rightOperand": {
+            "odrl:leftOperand": { "@id": "idsc:POLICY_EVALUATION_TIME" },
+            "odrl:operator": { "@id": "idsc:BEFORE" },
+            "odrl:rightOperand": {
                 "@value": "?endDateTime",
                 "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
             }

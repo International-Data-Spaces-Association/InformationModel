@@ -1,17 +1,21 @@
 @prefix ids: <https://w3id.org/idsa/core/> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix idsc: <https://w3id.org/idsa/code/> .
 @prefix part3: <https://im.internationaldataspaces.org/participant/part3> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
 
 part3:
     a ids:Participant ;
-    ids:title "Supercargo GmbH"@en;
-    ids:description "Interational logistics company"@en ;
-    ids:corporateEmailAddress "info@supercargo.de" ;
-    ids:corporateHomepage <http://www.supercargo.de> ;
+    dct:title "Supercargo GmbH"@en;
+    dct:description "Interational logistics company"@en ;
+    foaf:mbox "info@supercargo.de" ;
+    foaf:homepage <http://www.supercargo.de> ;
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275. <https://www.gleif.org/en/about-lei/code-lists/iso-20275-entity-legal-forms-code-list/>
-	ids:primarySite [
-        a ids:Site ;
+	org:hasPrimarySite [
+        a org:Site ;
         ids:siteAddress "Supercargo Gmbh, Musterstraße 5, Köln, Deutschland" ;
     ] ;
     ids:participantCertification [
@@ -25,28 +29,28 @@ part3:
 
 part3:ru
     a ids:Participant ;
-    ids:title "Supercargo OOO"@en;
-    ids:description "Interational logistics company"@en ;
-    ids:corporateEmailAddress "info@supercargo.ru" ;
-    ids:corporateHomepage <http://www.supercargo.ru> ;
+    dct:title "Supercargo OOO"@en;
+    dct:description "Interational logistics company"@en ;
+    foaf:mbox "info@supercargo.ru" ;
+    foaf:homepage <http://www.supercargo.ru> ;
     # ids:industrialClassification?
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275 
-	ids:primarySite [
-        a ids:Site ;
+	org:hasPrimarySite [
+        a org:Site ;
         ids:siteAddress "Supercargo OOO, Yлица пример 120, Москва, Россия" ;
     ]
     .
 
 part3:hk
     a ids:Participant ;
-    ids:title "Supercargo Ltd."@en;
-    ids:description "Interational logistics company"@en ;
-    ids:corporateEmailAddress "info@supercargo.hk" ;
-    ids:corporateHomepage <http://www.supercargo.hk>;
+    dct:title "Supercargo Ltd."@en;
+    dct:description "Interational logistics company"@en ;
+    foaf:mbox "info@supercargo.hk" ;
+    foaf:homepage <http://www.supercargo.hk>;
     # ids:industrialClassification?
     ids:legalForm "DX6Z" ; # see ELF-Code and ISO-20275 
-	ids:primarySite [
-        a ids:Site ;
+	org:hasPrimarySite [
+        a org:Site ;
         ids:siteAddress "Sample Road 15c, Hongkong" ;
     ]
     .

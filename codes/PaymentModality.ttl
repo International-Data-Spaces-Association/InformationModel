@@ -1,0 +1,27 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+# Instances
+# ---------
+
+idsc:FREE
+    a ids:PaymentModality ;
+    rdfs:comment "To express that the exchange of resource is free"@en ;
+    rdfs:label "free"@en ;
+.
+
+idsc:FIXED_PRICE
+    a ids:PaymentModality ;
+    rdfs:comment "To express that the exchange of resource is with a fixed price"@en ;
+    rdfs:label "fixed price"@en ;
+.
+
+idsc:NEGOTIATION_BASIS
+    a ids:PaymentModality ;
+    rdfs:comment "To express that the exchange of resource is negotiation-based."@en ;
+    rdfs:label "negotiation basis"@en ;
+.

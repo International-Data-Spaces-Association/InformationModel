@@ -24,16 +24,16 @@
             "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         )
         "ids:target": (idsc:ASSET_TEMPLATE),
-        "ids:action": (idsc:ACTION_TEMPLATE),
+        "odrl:action": (idsc:ACTION_TEMPLATE),
         "ids:postDuty": [ {
             "@type": "ids:Duty",
-            "ids:action": {
-                "@type": "ids:Action",
+            "odrl:action": {
+                "@type": "odrl:Action",
                 "ids:includedIn": { "@id": "idsc:NOTIFY" },
                 "ids:actionRefinement": {
                     "@type": "ids:Constraint",
-                    "ids:leftOperand": { "@id": "idsc:ENDPOINT" },
-                    "ids:operator": { "@id": "idsc:DEFINES_AS" },
+                    "odrl:leftOperand": { "@id": "idsc:ENDPOINT" },
+                    "odrl:operator": { "@id": "idsc:DEFINES_AS" },
                     "ids:rightOperandReference": { "@id": "?notificationEndpointUrl" }  // Send notification information to this URL
                 }
             }
