@@ -385,13 +385,13 @@ shapes:AppNotificationMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:affectedAppResource ;
+		sh:path ids:affectedResource ;
 		sh:nodeKind sh:IRI ;
     sh:pattern "^(?:(http(s)?|idscp|(s)?ftp))";
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedAppResource property"@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppNotificationMessageShape): An ids:AppNotificationMessage must have exactly one IRI reference to an ids:Resource linked through the ids:affectedResource property"@en ;
 	]	.
 
 shapes:AppRegistrationRequestMessageShape
