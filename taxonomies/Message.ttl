@@ -385,6 +385,59 @@ ids:LogMessage a owl:Class;
     rdfs:label "Log Message"@en ;
     rdfs:comment "Log Message which can be used to transfer logs e.g., to the clearing house."@en.
 
+ids:LogEntry a owl:Class;
+    rdfs:label "Log Entry"@en ;
+    rdfs:comment "Contains the metadata of a LogMessage"@en .
+
+ids:transactionID a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:unsignedInt ;
+    rdfs:label "Transaction ID"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a transactionID"@en .
+
+ids:processID a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:string ;
+    rdfs:label "Process ID"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a processID"@en .
+
+ids:documentID a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:string ; # UUID?
+    rdfs:label "Document ID"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a documentID"@en .
+
+# Timestamp given by dct:created
+
+ids:hash a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:string ;
+    rdfs:label "Hash"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a hash"@en .
+
+ids:clientID a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:string ;
+    rdfs:label "Client ID"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a clientID"@en .
+
+ids:serverID a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:string ;
+    rdfs:label "Server ID"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a serverID"@en .
+
+ids:signature a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:string ;
+    rdfs:label "Signature"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a signature"@en .
+
+ids:payload a owl:DatatypeProperty ;
+    rdfs:domain ids:LogEntry ;
+    rdfs:range xsd:string ;
+    rdfs:label "Payload"@en ;
+    rdfs:comment "Links a LogEntry (Metadata) to a payload"@en .
 
 # App-related Messages
 # ---------------------

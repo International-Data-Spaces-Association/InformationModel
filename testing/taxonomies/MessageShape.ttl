@@ -415,3 +415,19 @@ shapes:AppUploadMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (AppUploadMessageShape): An ids:AppUploadMessage must have exactly one IRI reference to an ids:Artifact linked through the ids:appArtifactResource property"@en ;
 	] .
+
+# Log messaging
+# -------------
+
+shapes:LogEntryShape
+	a sh:NodeShape ;
+	sh:targetClass ids:LogEntry ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dct:created ;
+		sh:datatype xsd:dateTimeStamp ;
+		sh:severity sh:Violation ;
+		sh:maxCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/taxonomies/MessageShape.ttl> (LogEntryShape): An ids:LogEntry must not point to more than one resource of datatype xsd:dateTimeStamp though the dct:created property"@en ;
+	] .
