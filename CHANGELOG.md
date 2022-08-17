@@ -9,11 +9,12 @@ Version 4.2.0 of the IDS Information Model
 
 ### Added
 
+* AppRoute now subclass of ids:Described
+* Individuals for quality metrics and a dimension: `idsc:AVAILABILITY and idsc:DOWNLOAD_URL_AVAILABILITY_METRIC`
 * Class `ids:PaymentModality` to document pricing modalities (free/ fixed price/ negotiation basis).
-* Class `ids:IdsProtocolSpecification` and property `ids:apiSpecification` to describe `ids:Endpoint`s with their supported protocols
+* Class `ids:IdsProtocolSpecification` to describe `ids:Endpoint`s with their supported protocols
 * New individuals of `ids:Frequency`: `TWO_TIMES_A_DAY`, `EVERY_THREE_HOURS`, `BIHOURLY`, `HOURLY`, `EVERY_30_MINUTES`, `EVERY_15_MINUTES`, `EVERY_10_MINUTES`, `EVERY_5_MINUTES`, `EVERY_1_MINUTE`
 * New individuals of `ids:IdsProtocolSpecification`: `IDS-REST`, `IDS-CP`, `QUERY`, `MULTIPART`
-* New individuals of `ids:CustomMediaType`: `OTHER_MEDIATYPE`
 * Shapes for AppResources
 * Class UsageControlComponent and Shape
 
