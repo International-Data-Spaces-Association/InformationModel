@@ -32,17 +32,22 @@
         "Europe"
       ],
       "dct:temporal": {
+        "@id": "data3:temporal",
         "@type": "ids:Interval",
         "time:hasBeginning": {
+          "@id": "data3:hasBeginning",
           "@type": "time:Instant",
           "time:inXSDDateTimeStamp": {
+            "@id": "data3:inXSDDateTimeStamp1",
             "@value": "2001-01-01T12:00:00.000+02:00",
             "@type": "xsd:dateTimeStamp"
           }
         },
         "time:hasEnd": {
+          "@id": "data3:hasEnd",
           "@type": "time:Instant",
           "time:inXSDDateTimeStamp": {
+            "@id": "data3:inXSDDateTimeStamp2",
             "@value": "2017-12-31T12:00:00.000+02:00",
             "@type": "xsd:dateTimeStamp"
           }
@@ -53,6 +58,7 @@
       },
       "ids:representation": [
         {
+          "@id": "data3:representation1",
           "@type": "ids:TextRepresentation",
           "ids:mediaType": {
             "@id": "https://www.iana.org/assignments/media-types/application/pdf"
@@ -62,6 +68,7 @@
           }
         },
         {
+          "@id": "data3:representation2",
           "@type": "ids:TextRepresentation",
           "ids:mediaType": {
             "@id": "https://www.iana.org/assignments/media-types/application/msword"
@@ -73,6 +80,7 @@
       ],
       "ids:resourceEndpoint": [
         {
+          "@id": "data3:resourceEndpoint1",
           "@type": "ids:ConnectorEndpoint",
           "ids:endpointArtifact": {
             "@id": "data3:report_pdf"
@@ -82,6 +90,7 @@
           }
         },
         {
+          "@id": "data3:resourceEndpoint2",
           "@type": "ids:ConnectorEndpoint",
           "ids:endpointArtifact": {
             "@id": "data3:report_doc"
@@ -93,6 +102,7 @@
       ],
       "dqv:hasQualityMeasurement": [
         {
+          "@id": "data3:hasQualityMeasurement1",
           "@type": "dqv:QualityMeasurement",
           "dqv:isMeasurementOf": {
             "@id": "idsc:SPATIAL_ACCURACY"
@@ -103,6 +113,7 @@
           }
         },
         {
+          "@id": "data3:hasQualityMeasurement2",
           "@type": "dqv:QualityMeasurement",
           "dqv:isMeasurementOf": {
             "@id": "idsc:POPULATION_COMPLETENESS"
@@ -110,6 +121,7 @@
           "dqv:value": 1
         },
         {
+          "@id": "data3:hasQualityMeasurement3",
           "@type": "dqv:QualityMeasurement",
           "dqv:isMeasurementOf": {
             "@id": "dqvno:rateOfObjectsWithInconsistencyBetweenGivenProperties"
@@ -117,11 +129,13 @@
           "dqv:value": 1
         },
         {
+          "@id": "data3:hasQualityMeasurement4",
           "@type": "dqv:QualityMeasurement",
           "dqv:isMeasurementOf": {
             "@id": "idsc:SPATIAL_RESOLUTION_AS_ANGULAR_DISTANCE"
           },
           "dqv:value": {
+            "@id": "data3:1",
             "@value": "1",
             "@type": "xsd:decimal"
           }
@@ -137,6 +151,7 @@
       "ids:byteSize": 1923497,
       "ids:fileName": "Highway_traffic_statistics.pdf",
       "ids:creationDate": {
+        "@id": "data3:creationDate1",
         "@value": "2018-06-18T12:00:00.000+02:00",
         "@type": "xsd:dateTimeStamp"
       }
@@ -147,6 +162,7 @@
       "ids:byteSize": 28923491,
       "ids:fileName": "Highway_traffic_statistics.doc",
       "ids:creationDate": {
+        "@id": "data3:creationDate2",
         "@value": "2018-06-18T12:00:00.000+02:00",
         "@type": "xsd:dateTimeStamp"
       }
@@ -155,6 +171,7 @@
       "@id": "data3:offer",
       "@type": "ids:ContractOffer",
       "ids:permission": {
+        "@id": "data3:permission",
         "@type": "ids:Permission",
         "ids:assigner": {
           "@id": "part1:"
@@ -166,6 +183,7 @@
           "@id": "idsc:USE"
         },
         "ids:constraint": {
+          "@id": "data3:constraint",
           "@type": "ids:Constraint",
           "odrl:leftOperand": {
             "@id": "idsc:SECURITY_LEVEL"
