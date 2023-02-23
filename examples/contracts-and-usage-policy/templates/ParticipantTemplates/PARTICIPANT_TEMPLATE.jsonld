@@ -20,7 +20,7 @@
         "odrl:operator": { "@id": "?IdscBinaryOperator" },           // The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
         "odrl:rightOperand": { "@id": "?Value" }                     // The value expression all members of this collection have to share, for instance ?Value := "blue"
         (, "ids:pipEndpoint": { "@id": "?AttributeLocation"} )?     // A URI or path expression to the target attribute, ?AttributeLocation := "//color"
-        (, "ids:unit": { "@id": "?Unit" } )?                        // A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
+        (, "odrl:unit": { "@id": "?Unit" } )?                        // A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
       }
     ]
   }
@@ -39,7 +39,7 @@
                 "odrl:operator": { "@id": "?IdscBinaryOperator" },
                 "odrl:rightOperand": { "@id": "?Value" }
                 (, "ids:pipEndpoint": { "@id": "?AttributeLocation" } )?
-                (, "ids:unit": { "@id": "?Unit" } )?
+                (, "odrl:unit": { "@id": "?Unit" } )?
               }
             ){2,} // at least two constraints
           ]
