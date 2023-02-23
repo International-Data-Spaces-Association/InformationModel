@@ -28,12 +28,12 @@ idsc:USAGE_DURING_INTERVAL_AGREEMENT_TEMPLATE a ids:IntervalUsageAgreement ;
         odrl:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
 					odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;
-					ids:operator idsc:AFTER ;
+					odrl:operator idsc:AFTER ;
 					odrl:rightOperand "?startDateTime"^^xsd:dateTimeStamp ; # ?startDateTime < ?endDateTime
 				] ;
 				odrl:constraint [
 					odrl:leftOperand ids:POLICY_EVALUATION_TIME ;
-					ids:operator idsc:BEFORE ;
+					odrl:operator idsc:BEFORE ;
 					odrl:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
 				] ;
         ( odrl:constraint idsc:CONSTRAINT_TEMPLATE ; )*      # zero or more Constraints

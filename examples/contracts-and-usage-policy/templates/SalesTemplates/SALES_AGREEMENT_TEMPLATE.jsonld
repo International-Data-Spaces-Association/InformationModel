@@ -9,19 +9,19 @@
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
     "odrl:permission": {
         "@type": "odrl:Permission",
-        "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
-        "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
+        "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),
         "odrl:action": (idsc:ACTION_TEMPLATE),
         "ids:preDuty": {
             "@type": "odrl:Duty",
-            "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider,
-            "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer,
+            "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:provider,
+            "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer,
             "odrl:action": {
                 "@type": "odrl:Action",
                 "ids:includedIn": { "@id": "idsc:COMPENSATE" },
                 "ids:actionRefinement": {
-                    "@type": "ids:Constraint",
+                    "@type": "odrl:Constraint",
                     "odrl:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
                     "odrl:operator": { "@id": "idsc:EQ" },
                     "odrl:rightOperand": {
@@ -32,7 +32,7 @@
                 }
             }
         }
-        (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
+        (, "odrl:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
         (, "ids:preDuty": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more additional Obligations which need to be fulfilled before the Usage event
         (, "ids:postDuty": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
     }

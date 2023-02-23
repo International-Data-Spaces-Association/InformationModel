@@ -80,12 +80,12 @@ data3:offer
     a ids:ContractOffer ;
     odrl:permission [
 		a odrl:Permission ;
-        ids:assigner part1: ;
+        odrl:assigner part1: ;
         # individual target(s)
         ids:target data3: ;
         odrl:action idsc:USE ;
-        ids:constraint [
-				    a ids:Constraint ;
+        odrl:constraint [
+				    a odrl:Constraint ;
             odrl:leftOperand   idsc:SECURITY_LEVEL ;
             odrl:operator      idsc:GTEQ ;
             odrl:rightOperand  idsc:TRUST_SECURITY_PROFILE

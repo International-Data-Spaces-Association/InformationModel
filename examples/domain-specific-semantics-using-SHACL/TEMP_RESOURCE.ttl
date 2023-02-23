@@ -91,7 +91,7 @@ sample_Data:
             odrl:constraint [
                 a odrl:Constraint ;
                 odrl:leftOperand idsc:now;
-                ids:operator idsc:IN_TIME_INTERVAL ;
+                odrl:operator idsc:IN_TIME_INTERVAL ;
                 odrl:rightOperand "[ids:hasBeginning {2019-10-01T00:00:01Z}; ids:hasEnding {2019-10-13T23:59:59Z} ]";
                 ] ;
 
@@ -100,7 +100,7 @@ sample_Data:
                 odrl:action idsc:COMPENSATE ;
                 odrl:constraint [
                     odrl:leftOperand idsc:payAmount ;
-                      ids:operator ids:EQ ;
+                      odrl:operator ids:EQ ;
                       odrl:rightOperand 100 ;
                       odrl:unit <http://dbpedia.org/resource/Euro>;
                 ]

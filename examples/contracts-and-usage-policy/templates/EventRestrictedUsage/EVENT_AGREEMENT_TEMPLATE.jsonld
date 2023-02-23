@@ -9,12 +9,12 @@
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
     "odrl:permission": {
         "@type": "odrl:Permission",
-        "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
-        "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
+        "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),
         "odrl:action": (idsc:ACTION_TEMPLATE),
-        "ids:constraint": [{
-            "@type": "ids:Constraint",
+        "odrl:constraint": [{
+            "@type": "odrl:Constraint",
             "odrl:leftOperand": {
               "@id": "idsc:EVENT"
             },

@@ -28,12 +28,12 @@ idsc:USAGE_UNTIL_DELETION_AGREEMENT_TEMPLATE a ids:DeleteAfterIntervalAgreement 
         odrl:action idsc:ACTION_TEMPLATE ;
         odrl:constraint [
 					odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;
-					ids:operator idsc:AFTER ;
+					odrl:operator idsc:AFTER ;
 					odrl:rightOperand "?startDateTime"^^xsd:dateTimeStamp ;
 				] ;
 				odrl:constraint [
 					odrl:leftOperand ids:POLICY_EVALUATION_TIME ;
-					ids:operator idsc:BEFORE ;
+					odrl:operator idsc:BEFORE ;
 					odrl:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
 				] ;
         ids:postDuty [
@@ -47,7 +47,7 @@ idsc:USAGE_UNTIL_DELETION_AGREEMENT_TEMPLATE a ids:DeleteAfterIntervalAgreement 
                     odrl:constraint [
                         a odrl:Constraint ;
                         odrl:leftOperand idsc:POLICY_EVALUATION_TIME ;
-                        ids:operator idsc:TEMPORAL_EQUALS ;
+                        odrl:operator idsc:TEMPORAL_EQUALS ;
                         odrl:rightOperand "?endDateTime"^^xsd:dateTimeStamp ;
                     ] ;
                 ]
