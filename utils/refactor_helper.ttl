@@ -202,7 +202,7 @@ org:hasPrimarySite
     rdfs:comment "Indicates a primary site for the Organization, this is the default means by which an Organization can be contacted and is not necessarily the formal headquarters."@en .
 
 foaf:mbox
-    a owl:ObjectProperty ;   
+    a owl:DatatypeProperty ;   
     a owl:InverseFunctionalProperty ;
     rdfs:label "personal mailbox"@en ;
     rdfs:domain [ owl:unionOf (ids:Participant foaf:Person) ];
@@ -210,7 +210,7 @@ foaf:mbox
     rdfs:comment "Email address for contacting the participant on a general level."@en .
 
 foaf:homepage
-    a owl:ObjectProperty ;  
+    a owl:DatatypeProperty ;  
     a owl:InverseFunctionalProperty ;
     rdfs:label "homepage"@en ;
     rdfs:domain [ owl:unionOf (ids:Participant foaf:Person) ];
@@ -232,7 +232,7 @@ foaf:givenName
     rdfs:comment "Given name of a Person."@en .
 
 foaf:phone
-    a owl:ObjectProperty ;   
+    a owl:DatatypeProperty ;   
     rdfs:label "phone"@en ;
     rdfs:domain foaf:Person;
     rdfs:range xsd:string;
@@ -286,7 +286,7 @@ dcat:theme
 
 dcat:keyword
     a rdf:Property ;
-    a owl:ObjectProperty ;
+    a owl:DatatypeProperty ;
     rdfs:label "keyword"@en ;
     rdfs:domain ids:DigitalContent;
     rdfs:range xsd:string;
