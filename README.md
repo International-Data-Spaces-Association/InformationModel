@@ -101,3 +101,32 @@ For automated validation of the Information Model POJOs (via the builder classes
 For members of the International Data Spaces Association only:
 - [Working document](https://industrialdataspace.jiveon.com/docs/DOC-1817), explaining
 the usage of the Information Model for data exchanges in the IDS.
+
+## Citation
+If you use the Information Model in scientific work, please consider citing:
+```
+@inproceedings{BaderEtAl:IDS-InfoModel20,
+  author   = {Sebastian Bader and Jaroslav Pullmann and Christian Mader and Sebastian Tramp and Christoph Quix and Andreas W. M{\"u}ller and Haydar Aky{\"u}rek and Matthias B{\"o}ckmann and Benedikt T. Imbusch and Johannes Lipp and Sandra Geisler and Christoph Lange},
+  title    = {The International Data Spaces Information Model -- An Ontology for Sovereign Exchange of Digital Content},
+  doi      = {10.1007/978-3-030-62466-8_12},
+  crossref = {iswc2020},
+  pages    = {176--192},
+  year     = 2020,
+}
+
+@Proceedings{iswc2020,
+  editor          = {Jeff Z. Pan and Valentina Tamma and Claudia d’Amato and Krzysztof Janowicz and Bo Fu and Axel Polleres and Oshani Seneviratne and Lalana Kagal},
+  eventdate       = {2020-11-02/2020-11-06},
+  eventtitle      = {19\textsuperscript{th} International Semantic Web Conference},
+  eventtitleaddon = {ISWC},
+  isbn            = {978-3-030-62465-1},
+  number          = {12507},
+  publisher       = {Springer Verlag},
+  address         = {Cham, Switzerland},
+  series          = {Lecture Notes in Computer Science},
+  booktitle       = {The Semantic Web},
+  title           = {The Semantic Web},
+  venue           = {Athens, Greece},
+  year            = {2020},
+}
+```
