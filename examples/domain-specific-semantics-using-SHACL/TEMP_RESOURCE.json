@@ -71,7 +71,7 @@
         "provider": "<Provider Participant URI>",
         "contractDocument": "<Reference to human-readable resource of this Contract>",
         "permission": [{
-                "@type": "ids:Permission",
+                "@type": "odrl:Permission",
                 "action": {
                     "@type": "odrl:Action",
                     "@id": "https://w3id.org/idsa/code/USE"
@@ -79,7 +79,7 @@
                 "assigner": "<Assigner Participant URI>",
                 "target": "Reference to the JSON Artifact",
                 "constraint": {
-                    "@type": "ids:Constraint",
+                    "@type": "odrl:Constraint",
                     "leftOperand": {
                         "@type": "odrl:LeftOperand",
                         "@id": "https://w3id.org/idsa/code/now"
@@ -91,12 +91,12 @@
                     "rightOperand ": "hasBeginning 2019-10-01T00:00:01Z hasEnding 2019-10-13T23:59:59Z"
                 },
                 "duty": {
-                    "@type": "ids:Duty",
+                    "@type": "odrl:Duty",
                     "action": {
                         "@id": "https://w3id.org/idsa/code/COMPENSATE"
                     },
                     "constraint": {
-                        "@type": "ids:Constraint",
+                        "@type": "odrl:Constraint",
                         "leftOperand": {
                             "@type": "odrl:LeftOperand",
                             "@id": "https://w3id.org/idsa/code/payAmount"

@@ -34,12 +34,12 @@
         odrl:includedIn ?ActionUri ;
         ids:actionRefinement [
             a odrl:LogicalConstraint ;                       # A Collection with more than one condition to describe its members.
-            ?IdsOperand                                     # The operand to connect the constraints, for instance ?IdsOperand := idsc:OR
+            ?IdscOperand                                     # The operand to connect the constraints, for instance ?IdscOperand := idsc:OR
                 ( # '(' is used as an RDF List operator here
                     (                                       # LogicalConstraints allow the expression of alternatives. For instance, we can select which have "color":"blue" OR "color":"green"
                         a odrl:Constraint ;
                         odrl:leftOperand ?IdscLeftOperand ;
-                        odrl:operator ?IdsBinaryOperator ;
+                        odrl:operator ?IdscBinaryOperator ;
                         odrl:rightOperand ?Value ;
                         ( ids:pipEndpoint ?AttributeLocation ; )?
                         ( odrl:unit ?Unit ; )?

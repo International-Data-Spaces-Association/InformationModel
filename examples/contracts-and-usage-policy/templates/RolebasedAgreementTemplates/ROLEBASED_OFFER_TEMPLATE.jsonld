@@ -13,31 +13,31 @@
       ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
         "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
     )
-    "ids:permission": {
-        "@type": "ids:Permission",
+    "odrl:permission": {
+        "@type": "odrl:Permission",
         (
-          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
+          ( "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
         | // or
-          ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+          ( "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         | // or
-          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
-            "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+          ( "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
+            "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         )
         "ids:target": (idsc:ASSET_TEMPLATE),
         "odrl:action": (idsc:ACTION_TEMPLATE),
-        "ids:constraint": [
+        "odrl:constraint": [
           {
-            "@type:" "ids:Constraint",
+            "@type:" "odrl:Constraint",
             "odrl:leftOperand": { "@id": "idsc:USER" },
             "odrl:operator": { "@id": "idsc:MEMBER_OF" },
-            "ids:rightOperandReference": { "@id": "?ParticipantOrganizationUri" }, // the role below is only valid inside the defining organization, so both aspects need to be checked.
+            "odrl:rightOperandReference": { "@id": "?ParticipantOrganizationUri" }, // the role below is only valid inside the defining organization, so both aspects need to be checked.
             "ids:pipEndpoint": { "@id": "?pipUri"}                // A reference to a Policy Information Point endpoint (might be only locally accessible), which knows about the memberships. For instance the LDAP service.
           },
           {
-            "@type:" "ids:Constraint",
+            "@type:" "odrl:Constraint",
             "odrl:leftOperand": { "@id": "idsc:USER" },
             "odrl:operator": { "@id": "idsc:HAS_MEMBERSHIP" },
-            "ids:rightOperandReference": { "@id": "?RoleURI" },   // the role below is only valid inside the defining organization, so both aspects need to be checked.
+            "odrl:rightOperandReference": { "@id": "?RoleURI" },   // the role below is only valid inside the defining organization, so both aspects need to be checked.
             "ids:pipEndpoint": { "@id": "?pipUri"}                // A reference to a Policy Information Point endpoint (might be only locally accessible), which knows about the memberships. For instance the LDAP service.
           }
         ]

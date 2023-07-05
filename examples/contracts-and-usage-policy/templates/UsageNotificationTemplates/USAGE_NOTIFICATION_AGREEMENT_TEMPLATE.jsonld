@@ -7,25 +7,25 @@
     "@id": "?URI",
     "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
-    "ids:permission": {
-        "@type": "ids:Permission",
-        "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
-        "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+    "odrl:permission": {
+        "@type": "odrl:Permission",
+        "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
+        "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),
         "odrl:action": (idsc:ACTION_TEMPLATE),
         "ids:postDuty": [ {
-            "@type": "ids:Duty",
+            "@type": "odrl:Duty",
             "odrl:action": {
                 "@type": "odrl:Action",
                 "ids:includedIn": { "@id": "idsc:NOTIFY" },
                 "ids:actionRefinement": {
-                    "@type": "ids:Constraint",
+                    "@type": "odrl:Constraint",
                     "odrl:leftOperand": { "@id": "idsc:ENDPOINT" },
                     "odrl:operator": { "@id": "idsc:DEFINES_AS" },
-                    "ids:rightOperandReference": { "@id": "?notificationEndpointUrl" }  // Send notification information to this URL
+                    "odrl:rightOperandReference": { "@id": "?notificationEndpointUrl" }  // Send notification information to this URL
                 }
             }
         } ]
-        (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
+        (, "odrl:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
     }
 }

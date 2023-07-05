@@ -13,20 +13,20 @@
       ( "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
         "ids:consumer": (idsc:PARTICIPANT_TEMPLATE), )
     )
-    "ids:permission": {
-        "@type": "ids:Permission",
+    "odrl:permission": {
+        "@type": "odrl:Permission",
         (
-          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
+          ( "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:provider
         | // or
-          ( "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+          ( "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         | // or
-          ( "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
-            "ids:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
+          ( "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),           // same value as ids:provider
+            "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE), )         // same value as ids:consumer
         )
         "ids:target": (idsc:ASSET_TEMPLATE),
         "odrl:action": (idsc:ACTION_TEMPLATE),
-        "ids:constraint": {
-            "@type": "ids:Constraint",
+        "odrl:constraint": {
+            "@type": "odrl:Constraint",
             "odrl:leftOperand": {
               "@id": "?EventURI",                                 // The identifier of this event, for instance http://dbpedia.org/resource/Category:FIFA_World_Cup_tournaments
               "ids:broader" : "idsc:EVENT"
@@ -34,7 +34,7 @@
             "odrl:operator": { "@id": "idsc:EQUALS" },             // if pipReturnValue == true --> Constraint is staisfied
             "odrl:rightOperand": {
                 "@value": "true",
-                "@type": "http://www.w3.org/2001/XMLSchema#:boolean"
+                "@type": "http://www.w3.org/2001/XMLSchema#boolean"
             },
             "ids:pipEndpoint": { "@id": "?askIfEventPipUri" }   // The PIP call for this event, for instance https//pip.com/path/isFIFA_World_Cup_tournaments or https//pip.com/ids?event=FIFA_World_Cup_tournaments
         }

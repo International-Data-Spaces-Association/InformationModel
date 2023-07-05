@@ -15,12 +15,12 @@
     "@type": "odrl:AssetCollection",                            // a Collection with exactly one condition to describe its members
     "ids:assetRefinement": [
       {
-        "@type": "ids:Constraint",                              // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
+        "@type": "odrl:Constraint",                              // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
         "odrl:leftOperand": { "@id": "?IdscLeftOperand" },       // The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
         "odrl:operator": { "@id": "?IdscBinaryOperator" },       // The kind of check, which shall be executed on the feature of interest, for instance ?IdscBinaryOperator := idsc:STRING_EQ
         "odrl:rightOperand": { "@id": "?Value" }                 // The value expression all members of this collection have to share, for instance ?Value := "blue"
         (, "ids:pipEndpoint": { "@id": "?AttributeLocation"} )? // A URI or path expression to the target attribute, ?AttributeLocation := "//color"
-        (, "ids:unit": { "@id": "?Unit" } )?                    // A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
+        (, "odrl:unit": { "@id": "?Unit" } )?                    // A unit which may further explain the ?Value, for instance <http://dbpedia.org/resource/Color>.
       }
     ]
   }
@@ -30,16 +30,16 @@
     "ids:assetRefinement": [
       {
         "@type": "odrl:LogicalConstraint",                           // A Collection with more than one condition to describe its members.
-        "?IdsOperand": {                                            // The operand to connect the constraints, for instance ?IdsOperand := ids:or
+        "?IdscOperand": {                                            // The operand to connect the constraints, for instance ?IdscOperand := ids:or
           "@list": [                                                // LogicalConstraints allow the expression of alternatives. For instance, we can select which have "color":"blue" OR "color":"green"
             (
               {
-                "@type": "ids:Constraint",
+                "@type": "odrl:Constraint",
                 "odrl:leftOperand": { "@id": "?IdscLeftOperand" },
-                "odrl:operator": { "@id": "?IdsBinaryOperator" },
+                "odrl:operator": { "@id": "?IdscBinaryOperator" },
                 "odrl:rightOperand": { "@id": "?Value" }
                 (, "ids:pipEndpoint": { "@id": "?AttributeLocation" } )?
-                (, "ids:unit": { "@id": "?Unit" } )?
+                (, "odrl:unit": { "@id": "?Unit" } )?
               }
             ){2,} // at least two constraints
           ]

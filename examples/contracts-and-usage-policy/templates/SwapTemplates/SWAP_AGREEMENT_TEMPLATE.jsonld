@@ -7,23 +7,23 @@
     "@id": "?URI",
     "ids:provider": (idsc:PARTICIPANT_TEMPLATE),
     "ids:consumer": (idsc:PARTICIPANT_TEMPLATE),
-    "ids:permission": [
+    "odrl:permission": [
       {
-        "@type": "ids:Permission",
-        "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
-        "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        "@type": "odrl:Permission",
+        "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
+        "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
         "ids:target": (idsc:ASSET_TEMPLATE),                      // the Provider's Data Asset
         "odrl:action": (idsc:ACTION_TEMPLATE)
-        (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
+        (, "odrl:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
         (, "ids:preDuty": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more Obligations which need to be fulfilled before the Usage event
         (, "ids:postDuty": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
     }, {
-        "@type": "ids:Permission",
-        "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
-        "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
+        "@type": "odrl:Permission",
+        "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:consumer,
+        "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),              // same value as ids:provider,
         "ids:target": (idsc:ASSET_TEMPLATE),                      // the Consumer's Data Asset
         "odrl:action": (idsc:ACTION_TEMPLATE)
-        (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
+        (, "odrl:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints
         (, "ids:preDuty": (idsc:OBLIGATION_TEMPLATE) )*     // zero or more Obligations which need to be fulfilled before the Usage event
         (, "ids:postDuty": (idsc:OBLIGATION_TEMPLATE) )*    // zero or more Obligations which have to be fulfilled after the Usage event
     }

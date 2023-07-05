@@ -4,10 +4,10 @@
 // The ObigationTemplate is a RegEx-like representation of the possible forms, which can be inserted at the Obligation position in an IDS Usage Control Template.
 
 {
-    "@type": "ids:Duty",
+    "@type": "odrl:Duty",
     "@id": "?URI",
-    "ids:assigner": (idsc:PARTICIPANT_TEMPLATE),
-    "ids:assignee": (idsc:PARTICIPANT_TEMPLATE),
+    "odrl:assigner": (idsc:PARTICIPANT_TEMPLATE),
+    "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),
     "odrl:action": (idsc:ACTION_TEMPLATE)
-    (, "ids:constraint": (idsc:CONSTRAINT_TEMPLATE) )*    // zero or more Constraints
+    (, "odrl:constraint": (idsc:CONSTRAINT_TEMPLATE) )*    // zero or more Constraints
 }
