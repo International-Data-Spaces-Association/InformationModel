@@ -43,7 +43,7 @@ idsc:RENTAL_AGREEMENT_TEMPLATE a ids:RentalAgreement ;
                 ids:actionRefinement [
                     a odrl:Constraint ;
                     odrl:leftOperand odrl:payAmount ;
-                    odrl:operator idsc:EQ ;
+                    odrl:operator odrl:eq ;
                     odrl:rightOperand "?fee"^^xsd:double ;   # pay the ?fee
                     odrl:unit ?currency ;
                     ( ids:pipEndpoint ?pipUri ; )?
