@@ -11306,7 +11306,7 @@
 				odrl:constraint [
 					ids:leftOperand &lt;Attribute URI&gt; ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
-					ids:rightOperand [&lt;Value URI&gt;|&lt;Value Literal&gt;]
+					odrl:rightOperand [&lt;Value URI&gt;|&lt;Value Literal&gt;]
 				]
 			] ;]*
 		.</skos:note>
@@ -11323,7 +11323,7 @@
 			[&quot;odrl:constraint&quot; : {
 					 &quot;ids:leftOperand&quot; : &quot;&lt;Attribute URI&gt;&quot;,
 					 &quot;ids:operator&quot; : &quot;[ids:eq|ids:lt|ids:gt]&quot;,
-					 &quot;ids:rightOperand&quot; : &quot;[&lt;Value URI&gt;|&lt;Value Literal&gt;]&quot;
+					 &quot;odrl:rightOperand&quot; : &quot;[&lt;Value URI&gt;|&lt;Value Literal&gt;]&quot;
 			 } [,]]*
 		} }</skos:note>
     </owl:NamedIndividual>
@@ -14507,11 +14507,11 @@
         <rdfs:label xml:lang="en">requesting application</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/rightOperand">
-        <rdfs:comment xml:lang="en">The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either odrl:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint.</rdfs:comment>
         <rdfs:label xml:lang="en">rightOperand</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/rightOperandReference">
-        <rdfs:comment xml:lang="en">The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either odrl:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint.</rdfs:comment>
         <rdfs:label xml:lang="en">rightOperandReference</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/idsa/core/senderAgent">

@@ -6962,7 +6962,7 @@ owl:Class rdf:type owl:Class .
 				odrl:constraint [
 					ids:leftOperand <Attribute URI> ;
 					ids:operator [ids:eq|ids:lt|ids:gt] ;
-					ids:rightOperand [<Value URI>|<Value Literal>]
+					odrl:rightOperand [<Value URI>|<Value Literal>]
 				]
 			] ;]*
 		.""" ,
@@ -6979,7 +6979,7 @@ owl:Class rdf:type owl:Class .
 			[\"odrl:constraint\" : {
 					 \"ids:leftOperand\" : \"<Attribute URI>\",
 					 \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",
-					 \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"
+					 \"odrl:rightOperand\" : \"[<Value URI>|<Value Literal>]\"
 			 } [,]]*
 		} }""" .
 
@@ -9141,11 +9141,11 @@ _:AnnaKasprzik rdf:type <http://purl.org/dc/terms/Agent> ,
                                        rdfs:label "requesting application"@en .
 
 
-<https://w3id.org/idsa/core/rightOperand> rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en ;
+<https://w3id.org/idsa/core/rightOperand> rdfs:comment "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either odrl:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en ;
                                           rdfs:label "rightOperand"@en .
 
 
-<https://w3id.org/idsa/core/rightOperandReference> rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en ;
+<https://w3id.org/idsa/core/rightOperandReference> rdfs:comment "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either odrl:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."@en ;
                                                    rdfs:label "rightOperandReference"@en .
 
 
