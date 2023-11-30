@@ -45,15 +45,6 @@ idsc:ADD
     skos:note "This action modifies a number by adding a given value to it. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
 .
 
-idsc:COMPENSATE
-    a odrl:Action;
-    rdfs:label "compensate"@en ;
-    rdfs:comment "To pay a certain amount of money in order to use a resource."@en ;
-    skos:broader odrl:compensate ;
-    odrl:includedIn odrl:use ;
-    skos:note "This action must be evaluated both at the consumer and provider side. A compensation might be required before access is granted (provider-side), or each time the usage action is performed (consumer-side)."@en ;
-    .
-
 idsc:DIVIDE
     a odrl:Action ;
     rdfs:comment "This action modifies dividing something by something else."@en ;
