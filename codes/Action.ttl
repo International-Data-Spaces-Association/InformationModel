@@ -66,7 +66,7 @@ idsc:DELETE
     rdfs:label "delete"@en ;
     rdfs:comment "To remove a resource or inhibit any further access with reasonable measures."@en ;
     skos:broader odrl:delete ;
-    odrl:includedIn idsc:WRITE ;
+    odrl:includedIn odrl:modify ;
     skos:note "This action is evaluated at the consumer side if used in a duty clause. A provider cannot be forced to delete its data resources. If used in a permission clause, it is effecting the data provider as it allows the consumer to delete the provider's resource remotely."@en ;
     .
 
@@ -117,15 +117,6 @@ idsc:LOG
     skos:note "This action is always evaluated at the consumer side."@en ;
 .
 
-idsc:MODIFY
-    a odrl:Action ;
-    rdfs:comment "To change a resource locally."@en ;
-    rdfs:label "modify"@en ;
-    skos:broader odrl:modify;
-    odrl:includedIn idsc:WRITE ;
-    skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;
-    .
-
 idsc:MULTIPLY
     a odrl:Action ;
     rdfs:comment "This action modifies a number by multiplying it to a given value."@en ;
@@ -156,7 +147,7 @@ idsc:READ
     rdfs:comment "To obtain data from the resource."@en ;
     rdfs:label "read"@en ;
     skos:broader odrl:read;
-    odrl:includedIn idsc:MODIFY ;
+    odrl:includedIn odrl:modify ;
     skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;
     .
 
@@ -182,11 +173,3 @@ idsc:TRACK_PROVENANCE
     odrl:includedIn idsc:NOTIFY ;
     skos:note "This action is always evaluated at the consumer side."@en ;
 	.
-
-idsc:WRITE
-    a odrl:Action ;
-    rdfs:comment "To change a remote resource."@en ;
-    rdfs:label "write"@en ;
-    odrl:includedIn odrl:use ;
-    skos:note "This action is always evaluated at the provider side. It corresponds to 'allow changes of a resource' but *not* including its deletion."@en ;
-    .
