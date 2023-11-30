@@ -60,7 +60,7 @@ idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
                 odrl:includedIn odrl:compensate ;
                 ids:actionRefinement [
                     a odrl:Constraint ;
-                    odrl:leftOperand idsc:PAY_AMOUNT ;
+                    odrl:leftOperand odrl:payAmount ;
                     odrl:operator idsc:EQ ;
                     odrl:rightOperand "?fee"^^xsd:double ;   # pay the ?fee
                     odrl:unit ?currency ;

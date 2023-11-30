@@ -53,7 +53,7 @@ idsc:SALES_REQUEST_TEMPLATE a ids:SalesRequest ;
                 odrl:includedIn odrl:compensate ;
                 ids:actionRefinement [
                     a odrl:Constraint ;
-                    odrl:leftOperand idsc:PAY_AMOUNT ;
+                    odrl:leftOperand odrl:payAmount ;
                     odrl:operator idsc:EQ ;
                     odrl:rightOperand "?price"^^xsd:double ;
                     odrl:unit ?currency ;
