@@ -16,11 +16,11 @@ shapes:ActionShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:actionRefinement ;
+		sh:path odrl:refinement ;
 		sh:class odrl:Constraint ;
 		#sh:minCount 1 ; #The Action codes do not meet this criteria
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An ids:actionRefinement property must have at least one point from an odrl:Action to an odrl:Constraint."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/contract/ActionShape.ttl> (ActionShape): An odrl:refinement property must have at least one point from an odrl:Action to an odrl:Constraint."@en ;
 	] ;
 
 	sh:property [

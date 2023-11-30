@@ -13,7 +13,7 @@
 | // or
   {
     "@type": "ids:Participant",                           // a Collection with exactly one condition to describe its members
-    "ids:participantRefinement": [
+    "odrl:refinement": [
       {
         "@type": "odrl:Constraint",                                  // Define a collection of data objects which, for instance, all have an explicit attribute "color":"blue"
         "odrl:leftOperand": { "@id": "?IdscLeftOperand" },           // The feature of interest, for instance ?IdscLeftOperand := idsc:PATH
@@ -27,7 +27,7 @@
 | // or
   {
     "@type": "ids:Participant",
-    "ids:participantRefinement": [
+    "odrl:refinement": [
       {
         "@type": "odrl:LogicalConstraint",                           // A Collection with more than one condition to describe its members.
         "?IdscOperand": {                                            // The operand to connect the constraints, for instance ?IdscOperand := idsc:OR
