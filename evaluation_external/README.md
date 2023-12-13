@@ -78,8 +78,7 @@ After making the aforementioned evaluation and changes, the results are the foll
 - 103 definitions were evaluated, from which 36 were classes and 67 were properties.
 - We detected 57 **Probably Redundant (pr)** cases, 40 **Redundant (r)** cases, and 6 **Non Redundant (nr)** cases.
 - In 30 cases we made no changes, from which 6 correspond to **Non-Redundant (nr)** cases and 24 correspond to **Partially Redundant (pr)** cases.
-- In 72 cases we made changes by removing the local definitions and replacing them by their external definitions, they all correspond to **Redundant (r)** and **Partially Redundant (pr)** cases.
-- 1 case is pending, and corresponds to the property **"ids:rightOperand"**
+- In 73 cases we made changes by removing the local definitions and replacing them by their external definitions, they all correspond to **Redundant (r)** and **Partially Redundant (pr)** cases.
 
 We summarize the results of our evaluations as follows:
 
@@ -141,7 +140,7 @@ ids:contractOffer
     rdfs:range ids:ContractOffer;
     rdfs:label "contract offer"@en;
     rdfs:comment "Reference to a Contract Offer defining the authorized use of the Resource."@en.
-    
+
 ids:sovereign
     a owl:ObjectProperty ;
     rdfs:domain ids:Resource ;
@@ -189,7 +188,7 @@ shapes:ResourceShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/ResourceShape.ttl> (ResourceShape): An ids:Resource must have at least one ids:ContractOffer linked through the ids:contractOffer property"@en ;
 	] ;
-    
+
     	sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:publisher ;
@@ -239,7 +238,7 @@ ap15:Ressource1
                            odrl:permission       [ ids:action     idsc:READ ;
                                                   odrl:constraint [ odrl:leftOperand idsc:DELAY ;
                                                                    odrl:operator     idsc:LONGER ;
-                                                                   ids:rightOperand "PT20M"^^xsd:duration ] ] ] .
+                                                                   odrl:rightOperand "PT20M"^^xsd:duration ] ] ] .
 
 ```
 
@@ -247,7 +246,7 @@ Here we included the additional properties `dct:title`, `dct:description`, `dcat
 
 Moreover, we included the properties `ap15:serialNumber` and `ap15:operator`, which are local definitions corresponding to the above-mentioned prefix `@prefix ap15: <http://fit.fraunhofer.de/ap15/> .`.
 
-Now, let's say we want to include further validations for those additional properties, 
+Now, let's say we want to include further validations for those additional properties,
 We create a new file containing the validations as SHACL shapes, as follows:
 
 ```
@@ -328,7 +327,7 @@ shapes:RepresentationShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/InformationModel/master/testing/content/RepresentationShape.ttl> (RepresentationShape): A dcat:Distribution must not have more than one dct:MediaType linked through the dcat:mediaType property"@en ;
 	] ;   
-    
+
     sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:representationStandard ;

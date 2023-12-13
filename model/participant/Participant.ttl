@@ -42,14 +42,7 @@ ids:participantCertification
 	rdfs:domain ids:Participant;
 	rdfs:range ids:ParticipantCertification;
 	rdfs:comment "Certification issued for the given Participant."@en.
-
-ids:participantRefinement
-    a owl:ObjectProperty;
-    rdfs:label "participant refinement"@en;
-    rdfs:domain ids:Participant ;
-    rdfs:range odrl:Constraint ;
-    rdfs:comment "Conditions which needs to be satisfied that a single Participant can be seen as a member of the subject Participant. For instance, all Participants with their headquarter in Europe might be a potential consumer of GDPR-releated data."@en;
-.
+  
 
 ids:businessIdentifier
 	a owl:ObjectProperty ;
@@ -58,7 +51,7 @@ ids:businessIdentifier
 	rdfs:label "has business identifier"@en;
 	rdfs:comment "Company identifiers, described via ids:BusinessIdentifier."@en ;
 	.
-	
+
 ids:vatID
 	a owl:DatatypeProperty ;
 	rdfs:domain ids:Participant ;
@@ -76,7 +69,7 @@ ids:legalForm
 	rdfs:comment "Legal form of the participant. It is advisable to use an existing standard such as ISO-20275."@en ;
 .
 
-ids:jurisdiction 
+ids:jurisdiction
 	a owl:DatatypeProperty ;
 	rdfs:domain ids:Participant ;
 	rdfs:range xsd:string ;

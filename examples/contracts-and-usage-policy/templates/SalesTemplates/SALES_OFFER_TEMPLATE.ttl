@@ -50,11 +50,11 @@ idsc:SALES_OFFER_TEMPLATE a ids:SalesOffer ;
             )
             odrl:action [
                 a odrl:Action ;
-                odrl:includedIn idsc:COMPENSATE ;
-                ids:actionRefinement [
+                odrl:includedIn odrl:compensate ;
+                odrl:refinement [
                     a odrl:Constraint ;
-                    odrl:leftOperand idsc:PAY_AMOUNT ;
-                    odrl:operator idsc:EQ ;
+                    odrl:leftOperand odrl:payAmount ;
+                    odrl:operator odrl:eq ;
                     odrl:rightOperand "?price"^^xsd:double ;
                     odrl:unit ?currency ;
                 ]

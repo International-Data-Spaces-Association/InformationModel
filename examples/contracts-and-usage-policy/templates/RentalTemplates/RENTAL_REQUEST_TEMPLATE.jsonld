@@ -46,11 +46,11 @@
             )
             "odrl:action": {
                 "@type": "odrl:Action",
-                "ids:includedIn": { "@id": "idsc:COMPENSATE" },
-                "ids:actionRefinement": {
+                "ids:includedIn": { "@id": "odrl:compensate" },
+                "odrl:refinement": {
                     "@type": "odrl:Constraint",
-                    "odrl:leftOperand": { "@id": "idsc:PAY_AMOUNT" },
-                    "odrl:operator": { "@id": "idsc:EQ" },
+                    "odrl:leftOperand": { "@id": "odrl:payAmount" },
+                    "odrl:operator": { "@id": "odrl:eq" },
                     "odrl:rightOperand": {
                         "@value": "?fee",
                         "@type": "http://www.w3.org/2001/XMLSchema#double"

@@ -57,11 +57,11 @@ idsc:RENTAL_OFFER_TEMPLATE a ids:RentalOffer ;
             )
             odrl:action [
                 a odrl:Action ;
-                odrl:includedIn idsc:COMPENSATE ;
-                ids:actionRefinement [
+                odrl:includedIn odrl:compensate ;
+                odrl:refinement [
                     a odrl:Constraint ;
-                    odrl:leftOperand idsc:PAY_AMOUNT ;
-                    odrl:operator idsc:EQ ;
+                    odrl:leftOperand odrl:payAmount ;
+                    odrl:operator odrl:eq ;
                     odrl:rightOperand "?fee"^^xsd:double ;   # pay the ?fee
                     odrl:unit ?currency ;
                     ( ids:pipEndpoint ?pipUri ; )?

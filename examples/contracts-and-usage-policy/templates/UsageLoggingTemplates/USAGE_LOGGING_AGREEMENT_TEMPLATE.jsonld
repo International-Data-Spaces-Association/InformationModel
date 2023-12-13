@@ -19,18 +19,18 @@
             "odrl:assignee": (idsc:PARTICIPANT_TEMPLATE),          // same value as ids:consumer
             "odrl:action": {
 				"@id": "idsc:LOG",
-				"ids:actionRefinement": [{   
+				"odrl:refinement": [{   
 					"@type":"odrl:Constraint",
-					"leftOperand": { "@id": "idsc:SYSTEM_DEVICE"},  
-					"operator": { "@id": "idsc:DEFINES_AS"},   
-					"rightOperand": { "@value": "https//example.com/logging_system_device", "@type": "xsd:anyURI"} 
-				},{    
-					"@type":"odrl:Constraint",  
+					"leftOperand": { "@id": "idsc:SYSTEM_DEVICE"},
+					"operator": { "@id": "idsc:DEFINES_AS"},
+					"rightOperand": { "@value": "https//example.com/logging_system_device", "@type": "xsd:anyURI"}
+				},{
+					"@type":"odrl:Constraint",
 					"odrl:leftOperand": { "@id": "idsc:LOG_LEVEL"},
 					"odrl:operator": { "@id": "idsc:DEFINES_AS"},
 					"odrl:rightOperand": { "@value": ["idsc:LOG_ON_ALLOW", "idsc:LOG_ON_DENY"] }
-				  }] 
-			}, 
+				  }]
+			},
         	"ids:PXPEndpoint": { "@id": "https//example.com/pxp/log" }
         }
         (, "odrl:constraint": (idsc:CONSTRAINT_TEMPLATE) )*        // zero or more Constraints

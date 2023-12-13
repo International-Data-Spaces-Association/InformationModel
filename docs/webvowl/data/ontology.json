@@ -5112,7 +5112,7 @@
         }, {
           "identifier" : "note",
           "language" : "undefined",
-          "value" : "{ \r\n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\r\n\t\t\"@type\": \"ContractRequest\", \r\n\t\t\"uid\": \"<contract ID>\", \r\n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\r\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\r\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\r\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \r\n\t\t\"ids:permission\": {\r\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\r\n\t\t\t[\"odrl:constraint\" : {    \r\n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\r\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\r\n\t\t\t\t\t \"ids:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\r\n\t\t\t } [,]]*\r\n\t\t} }",
+          "value" : "{ \r\n\t\t\"@context\": \"https://w3id.org/idsa/contexts/context.jsonld\",\r\n\t\t\"@type\": \"ContractRequest\", \r\n\t\t\"uid\": \"<contract ID>\", \r\n\t\t\"refersTo\": \"idsc:RequestTemplate\" ,\r\n\t\t\"target\": \"[<Representation URI>|<Artifact URI>]\",\r\n\t\t\"ids:provider\": \"<Provider Participant URI>\",\r\n\t\t\"ids:consumer\": \"<Consumer Participant URI>\", \r\n\t\t\"ids:permission\": {\r\n\t\t\t\"ids:action\": \"[ids:use|ids:read|...]\" ,\r\n\t\t\t[\"odrl:constraint\" : {    \r\n\t\t\t\t\t \"ids:leftOperand\" : \"<Attribute URI>\",\r\n\t\t\t\t\t \"ids:operator\" : \"[ids:eq|ids:lt|ids:gt]\",\r\n\t\t\t\t\t \"odrl:rightOperand\" : \"[<Value URI>|<Value Literal>]\"\r\n\t\t\t } [,]]*\r\n\t\t} }",
           "type" : "label"
         }, {
           "identifier" : "note",
@@ -9325,7 +9325,7 @@
         } ]
       },
       "comment" : {
-        "en" : "Monetary amount to pay, usually used with idsc:EQ. Datatype is double. Currency required."
+        "en" : "Monetary amount to pay, usually used with odrl:eq. Datatype is double. Currency required."
       },
       "labels" : {
         "IRI-based" : "PAY_AMOUNT",
@@ -9379,7 +9379,7 @@
         } ]
       },
       "comment" : {
-        "en" : "Numeric count of executions of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double."
+        "en" : "Numeric count of executions of the Rule. Operators can be idsc:LT, idsc:LTEQ, odrl:eq, idsc:GT, idsc:GTEQ. Datatype is xsd:double."
       },
       "labels" : {
         "IRI-based" : "COUNT",
@@ -9389,7 +9389,7 @@
       "iri" : "https://w3id.org/idsa/code/QUANTITY",
       "baseIri" : "https://w3id.org/idsa/code",
       "comment" : {
-        "undefined" : "Quantity limitation for exercising the action of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double."
+        "undefined" : "Quantity limitation for exercising the action of the Rule. Operators can be idsc:LT, idsc:LTEQ, odrl:eq, idsc:GT, idsc:GTEQ. Datatype is xsd:double."
       },
       "labels" : {
         "IRI-based" : "QUANTITY",
@@ -9429,7 +9429,7 @@
       "iri" : "https://w3id.org/idsa/code/RECURRENCE_RATE",
       "baseIri" : "https://w3id.org/idsa/code",
       "comment" : {
-        "undefined" : "The limit how often exercising the action of the Rule may be possible. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double."
+        "undefined" : "The limit how often exercising the action of the Rule may be possible. Operators can be idsc:LT, idsc:LTEQ, odrl:eq, idsc:GT, idsc:GTEQ. Datatype is xsd:double."
       },
       "labels" : {
         "IRI-based" : "RECURRENCE_RATE",
@@ -17456,7 +17456,7 @@
     },
     "domain" : "117",
     "comment" : {
-      "en" : "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."
+      "en" : "The reference IRI of the right operand in a constraint expression. Has to be dereferenced in order to receive the actual value. Either odrl:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."
     },
     "attributes" : [ "object", "external" ],
     "id" : "754"
@@ -17570,7 +17570,7 @@
     },
     "domain" : "117",
     "comment" : {
-      "en" : "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either ids:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."
+      "en" : "The value of the right operand in a constraint expression. Value should be a rdfs:Resource or literal values. Either odrl:rightOperand or odrl:rightOperandReference should be used in an odrl:Constraint."
     },
     "attributes" : [ "object", "external" ],
     "id" : "761"

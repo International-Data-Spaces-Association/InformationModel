@@ -18,15 +18,8 @@
 idsc:PAYMENT a odrl:LeftOperand;
     rdfs:label "payment"@en;
     rdfs:comment "Monetary payment, without any further sepcification on the type, amount or purpose."@en ;
+    skos:note "Such a constraint can be used to clarify whether a payment has been made or not." ;
 .
-
-idsc:PAY_AMOUNT a odrl:LeftOperand;
-    skos:broader odrl:payAmount;
-    ids:broader idsc:PAYMENT ;
-    rdfs:label "payAmount"@en;
-    rdfs:comment "Monetary amount to pay, usually used with idsc:EQ. Datatype is double. Currency required."@en ;
-.
-
 
 # time
 # ----
@@ -125,12 +118,6 @@ idsc:PURPOSE a odrl:LeftOperand;
 .
 
 #
-idsc:TARGET_POLICY a odrl:LeftOperand;
-    rdfs:label "target policy"@en ;
-    rdfs:comment "In order to attach/address a policy to a contract. "@en ;
-.
-
-#
 idsc:ARTIFACT_STATE a odrl:LeftOperand;
     rdfs:label "artifact state"@en ;
     rdfs:comment "Suggested values exist in the Information Model : idsc:ANONYMIZED, idsc:PSEUDONYMIZED, idsc:ENCRYPTED, idsc:COMBINED. "@en ;
@@ -141,17 +128,17 @@ idsc:ARTIFACT_STATE a odrl:LeftOperand;
 idsc:COUNT a odrl:LeftOperand;
     skos:broader odrl:count;
     rdfs:label "count"@en ;
-    rdfs:comment "Numeric count of executions of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double."@en ;
+    rdfs:comment "Numeric count of executions of the Rule. Operators can be idsc:LT, idsc:LTEQ, odrl:eq, idsc:GT, idsc:GTEQ. Datatype is xsd:double."@en ;
 .
 
 idsc:QUANTITY a odrl:LeftOperand;
     rdfs:label "quantity";
-    rdfs:comment "Quantity limitation for exercising the action of the Rule. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double." ;
+    rdfs:comment "Quantity limitation for exercising the action of the Rule. Operators can be idsc:LT, idsc:LTEQ, odrl:eq, idsc:GT, idsc:GTEQ. Datatype is xsd:double." ;
 .
 
 idsc:RECURRENCE_RATE a odrl:LeftOperand;
     rdfs:label "recurrence rate";
-    rdfs:comment "The limit how often exercising the action of the Rule may be possible. Operators can be idsc:LT, idsc:LTEQ, idsc:EQ, idsc:GT, idsc:GTEQ. Datatype is xsd:double.";
+    rdfs:comment "The limit how often exercising the action of the Rule may be possible. Operators can be idsc:LT, idsc:LTEQ, odrl:eq, idsc:GT, idsc:GTEQ. Datatype is xsd:double.";
 .
 
 

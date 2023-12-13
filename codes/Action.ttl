@@ -16,7 +16,7 @@ idsc:ANONYMIZE
     rdfs:comment "To anonymize all, parts or certain attributes of the resource."@en ;
     rdfs:label "anonymize"@en ;
     skos:broader odrl:anonymize ;
-    odrl:includedIn idsc:USE ;
+    odrl:includedIn odrl:use ;
     skos:note "This action is always evaluated at the provider side."@en ;
 .
 
@@ -25,7 +25,7 @@ idsc:AGGREGATE_BY_CONSUMER
     rdfs:comment "Data will be part of another piece of data so that it is not distinguishable anymore."@en ;
     rdfs:label "aggregate by consumer"@en ;
     skos:broader odrl:aggregate ;
-    odrl:includedIn idsc:USE ;
+    odrl:includedIn odrl:use ;
     skos:note "This action is always evaluated at the consumer side."@en ;
 .
 
@@ -45,15 +45,6 @@ idsc:ADD
     skos:note "This action modifies a number by adding a given value to it. The field to be modified and the given value are specified in the policy as idsc:JSONPATH/idsc:XPATH and idsc:OPERAND, respectively."@en ;
 .
 
-idsc:COMPENSATE
-    a odrl:Action;
-    rdfs:label "compensate"@en ;
-    rdfs:comment "To pay a certain amount of money in order to use a resource."@en ;
-    skos:broader odrl:compensate ;
-    odrl:includedIn idsc:USE ;
-    skos:note "This action must be evaluated both at the consumer and provider side. A compensation might be required before access is granted (provider-side), or each time the usage action is performed (consumer-side)."@en ;
-    .
-
 idsc:DIVIDE
     a odrl:Action ;
     rdfs:comment "This action modifies dividing something by something else."@en ;
@@ -66,7 +57,7 @@ idsc:DELETE
     rdfs:label "delete"@en ;
     rdfs:comment "To remove a resource or inhibit any further access with reasonable measures."@en ;
     skos:broader odrl:delete ;
-    odrl:includedIn idsc:WRITE ;
+    odrl:includedIn odrl:modify ;
     skos:note "This action is evaluated at the consumer side if used in a duty clause. A provider cannot be forced to delete its data resources. If used in a permission clause, it is effecting the data provider as it allows the consumer to delete the provider's resource remotely."@en ;
     .
 
@@ -75,7 +66,7 @@ idsc:DISTRIBUTE
     rdfs:label "distribute"@en;
     rdfs:comment "To forward or supply a resource to a third-party."@en ;
     skos:broader odrl:distribute ;
-    odrl:includedIn idsc:USE ;
+    odrl:includedIn odrl:use ;
     skos:note "This action is always evaluated at the consumer side and allows it to become a data provider of this resource."@en ;
     .
 
@@ -84,7 +75,7 @@ idsc:GRANT_USE
     rdfs:label "grant use"@en;
     rdfs:comment "To grant use of a resource to another party. Does *not* imply any other usage rights."@en ;
     skos:broader odrl:grantUse ;
-    odrl:includedIn idsc:USE ;
+    odrl:includedIn odrl:use ;
     skos:note "This action is always evaluated at the consumer side, at the moment a third party intends to access the resource as received by the original consumer."@en ;
     .
 
@@ -105,7 +96,7 @@ idsc:ENCRYPT
     a odrl:Action ;
     rdfs:comment "The data artifact or parts of it are encrypted and can not be read by neither the ids:DataConsumer nor any other third party. The encryption algorithm might be specified by a constraint."@en ;
     rdfs:label "encrypt"@en ;
-    odrl:includedIn idsc:USE ;
+    odrl:includedIn odrl:use ;
     skos:note "This action is always evaluated at the provider side."@en ;
 .
 
@@ -113,18 +104,9 @@ idsc:LOG
     a odrl:Action ;
     rdfs:comment "To log information or store information about incidents in a local file or database. Is not necessarily available to external parties but can be used to create transparency on happened events."@en ;
     rdfs:label "log"@en ;
-    odrl:includedIn idsc:USE ;
+    odrl:includedIn odrl:use ;
     skos:note "This action is always evaluated at the consumer side."@en ;
 .
-
-idsc:MODIFY
-    a odrl:Action ;
-    rdfs:comment "To change a resource locally."@en ;
-    rdfs:label "modify"@en ;
-    skos:broader odrl:modify;
-    odrl:includedIn idsc:WRITE ;
-    skos:note "This action is always evaluated at the consumer side. It corresponds to 'allow changes of the copied resource'."@en ;
-    .
 
 idsc:MULTIPLY
     a odrl:Action ;
@@ -156,7 +138,7 @@ idsc:READ
     rdfs:comment "To obtain data from the resource."@en ;
     rdfs:label "read"@en ;
     skos:broader odrl:read;
-    odrl:includedIn idsc:MODIFY ;
+    odrl:includedIn odrl:modify ;
     skos:note "This action is always evaluated at the provider side. It corresponds to 'give access to a resource'."@en ;
     .
 
@@ -182,19 +164,3 @@ idsc:TRACK_PROVENANCE
     odrl:includedIn idsc:NOTIFY ;
     skos:note "This action is always evaluated at the consumer side."@en ;
 	.
-
-idsc:USE
-    a odrl:Action;
-    rdfs:label "use"@en;
-    rdfs:comment "To use a resource in any possible way. Includes all other actions."@en ;
-    skos:broader odrl:use ;
-    skos:note "This action is always evaluated at the consumer side."@en ;
-    .
-
-idsc:WRITE
-    a odrl:Action ;
-    rdfs:comment "To change a remote resource."@en ;
-    rdfs:label "write"@en ;
-    odrl:includedIn idsc:USE ;
-    skos:note "This action is always evaluated at the provider side. It corresponds to 'allow changes of a resource' but *not* including its deletion."@en ;
-    .

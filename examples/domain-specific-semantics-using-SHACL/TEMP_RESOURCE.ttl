@@ -81,7 +81,7 @@ sample_Data:
             a odrl:Permission ;
 
             # Specify permission
-            odrl:action idsc:USE ;
+            odrl:action odrl:use ;
             odrl:assigner "<URI of the provider IDS participant>";
 
             # Individual target artifact(s)
@@ -97,7 +97,7 @@ sample_Data:
 
             # Obligation / Duty
             ids:preDuty [
-                odrl:action idsc:COMPENSATE ;
+                odrl:action odrl:compensate ;
                 odrl:constraint [
                     odrl:leftOperand idsc:payAmount ;
                       odrl:operator ids:EQ ;
