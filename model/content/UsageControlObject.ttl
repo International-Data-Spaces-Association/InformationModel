@@ -17,7 +17,7 @@ ids:UsageControlObject a owl:Class;
  # Properties
  # ----------
 
- ids:data a owl:ObjectProperty;
+ ids:data a owl:DatatypeProperty;
           rdfs:label "has data"@en;
           rdfs:domain ids:UsageControlObject;
           rdfs:range xsd:anyURI ;
@@ -31,7 +31,7 @@ ids:UsageControlObject a owl:Class;
          rdfs:comment "The participant intending to use the data."@en ;
  .
 
- ids:source a owl:ObjectProperty;
+ ids:source a owl:DatatypeProperty;
           rdfs:label "source"@en;
           rdfs:domain ids:UsageControlObject;
           rdfs:range xsd:anyURI ;
@@ -46,14 +46,14 @@ ids:UsageControlObject a owl:Class;
  .
 
 
- ids:usageDuration a owl:ObjectProperty;
+ ids:usageDuration a owl:DatatypeProperty;
          rdfs:label "usage duration"@en;
          rdfs:domain ids:UsageControlObject;
          rdfs:range xsd:duration ;
          rdfs:comment "Duration, which this asset is in use by now. Might be calculated on the fly when requested by a Usage Control Engine."@en ;
  .
 
- ids:accessed a owl:ObjectProperty;
+ ids:accessed a owl:DatatypeProperty;
          rdfs:label "last accessed"@en;
          rdfs:domain ids:UsageControlObject;
          rdfs:range xsd:dateTimeStamp ;
@@ -67,7 +67,7 @@ ids:UsageControlObject a owl:Class;
          rdfs:comment "The list of combined current states of the data object."@en ;
  .
 
- ids:requester a owl:ObjectProperty;
+ ids:requester a owl:DatatypeProperty;
          rdfs:label "requesting application"@en;
          rdfs:domain ids:UsageControlObject;
          rdfs:range xsd:anyURI ;
