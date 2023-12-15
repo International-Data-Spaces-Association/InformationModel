@@ -6,7 +6,8 @@ import shutil
 import re
 import zipfile
 import io
-from distutils.dir_util import copy_tree
+#from distutils.dir_util import copy_tree
+import shutil
 
 root = '../../../InformationModel'
 copies = f'{root}/copies'
@@ -76,7 +77,7 @@ def generate_documentation(ontology_version, ontology_previous_version, ontology
     # Modify and update generated files
     edit_readme(ontology_version)
     move_ontology_files(ontology_version)
-    replace_ontology_download_link(ontology_version)
+    #replace_ontology_download_link(ontology_version)
     insert_content_documentation_information(ontology_version)
     insert_references(ontology_version)
 
@@ -84,7 +85,7 @@ def generate_documentation(ontology_version, ontology_previous_version, ontology
     adjust_namespaces(ontology_version)
     clean_up_ontology_serialization_owl_imports(ontology_version)
     clean_up_webvowl_json(ontology_version)
-    rename_index_file(ontology_version)
+    #rename_index_file(ontology_version)
     remove_ids_trailingslash('crossref-en.html', ontology_version)
     remove_ids_trailingslash('overview-en.html', ontology_version)
     change_download_file_extension(ontology_version)
@@ -107,7 +108,11 @@ def copy_docs(ontology_version):
     vf = version_folder.format(ontology_version=ontology_version)
     # Path to version of documentation
     source = f'{vf}/docs'
-    copy_tree(source, f'../{ontology_version}')
+    destination = f'../{ontology_version}'
+    try:
+        shutil.copytree(source, destination)
+    except FileExistsError:
+        pass
 
 
 # Copy latest version of documentation to documentation root level
@@ -115,12 +120,16 @@ def keep_latest_version(ontology_latest_version):
     vf = version_folder.format(ontology_version=ontology_latest_version)
     # Path to latest version of documentation
     source = f'{vf}/docs'
+    destination = f'..'
 
     # Copy everything from latest version docs to /docs except, however from config only properties
     for file in set(os.listdir(f'{vf}/docs/config')).difference({'config.properties'}):
         os.remove(f'{vf}/docs/config/{file}')
-    copy_tree(source, f'..')
-
+    try:
+        shutil.copytree(source, destination)
+    except FileExistsError:
+        pass
+        
     # Update images path for latest version
     update_image_path()
 
@@ -538,7 +547,7 @@ def rename_OOPSeval_file(ontology_version):
     if os.path.exists(f'{vp}/docs/OOPSevaluation/oopsEval.html'):
         #os.remove(f'{vp}/docs/index.html')
         os.rename(f'{vp}/docs/OOPSevaluation/oopsEval.html', f'{vp}/docs/OOPSevaluation/OOPSeval.html')
-    
+
 # Renames widoco output file "index-en.html" to "index.html".
 # Only "index.html" gets displayed correctly with github pages.
 def rename_index_file(ontology_version):
